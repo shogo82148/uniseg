@@ -41,15 +41,6 @@ var testCases = []testCase{
 	{original: "\r\n\uFE0E", expected: [][]rune{{13, 10}, {0xfe0e}}},
 }
 
-// decomposed returns a grapheme cluster decomposition.
-func decomposed(s string) (runes [][]rune) {
-	gr := NewGraphemes(s)
-	for gr.Next() {
-		runes = append(runes, gr.Runes())
-	}
-	return
-}
-
 // Run all lists of test cases using the Graphemes class.
 func TestGraphemesClass(t *testing.T) {
 	allCases := append(testCases, graphemeBreakTestCases...)
