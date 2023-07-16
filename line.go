@@ -44,8 +44,8 @@ import "unicode/utf8"
 // addressed in Section 8.2 Example 6 of UAX #14. To avoid this, you can use
 // the [Step] function instead.
 //
-// [Unicode Standard Annex #14]: https://www.unicode.org/reports/tr14/
-// [UAX #14 LB3]: https://www.unicode.org/reports/tr14/#Algorithm
+// [Unicode Standard Annex #14]: https://www.unicode.org/reports/tr14/tr14-49.html
+// [UAX #14 LB3]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
 func FirstLineSegment(b []byte, state int) (segment, rest []byte, mustBreak bool, newState int) {
 	// An empty byte slice returns nothing.
 	if len(b) == 0 {
@@ -119,7 +119,7 @@ func FirstLineSegmentInString(str string, state int) (segment, rest string, must
 // HasTrailingLineBreak returns true if the last rune in the given byte slice is
 // one of the hard line break code points defined in LB4 and LB5 of [UAX #14].
 //
-// [UAX #14]: https://www.unicode.org/reports/tr14/#Algorithm
+// [UAX #14]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
 func HasTrailingLineBreak(b []byte) bool {
 	r, _ := utf8.DecodeLastRune(b)
 	property, _ := propertyWithGenCat(lineBreakCodePoints, r)

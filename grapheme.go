@@ -210,7 +210,7 @@ const shiftGraphemePropState = 4
 // has much better performance and makes no allocations. It lends itself well to
 // large byte slices.
 //
-// [Unicode Standard Annex #29, Grapheme Cluster Boundaries]: http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries
+// [Unicode Standard Annex #29, Grapheme Cluster Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Grapheme_Cluster_Boundaries
 func FirstGraphemeCluster(b []byte, state int) (cluster, rest []byte, width, newState int) {
 	// An empty byte slice returns nothing.
 	if len(b) == 0 {

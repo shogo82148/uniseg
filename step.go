@@ -88,7 +88,7 @@ const (
 // to ignore this by checking if the length of the "rest" slice is 0 and calling
 // [HasTrailingLineBreak] or [HasTrailingLineBreakInString] on the last rune.
 //
-// [UAX #14 LB3]: https://www.unicode.org/reports/tr14/#Algorithm
+// [UAX #14 LB3]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
 func Step(b []byte, state int) (cluster, rest []byte, boundaries int, newState int) {
 	// An empty byte slice returns nothing.
 	if len(b) == 0 {
