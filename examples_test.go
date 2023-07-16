@@ -7,13 +7,13 @@ import (
 )
 
 func ExampleGraphemeClusterCount() {
-	n := uniseg.GraphemeClusterCount("🇩🇪🏳️‍🌈")
+	n := uniseg.GraphemeClusterCount("🇩🇪🏳️\u200d🌈")
 	fmt.Println(n)
 	// Output: 2
 }
 
 func ExampleFirstGraphemeCluster() {
-	b := []byte("🇩🇪🏳️‍🌈!")
+	b := []byte("🇩🇪🏳️\u200d🌈!")
 	state := -1
 	var c []byte
 	for len(b) > 0 {
@@ -21,13 +21,14 @@ func ExampleFirstGraphemeCluster() {
 		c, b, width, state = uniseg.FirstGraphemeCluster(b, state)
 		fmt.Println(string(c), width)
 	}
-	// Output: 🇩🇪 2
-	//🏳️‍🌈 2
-	//! 1
+	// Output:
+	// 🇩🇪 2
+	// 🏳️‍🌈 2
+	// ! 1
 }
 
 func ExampleFirstGraphemeClusterInString() {
-	str := "🇩🇪🏳️‍🌈!"
+	str := "🇩🇪🏳️\u200d🌈!"
 	state := -1
 	var c string
 	for len(str) > 0 {
@@ -35,9 +36,10 @@ func ExampleFirstGraphemeClusterInString() {
 		c, str, width, state = uniseg.FirstGraphemeClusterInString(str, state)
 		fmt.Println(c, width)
 	}
-	// Output: 🇩🇪 2
-	//🏳️‍🌈 2
-	//! 1
+	// Output:
+	// 🇩🇪 2
+	// 🏳️‍🌈 2
+	// ! 1
 }
 
 func ExampleFirstWord() {
@@ -48,11 +50,12 @@ func ExampleFirstWord() {
 		c, b, state = uniseg.FirstWord(b, state)
 		fmt.Printf("(%s)\n", string(c))
 	}
-	// Output: (Hello)
-	//(,)
-	//( )
-	//(world)
-	//(!)
+	// Output:
+	// (Hello)
+	// (,)
+	// ( )
+	// (world)
+	// (!)
 }
 
 func ExampleFirstWordInString() {
@@ -63,11 +66,12 @@ func ExampleFirstWordInString() {
 		c, str, state = uniseg.FirstWordInString(str, state)
 		fmt.Printf("(%s)\n", c)
 	}
-	// Output: (Hello)
-	//(,)
-	//( )
-	//(world)
-	//(!)
+	// Output:
+	// (Hello)
+	// (,)
+	// ( )
+	// (world)
+	// (!)
 }
 
 func ExampleFirstSentence() {
@@ -78,8 +82,9 @@ func ExampleFirstSentence() {
 		c, b, state = uniseg.FirstSentence(b, state)
 		fmt.Printf("(%s)\n", string(c))
 	}
-	// Output: (This is sentence 1.0. )
-	//(And this is sentence two.)
+	// Output:
+	// (This is sentence 1.0. )
+	// (And this is sentence two.)
 }
 
 func ExampleFirstSentenceInString() {
@@ -90,8 +95,9 @@ func ExampleFirstSentenceInString() {
 		c, str, state = uniseg.FirstSentenceInString(str, state)
 		fmt.Printf("(%s)\n", c)
 	}
-	// Output: (This is sentence 1.0. )
-	//(And this is sentence two.)
+	// Output:
+	// (This is sentence 1.0. )
+	// (And this is sentence two.)
 }
 
 func ExampleFirstLineSegment() {
@@ -108,8 +114,9 @@ func ExampleFirstLineSegment() {
 			fmt.Print("!")
 		}
 	}
-	// Output: (First )(line.
-	//)!(Second )(line.)!
+	// Output:
+	// (First )(line.
+	// )!(Second )(line.)!
 }
 
 func ExampleFirstLineSegmentInString() {
@@ -128,15 +135,16 @@ func ExampleFirstLineSegmentInString() {
 			fmt.Println(" < may break")
 		}
 	}
-	// Output: (First ) < may break
-	//(line.
-	//) < must break
-	//(Second ) < may break
-	//(line.) < must break
+	// Output:
+	// (First ) < may break
+	// (line.
+	// ) < must break
+	// (Second ) < may break
+	// (line.) < must break
 }
 
 func ExampleStep_graphemes() {
-	b := []byte("🇩🇪🏳️‍🌈!")
+	b := []byte("🇩🇪🏳️\u200d🌈!")
 	state := -1
 	var c []byte
 	for len(b) > 0 {
@@ -145,12 +153,12 @@ func ExampleStep_graphemes() {
 		fmt.Println(string(c), boundaries>>uniseg.ShiftWidth)
 	}
 	// Output: 🇩🇪 2
-	//🏳️‍🌈 2
-	//! 1
+	// 🏳️‍🌈 2
+	// ! 1
 }
 
 func ExampleStepString_graphemes() {
-	str := "🇩🇪🏳️‍🌈!"
+	str := "🇩🇪🏳️\u200d🌈!"
 	state := -1
 	var c string
 	for len(str) > 0 {
@@ -158,9 +166,10 @@ func ExampleStepString_graphemes() {
 		c, str, boundaries, state = uniseg.StepString(str, state)
 		fmt.Println(c, boundaries>>uniseg.ShiftWidth)
 	}
-	// Output: 🇩🇪 2
-	//🏳️‍🌈 2
-	//! 1
+	// Output:
+	// 🇩🇪 2
+	// 🏳️‍🌈 2
+	// ! 1
 }
 
 func ExampleStep_word() {
@@ -247,8 +256,9 @@ func ExampleStep_lineBreaking() {
 			fmt.Print("‖")
 		}
 	}
-	// Output: First |line.
-	//‖Second |line.‖
+	// Output:
+	// First |line.
+	// ‖Second |line.‖
 }
 
 func ExampleStepString_lineBreaking() {
@@ -272,12 +282,13 @@ func ExampleStepString_lineBreaking() {
 }
 
 func ExampleGraphemes_graphemes() {
-	g := uniseg.NewGraphemes("🇩🇪🏳️‍🌈")
+	g := uniseg.NewGraphemes("🇩🇪🏳️\u200d🌈")
 	for g.Next() {
 		fmt.Println(g.Str())
 	}
-	// Output: 🇩🇪
-	//🏳️‍🌈
+	// Output:
+	// 🇩🇪
+	// 🏳️‍🌈
 }
 
 func ExampleGraphemes_word() {

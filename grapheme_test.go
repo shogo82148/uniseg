@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-const benchmarkStr = "This is 🏳️‍🌈, a test string ツ for grapheme cluster testing. 🏋🏽‍♀️🙂🙂 It's only relevant for benchmark tests."
+const benchmarkStr = "This is 🏳️\u200d🌈, a test string ツ for grapheme cluster testing. 🏋🏽\u200d♀️🙂🙂 It's only relevant for benchmark tests."
 
 // Variables to avoid compiler optimizations.
 var resultRunes []rune
@@ -24,30 +24,21 @@ var testCases = []testCase{
 	{original: "\n\n", expected: [][]rune{{0xa}, {0xa}}},
 	{original: "\t*", expected: [][]rune{{0x9}, {0x2a}}},
 	{original: "뢴", expected: [][]rune{{0x1105, 0x116c, 0x11ab}}},
-	{original: "ܐ܏ܒܓܕ", expected: [][]rune{{0x710}, {0x70f, 0x712}, {0x713}, {0x715}}},
+	{original: "ܐ\u070fܒܓܕ", expected: [][]rune{{0x710}, {0x70f, 0x712}, {0x713}, {0x715}}},
 	{original: "ำ", expected: [][]rune{{0xe33}}},
 	{original: "ำำ", expected: [][]rune{{0xe33, 0xe33}}},
 	{original: "สระอำ", expected: [][]rune{{0xe2a}, {0xe23}, {0xe30}, {0xe2d, 0xe33}}},
 	{original: "*뢴*", expected: [][]rune{{0x2a}, {0x1105, 0x116c, 0x11ab}, {0x2a}}},
-	{original: "*👩‍❤️‍💋‍👩*", expected: [][]rune{{0x2a}, {0x1f469, 0x200d, 0x2764, 0xfe0f, 0x200d, 0x1f48b, 0x200d, 0x1f469}, {0x2a}}},
-	{original: "👩‍❤️‍💋‍👩", expected: [][]rune{{0x1f469, 0x200d, 0x2764, 0xfe0f, 0x200d, 0x1f48b, 0x200d, 0x1f469}}},
+	{original: "*👩\u200d❤️\u200d💋\u200d👩*", expected: [][]rune{{0x2a}, {0x1f469, 0x200d, 0x2764, 0xfe0f, 0x200d, 0x1f48b, 0x200d, 0x1f469}, {0x2a}}},
+	{original: "👩\u200d❤️\u200d💋\u200d👩", expected: [][]rune{{0x1f469, 0x200d, 0x2764, 0xfe0f, 0x200d, 0x1f48b, 0x200d, 0x1f469}}},
 	{original: "🏋🏽‍♀️", expected: [][]rune{{0x1f3cb, 0x1f3fd, 0x200d, 0x2640, 0xfe0f}}},
 	{original: "🙂", expected: [][]rune{{0x1f642}}},
 	{original: "🙂🙂", expected: [][]rune{{0x1f642}, {0x1f642}}},
 	{original: "🇩🇪", expected: [][]rune{{0x1f1e9, 0x1f1ea}}},
-	{original: "🏳️‍🌈", expected: [][]rune{{0x1f3f3, 0xfe0f, 0x200d, 0x1f308}}},
-	{original: "\t🏳️‍🌈", expected: [][]rune{{0x9}, {0x1f3f3, 0xfe0f, 0x200d, 0x1f308}}},
-	{original: "\t🏳️‍🌈\t", expected: [][]rune{{0x9}, {0x1f3f3, 0xfe0f, 0x200d, 0x1f308}, {0x9}}},
+	{original: "🏳️\u200d🌈", expected: [][]rune{{0x1f3f3, 0xfe0f, 0x200d, 0x1f308}}},
+	{original: "\t🏳️\u200d🌈", expected: [][]rune{{0x9}, {0x1f3f3, 0xfe0f, 0x200d, 0x1f308}}},
+	{original: "\t🏳️\u200d🌈\t", expected: [][]rune{{0x9}, {0x1f3f3, 0xfe0f, 0x200d, 0x1f308}, {0x9}}},
 	{original: "\r\n\uFE0E", expected: [][]rune{{13, 10}, {0xfe0e}}},
-}
-
-// decomposed returns a grapheme cluster decomposition.
-func decomposed(s string) (runes [][]rune) {
-	gr := NewGraphemes(s)
-	for gr.Next() {
-		runes = append(runes, gr.Runes())
-	}
-	return
 }
 
 // Run all lists of test cases using the Graphemes class.
@@ -249,7 +240,7 @@ func TestGraphemesStr(t *testing.T) {
 
 // Test the Bytes() function.
 func TestGraphemesBytes(t *testing.T) {
-	gr := NewGraphemes("A👩‍❤️‍💋‍👩B")
+	gr := NewGraphemes("A👩\u200d❤️\u200d💋\u200d👩B")
 	gr.Next()
 	gr.Next()
 	gr.Next()
@@ -264,7 +255,7 @@ func TestGraphemesBytes(t *testing.T) {
 
 // Test the Positions() function.
 func TestGraphemesPositions(t *testing.T) {
-	gr := NewGraphemes("A👩‍❤️‍💋‍👩B")
+	gr := NewGraphemes("A👩\u200d❤️\u200d💋\u200d👩B")
 	gr.Next()
 	gr.Next()
 	from, to := gr.Positions()
@@ -332,7 +323,7 @@ func TestGraphemesLate(t *testing.T) {
 
 // Test the GraphemeClusterCount function.
 func TestGraphemesCount(t *testing.T) {
-	if n := GraphemeClusterCount("🇩🇪🏳️‍🌈"); n != 2 {
+	if n := GraphemeClusterCount("🇩🇪🏳️\u200d🌈"); n != 2 {
 		t.Errorf(`Expected 2 grapheme clusters, got %d`, n)
 	}
 }
@@ -345,15 +336,15 @@ func TestReverseString(t *testing.T) {
 			r = append(r, testCase.expected[index]...)
 		}
 		if string(r) != ReverseString(testCase.original) {
-			t.Errorf(`Exepected reverse of %q to be %q, got %q`, testCase.original, string(r), ReverseString(testCase.original))
+			t.Errorf(`Expected reverse of %q to be %q, got %q`, testCase.original, string(r), ReverseString(testCase.original))
 		}
 	}
 
 	// Three additional ones, for good measure.
-	if ReverseString("🇩🇪🏳️‍🌈") != "🏳️‍🌈🇩🇪" {
+	if ReverseString("🇩🇪🏳️\u200d🌈") != "🏳️\u200d🌈🇩🇪" {
 		t.Error("Flags weren't reversed correctly")
 	}
-	if ReverseString("🏳️‍🌈") != "🏳️‍🌈" {
+	if ReverseString("🏳️\u200d🌈") != "🏳️\u200d🌈" {
 		t.Error("Flag wasn't reversed correctly")
 	}
 	if ReverseString("") != "" {

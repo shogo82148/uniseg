@@ -24,7 +24,7 @@ const (
 	sbBreak
 )
 
-// The sentence break parser's state transitions. It's anologous to
+// The sentence break parser's state transitions. It's analogous to
 // grTransitions, see comments there for details. Unicode version 14.0.0.
 var sbTransitions = map[[2]int][3]int{
 	// SB3.
