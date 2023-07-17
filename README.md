@@ -1,7 +1,7 @@
 # Unicode Text Segmentation for Go
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/rivo/uniseg.svg)](https://pkg.go.dev/github.com/rivo/uniseg)
-[![Go Report](https://img.shields.io/badge/go%20report-A%2B-brightgreen.svg)](https://goreportcard.com/report/github.com/rivo/uniseg)
+[![Go Reference](https://pkg.go.dev/badge/github.com/shogo82148/uniseg.svg)](https://pkg.go.dev/github.com/shogo82148/uniseg)
+[![Go Report](https://img.shields.io/badge/go%20report-A%2B-brightgreen.svg)](https://goreportcard.com/report/github.com/shogo82148/uniseg)
 
 This Go package implements Unicode Text Segmentation according to [Unicode Standard Annex #29](https://www.unicode.org/reports/tr29/tr29-41.html), Unicode Line Breaking according to [Unicode Standard Annex #14](https://www.unicode.org/reports/tr14/tr14-49.html) (Unicode version 15.0.0), and monospace font string width calculation similar to [wcwidth](https://man7.org/linux/man-pages/man3/wcwidth.3.html).
 
@@ -33,12 +33,12 @@ Line breaking, also known as word wrapping, is the process of breaking a section
 
 ### Monospace Width
 
-Most terminals or text displays / text editors using a monospace font (for example source code editors) use a fixed width for each character. Some characters such as emojis or characters found in Asian and other languages may take up more than one character cell. This package provides tools to determine the number of cells a string will take up when displayed in a monospace font. See [here](https://pkg.go.dev/github.com/rivo/uniseg#hdr-Monospace_Width) for more information.
+Most terminals or text displays / text editors using a monospace font (for example source code editors) use a fixed width for each character. Some characters such as emojis or characters found in Asian and other languages may take up more than one character cell. This package provides tools to determine the number of cells a string will take up when displayed in a monospace font. See [here](https://pkg.go.dev/github.com/shogo82148/uniseg#hdr-Monospace_Width) for more information.
 
 ## Installation
 
 ```bash
-go get github.com/rivo/uniseg
+go get github.com/shogo82148/uniseg
 ```
 
 ## Examples
@@ -59,7 +59,7 @@ fmt.Println(width)
 // 5
 ```
 
-### Using the [`Graphemes`](https://pkg.go.dev/github.com/rivo/uniseg#Graphemes) Class
+### Using the [`Graphemes`](https://pkg.go.dev/github.com/shogo82148/uniseg#Graphemes) Class
 
 This is the most convenient method of iterating over grapheme clusters:
 
@@ -71,7 +71,7 @@ for gr.Next() {
 // [1f44d 1f3fc] [21]
 ```
 
-### Using the [`Step`](https://pkg.go.dev/github.com/rivo/uniseg#Step) or [`StepString`](https://pkg.go.dev/github.com/rivo/uniseg#StepString) Function
+### Using the [`Step`](https://pkg.go.dev/github.com/shogo82148/uniseg#Step) or [`StepString`](https://pkg.go.dev/github.com/shogo82148/uniseg#StepString) Function
 
 This is orders of magnitude faster than the `Graphemes` class, but it requires the handling of states and boundaries:
 
@@ -110,7 +110,7 @@ for len(str) > 0 {
 // ‖Second |line.‖
 ```
 
-If you're only interested in word segmentation, use [`FirstWord`](https://pkg.go.dev/github.com/rivo/uniseg#FirstWord) or [`FirstWordInString`](https://pkg.go.dev/github.com/rivo/uniseg#FirstWordInString):
+If you're only interested in word segmentation, use [`FirstWord`](https://pkg.go.dev/github.com/shogo82148/uniseg#FirstWord) or [`FirstWordInString`](https://pkg.go.dev/github.com/shogo82148/uniseg#FirstWordInString):
 
 ```go
 str := "Hello, world!"
@@ -129,11 +129,11 @@ for len(str) > 0 {
 
 Similarly, use
 
-- [`FirstGraphemeCluster`](https://pkg.go.dev/github.com/rivo/uniseg#FirstGraphemeCluster) or [`FirstGraphemeClusterInString`](https://pkg.go.dev/github.com/rivo/uniseg#FirstGraphemeClusterInString) for grapheme cluster determination only,
-- [`FirstSentence`](https://pkg.go.dev/github.com/rivo/uniseg#FirstSentence) or [`FirstSentenceInString`](https://pkg.go.dev/github.com/rivo/uniseg#FirstSentenceInString) for sentence segmentation only, and
-- [`FirstLineSegment`](https://pkg.go.dev/github.com/rivo/uniseg#FirstLineSegment) or [`FirstLineSegmentInString`](https://pkg.go.dev/github.com/rivo/uniseg#FirstLineSegmentInString) for line breaking / word wrapping (although using [`Step`](https://pkg.go.dev/github.com/rivo/uniseg#Step) or [`StepString`](https://pkg.go.dev/github.com/rivo/uniseg#StepString) is preferred as it will observe grapheme cluster boundaries).
+- [`FirstGraphemeCluster`](https://pkg.go.dev/github.com/shogo82148/uniseg#FirstGraphemeCluster) or [`FirstGraphemeClusterInString`](https://pkg.go.dev/github.com/shogo82148/uniseg#FirstGraphemeClusterInString) for grapheme cluster determination only,
+- [`FirstSentence`](https://pkg.go.dev/github.com/shogo82148/uniseg#FirstSentence) or [`FirstSentenceInString`](https://pkg.go.dev/github.com/shogo82148/uniseg#FirstSentenceInString) for sentence segmentation only, and
+- [`FirstLineSegment`](https://pkg.go.dev/github.com/shogo82148/uniseg#FirstLineSegment) or [`FirstLineSegmentInString`](https://pkg.go.dev/github.com/shogo82148/uniseg#FirstLineSegmentInString) for line breaking / word wrapping (although using [`Step`](https://pkg.go.dev/github.com/shogo82148/uniseg#Step) or [`StepString`](https://pkg.go.dev/github.com/shogo82148/uniseg#StepString) is preferred as it will observe grapheme cluster boundaries).
 
-Finally, if you need to reverse a string while preserving grapheme clusters, use [`ReverseString`](https://pkg.go.dev/github.com/rivo/uniseg#ReverseString):
+Finally, if you need to reverse a string while preserving grapheme clusters, use [`ReverseString`](https://pkg.go.dev/github.com/shogo82148/uniseg#ReverseString):
 
 ```go
 fmt.Println(uniseg.ReverseString("🇩🇪🏳️‍🌈"))
@@ -142,7 +142,7 @@ fmt.Println(uniseg.ReverseString("🇩🇪🏳️‍🌈"))
 
 ## Documentation
 
-Refer to https://pkg.go.dev/github.com/rivo/uniseg for the package's documentation.
+Refer to https://pkg.go.dev/github.com/shogo82148/uniseg for the package's documentation.
 
 ## Dependencies
 
