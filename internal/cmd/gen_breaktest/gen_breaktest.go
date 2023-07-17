@@ -1,5 +1,3 @@
-//go:build generate
-
 // This program generates a Go containing a slice of test cases based on the
 // Unicode Character Database auxiliary data files. The command line arguments
 // are as follows:
@@ -9,10 +7,6 @@
 //   3. The name of the slice containing the test cases.
 //   4. The name of the generator, for logging purposes.
 //
-//go:generate go run gen_breaktest.go GraphemeBreakTest graphemebreak_test.go graphemeBreakTestCases graphemes
-//go:generate go run gen_breaktest.go WordBreakTest wordbreak_test.go wordBreakTestCases words
-//go:generate go run gen_breaktest.go SentenceBreakTest sentencebreak_test.go sentenceBreakTestCases sentences
-//go:generate go run gen_breaktest.go LineBreakTest linebreak_test.go lineBreakTestCases lines
 
 package main
 
