@@ -125,14 +125,14 @@ func (g *Graphemes) IsSentenceBoundary() bool {
 // cluster. A value of [LineDontBreak] means the line may not be broken, a value
 // of [LineMustBreak] means the line must be broken, and a value of
 // [LineCanBreak] means the line may or may not be broken.
-func (g *Graphemes) LineBreak() int {
+func (g *Graphemes) LineBreak() LineBreak {
 	if g.state == -1 {
 		return LineDontBreak
 	}
 	if g.state == -2 {
 		return LineMustBreak
 	}
-	return g.boundaries & MaskLine
+	return LineBreak(g.boundaries & MaskLine)
 }
 
 // Width returns the monospace width of the current grapheme cluster.
