@@ -23,7 +23,7 @@ type grStateProperty struct {
 	property
 }
 
-type transitionResult struct {
+type grTransitionResult struct {
 	grState
 	boundary   bool
 	ruleNumber int
@@ -45,7 +45,7 @@ type transitionResult struct {
 //  6. Assume grAny and grBoundary.
 //
 // Unicode version 14.0.0.
-var grTransitions = map[grStateProperty]transitionResult{
+var grTransitions = map[grStateProperty]grTransitionResult{
 	// GB5
 	{grAny, prCR}:      {grCR, true, 50},
 	{grAny, prLF}:      {grControlLF, true, 50},
