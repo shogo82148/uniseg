@@ -1,11 +1,14 @@
 package uniseg
 
+// property is the Unicode property type.
+type property int
+
 // The Unicode properties as used in the various parsers. Only the ones needed
 // in the context of this package are included.
 const (
-	prXX      = 0    // Same as prAny.
-	prAny     = iota // prAny must be 0.
-	prPrepend        // Grapheme properties must come first, to reduce the number of bits stored in the state vector.
+	prXX      property = 0    // Same as prAny.
+	prAny     property = iota // prAny must be 0.
+	prPrepend                 // Grapheme properties must come first, to reduce the number of bits stored in the state vector.
 	prCR
 	prLF
 	prControl
@@ -89,10 +92,13 @@ const (
 	prEmojiPresentation
 )
 
+// generalCategory is the Unicode General Categories.
+type generalCategory int
+
 // Unicode General Categories. Only the ones needed in the context of this
 // package are included.
 const (
-	gcNone = iota // gcNone must be 0.
+	gcNone generalCategory = iota // gcNone must be 0.
 	gcCc
 	gcZs
 	gcPo
@@ -125,6 +131,11 @@ const (
 	gcCo
 )
 
+type propertyGeneralCategory struct {
+	property
+	generalCategory
+}
+
 // Special code points.
 const (
 	vs15 = 0xfe0e // Variation Selector-15 (text presentation)
@@ -154,9 +165,45 @@ func propertySearch[E interface{ [3]int | [4]int }](dictionary []E, r rune) (res
 	return
 }
 
-// property returns the Unicode property value (see constants above) of the
+// runeRange represents of a range of Unicode code points.
+// The range runs from Lo to Hi inclusive.
+type runeRange struct {
+	Lo rune
+	Hi rune
+}
+
+type dictionaryEntry[T any] struct {
+	runeRange runeRange
+	value     T
+}
+
+type dictionary[T any] []dictionaryEntry[T]
+
+// search returns the value associated with the given rune in the dictionary.
+func (d dictionary[T]) search(r rune) T {
+	from := 0
+	to := len(d)
+	for to > from {
+		middle := (from + to) / 2
+		entry := d[middle]
+		if r < entry.runeRange.Lo {
+			to = middle
+			continue
+		}
+		if r > entry.runeRange.Hi {
+			from = middle + 1
+			continue
+		}
+		return entry.value
+	}
+
+	var zero T
+	return zero
+}
+
+// getProperty returns the Unicode getProperty value (see constants above) of the
 // given code point.
-func property(dictionary [][3]int, r rune) int {
+func getProperty(dictionary [][3]int, r rune) int {
 	return propertySearch(dictionary, r)[2]
 }
 
