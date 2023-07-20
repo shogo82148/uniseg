@@ -1,5 +1,7 @@
 package uniseg
 
+import "unicode/utf8"
+
 // FirstSentence returns the first sentence found in the given byte slice
 // according to the rules of [Unicode Standard Annex #29, Sentence Boundaries].
 // This function can be called continuously to extract all sentences from a byte
@@ -17,72 +19,72 @@ package uniseg
 // Given an empty byte slice "b", the function returns nil values.
 //
 // [Unicode Standard Annex #29, Sentence Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Sentence_Boundaries
-// func FirstSentence(b []byte, state int) (sentence, rest []byte, newState int) {
-// 	// An empty byte slice returns nothing.
-// 	if len(b) == 0 {
-// 		return
-// 	}
+func FirstSentence(b []byte, state SentenceBreakState) (sentence, rest []byte, newState SentenceBreakState) {
+	// An empty byte slice returns nothing.
+	if len(b) == 0 {
+		return
+	}
 
-// 	// Extract the first rune.
-// 	r, length := utf8.DecodeRune(b)
-// 	if len(b) <= length { // If we're already past the end, there is nothing else to parse.
-// 		return b, nil, sbAny
-// 	}
+	// Extract the first rune.
+	r, length := utf8.DecodeRune(b)
+	if len(b) <= length { // If we're already past the end, there is nothing else to parse.
+		return b, nil, sbAny
+	}
 
-// 	// If we don't know the state, determine it now.
-// 	if state < 0 {
-// 		state, _ = transitionSentenceBreakState(state, r, b[length:], "")
-// 	}
+	// If we don't know the state, determine it now.
+	if state < 0 {
+		state, _ = transitionSentenceBreakState(state, r, b[length:], "")
+	}
 
-// 	// Transition until we find a boundary.
-// 	var boundary bool
-// 	for {
-// 		r, l := utf8.DecodeRune(b[length:])
-// 		state, boundary = transitionSentenceBreakState(state, r, b[length+l:], "")
+	// Transition until we find a boundary.
+	var boundary bool
+	for {
+		r, l := utf8.DecodeRune(b[length:])
+		state, boundary = transitionSentenceBreakState(state, r, b[length+l:], "")
 
-// 		if boundary {
-// 			return b[:length], b[length:], state
-// 		}
+		if boundary {
+			return b[:length], b[length:], state
+		}
 
-// 		length += l
-// 		if len(b) <= length {
-// 			return b, nil, sbAny
-// 		}
-// 	}
-// }
+		length += l
+		if len(b) <= length {
+			return b, nil, sbAny
+		}
+	}
+}
 
 // FirstSentenceInString is like [FirstSentence] but its input and outputs are
 // strings.
-// func FirstSentenceInString(str string, state int) (sentence, rest string, newState int) {
-// 	// An empty byte slice returns nothing.
-// 	if len(str) == 0 {
-// 		return
-// 	}
+func FirstSentenceInString(str string, state SentenceBreakState) (sentence, rest string, newState SentenceBreakState) {
+	// An empty byte slice returns nothing.
+	if len(str) == 0 {
+		return
+	}
 
-// 	// Extract the first rune.
-// 	r, length := utf8.DecodeRuneInString(str)
-// 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
-// 		return str, "", sbAny
-// 	}
+	// Extract the first rune.
+	r, length := utf8.DecodeRuneInString(str)
+	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
+		return str, "", sbAny
+	}
 
-// 	// If we don't know the state, determine it now.
-// 	if state < 0 {
-// 		state, _ = transitionSentenceBreakState(state, r, nil, str[length:])
-// 	}
+	// If we don't know the state, determine it now.
+	if state < 0 {
+		state, _ = transitionSentenceBreakState(state, r, nil, str[length:])
+	}
 
-// 	// Transition until we find a boundary.
-// 	var boundary bool
-// 	for {
-// 		r, l := utf8.DecodeRuneInString(str[length:])
-// 		state, boundary = transitionSentenceBreakState(state, r, nil, str[length+l:])
+	// Transition until we find a boundary.
+	var boundary bool
+	for {
+		r, l := utf8.DecodeRuneInString(str[length:])
+		state, boundary = transitionSentenceBreakState(state, r, nil, str[length+l:])
 
-// 		if boundary {
-// 			return str[:length], str[length:], state
-// 		}
+		if boundary {
+			return str[:length], str[length:], state
+		}
 
-// 		length += l
-// 		if len(str) <= length {
-// 			return str, "", sbAny
-// 		}
-// 	}
-// }
+		length += l
+		if len(str) <= length {
+			return str, "", sbAny
+		}
+	}
+}
