@@ -33,7 +33,7 @@ type sbTransitionResult struct {
 }
 
 // The sentence break parser's state transitions. It's analogous to
-// grTransitions, see comments there for details. Unicode version 14.0.0.
+// grTransitions, see comments there for details. Unicode version 15.0.0.
 var sbTransitions = map[sbStateProperty]sbTransitionResult{
 	// SB3.
 	{sbAny, prCR}: {sbCR, false, 9990},

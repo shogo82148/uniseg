@@ -81,7 +81,7 @@ type lbTransitionResult struct {
 }
 
 // The line break parser's state transitions. It's analogous to grTransitions,
-// see comments there for details. Unicode version 14.0.0.
+// see comments there for details. Unicode version 15.0.0.
 var lbTransitions = map[lbStateProperty]lbTransitionResult{
 	// LB4.
 	{lbAny, prBK}: {lbBK, LineCanBreak, 310},
