@@ -481,37 +481,37 @@ func TestGraphemesFunctionString(t *testing.T) {
 }
 
 // Benchmark the use of the Graphemes class.
-// func BenchmarkGraphemesClass(b *testing.B) {
-// 	for i := 0; i < b.N; i++ {
-// 		g := NewGraphemes(benchmarkStr)
-// 		for g.Next() {
-// 			resultRunes = g.Runes()
-// 		}
-// 	}
-// }
+func BenchmarkGraphemesClass(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		g := NewGraphemes(benchmarkStr)
+		for g.Next() {
+			resultRunes = g.Runes()
+		}
+	}
+}
 
 // Benchmark the use of the Graphemes function for byte slices.
-// func BenchmarkGraphemesFunctionBytes(b *testing.B) {
-// 	str := []byte(benchmarkStr)
-// 	for i := 0; i < b.N; i++ {
-// 		var c []byte
-// 		state := -1
-// 		for len(str) > 0 {
-// 			c, str, _, state = FirstGraphemeCluster(str, state)
-// 			resultRunes = []rune(string(c))
-// 		}
-// 	}
-// }
+func BenchmarkGraphemesFunctionBytes(b *testing.B) {
+	str := []byte(benchmarkStr)
+	for i := 0; i < b.N; i++ {
+		var c []byte
+		state := State(-1)
+		for len(str) > 0 {
+			c, str, _, state = FirstGraphemeCluster(str, state)
+			resultRunes = []rune(string(c))
+		}
+	}
+}
 
 // Benchmark the use of the Graphemes function for strings.
-// func BenchmarkGraphemesFunctionString(b *testing.B) {
-// 	str := benchmarkStr
-// 	for i := 0; i < b.N; i++ {
-// 		var c string
-// 		state := -1
-// 		for len(str) > 0 {
-// 			c, str, _, state = FirstGraphemeClusterInString(str, state)
-// 			resultRunes = []rune(c)
-// 		}
-// 	}
-// }
+func BenchmarkGraphemesFunctionString(b *testing.B) {
+	str := benchmarkStr
+	for i := 0; i < b.N; i++ {
+		var c string
+		state := State(-1)
+		for len(str) > 0 {
+			c, str, _, state = FirstGraphemeClusterInString(str, state)
+			resultRunes = []rune(c)
+		}
+	}
+}
