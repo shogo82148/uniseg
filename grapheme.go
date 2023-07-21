@@ -234,9 +234,9 @@ func FirstGraphemeCluster(b []byte, state State) (cluster, rest []byte, width in
 		if state < 0 {
 			prop = graphemeCodePoints.search(r)
 		} else {
-			prop = property(state >> shiftGraphemePropState)
+			_, prop = state.unpack()
 		}
-		return b, nil, runeWidth(r, prop), pack(grAny, prop<<shiftGraphemePropState)
+		return b, nil, runeWidth(r, prop), pack(grAny, prop)
 	}
 
 	// If we don't know the state, determine it now.
