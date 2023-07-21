@@ -161,7 +161,7 @@ func (d dictionary[T]) search(r rune) T {
 	from := 0
 	to := len(d)
 	for to > from {
-		middle := (from + to) / 2
+		middle := int(uint(from+to) >> 1) // avoid overflow when computing middle
 		entry := d[middle]
 		if r < entry.runeRange.Lo {
 			to = middle
