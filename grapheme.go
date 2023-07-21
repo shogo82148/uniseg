@@ -1,6 +1,8 @@
 package uniseg
 
-import "unicode/utf8"
+import (
+	"unicode/utf8"
+)
 
 // Graphemes implements an iterator over Unicode grapheme clusters, or
 // user-perceived characters. While iterating, it also provides information
@@ -222,76 +224,25 @@ func (s State) unpack() (grState, property) {
 //
 // [Unicode Standard Annex #29, Grapheme Cluster Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Grapheme_Cluster_Boundaries
 func FirstGraphemeCluster(b []byte, state State) (cluster, rest []byte, width int, newState State) {
-	// An empty byte slice returns nothing.
-	if len(b) == 0 {
-		return
-	}
-
-	// Extract the first rune.
-	r, length := utf8.DecodeRune(b)
-	if len(b) <= length { // If we're already past the end, there is nothing else to parse.
-		var prop property
-		if state < 0 {
-			prop = graphemeCodePoints.search(r)
-		} else {
-			_, prop = state.unpack()
-		}
-		return b, nil, runeWidth(r, prop), pack(grAny, prop)
-	}
-
-	// If we don't know the state, determine it now.
-	var myState grState
-	var firstProp property
-	if state < 0 {
-		myState, firstProp, _ = transitionGraphemeState(myState, r)
-	} else {
-		myState, firstProp = state.unpack()
-	}
-	width += runeWidth(r, firstProp)
-
-	// Transition until we find a boundary.
-	for {
-		var (
-			prop     property
-			boundary bool
-		)
-
-		r, l := utf8.DecodeRune(b[length:])
-		myState, prop, boundary = transitionGraphemeState(myState, r)
-
-		if boundary {
-			return b[:length], b[length:], width, pack(myState, prop)
-		}
-
-		if r == vs16 {
-			width = 2
-		} else if firstProp != prExtendedPictographic && firstProp != prRegionalIndicator && firstProp != prL {
-			width += runeWidth(r, prop)
-		} else if firstProp == prExtendedPictographic {
-			if r == vs15 {
-				width = 1
-			} else {
-				width = 2
-			}
-		}
-
-		length += l
-		if len(b) <= length {
-			return b, nil, width, pack(grAny, prop)
-		}
-	}
+	return firstGraphemeCluster(b, state, utf8.DecodeRune)
 }
 
 // FirstGraphemeClusterInString is like [FirstGraphemeCluster] but its input and
 // outputs are strings.
 func FirstGraphemeClusterInString(str string, state State) (cluster, rest string, width int, newState State) {
+	return firstGraphemeCluster(str, state, utf8.DecodeRuneInString)
+}
+
+func firstGraphemeCluster[T bytes](str T, state State, decoder runeDecoder[T]) (cluster, rest T, width int, newState State) {
+	var zero T
+
 	// An empty string returns nothing.
 	if len(str) == 0 {
 		return
 	}
 
 	// Extract the first rune.
-	r, length := utf8.DecodeRuneInString(str)
+	r, length := decoder(str)
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
 		var prop property
 		if state < 0 {
@@ -299,7 +250,7 @@ func FirstGraphemeClusterInString(str string, state State) (cluster, rest string
 		} else {
 			_, prop = state.unpack()
 		}
-		return str, "", runeWidth(r, prop), pack(grAny, prop)
+		return str, zero, runeWidth(r, prop), pack(grAny, prop)
 	}
 
 	// If we don't know the state, determine it now.
@@ -319,7 +270,7 @@ func FirstGraphemeClusterInString(str string, state State) (cluster, rest string
 			boundary bool
 		)
 
-		r, l := utf8.DecodeRuneInString(str[length:])
+		r, l := decoder(str[length:])
 		myState, prop, boundary = transitionGraphemeState(myState, r)
 
 		if boundary {
@@ -340,7 +291,7 @@ func FirstGraphemeClusterInString(str string, state State) (cluster, rest string
 
 		length += l
 		if len(str) <= length {
-			return str, "", width, pack(grAny, prop)
+			return str, zero, width, pack(grAny, prop)
 		}
 	}
 }
