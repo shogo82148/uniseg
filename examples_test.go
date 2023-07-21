@@ -100,48 +100,48 @@ func ExampleFirstSentenceInString() {
 	// (And this is sentence two.)
 }
 
-// func ExampleFirstLineSegment() {
-// 	b := []byte("First line.\nSecond line.")
-// 	state := -1
-// 	var (
-// 		c         []byte
-// 		mustBreak bool
-// 	)
-// 	for len(b) > 0 {
-// 		c, b, mustBreak, state = uniseg.FirstLineSegment(b, state)
-// 		fmt.Printf("(%s)", string(c))
-// 		if mustBreak {
-// 			fmt.Print("!")
-// 		}
-// 	}
-// 	// Output:
-// 	// (First )(line.
-// 	// )!(Second )(line.)!
-// }
+func ExampleFirstLineSegment() {
+	b := []byte("First line.\nSecond line.")
+	state := uniseg.LineBreakState(-1)
+	var (
+		c         []byte
+		mustBreak bool
+	)
+	for len(b) > 0 {
+		c, b, mustBreak, state = uniseg.FirstLineSegment(b, state)
+		fmt.Printf("(%s)", string(c))
+		if mustBreak {
+			fmt.Print("!")
+		}
+	}
+	// Output:
+	// (First )(line.
+	// )!(Second )(line.)!
+}
 
-// func ExampleFirstLineSegmentInString() {
-// 	str := "First line.\nSecond line."
-// 	state := -1
-// 	var (
-// 		c         string
-// 		mustBreak bool
-// 	)
-// 	for len(str) > 0 {
-// 		c, str, mustBreak, state = uniseg.FirstLineSegmentInString(str, state)
-// 		fmt.Printf("(%s)", c)
-// 		if mustBreak {
-// 			fmt.Println(" < must break")
-// 		} else {
-// 			fmt.Println(" < may break")
-// 		}
-// 	}
-// 	// Output:
-// 	// (First ) < may break
-// 	// (line.
-// 	// ) < must break
-// 	// (Second ) < may break
-// 	// (line.) < must break
-// }
+func ExampleFirstLineSegmentInString() {
+	str := "First line.\nSecond line."
+	state := uniseg.LineBreakState(-1)
+	var (
+		c         string
+		mustBreak bool
+	)
+	for len(str) > 0 {
+		c, str, mustBreak, state = uniseg.FirstLineSegmentInString(str, state)
+		fmt.Printf("(%s)", c)
+		if mustBreak {
+			fmt.Println(" < must break")
+		} else {
+			fmt.Println(" < may break")
+		}
+	}
+	// Output:
+	// (First ) < may break
+	// (line.
+	// ) < must break
+	// (Second ) < may break
+	// (line.) < must break
+}
 
 // func ExampleStep_graphemes() {
 // 	b := []byte("🇩🇪🏳️\u200d🌈!")
