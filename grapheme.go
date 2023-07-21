@@ -49,17 +49,17 @@ func NewGraphemes(str string) *Graphemes {
 // Next advances the iterator by one grapheme cluster and returns false if no
 // clusters are left. This function must be called before the first cluster is
 // accessed.
-// func (g *Graphemes) Next() bool {
-// 	if len(g.remaining) == 0 {
-// 		// We're already past the end.
-// 		g.state = -2
-// 		g.cluster = ""
-// 		return false
-// 	}
-// 	g.offset += len(g.cluster)
-// 	g.cluster, g.remaining, g.boundaries, g.state = StepString(g.remaining, g.state)
-// 	return true
-// }
+func (g *Graphemes) Next() bool {
+	if len(g.remaining) == 0 {
+		// We're already past the end.
+		g.state = -2
+		g.cluster = ""
+		return false
+	}
+	g.offset += len(g.cluster)
+	g.cluster, g.remaining, g.boundaries, g.state = StepString(g.remaining, g.state)
+	return true
+}
 
 // Runes returns a slice of runes (code points) which corresponds to the current
 // grapheme cluster. If the iterator is already past the end or [Graphemes.Next]
@@ -154,14 +154,14 @@ func (g *Graphemes) Reset() {
 
 // GraphemeClusterCount returns the number of user-perceived characters
 // (grapheme clusters) for the given string.
-// func GraphemeClusterCount(s string) (n int) {
-// 	state := State(-1)
-// 	for len(s) > 0 {
-// 		_, s, _, state = FirstGraphemeClusterInString(s, state)
-// 		n++
-// 	}
-// 	return
-// }
+func GraphemeClusterCount(s string) (n int) {
+	state := State(-1)
+	for len(s) > 0 {
+		_, s, _, state = FirstGraphemeClusterInString(s, state)
+		n++
+	}
+	return
+}
 
 // ReverseString reverses the given string while observing grapheme cluster
 // boundaries.
