@@ -1,100 +1,104 @@
 package uniseg_test
 
-// TODO: fix me!
-// func ExampleGraphemeClusterCount() {
-// 	n := uniseg.GraphemeClusterCount("🇩🇪🏳️\u200d🌈")
-// 	fmt.Println(n)
-// 	// Output: 2
-// }
+import (
+	"fmt"
 
-// TODO: fix me!
-// func ExampleFirstGraphemeCluster() {
-// 	b := []byte("🇩🇪🏳️\u200d🌈!")
-// 	state := -1
-// 	var c []byte
-// 	for len(b) > 0 {
-// 		var width int
-// 		c, b, width, state = uniseg.FirstGraphemeCluster(b, state)
-// 		fmt.Println(string(c), width)
-// 	}
-// 	// Output:
-// 	// 🇩🇪 2
-// 	// 🏳️‍🌈 2
-// 	// ! 1
-// }
+	"github.com/shogo82148/uniseg"
+)
 
-// func ExampleFirstGraphemeClusterInString() {
-// 	str := "🇩🇪🏳️\u200d🌈!"
-// 	state := -1
-// 	var c string
-// 	for len(str) > 0 {
-// 		var width int
-// 		c, str, width, state = uniseg.FirstGraphemeClusterInString(str, state)
-// 		fmt.Println(c, width)
-// 	}
-// 	// Output:
-// 	// 🇩🇪 2
-// 	// 🏳️‍🌈 2
-// 	// ! 1
-// }
+func ExampleGraphemeClusterCount() {
+	n := uniseg.GraphemeClusterCount("🇩🇪🏳️\u200d🌈")
+	fmt.Println(n)
+	// Output: 2
+}
 
-// func ExampleFirstWord() {
-// 	b := []byte("Hello, world!")
-// 	state := -1
-// 	var c []byte
-// 	for len(b) > 0 {
-// 		c, b, state = uniseg.FirstWord(b, state)
-// 		fmt.Printf("(%s)\n", string(c))
-// 	}
-// 	// Output:
-// 	// (Hello)
-// 	// (,)
-// 	// ( )
-// 	// (world)
-// 	// (!)
-// }
+func ExampleFirstGraphemeCluster() {
+	b := []byte("🇩🇪🏳️\u200d🌈!")
+	state := uniseg.State(-1)
+	var c []byte
+	for len(b) > 0 {
+		var width int
+		c, b, width, state = uniseg.FirstGraphemeCluster(b, state)
+		fmt.Println(string(c), width)
+	}
+	// Output:
+	// 🇩🇪 2
+	// 🏳️‍🌈 2
+	// ! 1
+}
 
-// func ExampleFirstWordInString() {
-// 	str := "Hello, world!"
-// 	state := -1
-// 	var c string
-// 	for len(str) > 0 {
-// 		c, str, state = uniseg.FirstWordInString(str, state)
-// 		fmt.Printf("(%s)\n", c)
-// 	}
-// 	// Output:
-// 	// (Hello)
-// 	// (,)
-// 	// ( )
-// 	// (world)
-// 	// (!)
-// }
+func ExampleFirstGraphemeClusterInString() {
+	str := "🇩🇪🏳️\u200d🌈!"
+	state := uniseg.State(-1)
+	var c string
+	for len(str) > 0 {
+		var width int
+		c, str, width, state = uniseg.FirstGraphemeClusterInString(str, state)
+		fmt.Println(c, width)
+	}
+	// Output:
+	// 🇩🇪 2
+	// 🏳️‍🌈 2
+	// ! 1
+}
 
-// func ExampleFirstSentence() {
-// 	b := []byte("This is sentence 1.0. And this is sentence two.")
-// 	state := -1
-// 	var c []byte
-// 	for len(b) > 0 {
-// 		c, b, state = uniseg.FirstSentence(b, state)
-// 		fmt.Printf("(%s)\n", string(c))
-// 	}
-// 	// Output:
-// 	// (This is sentence 1.0. )
-// 	// (And this is sentence two.)
-// }
+func ExampleFirstWord() {
+	b := []byte("Hello, world!")
+	state := uniseg.WordBreakState(-1)
+	var c []byte
+	for len(b) > 0 {
+		c, b, state = uniseg.FirstWord(b, state)
+		fmt.Printf("(%s)\n", string(c))
+	}
+	// Output:
+	// (Hello)
+	// (,)
+	// ( )
+	// (world)
+	// (!)
+}
 
-// func ExampleFirstSentenceInString() {
-// 	str := "This is sentence 1.0. And this is sentence two."
-// 	state := -1
-// 	var c string
-// 	for len(str) > 0 {
-// 		c, str, state = uniseg.FirstSentenceInString(str, state)
-// 		fmt.Printf("(%s)\n", c)
-// 	}
-// 	// Output:
-// 	// (This is sentence 1.0. )
-// 	// (And this is sentence two.)
-// }
+func ExampleFirstWordInString() {
+	str := "Hello, world!"
+	state := uniseg.WordBreakState(-1)
+	var c string
+	for len(str) > 0 {
+		c, str, state = uniseg.FirstWordInString(str, state)
+		fmt.Printf("(%s)\n", c)
+	}
+	// Output:
+	// (Hello)
+	// (,)
+	// ( )
+	// (world)
+	// (!)
+}
+
+func ExampleFirstSentence() {
+	b := []byte("This is sentence 1.0. And this is sentence two.")
+	state := uniseg.SentenceBreakState(-1)
+	var c []byte
+	for len(b) > 0 {
+		c, b, state = uniseg.FirstSentence(b, state)
+		fmt.Printf("(%s)\n", string(c))
+	}
+	// Output:
+	// (This is sentence 1.0. )
+	// (And this is sentence two.)
+}
+
+func ExampleFirstSentenceInString() {
+	str := "This is sentence 1.0. And this is sentence two."
+	state := uniseg.SentenceBreakState(-1)
+	var c string
+	for len(str) > 0 {
+		c, str, state = uniseg.FirstSentenceInString(str, state)
+		fmt.Printf("(%s)\n", c)
+	}
+	// Output:
+	// (This is sentence 1.0. )
+	// (And this is sentence two.)
+}
 
 // func ExampleFirstLineSegment() {
 // 	b := []byte("First line.\nSecond line.")
