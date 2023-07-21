@@ -26,16 +26,16 @@ jobs:
           github_token: ${{ secrets.github_token }}
           locale: "US"
           exclude: |
-            emojipresentation.go
-            wordproperties.go
-            sentencebreak_test.go
-            graphemebreak_test.go
-            lineproperties.go
-            graphemeproperties.go
-            sentenceproperties.go
-            eastasianwidth.go
-            wordbreak_test.go
-            linebreak_test.go
+            ./emojipresentation.go
+            ./wordproperties.go
+            ./sentencebreak_test.go
+            ./graphemebreak_test.go
+            ./lineproperties.go
+            ./graphemeproperties.go
+            ./sentenceproperties.go
+            ./eastasianwidth.go
+            ./wordbreak_test.go
+            ./linebreak_test.go
 
   actionlint:
     runs-on: ubuntu-latest
