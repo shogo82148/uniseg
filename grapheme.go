@@ -243,7 +243,7 @@ func FirstGraphemeCluster(b []byte, state State) (cluster, rest []byte, width in
 	var myState grState
 	var firstProp property
 	if state < 0 {
-		myState, firstProp, _ = transitionGraphemeState(-1, r)
+		myState, firstProp, _ = transitionGraphemeState(myState, r)
 	} else {
 		myState, firstProp = state.unpack()
 	}
@@ -306,7 +306,7 @@ func FirstGraphemeClusterInString(str string, state State) (cluster, rest string
 	var myState grState
 	var firstProp property
 	if state < 0 {
-		myState, firstProp, _ = transitionGraphemeState(-1, r)
+		myState, firstProp, _ = transitionGraphemeState(myState, r)
 	} else {
 		myState, firstProp = state.unpack()
 	}
