@@ -20,62 +20,38 @@ import "unicode/utf8"
 //
 // [Unicode Standard Annex #29, Word Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Word_Boundaries
 func FirstWord(b []byte, state WordBreakState) (word, rest []byte, newState WordBreakState) {
-	// An empty byte slice returns nothing.
-	if len(b) == 0 {
-		return
-	}
-
-	// Extract the first rune.
-	r, length := utf8.DecodeRune(b)
-	if len(b) <= length { // If we're already past the end, there is nothing else to parse.
-		return b, nil, wbAny
-	}
-
-	// If we don't know the state, determine it now.
-	if state < 0 {
-		state, _ = transitionWordBreakState(state, r, b[length:], "")
-	}
-
-	// Transition until we find a boundary.
-	var boundary bool
-	for {
-		r, l := utf8.DecodeRune(b[length:])
-		state, boundary = transitionWordBreakState(state, r, b[length+l:], "")
-
-		if boundary {
-			return b[:length], b[length:], state
-		}
-
-		length += l
-		if len(b) <= length {
-			return b, nil, wbAny
-		}
-	}
+	return firstWord(b, state, utf8.DecodeRune)
 }
 
 // FirstWordInString is like [FirstWord] but its input and outputs are strings.
 func FirstWordInString(str string, state WordBreakState) (word, rest string, newState WordBreakState) {
+	return firstWord(str, state, utf8.DecodeRuneInString)
+}
+
+func firstWord[T bytes](str T, state WordBreakState, decoder runeDecoder[T]) (word, rest T, newState WordBreakState) {
+	var zero T
+
 	// An empty byte slice returns nothing.
 	if len(str) == 0 {
 		return
 	}
 
 	// Extract the first rune.
-	r, length := utf8.DecodeRuneInString(str)
+	r, length := decoder(str)
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
-		return str, "", wbAny
+		return str, zero, wbAny
 	}
 
 	// If we don't know the state, determine it now.
 	if state < 0 {
-		state, _ = transitionWordBreakState(state, r, nil, str[length:])
+		state, _ = transitionWordBreakState(state, r, str[length:], decoder)
 	}
 
 	// Transition until we find a boundary.
 	var boundary bool
 	for {
-		r, l := utf8.DecodeRuneInString(str[length:])
-		state, boundary = transitionWordBreakState(state, r, nil, str[length+l:])
+		r, l := decoder(str[length:])
+		state, boundary = transitionWordBreakState(state, r, str[length+l:], decoder)
 
 		if boundary {
 			return str[:length], str[length:], state
@@ -83,7 +59,7 @@ func FirstWordInString(str string, state WordBreakState) (word, rest string, new
 
 		length += l
 		if len(str) <= length {
-			return str, "", wbAny
+			return str, zero, wbAny
 		}
 	}
 }
