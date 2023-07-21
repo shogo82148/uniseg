@@ -142,29 +142,6 @@ const (
 	vs16 = 0xfe0f // Variation Selector-16 (emoji presentation)
 )
 
-// propertySearch performs a binary search on a property slice and returns the
-// entry whose range (start = first array element, end = second array element)
-// includes r, or an array of 0's if no such entry was found.
-func propertySearch[E interface{ [3]int | [4]int }](dictionary []E, r rune) (result E) {
-	// Run a binary search.
-	from := 0
-	to := len(dictionary)
-	for to > from {
-		middle := (from + to) / 2
-		cpRange := dictionary[middle]
-		if int(r) < cpRange[0] {
-			to = middle
-			continue
-		}
-		if int(r) > cpRange[1] {
-			from = middle + 1
-			continue
-		}
-		return cpRange
-	}
-	return
-}
-
 // runeRange represents of a range of Unicode code points.
 // The range runs from Lo to Hi inclusive.
 type runeRange struct {
@@ -199,17 +176,4 @@ func (d dictionary[T]) search(r rune) T {
 
 	var zero T
 	return zero
-}
-
-// getProperty returns the Unicode getProperty value (see constants above) of the
-// given code point.
-func getProperty(dictionary [][3]int, r rune) int {
-	return propertySearch(dictionary, r)[2]
-}
-
-// propertyWithGenCat returns the Unicode property value and General Category
-// (see constants above) of the given code point.
-func propertyWithGenCat(dictionary [][4]int, r rune) (property, generalCategory int) {
-	entry := propertySearch(dictionary, r)
-	return entry[2], entry[3]
 }
