@@ -1,5 +1,7 @@
 package uniseg
 
+import "unicode/utf8"
+
 // The bit masks used to extract boundary information returned by [Step].
 const (
 	MaskLine     = 3
@@ -87,158 +89,168 @@ const (
 // [HasTrailingLineBreak] or [HasTrailingLineBreakInString] on the last rune.
 //
 // [UAX #14 LB3]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
-// func Step(b []byte, state int) (cluster, rest []byte, boundaries int, newState int) {
-// 	// An empty byte slice returns nothing.
-// 	if len(b) == 0 {
-// 		return
-// 	}
+func Step(b []byte, state int) (cluster, rest []byte, boundaries int, newState int) {
+	// An empty byte slice returns nothing.
+	if len(b) == 0 {
+		return
+	}
 
-// 	// Extract the first rune.
-// 	r, length := utf8.DecodeRune(b)
-// 	if len(b) <= length { // If we're already past the end, there is nothing else to parse.
-// 		var prop int
-// 		if state < 0 {
-// 			prop = getProperty(graphemeCodePoints, r)
-// 		} else {
-// 			prop = state >> shiftPropState
-// 		}
-// 		return b, nil, LineMustBreak | (1 << shiftWord) | (1 << shiftSentence) | (runeWidth(r, prop) << ShiftWidth), grAny | (wbAny << shiftWordState) | (sbAny << shiftSentenceState) | (lbAny << shiftLineState) | (prop << shiftPropState)
-// 	}
+	// Extract the first rune.
+	r, length := utf8.DecodeRune(b)
+	if len(b) <= length { // If we're already past the end, there is nothing else to parse.
+		var prop property
+		if state < 0 {
+			prop = graphemeCodePoints.search(r)
+		} else {
+			prop = property(state >> shiftPropState)
+		}
+		return b, nil, int(LineMustBreak) | (1 << shiftWord) | (1 << shiftSentence) | (runeWidth(r, prop) << ShiftWidth), int(grAny) | (int(wbAny) << shiftWordState) | (int(sbAny) << shiftSentenceState) | (int(lbAny) << shiftLineState) | (int(prop) << shiftPropState)
+	}
 
-// 	// If we don't know the state, determine it now.
-// 	var graphemeState, wordState, sentenceState, lineState, firstProp int
-// 	remainder := b[length:]
-// 	if state < 0 {
-// 		graphemeState, firstProp, _ = transitionGraphemeState(state, r)
-// 		wordState, _ = transitionWordBreakState(state, r, remainder, "")
-// 		sentenceState, _ = transitionSentenceBreakState(state, r, remainder, "")
-// 		lineState, _ = transitionLineBreakState(state, r, remainder, "")
-// 	} else {
-// 		graphemeState = state & maskGraphemeState
-// 		wordState = (state >> shiftWordState) & maskWordState
-// 		sentenceState = (state >> shiftSentenceState) & maskSentenceState
-// 		lineState = (state >> shiftLineState) & maskLineState
-// 		firstProp = state >> shiftPropState
-// 	}
+	// If we don't know the state, determine it now.
+	var graphemeState grState
+	var wordState WordBreakState
+	var sentenceState SentenceBreakState
+	var lineState LineBreakState
+	var firstProp property
+	remainder := b[length:]
+	if state < 0 {
+		graphemeState, firstProp, _ = transitionGraphemeState(-1, r)
+		wordState, _ = transitionWordBreakState(-1, r, remainder, "")
+		sentenceState, _ = transitionSentenceBreakState(-1, r, remainder, "")
+		lineState, _ = transitionLineBreakState(-1, r, remainder, "")
+	} else {
+		graphemeState = grState(state & maskGraphemeState)
+		wordState = WordBreakState((state >> shiftWordState) & maskWordState)
+		sentenceState = SentenceBreakState((state >> shiftSentenceState) & maskSentenceState)
+		lineState = LineBreakState((state >> shiftLineState) & maskLineState)
+		firstProp = property(state >> shiftPropState)
+	}
 
-// 	// Transition until we find a grapheme cluster boundary.
-// 	width := runeWidth(r, firstProp)
-// 	for {
-// 		var (
-// 			graphemeBoundary, wordBoundary, sentenceBoundary bool
-// 			lineBreak, prop                                  int
-// 		)
+	// Transition until we find a grapheme cluster boundary.
+	width := runeWidth(r, firstProp)
+	for {
+		var (
+			graphemeBoundary, wordBoundary, sentenceBoundary bool
+			lineBreak                                        LineBreak
+			prop                                             property
+		)
 
-// 		r, l := utf8.DecodeRune(remainder)
-// 		remainder = b[length+l:]
+		r, l := utf8.DecodeRune(remainder)
+		remainder = b[length+l:]
 
-// 		graphemeState, prop, graphemeBoundary = transitionGraphemeState(graphemeState, r)
-// 		wordState, wordBoundary = transitionWordBreakState(wordState, r, remainder, "")
-// 		sentenceState, sentenceBoundary = transitionSentenceBreakState(sentenceState, r, remainder, "")
-// 		lineState, lineBreak = transitionLineBreakState(lineState, r, remainder, "")
+		graphemeState, prop, graphemeBoundary = transitionGraphemeState(graphemeState, r)
+		wordState, wordBoundary = transitionWordBreakState(wordState, r, remainder, "")
+		sentenceState, sentenceBoundary = transitionSentenceBreakState(sentenceState, r, remainder, "")
+		lineState, lineBreak = transitionLineBreakState(lineState, r, remainder, "")
 
-// 		if graphemeBoundary {
-// 			boundary := lineBreak | (width << ShiftWidth)
-// 			if wordBoundary {
-// 				boundary |= 1 << shiftWord
-// 			}
-// 			if sentenceBoundary {
-// 				boundary |= 1 << shiftSentence
-// 			}
-// 			return b[:length], b[length:], boundary, graphemeState | (wordState << shiftWordState) | (sentenceState << shiftSentenceState) | (lineState << shiftLineState) | (prop << shiftPropState)
-// 		}
+		if graphemeBoundary {
+			boundary := int(lineBreak) | (width << ShiftWidth)
+			if wordBoundary {
+				boundary |= 1 << shiftWord
+			}
+			if sentenceBoundary {
+				boundary |= 1 << shiftSentence
+			}
+			return b[:length], b[length:], boundary, int(graphemeState) | int(wordState<<shiftWordState) | int(sentenceState<<shiftSentenceState) | int(lineState<<shiftLineState) | int(prop<<shiftPropState)
+		}
 
-// 		if r == vs16 {
-// 			width = 2
-// 		} else if firstProp != prExtendedPictographic && firstProp != prRegionalIndicator && firstProp != prL {
-// 			width += runeWidth(r, prop)
-// 		} else if firstProp == prExtendedPictographic {
-// 			if r == vs15 {
-// 				width = 1
-// 			} else {
-// 				width = 2
-// 			}
-// 		}
+		if r == vs16 {
+			width = 2
+		} else if firstProp != prExtendedPictographic && firstProp != prRegionalIndicator && firstProp != prL {
+			width += runeWidth(r, prop)
+		} else if firstProp == prExtendedPictographic {
+			if r == vs15 {
+				width = 1
+			} else {
+				width = 2
+			}
+		}
 
-// 		length += l
-// 		if len(b) <= length {
-// 			return b, nil, LineMustBreak | (1 << shiftWord) | (1 << shiftSentence) | (width << ShiftWidth), grAny | (wbAny << shiftWordState) | (sbAny << shiftSentenceState) | (lbAny << shiftLineState) | (prop << shiftPropState)
-// 		}
-// 	}
-// }
+		length += l
+		if len(b) <= length {
+			return b, nil, int(LineMustBreak) | (1 << shiftWord) | (1 << shiftSentence) | (width << ShiftWidth), int(grAny) | int(wbAny<<shiftWordState) | int(sbAny<<shiftSentenceState) | int(lbAny<<shiftLineState) | int(prop<<shiftPropState)
+		}
+	}
+}
 
 // StepString is like [Step] but its input and outputs are strings.
-// func StepString(str string, state int) (cluster, rest string, boundaries int, newState int) {
-// 	// An empty byte slice returns nothing.
-// 	if len(str) == 0 {
-// 		return
-// 	}
+func StepString(str string, state int) (cluster, rest string, boundaries int, newState int) {
+	// An empty byte slice returns nothing.
+	if len(str) == 0 {
+		return
+	}
 
-// 	// Extract the first rune.
-// 	r, length := utf8.DecodeRuneInString(str)
-// 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
-// 		prop := getProperty(graphemeCodePoints, r)
-// 		return str, "", LineMustBreak | (1 << shiftWord) | (1 << shiftSentence) | (runeWidth(r, prop) << ShiftWidth), grAny | (wbAny << shiftWordState) | (sbAny << shiftSentenceState) | (lbAny << shiftLineState)
-// 	}
+	// Extract the first rune.
+	r, length := utf8.DecodeRuneInString(str)
+	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
+		prop := graphemeCodePoints.search(r)
+		return str, "", int(LineMustBreak) | (1 << shiftWord) | (1 << shiftSentence) | (runeWidth(r, prop) << ShiftWidth), int(grAny) | (int(wbAny) << shiftWordState) | (int(sbAny) << shiftSentenceState) | (int(lbAny) << shiftLineState)
+	}
 
-// 	// If we don't know the state, determine it now.
-// 	var graphemeState, wordState, sentenceState, lineState, firstProp int
-// 	remainder := str[length:]
-// 	if state < 0 {
-// 		graphemeState, firstProp, _ = transitionGraphemeState(state, r)
-// 		wordState, _ = transitionWordBreakState(state, r, nil, remainder)
-// 		sentenceState, _ = transitionSentenceBreakState(state, r, nil, remainder)
-// 		lineState, _ = transitionLineBreakState(state, r, nil, remainder)
-// 	} else {
-// 		graphemeState = state & maskGraphemeState
-// 		wordState = (state >> shiftWordState) & maskWordState
-// 		sentenceState = (state >> shiftSentenceState) & maskSentenceState
-// 		lineState = (state >> shiftLineState) & maskLineState
-// 		firstProp = state >> shiftPropState
-// 	}
+	// If we don't know the state, determine it now.
+	var graphemeState grState
+	var wordState WordBreakState
+	var sentenceState SentenceBreakState
+	var lineState LineBreakState
+	var firstProp property
+	remainder := str[length:]
+	if state < 0 {
+		graphemeState, firstProp, _ = transitionGraphemeState(-1, r)
+		wordState, _ = transitionWordBreakState(-1, r, nil, remainder)
+		sentenceState, _ = transitionSentenceBreakState(-1, r, nil, remainder)
+		lineState, _ = transitionLineBreakState(-1, r, nil, remainder)
+	} else {
+		graphemeState = grState(state & maskGraphemeState)
+		wordState = WordBreakState((state >> shiftWordState) & maskWordState)
+		sentenceState = SentenceBreakState((state >> shiftSentenceState) & maskSentenceState)
+		lineState = LineBreakState((state >> shiftLineState) & maskLineState)
+		firstProp = property(state >> shiftPropState)
+	}
 
-// 	// Transition until we find a grapheme cluster boundary.
-// 	width := runeWidth(r, firstProp)
-// 	for {
-// 		var (
-// 			graphemeBoundary, wordBoundary, sentenceBoundary bool
-// 			lineBreak, prop                                  int
-// 		)
+	// Transition until we find a grapheme cluster boundary.
+	width := runeWidth(r, firstProp)
+	for {
+		var (
+			graphemeBoundary, wordBoundary, sentenceBoundary bool
+			lineBreak                                        LineBreak
+			prop                                             property
+		)
 
-// 		r, l := utf8.DecodeRuneInString(remainder)
-// 		remainder = str[length+l:]
+		r, l := utf8.DecodeRuneInString(remainder)
+		remainder = str[length+l:]
 
-// 		graphemeState, prop, graphemeBoundary = transitionGraphemeState(graphemeState, r)
-// 		wordState, wordBoundary = transitionWordBreakState(wordState, r, nil, remainder)
-// 		sentenceState, sentenceBoundary = transitionSentenceBreakState(sentenceState, r, nil, remainder)
-// 		lineState, lineBreak = transitionLineBreakState(lineState, r, nil, remainder)
+		graphemeState, prop, graphemeBoundary = transitionGraphemeState(graphemeState, r)
+		wordState, wordBoundary = transitionWordBreakState(wordState, r, nil, remainder)
+		sentenceState, sentenceBoundary = transitionSentenceBreakState(sentenceState, r, nil, remainder)
+		lineState, lineBreak = transitionLineBreakState(lineState, r, nil, remainder)
 
-// 		if graphemeBoundary {
-// 			boundary := lineBreak | (width << ShiftWidth)
-// 			if wordBoundary {
-// 				boundary |= 1 << shiftWord
-// 			}
-// 			if sentenceBoundary {
-// 				boundary |= 1 << shiftSentence
-// 			}
-// 			return str[:length], str[length:], boundary, graphemeState | (wordState << shiftWordState) | (sentenceState << shiftSentenceState) | (lineState << shiftLineState) | (prop << shiftPropState)
-// 		}
+		if graphemeBoundary {
+			boundary := int(lineBreak) | (width << ShiftWidth)
+			if wordBoundary {
+				boundary |= 1 << shiftWord
+			}
+			if sentenceBoundary {
+				boundary |= 1 << shiftSentence
+			}
+			return str[:length], str[length:], boundary, int(graphemeState) | int(wordState<<shiftWordState) | int(sentenceState<<shiftSentenceState) | int(lineState<<shiftLineState) | int(prop<<shiftPropState)
+		}
 
-// 		if r == vs16 {
-// 			width = 2
-// 		} else if firstProp != prExtendedPictographic && firstProp != prRegionalIndicator && firstProp != prL {
-// 			width += runeWidth(r, prop)
-// 		} else if firstProp == prExtendedPictographic {
-// 			if r == vs15 {
-// 				width = 1
-// 			} else {
-// 				width = 2
-// 			}
-// 		}
+		if r == vs16 {
+			width = 2
+		} else if firstProp != prExtendedPictographic && firstProp != prRegionalIndicator && firstProp != prL {
+			width += runeWidth(r, prop)
+		} else if firstProp == prExtendedPictographic {
+			if r == vs15 {
+				width = 1
+			} else {
+				width = 2
+			}
+		}
 
-// 		length += l
-// 		if len(str) <= length {
-// 			return str, "", LineMustBreak | (1 << shiftWord) | (1 << shiftSentence) | (width << ShiftWidth), grAny | (wbAny << shiftWordState) | (sbAny << shiftSentenceState) | (lbAny << shiftLineState) | (prop << shiftPropState)
-// 		}
-// 	}
-// }
+		length += l
+		if len(str) <= length {
+			return str, "", int(LineMustBreak) | (1 << shiftWord) | (1 << shiftSentence) | (width << ShiftWidth), int(grAny) | int(wbAny<<shiftWordState) | int(sbAny<<shiftSentenceState) | int(lbAny<<shiftLineState) | int(prop<<shiftPropState)
+		}
+	}
+}
