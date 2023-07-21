@@ -44,7 +44,7 @@ type grTransitionResult struct {
 //     are equal. Stop.
 //  6. Assume grAny and grBoundary.
 //
-// Unicode version 14.0.0.
+// Unicode version 15.0.0.
 var grTransitions = map[grStateProperty]grTransitionResult{
 	// GB5
 	{grAny, prCR}:      {grCR, true, 50},
