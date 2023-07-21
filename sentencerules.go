@@ -132,7 +132,7 @@ var sbTransitions = map[sbStateProperty]sbTransitionResult{
 // needed to determine the new state, the byte slice or the string starting
 // after rune "r" can be used (whichever is not nil or empty) for further
 // lookups.
-func transitionSentenceBreakState(state SentenceBreakState, r rune, b []byte, str string) (newState SentenceBreakState, sentenceBreak bool) {
+func transitionSentenceBreakState[T bytes](state SentenceBreakState, r rune, str T, decoder runeDecoder[T]) (newState SentenceBreakState, sentenceBreak bool) {
 	// Determine the property of the next character.
 	nextProperty := sentenceBreakCodePoints.search(r)
 
@@ -192,13 +192,8 @@ func transitionSentenceBreakState(state SentenceBreakState, r rune, b []byte, st
 			nextProperty != prATerm &&
 			nextProperty != prSTerm {
 			// Move on to the next rune.
-			if b != nil { // Byte slice version.
-				r, length = utf8.DecodeRune(b)
-				b = b[length:]
-			} else { // String version.
-				r, length = utf8.DecodeRuneInString(str)
-				str = str[length:]
-			}
+			r, length = decoder(str)
+			str = str[length:]
 			if r == utf8.RuneError {
 				break
 			}
