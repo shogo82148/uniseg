@@ -243,7 +243,7 @@ func FirstGraphemeCluster(b []byte, state State) (cluster, rest []byte, width in
 	var myState grState
 	var firstProp property
 	if state < 0 {
-		myState, firstProp, _ = transitionGraphemeState(myState, r)
+		myState, firstProp, _ = transitionGraphemeState(-1, r)
 	} else {
 		myState, firstProp = state.unpack()
 	}
@@ -284,62 +284,63 @@ func FirstGraphemeCluster(b []byte, state State) (cluster, rest []byte, width in
 
 // FirstGraphemeClusterInString is like [FirstGraphemeCluster] but its input and
 // outputs are strings.
-// func FirstGraphemeClusterInString(str string, state State) (cluster, rest string, width int, newState State) {
-// 	// An empty string returns nothing.
-// 	if len(str) == 0 {
-// 		return
-// 	}
+func FirstGraphemeClusterInString(str string, state State) (cluster, rest string, width int, newState State) {
+	// An empty string returns nothing.
+	if len(str) == 0 {
+		return
+	}
 
-// 	// Extract the first rune.
-// 	r, length := utf8.DecodeRuneInString(str)
-// 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
-// 		var prop property
-// 		if state < 0 {
-// 			prop = graphemeCodePoints.search(r)
-// 		} else {
-// 			_, prop = state.unpack()
-// 		}
-// 		return str, "", runeWidth(r, prop), pack(grAny, prop)
-// 	}
+	// Extract the first rune.
+	r, length := utf8.DecodeRuneInString(str)
+	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
+		var prop property
+		if state < 0 {
+			prop = graphemeCodePoints.search(r)
+		} else {
+			_, prop = state.unpack()
+		}
+		return str, "", runeWidth(r, prop), pack(grAny, prop)
+	}
 
-// 	// If we don't know the state, determine it now.
-// 	var firstProp property
-// 	if state < 0 {
-// 		state, firstProp, _ = transitionGraphemeState(state, r)
-// 	} else {
-// 		firstProp = state >> shiftGraphemePropState
-// 	}
-// 	width += runeWidth(r, firstProp)
+	// If we don't know the state, determine it now.
+	var myState grState
+	var firstProp property
+	if state < 0 {
+		myState, firstProp, _ = transitionGraphemeState(-1, r)
+	} else {
+		myState, firstProp = state.unpack()
+	}
+	width += runeWidth(r, firstProp)
 
-// 	// Transition until we find a boundary.
-// 	for {
-// 		var (
-// 			prop     property
-// 			boundary bool
-// 		)
+	// Transition until we find a boundary.
+	for {
+		var (
+			prop     property
+			boundary bool
+		)
 
-// 		r, l := utf8.DecodeRuneInString(str[length:])
-// 		state, prop, boundary = transitionGraphemeState(state&maskGraphemeState, r)
+		r, l := utf8.DecodeRuneInString(str[length:])
+		myState, prop, boundary = transitionGraphemeState(myState, r)
 
-// 		if boundary {
-// 			return str[:length], str[length:], width, state | (prop << shiftGraphemePropState)
-// 		}
+		if boundary {
+			return str[:length], str[length:], width, pack(myState, prop)
+		}
 
-// 		if r == vs16 {
-// 			width = 2
-// 		} else if firstProp != prExtendedPictographic && firstProp != prRegionalIndicator && firstProp != prL {
-// 			width += runeWidth(r, prop)
-// 		} else if firstProp == prExtendedPictographic {
-// 			if r == vs15 {
-// 				width = 1
-// 			} else {
-// 				width = 2
-// 			}
-// 		}
+		if r == vs16 {
+			width = 2
+		} else if firstProp != prExtendedPictographic && firstProp != prRegionalIndicator && firstProp != prL {
+			width += runeWidth(r, prop)
+		} else if firstProp == prExtendedPictographic {
+			if r == vs15 {
+				width = 1
+			} else {
+				width = 2
+			}
+		}
 
-// 		length += l
-// 		if len(str) <= length {
-// 			return str, "", width, grAny | (prop << shiftGraphemePropState)
-// 		}
-// 	}
-// }
+		length += l
+		if len(str) <= length {
+			return str, "", width, pack(grAny, prop)
+		}
+	}
+}
