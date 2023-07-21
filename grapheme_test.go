@@ -299,34 +299,34 @@ func TestGraphemesEarly(t *testing.T) {
 }
 
 // Test retrieving more clusters after retrieving the last cluster.
-// func TestGraphemesLate(t *testing.T) {
-// 	gr := NewGraphemes("x")
-// 	gr.Next()
-// 	gr.Next()
-// 	r := gr.Runes()
-// 	if r != nil {
-// 		t.Errorf(`Expected nil rune slice, got %x`, r)
-// 	}
-// 	str := gr.Str()
-// 	if str != "" {
-// 		t.Errorf(`Expected empty string, got %q`, str)
-// 	}
-// 	b := gr.Bytes()
-// 	if b != nil {
-// 		t.Errorf(`Expected byte rune slice, got %x`, b)
-// 	}
-// 	from, to := gr.Positions()
-// 	if from != 1 || to != 1 {
-// 		t.Errorf(`Expected from=%d to=%d, got from=%d to=%d`, 1, 1, from, to)
-// 	}
-// }
+func TestGraphemesLate(t *testing.T) {
+	gr := NewGraphemes("x")
+	gr.Next()
+	gr.Next()
+	r := gr.Runes()
+	if r != nil {
+		t.Errorf(`Expected nil rune slice, got %x`, r)
+	}
+	str := gr.Str()
+	if str != "" {
+		t.Errorf(`Expected empty string, got %q`, str)
+	}
+	b := gr.Bytes()
+	if b != nil {
+		t.Errorf(`Expected byte rune slice, got %x`, b)
+	}
+	from, to := gr.Positions()
+	if from != 1 || to != 1 {
+		t.Errorf(`Expected from=%d to=%d, got from=%d to=%d`, 1, 1, from, to)
+	}
+}
 
 // Test the GraphemeClusterCount function.
-// func TestGraphemesCount(t *testing.T) {
-// 	if n := GraphemeClusterCount("🇩🇪🏳️\u200d🌈"); n != 2 {
-// 		t.Errorf(`Expected 2 grapheme clusters, got %d`, n)
-// 	}
-// }
+func TestGraphemesCount(t *testing.T) {
+	if n := GraphemeClusterCount("🇩🇪🏳️\u200d🌈"); n != 2 {
+		t.Errorf(`Expected 2 grapheme clusters, got %d`, n)
+	}
+}
 
 // Test the ReverseString function.
 func TestReverseString(t *testing.T) {
