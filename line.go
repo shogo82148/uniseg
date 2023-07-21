@@ -47,63 +47,39 @@ import "unicode/utf8"
 // [Unicode Standard Annex #14]: https://www.unicode.org/reports/tr14/tr14-49.html
 // [UAX #14 LB3]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
 func FirstLineSegment(b []byte, state LineBreakState) (segment, rest []byte, mustBreak bool, newState LineBreakState) {
-	// An empty byte slice returns nothing.
-	if len(b) == 0 {
-		return
-	}
-
-	// Extract the first rune.
-	r, length := utf8.DecodeRune(b)
-	if len(b) <= length { // If we're already past the end, there is nothing else to parse.
-		return b, nil, true, lbAny // LB3.
-	}
-
-	// If we don't know the state, determine it now.
-	if state < 0 {
-		state, _ = transitionLineBreakState(state, r, b[length:], "")
-	}
-
-	// Transition until we find a boundary.
-	var boundary LineBreak
-	for {
-		r, l := utf8.DecodeRune(b[length:])
-		state, boundary = transitionLineBreakState(state, r, b[length+l:], "")
-
-		if boundary != LineDontBreak {
-			return b[:length], b[length:], boundary == LineMustBreak, state
-		}
-
-		length += l
-		if len(b) <= length {
-			return b, nil, true, lbAny // LB3
-		}
-	}
+	return firstLineSegment(b, state, utf8.DecodeRune)
 }
 
 // FirstLineSegmentInString is like [FirstLineSegment] but its input and outputs
 // are strings.
 func FirstLineSegmentInString(str string, state LineBreakState) (segment, rest string, mustBreak bool, newState LineBreakState) {
+	return firstLineSegment(str, state, utf8.DecodeRuneInString)
+}
+
+func firstLineSegment[T bytes](str T, state LineBreakState, decoder runeDecoder[T]) (segment, rest T, mustBreak bool, newState LineBreakState) {
+	var zero T
+
 	// An empty byte slice returns nothing.
 	if len(str) == 0 {
 		return
 	}
 
 	// Extract the first rune.
-	r, length := utf8.DecodeRuneInString(str)
+	r, length := decoder(str)
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
-		return str, "", true, lbAny // LB3.
+		return str, zero, true, lbAny // LB3.
 	}
 
 	// If we don't know the state, determine it now.
 	if state < 0 {
-		state, _ = transitionLineBreakState(state, r, nil, str[length:])
+		state, _ = transitionLineBreakState(state, r, str[length:], decoder)
 	}
 
 	// Transition until we find a boundary.
 	var boundary LineBreak
 	for {
-		r, l := utf8.DecodeRuneInString(str[length:])
-		state, boundary = transitionLineBreakState(state, r, nil, str[length+l:])
+		r, l := decoder(str[length:])
+		state, boundary = transitionLineBreakState(state, r, str[length+l:], decoder)
 
 		if boundary != LineDontBreak {
 			return str[:length], str[length:], boundary == LineMustBreak, state
@@ -111,7 +87,7 @@ func FirstLineSegmentInString(str string, state LineBreakState) (segment, rest s
 
 		length += l
 		if len(str) <= length {
-			return str, "", true, lbAny // LB3.
+			return str, zero, true, lbAny // LB3.
 		}
 	}
 }

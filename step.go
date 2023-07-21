@@ -118,7 +118,7 @@ func Step(b []byte, state int) (cluster, rest []byte, boundaries int, newState i
 		graphemeState, firstProp, _ = transitionGraphemeState(-1, r)
 		wordState, _ = transitionWordBreakState(-1, r, remainder, utf8.DecodeRune)
 		sentenceState, _ = transitionSentenceBreakState(-1, r, remainder, utf8.DecodeRune)
-		lineState, _ = transitionLineBreakState(-1, r, remainder, "")
+		lineState, _ = transitionLineBreakState(-1, r, remainder, utf8.DecodeRune)
 	} else {
 		graphemeState = grState(state & maskGraphemeState)
 		wordState = WordBreakState((state >> shiftWordState) & maskWordState)
@@ -142,7 +142,7 @@ func Step(b []byte, state int) (cluster, rest []byte, boundaries int, newState i
 		graphemeState, prop, graphemeBoundary = transitionGraphemeState(graphemeState, r)
 		wordState, wordBoundary = transitionWordBreakState(wordState, r, remainder, utf8.DecodeRune)
 		sentenceState, sentenceBoundary = transitionSentenceBreakState(sentenceState, r, remainder, utf8.DecodeRune)
-		lineState, lineBreak = transitionLineBreakState(lineState, r, remainder, "")
+		lineState, lineBreak = transitionLineBreakState(lineState, r, remainder, utf8.DecodeRune)
 
 		if graphemeBoundary {
 			boundary := int(lineBreak) | (width << ShiftWidth)
@@ -199,7 +199,7 @@ func StepString(str string, state int) (cluster, rest string, boundaries int, ne
 		graphemeState, firstProp, _ = transitionGraphemeState(-1, r)
 		wordState, _ = transitionWordBreakState(-1, r, remainder, utf8.DecodeRuneInString)
 		sentenceState, _ = transitionSentenceBreakState(-1, r, remainder, utf8.DecodeRuneInString)
-		lineState, _ = transitionLineBreakState(-1, r, nil, remainder)
+		lineState, _ = transitionLineBreakState(-1, r, remainder, utf8.DecodeRuneInString)
 	} else {
 		graphemeState = grState(state & maskGraphemeState)
 		wordState = WordBreakState((state >> shiftWordState) & maskWordState)
@@ -223,7 +223,7 @@ func StepString(str string, state int) (cluster, rest string, boundaries int, ne
 		graphemeState, prop, graphemeBoundary = transitionGraphemeState(graphemeState, r)
 		wordState, wordBoundary = transitionWordBreakState(wordState, r, remainder, utf8.DecodeRuneInString)
 		sentenceState, sentenceBoundary = transitionSentenceBreakState(sentenceState, r, remainder, utf8.DecodeRuneInString)
-		lineState, lineBreak = transitionLineBreakState(lineState, r, nil, remainder)
+		lineState, lineBreak = transitionLineBreakState(lineState, r, remainder, utf8.DecodeRuneInString)
 
 		if graphemeBoundary {
 			boundary := int(lineBreak) | (width << ShiftWidth)

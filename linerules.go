@@ -304,7 +304,7 @@ var lbTransitions = map[lbStateProperty]lbTransitionResult{
 // code point is needed to determine the new state, the byte slice or the string
 // starting after rune "r" can be used (whichever is not nil or empty) for
 // further lookups.
-func transitionLineBreakState(state LineBreakState, r rune, b []byte, str string) (newState LineBreakState, lineBreak LineBreak) {
+func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, decoder runeDecoder[T]) (newState LineBreakState, lineBreak LineBreak) {
 	// Determine the property of the next character.
 	lbProp := lineBreakCodePoints.search(r)
 	nextProperty := lbProp.property
@@ -426,11 +426,7 @@ func transitionLineBreakState(state LineBreakState, r rune, b []byte, str string
 		(state == lbPR || state == lbPO) &&
 		nextProperty == prOP || nextProperty == prHY {
 		var r rune
-		if b != nil { // Byte slice version.
-			r, _ = utf8.DecodeRune(b)
-		} else { // String version.
-			r, _ = utf8.DecodeRuneInString(str)
-		}
+		r, _ = decoder(str)
 		if r != utf8.RuneError {
 			pr := lineBreakCodePoints.search(r).property
 			if pr == prNU {
