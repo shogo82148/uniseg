@@ -181,10 +181,6 @@ func parse(propertyURL, emojiProperty string, includeGeneralCategory bool) (stri
 		buf          bytes.Buffer
 		emojiComment string
 	)
-	// columns := 3
-	// if includeGeneralCategory {
-	// 	columns = 4
-	// }
 	if emojiURL != "" {
 		emojiComment = `
 // and
