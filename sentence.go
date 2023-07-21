@@ -19,7 +19,7 @@ import "unicode/utf8"
 // Given an empty byte slice "b", the function returns nil values.
 //
 // [Unicode Standard Annex #29, Sentence Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Sentence_Boundaries
-func FirstSentence(b []byte, state int) (sentence, rest []byte, newState int) {
+func FirstSentence(b []byte, state SentenceBreakState) (sentence, rest []byte, newState SentenceBreakState) {
 	// An empty byte slice returns nothing.
 	if len(b) == 0 {
 		return
@@ -55,7 +55,7 @@ func FirstSentence(b []byte, state int) (sentence, rest []byte, newState int) {
 
 // FirstSentenceInString is like [FirstSentence] but its input and outputs are
 // strings.
-func FirstSentenceInString(str string, state int) (sentence, rest string, newState int) {
+func FirstSentenceInString(str string, state SentenceBreakState) (sentence, rest string, newState SentenceBreakState) {
 	// An empty byte slice returns nothing.
 	if len(str) == 0 {
 		return

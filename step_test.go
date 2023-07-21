@@ -1,8 +1,6 @@
 package uniseg
 
-import (
-	"testing"
-)
+import "testing"
 
 // Test official Grapheme Cluster Unicode test cases for grapheme clusters using
 // the [Step] function.
@@ -493,7 +491,7 @@ func FuzzStepString(f *testing.F) {
 		if boundaries&MaskSentence == 0 {
 			t.Errorf("String %q does not end on a sentence boundary (final boundary = %x)", orig, state)
 		}
-		if boundaries&MaskLine != LineMustBreak {
+		if boundaries&MaskLine != int(LineMustBreak) {
 			t.Errorf("String %q does not end with a mandatory line break (final boundary = %x)", orig, state)
 		}
 

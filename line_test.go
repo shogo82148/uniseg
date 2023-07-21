@@ -16,7 +16,7 @@ func TestLineCasesBytes(t *testing.T) {
 			segment []byte
 			index   int
 		)
-		state := -1
+		state := LineBreakState(-1)
 		b := []byte(testCase.original)
 	WordLoop:
 		for index = 0; len(b) > 0; index++ {
@@ -77,7 +77,7 @@ func TestLineCasesString(t *testing.T) {
 			segment string
 			index   int
 		)
-		state := -1
+		state := LineBreakState(-1)
 		str := testCase.original
 	WordLoop:
 		for index = 0; len(str) > 0; index++ {
@@ -129,7 +129,7 @@ func BenchmarkLineFunctionBytes(b *testing.B) {
 	str := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
-		state := -1
+		state := LineBreakState(-1)
 		for len(str) > 0 {
 			c, str, _, state = FirstLineSegment(str, state)
 			resultRunes = []rune(string(c))
@@ -142,7 +142,7 @@ func BenchmarkLineFunctionString(b *testing.B) {
 	str := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
-		state := -1
+		state := LineBreakState(-1)
 		for len(str) > 0 {
 			c, str, _, state = FirstLineSegmentInString(str, state)
 			resultRunes = []rune(c)

@@ -1,8 +1,6 @@
 package uniseg
 
-import (
-	"testing"
-)
+import "testing"
 
 // widthTestCases is a list of test cases for the calculation of string widths.
 var widthTestCases = []struct {
@@ -372,7 +370,7 @@ func TestWidthGraphemes(t *testing.T) {
 func TestWidthGraphemesFunctionBytes(t *testing.T) {
 	for index, testCase := range widthTestCases {
 		var actual, width int
-		state := -1
+		state := State(-1)
 		text := []byte(testCase.original)
 		for len(text) > 0 {
 			_, text, width, state = FirstGraphemeCluster(text, state)
@@ -388,7 +386,7 @@ func TestWidthGraphemesFunctionBytes(t *testing.T) {
 func TestWidthGraphemesFunctionString(t *testing.T) {
 	for index, testCase := range widthTestCases {
 		var actual, width int
-		state := -1
+		state := State(-1)
 		text := testCase.original
 		for len(text) > 0 {
 			_, text, width, state = FirstGraphemeClusterInString(text, state)

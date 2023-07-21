@@ -19,7 +19,7 @@ import "unicode/utf8"
 // Given an empty byte slice "b", the function returns nil values.
 //
 // [Unicode Standard Annex #29, Word Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Word_Boundaries
-func FirstWord(b []byte, state int) (word, rest []byte, newState int) {
+func FirstWord(b []byte, state WordBreakState) (word, rest []byte, newState WordBreakState) {
 	// An empty byte slice returns nothing.
 	if len(b) == 0 {
 		return
@@ -54,7 +54,7 @@ func FirstWord(b []byte, state int) (word, rest []byte, newState int) {
 }
 
 // FirstWordInString is like [FirstWord] but its input and outputs are strings.
-func FirstWordInString(str string, state int) (word, rest string, newState int) {
+func FirstWordInString(str string, state WordBreakState) (word, rest string, newState WordBreakState) {
 	// An empty byte slice returns nothing.
 	if len(str) == 0 {
 		return

@@ -363,7 +363,7 @@ func TestGraphemesFunctionBytes(t *testing.T) {
 		decomposed(testCase.original),
 		[]rune(testCase.original))*/
 		b := []byte(testCase.original)
-		state := -1
+		state := State(-1)
 		var (
 			index int
 			c     []byte
@@ -427,7 +427,7 @@ func TestGraphemesFunctionString(t *testing.T) {
 		decomposed(testCase.original),
 		[]rune(testCase.original))*/
 		str := testCase.original
-		state := -1
+		state := State(-1)
 		var (
 			index int
 			c     string
@@ -495,7 +495,7 @@ func BenchmarkGraphemesFunctionBytes(b *testing.B) {
 	str := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
-		state := -1
+		state := State(-1)
 		for len(str) > 0 {
 			c, str, _, state = FirstGraphemeCluster(str, state)
 			resultRunes = []rune(string(c))
@@ -508,7 +508,7 @@ func BenchmarkGraphemesFunctionString(b *testing.B) {
 	str := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
-		state := -1
+		state := State(-1)
 		for len(str) > 0 {
 			c, str, _, state = FirstGraphemeClusterInString(str, state)
 			resultRunes = []rune(c)

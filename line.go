@@ -46,7 +46,7 @@ import "unicode/utf8"
 //
 // [Unicode Standard Annex #14]: https://www.unicode.org/reports/tr14/tr14-49.html
 // [UAX #14 LB3]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
-func FirstLineSegment(b []byte, state int) (segment, rest []byte, mustBreak bool, newState int) {
+func FirstLineSegment(b []byte, state LineBreakState) (segment, rest []byte, mustBreak bool, newState LineBreakState) {
 	// An empty byte slice returns nothing.
 	if len(b) == 0 {
 		return
@@ -64,7 +64,7 @@ func FirstLineSegment(b []byte, state int) (segment, rest []byte, mustBreak bool
 	}
 
 	// Transition until we find a boundary.
-	var boundary int
+	var boundary LineBreak
 	for {
 		r, l := utf8.DecodeRune(b[length:])
 		state, boundary = transitionLineBreakState(state, r, b[length+l:], "")
@@ -82,7 +82,7 @@ func FirstLineSegment(b []byte, state int) (segment, rest []byte, mustBreak bool
 
 // FirstLineSegmentInString is like [FirstLineSegment] but its input and outputs
 // are strings.
-func FirstLineSegmentInString(str string, state int) (segment, rest string, mustBreak bool, newState int) {
+func FirstLineSegmentInString(str string, state LineBreakState) (segment, rest string, mustBreak bool, newState LineBreakState) {
 	// An empty byte slice returns nothing.
 	if len(str) == 0 {
 		return
@@ -100,7 +100,7 @@ func FirstLineSegmentInString(str string, state int) (segment, rest string, must
 	}
 
 	// Transition until we find a boundary.
-	var boundary int
+	var boundary LineBreak
 	for {
 		r, l := utf8.DecodeRuneInString(str[length:])
 		state, boundary = transitionLineBreakState(state, r, nil, str[length+l:])
@@ -122,13 +122,13 @@ func FirstLineSegmentInString(str string, state int) (segment, rest string, must
 // [UAX #14]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
 func HasTrailingLineBreak(b []byte) bool {
 	r, _ := utf8.DecodeLastRune(b)
-	property, _ := propertyWithGenCat(lineBreakCodePoints, r)
-	return property == lbBK || property == lbCR || property == lbLF || property == lbNL
+	p := lineBreakCodePoints.search(r).property
+	return p == prBK || p == prCR || p == prLF || p == prNL
 }
 
 // HasTrailingLineBreakInString is like [HasTrailingLineBreak] but for a string.
 func HasTrailingLineBreakInString(str string) bool {
 	r, _ := utf8.DecodeLastRuneInString(str)
-	property, _ := propertyWithGenCat(lineBreakCodePoints, r)
-	return property == lbBK || property == lbCR || property == lbLF || property == lbNL
+	p := lineBreakCodePoints.search(r).property
+	return p == prBK || p == prCR || p == prLF || p == prNL
 }

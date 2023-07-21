@@ -16,7 +16,7 @@ func TestWordCasesBytes(t *testing.T) {
 			word  []byte
 			index int
 		)
-		state := -1
+		state := WordBreakState(-1)
 		b := []byte(testCase.original)
 	WordLoop:
 		for index = 0; len(b) > 0; index++ {
@@ -77,7 +77,7 @@ func TestWordCasesString(t *testing.T) {
 			word  string
 			index int
 		)
-		state := -1
+		state := WordBreakState(-1)
 		str := testCase.original
 	WordLoop:
 		for index = 0; len(str) > 0; index++ {
@@ -129,7 +129,7 @@ func BenchmarkWordFunctionBytes(b *testing.B) {
 	str := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
-		state := -1
+		state := WordBreakState(-1)
 		for len(str) > 0 {
 			c, str, state = FirstWord(str, state)
 			resultRunes = []rune(string(c))
@@ -142,7 +142,7 @@ func BenchmarkWordFunctionString(b *testing.B) {
 	str := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
-		state := -1
+		state := WordBreakState(-1)
 		for len(str) > 0 {
 			c, str, state = FirstWordInString(str, state)
 			resultRunes = []rune(c)

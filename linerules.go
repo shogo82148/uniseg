@@ -2,9 +2,11 @@ package uniseg
 
 import "unicode/utf8"
 
+type LineBreakState int
+
 // The states of the line break parser.
 const (
-	lbAny = iota
+	lbAny LineBreakState = iota
 	lbBK
 	lbCR
 	lbLF
@@ -50,23 +52,37 @@ const (
 	lbOddRI
 	lbEvenRI
 	lbExtPicCn
-	lbZWJBit     = 64
-	lbCPeaFWHBit = 128
+	lbZWJBit     LineBreakState = 64
+	lbCPeaFWHBit LineBreakState = 128
 )
+
+// LineBreak defines whether a given text may be broken into the next line.
+type LineBreak int
 
 // These constants define whether a given text may be broken into the next line.
 // If the break is optional (LineCanBreak), you may choose to break or not based
 // on your own criteria, for example, if the text has reached the available
 // width.
 const (
-	LineDontBreak = iota // You may not break the line here.
-	LineCanBreak         // You may or may not break the line here.
-	LineMustBreak        // You must break the line here.
+	LineDontBreak LineBreak = iota // You may not break the line here.
+	LineCanBreak                   // You may or may not break the line here.
+	LineMustBreak                  // You must break the line here.
 )
 
-// The line break parser's state transitions. It's anologous to grTransitions,
+type lbStateProperty struct {
+	LineBreakState
+	property
+}
+
+type lbTransitionResult struct {
+	LineBreakState
+	boundary   LineBreak
+	ruleNumber int
+}
+
+// The line break parser's state transitions. It's analogous to grTransitions,
 // see comments there for details. Unicode version 14.0.0.
-var lbTransitions = map[[2]int][3]int{
+var lbTransitions = map[lbStateProperty]lbTransitionResult{
 	// LB4.
 	{lbAny, prBK}: {lbBK, LineCanBreak, 310},
 	{lbBK, prAny}: {lbAny, LineMustBreak, 40},
@@ -288,9 +304,11 @@ var lbTransitions = map[[2]int][3]int{
 // code point is needed to determine the new state, the byte slice or the string
 // starting after rune "r" can be used (whichever is not nil or empty) for
 // further lookups.
-func transitionLineBreakState(state int, r rune, b []byte, str string) (newState int, lineBreak int) {
+func transitionLineBreakState(state LineBreakState, r rune, b []byte, str string) (newState LineBreakState, lineBreak LineBreak) {
 	// Determine the property of the next character.
-	nextProperty, generalCategory := propertyWithGenCat(lineBreakCodePoints, r)
+	lbProp := lineBreakCodePoints.search(r)
+	nextProperty := lbProp.property
+	generalCategory := lbProp.generalCategory
 
 	// Prepare.
 	var forceNoBreak, isCPeaFWH bool
@@ -306,7 +324,7 @@ func transitionLineBreakState(state int, r rune, b []byte, str string) (newState
 	defer func() {
 		// Transition into LB30.
 		if newState == lbCP || newState == lbNUCP {
-			ea := property(eastAsianWidth, r)
+			ea := eastAsianWidth.search(r)
 			if ea != prF && ea != prW && ea != prH {
 				newState |= lbCPeaFWHBit
 			}
@@ -333,7 +351,7 @@ func transitionLineBreakState(state int, r rune, b []byte, str string) (newState
 
 	// Combining marks.
 	if nextProperty == prZWJ || nextProperty == prCM {
-		var bit int
+		var bit LineBreakState
 		if nextProperty == prZWJ {
 			bit = lbZWJBit
 		}
@@ -352,30 +370,30 @@ func transitionLineBreakState(state int, r rune, b []byte, str string) (newState
 
 	// Find the applicable transition in the table.
 	var rule int
-	transition, ok := lbTransitions[[2]int{state, nextProperty}]
+	transition, ok := lbTransitions[lbStateProperty{state, nextProperty}]
 	if ok {
 		// We have a specific transition. We'll use it.
-		newState, lineBreak, rule = transition[0], transition[1], transition[2]
+		newState, lineBreak, rule = transition.LineBreakState, transition.boundary, transition.ruleNumber
 	} else {
 		// No specific transition found. Try the less specific ones.
-		transAnyProp, okAnyProp := lbTransitions[[2]int{state, prAny}]
-		transAnyState, okAnyState := lbTransitions[[2]int{lbAny, nextProperty}]
+		transAnyProp, okAnyProp := lbTransitions[lbStateProperty{state, prAny}]
+		transAnyState, okAnyState := lbTransitions[lbStateProperty{lbAny, nextProperty}]
 		if okAnyProp && okAnyState {
 			// Both apply. We'll use a mix (see comments for grTransitions).
-			newState, lineBreak, rule = transAnyState[0], transAnyState[1], transAnyState[2]
-			if transAnyProp[2] < transAnyState[2] {
-				lineBreak, rule = transAnyProp[1], transAnyProp[2]
+			newState, lineBreak, rule = transAnyState.LineBreakState, transAnyState.boundary, transAnyState.ruleNumber
+			if transAnyProp.ruleNumber < transAnyState.ruleNumber {
+				lineBreak, rule = transAnyProp.boundary, transAnyProp.ruleNumber
 			}
 		} else if okAnyProp {
 			// We only have a specific state.
-			newState, lineBreak, rule = transAnyProp[0], transAnyProp[1], transAnyProp[2]
+			newState, lineBreak, rule = transAnyProp.LineBreakState, transAnyProp.boundary, transAnyProp.ruleNumber
 			// This branch will probably never be reached because okAnyState will
 			// always be true given the current transition map. But we keep it here
 			// for future modifications to the transition map where this may not be
 			// true anymore.
 		} else if okAnyState {
 			// We only have a specific property.
-			newState, lineBreak, rule = transAnyState[0], transAnyState[1], transAnyState[2]
+			newState, lineBreak, rule = transAnyState.LineBreakState, transAnyState.boundary, transAnyState.ruleNumber
 		} else {
 			// No known transition. LB31: ALL ÷ ALL.
 			newState, lineBreak, rule = lbAny, LineCanBreak, 310
@@ -414,7 +432,7 @@ func transitionLineBreakState(state int, r rune, b []byte, str string) (newState
 			r, _ = utf8.DecodeRuneInString(str)
 		}
 		if r != utf8.RuneError {
-			pr, _ := propertyWithGenCat(lineBreakCodePoints, r)
+			pr := lineBreakCodePoints.search(r).property
 			if pr == prNU {
 				return lbNU, LineDontBreak
 			}
@@ -424,7 +442,7 @@ func transitionLineBreakState(state int, r rune, b []byte, str string) (newState
 	// LB30 (part one).
 	if rule > 300 {
 		if (state == lbAL || state == lbHL || state == lbNU || state == lbNUNU) && nextProperty == prOP {
-			ea := property(eastAsianWidth, r)
+			ea := eastAsianWidth.search(r)
 			if ea != prF && ea != prW && ea != prH {
 				return lbOP, LineDontBreak
 			}
@@ -457,10 +475,10 @@ func transitionLineBreakState(state int, r rune, b []byte, str string) (newState
 	if rule > 302 {
 		if nextProperty == prEM {
 			if state == lbEB || state == lbExtPicCn {
-				return prAny, LineDontBreak
+				return lbAny, LineDontBreak
 			}
 		}
-		graphemeProperty := property(graphemeCodePoints, r)
+		graphemeProperty := graphemeCodePoints.search(r)
 		if graphemeProperty == prExtendedPictographic && generalCategory == gcCn {
 			return lbExtPicCn, LineCanBreak
 		}

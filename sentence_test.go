@@ -1,8 +1,6 @@
 package uniseg
 
-import (
-	"testing"
-)
+import "testing"
 
 // Test all official Unicode test cases for sentence boundaries using the byte
 // slice function.
@@ -18,7 +16,7 @@ func TestSentenceCasesBytes(t *testing.T) {
 			sentence []byte
 			index    int
 		)
-		state := -1
+		state := SentenceBreakState(-1)
 		b := []byte(testCase.original)
 	WordLoop:
 		for index = 0; len(b) > 0; index++ {
@@ -79,7 +77,7 @@ func TestSentenceCasesString(t *testing.T) {
 			sentence string
 			index    int
 		)
-		state := -1
+		state := SentenceBreakState(-1)
 		str := testCase.original
 	WordLoop:
 		for index = 0; len(str) > 0; index++ {
@@ -131,7 +129,7 @@ func BenchmarkSentenceFunctionBytes(b *testing.B) {
 	str := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
-		state := -1
+		state := SentenceBreakState(-1)
 		for len(str) > 0 {
 			c, str, state = FirstSentence(str, state)
 			resultRunes = []rune(string(c))
@@ -144,7 +142,7 @@ func BenchmarkSentenceFunctionString(b *testing.B) {
 	str := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
-		state := -1
+		state := SentenceBreakState(-1)
 		for len(str) > 0 {
 			c, str, state = FirstSentenceInString(str, state)
 			resultRunes = []rune(c)

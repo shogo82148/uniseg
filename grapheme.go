@@ -125,14 +125,14 @@ func (g *Graphemes) IsSentenceBoundary() bool {
 // cluster. A value of [LineDontBreak] means the line may not be broken, a value
 // of [LineMustBreak] means the line must be broken, and a value of
 // [LineCanBreak] means the line may or may not be broken.
-func (g *Graphemes) LineBreak() int {
+func (g *Graphemes) LineBreak() LineBreak {
 	if g.state == -1 {
 		return LineDontBreak
 	}
 	if g.state == -2 {
 		return LineMustBreak
 	}
-	return g.boundaries & MaskLine
+	return LineBreak(g.boundaries & MaskLine)
 }
 
 // Width returns the monospace width of the current grapheme cluster.
@@ -155,7 +155,7 @@ func (g *Graphemes) Reset() {
 // GraphemeClusterCount returns the number of user-perceived characters
 // (grapheme clusters) for the given string.
 func GraphemeClusterCount(s string) (n int) {
-	state := -1
+	state := State(-1)
 	for len(s) > 0 {
 		_, s, _, state = FirstGraphemeClusterInString(s, state)
 		n++
@@ -168,7 +168,7 @@ func GraphemeClusterCount(s string) (n int) {
 func ReverseString(s string) string {
 	str := []byte(s)
 	reversed := make([]byte, len(str))
-	state := -1
+	state := State(-1)
 	index := len(str)
 	for len(str) > 0 {
 		var cluster []byte
@@ -182,9 +182,19 @@ func ReverseString(s string) string {
 	return string(reversed)
 }
 
+type State int
+
 // The number of bits the grapheme property must be shifted to make place for
 // grapheme states.
 const shiftGraphemePropState = 4
+
+func pack(s grState, p property) State {
+	return State(s)<<shiftGraphemePropState | State(p)
+}
+
+func (s State) unpack() (grState, property) {
+	return grState(s >> shiftGraphemePropState), property(s & ((1 << shiftGraphemePropState) - 1))
+}
 
 // FirstGraphemeCluster returns the first grapheme cluster found in the given
 // byte slice according to the rules of [Unicode Standard Annex #29, Grapheme
@@ -211,7 +221,7 @@ const shiftGraphemePropState = 4
 // large byte slices.
 //
 // [Unicode Standard Annex #29, Grapheme Cluster Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Grapheme_Cluster_Boundaries
-func FirstGraphemeCluster(b []byte, state int) (cluster, rest []byte, width, newState int) {
+func FirstGraphemeCluster(b []byte, state State) (cluster, rest []byte, width int, newState State) {
 	// An empty byte slice returns nothing.
 	if len(b) == 0 {
 		return
@@ -220,36 +230,37 @@ func FirstGraphemeCluster(b []byte, state int) (cluster, rest []byte, width, new
 	// Extract the first rune.
 	r, length := utf8.DecodeRune(b)
 	if len(b) <= length { // If we're already past the end, there is nothing else to parse.
-		var prop int
+		var prop property
 		if state < 0 {
-			prop = property(graphemeCodePoints, r)
+			prop = graphemeCodePoints.search(r)
 		} else {
-			prop = state >> shiftGraphemePropState
+			_, prop = state.unpack()
 		}
-		return b, nil, runeWidth(r, prop), grAny | (prop << shiftGraphemePropState)
+		return b, nil, runeWidth(r, prop), pack(grAny, prop)
 	}
 
 	// If we don't know the state, determine it now.
-	var firstProp int
+	var myState grState
+	var firstProp property
 	if state < 0 {
-		state, firstProp, _ = transitionGraphemeState(state, r)
+		myState, firstProp, _ = transitionGraphemeState(myState, r)
 	} else {
-		firstProp = state >> shiftGraphemePropState
+		myState, firstProp = state.unpack()
 	}
 	width += runeWidth(r, firstProp)
 
 	// Transition until we find a boundary.
 	for {
 		var (
-			prop     int
+			prop     property
 			boundary bool
 		)
 
 		r, l := utf8.DecodeRune(b[length:])
-		state, prop, boundary = transitionGraphemeState(state&maskGraphemeState, r)
+		myState, prop, boundary = transitionGraphemeState(myState, r)
 
 		if boundary {
-			return b[:length], b[length:], width, state | (prop << shiftGraphemePropState)
+			return b[:length], b[length:], width, pack(myState, prop)
 		}
 
 		if r == vs16 {
@@ -266,14 +277,14 @@ func FirstGraphemeCluster(b []byte, state int) (cluster, rest []byte, width, new
 
 		length += l
 		if len(b) <= length {
-			return b, nil, width, grAny | (prop << shiftGraphemePropState)
+			return b, nil, width, pack(grAny, prop)
 		}
 	}
 }
 
 // FirstGraphemeClusterInString is like [FirstGraphemeCluster] but its input and
 // outputs are strings.
-func FirstGraphemeClusterInString(str string, state int) (cluster, rest string, width, newState int) {
+func FirstGraphemeClusterInString(str string, state State) (cluster, rest string, width int, newState State) {
 	// An empty string returns nothing.
 	if len(str) == 0 {
 		return
@@ -282,36 +293,37 @@ func FirstGraphemeClusterInString(str string, state int) (cluster, rest string, 
 	// Extract the first rune.
 	r, length := utf8.DecodeRuneInString(str)
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
-		var prop int
+		var prop property
 		if state < 0 {
-			prop = property(graphemeCodePoints, r)
+			prop = graphemeCodePoints.search(r)
 		} else {
-			prop = state >> shiftGraphemePropState
+			_, prop = state.unpack()
 		}
-		return str, "", runeWidth(r, prop), grAny | (prop << shiftGraphemePropState)
+		return str, "", runeWidth(r, prop), pack(grAny, prop)
 	}
 
 	// If we don't know the state, determine it now.
-	var firstProp int
+	var myState grState
+	var firstProp property
 	if state < 0 {
-		state, firstProp, _ = transitionGraphemeState(state, r)
+		myState, firstProp, _ = transitionGraphemeState(myState, r)
 	} else {
-		firstProp = state >> shiftGraphemePropState
+		myState, firstProp = state.unpack()
 	}
 	width += runeWidth(r, firstProp)
 
 	// Transition until we find a boundary.
 	for {
 		var (
-			prop     int
+			prop     property
 			boundary bool
 		)
 
 		r, l := utf8.DecodeRuneInString(str[length:])
-		state, prop, boundary = transitionGraphemeState(state&maskGraphemeState, r)
+		myState, prop, boundary = transitionGraphemeState(myState, r)
 
 		if boundary {
-			return str[:length], str[length:], width, state | (prop << shiftGraphemePropState)
+			return str[:length], str[length:], width, pack(myState, prop)
 		}
 
 		if r == vs16 {
@@ -328,7 +340,7 @@ func FirstGraphemeClusterInString(str string, state int) (cluster, rest string, 
 
 		length += l
 		if len(str) <= length {
-			return str, "", width, grAny | (prop << shiftGraphemePropState)
+			return str, "", width, pack(grAny, prop)
 		}
 	}
 }
