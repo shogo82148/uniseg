@@ -143,191 +143,191 @@ func ExampleFirstLineSegmentInString() {
 	// (line.) < must break
 }
 
-// func ExampleStep_graphemes() {
-// 	b := []byte("🇩🇪🏳️\u200d🌈!")
-// 	state := -1
-// 	var c []byte
-// 	for len(b) > 0 {
-// 		var boundaries int
-// 		c, b, boundaries, state = uniseg.Step(b, state)
-// 		fmt.Println(string(c), boundaries>>uniseg.ShiftWidth)
-// 	}
-// 	// Output: 🇩🇪 2
-// 	// 🏳️‍🌈 2
-// 	// ! 1
-// }
+func ExampleStep_graphemes() {
+	b := []byte("🇩🇪🏳️\u200d🌈!")
+	state := -1
+	var c []byte
+	for len(b) > 0 {
+		var boundaries int
+		c, b, boundaries, state = uniseg.Step(b, state)
+		fmt.Println(string(c), boundaries>>uniseg.ShiftWidth)
+	}
+	// Output: 🇩🇪 2
+	// 🏳️‍🌈 2
+	// ! 1
+}
 
-// func ExampleStepString_graphemes() {
-// 	str := "🇩🇪🏳️\u200d🌈!"
-// 	state := -1
-// 	var c string
-// 	for len(str) > 0 {
-// 		var boundaries int
-// 		c, str, boundaries, state = uniseg.StepString(str, state)
-// 		fmt.Println(c, boundaries>>uniseg.ShiftWidth)
-// 	}
-// 	// Output:
-// 	// 🇩🇪 2
-// 	// 🏳️‍🌈 2
-// 	// ! 1
-// }
+func ExampleStepString_graphemes() {
+	str := "🇩🇪🏳️\u200d🌈!"
+	state := -1
+	var c string
+	for len(str) > 0 {
+		var boundaries int
+		c, str, boundaries, state = uniseg.StepString(str, state)
+		fmt.Println(c, boundaries>>uniseg.ShiftWidth)
+	}
+	// Output:
+	// 🇩🇪 2
+	// 🏳️‍🌈 2
+	// ! 1
+}
 
-// func ExampleStep_word() {
-// 	b := []byte("Hello, world!")
-// 	state := -1
-// 	var (
-// 		c          []byte
-// 		boundaries int
-// 	)
-// 	for len(b) > 0 {
-// 		c, b, boundaries, state = uniseg.Step(b, state)
-// 		fmt.Print(string(c))
-// 		if boundaries&uniseg.MaskWord != 0 {
-// 			fmt.Print("|")
-// 		}
-// 	}
-// 	// Output: Hello|,| |world|!|
-// }
+func ExampleStep_word() {
+	b := []byte("Hello, world!")
+	state := -1
+	var (
+		c          []byte
+		boundaries int
+	)
+	for len(b) > 0 {
+		c, b, boundaries, state = uniseg.Step(b, state)
+		fmt.Print(string(c))
+		if boundaries&uniseg.MaskWord != 0 {
+			fmt.Print("|")
+		}
+	}
+	// Output: Hello|,| |world|!|
+}
 
-// func ExampleStepString_word() {
-// 	str := "Hello, world!"
-// 	state := -1
-// 	var (
-// 		c          string
-// 		boundaries int
-// 	)
-// 	for len(str) > 0 {
-// 		c, str, boundaries, state = uniseg.StepString(str, state)
-// 		fmt.Print(c)
-// 		if boundaries&uniseg.MaskWord != 0 {
-// 			fmt.Print("|")
-// 		}
-// 	}
-// 	// Output: Hello|,| |world|!|
-// }
+func ExampleStepString_word() {
+	str := "Hello, world!"
+	state := -1
+	var (
+		c          string
+		boundaries int
+	)
+	for len(str) > 0 {
+		c, str, boundaries, state = uniseg.StepString(str, state)
+		fmt.Print(c)
+		if boundaries&uniseg.MaskWord != 0 {
+			fmt.Print("|")
+		}
+	}
+	// Output: Hello|,| |world|!|
+}
 
-// func ExampleStep_sentence() {
-// 	b := []byte("This is sentence 1.0. And this is sentence two.")
-// 	state := -1
-// 	var (
-// 		c          []byte
-// 		boundaries int
-// 	)
-// 	for len(b) > 0 {
-// 		c, b, boundaries, state = uniseg.Step(b, state)
-// 		fmt.Print(string(c))
-// 		if boundaries&uniseg.MaskSentence != 0 {
-// 			fmt.Print("|")
-// 		}
-// 	}
-// 	// Output: This is sentence 1.0. |And this is sentence two.|
-// }
+func ExampleStep_sentence() {
+	b := []byte("This is sentence 1.0. And this is sentence two.")
+	state := -1
+	var (
+		c          []byte
+		boundaries int
+	)
+	for len(b) > 0 {
+		c, b, boundaries, state = uniseg.Step(b, state)
+		fmt.Print(string(c))
+		if boundaries&uniseg.MaskSentence != 0 {
+			fmt.Print("|")
+		}
+	}
+	// Output: This is sentence 1.0. |And this is sentence two.|
+}
 
-// func ExampleStepString_sentence() {
-// 	str := "This is sentence 1.0. And this is sentence two."
-// 	state := -1
-// 	var (
-// 		c          string
-// 		boundaries int
-// 	)
-// 	for len(str) > 0 {
-// 		c, str, boundaries, state = uniseg.StepString(str, state)
-// 		fmt.Print(c)
-// 		if boundaries&uniseg.MaskSentence != 0 {
-// 			fmt.Print("|")
-// 		}
-// 	}
-// 	// Output: This is sentence 1.0. |And this is sentence two.|
-// }
+func ExampleStepString_sentence() {
+	str := "This is sentence 1.0. And this is sentence two."
+	state := -1
+	var (
+		c          string
+		boundaries int
+	)
+	for len(str) > 0 {
+		c, str, boundaries, state = uniseg.StepString(str, state)
+		fmt.Print(c)
+		if boundaries&uniseg.MaskSentence != 0 {
+			fmt.Print("|")
+		}
+	}
+	// Output: This is sentence 1.0. |And this is sentence two.|
+}
 
-// func ExampleStep_lineBreaking() {
-// 	b := []byte("First line.\nSecond line.")
-// 	state := -1
-// 	var (
-// 		c          []byte
-// 		boundaries int
-// 	)
-// 	for len(b) > 0 {
-// 		c, b, boundaries, state = uniseg.Step(b, state)
-// 		fmt.Print(string(c))
-// 		if boundaries&uniseg.MaskLine == uniseg.LineCanBreak {
-// 			fmt.Print("|")
-// 		} else if boundaries&uniseg.MaskLine == uniseg.LineMustBreak {
-// 			fmt.Print("‖")
-// 		}
-// 	}
-// 	// Output:
-// 	// First |line.
-// 	// ‖Second |line.‖
-// }
+func ExampleStep_lineBreaking() {
+	b := []byte("First line.\nSecond line.")
+	state := -1
+	var (
+		c          []byte
+		boundaries int
+	)
+	for len(b) > 0 {
+		c, b, boundaries, state = uniseg.Step(b, state)
+		fmt.Print(string(c))
+		if boundaries&uniseg.MaskLine == int(uniseg.LineCanBreak) {
+			fmt.Print("|")
+		} else if boundaries&uniseg.MaskLine == int(uniseg.LineMustBreak) {
+			fmt.Print("‖")
+		}
+	}
+	// Output:
+	// First |line.
+	// ‖Second |line.‖
+}
 
-// func ExampleStepString_lineBreaking() {
-// 	str := "First line.\nSecond line."
-// 	state := -1
-// 	var (
-// 		c          string
-// 		boundaries int
-// 	)
-// 	for len(str) > 0 {
-// 		c, str, boundaries, state = uniseg.StepString(str, state)
-// 		fmt.Print(c)
-// 		if boundaries&uniseg.MaskLine == uniseg.LineCanBreak {
-// 			fmt.Print("|")
-// 		} else if boundaries&uniseg.MaskLine == uniseg.LineMustBreak {
-// 			fmt.Print("‖")
-// 		}
-// 	}
-// 	// Output: First |line.
-// 	//‖Second |line.‖
-// }
+func ExampleStepString_lineBreaking() {
+	str := "First line.\nSecond line."
+	state := -1
+	var (
+		c          string
+		boundaries int
+	)
+	for len(str) > 0 {
+		c, str, boundaries, state = uniseg.StepString(str, state)
+		fmt.Print(c)
+		if boundaries&uniseg.MaskLine == int(uniseg.LineCanBreak) {
+			fmt.Print("|")
+		} else if boundaries&uniseg.MaskLine == int(uniseg.LineMustBreak) {
+			fmt.Print("‖")
+		}
+	}
+	// Output: First |line.
+	//‖Second |line.‖
+}
 
-// func ExampleGraphemes_graphemes() {
-// 	g := uniseg.NewGraphemes("🇩🇪🏳️\u200d🌈")
-// 	for g.Next() {
-// 		fmt.Println(g.Str())
-// 	}
-// 	// Output:
-// 	// 🇩🇪
-// 	// 🏳️‍🌈
-// }
+func ExampleGraphemes_graphemes() {
+	g := uniseg.NewGraphemes("🇩🇪🏳️\u200d🌈")
+	for g.Next() {
+		fmt.Println(g.Str())
+	}
+	// Output:
+	// 🇩🇪
+	// 🏳️‍🌈
+}
 
-// func ExampleGraphemes_word() {
-// 	g := uniseg.NewGraphemes("Hello, world!")
-// 	for g.Next() {
-// 		fmt.Print(g.Str())
-// 		if g.IsWordBoundary() {
-// 			fmt.Print("|")
-// 		}
-// 	}
-// 	// Output: Hello|,| |world|!|
-// }
+func ExampleGraphemes_word() {
+	g := uniseg.NewGraphemes("Hello, world!")
+	for g.Next() {
+		fmt.Print(g.Str())
+		if g.IsWordBoundary() {
+			fmt.Print("|")
+		}
+	}
+	// Output: Hello|,| |world|!|
+}
 
-// func ExampleGraphemes_sentence() {
-// 	g := uniseg.NewGraphemes("This is sentence 1.0. And this is sentence two.")
-// 	for g.Next() {
-// 		fmt.Print(g.Str())
-// 		if g.IsSentenceBoundary() {
-// 			fmt.Print("|")
-// 		}
-// 	}
-// 	// Output: This is sentence 1.0. |And this is sentence two.|
-// }
+func ExampleGraphemes_sentence() {
+	g := uniseg.NewGraphemes("This is sentence 1.0. And this is sentence two.")
+	for g.Next() {
+		fmt.Print(g.Str())
+		if g.IsSentenceBoundary() {
+			fmt.Print("|")
+		}
+	}
+	// Output: This is sentence 1.0. |And this is sentence two.|
+}
 
-// func ExampleGraphemes_lineBreaking() {
-// 	g := uniseg.NewGraphemes("First line.\nSecond line.")
-// 	for g.Next() {
-// 		fmt.Print(g.Str())
-// 		if g.LineBreak() == uniseg.LineCanBreak {
-// 			fmt.Print("|")
-// 		} else if g.LineBreak() == uniseg.LineMustBreak {
-// 			fmt.Print("‖")
-// 		}
-// 	}
-// 	// Output: First |line.
-// 	//‖Second |line.‖
-// }
+func ExampleGraphemes_lineBreaking() {
+	g := uniseg.NewGraphemes("First line.\nSecond line.")
+	for g.Next() {
+		fmt.Print(g.Str())
+		if g.LineBreak() == uniseg.LineCanBreak {
+			fmt.Print("|")
+		} else if g.LineBreak() == uniseg.LineMustBreak {
+			fmt.Print("‖")
+		}
+	}
+	// Output: First |line.
+	//‖Second |line.‖
+}
 
-// func ExampleStringWidth() {
-// 	fmt.Println(uniseg.StringWidth("Hello, 世界"))
-// 	// Output: 11
-// }
+func ExampleStringWidth() {
+	fmt.Println(uniseg.StringWidth("Hello, 世界"))
+	// Output: 11
+}
