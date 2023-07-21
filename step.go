@@ -116,7 +116,7 @@ func Step(b []byte, state int) (cluster, rest []byte, boundaries int, newState i
 	remainder := b[length:]
 	if state < 0 {
 		graphemeState, firstProp, _ = transitionGraphemeState(-1, r)
-		wordState, _ = transitionWordBreakState(-1, r, remainder, "")
+		wordState, _ = transitionWordBreakState(-1, r, remainder, utf8.DecodeRune)
 		sentenceState, _ = transitionSentenceBreakState(-1, r, remainder, "")
 		lineState, _ = transitionLineBreakState(-1, r, remainder, "")
 	} else {
@@ -140,7 +140,7 @@ func Step(b []byte, state int) (cluster, rest []byte, boundaries int, newState i
 		remainder = b[length+l:]
 
 		graphemeState, prop, graphemeBoundary = transitionGraphemeState(graphemeState, r)
-		wordState, wordBoundary = transitionWordBreakState(wordState, r, remainder, "")
+		wordState, wordBoundary = transitionWordBreakState(wordState, r, remainder, utf8.DecodeRune)
 		sentenceState, sentenceBoundary = transitionSentenceBreakState(sentenceState, r, remainder, "")
 		lineState, lineBreak = transitionLineBreakState(lineState, r, remainder, "")
 
@@ -197,7 +197,7 @@ func StepString(str string, state int) (cluster, rest string, boundaries int, ne
 	remainder := str[length:]
 	if state < 0 {
 		graphemeState, firstProp, _ = transitionGraphemeState(-1, r)
-		wordState, _ = transitionWordBreakState(-1, r, nil, remainder)
+		wordState, _ = transitionWordBreakState(-1, r, remainder, utf8.DecodeRuneInString)
 		sentenceState, _ = transitionSentenceBreakState(-1, r, nil, remainder)
 		lineState, _ = transitionLineBreakState(-1, r, nil, remainder)
 	} else {
@@ -221,7 +221,7 @@ func StepString(str string, state int) (cluster, rest string, boundaries int, ne
 		remainder = str[length+l:]
 
 		graphemeState, prop, graphemeBoundary = transitionGraphemeState(graphemeState, r)
-		wordState, wordBoundary = transitionWordBreakState(wordState, r, nil, remainder)
+		wordState, wordBoundary = transitionWordBreakState(wordState, r, remainder, utf8.DecodeRuneInString)
 		sentenceState, sentenceBoundary = transitionSentenceBreakState(sentenceState, r, nil, remainder)
 		lineState, lineBreak = transitionLineBreakState(lineState, r, nil, remainder)
 

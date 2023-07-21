@@ -11,3 +11,11 @@ package uniseg
 //go:generate go run ./internal/cmd/gen_properties LineBreak lineproperties.go lineBreakCodePoints lines gencat
 //go:generate go run ./internal/cmd/gen_properties EastAsianWidth eastasianwidth.go eastAsianWidth eastasianwidth
 //go:generate go run ./internal/cmd/gen_properties - emojipresentation.go emojiPresentation emojipresentation emojis=Emoji_Presentation
+
+// bytes is a type that is either []byte or string.
+type bytes interface {
+	~string | ~[]byte
+}
+
+// runeDecoder is a function that decodes a rune from bytes.
+type runeDecoder[T any] func(s T) (r rune, size int)

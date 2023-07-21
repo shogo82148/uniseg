@@ -113,7 +113,7 @@ var wbTransitions = map[wbStateProperty]wbTransitionResult{
 // word boundary was detected. If more than one code point is needed to
 // determine the new state, the byte slice or the string starting after rune "r"
 // can be used (whichever is not nil or empty) for further lookups.
-func transitionWordBreakState(state WordBreakState, r rune, b []byte, str string) (newState WordBreakState, wordBreak bool) {
+func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, decoder runeDecoder[T]) (newState WordBreakState, wordBreak bool) {
 	// Determine the property of the next character.
 	nextProperty := workBreakCodePoints.search(r)
 
@@ -190,17 +190,8 @@ func transitionWordBreakState(state WordBreakState, r rune, b []byte, str string
 			nextProperty == prDoubleQuote || // WB7b.
 			nextProperty == prMidNum) { // WB12.
 		for {
-			var (
-				r      rune
-				length int
-			)
-			if b != nil { // Byte slice version.
-				r, length = utf8.DecodeRune(b)
-				b = b[length:]
-			} else { // String version.
-				r, length = utf8.DecodeRuneInString(str)
-				str = str[length:]
-			}
+			r, length := decoder(str)
+			str = str[length:]
 			if r == utf8.RuneError {
 				break
 			}
