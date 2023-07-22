@@ -71,7 +71,7 @@ func firstLineSegment[T bytes](str T, state LineBreakState, decoder runeDecoder[
 	}
 
 	// If we don't know the state, determine it now.
-	if state < 0 {
+	if state <= 0 {
 		state, _ = transitionLineBreakState(state, r, str[length:], decoder)
 	}
 
