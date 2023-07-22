@@ -8,7 +8,7 @@ import "unicode/utf8"
 // slice, as illustrated in the example below.
 //
 // If you don't know the current state, for example when calling the function
-// for the first time, you must pass -1. For consecutive calls, pass the state
+// for the first time, you must pass 0. For consecutive calls, pass the state
 // and rest slice returned by the previous call.
 //
 // The "rest" slice is the sub-slice of the original byte slice "b" starting
@@ -44,7 +44,7 @@ func firstSentence[T bytes](str T, state SentenceBreakState, decoder runeDecoder
 	}
 
 	// If we don't know the state, determine it now.
-	if state < 0 {
+	if state <= 0 {
 		state, _ = transitionSentenceBreakState(state, r, str[length:], decoder)
 	}
 

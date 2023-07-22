@@ -7,7 +7,8 @@ type SentenceBreakState int
 
 // The states of the sentence break parser.
 const (
-	sbAny SentenceBreakState = iota
+	_ SentenceBreakState = iota // The zero value is reserved for the initial state.
+	sbAny
 	sbCR
 	sbParaSep
 	sbATerm
