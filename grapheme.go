@@ -204,7 +204,7 @@ func (s State) unpack() (grState, property) {
 // grapheme clusters from a byte slice, as illustrated in the example below.
 //
 // If you don't know the current state, for example when calling the function
-// for the first time, you must pass -1. For consecutive calls, pass the state
+// for the first time, you must pass 0. For consecutive calls, pass the state
 // and rest slice returned by the previous call.
 //
 // The "rest" slice is the sub-slice of the original byte slice "b" starting
@@ -245,7 +245,7 @@ func firstGraphemeCluster[T bytes](str T, state State, decoder runeDecoder[T]) (
 	r, length := decoder(str)
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
 		var prop property
-		if state < 0 {
+		if state <= 0 {
 			prop = graphemeCodePoints.search(r)
 		} else {
 			_, prop = state.unpack()
@@ -256,7 +256,7 @@ func firstGraphemeCluster[T bytes](str T, state State, decoder runeDecoder[T]) (
 	// If we don't know the state, determine it now.
 	var myState grState
 	var firstProp property
-	if state < 0 {
+	if state <= 0 {
 		myState, firstProp, _ = transitionGraphemeState(myState, r)
 	} else {
 		myState, firstProp = state.unpack()
