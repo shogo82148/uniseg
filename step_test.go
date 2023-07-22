@@ -13,10 +13,10 @@ func TestStepBytesGrapheme(t *testing.T) {
 		decomposed(testCase.original),
 		[]rune(testCase.original))*/
 		b := []byte(testCase.original)
-		state := -1
 		var (
 			index int
 			c     []byte
+			state int
 		)
 	GraphemeLoop:
 		for len(b) > 0 {
@@ -84,11 +84,11 @@ func TestStepBytesWord(t *testing.T) {
 		decomposed(testCase.original),
 		[]rune(testCase.original))*/
 		b := []byte(testCase.original)
-		state := -1
 		var (
 			index, boundaries int
 			c                 []byte
 			growingCluster    []rune
+			state             int
 		)
 	GraphemeLoop:
 		for len(b) > 0 {
@@ -154,11 +154,11 @@ func TestStepBytesSentence(t *testing.T) {
 		decomposed(testCase.original),
 		[]rune(testCase.original))*/
 		b := []byte(testCase.original)
-		state := -1
 		var (
 			index, boundaries int
 			c                 []byte
 			growingCluster    []rune
+			state             int
 		)
 	GraphemeLoop:
 		for len(b) > 0 {
@@ -230,10 +230,10 @@ func TestStepStringGrapheme(t *testing.T) {
 		decomposed(testCase.original),
 		[]rune(testCase.original))*/
 		str := testCase.original
-		state := -1
 		var (
 			index int
 			c     string
+			state int
 		)
 	GraphemeLoop:
 		for len(str) > 0 {
@@ -301,11 +301,11 @@ func TestStepStringWord(t *testing.T) {
 		decomposed(testCase.original),
 		[]rune(testCase.original))*/
 		str := testCase.original
-		state := -1
 		var (
 			index, boundaries int
 			c                 string
 			growingCluster    []rune
+			state             int
 		)
 	GraphemeLoop:
 		for len(str) > 0 {
@@ -371,11 +371,11 @@ func TestStepStringSentence(t *testing.T) {
 		decomposed(testCase.original),
 		[]rune(testCase.original))*/
 		str := testCase.original
-		state := -1
 		var (
 			index, boundaries int
 			c                 string
 			growingCluster    []rune
+			state             int
 		)
 	GraphemeLoop:
 		for len(str) > 0 {
@@ -435,7 +435,7 @@ func BenchmarkStepBytes(b *testing.B) {
 	str := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
-		state := -1
+		var state int
 		for len(str) > 0 {
 			c, str, _, state = Step(str, state)
 			resultRunes = []rune(string(c))
@@ -448,7 +448,7 @@ func BenchmarkStepString(b *testing.B) {
 	str := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
-		state := -1
+		var state int
 		for len(str) > 0 {
 			c, str, _, state = StepString(str, state)
 			resultRunes = []rune(c)
@@ -468,7 +468,7 @@ func FuzzStepString(f *testing.F) {
 			boundaries int
 		)
 		str := orig
-		state := -1
+		var state int
 		for len(str) > 0 {
 			c, str, boundaries, state = StepString(str, state)
 			b = append(b, []byte(c)...)

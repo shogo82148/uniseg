@@ -231,7 +231,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 
 	// WB15 and WB16.
 	if newState == wbAny && nextProperty == prRegionalIndicator {
-		if state != wbOddRI && state != wbEvenRI { // Includes state == -1.
+		if state != wbOddRI && state != wbEvenRI { // Includes state == 0.
 			// Transition into the first RI.
 			return wbOddRI, true
 		}

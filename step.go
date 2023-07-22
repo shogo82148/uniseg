@@ -68,7 +68,7 @@ const (
 // from a byte slice, as illustrated in the examples below.
 //
 // If you don't know which state to pass, for example when calling the function
-// for the first time, you must pass -1. For consecutive calls, pass the state
+// for the first time, you must pass 0. For consecutive calls, pass the state
 // and rest slice returned by the previous call.
 //
 // The "rest" slice is the sub-slice of the original byte slice "b" starting
@@ -120,11 +120,11 @@ func step[T bytes](str T, state int, decoder runeDecoder[T]) (cluster, rest T, b
 	var lineState LineBreakState
 	var firstProp property
 	remainder := str[length:]
-	if state < 0 {
-		graphemeState, firstProp, _ = transitionGraphemeState(-1, r)
-		wordState, _ = transitionWordBreakState(-1, r, remainder, decoder)
-		sentenceState, _ = transitionSentenceBreakState(-1, r, remainder, decoder)
-		lineState, _ = transitionLineBreakState(-1, r, remainder, decoder)
+	if state <= 0 {
+		graphemeState, firstProp, _ = transitionGraphemeState(0, r)
+		wordState, _ = transitionWordBreakState(0, r, remainder, decoder)
+		sentenceState, _ = transitionSentenceBreakState(0, r, remainder, decoder)
+		lineState, _ = transitionLineBreakState(0, r, remainder, decoder)
 	} else {
 		graphemeState = grState(state & maskGraphemeState)
 		wordState = WordBreakState((state >> shiftWordState) & maskWordState)
