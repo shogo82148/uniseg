@@ -136,7 +136,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 		if state == wbWSegSpace || state == wbAny|wbZWJBit {
 			return wbAny, false // We don't break but this is also not WB3d or WB3c.
 		}
-		if state < 0 {
+		if state <= 0 {
 			return wbAny, false
 		}
 		return state, false
@@ -144,7 +144,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 		// WB3c.
 		return wbAny, false
 	}
-	if state >= 0 {
+	if state > 0 {
 		state = state &^ wbZWJBit
 	}
 
