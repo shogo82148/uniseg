@@ -14,7 +14,7 @@ func ExampleGraphemeClusterCount() {
 
 func ExampleFirstGraphemeCluster() {
 	b := []byte("🇩🇪🏳️\u200d🌈!")
-	state := uniseg.State(-1)
+	var state uniseg.State
 	var c []byte
 	for len(b) > 0 {
 		var width int
@@ -29,7 +29,7 @@ func ExampleFirstGraphemeCluster() {
 
 func ExampleFirstGraphemeClusterInString() {
 	str := "🇩🇪🏳️\u200d🌈!"
-	state := uniseg.State(-1)
+	var state uniseg.State
 	var c string
 	for len(str) > 0 {
 		var width int
@@ -44,7 +44,7 @@ func ExampleFirstGraphemeClusterInString() {
 
 func ExampleFirstWord() {
 	b := []byte("Hello, world!")
-	state := uniseg.WordBreakState(-1)
+	var state uniseg.WordBreakState
 	var c []byte
 	for len(b) > 0 {
 		c, b, state = uniseg.FirstWord(b, state)
@@ -60,7 +60,7 @@ func ExampleFirstWord() {
 
 func ExampleFirstWordInString() {
 	str := "Hello, world!"
-	state := uniseg.WordBreakState(-1)
+	var state uniseg.WordBreakState
 	var c string
 	for len(str) > 0 {
 		c, str, state = uniseg.FirstWordInString(str, state)
@@ -76,7 +76,7 @@ func ExampleFirstWordInString() {
 
 func ExampleFirstSentence() {
 	b := []byte("This is sentence 1.0. And this is sentence two.")
-	state := uniseg.SentenceBreakState(-1)
+	var state uniseg.SentenceBreakState
 	var c []byte
 	for len(b) > 0 {
 		c, b, state = uniseg.FirstSentence(b, state)
@@ -89,7 +89,7 @@ func ExampleFirstSentence() {
 
 func ExampleFirstSentenceInString() {
 	str := "This is sentence 1.0. And this is sentence two."
-	state := uniseg.SentenceBreakState(-1)
+	var state uniseg.SentenceBreakState
 	var c string
 	for len(str) > 0 {
 		c, str, state = uniseg.FirstSentenceInString(str, state)
@@ -102,10 +102,10 @@ func ExampleFirstSentenceInString() {
 
 func ExampleFirstLineSegment() {
 	b := []byte("First line.\nSecond line.")
-	state := uniseg.LineBreakState(-1)
 	var (
 		c         []byte
 		mustBreak bool
+		state     uniseg.LineBreakState
 	)
 	for len(b) > 0 {
 		c, b, mustBreak, state = uniseg.FirstLineSegment(b, state)
@@ -121,10 +121,10 @@ func ExampleFirstLineSegment() {
 
 func ExampleFirstLineSegmentInString() {
 	str := "First line.\nSecond line."
-	state := uniseg.LineBreakState(-1)
 	var (
 		c         string
 		mustBreak bool
+		state     uniseg.LineBreakState
 	)
 	for len(str) > 0 {
 		c, str, mustBreak, state = uniseg.FirstLineSegmentInString(str, state)
