@@ -7,7 +7,8 @@ type WordBreakState int
 
 // The states of the word break parser.
 const (
-	wbAny WordBreakState = iota
+	_ WordBreakState = iota // The zero value is reserved for the initial state.
+	wbAny
 	wbCR
 	wbLF
 	wbNewline
@@ -123,7 +124,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 		if state == wbNewline || state == wbCR || state == wbLF {
 			return wbAny | wbZWJBit, true // Make sure we don't apply WB4 to WB3a.
 		}
-		if state < 0 {
+		if state <= 0 {
 			return wbAny | wbZWJBit, false
 		}
 		return state | wbZWJBit, false
@@ -230,7 +231,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 
 	// WB15 and WB16.
 	if newState == wbAny && nextProperty == prRegionalIndicator {
-		if state != wbOddRI && state != wbEvenRI { // Includes state == -1.
+		if state != wbOddRI && state != wbEvenRI { // Includes state == 0.
 			// Transition into the first RI.
 			return wbOddRI, true
 		}

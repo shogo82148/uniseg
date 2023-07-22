@@ -5,7 +5,8 @@ type grState int
 
 // The states of the grapheme cluster parser.
 const (
-	grAny grState = iota
+	_ grState = iota // The zero value is reserved for the initial state.
+	grAny
 	grCR
 	grControlLF
 	grL

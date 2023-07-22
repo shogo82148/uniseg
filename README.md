@@ -77,8 +77,8 @@ This is orders of magnitude faster than the `Graphemes` class, but it requires t
 
 ```go
 str := "🇩🇪🏳️‍🌈"
-state := -1
 var c string
+var state int
 for len(str) > 0 {
 	c, str, _, state = uniseg.StepString(str, state)
 	fmt.Printf("%x ", []rune(c))
@@ -92,10 +92,10 @@ Breaking into grapheme clusters and evaluating line breaks:
 
 ```go
 str := "First line.\nSecond line."
-state := -1
 var (
 	c          string
 	boundaries int
+	state      int
 )
 for len(str) > 0 {
 	c, str, boundaries, state = uniseg.StepString(str, state)
@@ -114,7 +114,7 @@ If you're only interested in word segmentation, use [`FirstWord`](https://pkg.go
 
 ```go
 str := "Hello, world!"
-state := -1
+var state WordBreakState
 var c string
 for len(str) > 0 {
 	c, str, state = uniseg.FirstWordInString(str, state)

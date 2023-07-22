@@ -67,7 +67,7 @@ func (g *Graphemes) Next() bool {
 // grapheme cluster. If the iterator is already past the end or [Graphemes.Next]
 // has not yet been called, nil is returned.
 func (g *Graphemes) Runes() []rune {
-	if g.state < 0 {
+	if g.state <= 0 {
 		return nil
 	}
 	return []rune(g.cluster)
@@ -84,7 +84,7 @@ func (g *Graphemes) Str() string {
 // If the iterator is already past the end or [Graphemes.Next] has not yet been
 // called, nil is returned.
 func (g *Graphemes) Bytes() []byte {
-	if g.state < 0 {
+	if g.state <= 0 {
 		return nil
 	}
 	return []byte(g.cluster)
@@ -108,7 +108,7 @@ func (g *Graphemes) Positions() (int, int) {
 // IsWordBoundary returns true if a word ends after the current grapheme
 // cluster.
 func (g *Graphemes) IsWordBoundary() bool {
-	if g.state < 0 {
+	if g.state <= 0 {
 		return true
 	}
 	return g.boundaries&MaskWord != 0
@@ -117,7 +117,7 @@ func (g *Graphemes) IsWordBoundary() bool {
 // IsSentenceBoundary returns true if a sentence ends after the current
 // grapheme cluster.
 func (g *Graphemes) IsSentenceBoundary() bool {
-	if g.state < 0 {
+	if g.state <= 0 {
 		return true
 	}
 	return g.boundaries&MaskSentence != 0
@@ -139,7 +139,7 @@ func (g *Graphemes) LineBreak() LineBreak {
 
 // Width returns the monospace width of the current grapheme cluster.
 func (g *Graphemes) Width() int {
-	if g.state < 0 {
+	if g.state <= 0 {
 		return 0
 	}
 	return g.boundaries >> ShiftWidth
@@ -157,7 +157,7 @@ func (g *Graphemes) Reset() {
 // GraphemeClusterCount returns the number of user-perceived characters
 // (grapheme clusters) for the given string.
 func GraphemeClusterCount(s string) (n int) {
-	state := State(-1)
+	var state State
 	for len(s) > 0 {
 		_, s, _, state = FirstGraphemeClusterInString(s, state)
 		n++
@@ -170,7 +170,7 @@ func GraphemeClusterCount(s string) (n int) {
 func ReverseString(s string) string {
 	str := []byte(s)
 	reversed := make([]byte, len(str))
-	state := State(-1)
+	var state State
 	index := len(str)
 	for len(str) > 0 {
 		var cluster []byte
@@ -204,7 +204,7 @@ func (s State) unpack() (grState, property) {
 // grapheme clusters from a byte slice, as illustrated in the example below.
 //
 // If you don't know the current state, for example when calling the function
-// for the first time, you must pass -1. For consecutive calls, pass the state
+// for the first time, you must pass 0. For consecutive calls, pass the state
 // and rest slice returned by the previous call.
 //
 // The "rest" slice is the sub-slice of the original byte slice "b" starting
@@ -245,7 +245,7 @@ func firstGraphemeCluster[T bytes](str T, state State, decoder runeDecoder[T]) (
 	r, length := decoder(str)
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
 		var prop property
-		if state < 0 {
+		if state <= 0 {
 			prop = graphemeCodePoints.search(r)
 		} else {
 			_, prop = state.unpack()
@@ -256,7 +256,7 @@ func firstGraphemeCluster[T bytes](str T, state State, decoder runeDecoder[T]) (
 	// If we don't know the state, determine it now.
 	var myState grState
 	var firstProp property
-	if state < 0 {
+	if state <= 0 {
 		myState, firstProp, _ = transitionGraphemeState(myState, r)
 	} else {
 		myState, firstProp = state.unpack()

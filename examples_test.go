@@ -14,7 +14,7 @@ func ExampleGraphemeClusterCount() {
 
 func ExampleFirstGraphemeCluster() {
 	b := []byte("🇩🇪🏳️\u200d🌈!")
-	state := uniseg.State(-1)
+	var state uniseg.State
 	var c []byte
 	for len(b) > 0 {
 		var width int
@@ -29,7 +29,7 @@ func ExampleFirstGraphemeCluster() {
 
 func ExampleFirstGraphemeClusterInString() {
 	str := "🇩🇪🏳️\u200d🌈!"
-	state := uniseg.State(-1)
+	var state uniseg.State
 	var c string
 	for len(str) > 0 {
 		var width int
@@ -44,7 +44,7 @@ func ExampleFirstGraphemeClusterInString() {
 
 func ExampleFirstWord() {
 	b := []byte("Hello, world!")
-	state := uniseg.WordBreakState(-1)
+	var state uniseg.WordBreakState
 	var c []byte
 	for len(b) > 0 {
 		c, b, state = uniseg.FirstWord(b, state)
@@ -60,7 +60,7 @@ func ExampleFirstWord() {
 
 func ExampleFirstWordInString() {
 	str := "Hello, world!"
-	state := uniseg.WordBreakState(-1)
+	var state uniseg.WordBreakState
 	var c string
 	for len(str) > 0 {
 		c, str, state = uniseg.FirstWordInString(str, state)
@@ -76,7 +76,7 @@ func ExampleFirstWordInString() {
 
 func ExampleFirstSentence() {
 	b := []byte("This is sentence 1.0. And this is sentence two.")
-	state := uniseg.SentenceBreakState(-1)
+	var state uniseg.SentenceBreakState
 	var c []byte
 	for len(b) > 0 {
 		c, b, state = uniseg.FirstSentence(b, state)
@@ -89,7 +89,7 @@ func ExampleFirstSentence() {
 
 func ExampleFirstSentenceInString() {
 	str := "This is sentence 1.0. And this is sentence two."
-	state := uniseg.SentenceBreakState(-1)
+	var state uniseg.SentenceBreakState
 	var c string
 	for len(str) > 0 {
 		c, str, state = uniseg.FirstSentenceInString(str, state)
@@ -102,10 +102,10 @@ func ExampleFirstSentenceInString() {
 
 func ExampleFirstLineSegment() {
 	b := []byte("First line.\nSecond line.")
-	state := uniseg.LineBreakState(-1)
 	var (
 		c         []byte
 		mustBreak bool
+		state     uniseg.LineBreakState
 	)
 	for len(b) > 0 {
 		c, b, mustBreak, state = uniseg.FirstLineSegment(b, state)
@@ -121,10 +121,10 @@ func ExampleFirstLineSegment() {
 
 func ExampleFirstLineSegmentInString() {
 	str := "First line.\nSecond line."
-	state := uniseg.LineBreakState(-1)
 	var (
 		c         string
 		mustBreak bool
+		state     uniseg.LineBreakState
 	)
 	for len(str) > 0 {
 		c, str, mustBreak, state = uniseg.FirstLineSegmentInString(str, state)
@@ -145,8 +145,8 @@ func ExampleFirstLineSegmentInString() {
 
 func ExampleStep_graphemes() {
 	b := []byte("🇩🇪🏳️\u200d🌈!")
-	state := -1
 	var c []byte
+	var state int
 	for len(b) > 0 {
 		var boundaries int
 		c, b, boundaries, state = uniseg.Step(b, state)
@@ -159,8 +159,8 @@ func ExampleStep_graphemes() {
 
 func ExampleStepString_graphemes() {
 	str := "🇩🇪🏳️\u200d🌈!"
-	state := -1
 	var c string
+	var state int
 	for len(str) > 0 {
 		var boundaries int
 		c, str, boundaries, state = uniseg.StepString(str, state)
@@ -174,10 +174,10 @@ func ExampleStepString_graphemes() {
 
 func ExampleStep_word() {
 	b := []byte("Hello, world!")
-	state := -1
 	var (
 		c          []byte
 		boundaries int
+		state      int
 	)
 	for len(b) > 0 {
 		c, b, boundaries, state = uniseg.Step(b, state)
@@ -191,10 +191,10 @@ func ExampleStep_word() {
 
 func ExampleStepString_word() {
 	str := "Hello, world!"
-	state := -1
 	var (
 		c          string
 		boundaries int
+		state      int
 	)
 	for len(str) > 0 {
 		c, str, boundaries, state = uniseg.StepString(str, state)
@@ -208,10 +208,10 @@ func ExampleStepString_word() {
 
 func ExampleStep_sentence() {
 	b := []byte("This is sentence 1.0. And this is sentence two.")
-	state := -1
 	var (
 		c          []byte
 		boundaries int
+		state      int
 	)
 	for len(b) > 0 {
 		c, b, boundaries, state = uniseg.Step(b, state)
@@ -225,10 +225,10 @@ func ExampleStep_sentence() {
 
 func ExampleStepString_sentence() {
 	str := "This is sentence 1.0. And this is sentence two."
-	state := -1
 	var (
 		c          string
 		boundaries int
+		state      int
 	)
 	for len(str) > 0 {
 		c, str, boundaries, state = uniseg.StepString(str, state)
@@ -242,10 +242,10 @@ func ExampleStepString_sentence() {
 
 func ExampleStep_lineBreaking() {
 	b := []byte("First line.\nSecond line.")
-	state := -1
 	var (
 		c          []byte
 		boundaries int
+		state      int
 	)
 	for len(b) > 0 {
 		c, b, boundaries, state = uniseg.Step(b, state)
@@ -263,10 +263,10 @@ func ExampleStep_lineBreaking() {
 
 func ExampleStepString_lineBreaking() {
 	str := "First line.\nSecond line."
-	state := -1
 	var (
 		c          string
 		boundaries int
+		state      int
 	)
 	for len(str) > 0 {
 		c, str, boundaries, state = uniseg.StepString(str, state)

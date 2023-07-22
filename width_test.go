@@ -370,7 +370,7 @@ func TestWidthGraphemes(t *testing.T) {
 func TestWidthGraphemesFunctionBytes(t *testing.T) {
 	for index, testCase := range widthTestCases {
 		var actual, width int
-		state := State(-1)
+		var state State
 		text := []byte(testCase.original)
 		for len(text) > 0 {
 			_, text, width, state = FirstGraphemeCluster(text, state)
@@ -386,7 +386,7 @@ func TestWidthGraphemesFunctionBytes(t *testing.T) {
 func TestWidthGraphemesFunctionString(t *testing.T) {
 	for index, testCase := range widthTestCases {
 		var actual, width int
-		state := State(-1)
+		var state State
 		text := testCase.original
 		for len(text) > 0 {
 			_, text, width, state = FirstGraphemeClusterInString(text, state)
@@ -402,7 +402,7 @@ func TestWidthGraphemesFunctionString(t *testing.T) {
 func TestWidthStepBytes(t *testing.T) {
 	for index, testCase := range widthTestCases {
 		var actual, boundaries int
-		state := -1
+		var state int
 		text := []byte(testCase.original)
 		for len(text) > 0 {
 			_, text, boundaries, state = Step(text, state)
@@ -418,7 +418,7 @@ func TestWidthStepBytes(t *testing.T) {
 func TestWidthStepString(t *testing.T) {
 	for index, testCase := range widthTestCases {
 		var actual, boundaries int
-		state := -1
+		var state int
 		text := testCase.original
 		for len(text) > 0 {
 			_, text, boundaries, state = StepString(text, state)

@@ -6,7 +6,8 @@ type LineBreakState int
 
 // The states of the line break parser.
 const (
-	lbAny LineBreakState = iota
+	_ LineBreakState = iota // The zero value is reserved for the initial state.
+	lbAny
 	lbBK
 	lbCR
 	lbLF
@@ -312,11 +313,11 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 
 	// Prepare.
 	var forceNoBreak, isCPeaFWH bool
-	if state >= 0 && state&lbCPeaFWHBit != 0 {
+	if state > 0 && state&lbCPeaFWHBit != 0 {
 		isCPeaFWH = true // LB30: CP but ea is not F, W, or H.
 		state = state &^ lbCPeaFWHBit
 	}
-	if state >= 0 && state&lbZWJBit != 0 {
+	if state > 0 && state&lbZWJBit != 0 {
 		state = state &^ lbZWJBit // Extract zero-width joiner bit.
 		forceNoBreak = true       // LB8a.
 	}
@@ -355,7 +356,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		if nextProperty == prZWJ {
 			bit = lbZWJBit
 		}
-		mustBreakState := state < 0 || state == lbBK || state == lbCR || state == lbLF || state == lbNL
+		mustBreakState := state <= 0 || state == lbBK || state == lbCR || state == lbLF || state == lbNL
 		if !mustBreakState && state != lbSP && state != lbZW && state != lbQUSP && state != lbCLCPSP && state != lbB2SP {
 			// LB9.
 			return state | bit, LineDontBreak
