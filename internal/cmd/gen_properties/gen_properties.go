@@ -26,7 +26,6 @@ import (
 	"sort"
 	"strconv"
 	"strings"
-	"time"
 )
 
 // We want to test against a specific version rather than the latest. When the
@@ -151,9 +150,8 @@ func parse(propertyURL, emojiProperty string, includeGeneralCategory bool) (stri
 			num++
 			line := scanner.Text()
 
-			// Skip comments, empty lines, and everything not containing
-			// "Extended_Pictographic".
-			if strings.HasPrefix(line, "#") || line == "" || !strings.Contains(line, emojiProperty) {
+			// Skip comments, empty lines
+			if strings.HasPrefix(line, "#") || line == "" {
 				continue
 			}
 
@@ -161,6 +159,9 @@ func parse(propertyURL, emojiProperty string, includeGeneralCategory bool) (stri
 			from, to, property, comment, err := parseProperty(line)
 			if err != nil {
 				return "", fmt.Errorf("emojis line %d: %v", num, err)
+			}
+			if property != emojiProperty {
+				continue
 			}
 			properties = append(properties, [4]string{from, to, property, comment})
 		}
@@ -194,8 +195,7 @@ package uniseg
 
 // ` + os.Args[3] + ` are taken from
 // ` + propertyURL + emojiComment + `
-// on ` + time.Now().Format("January 2, 2006") + `. See https://www.unicode.org/license.html for the Unicode
-// license agreement.
+// See https://www.unicode.org/license.html for the Unicode license agreement.
 var ` + os.Args[3] + ` = dictionary[`)
 	if includeGeneralCategory {
 		buf.WriteString("propertyGeneralCategory")

@@ -344,8 +344,9 @@ var widthTestCases = []struct {
 
 // String width tests using the StringWidth function.
 func TestWidthStringWidth(t *testing.T) {
+	p := &Parser{}
 	for index, testCase := range widthTestCases {
-		actual := StringWidth(testCase.original)
+		actual := p.StringWidth(testCase.original)
 		if actual != testCase.expected {
 			t.Errorf("StringWidth(%q) is %d, expected %d (test case %d)", testCase.original, actual, testCase.expected, index)
 		}
@@ -354,9 +355,10 @@ func TestWidthStringWidth(t *testing.T) {
 
 // String width tests using the Graphemes class.
 func TestWidthGraphemes(t *testing.T) {
+	p := &Parser{}
 	for index, testCase := range widthTestCases {
 		var actual int
-		graphemes := NewGraphemes(testCase.original)
+		graphemes := p.NewGraphemes(testCase.original)
 		for graphemes.Next() {
 			actual += graphemes.Width()
 		}
@@ -368,12 +370,13 @@ func TestWidthGraphemes(t *testing.T) {
 
 // String width tests using the FirstGraphemeCluster function.
 func TestWidthGraphemesFunctionBytes(t *testing.T) {
+	p := &Parser{}
 	for index, testCase := range widthTestCases {
 		var actual, width int
 		var state GraphemeBreakState
 		text := []byte(testCase.original)
 		for len(text) > 0 {
-			_, text, width, state = FirstGraphemeCluster(text, state)
+			_, text, width, state = p.FirstGraphemeCluster(text, state)
 			actual += width
 		}
 		if actual != testCase.expected {
@@ -384,12 +387,13 @@ func TestWidthGraphemesFunctionBytes(t *testing.T) {
 
 // String width tests using the FirstGraphemeClusterString function.
 func TestWidthGraphemesFunctionString(t *testing.T) {
+	p := &Parser{}
 	for index, testCase := range widthTestCases {
 		var actual, width int
 		var state GraphemeBreakState
 		text := testCase.original
 		for len(text) > 0 {
-			_, text, width, state = FirstGraphemeClusterInString(text, state)
+			_, text, width, state = p.FirstGraphemeClusterInString(text, state)
 			actual += width
 		}
 		if actual != testCase.expected {
@@ -400,6 +404,7 @@ func TestWidthGraphemesFunctionString(t *testing.T) {
 
 // String width tests using the Step function.
 func TestWidthStepBytes(t *testing.T) {
+	p := &Parser{}
 	for index, testCase := range widthTestCases {
 		var (
 			actual     int
@@ -408,7 +413,7 @@ func TestWidthStepBytes(t *testing.T) {
 		)
 		text := []byte(testCase.original)
 		for len(text) > 0 {
-			_, text, boundaries, state = Step(text, state)
+			_, text, boundaries, state = p.Step(text, state)
 			actual += boundaries.Width()
 		}
 		if actual != testCase.expected {
@@ -419,6 +424,7 @@ func TestWidthStepBytes(t *testing.T) {
 
 // String width tests using the StepString function.
 func TestWidthStepString(t *testing.T) {
+	p := &Parser{}
 	for index, testCase := range widthTestCases {
 		var (
 			actual     int
@@ -427,7 +433,7 @@ func TestWidthStepString(t *testing.T) {
 		)
 		text := testCase.original
 		for len(text) > 0 {
-			_, text, boundaries, state = StepString(text, state)
+			_, text, boundaries, state = p.StepString(text, state)
 			actual += boundaries.Width()
 		}
 		if actual != testCase.expected {
@@ -441,44 +447,102 @@ func TestRunesWidth(t *testing.T) {
 		name  string
 		raw   string
 		width int
+		ea    int // East Asian Width
+		we    int // Wide Emoji
 	}{
-		{"latin    ", "long", 4},
-		{"chinese  ", "中国", 4},
-		{"combining", "shangha\u0308\u0308i", 8},
+		{"latin", "long", 4, 4, 4},
+		{"chinese", "中国", 4, 4, 4},
+		{"combining", "shangha\u0308\u0308i", 8, 8, 8},
 		{
-			"emoji 1", "🏝",
-			1,
+			"emoji 1",
+			"🏝", 1, 1, 2,
 		},
 		{
-			"emoji 2", "🗻",
-			2,
+			"emoji 2",
+			"🗻", 2, 2, 2,
 		},
 		{
-			"emoji 3", "🏖",
-			1,
+			"emoji 3",
+			"🏖", 1, 1, 2,
 		},
 		{
-			"flags", "🇳🇱🇧🇷i",
-			5,
+			"flags",
+			"🇳🇱🇧🇷i", 5, 5, 5,
 		},
 		{
-			"flag 2", "🇨🇳",
-			2,
+			"flag 2",
+			"🇨🇳", 2, 2, 2,
 		},
+
+		// dash
+		{"two em dash", "\u2e3a", 3, 3, 3},
+		{"three em dash", "\u2e3b", 4, 4, 4},
+
+		// East-Asian
+		{"Fullwidth 1", "世", 2, 2, 2},
+		{"Fullwidth 2", "界", 2, 2, 2},
+		{"Halfwidth 1", "ｾ", 1, 1, 1},
+		{"Halfwidth 2", "ｶ", 1, 1, 1},
+		{"Halfwidth 3", "ｲ", 1, 1, 1},
+		{"ambiguous 1", "☆", 1, 2, 2},
+		{"emoji 4", "☺", 1, 1, 2},
+		{"emoji 5", "☻", 1, 1, 2},
+		{"emoji 6", "♥", 1, 2, 2},
+		{"emoji 7", "♦", 1, 1, 2},
+		{"emoji 8", "♣", 1, 2, 2},
+		{"emoji 9", "♠", 1, 2, 2},
+		{"emoji 10", "♂", 1, 2, 2},
+		{"emoji 11", "♀", 1, 2, 2},
+		{"control 1", "\x00", 0, 0, 0},
+		{"control 2", "\x01", 0, 0, 0},
+		{"accent", "\u0300", 0, 0, 0},
+		{"Line Separator", "\u2028", 0, 0, 0},
+		{"Paragraph Separator", "\u2029", 0, 0, 0},
+		{"ASCII", "a", 1, 1, 1},
+		{"non-ASCII", "⟦", 1, 1, 1},
+		{"emoji 12", "👁", 1, 1, 2},
+		{"ambiguous 2", "■㈱の世界①", 10, 12, 12},
+		{"ambiguous 3", "スター☆", 7, 8, 8},
+		{"ambiguous 4", "つのだ☆HIRO", 11, 12, 12},
+
+		{"zwj 1", "👩", 2, 2, 2},
+		{"zwj 2", "👩\u200d", 2, 2, 2},
+		{"zwj 3", "👩\u200d🍳", 2, 2, 2},
+		{"zwj 4", "\u200d🍳", 2, 2, 2},
+		{"zwj 5", "👨\u200d👨", 2, 2, 2},
+		{"zwj 6", "👨\u200d👨\u200d👧", 2, 2, 2},
+		{"zwj 7", "🏳️\u200d🌈", 2, 2, 2},
+		{"zwj 8", "あ👩\u200d🍳い", 6, 6, 6},
+		{"zwj 9", "あ\u200d🍳い", 6, 6, 6},
+		{"zwj 10", "あ\u200dい", 4, 4, 4},
 	}
 
 	for _, v := range tc {
-		graphemes := NewGraphemes(v.raw)
-		width := 0
-		var rs []rune
-		for graphemes.Next() {
-			rs = graphemes.Runes()
-			width += StringWidth(string(rs))
+		p1 := &Parser{
+			EastAsianWidth: false,
 		}
+		p2 := &Parser{
+			EastAsianWidth: true,
+		}
+		p3 := &Parser{
+			EastAsianWidth: true,
+			WideEmoji:      true,
+		}
+		w1 := p1.StringWidth(v.raw)
+		w2 := p2.StringWidth(v.raw)
+		w3 := p3.StringWidth(v.raw)
 
-		if v.width != width {
-			t.Logf("%s :\t %q %U\n", v.name, v.raw, rs)
-			t.Errorf("%s:\t %q  expect width %d, got %d\n", v.name, v.raw, v.width, width)
+		if w1 != v.width {
+			t.Logf("%16s:\t %q\n", v.name, v.raw)
+			t.Errorf("%16s:\t %q  expect width %d, got %d in non-East-Asian\n", v.name, v.raw, v.width, w1)
+		}
+		if w2 != v.ea {
+			t.Logf("%16s:\t %q\n", v.name, v.raw)
+			t.Errorf("%16s:\t %q  expect width %d, got %d in East-Asian\n", v.name, v.raw, v.ea, w2)
+		}
+		if w3 != v.we {
+			t.Logf("%16s:\t %q\n", v.name, v.raw)
+			t.Errorf("%16s:\t %q  expect width %d, got %d in Wide Emoji\n", v.name, v.raw, v.we, w3)
 		}
 	}
 }

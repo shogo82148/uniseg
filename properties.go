@@ -83,12 +83,17 @@ const (
 	prCB
 	prRI
 	prEM
-	prN
-	prNa
-	prA
-	prW
-	prH
-	prF
+
+	// East-Asian Width properties.
+	prN  // Neutral (Not East Asian): https://www.unicode.org/reports/tr11/tr11-40.html#ED7
+	prNa // East Asian Narrow (Na): https://www.unicode.org/reports/tr11/tr11-40.html#ED5
+	prA  // East Asian Ambiguous (A): https://www.unicode.org/reports/tr11/tr11-40.html#ED6
+	prW  // East Asian Wide (W): https://www.unicode.org/reports/tr11/tr11-40.html#ED4
+	prH  // East Asian Halfwidth (H): https://www.unicode.org/reports/tr11/tr11-40.html#ED3
+	prF  // East Asian Fullwidth (F): https://www.unicode.org/reports/tr11/tr11-40.html#ED2
+
+	// Emoji
+	prEmoji
 	prEmojiPresentation
 )
 

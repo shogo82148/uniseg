@@ -19,6 +19,8 @@ import (
 // than using this package's [Step] or [StepString] functions or any of the
 // other specialized functions starting with "First".
 type Graphemes struct {
+	parser *Parser
+
 	// The original string.
 	original string
 
@@ -42,9 +44,17 @@ type Graphemes struct {
 // NewGraphemes returns a new grapheme cluster iterator.
 func NewGraphemes(str string) *Graphemes {
 	return &Graphemes{
+		parser:    DefaultParser,
 		original:  str,
 		remaining: str,
-		state:     -1,
+	}
+}
+
+func (p *Parser) NewGraphemes(str string) *Graphemes {
+	return &Graphemes{
+		parser:    p,
+		original:  str,
+		remaining: str,
 	}
 }
 
@@ -59,7 +69,7 @@ func (g *Graphemes) Next() bool {
 		return false
 	}
 	g.offset += len(g.cluster)
-	g.cluster, g.remaining, g.boundaries, g.state = StepString(g.remaining, g.state)
+	g.cluster, g.remaining, g.boundaries, g.state = step(g.parser, g.remaining, g.state, utf8.DecodeRuneInString)
 	return true
 }
 
@@ -165,6 +175,17 @@ func GraphemeClusterCount(s string) (n int) {
 	return
 }
 
+// GraphemeClusterCount returns the number of user-perceived characters
+// (grapheme clusters) for the given string.
+func (p *Parser) GraphemeClusterCount(s string) (n int) {
+	var state GraphemeBreakState
+	for len(s) > 0 {
+		_, s, _, state = p.FirstGraphemeClusterInString(s, state)
+		n++
+	}
+	return
+}
+
 // ReverseString reverses the given string while observing grapheme cluster
 // boundaries.
 func ReverseString(s string) string {
@@ -225,16 +246,51 @@ func (s GraphemeBreakState) unpack() (grState, property) {
 //
 // [Unicode Standard Annex #29, Grapheme Cluster Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Grapheme_Cluster_Boundaries
 func FirstGraphemeCluster(b []byte, state GraphemeBreakState) (cluster, rest []byte, width int, newState GraphemeBreakState) {
-	return firstGraphemeCluster(b, state, utf8.DecodeRune)
+	return firstGraphemeCluster(DefaultParser, b, state, utf8.DecodeRune)
+}
+
+// FirstGraphemeCluster returns the first grapheme cluster found in the given
+// byte slice according to the rules of [Unicode Standard Annex #29, Grapheme
+// Cluster Boundaries]. This function can be called continuously to extract all
+// grapheme clusters from a byte slice, as illustrated in the example below.
+//
+// If you don't know the current state, for example when calling the function
+// for the first time, you must pass 0. For consecutive calls, pass the state
+// and rest slice returned by the previous call.
+//
+// The "rest" slice is the sub-slice of the original byte slice "b" starting
+// after the last byte of the identified grapheme cluster. If the length of the
+// "rest" slice is 0, the entire byte slice "b" has been processed. The
+// "cluster" byte slice is the sub-slice of the input slice containing the
+// identified grapheme cluster.
+//
+// The returned width is the width of the grapheme cluster for most monospace
+// fonts where a value of 1 represents one character cell.
+//
+// Given an empty byte slice "b", the function returns nil values.
+//
+// While slightly less convenient than using the Graphemes class, this function
+// has much better performance and makes no allocations. It lends itself well to
+// large byte slices.
+//
+// [Unicode Standard Annex #29, Grapheme Cluster Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Grapheme_Cluster_Boundaries
+func (p *Parser) FirstGraphemeCluster(b []byte, state GraphemeBreakState) (cluster, rest []byte, width int, newState GraphemeBreakState) {
+	return firstGraphemeCluster(p, b, state, utf8.DecodeRune)
 }
 
 // FirstGraphemeClusterInString is like [FirstGraphemeCluster] but its input and
 // outputs are strings.
 func FirstGraphemeClusterInString(str string, state GraphemeBreakState) (cluster, rest string, width int, newState GraphemeBreakState) {
-	return firstGraphemeCluster(str, state, utf8.DecodeRuneInString)
+	return firstGraphemeCluster(DefaultParser, str, state, utf8.DecodeRuneInString)
 }
 
-func firstGraphemeCluster[T bytes](str T, state GraphemeBreakState, decoder runeDecoder[T]) (cluster, rest T, width int, newState GraphemeBreakState) {
+// FirstGraphemeClusterInString is like [Parser.FirstGraphemeCluster] but its input and
+// outputs are strings.
+func (p *Parser) FirstGraphemeClusterInString(str string, state GraphemeBreakState) (cluster, rest string, width int, newState GraphemeBreakState) {
+	return firstGraphemeCluster(p, str, state, utf8.DecodeRuneInString)
+}
+
+func firstGraphemeCluster[T bytes](p *Parser, str T, state GraphemeBreakState, decoder runeDecoder[T]) (cluster, rest T, width int, newState GraphemeBreakState) {
 	var zero T
 
 	// An empty string returns nothing.
@@ -251,7 +307,7 @@ func firstGraphemeCluster[T bytes](str T, state GraphemeBreakState, decoder rune
 		} else {
 			_, prop = state.unpack()
 		}
-		return str, zero, runeWidth(r, prop), newGraphemeBreakState(grAny, prop)
+		return str, zero, runeWidth(p, r, prop), newGraphemeBreakState(grAny, prop)
 	}
 
 	// If we don't know the state, determine it now.
@@ -262,7 +318,7 @@ func firstGraphemeCluster[T bytes](str T, state GraphemeBreakState, decoder rune
 	} else {
 		myState, firstProp = state.unpack()
 	}
-	width += runeWidth(r, firstProp)
+	width += runeWidth(p, r, firstProp)
 
 	// Transition until we find a boundary.
 	for {
@@ -281,7 +337,7 @@ func firstGraphemeCluster[T bytes](str T, state GraphemeBreakState, decoder rune
 		if r == vs16 {
 			width = 2
 		} else if firstProp != prExtendedPictographic && firstProp != prRegionalIndicator && firstProp != prL {
-			width += runeWidth(r, prop)
+			width += runeWidth(p, r, prop)
 		} else if firstProp == prExtendedPictographic {
 			if r == vs15 {
 				width = 1
