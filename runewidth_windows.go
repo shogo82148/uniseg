@@ -9,6 +9,7 @@ import (
 )
 
 var (
+	// https://docs.microsoft.com/en-us/windows/console/getconsoleoutputcp
 	kernel32               = syscall.NewLazyDLL("kernel32")
 	procGetConsoleOutputCP = kernel32.NewProc("GetConsoleOutputCP")
 )
