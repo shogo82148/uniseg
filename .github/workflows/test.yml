@@ -6,10 +6,14 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
         go:
           - "1.21.0-rc.3"
           - "1.20"
@@ -31,14 +35,14 @@ jobs:
 
       - name: test
         run: |
-          go test -v -coverprofile=profile.cov ./...
+          go test ./... -v -cover -coverprofile coverage.out
         env:
           GOEXPERIMENT: ${{ matrix.goexperiment }}
 
       - uses: shogo82148/actions-goveralls@v1
         with:
-          path-to-profile: profile.cov
-          flag-name: Go-${{ matrix.go }}
+          path-to-profile: coverage.out
+          flag-name: OS-${{ matrix.os }}Go-${{ matrix.go }}
           parallel: true
 
   # notifies that all test jobs are finished.
