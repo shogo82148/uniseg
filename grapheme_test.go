@@ -366,7 +366,7 @@ func TestGraphemesFunctionBytes(t *testing.T) {
 		var (
 			index int
 			c     []byte
-			state State
+			state GraphemeBreakState
 		)
 	GraphemeLoop:
 		for len(b) > 0 {
@@ -430,7 +430,7 @@ func TestGraphemesFunctionString(t *testing.T) {
 		var (
 			index int
 			c     string
-			state State
+			state GraphemeBreakState
 		)
 	GraphemeLoop:
 		for len(str) > 0 {
@@ -495,7 +495,7 @@ func BenchmarkGraphemesFunctionBytes(b *testing.B) {
 	str := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
-		var state State
+		var state GraphemeBreakState
 		for len(str) > 0 {
 			c, str, _, state = FirstGraphemeCluster(str, state)
 			resultRunes = []rune(string(c))
@@ -508,7 +508,7 @@ func BenchmarkGraphemesFunctionString(b *testing.B) {
 	str := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
-		var state State
+		var state GraphemeBreakState
 		for len(str) > 0 {
 			c, str, _, state = FirstGraphemeClusterInString(str, state)
 			resultRunes = []rune(c)

@@ -370,7 +370,7 @@ func TestWidthGraphemes(t *testing.T) {
 func TestWidthGraphemesFunctionBytes(t *testing.T) {
 	for index, testCase := range widthTestCases {
 		var actual, width int
-		var state State
+		var state GraphemeBreakState
 		text := []byte(testCase.original)
 		for len(text) > 0 {
 			_, text, width, state = FirstGraphemeCluster(text, state)
@@ -386,7 +386,7 @@ func TestWidthGraphemesFunctionBytes(t *testing.T) {
 func TestWidthGraphemesFunctionString(t *testing.T) {
 	for index, testCase := range widthTestCases {
 		var actual, width int
-		var state State
+		var state GraphemeBreakState
 		text := testCase.original
 		for len(text) > 0 {
 			_, text, width, state = FirstGraphemeClusterInString(text, state)
@@ -401,12 +401,15 @@ func TestWidthGraphemesFunctionString(t *testing.T) {
 // String width tests using the Step function.
 func TestWidthStepBytes(t *testing.T) {
 	for index, testCase := range widthTestCases {
-		var actual, boundaries int
-		var state int
+		var (
+			actual     int
+			boundaries Boundaries
+			state      State
+		)
 		text := []byte(testCase.original)
 		for len(text) > 0 {
 			_, text, boundaries, state = Step(text, state)
-			actual += boundaries >> ShiftWidth
+			actual += boundaries.Width()
 		}
 		if actual != testCase.expected {
 			t.Errorf("Width of %q is %d, expected %d (test case %d)", testCase.original, actual, testCase.expected, index)
@@ -417,12 +420,15 @@ func TestWidthStepBytes(t *testing.T) {
 // String width tests using the StepString function.
 func TestWidthStepString(t *testing.T) {
 	for index, testCase := range widthTestCases {
-		var actual, boundaries int
-		var state int
+		var (
+			actual     int
+			boundaries Boundaries
+			state      State
+		)
 		text := testCase.original
 		for len(text) > 0 {
 			_, text, boundaries, state = StepString(text, state)
-			actual += boundaries >> ShiftWidth
+			actual += boundaries.Width()
 		}
 		if actual != testCase.expected {
 			t.Errorf("Width of %q is %d, expected %d (test case %d)", testCase.original, actual, testCase.expected, index)

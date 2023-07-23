@@ -16,7 +16,7 @@ func TestStepBytesGrapheme(t *testing.T) {
 		var (
 			index int
 			c     []byte
-			state int
+			state State
 		)
 	GraphemeLoop:
 		for len(b) > 0 {
@@ -85,10 +85,11 @@ func TestStepBytesWord(t *testing.T) {
 		[]rune(testCase.original))*/
 		b := []byte(testCase.original)
 		var (
-			index, boundaries int
-			c                 []byte
-			growingCluster    []rune
-			state             int
+			index          int
+			boundaries     Boundaries
+			c              []byte
+			growingCluster []rune
+			state          State
 		)
 	GraphemeLoop:
 		for len(b) > 0 {
@@ -103,7 +104,7 @@ func TestStepBytesWord(t *testing.T) {
 			}
 
 			growingCluster = append(growingCluster, []rune(string(c))...)
-			if boundaries&MaskWord == 0 {
+			if boundaries&maskWord == 0 {
 				continue
 			}
 			cluster := growingCluster
@@ -155,10 +156,11 @@ func TestStepBytesSentence(t *testing.T) {
 		[]rune(testCase.original))*/
 		b := []byte(testCase.original)
 		var (
-			index, boundaries int
-			c                 []byte
-			growingCluster    []rune
-			state             int
+			index          int
+			boundaries     Boundaries
+			c              []byte
+			growingCluster []rune
+			state          State
 		)
 	GraphemeLoop:
 		for len(b) > 0 {
@@ -173,7 +175,7 @@ func TestStepBytesSentence(t *testing.T) {
 			}
 
 			growingCluster = append(growingCluster, []rune(string(c))...)
-			if boundaries&MaskSentence == 0 {
+			if boundaries&maskSentence == 0 {
 				continue
 			}
 			cluster := growingCluster
@@ -233,7 +235,7 @@ func TestStepStringGrapheme(t *testing.T) {
 		var (
 			index int
 			c     string
-			state int
+			state State
 		)
 	GraphemeLoop:
 		for len(str) > 0 {
@@ -302,10 +304,11 @@ func TestStepStringWord(t *testing.T) {
 		[]rune(testCase.original))*/
 		str := testCase.original
 		var (
-			index, boundaries int
-			c                 string
-			growingCluster    []rune
-			state             int
+			index          int
+			boundaries     Boundaries
+			c              string
+			growingCluster []rune
+			state          State
 		)
 	GraphemeLoop:
 		for len(str) > 0 {
@@ -320,7 +323,7 @@ func TestStepStringWord(t *testing.T) {
 			}
 
 			growingCluster = append(growingCluster, []rune(c)...)
-			if boundaries&MaskWord == 0 {
+			if boundaries&maskWord == 0 {
 				continue
 			}
 			cluster := growingCluster
@@ -372,10 +375,11 @@ func TestStepStringSentence(t *testing.T) {
 		[]rune(testCase.original))*/
 		str := testCase.original
 		var (
-			index, boundaries int
-			c                 string
-			growingCluster    []rune
-			state             int
+			index          int
+			boundaries     Boundaries
+			c              string
+			growingCluster []rune
+			state          State
 		)
 	GraphemeLoop:
 		for len(str) > 0 {
@@ -390,7 +394,7 @@ func TestStepStringSentence(t *testing.T) {
 			}
 
 			growingCluster = append(growingCluster, []rune(c)...)
-			if boundaries&MaskSentence == 0 {
+			if boundaries&maskSentence == 0 {
 				continue
 			}
 			cluster := growingCluster
@@ -435,7 +439,7 @@ func BenchmarkStepBytes(b *testing.B) {
 	str := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
-		var state int
+		var state State
 		for len(str) > 0 {
 			c, str, _, state = Step(str, state)
 			resultRunes = []rune(string(c))
@@ -448,7 +452,7 @@ func BenchmarkStepString(b *testing.B) {
 	str := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
-		var state int
+		var state State
 		for len(str) > 0 {
 			c, str, _, state = StepString(str, state)
 			resultRunes = []rune(c)
@@ -465,10 +469,10 @@ func FuzzStepString(f *testing.F) {
 		var (
 			c          string
 			b          []byte
-			boundaries int
+			boundaries Boundaries
+			state      State
+			str        string = orig
 		)
-		str := orig
-		var state int
 		for len(str) > 0 {
 			c, str, boundaries, state = StepString(str, state)
 			b = append(b, []byte(c)...)
@@ -485,13 +489,13 @@ func FuzzStepString(f *testing.F) {
 		}
 
 		// Check end boundaries.
-		if boundaries&MaskWord == 0 {
+		if !boundaries.Word() {
 			t.Errorf("String %q does not end on a word boundary (final boundary = %x)", orig, state)
 		}
-		if boundaries&MaskSentence == 0 {
+		if !boundaries.Sentence() {
 			t.Errorf("String %q does not end on a sentence boundary (final boundary = %x)", orig, state)
 		}
-		if boundaries&MaskLine != int(LineMustBreak) {
+		if boundaries.Line() != LineMustBreak {
 			t.Errorf("String %q does not end with a mandatory line break (final boundary = %x)", orig, state)
 		}
 

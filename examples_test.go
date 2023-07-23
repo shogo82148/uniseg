@@ -14,7 +14,7 @@ func ExampleGraphemeClusterCount() {
 
 func ExampleFirstGraphemeCluster() {
 	b := []byte("🇩🇪🏳️\u200d🌈!")
-	var state uniseg.State
+	var state uniseg.GraphemeBreakState
 	var c []byte
 	for len(b) > 0 {
 		var width int
@@ -29,7 +29,7 @@ func ExampleFirstGraphemeCluster() {
 
 func ExampleFirstGraphemeClusterInString() {
 	str := "🇩🇪🏳️\u200d🌈!"
-	var state uniseg.State
+	var state uniseg.GraphemeBreakState
 	var c string
 	for len(str) > 0 {
 		var width int
@@ -145,12 +145,14 @@ func ExampleFirstLineSegmentInString() {
 
 func ExampleStep_graphemes() {
 	b := []byte("🇩🇪🏳️\u200d🌈!")
-	var c []byte
-	var state int
+	var (
+		c          []byte
+		boundaries uniseg.Boundaries
+		state      uniseg.State
+	)
 	for len(b) > 0 {
-		var boundaries int
 		c, b, boundaries, state = uniseg.Step(b, state)
-		fmt.Println(string(c), boundaries>>uniseg.ShiftWidth)
+		fmt.Println(string(c), boundaries.Width())
 	}
 	// Output: 🇩🇪 2
 	// 🏳️‍🌈 2
@@ -160,11 +162,11 @@ func ExampleStep_graphemes() {
 func ExampleStepString_graphemes() {
 	str := "🇩🇪🏳️\u200d🌈!"
 	var c string
-	var state int
+	var state uniseg.State
 	for len(str) > 0 {
-		var boundaries int
+		var boundaries uniseg.Boundaries
 		c, str, boundaries, state = uniseg.StepString(str, state)
-		fmt.Println(c, boundaries>>uniseg.ShiftWidth)
+		fmt.Println(string(c), boundaries.Width())
 	}
 	// Output:
 	// 🇩🇪 2
@@ -176,13 +178,13 @@ func ExampleStep_word() {
 	b := []byte("Hello, world!")
 	var (
 		c          []byte
-		boundaries int
-		state      int
+		boundaries uniseg.Boundaries
+		state      uniseg.State
 	)
 	for len(b) > 0 {
 		c, b, boundaries, state = uniseg.Step(b, state)
 		fmt.Print(string(c))
-		if boundaries&uniseg.MaskWord != 0 {
+		if boundaries.Word() {
 			fmt.Print("|")
 		}
 	}
@@ -193,13 +195,13 @@ func ExampleStepString_word() {
 	str := "Hello, world!"
 	var (
 		c          string
-		boundaries int
-		state      int
+		boundaries uniseg.Boundaries
+		state      uniseg.State
 	)
 	for len(str) > 0 {
 		c, str, boundaries, state = uniseg.StepString(str, state)
 		fmt.Print(c)
-		if boundaries&uniseg.MaskWord != 0 {
+		if boundaries.Word() {
 			fmt.Print("|")
 		}
 	}
@@ -210,13 +212,13 @@ func ExampleStep_sentence() {
 	b := []byte("This is sentence 1.0. And this is sentence two.")
 	var (
 		c          []byte
-		boundaries int
-		state      int
+		boundaries uniseg.Boundaries
+		state      uniseg.State
 	)
 	for len(b) > 0 {
 		c, b, boundaries, state = uniseg.Step(b, state)
 		fmt.Print(string(c))
-		if boundaries&uniseg.MaskSentence != 0 {
+		if boundaries.Sentence() {
 			fmt.Print("|")
 		}
 	}
@@ -227,13 +229,13 @@ func ExampleStepString_sentence() {
 	str := "This is sentence 1.0. And this is sentence two."
 	var (
 		c          string
-		boundaries int
-		state      int
+		boundaries uniseg.Boundaries
+		state      uniseg.State
 	)
 	for len(str) > 0 {
 		c, str, boundaries, state = uniseg.StepString(str, state)
 		fmt.Print(c)
-		if boundaries&uniseg.MaskSentence != 0 {
+		if boundaries.Sentence() {
 			fmt.Print("|")
 		}
 	}
@@ -244,15 +246,16 @@ func ExampleStep_lineBreaking() {
 	b := []byte("First line.\nSecond line.")
 	var (
 		c          []byte
-		boundaries int
-		state      int
+		boundaries uniseg.Boundaries
+		state      uniseg.State
 	)
 	for len(b) > 0 {
 		c, b, boundaries, state = uniseg.Step(b, state)
 		fmt.Print(string(c))
-		if boundaries&uniseg.MaskLine == int(uniseg.LineCanBreak) {
+		switch boundaries.Line() {
+		case uniseg.LineCanBreak:
 			fmt.Print("|")
-		} else if boundaries&uniseg.MaskLine == int(uniseg.LineMustBreak) {
+		case uniseg.LineMustBreak:
 			fmt.Print("‖")
 		}
 	}
@@ -265,15 +268,16 @@ func ExampleStepString_lineBreaking() {
 	str := "First line.\nSecond line."
 	var (
 		c          string
-		boundaries int
-		state      int
+		boundaries uniseg.Boundaries
+		state      uniseg.State
 	)
 	for len(str) > 0 {
 		c, str, boundaries, state = uniseg.StepString(str, state)
 		fmt.Print(c)
-		if boundaries&uniseg.MaskLine == int(uniseg.LineCanBreak) {
+		switch boundaries.Line() {
+		case uniseg.LineCanBreak:
 			fmt.Print("|")
-		} else if boundaries&uniseg.MaskLine == int(uniseg.LineMustBreak) {
+		case uniseg.LineMustBreak:
 			fmt.Print("‖")
 		}
 	}
@@ -317,9 +321,10 @@ func ExampleGraphemes_lineBreaking() {
 	g := uniseg.NewGraphemes("First line.\nSecond line.")
 	for g.Next() {
 		fmt.Print(g.Str())
-		if g.LineBreak() == uniseg.LineCanBreak {
+		switch g.LineBreak() {
+		case uniseg.LineCanBreak:
 			fmt.Print("|")
-		} else if g.LineBreak() == uniseg.LineMustBreak {
+		case uniseg.LineMustBreak:
 			fmt.Print("‖")
 		}
 	}

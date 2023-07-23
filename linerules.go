@@ -2,6 +2,7 @@ package uniseg
 
 import "unicode/utf8"
 
+// LineBreakState is the type of the line break parser's states.
 type LineBreakState int
 
 // The states of the line break parser.
