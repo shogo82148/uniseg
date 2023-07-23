@@ -1,5 +1,7 @@
 package uniseg
 
+import "os"
+
 //go:generate go run ./internal/cmd/gen_breaktest GraphemeBreakTest graphemebreak_test.go graphemeBreakTestCases graphemes
 //go:generate go run ./internal/cmd/gen_breaktest WordBreakTest wordbreak_test.go wordBreakTestCases words
 //go:generate go run ./internal/cmd/gen_breaktest SentenceBreakTest sentencebreak_test.go sentenceBreakTestCases sentences
@@ -11,6 +13,49 @@ package uniseg
 //go:generate go run ./internal/cmd/gen_properties LineBreak lineproperties.go lineBreakCodePoints lines gencat
 //go:generate go run ./internal/cmd/gen_properties EastAsianWidth eastasianwidth.go eastAsianWidth eastasianwidth
 //go:generate go run ./internal/cmd/gen_properties - emojipresentation.go emojiPresentation emojipresentation emojis=Emoji_Presentation
+//go:generate go run ./internal/cmd/gen_properties - emoji.go emoji emoji emojis=Emoji
+
+// Parser is a parser for Unicode text.
+type Parser struct {
+	// EastAsianWidth controls the width of characters
+	// with the East Asian Width Ambiguous attribute.
+	//
+	// It it is true, the parser treats Unicode text
+	// in the context of East Asian traditional character encodings.
+	// The width of characters with the East Asian Width Ambiguous attribute is 2.
+	//
+	// It it is false, the parser treats Unicode text
+	// in the context of non-East Asian traditional character encodings.
+	// The width of characters with the East Asian Width Ambiguous attribute is 1.
+	EastAsianWidth bool
+
+	// WideEmoji controls the width of Emoji characters.
+	// [UAX #11] recommends that Emoji characters should be rendered
+	// with a width of 1, however some fonts render Emoji characters
+	// wider than other characters.
+	// WideEmoji is used to maintain compatibility with such fonts.
+	//
+	// If it is true, the width of Emoji characters is 2.
+	// Otherwise, the width of Emoji characters is 1.
+	// It is effective only when EastAsianWidth is true.
+	//
+	// [UAX #11]: https://www.unicode.org/reports/tr11/tr11-40.html
+	WideEmoji bool
+}
+
+var DefaultParser = defaultParser()
+
+func defaultParser() *Parser {
+	p := &Parser{}
+	// it is compatible with https://github.com/mattn/go-runewidth.
+	env := os.Getenv("RUNEWIDTH_EASTASIAN")
+	if env == "" {
+		p.EastAsianWidth = IsEastAsian()
+	} else {
+		p.EastAsianWidth = env == "1"
+	}
+	return p
+}
 
 // bytes is a type that is either []byte or string.
 type bytes interface {

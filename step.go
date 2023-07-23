@@ -127,15 +127,57 @@ const (
 //
 // [UAX #14 LB3]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
 func Step(b []byte, state State) (cluster, rest []byte, boundaries Boundaries, newState State) {
-	return step(b, state, utf8.DecodeRune)
+	return step(DefaultParser, b, state, utf8.DecodeRune)
+}
+
+// Step returns the first grapheme cluster (user-perceived character) found in
+// the given byte slice. It also returns information about the boundary between
+// that grapheme cluster and the one following it as well as the monospace width
+// of the grapheme cluster. There are three types of boundary information: word
+// boundaries, sentence boundaries, and line breaks. This function is therefore
+// a combination of [FirstGraphemeCluster], [FirstWord], [FirstSentence], and
+// [FirstLineSegment].
+//
+// This function can be called continuously to extract all grapheme clusters
+// from a byte slice, as illustrated in the examples below.
+//
+// If you don't know which state to pass, for example when calling the function
+// for the first time, you must pass 0. For consecutive calls, pass the state
+// and rest slice returned by the previous call.
+//
+// The "rest" slice is the sub-slice of the original byte slice "b" starting
+// after the last byte of the identified grapheme cluster. If the length of the
+// "rest" slice is 0, the entire byte slice "b" has been processed. The
+// "cluster" byte slice is the sub-slice of the input slice containing the
+// first identified grapheme cluster.
+//
+// Given an empty byte slice "b", the function returns nil values.
+//
+// While slightly less convenient than using the Graphemes class, this function
+// has much better performance and makes no allocations. It lends itself well to
+// large byte slices.
+//
+// Note that in accordance with [UAX #14 LB3], the final segment will end with
+// a mandatory line break (boundaries&maskLine == LineMustBreak). You can choose
+// to ignore this by checking if the length of the "rest" slice is 0 and calling
+// [HasTrailingLineBreak] or [HasTrailingLineBreakInString] on the last rune.
+//
+// [UAX #14 LB3]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
+func (p *Parser) Step(b []byte, state State) (cluster, rest []byte, boundaries Boundaries, newState State) {
+	return step(p, b, state, utf8.DecodeRune)
 }
 
 // StepString is like [Step] but its input and outputs are strings.
 func StepString(str string, state State) (cluster, rest string, boundaries Boundaries, newState State) {
-	return step(str, state, utf8.DecodeRuneInString)
+	return step(DefaultParser, str, state, utf8.DecodeRuneInString)
 }
 
-func step[T bytes](str T, state State, decoder runeDecoder[T]) (cluster, rest T, boundaries Boundaries, _newState State) {
+// StepString is like [Parser.Step] but its input and outputs are strings.
+func (p *Parser) StepString(str string, state State) (cluster, rest string, boundaries Boundaries, newState State) {
+	return step(p, str, state, utf8.DecodeRuneInString)
+}
+
+func step[T bytes](p *Parser, str T, state State, decoder runeDecoder[T]) (cluster, rest T, boundaries Boundaries, _newState State) {
 	var zero T
 
 	// An empty byte slice returns nothing.
@@ -147,7 +189,7 @@ func step[T bytes](str T, state State, decoder runeDecoder[T]) (cluster, rest T,
 	r, length := decoder(str)
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
 		prop := graphemeCodePoints.search(r)
-		boundaries := newBoundaries(LineMustBreak, true, true, runeWidth(r, prop))
+		boundaries := newBoundaries(LineMustBreak, true, true, runeWidth(p, r, prop))
 		_newState := newState(grAny, wbAny, sbAny, lbAny, prop)
 		return str, zero, boundaries, _newState
 	}
@@ -167,7 +209,7 @@ func step[T bytes](str T, state State, decoder runeDecoder[T]) (cluster, rest T,
 	} else {
 		graphemeState, wordState, sentenceState, lineState, firstProp = state.unpack()
 	}
-	width := runeWidth(r, firstProp)
+	width := runeWidth(p, r, firstProp)
 
 	// Transition until we find a grapheme cluster boundary.
 	for {
@@ -194,7 +236,7 @@ func step[T bytes](str T, state State, decoder runeDecoder[T]) (cluster, rest T,
 		if r == vs16 {
 			width = 2
 		} else if firstProp != prExtendedPictographic && firstProp != prRegionalIndicator && firstProp != prL {
-			width += runeWidth(r, prop)
+			width += runeWidth(p, r, prop)
 		} else if firstProp == prExtendedPictographic {
 			if r == vs15 {
 				width = 1
