@@ -35,7 +35,7 @@ jobs:
 
       - name: test
         run: |
-          go test -v -coverprofile=profile.cov ./...
+          go test ./... -v -cover -coverprofile coverage.out
         env:
           GOEXPERIMENT: ${{ matrix.goexperiment }}
 
