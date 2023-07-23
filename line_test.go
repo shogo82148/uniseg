@@ -1,6 +1,9 @@
 package uniseg
 
-import "testing"
+import (
+	"runtime"
+	"testing"
+)
 
 // Test all official Unicode test cases for line breaks using the byte slice
 // function.
@@ -157,26 +160,40 @@ func TestHasTrailingLineBreakInString(t *testing.T) {
 
 // Benchmark the use of the line break function for byte slices.
 func BenchmarkLineFunctionBytes(b *testing.B) {
-	str := []byte(benchmarkStr)
+	input := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
+		var boundaries bool
 		var state LineBreakState
+		str := input
 		for len(str) > 0 {
 			c, str, _, state = FirstLineSegment(str, state)
-			resultRunes = []rune(string(c))
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(boundaries)
+			runtime.KeepAlive(state)
 		}
 	}
 }
 
 // Benchmark the use of the line break function for strings.
 func BenchmarkLineFunctionString(b *testing.B) {
-	str := benchmarkStr
+	input := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
+		var boundaries bool
 		var state LineBreakState
+		str := input
 		for len(str) > 0 {
-			c, str, _, state = FirstLineSegmentInString(str, state)
-			resultRunes = []rune(c)
+			c, str, boundaries, state = FirstLineSegmentInString(str, state)
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(boundaries)
+			runtime.KeepAlive(state)
 		}
 	}
 }

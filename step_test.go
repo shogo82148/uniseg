@@ -1,6 +1,9 @@
 package uniseg
 
-import "testing"
+import (
+	"runtime"
+	"testing"
+)
 
 // Test official Grapheme Cluster Unicode test cases for grapheme clusters using
 // the [Step] function.
@@ -436,26 +439,40 @@ func TestStepStringSentence(t *testing.T) {
 
 // Benchmark the use of the [Step] function.
 func BenchmarkStepBytes(b *testing.B) {
-	str := []byte(benchmarkStr)
+	input := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
+		var boundaries Boundaries
 		var state State
+		str := input
 		for len(str) > 0 {
 			c, str, _, state = Step(str, state)
-			resultRunes = []rune(string(c))
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(boundaries)
+			runtime.KeepAlive(state)
 		}
 	}
 }
 
 // Benchmark the use of the StepString() function.
 func BenchmarkStepString(b *testing.B) {
-	str := benchmarkStr
+	input := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
+		var boundaries Boundaries
 		var state State
+		str := input
 		for len(str) > 0 {
-			c, str, _, state = StepString(str, state)
-			resultRunes = []rune(c)
+			c, str, boundaries, state = StepString(str, state)
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(boundaries)
+			runtime.KeepAlive(state)
 		}
 	}
 }
