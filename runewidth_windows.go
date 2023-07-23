@@ -9,6 +9,7 @@ import (
 )
 
 var (
+	// https://docs.microsoft.com/en-us/windows/console/getconsoleoutputcp
 	kernel32               = syscall.NewLazyDLL("kernel32")
 	procGetConsoleOutputCP = kernel32.NewProc("GetConsoleOutputCP")
 )
@@ -21,6 +22,12 @@ func IsEastAsian() bool {
 	}
 
 	switch int(r1) {
+	// https://learn.microsoft.com/en-us/windows/win32/intl/code-page-identifiers
+	// 932:   ANSI/OEM Japanese; Japanese (Shift-JIS)
+	// 51932: EUC Japanese
+	// 936:   ANSI/OEM Simplified Chinese (PRC, Singapore); Chinese Simplified (GB2312)
+	// 949:   ANSI/OEM Korean (Unified Hangul Code)
+	// 950:   ANSI/OEM Traditional Chinese (Taiwan; Hong Kong SAR, PRC); Chinese Traditional (Big5)
 	case 932, 51932, 936, 949, 950:
 		return true
 	}
