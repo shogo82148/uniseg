@@ -101,21 +101,6 @@ const (
 // a combination of [FirstGraphemeCluster], [FirstWord], [FirstSentence], and
 // [FirstLineSegment].
 //
-// The "boundaries" return value can be evaluated as follows:
-//
-//   - boundaries&maskWord != 0: The boundary is a word boundary.
-//   - boundaries&maskWord == 0: The boundary is not a word boundary.
-//   - boundaries&maskSentence != 0: The boundary is a sentence boundary.
-//   - boundaries&maskSentence == 0: The boundary is not a sentence boundary.
-//   - boundaries&maskLine == LineDontBreak: You must not break the line at the
-//     boundary.
-//   - boundaries&maskLine == LineMustBreak: You must break the line at the
-//     boundary.
-//   - boundaries&maskLine == LineCanBreak: You may or may not break the line at
-//     the boundary.
-//   - boundaries >> shiftWidth: The width of the grapheme cluster for most
-//     monospace fonts where a value of 1 represents one character cell.
-//
 // This function can be called continuously to extract all grapheme clusters
 // from a byte slice, as illustrated in the examples below.
 //

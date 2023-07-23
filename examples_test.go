@@ -321,9 +321,10 @@ func ExampleGraphemes_lineBreaking() {
 	g := uniseg.NewGraphemes("First line.\nSecond line.")
 	for g.Next() {
 		fmt.Print(g.Str())
-		if g.LineBreak() == uniseg.LineCanBreak {
+		switch g.LineBreak() {
+		case uniseg.LineCanBreak:
 			fmt.Print("|")
-		} else if g.LineBreak() == uniseg.LineMustBreak {
+		case uniseg.LineMustBreak:
 			fmt.Print("‖")
 		}
 	}
