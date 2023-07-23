@@ -100,9 +100,9 @@ var (
 for len(str) > 0 {
 	c, str, boundaries, state = uniseg.StepString(str, state)
 	fmt.Print(c)
-	if boundaries&uniseg.MaskLine == uniseg.LineCanBreak {
+	if boundaries&uniseg.maskLine == uniseg.LineCanBreak {
 		fmt.Print("|")
-	} else if boundaries&uniseg.MaskLine == uniseg.LineMustBreak {
+	} else if boundaries&uniseg.maskLine == uniseg.LineMustBreak {
 		fmt.Print("‖")
 	}
 }

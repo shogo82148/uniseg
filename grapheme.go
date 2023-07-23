@@ -33,10 +33,10 @@ type Graphemes struct {
 	offset int
 
 	// The current boundary information of the [Step] parser.
-	boundaries int
+	boundaries Boundaries
 
 	// The current state of the [Step] parser.
-	state int
+	state State
 }
 
 // NewGraphemes returns a new grapheme cluster iterator.
@@ -111,7 +111,7 @@ func (g *Graphemes) IsWordBoundary() bool {
 	if g.state <= 0 {
 		return true
 	}
-	return g.boundaries&MaskWord != 0
+	return g.boundaries&maskWord != 0
 }
 
 // IsSentenceBoundary returns true if a sentence ends after the current
@@ -120,7 +120,7 @@ func (g *Graphemes) IsSentenceBoundary() bool {
 	if g.state <= 0 {
 		return true
 	}
-	return g.boundaries&MaskSentence != 0
+	return g.boundaries&maskSentence != 0
 }
 
 // LineBreak returns whether the line can be broken after the current grapheme
@@ -134,7 +134,7 @@ func (g *Graphemes) LineBreak() LineBreak {
 	if g.state == -2 {
 		return LineMustBreak
 	}
-	return LineBreak(g.boundaries & MaskLine)
+	return LineBreak(g.boundaries & maskLine)
 }
 
 // Width returns the monospace width of the current grapheme cluster.
@@ -142,7 +142,7 @@ func (g *Graphemes) Width() int {
 	if g.state <= 0 {
 		return 0
 	}
-	return g.boundaries >> ShiftWidth
+	return g.boundaries.Width()
 }
 
 // Reset puts the iterator into its initial state such that the next call to
