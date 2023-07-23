@@ -1,13 +1,11 @@
 package uniseg
 
 import (
+	"runtime"
 	"testing"
 )
 
 const benchmarkStr = "This is 🏳️\u200d🌈, a test string ツ for grapheme cluster testing. 🏋🏽\u200d♀️🙂🙂 It's only relevant for benchmark tests."
-
-// Variables to avoid compiler optimizations.
-var resultRunes []rune
 
 type testCase = struct {
 	original string
@@ -485,33 +483,47 @@ func BenchmarkGraphemesClass(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		g := NewGraphemes(benchmarkStr)
 		for g.Next() {
-			resultRunes = g.Runes()
+			runtime.KeepAlive(g.Runes())
 		}
 	}
 }
 
 // Benchmark the use of the Graphemes function for byte slices.
 func BenchmarkGraphemesFunctionBytes(b *testing.B) {
-	str := []byte(benchmarkStr)
+	input := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
+		var width int
 		var state GraphemeBreakState
+		str := input
 		for len(str) > 0 {
-			c, str, _, state = FirstGraphemeCluster(str, state)
-			resultRunes = []rune(string(c))
+			c, str, width, state = FirstGraphemeCluster(str, state)
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(width)
+			runtime.KeepAlive(state)
 		}
 	}
 }
 
 // Benchmark the use of the Graphemes function for strings.
 func BenchmarkGraphemesFunctionString(b *testing.B) {
-	str := benchmarkStr
+	input := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
+		var width int
 		var state GraphemeBreakState
+		str := input
 		for len(str) > 0 {
 			c, str, _, state = FirstGraphemeClusterInString(str, state)
-			resultRunes = []rune(c)
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(width)
+			runtime.KeepAlive(state)
 		}
 	}
 }

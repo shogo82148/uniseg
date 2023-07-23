@@ -1,6 +1,9 @@
 package uniseg
 
-import "testing"
+import (
+	"runtime"
+	"testing"
+)
 
 // Test all official Unicode test cases for word boundaries using the byte slice
 // function.
@@ -126,26 +129,36 @@ func TestWordCasesString(t *testing.T) {
 
 // Benchmark the use of the word break function for byte slices.
 func BenchmarkWordFunctionBytes(b *testing.B) {
-	str := []byte(benchmarkStr)
+	input := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
 		var state WordBreakState
+		str := input
 		for len(str) > 0 {
 			c, str, state = FirstWord(str, state)
-			resultRunes = []rune(string(c))
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(state)
 		}
 	}
 }
 
 // Benchmark the use of the word break function for strings.
 func BenchmarkWordFunctionString(b *testing.B) {
-	str := benchmarkStr
+	input := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
 		var state WordBreakState
+		str := input
 		for len(str) > 0 {
 			c, str, state = FirstWordInString(str, state)
-			resultRunes = []rune(c)
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(state)
 		}
 	}
 }

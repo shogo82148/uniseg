@@ -1,6 +1,7 @@
 package uniseg
 
 import (
+	"runtime"
 	"testing"
 )
 
@@ -128,26 +129,36 @@ func TestSentenceCasesString(t *testing.T) {
 
 // Benchmark the use of the sentence break function for byte slices.
 func BenchmarkSentenceFunctionBytes(b *testing.B) {
-	str := []byte(benchmarkStr)
+	input := []byte(benchmarkStr)
 	for i := 0; i < b.N; i++ {
 		var c []byte
 		var state SentenceBreakState
+		str := input
 		for len(str) > 0 {
 			c, str, state = FirstSentence(str, state)
-			resultRunes = []rune(string(c))
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(state)
 		}
 	}
 }
 
 // Benchmark the use of the sentence break function for strings.
 func BenchmarkSentenceFunctionString(b *testing.B) {
-	str := benchmarkStr
+	input := benchmarkStr
 	for i := 0; i < b.N; i++ {
 		var c string
 		var state SentenceBreakState
+		str := input
 		for len(str) > 0 {
 			c, str, state = FirstSentenceInString(str, state)
-			resultRunes = []rune(c)
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(state)
 		}
 	}
 }
