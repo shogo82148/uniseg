@@ -370,7 +370,7 @@ func TestWidthGraphemes(t *testing.T) {
 func TestWidthGraphemesFunctionBytes(t *testing.T) {
 	for index, testCase := range widthTestCases {
 		var actual, width int
-		var state State
+		var state GraphemeBreakState
 		text := []byte(testCase.original)
 		for len(text) > 0 {
 			_, text, width, state = FirstGraphemeCluster(text, state)
@@ -386,7 +386,7 @@ func TestWidthGraphemesFunctionBytes(t *testing.T) {
 func TestWidthGraphemesFunctionString(t *testing.T) {
 	for index, testCase := range widthTestCases {
 		var actual, width int
-		var state State
+		var state GraphemeBreakState
 		text := testCase.original
 		for len(text) > 0 {
 			_, text, width, state = FirstGraphemeClusterInString(text, state)

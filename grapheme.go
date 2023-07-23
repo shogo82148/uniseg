@@ -157,7 +157,7 @@ func (g *Graphemes) Reset() {
 // GraphemeClusterCount returns the number of user-perceived characters
 // (grapheme clusters) for the given string.
 func GraphemeClusterCount(s string) (n int) {
-	var state State
+	var state GraphemeBreakState
 	for len(s) > 0 {
 		_, s, _, state = FirstGraphemeClusterInString(s, state)
 		n++
@@ -170,7 +170,7 @@ func GraphemeClusterCount(s string) (n int) {
 func ReverseString(s string) string {
 	str := []byte(s)
 	reversed := make([]byte, len(str))
-	var state State
+	var state GraphemeBreakState
 	index := len(str)
 	for len(str) > 0 {
 		var cluster []byte
@@ -184,17 +184,18 @@ func ReverseString(s string) string {
 	return string(reversed)
 }
 
-type State int
+// GraphemeBreakState the type of the grapheme cluster parser's states.
+type GraphemeBreakState int
 
 // The number of bits the grapheme property must be shifted to make place for
 // grapheme states.
 const shiftGraphemePropState = 4
 
-func pack(s grState, p property) State {
-	return State(s)<<shiftGraphemePropState | State(p)
+func newGraphemeBreakState(s grState, p property) GraphemeBreakState {
+	return GraphemeBreakState(s)<<shiftGraphemePropState | GraphemeBreakState(p)
 }
 
-func (s State) unpack() (grState, property) {
+func (s GraphemeBreakState) unpack() (grState, property) {
 	return grState(s >> shiftGraphemePropState), property(s & ((1 << shiftGraphemePropState) - 1))
 }
 
@@ -223,17 +224,17 @@ func (s State) unpack() (grState, property) {
 // large byte slices.
 //
 // [Unicode Standard Annex #29, Grapheme Cluster Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Grapheme_Cluster_Boundaries
-func FirstGraphemeCluster(b []byte, state State) (cluster, rest []byte, width int, newState State) {
+func FirstGraphemeCluster(b []byte, state GraphemeBreakState) (cluster, rest []byte, width int, newState GraphemeBreakState) {
 	return firstGraphemeCluster(b, state, utf8.DecodeRune)
 }
 
 // FirstGraphemeClusterInString is like [FirstGraphemeCluster] but its input and
 // outputs are strings.
-func FirstGraphemeClusterInString(str string, state State) (cluster, rest string, width int, newState State) {
+func FirstGraphemeClusterInString(str string, state GraphemeBreakState) (cluster, rest string, width int, newState GraphemeBreakState) {
 	return firstGraphemeCluster(str, state, utf8.DecodeRuneInString)
 }
 
-func firstGraphemeCluster[T bytes](str T, state State, decoder runeDecoder[T]) (cluster, rest T, width int, newState State) {
+func firstGraphemeCluster[T bytes](str T, state GraphemeBreakState, decoder runeDecoder[T]) (cluster, rest T, width int, newState GraphemeBreakState) {
 	var zero T
 
 	// An empty string returns nothing.
@@ -250,7 +251,7 @@ func firstGraphemeCluster[T bytes](str T, state State, decoder runeDecoder[T]) (
 		} else {
 			_, prop = state.unpack()
 		}
-		return str, zero, runeWidth(r, prop), pack(grAny, prop)
+		return str, zero, runeWidth(r, prop), newGraphemeBreakState(grAny, prop)
 	}
 
 	// If we don't know the state, determine it now.
@@ -274,7 +275,7 @@ func firstGraphemeCluster[T bytes](str T, state State, decoder runeDecoder[T]) (
 		myState, prop, boundary = transitionGraphemeState(myState, r)
 
 		if boundary {
-			return str[:length], str[length:], width, pack(myState, prop)
+			return str[:length], str[length:], width, newGraphemeBreakState(myState, prop)
 		}
 
 		if r == vs16 {
@@ -291,7 +292,7 @@ func firstGraphemeCluster[T bytes](str T, state State, decoder runeDecoder[T]) (
 
 		length += l
 		if len(str) <= length {
-			return str, zero, width, pack(grAny, prop)
+			return str, zero, width, newGraphemeBreakState(grAny, prop)
 		}
 	}
 }

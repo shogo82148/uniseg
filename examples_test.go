@@ -14,7 +14,7 @@ func ExampleGraphemeClusterCount() {
 
 func ExampleFirstGraphemeCluster() {
 	b := []byte("🇩🇪🏳️\u200d🌈!")
-	var state uniseg.State
+	var state uniseg.GraphemeBreakState
 	var c []byte
 	for len(b) > 0 {
 		var width int
@@ -29,7 +29,7 @@ func ExampleFirstGraphemeCluster() {
 
 func ExampleFirstGraphemeClusterInString() {
 	str := "🇩🇪🏳️\u200d🌈!"
-	var state uniseg.State
+	var state uniseg.GraphemeBreakState
 	var c string
 	for len(str) > 0 {
 		var width int
