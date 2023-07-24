@@ -34,122 +34,122 @@ type wbTransitionResult struct {
 
 // The word break parser's state transitions. It's analogous to grTransitions,
 // see comments there for details. Unicode version 15.0.0.
-func wbTransitions(wb WordBreakState, p property) (wbTransitionResult, bool) {
+func wbTransitions(wb WordBreakState, p wbProperty) (wbTransitionResult, bool) {
 	switch wb {
 	case wbAny:
 		switch p {
-		case prNewline: // WB3b.
+		case wbprNewline: // WB3b.
 			return wbTransitionResult{wbNewline, true, 32}, true
-		case prCR: // WB3b.
+		case wbprCR: // WB3b.
 			return wbTransitionResult{wbCR, true, 32}, true
-		case prLF: // WB3b.
+		case wbprLF: // WB3b.
 			return wbTransitionResult{wbLF, true, 32}, true
-		case prWSegSpace: // WB3d.
+		case wbprWSegSpace: // WB3d.
 			return wbTransitionResult{wbWSegSpace, true, 9990}, true
-		case prALetter: // WB5.
+		case wbprALetter: // WB5.
 			return wbTransitionResult{wbALetter, true, 9990}, true
-		case prHebrewLetter: // WB5.
+		case wbprHebrewLetter: // WB5.
 			return wbTransitionResult{wbHebrewLetter, true, 9990}, true
-		case prNumeric: // WB8.
+		case wbprNumeric: // WB8.
 			return wbTransitionResult{wbNumeric, true, 9990}, true
-		case prKatakana: // WB13.
+		case wbprKatakana: // WB13.
 			return wbTransitionResult{wbKatakana, true, 9990}, true
-		case prExtendNumLet: // WB13a.
+		case wbprExtendNumLet: // WB13a.
 			return wbTransitionResult{wbExtendNumLet, true, 9990}, true
 		}
 
 	case wbCR:
 		switch p {
-		case prAny: // WB3a.
+		case wbprAny: // WB3a.
 			return wbTransitionResult{wbAny, true, 31}, true
-		case prLF: // WB3.
+		case wbprLF: // WB3.
 			return wbTransitionResult{wbLF, false, 30}, true
 		}
 	case wbLF:
 		switch p {
-		case prAny: // WB3a.
+		case wbprAny: // WB3a.
 			return wbTransitionResult{wbAny, true, 31}, true
 		}
 	case wbNewline:
 		switch p {
-		case prAny: // WB3a.
+		case wbprAny: // WB3a.
 			return wbTransitionResult{wbAny, true, 31}, true
 		}
 	case wbWSegSpace:
 		switch p {
-		case prWSegSpace: // WB3d.
+		case wbprWSegSpace: // WB3d.
 			return wbTransitionResult{wbWSegSpace, false, 34}, true
 		}
 	case wbHebrewLetter:
 		switch p {
-		case prALetter: // WB5.
+		case wbprALetter: // WB5.
 			return wbTransitionResult{wbALetter, false, 50}, true
-		case prHebrewLetter: // WB5.
+		case wbprHebrewLetter: // WB5.
 			return wbTransitionResult{wbHebrewLetter, false, 50}, true
-		case prSingleQuote: // WB7a.
+		case wbprSingleQuote: // WB7a.
 			return wbTransitionResult{wbAny, false, 71}, true
-		case prNumeric: // WB9.
+		case wbprNumeric: // WB9.
 			return wbTransitionResult{wbNumeric, false, 90}, true
-		case prExtendNumLet: // WB13a.
+		case wbprExtendNumLet: // WB13a.
 			return wbTransitionResult{wbExtendNumLet, false, 131}, true
 		}
 	case wbALetter:
 		switch p {
-		case prALetter: // WB5.
+		case wbprALetter: // WB5.
 			return wbTransitionResult{wbALetter, false, 50}, true
-		case prHebrewLetter: // WB5.
+		case wbprHebrewLetter: // WB5.
 			return wbTransitionResult{wbHebrewLetter, false, 50}, true
-		case prNumeric: // WB9.
+		case wbprNumeric: // WB9.
 			return wbTransitionResult{wbNumeric, false, 90}, true
-		case prExtendNumLet: // WB13a.
+		case wbprExtendNumLet: // WB13a.
 			return wbTransitionResult{wbExtendNumLet, false, 131}, true
 		}
 	case wbWB7:
 		switch p {
-		case prALetter: // WB7.
+		case wbprALetter: // WB7.
 			return wbTransitionResult{wbALetter, false, 70}, true
-		case prHebrewLetter: // WB7.
+		case wbprHebrewLetter: // WB7.
 			return wbTransitionResult{wbHebrewLetter, false, 70}, true
 		}
 	case wbWB7c:
 		switch p {
-		case prHebrewLetter: // WB7c.
+		case wbprHebrewLetter: // WB7c.
 			return wbTransitionResult{wbHebrewLetter, false, 73}, true
 		}
 	case wbNumeric:
 		switch p {
-		case prNumeric: // WB8.
+		case wbprNumeric: // WB8.
 			return wbTransitionResult{wbNumeric, false, 80}, true
-		case prALetter: // WB10.
+		case wbprALetter: // WB10.
 			return wbTransitionResult{wbALetter, false, 100}, true
-		case prHebrewLetter: // WB10.
+		case wbprHebrewLetter: // WB10.
 			return wbTransitionResult{wbHebrewLetter, false, 100}, true
-		case prExtendNumLet: // WB13a.
+		case wbprExtendNumLet: // WB13a.
 			return wbTransitionResult{wbExtendNumLet, false, 131}, true
 		}
 	case wbWB11:
 		switch p {
-		case prNumeric: // WB11.
+		case wbprNumeric: // WB11.
 			return wbTransitionResult{wbNumeric, false, 110}, true
 		}
 	case wbKatakana:
 		switch p {
-		case prKatakana: // WB13.
+		case wbprKatakana: // WB13.
 			return wbTransitionResult{wbKatakana, false, 130}, true
-		case prExtendNumLet: // WB13a.
+		case wbprExtendNumLet: // WB13a.
 			return wbTransitionResult{wbExtendNumLet, false, 131}, true
 		}
 	case wbExtendNumLet:
 		switch p {
-		case prExtendNumLet: // WB13a.
+		case wbprExtendNumLet: // WB13a.
 			return wbTransitionResult{wbExtendNumLet, false, 131}, true
-		case prALetter: // WB13b.
+		case wbprALetter: // WB13b.
 			return wbTransitionResult{wbALetter, false, 132}, true
-		case prHebrewLetter: // WB13b.
+		case wbprHebrewLetter: // WB13b.
 			return wbTransitionResult{wbHebrewLetter, false, 132}, true
-		case prNumeric: // WB13b.
+		case wbprNumeric: // WB13b.
 			return wbTransitionResult{wbNumeric, false, 132}, true
-		case prKatakana: // WB13b.
+		case wbprKatakana: // WB13b.
 			return wbTransitionResult{wbKatakana, false, 132}, true
 		}
 	}
@@ -168,7 +168,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 
 	// "Replacing Ignore Rules".
 	switch nextProperty {
-	case prZWJ:
+	case wbprZWJ:
 		// WB4 (for zero-width joiners).
 		if state == wbNewline || state == wbCR || state == wbLF {
 			return wbAny | wbZWJBit, true // Make sure we don't apply WB4 to WB3a.
@@ -177,7 +177,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 			return wbAny | wbZWJBit, false
 		}
 		return state | wbZWJBit, false
-	case prExtend, prFormat:
+	case wbprExtend, wbprFormat:
 		// WB4 (for Extend and Format).
 		if state == wbNewline || state == wbCR || state == wbLF {
 			return wbAny, true // Make sure we don't apply WB4 to WB3a.
@@ -189,7 +189,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 			return wbAny, false
 		}
 		return state, false
-	case prExtendedPictographic:
+	case wbprExtendedPictographic:
 		if state >= 0 && state&wbZWJBit != 0 {
 			// WB3c.
 			return wbAny, false
@@ -207,7 +207,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 		newState, wordBreak, rule = transition.WordBreakState, transition.boundary, transition.ruleNumber
 	} else {
 		// No specific transition found. Try the less specific ones.
-		transAnyProp, okAnyProp := wbTransitions(state, prAny)
+		transAnyProp, okAnyProp := wbTransitions(state, wbprAny)
 		transAnyState, okAnyState := wbTransitions(wbAny, nextProperty)
 		if okAnyProp && okAnyState {
 			// Both apply. We'll use a mix (see comments for grTransitions).
@@ -235,12 +235,12 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 	// determine the property after nextProperty, skipping over Format, Extend,
 	// and ZWJ (according to WB4). It's -1 if not needed, if such a rune cannot
 	// be determined (because the text ends or the rune is faulty).
-	farProperty := property(-1)
+	farProperty := wbProperty(-1)
 	if rule > 60 &&
 		(state == wbALetter || state == wbHebrewLetter || state == wbNumeric) &&
-		(nextProperty == prMidLetter || nextProperty == prMidNumLet || nextProperty == prSingleQuote || // WB6.
-			nextProperty == prDoubleQuote || // WB7b.
-			nextProperty == prMidNum) { // WB12.
+		(nextProperty == wbprMidLetter || nextProperty == wbprMidNumLet || nextProperty == wbprSingleQuote || // WB6.
+			nextProperty == wbprDoubleQuote || // WB7b.
+			nextProperty == wbprMidNum) { // WB12.
 		for {
 			r, length := decoder(str)
 			str = str[length:]
@@ -248,7 +248,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 				break
 			}
 			prop := workBreakCodePoints.search(r)
-			if prop == prExtend || prop == prFormat || prop == prZWJ {
+			if prop == wbprExtend || prop == wbprFormat || prop == wbprZWJ {
 				continue
 			}
 			farProperty = prop
@@ -259,29 +259,29 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 	// WB6.
 	if rule > 60 &&
 		(state == wbALetter || state == wbHebrewLetter) &&
-		(nextProperty == prMidLetter || nextProperty == prMidNumLet || nextProperty == prSingleQuote) &&
-		(farProperty == prALetter || farProperty == prHebrewLetter) {
+		(nextProperty == wbprMidLetter || nextProperty == wbprMidNumLet || nextProperty == wbprSingleQuote) &&
+		(farProperty == wbprALetter || farProperty == wbprHebrewLetter) {
 		return wbWB7, false
 	}
 
 	// WB7b.
 	if rule > 72 &&
 		state == wbHebrewLetter &&
-		nextProperty == prDoubleQuote &&
-		farProperty == prHebrewLetter {
+		nextProperty == wbprDoubleQuote &&
+		farProperty == wbprHebrewLetter {
 		return wbWB7c, false
 	}
 
 	// WB12.
 	if rule > 120 &&
 		state == wbNumeric &&
-		(nextProperty == prMidNum || nextProperty == prMidNumLet || nextProperty == prSingleQuote) &&
-		farProperty == prNumeric {
+		(nextProperty == wbprMidNum || nextProperty == wbprMidNumLet || nextProperty == wbprSingleQuote) &&
+		farProperty == wbprNumeric {
 		return wbWB11, false
 	}
 
 	// WB15 and WB16.
-	if newState == wbAny && nextProperty == prRegionalIndicator {
+	if newState == wbAny && nextProperty == wbprRegionalIndicator {
 		if state != wbOddRI && state != wbEvenRI { // Includes state == 0.
 			// Transition into the first RI.
 			return wbOddRI, true

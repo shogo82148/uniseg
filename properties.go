@@ -111,17 +111,22 @@ const (
 	wbprCR
 	wbprLF
 	wbprNewline
-	wbprWSegSpace
+	wbprExtend
+	wbprZWJ
+	wbprRegionalIndicator
+	wbprFormat
+	wbprKatakana
 	wbprHebrewLetter
 	wbprALetter
-	wbprWB7
-	wbprWB7c
+	wbprSingleQuote
+	wbprDoubleQuote
+	wbprMidNumLet
+	wbprMidLetter
+	wbprMidNum
 	wbprNumeric
-	wbprWB11
-	wbprKatakana
 	wbprExtendNumLet
-	wbprOddRI
-	wbprEvenRI
+	wbprWSegSpace
+	wbprExtendedPictographic
 )
 
 // generalCategory is the Unicode General Categories.
