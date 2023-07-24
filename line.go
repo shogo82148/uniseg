@@ -152,8 +152,8 @@ func firstLineSegment[T bytes](str T, state LineBreakState, decoder runeDecoder[
 // [UAX #14]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
 func HasTrailingLineBreak(b []byte) bool {
 	r, _ := utf8.DecodeLastRune(b)
-	p := lineBreakCodePoints.search(r).property
-	return p == prBK || p == prCR || p == prLF || p == prNL
+	p := lineBreakCodePoints.search(r).lbProperty
+	return p == lbprBK || p == lbprCR || p == lbprLF || p == lbprNL
 }
 
 // HasTrailingLineBreak returns true if the last rune in the given byte slice is
@@ -162,20 +162,20 @@ func HasTrailingLineBreak(b []byte) bool {
 // [UAX #14]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
 func (*Parser) HasTrailingLineBreak(b []byte) bool {
 	r, _ := utf8.DecodeLastRune(b)
-	p := lineBreakCodePoints.search(r).property
-	return p == prBK || p == prCR || p == prLF || p == prNL
+	p := lineBreakCodePoints.search(r).lbProperty
+	return p == lbprBK || p == lbprCR || p == lbprLF || p == lbprNL
 }
 
 // HasTrailingLineBreakInString is like [HasTrailingLineBreak] but for a string.
 func HasTrailingLineBreakInString(str string) bool {
 	r, _ := utf8.DecodeLastRuneInString(str)
-	p := lineBreakCodePoints.search(r).property
-	return p == prBK || p == prCR || p == prLF || p == prNL
+	p := lineBreakCodePoints.search(r).lbProperty
+	return p == lbprBK || p == lbprCR || p == lbprLF || p == lbprNL
 }
 
 // HasTrailingLineBreakInString is like [HasTrailingLineBreak] but for a string.
 func (*Parser) HasTrailingLineBreakInString(str string) bool {
 	r, _ := utf8.DecodeLastRuneInString(str)
-	p := lineBreakCodePoints.search(r).property
-	return p == prBK || p == prCR || p == prLF || p == prNL
+	p := lineBreakCodePoints.search(r).lbProperty
+	return p == lbprBK || p == lbprCR || p == lbprLF || p == lbprNL
 }

@@ -153,6 +153,57 @@ const (
 	sbprMax = iota
 )
 
+// Line break properties.
+type lbProperty int8
+
+// Line break properties.
+const (
+	lbprXX  lbProperty = iota // Unknown. lbprXX must be 0.
+	lbprBK                    // Mandatory Break
+	lbprCR                    // Carriage Return
+	lbprLF                    // Line Feed
+	lbprCM                    // Combining Mark
+	lbprNL                    // Next Line
+	lbprSG                    // Surrogate
+	lbprWJ                    // Word Joiner
+	lbprZW                    // Zero Width Space
+	lbprGL                    // Non-breaking ("Glue")
+	lbprSP                    // Space
+	lbprZWJ                   // Zero Width Joiner
+	lbprB2                    // Break Opportunity Before and After
+	lbprBA                    // Break After
+	lbprBB                    // Break Before
+	lbprHY                    // Hyphen
+	lbprCB                    // Contingent Break Opportunity
+	lbprCL                    // Close Punctuation
+	lbprCP                    // Close Parenthesis
+	lbprEX                    // Exclamation/Interrogation
+	lbprIN                    // Inseparable
+	lbprNS                    // Nonstarter
+	lbprOP                    // Open Punctuation
+	lbprQU                    // Quotation
+	lbprIS                    // Infix Separator
+	lbprNU                    // Numeric
+	lbprPO                    // Postfix Numeric
+	lbprPR                    // Prefix Numeric
+	lbprSY                    // Symbols Allowing Break After
+	lbprAI                    // Ambiguous (Alphabetic or Ideograph)
+	lbprAL                    // Alphabetic
+	lbprCJ                    // Conditional Japanese Starter
+	lbprEB                    // Emoji Base
+	lbprEM                    // Emoji Modifier
+	lbprH2                    // Hangul LV Syllable
+	lbprH3                    // Hangul LVT Syllable
+	lbprHL                    // Hebrew Letter
+	lbprID                    // Ideographic
+	lbprJL                    // Hangul L Jamo
+	lbprJV                    // Hangul V Jamo
+	lbprJT                    // Hangul T Jamo
+	lbprRI                    // Regional Indicator
+	lbprSA                    // Complex Context Dependent
+	lbprMax = iota
+)
+
 // generalCategory is the Unicode General Categories.
 type generalCategory int
 
@@ -193,7 +244,7 @@ const (
 )
 
 type propertyGeneralCategory struct {
-	property
+	lbProperty
 	generalCategory
 }
 
