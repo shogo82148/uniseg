@@ -9,7 +9,7 @@ import "os"
 
 //go:generate go run ./internal/cmd/gen_properties -logprefix=graphemes -property=auxiliary/GraphemeBreakProperty -emojis=Extended_Pictographic graphemeproperties.go graphemeCodePoints
 //go:generate go run ./internal/cmd/gen_properties -logprefix=words -property=auxiliary/WordBreakProperty -emojis=Extended_Pictographic -prefix=wbpr -type=wbProperty wordproperties.go workBreakCodePoints
-//go:generate go run ./internal/cmd/gen_properties -logprefix=sentences -property=auxiliary/SentenceBreakProperty sentenceproperties.go sentenceBreakCodePoints
+//go:generate go run ./internal/cmd/gen_properties -logprefix=sentences -property=auxiliary/SentenceBreakProperty -prefix=sbpr -type=sbProperty sentenceproperties.go sentenceBreakCodePoints
 //go:generate go run ./internal/cmd/gen_properties -logprefix=lines -property=LineBreak -gencat -type=propertyGeneralCategory lineproperties.go lineBreakCodePoints
 //go:generate go run ./internal/cmd/gen_properties -logprefix=eastasianwidth -property=EastAsianWidth -prefix=eawpr -type eawProperty eastasianwidth.go eastAsianWidth
 //go:generate go run ./internal/cmd/gen_properties -logprefix=emojipresentation -emojis=Emoji_Presentation emojipresentation.go emojiPresentation

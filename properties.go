@@ -127,7 +127,30 @@ const (
 	wbprExtendNumLet
 	wbprWSegSpace
 	wbprExtendedPictographic
-	wbPropertyMax = iota
+	wbprMax = iota
+)
+
+// Sentence break properties.
+type sbProperty int8
+
+// Sentence break properties.
+const (
+	sbprAny sbProperty = iota // sbprAny must be 0.
+	sbprCR
+	sbprLF
+	sbprExtend
+	sbprSep
+	sbprFormat
+	sbprSp
+	sbprLower
+	sbprUpper
+	sbprOLetter
+	sbprNumeric
+	sbprATerm
+	sbprSContinue
+	sbprSTerm
+	sbprClose
+	sbprMax = iota
 )
 
 // generalCategory is the Unicode General Categories.
