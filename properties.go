@@ -6,83 +6,21 @@ type property int
 // The Unicode properties as used in the various parsers. Only the ones needed
 // in the context of this package are included.
 const (
-	prXX      property = 0    // Same as prAny.
-	prAny     property = iota // prAny must be 0.
-	prPrepend                 // Grapheme properties must come first, to reduce the number of bits stored in the state vector.
+	prAny property = iota // prAny must be 0.
 	prCR
 	prLF
 	prControl
 	prExtend
+	prZWJ
 	prRegionalIndicator
+	prPrepend
 	prSpacingMark
 	prL
 	prV
 	prT
 	prLV
 	prLVT
-	prZWJ
 	prExtendedPictographic
-	prNewline
-	prWSegSpace
-	prDoubleQuote
-	prSingleQuote
-	prMidNumLet
-	prNumeric
-	prMidLetter
-	prMidNum
-	prExtendNumLet
-	prALetter
-	prFormat
-	prHebrewLetter
-	prKatakana
-	prSp
-	prSTerm
-	prClose
-	prSContinue
-	prATerm
-	prUpper
-	prLower
-	prSep
-	prOLetter
-	prCM
-	prBA
-	prBK
-	prSP
-	prEX
-	prQU
-	prAL
-	prPR
-	prPO
-	prOP
-	prCP
-	prIS
-	prHY
-	prSY
-	prNU
-	prCL
-	prNL
-	prGL
-	prAI
-	prBB
-	prHL
-	prSA
-	prJL
-	prJV
-	prJT
-	prNS
-	prZW
-	prB2
-	prIN
-	prWJ
-	prID
-	prEB
-	prCJ
-	prH2
-	prH3
-	prSG
-	prCB
-	prRI
-	prEM
 
 	// Emoji
 	prEmoji
