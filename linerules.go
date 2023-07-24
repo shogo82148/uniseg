@@ -327,7 +327,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		// Transition into LB30.
 		if newState == lbCP || newState == lbNUCP {
 			ea := eastAsianWidth.search(r)
-			if ea != prF && ea != prW && ea != prH {
+			if ea != eawprF && ea != eawprW && ea != eawprH {
 				newState |= lbCPeaFWHBit
 			}
 		}
@@ -441,7 +441,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	if rule > 300 {
 		if (state == lbAL || state == lbHL || state == lbNU || state == lbNUNU) && nextProperty == prOP {
 			ea := eastAsianWidth.search(r)
-			if ea != prF && ea != prW && ea != prH {
+			if ea != eawprF && ea != eawprW && ea != eawprH {
 				return lbOP, LineDontBreak
 			}
 		} else if isCPeaFWH {

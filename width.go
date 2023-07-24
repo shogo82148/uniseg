@@ -47,10 +47,10 @@ func (p *Parser) runeWidthAE(r rune, graphemeProperty property) int {
 
 	// Check the East Asian Width property of the rune.
 	switch eastAsianWidth.search(r) {
-	case prW, prF:
+	case eawprW, eawprF:
 		// If the property is Wide or Fullwidth, return a width of 2.
 		return 2
-	case prA:
+	case eawprA:
 		if p.EastAsianWidth {
 			// If the EastAsianWidth setting is true, return a width of 2.
 			return 2
@@ -58,7 +58,7 @@ func (p *Parser) runeWidthAE(r rune, graphemeProperty property) int {
 			// Otherwise, return a width of 1.
 			return 1
 		}
-	case prNa, prH, prN:
+	case eawprNa, eawprH, eawprN:
 		// If the property is Neutral, Halfwidth, or Narrow, return a width of 1.
 		return 1
 	}

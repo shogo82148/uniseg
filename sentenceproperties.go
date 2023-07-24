@@ -4,9 +4,6 @@ package uniseg
 
 // sentenceBreakCodePoints are taken from
 // https://www.unicode.org/Public/15.0.0/ucd/auxiliary/SentenceBreakProperty.txt
-// and
-// https://unicode.org/Public/15.0.0/ucd/emoji/emoji-data.txt
-// ("Extended_Pictographic" only)
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var sentenceBreakCodePoints = dictionary[property]{
 	{runeRange{0x0009, 0x0009}, prSp},        // Cc       <control-0009>

@@ -4,9 +4,6 @@ package uniseg
 
 // lineBreakCodePoints are taken from
 // https://www.unicode.org/Public/15.0.0/ucd/LineBreak.txt
-// and
-// https://unicode.org/Public/15.0.0/ucd/emoji/emoji-data.txt
-// ("Extended_Pictographic" only)
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x0000, 0x0008}, propertyGeneralCategory{prCM, gcCc}},     //     [9] <control-0000>..<control-0008>

@@ -16,11 +16,9 @@ import (
 	"errors"
 	"fmt"
 	"go/format"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
-	"time"
 )
 
 // We want to test against a specific version rather than the latest. When the
@@ -52,7 +50,7 @@ func main() {
 
 	// Write it out.
 	log.Print("Writing to ", os.Args[2])
-	if err := ioutil.WriteFile(os.Args[2], formatted, 0644); err != nil {
+	if err := os.WriteFile(os.Args[2], formatted, 0644); err != nil {
 		log.Fatal(err)
 	}
 }
@@ -76,8 +74,7 @@ package uniseg
 
 // ` + os.Args[3] + ` are Grapheme testcases taken from
 // ` + url + `
-// on ` + time.Now().Format("January 2, 2006") + `. See
-// https://www.unicode.org/license.html for the Unicode license agreement.
+// See https://www.unicode.org/license.html for the Unicode license agreement.
 var ` + os.Args[3] + ` = []testCase {
 `)
 

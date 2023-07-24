@@ -84,17 +84,44 @@ const (
 	prRI
 	prEM
 
-	// East-Asian Width properties.
-	prN  // Neutral (Not East Asian): https://www.unicode.org/reports/tr11/tr11-40.html#ED7
-	prNa // East Asian Narrow (Na): https://www.unicode.org/reports/tr11/tr11-40.html#ED5
-	prA  // East Asian Ambiguous (A): https://www.unicode.org/reports/tr11/tr11-40.html#ED6
-	prW  // East Asian Wide (W): https://www.unicode.org/reports/tr11/tr11-40.html#ED4
-	prH  // East Asian Halfwidth (H): https://www.unicode.org/reports/tr11/tr11-40.html#ED3
-	prF  // East Asian Fullwidth (F): https://www.unicode.org/reports/tr11/tr11-40.html#ED2
-
 	// Emoji
 	prEmoji
 	prEmojiPresentation
+)
+
+// East-Asian Width properties.
+type eawProperty int8
+
+// East-Asian Width properties.
+const (
+	eawprN  eawProperty = iota // Neutral (Not East Asian): https://www.unicode.org/reports/tr11/tr11-40.html#ED7
+	eawprNa                    // East Asian Narrow (Na): https://www.unicode.org/reports/tr11/tr11-40.html#ED5
+	eawprA                     // East Asian Ambiguous (A): https://www.unicode.org/reports/tr11/tr11-40.html#ED6
+	eawprW                     // East Asian Wide (W): https://www.unicode.org/reports/tr11/tr11-40.html#ED4
+	eawprH                     // East Asian Halfwidth (H): https://www.unicode.org/reports/tr11/tr11-40.html#ED3
+	eawprF                     // East Asian Fullwidth (F): https://www.unicode.org/reports/tr11/tr11-40.html#ED2
+)
+
+// Word break properties.
+type wbProperty int8
+
+// Word break properties.
+const (
+	wbprAny wbProperty = iota // wbprAny must be 0.
+	wbprCR
+	wbprLF
+	wbprNewline
+	wbprWSegSpace
+	wbprHebrewLetter
+	wbprALetter
+	wbprWB7
+	wbprWB7c
+	wbprNumeric
+	wbprWB11
+	wbprKatakana
+	wbprExtendNumLet
+	wbprOddRI
+	wbprEvenRI
 )
 
 // generalCategory is the Unicode General Categories.
