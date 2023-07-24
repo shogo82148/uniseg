@@ -127,6 +127,7 @@ const (
 	wbprExtendNumLet
 	wbprWSegSpace
 	wbprExtendedPictographic
+	wbPropertyMax = iota
 )
 
 // generalCategory is the Unicode General Categories.

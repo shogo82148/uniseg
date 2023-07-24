@@ -23,7 +23,10 @@ const (
 	wbExtendNumLet
 	wbOddRI
 	wbEvenRI
-	wbZWJBit = 16 // This bit is set for any states followed by at least one zero-width joiner (see WB4 and WB3c).
+	wbMax = iota
+
+	// This bit is set for any states followed by at least one zero-width joiner (see WB4 and WB3c).
+	wbZWJBit WordBreakState = 16
 )
 
 type wbTransitionResult struct {
@@ -34,127 +37,74 @@ type wbTransitionResult struct {
 
 // The word break parser's state transitions. It's analogous to grTransitions,
 // see comments there for details. Unicode version 15.0.0.
-func wbTransitions(wb WordBreakState, p wbProperty) (wbTransitionResult, bool) {
-	switch wb {
-	case wbAny:
-		switch p {
-		case wbprNewline: // WB3b.
-			return wbTransitionResult{wbNewline, true, 32}, true
-		case wbprCR: // WB3b.
-			return wbTransitionResult{wbCR, true, 32}, true
-		case wbprLF: // WB3b.
-			return wbTransitionResult{wbLF, true, 32}, true
-		case wbprWSegSpace: // WB3d.
-			return wbTransitionResult{wbWSegSpace, true, 9990}, true
-		case wbprALetter: // WB5.
-			return wbTransitionResult{wbALetter, true, 9990}, true
-		case wbprHebrewLetter: // WB5.
-			return wbTransitionResult{wbHebrewLetter, true, 9990}, true
-		case wbprNumeric: // WB8.
-			return wbTransitionResult{wbNumeric, true, 9990}, true
-		case wbprKatakana: // WB13.
-			return wbTransitionResult{wbKatakana, true, 9990}, true
-		case wbprExtendNumLet: // WB13a.
-			return wbTransitionResult{wbExtendNumLet, true, 9990}, true
-		}
+var wbTransitions = [wbMax * wbPropertyMax]wbTransitionResult{
+	// WB3b.
+	int(wbAny)*wbPropertyMax + int(wbprNewline): {wbNewline, true, 32},
+	int(wbAny)*wbPropertyMax + int(wbprCR):      {wbCR, true, 32},
+	int(wbAny)*wbPropertyMax + int(wbprLF):      {wbLF, true, 32},
 
-	case wbCR:
-		switch p {
-		case wbprAny: // WB3a.
-			return wbTransitionResult{wbAny, true, 31}, true
-		case wbprLF: // WB3.
-			return wbTransitionResult{wbLF, false, 30}, true
-		}
-	case wbLF:
-		switch p {
-		case wbprAny: // WB3a.
-			return wbTransitionResult{wbAny, true, 31}, true
-		}
-	case wbNewline:
-		switch p {
-		case wbprAny: // WB3a.
-			return wbTransitionResult{wbAny, true, 31}, true
-		}
-	case wbWSegSpace:
-		switch p {
-		case wbprWSegSpace: // WB3d.
-			return wbTransitionResult{wbWSegSpace, false, 34}, true
-		}
-	case wbHebrewLetter:
-		switch p {
-		case wbprALetter: // WB5.
-			return wbTransitionResult{wbALetter, false, 50}, true
-		case wbprHebrewLetter: // WB5.
-			return wbTransitionResult{wbHebrewLetter, false, 50}, true
-		case wbprSingleQuote: // WB7a.
-			return wbTransitionResult{wbAny, false, 71}, true
-		case wbprNumeric: // WB9.
-			return wbTransitionResult{wbNumeric, false, 90}, true
-		case wbprExtendNumLet: // WB13a.
-			return wbTransitionResult{wbExtendNumLet, false, 131}, true
-		}
-	case wbALetter:
-		switch p {
-		case wbprALetter: // WB5.
-			return wbTransitionResult{wbALetter, false, 50}, true
-		case wbprHebrewLetter: // WB5.
-			return wbTransitionResult{wbHebrewLetter, false, 50}, true
-		case wbprNumeric: // WB9.
-			return wbTransitionResult{wbNumeric, false, 90}, true
-		case wbprExtendNumLet: // WB13a.
-			return wbTransitionResult{wbExtendNumLet, false, 131}, true
-		}
-	case wbWB7:
-		switch p {
-		case wbprALetter: // WB7.
-			return wbTransitionResult{wbALetter, false, 70}, true
-		case wbprHebrewLetter: // WB7.
-			return wbTransitionResult{wbHebrewLetter, false, 70}, true
-		}
-	case wbWB7c:
-		switch p {
-		case wbprHebrewLetter: // WB7c.
-			return wbTransitionResult{wbHebrewLetter, false, 73}, true
-		}
-	case wbNumeric:
-		switch p {
-		case wbprNumeric: // WB8.
-			return wbTransitionResult{wbNumeric, false, 80}, true
-		case wbprALetter: // WB10.
-			return wbTransitionResult{wbALetter, false, 100}, true
-		case wbprHebrewLetter: // WB10.
-			return wbTransitionResult{wbHebrewLetter, false, 100}, true
-		case wbprExtendNumLet: // WB13a.
-			return wbTransitionResult{wbExtendNumLet, false, 131}, true
-		}
-	case wbWB11:
-		switch p {
-		case wbprNumeric: // WB11.
-			return wbTransitionResult{wbNumeric, false, 110}, true
-		}
-	case wbKatakana:
-		switch p {
-		case wbprKatakana: // WB13.
-			return wbTransitionResult{wbKatakana, false, 130}, true
-		case wbprExtendNumLet: // WB13a.
-			return wbTransitionResult{wbExtendNumLet, false, 131}, true
-		}
-	case wbExtendNumLet:
-		switch p {
-		case wbprExtendNumLet: // WB13a.
-			return wbTransitionResult{wbExtendNumLet, false, 131}, true
-		case wbprALetter: // WB13b.
-			return wbTransitionResult{wbALetter, false, 132}, true
-		case wbprHebrewLetter: // WB13b.
-			return wbTransitionResult{wbHebrewLetter, false, 132}, true
-		case wbprNumeric: // WB13b.
-			return wbTransitionResult{wbNumeric, false, 132}, true
-		case wbprKatakana: // WB13b.
-			return wbTransitionResult{wbKatakana, false, 132}, true
-		}
-	}
+	// WB3a.
+	int(wbNewline)*wbPropertyMax + int(wbprAny): {wbAny, true, 31},
+	int(wbCR)*wbPropertyMax + int(wbprAny):      {wbAny, true, 31},
+	int(wbLF)*wbPropertyMax + int(wbprAny):      {wbAny, true, 31},
 
-	return wbTransitionResult{}, false
+	// WB3.
+	int(wbCR)*wbPropertyMax + int(wbprLF): {wbLF, false, 30},
+
+	// WB3d.
+	int(wbAny)*wbPropertyMax + int(wbprWSegSpace):       {wbWSegSpace, true, 9990},
+	int(wbWSegSpace)*wbPropertyMax + int(wbprWSegSpace): {wbWSegSpace, false, 34},
+
+	// WB5.
+	int(wbAny)*wbPropertyMax + int(wbprALetter):               {wbALetter, true, 9990},
+	int(wbAny)*wbPropertyMax + int(wbprHebrewLetter):          {wbHebrewLetter, true, 9990},
+	int(wbALetter)*wbPropertyMax + int(wbprALetter):           {wbALetter, false, 50},
+	int(wbALetter)*wbPropertyMax + int(wbprHebrewLetter):      {wbHebrewLetter, false, 50},
+	int(wbHebrewLetter)*wbPropertyMax + int(wbprALetter):      {wbALetter, false, 50},
+	int(wbHebrewLetter)*wbPropertyMax + int(wbprHebrewLetter): {wbHebrewLetter, false, 50},
+
+	// WB7. Transitions to wbWB7 handled by transitionWordBreakState().
+	int(wbWB7)*wbPropertyMax + int(wbprALetter):      {wbALetter, false, 70},
+	int(wbWB7)*wbPropertyMax + int(wbprHebrewLetter): {wbHebrewLetter, false, 70},
+
+	// WB7a.
+	int(wbHebrewLetter)*wbPropertyMax + int(wbprSingleQuote): {wbAny, false, 71},
+
+	// WB7c. Transitions to wbWB7c handled by transitionWordBreakState().
+	int(wbWB7c)*wbPropertyMax + int(wbprHebrewLetter): {wbHebrewLetter, false, 73},
+
+	// WB8.
+	int(wbAny)*wbPropertyMax + int(wbprNumeric):     {wbNumeric, true, 9990},
+	int(wbNumeric)*wbPropertyMax + int(wbprNumeric): {wbNumeric, false, 80},
+
+	// WB9.
+	int(wbALetter)*wbPropertyMax + int(wbprNumeric):      {wbNumeric, false, 90},
+	int(wbHebrewLetter)*wbPropertyMax + int(wbprNumeric): {wbNumeric, false, 90},
+
+	// WB10.
+	int(wbNumeric)*wbPropertyMax + int(wbprALetter):      {wbALetter, false, 100},
+	int(wbNumeric)*wbPropertyMax + int(wbprHebrewLetter): {wbHebrewLetter, false, 100},
+
+	// WB11. Transitions to wbWB11 handled by transitionWordBreakState().
+	int(wbWB11)*wbPropertyMax + int(wbprNumeric): {wbNumeric, false, 110},
+
+	// WB13.
+	int(wbAny)*wbPropertyMax + int(wbprKatakana):      {wbKatakana, true, 9990},
+	int(wbKatakana)*wbPropertyMax + int(wbprKatakana): {wbKatakana, false, 130},
+
+	// WB13a.
+	int(wbAny)*wbPropertyMax + int(wbprExtendNumLet):          {wbExtendNumLet, true, 9990},
+	int(wbALetter)*wbPropertyMax + int(wbprExtendNumLet):      {wbExtendNumLet, false, 131},
+	int(wbHebrewLetter)*wbPropertyMax + int(wbprExtendNumLet): {wbExtendNumLet, false, 131},
+	int(wbNumeric)*wbPropertyMax + int(wbprExtendNumLet):      {wbExtendNumLet, false, 131},
+	int(wbKatakana)*wbPropertyMax + int(wbprExtendNumLet):     {wbExtendNumLet, false, 131},
+	int(wbExtendNumLet)*wbPropertyMax + int(wbprExtendNumLet): {wbExtendNumLet, false, 131},
+
+	// WB13b.
+	int(wbExtendNumLet)*wbPropertyMax + int(wbprALetter):      {wbALetter, false, 132},
+	int(wbExtendNumLet)*wbPropertyMax + int(wbprHebrewLetter): {wbHebrewLetter, false, 132},
+	int(wbExtendNumLet)*wbPropertyMax + int(wbprNumeric):      {wbNumeric, false, 132},
+	int(wbExtendNumLet)*wbPropertyMax + int(wbprKatakana):     {wbKatakana, false, 132},
 }
 
 // transitionWordBreakState determines the new state of the word break parser
@@ -201,28 +151,28 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 
 	// Find the applicable transition in the table.
 	var rule int
-	transition, ok := wbTransitions(state, nextProperty)
-	if ok {
+	transition := wbTransitions[int(state)*wbPropertyMax+int(nextProperty)]
+	if transition.ruleNumber > 0 {
 		// We have a specific transition. We'll use it.
 		newState, wordBreak, rule = transition.WordBreakState, transition.boundary, transition.ruleNumber
 	} else {
 		// No specific transition found. Try the less specific ones.
-		transAnyProp, okAnyProp := wbTransitions(state, wbprAny)
-		transAnyState, okAnyState := wbTransitions(wbAny, nextProperty)
-		if okAnyProp && okAnyState {
+		transAnyProp := wbTransitions[int(state)*wbPropertyMax+int(wbprAny)]
+		transAnyState := wbTransitions[int(wbAny)*wbPropertyMax+int(nextProperty)]
+		if transAnyProp.ruleNumber > 0 && transAnyState.ruleNumber > 0 {
 			// Both apply. We'll use a mix (see comments for grTransitions).
 			newState, wordBreak, rule = transAnyState.WordBreakState, transAnyState.boundary, transAnyState.ruleNumber
 			if transAnyProp.ruleNumber < transAnyState.ruleNumber {
 				wordBreak, rule = transAnyProp.boundary, transAnyProp.ruleNumber
 			}
-		} else if okAnyProp {
+		} else if transAnyProp.ruleNumber > 0 {
 			// We only have a specific state.
 			newState, wordBreak, rule = transAnyProp.WordBreakState, transAnyProp.boundary, transAnyProp.ruleNumber
 			// This branch will probably never be reached because okAnyState will
 			// always be true given the current transition map. But we keep it here
 			// for future modifications to the transition map where this may not be
 			// true anymore.
-		} else if okAnyState {
+		} else if transAnyState.ruleNumber > 0 {
 			// We only have a specific property.
 			newState, wordBreak, rule = transAnyState.WordBreakState, transAnyState.boundary, transAnyState.ruleNumber
 		} else {
