@@ -73,11 +73,6 @@ const (
 	LineMustBreak                  // You must break the line here.
 )
 
-type lbStateProperty struct {
-	LineBreakState
-	lbProperty
-}
-
 type lbTransitionResult struct {
 	LineBreakState
 	boundary   LineBreak
@@ -86,220 +81,216 @@ type lbTransitionResult struct {
 
 // The line break parser's state transitions. It's analogous to grTransitions,
 // see comments there for details. Unicode version 15.0.0.
-var lbTransitions = map[lbStateProperty]lbTransitionResult{
+var lbTransitions = [lbMax * lbprMax]lbTransitionResult{
 	// LB4.
-	{lbAny, lbprBK}: {lbBK, LineCanBreak, 310},
-	{lbBK, lbprXX}:  {lbAny, LineMustBreak, 40},
+	int(lbBK)*lbprMax + int(lbprXX): {lbAny, LineMustBreak, 40},
 
 	// LB5.
-	{lbAny, lbprCR}: {lbCR, LineCanBreak, 310},
-	{lbAny, lbprLF}: {lbLF, LineCanBreak, 310},
-	{lbAny, lbprNL}: {lbNL, LineCanBreak, 310},
-	{lbCR, lbprLF}:  {lbLF, LineDontBreak, 50},
-	{lbCR, lbprXX}:  {lbAny, LineMustBreak, 50},
-	{lbLF, lbprXX}:  {lbAny, LineMustBreak, 50},
-	{lbNL, lbprXX}:  {lbAny, LineMustBreak, 50},
+	int(lbCR)*lbprMax + int(lbprLF): {lbLF, LineDontBreak, 50},
+	int(lbCR)*lbprMax + int(lbprXX): {lbAny, LineMustBreak, 50},
+	int(lbLF)*lbprMax + int(lbprXX): {lbAny, LineMustBreak, 50},
+	int(lbNL)*lbprMax + int(lbprXX): {lbAny, LineMustBreak, 50},
 
 	// LB6.
-	{lbAny, lbprBK}: {lbBK, LineDontBreak, 60},
-	{lbAny, lbprCR}: {lbCR, LineDontBreak, 60},
-	{lbAny, lbprLF}: {lbLF, LineDontBreak, 60},
-	{lbAny, lbprNL}: {lbNL, LineDontBreak, 60},
+	int(lbAny)*lbprMax + int(lbprBK): {lbBK, LineDontBreak, 60},
+	int(lbAny)*lbprMax + int(lbprCR): {lbCR, LineDontBreak, 60},
+	int(lbAny)*lbprMax + int(lbprLF): {lbLF, LineDontBreak, 60},
+	int(lbAny)*lbprMax + int(lbprNL): {lbNL, LineDontBreak, 60},
 
 	// LB7.
-	{lbAny, lbprSP}: {lbSP, LineDontBreak, 70},
-	{lbAny, lbprZW}: {lbZW, LineDontBreak, 70},
+	int(lbAny)*lbprMax + int(lbprSP): {lbSP, LineDontBreak, 70},
+	int(lbAny)*lbprMax + int(lbprZW): {lbZW, LineDontBreak, 70},
 
 	// LB8.
-	{lbZW, lbprSP}: {lbZW, LineDontBreak, 70},
-	{lbZW, lbprXX}: {lbAny, LineCanBreak, 80},
+	int(lbZW)*lbprMax + int(lbprSP): {lbZW, LineDontBreak, 70},
+	int(lbZW)*lbprMax + int(lbprXX): {lbAny, LineCanBreak, 80},
 
 	// LB11.
-	{lbAny, lbprWJ}: {lbWJ, LineDontBreak, 110},
-	{lbWJ, lbprXX}:  {lbAny, LineDontBreak, 110},
+	int(lbAny)*lbprMax + int(lbprWJ): {lbWJ, LineDontBreak, 110},
+	int(lbWJ)*lbprMax + int(lbprXX):  {lbAny, LineDontBreak, 110},
 
 	// LB12.
-	{lbAny, lbprGL}: {lbGL, LineCanBreak, 310},
-	{lbGL, lbprXX}:  {lbAny, LineDontBreak, 120},
+	int(lbAny)*lbprMax + int(lbprGL): {lbGL, LineCanBreak, 310},
+	int(lbGL)*lbprMax + int(lbprXX):  {lbAny, LineDontBreak, 120},
 
 	// LB13 (simple transitions).
-	{lbAny, lbprCL}: {lbCL, LineCanBreak, 310},
-	{lbAny, lbprCP}: {lbCP, LineCanBreak, 310},
-	{lbAny, lbprEX}: {lbEX, LineDontBreak, 130},
-	{lbAny, lbprIS}: {lbIS, LineCanBreak, 310},
-	{lbAny, lbprSY}: {lbSY, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprCL): {lbCL, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprCP): {lbCP, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprEX): {lbEX, LineDontBreak, 130},
+	int(lbAny)*lbprMax + int(lbprIS): {lbIS, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprSY): {lbSY, LineCanBreak, 310},
 
 	// LB14.
-	{lbAny, lbprOP}: {lbOP, LineCanBreak, 310},
-	{lbOP, lbprSP}:  {lbOP, LineDontBreak, 70},
-	{lbOP, lbprXX}:  {lbAny, LineDontBreak, 140},
+	int(lbAny)*lbprMax + int(lbprOP): {lbOP, LineCanBreak, 310},
+	int(lbOP)*lbprMax + int(lbprSP):  {lbOP, LineDontBreak, 70},
+	int(lbOP)*lbprMax + int(lbprXX):  {lbAny, LineDontBreak, 140},
 
 	// LB15.
-	{lbQU, lbprSP}:   {lbQUSP, LineDontBreak, 70},
-	{lbQU, lbprOP}:   {lbOP, LineDontBreak, 150},
-	{lbQUSP, lbprOP}: {lbOP, LineDontBreak, 150},
+	int(lbQU)*lbprMax + int(lbprSP):   {lbQUSP, LineDontBreak, 70},
+	int(lbQU)*lbprMax + int(lbprOP):   {lbOP, LineDontBreak, 150},
+	int(lbQUSP)*lbprMax + int(lbprOP): {lbOP, LineDontBreak, 150},
 
 	// LB16.
-	{lbCL, lbprSP}:     {lbCLCPSP, LineDontBreak, 70},
-	{lbNUCL, lbprSP}:   {lbCLCPSP, LineDontBreak, 70},
-	{lbCP, lbprSP}:     {lbCLCPSP, LineDontBreak, 70},
-	{lbNUCP, lbprSP}:   {lbCLCPSP, LineDontBreak, 70},
-	{lbCL, lbprNS}:     {lbNS, LineDontBreak, 160},
-	{lbNUCL, lbprNS}:   {lbNS, LineDontBreak, 160},
-	{lbCP, lbprNS}:     {lbNS, LineDontBreak, 160},
-	{lbNUCP, lbprNS}:   {lbNS, LineDontBreak, 160},
-	{lbCLCPSP, lbprNS}: {lbNS, LineDontBreak, 160},
+	int(lbCL)*lbprMax + int(lbprSP):     {lbCLCPSP, LineDontBreak, 70},
+	int(lbNUCL)*lbprMax + int(lbprSP):   {lbCLCPSP, LineDontBreak, 70},
+	int(lbCP)*lbprMax + int(lbprSP):     {lbCLCPSP, LineDontBreak, 70},
+	int(lbNUCP)*lbprMax + int(lbprSP):   {lbCLCPSP, LineDontBreak, 70},
+	int(lbCL)*lbprMax + int(lbprNS):     {lbNS, LineDontBreak, 160},
+	int(lbNUCL)*lbprMax + int(lbprNS):   {lbNS, LineDontBreak, 160},
+	int(lbCP)*lbprMax + int(lbprNS):     {lbNS, LineDontBreak, 160},
+	int(lbNUCP)*lbprMax + int(lbprNS):   {lbNS, LineDontBreak, 160},
+	int(lbCLCPSP)*lbprMax + int(lbprNS): {lbNS, LineDontBreak, 160},
 
 	// LB17.
-	{lbAny, lbprB2}:  {lbB2, LineCanBreak, 310},
-	{lbB2, lbprSP}:   {lbB2SP, LineDontBreak, 70},
-	{lbB2, lbprB2}:   {lbB2, LineDontBreak, 170},
-	{lbB2SP, lbprB2}: {lbB2, LineDontBreak, 170},
+	int(lbAny)*lbprMax + int(lbprB2):  {lbB2, LineCanBreak, 310},
+	int(lbB2)*lbprMax + int(lbprSP):   {lbB2SP, LineDontBreak, 70},
+	int(lbB2)*lbprMax + int(lbprB2):   {lbB2, LineDontBreak, 170},
+	int(lbB2SP)*lbprMax + int(lbprB2): {lbB2, LineDontBreak, 170},
 
 	// LB18.
-	{lbSP, lbprXX}:     {lbAny, LineCanBreak, 180},
-	{lbQUSP, lbprXX}:   {lbAny, LineCanBreak, 180},
-	{lbCLCPSP, lbprXX}: {lbAny, LineCanBreak, 180},
-	{lbB2SP, lbprXX}:   {lbAny, LineCanBreak, 180},
+	int(lbSP)*lbprMax + int(lbprXX):     {lbAny, LineCanBreak, 180},
+	int(lbQUSP)*lbprMax + int(lbprXX):   {lbAny, LineCanBreak, 180},
+	int(lbCLCPSP)*lbprMax + int(lbprXX): {lbAny, LineCanBreak, 180},
+	int(lbB2SP)*lbprMax + int(lbprXX):   {lbAny, LineCanBreak, 180},
 
 	// LB19.
-	{lbAny, lbprQU}: {lbQU, LineDontBreak, 190},
-	{lbQU, lbprXX}:  {lbAny, LineDontBreak, 190},
+	int(lbAny)*lbprMax + int(lbprQU): {lbQU, LineDontBreak, 190},
+	int(lbQU)*lbprMax + int(lbprXX):  {lbAny, LineDontBreak, 190},
 
 	// LB20.
-	{lbAny, lbprCB}: {lbCB, LineCanBreak, 200},
-	{lbCB, lbprXX}:  {lbAny, LineCanBreak, 200},
+	int(lbAny)*lbprMax + int(lbprCB): {lbCB, LineCanBreak, 200},
+	int(lbCB)*lbprMax + int(lbprXX):  {lbAny, LineCanBreak, 200},
 
 	// LB21.
-	{lbAny, lbprBA}: {lbBA, LineDontBreak, 210},
-	{lbAny, lbprHY}: {lbHY, LineDontBreak, 210},
-	{lbAny, lbprNS}: {lbNS, LineDontBreak, 210},
-	{lbAny, lbprBB}: {lbBB, LineCanBreak, 310},
-	{lbBB, lbprXX}:  {lbAny, LineDontBreak, 210},
+	int(lbAny)*lbprMax + int(lbprBA): {lbBA, LineDontBreak, 210},
+	int(lbAny)*lbprMax + int(lbprHY): {lbHY, LineDontBreak, 210},
+	int(lbAny)*lbprMax + int(lbprNS): {lbNS, LineDontBreak, 210},
+	int(lbAny)*lbprMax + int(lbprBB): {lbBB, LineCanBreak, 310},
+	int(lbBB)*lbprMax + int(lbprXX):  {lbAny, LineDontBreak, 210},
 
 	// LB21a.
-	{lbAny, lbprHL}:   {lbHL, LineCanBreak, 310},
-	{lbHL, lbprHY}:    {lbLB21a, LineDontBreak, 210},
-	{lbHL, lbprBA}:    {lbLB21a, LineDontBreak, 210},
-	{lbLB21a, lbprXX}: {lbAny, LineDontBreak, 211},
+	int(lbAny)*lbprMax + int(lbprHL):   {lbHL, LineCanBreak, 310},
+	int(lbHL)*lbprMax + int(lbprHY):    {lbLB21a, LineDontBreak, 210},
+	int(lbHL)*lbprMax + int(lbprBA):    {lbLB21a, LineDontBreak, 210},
+	int(lbLB21a)*lbprMax + int(lbprXX): {lbAny, LineDontBreak, 211},
 
 	// LB21b.
-	{lbSY, lbprHL}:   {lbHL, LineDontBreak, 212},
-	{lbNUSY, lbprHL}: {lbHL, LineDontBreak, 212},
+	int(lbSY)*lbprMax + int(lbprHL):   {lbHL, LineDontBreak, 212},
+	int(lbNUSY)*lbprMax + int(lbprHL): {lbHL, LineDontBreak, 212},
 
 	// LB22.
-	{lbAny, lbprIN}: {lbAny, LineDontBreak, 220},
+	int(lbAny)*lbprMax + int(lbprIN): {lbAny, LineDontBreak, 220},
 
 	// LB23.
-	{lbAny, lbprAL}:  {lbAL, LineCanBreak, 310},
-	{lbAny, lbprNU}:  {lbNU, LineCanBreak, 310},
-	{lbAL, lbprNU}:   {lbNU, LineDontBreak, 230},
-	{lbHL, lbprNU}:   {lbNU, LineDontBreak, 230},
-	{lbNU, lbprAL}:   {lbAL, LineDontBreak, 230},
-	{lbNU, lbprHL}:   {lbHL, LineDontBreak, 230},
-	{lbNUNU, lbprAL}: {lbAL, LineDontBreak, 230},
-	{lbNUNU, lbprHL}: {lbHL, LineDontBreak, 230},
+	int(lbAny)*lbprMax + int(lbprAL):  {lbAL, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprNU):  {lbNU, LineCanBreak, 310},
+	int(lbAL)*lbprMax + int(lbprNU):   {lbNU, LineDontBreak, 230},
+	int(lbHL)*lbprMax + int(lbprNU):   {lbNU, LineDontBreak, 230},
+	int(lbNU)*lbprMax + int(lbprAL):   {lbAL, LineDontBreak, 230},
+	int(lbNU)*lbprMax + int(lbprHL):   {lbHL, LineDontBreak, 230},
+	int(lbNUNU)*lbprMax + int(lbprAL): {lbAL, LineDontBreak, 230},
+	int(lbNUNU)*lbprMax + int(lbprHL): {lbHL, LineDontBreak, 230},
 
 	// LB23a.
-	{lbAny, lbprPR}:  {lbPR, LineCanBreak, 310},
-	{lbAny, lbprID}:  {lbIDEM, LineCanBreak, 310},
-	{lbAny, lbprEB}:  {lbEB, LineCanBreak, 310},
-	{lbAny, lbprEM}:  {lbIDEM, LineCanBreak, 310},
-	{lbPR, lbprID}:   {lbIDEM, LineDontBreak, 231},
-	{lbPR, lbprEB}:   {lbEB, LineDontBreak, 231},
-	{lbPR, lbprEM}:   {lbIDEM, LineDontBreak, 231},
-	{lbIDEM, lbprPO}: {lbPO, LineDontBreak, 231},
-	{lbEB, lbprPO}:   {lbPO, LineDontBreak, 231},
+	int(lbAny)*lbprMax + int(lbprPR):  {lbPR, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprID):  {lbIDEM, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprEB):  {lbEB, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprEM):  {lbIDEM, LineCanBreak, 310},
+	int(lbPR)*lbprMax + int(lbprID):   {lbIDEM, LineDontBreak, 231},
+	int(lbPR)*lbprMax + int(lbprEB):   {lbEB, LineDontBreak, 231},
+	int(lbPR)*lbprMax + int(lbprEM):   {lbIDEM, LineDontBreak, 231},
+	int(lbIDEM)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 231},
+	int(lbEB)*lbprMax + int(lbprPO):   {lbPO, LineDontBreak, 231},
 
 	// LB24.
-	{lbAny, lbprPO}: {lbPO, LineCanBreak, 310},
-	{lbPR, lbprAL}:  {lbAL, LineDontBreak, 240},
-	{lbPR, lbprHL}:  {lbHL, LineDontBreak, 240},
-	{lbPO, lbprAL}:  {lbAL, LineDontBreak, 240},
-	{lbPO, lbprHL}:  {lbHL, LineDontBreak, 240},
-	{lbAL, lbprPR}:  {lbPR, LineDontBreak, 240},
-	{lbAL, lbprPO}:  {lbPO, LineDontBreak, 240},
-	{lbHL, lbprPR}:  {lbPR, LineDontBreak, 240},
-	{lbHL, lbprPO}:  {lbPO, LineDontBreak, 240},
+	int(lbAny)*lbprMax + int(lbprPO): {lbPO, LineCanBreak, 310},
+	int(lbPR)*lbprMax + int(lbprAL):  {lbAL, LineDontBreak, 240},
+	int(lbPR)*lbprMax + int(lbprHL):  {lbHL, LineDontBreak, 240},
+	int(lbPO)*lbprMax + int(lbprAL):  {lbAL, LineDontBreak, 240},
+	int(lbPO)*lbprMax + int(lbprHL):  {lbHL, LineDontBreak, 240},
+	int(lbAL)*lbprMax + int(lbprPR):  {lbPR, LineDontBreak, 240},
+	int(lbAL)*lbprMax + int(lbprPO):  {lbPO, LineDontBreak, 240},
+	int(lbHL)*lbprMax + int(lbprPR):  {lbPR, LineDontBreak, 240},
+	int(lbHL)*lbprMax + int(lbprPO):  {lbPO, LineDontBreak, 240},
 
 	// LB25 (simple transitions).
-	{lbPR, lbprNU}:   {lbNU, LineDontBreak, 250},
-	{lbPO, lbprNU}:   {lbNU, LineDontBreak, 250},
-	{lbOP, lbprNU}:   {lbNU, LineDontBreak, 250},
-	{lbHY, lbprNU}:   {lbNU, LineDontBreak, 250},
-	{lbNU, lbprNU}:   {lbNUNU, LineDontBreak, 250},
-	{lbNU, lbprSY}:   {lbNUSY, LineDontBreak, 250},
-	{lbNU, lbprIS}:   {lbNUIS, LineDontBreak, 250},
-	{lbNUNU, lbprNU}: {lbNUNU, LineDontBreak, 250},
-	{lbNUNU, lbprSY}: {lbNUSY, LineDontBreak, 250},
-	{lbNUNU, lbprIS}: {lbNUIS, LineDontBreak, 250},
-	{lbNUSY, lbprNU}: {lbNUNU, LineDontBreak, 250},
-	{lbNUSY, lbprSY}: {lbNUSY, LineDontBreak, 250},
-	{lbNUSY, lbprIS}: {lbNUIS, LineDontBreak, 250},
-	{lbNUIS, lbprNU}: {lbNUNU, LineDontBreak, 250},
-	{lbNUIS, lbprSY}: {lbNUSY, LineDontBreak, 250},
-	{lbNUIS, lbprIS}: {lbNUIS, LineDontBreak, 250},
-	{lbNU, lbprCL}:   {lbNUCL, LineDontBreak, 250},
-	{lbNU, lbprCP}:   {lbNUCP, LineDontBreak, 250},
-	{lbNUNU, lbprCL}: {lbNUCL, LineDontBreak, 250},
-	{lbNUNU, lbprCP}: {lbNUCP, LineDontBreak, 250},
-	{lbNUSY, lbprCL}: {lbNUCL, LineDontBreak, 250},
-	{lbNUSY, lbprCP}: {lbNUCP, LineDontBreak, 250},
-	{lbNUIS, lbprCL}: {lbNUCL, LineDontBreak, 250},
-	{lbNUIS, lbprCP}: {lbNUCP, LineDontBreak, 250},
-	{lbNU, lbprPO}:   {lbPO, LineDontBreak, 250},
-	{lbNUNU, lbprPO}: {lbPO, LineDontBreak, 250},
-	{lbNUSY, lbprPO}: {lbPO, LineDontBreak, 250},
-	{lbNUIS, lbprPO}: {lbPO, LineDontBreak, 250},
-	{lbNUCL, lbprPO}: {lbPO, LineDontBreak, 250},
-	{lbNUCP, lbprPO}: {lbPO, LineDontBreak, 250},
-	{lbNU, lbprPR}:   {lbPR, LineDontBreak, 250},
-	{lbNUNU, lbprPR}: {lbPR, LineDontBreak, 250},
-	{lbNUSY, lbprPR}: {lbPR, LineDontBreak, 250},
-	{lbNUIS, lbprPR}: {lbPR, LineDontBreak, 250},
-	{lbNUCL, lbprPR}: {lbPR, LineDontBreak, 250},
-	{lbNUCP, lbprPR}: {lbPR, LineDontBreak, 250},
+	int(lbPR)*lbprMax + int(lbprNU):   {lbNU, LineDontBreak, 250},
+	int(lbPO)*lbprMax + int(lbprNU):   {lbNU, LineDontBreak, 250},
+	int(lbOP)*lbprMax + int(lbprNU):   {lbNU, LineDontBreak, 250},
+	int(lbHY)*lbprMax + int(lbprNU):   {lbNU, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprNU):   {lbNUNU, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprSY):   {lbNUSY, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprIS):   {lbNUIS, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprNU): {lbNUNU, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprSY): {lbNUSY, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprIS): {lbNUIS, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprNU): {lbNUNU, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprSY): {lbNUSY, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprIS): {lbNUIS, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprNU): {lbNUNU, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprSY): {lbNUSY, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprIS): {lbNUIS, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprCL):   {lbNUCL, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprCP):   {lbNUCP, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprCL): {lbNUCL, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprCP): {lbNUCP, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprCL): {lbNUCL, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprCP): {lbNUCP, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprCL): {lbNUCL, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprCP): {lbNUCP, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprPO):   {lbPO, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 250},
+	int(lbNUCL)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 250},
+	int(lbNUCP)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprPR):   {lbPR, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprPR): {lbPR, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprPR): {lbPR, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprPR): {lbPR, LineDontBreak, 250},
+	int(lbNUCL)*lbprMax + int(lbprPR): {lbPR, LineDontBreak, 250},
+	int(lbNUCP)*lbprMax + int(lbprPR): {lbPR, LineDontBreak, 250},
 
 	// LB26.
-	{lbAny, lbprJL}: {lbJL, LineCanBreak, 310},
-	{lbAny, lbprJV}: {lbJV, LineCanBreak, 310},
-	{lbAny, lbprJT}: {lbJT, LineCanBreak, 310},
-	{lbAny, lbprH2}: {lbH2, LineCanBreak, 310},
-	{lbAny, lbprH3}: {lbH3, LineCanBreak, 310},
-	{lbJL, lbprJL}:  {lbJL, LineDontBreak, 260},
-	{lbJL, lbprJV}:  {lbJV, LineDontBreak, 260},
-	{lbJL, lbprH2}:  {lbH2, LineDontBreak, 260},
-	{lbJL, lbprH3}:  {lbH3, LineDontBreak, 260},
-	{lbJV, lbprJV}:  {lbJV, LineDontBreak, 260},
-	{lbJV, lbprJT}:  {lbJT, LineDontBreak, 260},
-	{lbH2, lbprJV}:  {lbJV, LineDontBreak, 260},
-	{lbH2, lbprJT}:  {lbJT, LineDontBreak, 260},
-	{lbJT, lbprJT}:  {lbJT, LineDontBreak, 260},
-	{lbH3, lbprJT}:  {lbJT, LineDontBreak, 260},
+	int(lbAny)*lbprMax + int(lbprJL): {lbJL, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprJV): {lbJV, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprJT): {lbJT, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprH2): {lbH2, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprH3): {lbH3, LineCanBreak, 310},
+	int(lbJL)*lbprMax + int(lbprJL):  {lbJL, LineDontBreak, 260},
+	int(lbJL)*lbprMax + int(lbprJV):  {lbJV, LineDontBreak, 260},
+	int(lbJL)*lbprMax + int(lbprH2):  {lbH2, LineDontBreak, 260},
+	int(lbJL)*lbprMax + int(lbprH3):  {lbH3, LineDontBreak, 260},
+	int(lbJV)*lbprMax + int(lbprJV):  {lbJV, LineDontBreak, 260},
+	int(lbJV)*lbprMax + int(lbprJT):  {lbJT, LineDontBreak, 260},
+	int(lbH2)*lbprMax + int(lbprJV):  {lbJV, LineDontBreak, 260},
+	int(lbH2)*lbprMax + int(lbprJT):  {lbJT, LineDontBreak, 260},
+	int(lbJT)*lbprMax + int(lbprJT):  {lbJT, LineDontBreak, 260},
+	int(lbH3)*lbprMax + int(lbprJT):  {lbJT, LineDontBreak, 260},
 
 	// LB27.
-	{lbJL, lbprPO}: {lbPO, LineDontBreak, 270},
-	{lbJV, lbprPO}: {lbPO, LineDontBreak, 270},
-	{lbJT, lbprPO}: {lbPO, LineDontBreak, 270},
-	{lbH2, lbprPO}: {lbPO, LineDontBreak, 270},
-	{lbH3, lbprPO}: {lbPO, LineDontBreak, 270},
-	{lbPR, lbprJL}: {lbJL, LineDontBreak, 270},
-	{lbPR, lbprJV}: {lbJV, LineDontBreak, 270},
-	{lbPR, lbprJT}: {lbJT, LineDontBreak, 270},
-	{lbPR, lbprH2}: {lbH2, LineDontBreak, 270},
-	{lbPR, lbprH3}: {lbH3, LineDontBreak, 270},
+	int(lbJL)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 270},
+	int(lbJV)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 270},
+	int(lbJT)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 270},
+	int(lbH2)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 270},
+	int(lbH3)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 270},
+	int(lbPR)*lbprMax + int(lbprJL): {lbJL, LineDontBreak, 270},
+	int(lbPR)*lbprMax + int(lbprJV): {lbJV, LineDontBreak, 270},
+	int(lbPR)*lbprMax + int(lbprJT): {lbJT, LineDontBreak, 270},
+	int(lbPR)*lbprMax + int(lbprH2): {lbH2, LineDontBreak, 270},
+	int(lbPR)*lbprMax + int(lbprH3): {lbH3, LineDontBreak, 270},
 
 	// LB28.
-	{lbAL, lbprAL}: {lbAL, LineDontBreak, 280},
-	{lbAL, lbprHL}: {lbHL, LineDontBreak, 280},
-	{lbHL, lbprAL}: {lbAL, LineDontBreak, 280},
-	{lbHL, lbprHL}: {lbHL, LineDontBreak, 280},
+	int(lbAL)*lbprMax + int(lbprAL): {lbAL, LineDontBreak, 280},
+	int(lbAL)*lbprMax + int(lbprHL): {lbHL, LineDontBreak, 280},
+	int(lbHL)*lbprMax + int(lbprAL): {lbAL, LineDontBreak, 280},
+	int(lbHL)*lbprMax + int(lbprHL): {lbHL, LineDontBreak, 280},
 
 	// LB29.
-	{lbIS, lbprAL}:   {lbAL, LineDontBreak, 290},
-	{lbIS, lbprHL}:   {lbHL, LineDontBreak, 290},
-	{lbNUIS, lbprAL}: {lbAL, LineDontBreak, 290},
-	{lbNUIS, lbprHL}: {lbHL, LineDontBreak, 290},
+	int(lbIS)*lbprMax + int(lbprAL):   {lbAL, LineDontBreak, 290},
+	int(lbIS)*lbprMax + int(lbprHL):   {lbHL, LineDontBreak, 290},
+	int(lbNUIS)*lbprMax + int(lbprAL): {lbAL, LineDontBreak, 290},
+	int(lbNUIS)*lbprMax + int(lbprHL): {lbHL, LineDontBreak, 290},
 }
 
 // transitionLineBreakState determines the new state of the line break parser
@@ -374,28 +365,28 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 
 	// Find the applicable transition in the table.
 	var rule int
-	transition, ok := lbTransitions[lbStateProperty{state, nextProperty}]
-	if ok {
+	transition := lbTransitions[int(state)*lbprMax+int(nextProperty)]
+	if transition.ruleNumber > 0 {
 		// We have a specific transition. We'll use it.
 		newState, lineBreak, rule = transition.LineBreakState, transition.boundary, transition.ruleNumber
 	} else {
 		// No specific transition found. Try the less specific ones.
-		transAnyProp, okAnyProp := lbTransitions[lbStateProperty{state, lbprXX}]
-		transAnyState, okAnyState := lbTransitions[lbStateProperty{lbAny, nextProperty}]
-		if okAnyProp && okAnyState {
+		transAnyProp := lbTransitions[int(state)*lbprMax+int(lbprXX)]
+		transAnyState := lbTransitions[int(lbAny)*lbprMax+int(nextProperty)]
+		if transAnyProp.ruleNumber > 0 && transAnyState.ruleNumber > 0 {
 			// Both apply. We'll use a mix (see comments for grTransitions).
 			newState, lineBreak, rule = transAnyState.LineBreakState, transAnyState.boundary, transAnyState.ruleNumber
 			if transAnyProp.ruleNumber < transAnyState.ruleNumber {
 				lineBreak, rule = transAnyProp.boundary, transAnyProp.ruleNumber
 			}
-		} else if okAnyProp {
+		} else if transAnyProp.ruleNumber > 0 {
 			// We only have a specific state.
 			newState, lineBreak, rule = transAnyProp.LineBreakState, transAnyProp.boundary, transAnyProp.ruleNumber
 			// This branch will probably never be reached because okAnyState will
 			// always be true given the current transition map. But we keep it here
 			// for future modifications to the transition map where this may not be
 			// true anymore.
-		} else if okAnyState {
+		} else if transAnyState.ruleNumber > 0 {
 			// We only have a specific property.
 			newState, lineBreak, rule = transAnyState.LineBreakState, transAnyState.boundary, transAnyState.ruleNumber
 		} else {
