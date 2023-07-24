@@ -8,7 +8,7 @@ package uniseg
 // https://unicode.org/Public/15.0.0/ucd/emoji/emoji-data.txt
 // ("Extended_Pictographic" only)
 // See https://www.unicode.org/license.html for the Unicode license agreement.
-var emojiPresentation = dictionary[property]{
+var emojiPresentation = dictionary[emojiProperty]{
 	{runeRange{0x231A, 0x231B}, prEmojiPresentation},   // E0.6   [2] (⌚..⌛)    watch..hourglass done
 	{runeRange{0x23E9, 0x23EC}, prEmojiPresentation},   // E0.6   [4] (⏩..⏬)    fast-forward button..fast down button
 	{runeRange{0x23F0, 0x23F0}, prEmojiPresentation},   // E0.6   [1] (⏰)       alarm clock

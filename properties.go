@@ -21,10 +21,6 @@ const (
 	prLV
 	prLVT
 	prExtendedPictographic
-
-	// Emoji
-	prEmoji
-	prEmojiPresentation
 )
 
 // East-Asian Width properties.
@@ -140,6 +136,14 @@ const (
 	lbprRI                    // Regional Indicator
 	lbprSA                    // Complex Context Dependent
 	lbprMax = iota
+)
+
+type emojiProperty int8
+
+const (
+	_ emojiProperty = iota // reserved for the zero value
+	prEmoji
+	prEmojiPresentation
 )
 
 // generalCategory is the Unicode General Categories.

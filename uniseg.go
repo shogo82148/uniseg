@@ -12,8 +12,8 @@ import "os"
 //go:generate go run ./internal/cmd/gen_properties -logprefix=sentences -property=auxiliary/SentenceBreakProperty -prefix=sbpr -type=sbProperty sentenceproperties.go sentenceBreakCodePoints
 //go:generate go run ./internal/cmd/gen_properties -logprefix=lines -property=LineBreak -gencat -prefix=lbpr -type=propertyGeneralCategory lineproperties.go lineBreakCodePoints
 //go:generate go run ./internal/cmd/gen_properties -logprefix=eastasianwidth -property=EastAsianWidth -prefix=eawpr -type eawProperty eastasianwidth.go eastAsianWidth
-//go:generate go run ./internal/cmd/gen_properties -logprefix=emojipresentation -emojis=Emoji_Presentation emojipresentation.go emojiPresentation
-//go:generate go run ./internal/cmd/gen_properties -logprefix=emoji -emojis=Emoji emoji.go emoji
+//go:generate go run ./internal/cmd/gen_properties -logprefix=emojipresentation -emojis=Emoji_Presentation -type=emojiProperty emojipresentation.go emojiPresentation
+//go:generate go run ./internal/cmd/gen_properties -logprefix=emoji -emojis=Emoji -type=emojiProperty emoji.go emoji
 
 // Parser is a parser for Unicode text.
 type Parser struct {

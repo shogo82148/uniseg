@@ -8,7 +8,7 @@ package uniseg
 // https://unicode.org/Public/15.0.0/ucd/emoji/emoji-data.txt
 // ("Extended_Pictographic" only)
 // See https://www.unicode.org/license.html for the Unicode license agreement.
-var emoji = dictionary[property]{
+var emoji = dictionary[emojiProperty]{
 	{runeRange{0x0023, 0x0023}, prEmoji},   // E0.0   [1] (#️)       hash sign
 	{runeRange{0x002A, 0x002A}, prEmoji},   // E0.0   [1] (*️)       asterisk
 	{runeRange{0x0030, 0x0039}, prEmoji},   // E0.0  [10] (0️..9️)    digit zero..digit nine
