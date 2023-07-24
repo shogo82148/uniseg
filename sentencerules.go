@@ -22,11 +22,6 @@ const (
 	sbSB8aSp
 )
 
-type sbStateProperty struct {
-	SentenceBreakState
-	property
-}
-
 type sbTransitionResult struct {
 	SentenceBreakState
 	boundary   bool
@@ -35,96 +30,168 @@ type sbTransitionResult struct {
 
 // The sentence break parser's state transitions. It's analogous to
 // grTransitions, see comments there for details. Unicode version 15.0.0.
-var sbTransitions = map[sbStateProperty]sbTransitionResult{
-	// SB3.
-	{sbAny, prCR}: {sbCR, false, 9990},
-	{sbCR, prLF}:  {sbParaSep, false, 30},
+func sbTransitions(sb SentenceBreakState, pr property) (sbTransitionResult, bool) {
+	switch sb {
+	case sbAny:
+		switch pr {
+		case prCR: // SB3.
+			return sbTransitionResult{sbCR, false, 9990}, true
+		case prSep, prLF: // SB4.
+			return sbTransitionResult{sbParaSep, false, 9990}, true
+		case prATerm: // SB6.
+			return sbTransitionResult{sbATerm, false, 9990}, true
+		case prUpper: // SB7.
+			return sbTransitionResult{sbUpper, false, 9990}, true
+		case prLower: // SB7.
+			return sbTransitionResult{sbLower, false, 9990}, true
+		case prSTerm: // SB8a.
+			return sbTransitionResult{sbSTerm, false, 9990}, true
+		}
+	case sbCR:
+		switch pr {
+		case prLF: // SB3.
+			return sbTransitionResult{sbParaSep, false, 30}, true
+		case prAny: // SB4.
+			return sbTransitionResult{sbAny, true, 40}, true
+		}
+	case sbParaSep:
+		switch pr {
+		case prAny: // SB4.
+			return sbTransitionResult{sbAny, true, 40}, true
+		}
+	case sbATerm:
+		switch pr {
+		case prNumeric: // SB6.
+			return sbTransitionResult{sbAny, false, 60}, true
+		case prSContinue: // SB8a.
+			return sbTransitionResult{sbAny, false, 81}, true
+		case prATerm: // SB8a.
+			return sbTransitionResult{sbATerm, false, 81}, true
+		case prSTerm: // SB8a.
+			return sbTransitionResult{sbSTerm, false, 81}, true
+		case prClose: // SB9.
+			return sbTransitionResult{sbSB8Close, false, 90}, true
+		case prSp: // SB9.
+			return sbTransitionResult{sbSB8Sp, false, 90}, true
+		case prSep, prCR, prLF: // SB9.
+			return sbTransitionResult{sbParaSep, false, 90}, true
+		case prAny: // SB11.
+			return sbTransitionResult{sbAny, true, 110}, true
+		}
+	case sbUpper:
+		switch pr {
+		case prATerm: // SB7.
+			return sbTransitionResult{sbSB7, false, 70}, true
+		}
+	case sbLower:
+		switch pr {
+		case prATerm: // SB7.
+			return sbTransitionResult{sbSB7, false, 70}, true
+		}
+	case sbSB7:
+		switch pr {
+		case prNumeric: // SB6.
+			// Because ATerm also appears in SB7.
+			return sbTransitionResult{sbAny, false, 60}, true
+		case prUpper: // SB7.
+			return sbTransitionResult{sbUpper, false, 70}, true
+		case prSContinue: // SB8a.
+			return sbTransitionResult{sbAny, false, 81}, true
+		case prATerm: // SB8a.
+			return sbTransitionResult{sbATerm, false, 81}, true
+		case prSTerm: // SB8a.
+			return sbTransitionResult{sbSTerm, false, 81}, true
+		case prClose: // SB9.
+			return sbTransitionResult{sbSB8Close, false, 90}, true
+		case prSp: // SB9.
+			return sbTransitionResult{sbSB8Sp, false, 90}, true
+		case prSep, prCR, prLF: // SB9.
+			return sbTransitionResult{sbParaSep, false, 90}, true
+		case prAny: // SB11.
+			return sbTransitionResult{sbAny, true, 110}, true
+		}
+	case sbSB8Close:
+		switch pr {
+		case prSContinue: // SB8a.
+			return sbTransitionResult{sbAny, false, 81}, true
+		case prATerm: // SB8a.
+			return sbTransitionResult{sbATerm, false, 81}, true
+		case prSTerm: // SB8a.
+			return sbTransitionResult{sbSTerm, false, 81}, true
+		case prClose: // SB9.
+			return sbTransitionResult{sbSB8Close, false, 90}, true
+		case prSp: // SB9.
+			return sbTransitionResult{sbSB8Sp, false, 90}, true
+		case prSep, prCR, prLF: // SB9.
+			return sbTransitionResult{sbParaSep, false, 90}, true
+		case prAny: // SB11.
+			return sbTransitionResult{sbAny, true, 110}, true
+		}
+	case sbSB8Sp:
+		switch pr {
+		case prSContinue: // SB8a.
+			return sbTransitionResult{sbAny, false, 81}, true
+		case prATerm: // SB8a.
+			return sbTransitionResult{sbATerm, false, 81}, true
+		case prSTerm: // SB8a.
+			return sbTransitionResult{sbSTerm, false, 81}, true
+		case prSp: // SB10.
+			return sbTransitionResult{sbSB8Sp, false, 100}, true
+		case prSep, prCR, prLF: // SB10.
+			return sbTransitionResult{sbParaSep, false, 100}, true
+		case prAny: // SB11.
+			return sbTransitionResult{sbAny, true, 110}, true
+		}
+	case sbSTerm:
+		switch pr {
+		case prSContinue: // SB8a.
+			return sbTransitionResult{sbAny, false, 81}, true
+		case prATerm: // SB8a.
+			return sbTransitionResult{sbATerm, false, 81}, true
+		case prSTerm: // SB8a.
+			return sbTransitionResult{sbSTerm, false, 81}, true
+		case prClose: // SB9.
+			return sbTransitionResult{sbSB8aClose, false, 90}, true
+		case prSp: // SB9.
+			return sbTransitionResult{sbSB8aSp, false, 90}, true
+		case prSep, prCR, prLF: // SB9.
+			return sbTransitionResult{sbParaSep, false, 90}, true
+		case prAny: // SB11.
+			return sbTransitionResult{sbAny, true, 110}, true
+		}
+	case sbSB8aClose:
+		switch pr {
+		case prSContinue: // SB8a.
+			return sbTransitionResult{sbAny, false, 81}, true
+		case prATerm: // SB8a.
+			return sbTransitionResult{sbATerm, false, 81}, true
+		case prSTerm: // SB8a.
+			return sbTransitionResult{sbSTerm, false, 81}, true
+		case prClose: // SB9.
+			return sbTransitionResult{sbSB8aClose, false, 90}, true
+		case prSp: // SB9.
+			return sbTransitionResult{sbSB8aSp, false, 90}, true
+		case prSep, prCR, prLF: // SB9.
+			return sbTransitionResult{sbParaSep, false, 90}, true
+		case prAny: // SB11.
+			return sbTransitionResult{sbAny, true, 110}, true
+		}
+	case sbSB8aSp:
+		switch pr {
+		case prSContinue: // SB8a.
+			return sbTransitionResult{sbAny, false, 81}, true
+		case prATerm: // SB8a.
+			return sbTransitionResult{sbATerm, false, 81}, true
+		case prSTerm: // SB8a.
+			return sbTransitionResult{sbSTerm, false, 81}, true
+		case prSp: // SB10.
+			return sbTransitionResult{sbSB8aSp, false, 100}, true
+		case prAny: // SB11.
+			return sbTransitionResult{sbAny, true, 110}, true
+		}
+	}
 
-	// SB4.
-	{sbAny, prSep}:     {sbParaSep, false, 9990},
-	{sbAny, prLF}:      {sbParaSep, false, 9990},
-	{sbParaSep, prAny}: {sbAny, true, 40},
-	{sbCR, prAny}:      {sbAny, true, 40},
-
-	// SB6.
-	{sbAny, prATerm}:     {sbATerm, false, 9990},
-	{sbATerm, prNumeric}: {sbAny, false, 60},
-	{sbSB7, prNumeric}:   {sbAny, false, 60}, // Because ATerm also appears in SB7.
-
-	// SB7.
-	{sbAny, prUpper}:   {sbUpper, false, 9990},
-	{sbAny, prLower}:   {sbLower, false, 9990},
-	{sbUpper, prATerm}: {sbSB7, false, 70},
-	{sbLower, prATerm}: {sbSB7, false, 70},
-	{sbSB7, prUpper}:   {sbUpper, false, 70},
-
-	// SB8a.
-	{sbAny, prSTerm}:           {sbSTerm, false, 9990},
-	{sbATerm, prSContinue}:     {sbAny, false, 81},
-	{sbATerm, prATerm}:         {sbATerm, false, 81},
-	{sbATerm, prSTerm}:         {sbSTerm, false, 81},
-	{sbSB7, prSContinue}:       {sbAny, false, 81},
-	{sbSB7, prATerm}:           {sbATerm, false, 81},
-	{sbSB7, prSTerm}:           {sbSTerm, false, 81},
-	{sbSB8Close, prSContinue}:  {sbAny, false, 81},
-	{sbSB8Close, prATerm}:      {sbATerm, false, 81},
-	{sbSB8Close, prSTerm}:      {sbSTerm, false, 81},
-	{sbSB8Sp, prSContinue}:     {sbAny, false, 81},
-	{sbSB8Sp, prATerm}:         {sbATerm, false, 81},
-	{sbSB8Sp, prSTerm}:         {sbSTerm, false, 81},
-	{sbSTerm, prSContinue}:     {sbAny, false, 81},
-	{sbSTerm, prATerm}:         {sbATerm, false, 81},
-	{sbSTerm, prSTerm}:         {sbSTerm, false, 81},
-	{sbSB8aClose, prSContinue}: {sbAny, false, 81},
-	{sbSB8aClose, prATerm}:     {sbATerm, false, 81},
-	{sbSB8aClose, prSTerm}:     {sbSTerm, false, 81},
-	{sbSB8aSp, prSContinue}:    {sbAny, false, 81},
-	{sbSB8aSp, prATerm}:        {sbATerm, false, 81},
-	{sbSB8aSp, prSTerm}:        {sbSTerm, false, 81},
-
-	// SB9.
-	{sbATerm, prClose}:     {sbSB8Close, false, 90},
-	{sbSB7, prClose}:       {sbSB8Close, false, 90},
-	{sbSB8Close, prClose}:  {sbSB8Close, false, 90},
-	{sbATerm, prSp}:        {sbSB8Sp, false, 90},
-	{sbSB7, prSp}:          {sbSB8Sp, false, 90},
-	{sbSB8Close, prSp}:     {sbSB8Sp, false, 90},
-	{sbSTerm, prClose}:     {sbSB8aClose, false, 90},
-	{sbSB8aClose, prClose}: {sbSB8aClose, false, 90},
-	{sbSTerm, prSp}:        {sbSB8aSp, false, 90},
-	{sbSB8aClose, prSp}:    {sbSB8aSp, false, 90},
-	{sbATerm, prSep}:       {sbParaSep, false, 90},
-	{sbATerm, prCR}:        {sbParaSep, false, 90},
-	{sbATerm, prLF}:        {sbParaSep, false, 90},
-	{sbSB7, prSep}:         {sbParaSep, false, 90},
-	{sbSB7, prCR}:          {sbParaSep, false, 90},
-	{sbSB7, prLF}:          {sbParaSep, false, 90},
-	{sbSB8Close, prSep}:    {sbParaSep, false, 90},
-	{sbSB8Close, prCR}:     {sbParaSep, false, 90},
-	{sbSB8Close, prLF}:     {sbParaSep, false, 90},
-	{sbSTerm, prSep}:       {sbParaSep, false, 90},
-	{sbSTerm, prCR}:        {sbParaSep, false, 90},
-	{sbSTerm, prLF}:        {sbParaSep, false, 90},
-	{sbSB8aClose, prSep}:   {sbParaSep, false, 90},
-	{sbSB8aClose, prCR}:    {sbParaSep, false, 90},
-	{sbSB8aClose, prLF}:    {sbParaSep, false, 90},
-
-	// SB10.
-	{sbSB8Sp, prSp}:  {sbSB8Sp, false, 100},
-	{sbSB8aSp, prSp}: {sbSB8aSp, false, 100},
-	{sbSB8Sp, prSep}: {sbParaSep, false, 100},
-	{sbSB8Sp, prCR}:  {sbParaSep, false, 100},
-	{sbSB8Sp, prLF}:  {sbParaSep, false, 100},
-
-	// SB11.
-	{sbATerm, prAny}:     {sbAny, true, 110},
-	{sbSB7, prAny}:       {sbAny, true, 110},
-	{sbSB8Close, prAny}:  {sbAny, true, 110},
-	{sbSB8Sp, prAny}:     {sbAny, true, 110},
-	{sbSTerm, prAny}:     {sbAny, true, 110},
-	{sbSB8aClose, prAny}: {sbAny, true, 110},
-	{sbSB8aSp, prAny}:    {sbAny, true, 110},
-	// We'll always break after ParaSep due to SB4.
+	return sbTransitionResult{}, false
 }
 
 // transitionSentenceBreakState determines the new state of the sentence break
@@ -150,14 +217,14 @@ func transitionSentenceBreakState[T bytes](state SentenceBreakState, r rune, str
 
 	// Find the applicable transition in the table.
 	var rule int
-	transition, ok := sbTransitions[sbStateProperty{state, nextProperty}]
+	transition, ok := sbTransitions(state, nextProperty)
 	if ok {
 		// We have a specific transition. We'll use it.
 		newState, sentenceBreak, rule = transition.SentenceBreakState, transition.boundary, transition.ruleNumber
 	} else {
 		// No specific transition found. Try the less specific ones.
-		transAnyProp, okAnyProp := sbTransitions[sbStateProperty{state, prAny}]
-		transAnyState, okAnyState := sbTransitions[sbStateProperty{sbAny, nextProperty}]
+		transAnyProp, okAnyProp := sbTransitions(state, prAny)
+		transAnyState, okAnyState := sbTransitions(sbAny, nextProperty)
 		if okAnyProp && okAnyState {
 			// Both apply. We'll use a mix (see comments for grTransitions).
 			newState, sentenceBreak, rule = transAnyState.SentenceBreakState, transAnyState.boundary, transAnyState.ruleNumber
