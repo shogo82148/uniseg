@@ -21,6 +21,7 @@ const (
 	prLV
 	prLVT
 	prExtendedPictographic
+	prMax = iota
 )
 
 // East-Asian Width properties.
