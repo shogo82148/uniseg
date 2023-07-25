@@ -16,9 +16,9 @@ import (
 	"bufio"
 	"bytes"
 	"errors"
+	"flag"
 	"fmt"
 	"go/format"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -31,42 +31,52 @@ import (
 // We want to test against a specific version rather than the latest. When the
 // package is upgraded to a new version, change these to generate new tests.
 const (
-	propertyURL = `https://www.unicode.org/Public/15.0.0/ucd/%s.txt`
-	emojiURL    = `https://unicode.org/Public/15.0.0/ucd/emoji/emoji-data.txt`
+	unicodeVersion    = "15.0.0"
+	propertyURLFormat = `https://www.unicode.org/Public/%s/ucd/%s.txt`
+	emojiURLFormat    = `https://unicode.org/Public/%s/ucd/emoji/emoji-data.txt`
 )
 
 // The regular expression for a line containing a code point range property.
 var propertyPattern = regexp.MustCompile(`^([0-9A-F]{4,6})(\.\.([0-9A-F]{4,6}))?\s*;\s*([A-Za-z0-9_]+)\s*#\s(.+)$`)
 
-func main() {
-	if len(os.Args) < 5 {
-		fmt.Println("Not enough arguments, see code for details")
-		os.Exit(1)
-	}
+type Options struct {
+	propertyName   string
+	emojis         string
+	gencat         bool
+	dictionaryName string
+	prefix         string
+	typeName       string
+}
 
-	log.SetPrefix("gen_properties (" + os.Args[4] + "): ")
+func main() {
+	var propertyName string
+	var emojis string
+	var gencat bool
+	var logPrefix string
+	var prefix string
+	var typeName string
+	flag.StringVar(&propertyName, "property", "", "name of the property")
+	flag.StringVar(&emojis, "emojis", "", "emoji properties to include")
+	flag.BoolVar(&gencat, "gencat", false, "include general category properties")
+	flag.StringVar(&logPrefix, "logprefix", "", "prefix for log messages")
+	flag.StringVar(&prefix, "prefix", "pr", "prefix for property names")
+	flag.StringVar(&typeName, "type", "property", "name of the property type")
+	flag.Parse()
+
+	outputFilename := flag.Arg(0)
+	dictionaryName := flag.Arg(1)
+
+	log.SetPrefix("gen_properties (" + logPrefix + "): ")
 	log.SetFlags(0)
 
-	// Parse flags.
-	flags := make(map[string]string)
-	if len(os.Args) >= 6 {
-		for _, flag := range strings.Split(os.Args[5], ",") {
-			flagFields := strings.Split(flag, "=")
-			if len(flagFields) == 1 {
-				flags[flagFields[0]] = "yes"
-			} else {
-				flags[flagFields[0]] = flagFields[1]
-			}
-		}
-	}
-
-	// Parse the text file and generate Go source code from it.
-	_, includeGeneralCategory := flags["gencat"]
-	var mainURL string
-	if os.Args[1] != "-" {
-		mainURL = fmt.Sprintf(propertyURL, os.Args[1])
-	}
-	src, err := parse(mainURL, flags["emojis"], includeGeneralCategory)
+	src, err := parse(&Options{
+		propertyName:   propertyName,
+		emojis:         emojis,
+		gencat:         gencat,
+		dictionaryName: dictionaryName,
+		prefix:         prefix,
+		typeName:       typeName,
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -78,8 +88,8 @@ func main() {
 	}
 
 	// Save it to the (local) target file.
-	log.Print("Writing to ", os.Args[2])
-	if err := ioutil.WriteFile(os.Args[2], formatted, 0644); err != nil {
+	log.Print("Writing to ", outputFilename)
+	if err := os.WriteFile(outputFilename, formatted, 0644); err != nil {
 		log.Fatal(err)
 	}
 }
@@ -91,16 +101,19 @@ func main() {
 // may pass an empty "propertyURL" to skip parsing the main properties file. If
 // "includeGeneralCategory" is true, the Unicode General Category property will
 // be extracted from the comments and included in the output.
-func parse(propertyURL, emojiProperty string, includeGeneralCategory bool) (string, error) {
-	if propertyURL == "" && emojiProperty == "" {
+func parse(opts *Options) (string, error) {
+	if opts.propertyName == "" && opts.emojis == "" {
 		return "", errors.New("no properties to parse")
 	}
+	var propertyURL string
+	var emojiURL string
 
 	// Temporary buffer to hold properties.
 	var properties [][4]string
 
 	// Open the first URL.
-	if propertyURL != "" {
+	if opts.propertyName != "" {
+		propertyURL = fmt.Sprintf(propertyURLFormat, unicodeVersion, opts.propertyName)
 		log.Printf("Parsing %s", propertyURL)
 		res, err := http.Get(propertyURL)
 		if err != nil {
@@ -134,7 +147,8 @@ func parse(propertyURL, emojiProperty string, includeGeneralCategory bool) (stri
 	}
 
 	// Open the second URL.
-	if emojiProperty != "" {
+	if opts.emojis != "" {
+		emojiURL = fmt.Sprintf(emojiURLFormat, unicodeVersion)
 		log.Printf("Parsing %s", emojiURL)
 		res, err := http.Get(emojiURL)
 		if err != nil {
@@ -160,7 +174,7 @@ func parse(propertyURL, emojiProperty string, includeGeneralCategory bool) (stri
 			if err != nil {
 				return "", fmt.Errorf("emojis line %d: %v", num, err)
 			}
-			if property != emojiProperty {
+			if property != opts.emojis {
 				continue
 			}
 			properties = append(properties, [4]string{from, to, property, comment})
@@ -193,20 +207,15 @@ func parse(propertyURL, emojiProperty string, includeGeneralCategory bool) (stri
 
 package uniseg
 
-// ` + os.Args[3] + ` are taken from
+// ` + opts.dictionaryName + ` are taken from
 // ` + propertyURL + emojiComment + `
 // See https://www.unicode.org/license.html for the Unicode license agreement.
-var ` + os.Args[3] + ` = dictionary[`)
-	if includeGeneralCategory {
-		buf.WriteString("propertyGeneralCategory")
-	} else {
-		buf.WriteString("property")
-	}
-	buf.WriteString("]{\n")
+var ` + opts.dictionaryName + ` = dictionary[` + opts.typeName + `]{
+`)
 
 	// Properties.
 	for _, prop := range properties {
-		if includeGeneralCategory {
+		if opts.gencat {
 			generalCategory := "gc" + prop[3][:2]
 			if generalCategory == "gcL&" {
 				generalCategory = "gcLC"
@@ -215,13 +224,13 @@ var ` + os.Args[3] + ` = dictionary[`)
 			fmt.Fprintf(
 				&buf,
 				"{runeRange{0x%s,0x%s}, propertyGeneralCategory{%s, %s}}, // %s\n",
-				prop[0], prop[1], translateProperty("pr", prop[2]), generalCategory, prop[3],
+				prop[0], prop[1], translateProperty(opts.prefix, prop[2]), generalCategory, prop[3],
 			)
 		} else {
 			fmt.Fprintf(
 				&buf,
 				"{runeRange{0x%s,0x%s}, %s}, // %s\n",
-				prop[0], prop[1], translateProperty("pr", prop[2]), prop[3],
+				prop[0], prop[1], translateProperty(opts.prefix, prop[2]), prop[3],
 			)
 		}
 	}

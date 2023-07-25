@@ -4,8 +4,7 @@ package uniseg
 
 // sentenceBreakTestCases are Grapheme testcases taken from
 // https://www.unicode.org/Public/15.0.0/ucd/auxiliary/SentenceBreakTest.txt
-// on July 24, 2023. See
-// https://www.unicode.org/license.html for the Unicode license agreement.
+// See https://www.unicode.org/license.html for the Unicode license agreement.
 var sentenceBreakTestCases = []testCase{
 	{original: "\u0001\u0001", expected: [][]rune{{0x0001, 0x0001}}},                                               // ÷ [0.2] <START OF HEADING> (Other) × [998.0] <START OF HEADING> (Other) ÷ [0.3]
 	{original: "\u0001\u0308\u0001", expected: [][]rune{{0x0001, 0x0308, 0x0001}}},                                 // ÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]
