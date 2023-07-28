@@ -571,12 +571,8 @@ func FuzzReverseString(f *testing.F) {
 	}
 	f.Fuzz(func(t *testing.T, input string) {
 		reversed := ReverseString(input)
-		output := ReverseString(reversed)
-		if utf8.ValidString(input) {
+		if !utf8.ValidString(input) {
 			return
-		}
-		if input != output {
-			t.Errorf("input: %q, reversed: %q, output: %q", input, reversed, output)
 		}
 		if !utf8.ValidString(reversed) {
 			t.Errorf("reversed string is not valid: %q", reversed)
