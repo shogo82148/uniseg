@@ -3,6 +3,7 @@ package uniseg
 import (
 	"runtime"
 	"testing"
+	"unicode/utf8"
 )
 
 const benchmarkStr = "This is 🏳️\u200d🌈, a test string ツ for grapheme cluster testing. 🏋🏽\u200d♀️🙂🙂 It's only relevant for benchmark tests."
@@ -526,4 +527,59 @@ func BenchmarkGraphemesFunctionString(b *testing.B) {
 			runtime.KeepAlive(state)
 		}
 	}
+}
+
+func FuzzGraphemeClusterCount(f *testing.F) {
+	for _, test := range wordBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range sentenceBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range lineBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range graphemeBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range testCases {
+		f.Add(test.original)
+	}
+	f.Fuzz(func(t *testing.T, input string) {
+		count := GraphemeClusterCount(input)
+		if count < 0 {
+			t.Errorf("negative count: %d", count)
+		}
+	})
+}
+
+func FuzzReverseString(f *testing.F) {
+	for _, test := range wordBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range sentenceBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range lineBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range graphemeBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range testCases {
+		f.Add(test.original)
+	}
+	f.Fuzz(func(t *testing.T, input string) {
+		reversed := ReverseString(input)
+		output := ReverseString(reversed)
+		if utf8.ValidString(input) {
+			return
+		}
+		if input != output {
+			t.Errorf("input: %q, reversed: %q, output: %q", input, reversed, output)
+		}
+		if !utf8.ValidString(reversed) {
+			t.Errorf("reversed string is not valid: %q", reversed)
+		}
+	})
 }
