@@ -546,3 +546,27 @@ func TestRunesWidth(t *testing.T) {
 		}
 	}
 }
+
+func FuzzStringWidth(f *testing.F) {
+	for _, test := range wordBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range sentenceBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range lineBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range graphemeBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range testCases {
+		f.Add(test.original)
+	}
+	f.Fuzz(func(t *testing.T, input string) {
+		w := StringWidth(input)
+		if w < 0 {
+			t.Errorf("StringWidth(%q) is %d, expected >= 0", input, w)
+		}
+	})
+}

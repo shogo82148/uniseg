@@ -479,8 +479,20 @@ func BenchmarkStepString(b *testing.B) {
 
 // Fuzz the StepString function.
 func FuzzStepString(f *testing.F) {
-	for _, tc := range graphemeBreakTestCases {
-		f.Add(tc.original)
+	for _, test := range wordBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range sentenceBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range lineBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range graphemeBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range testCases {
+		f.Add(test.original)
 	}
 	f.Fuzz(func(t *testing.T, orig string) {
 		var (
@@ -492,7 +504,7 @@ func FuzzStepString(f *testing.F) {
 		)
 		for len(str) > 0 {
 			c, str, boundaries, state = StepString(str, state)
-			b = append(b, []byte(c)...)
+			b = append(b, c...)
 		}
 
 		// Check if the constructed string is the same as the original.

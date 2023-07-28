@@ -197,3 +197,36 @@ func BenchmarkLineFunctionString(b *testing.B) {
 		}
 	}
 }
+
+func FuzzFirstLineInString(f *testing.F) {
+	for _, test := range wordBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range sentenceBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range lineBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range graphemeBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range testCases {
+		f.Add(test.original)
+	}
+	f.Fuzz(func(t *testing.T, input string) {
+		var state LineBreakState
+		var b []byte
+		str := input
+		for len(str) > 0 {
+			var line string
+			line, str, _, state = FirstLineSegmentInString(str, state)
+			b = append(b, line...)
+		}
+
+		// Check if the constructed string is the same as the original.
+		if string(b) != input {
+			t.Errorf("Fuzzing failed: %q != %q", string(b), input)
+		}
+	})
+}

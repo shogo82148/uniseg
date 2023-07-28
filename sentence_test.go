@@ -162,3 +162,36 @@ func BenchmarkSentenceFunctionString(b *testing.B) {
 		}
 	}
 }
+
+func FuzzFirstSentenceInString(f *testing.F) {
+	for _, test := range wordBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range sentenceBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range lineBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range graphemeBreakTestCases {
+		f.Add(test.original)
+	}
+	for _, test := range testCases {
+		f.Add(test.original)
+	}
+	f.Fuzz(func(t *testing.T, input string) {
+		var state SentenceBreakState
+		var b []byte
+		str := input
+		for len(str) > 0 {
+			var sentence string
+			sentence, str, state = FirstSentenceInString(str, state)
+			b = append(b, sentence...)
+		}
+
+		// Check if the constructed string is the same as the original.
+		if string(b) != input {
+			t.Errorf("Fuzzing failed: %q != %q", string(b), input)
+		}
+	})
+}
