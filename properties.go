@@ -213,17 +213,15 @@ type dictionary[T any] []dictionaryEntry[T]
 
 // search returns the value associated with the given rune in the dictionary.
 func (d dictionary[T]) search(r rune) T {
-	from := 0
-	to := len(d)
-	for to > from {
-		middle := int(uint(from+to) >> 1) // avoid overflow when computing middle
-		entry := d[middle]
+	k := 0
+	for k < len(d) {
+		entry := d[k]
 		if r < entry.runeRange.Lo {
-			to = middle
+			k = 2*k + 1
 			continue
 		}
 		if r > entry.runeRange.Hi {
-			from = middle + 1
+			k = 2*k + 2
 			continue
 		}
 		return entry.value

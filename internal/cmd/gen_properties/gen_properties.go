@@ -190,6 +190,7 @@ func parse(opts *Options) (string, error) {
 		right, _ := strconv.ParseUint(properties[j][0], 16, 64)
 		return left < right
 	})
+	properties = eytzinger(properties)
 
 	// Header.
 	var (
@@ -216,21 +217,24 @@ var ` + opts.dictionaryName + ` = dictionary[` + opts.typeName + `]{
 	// Properties.
 	for _, prop := range properties {
 		if opts.gencat {
-			generalCategory := "gc" + prop[3][:2]
-			if generalCategory == "gcL&" {
-				generalCategory = "gcLC"
+			generalCategory := "0"
+			if len(prop[3]) >= 2 {
+				generalCategory = "gc" + prop[3][:2]
+				if generalCategory == "gcL&" {
+					generalCategory = "gcLC"
+				}
+				prop[3] = prop[3][3:]
 			}
-			prop[3] = prop[3][3:]
 			fmt.Fprintf(
 				&buf,
-				"{runeRange{0x%s,0x%s}, propertyGeneralCategory{%s, %s}}, // %s\n",
-				prop[0], prop[1], translateProperty(opts.prefix, prop[2]), generalCategory, prop[3],
+				"{runeRange{%s,%s}, propertyGeneralCategory{%s, %s}}, // %s\n",
+				formatRune(prop[0]), formatRune(prop[1]), translateProperty(opts.prefix, prop[2]), generalCategory, prop[3],
 			)
 		} else {
 			fmt.Fprintf(
 				&buf,
-				"{runeRange{0x%s,0x%s}, %s}, // %s\n",
-				prop[0], prop[1], translateProperty(opts.prefix, prop[2]), prop[3],
+				"{runeRange{%s,%s}, %s}, // %s\n",
+				formatRune(prop[0]), formatRune(prop[1]), translateProperty(opts.prefix, prop[2]), prop[3],
 			)
 		}
 	}
@@ -239,6 +243,13 @@ var ` + opts.dictionaryName + ` = dictionary[` + opts.typeName + `]{
 	buf.WriteString("}")
 
 	return buf.String(), nil
+}
+
+func formatRune(s string) string {
+	if s == "" {
+		return "0"
+	}
+	return "0x" + s
 }
 
 // parseProperty parses a line of the Unicode properties text file containing a
@@ -262,5 +273,30 @@ func parseProperty(line string) (from, to, property, comment string, err error) 
 // translateProperty translates a property name as used in the Unicode data file
 // to a variable used in the Go code.
 func translateProperty(prefix, property string) string {
+	if property == "" {
+		return "0"
+	}
 	return prefix + strings.ReplaceAll(property, "_", "")
+}
+
+func eytzinger[S ~[]E, E any](a S) S {
+	b := make(S, len(a))
+	ctx := &eytzingerContext[S, E]{a: a, b: b}
+	ctx.eytzinger(0, 0)
+	return b
+}
+
+type eytzingerContext[S ~[]E, E any] struct {
+	a S // input slice
+	b S // output slice
+}
+
+func (ctx *eytzingerContext[S, E]) eytzinger(i, k int) int {
+	if k < len(ctx.a) {
+		i = ctx.eytzinger(i, 2*k+1)
+		ctx.b[k] = ctx.a[i]
+		i++
+		i = ctx.eytzinger(i, 2*k+2)
+	}
+	return i
 }
