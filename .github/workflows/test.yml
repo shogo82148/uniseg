@@ -15,7 +15,7 @@ jobs:
           - windows-latest
           - macos-latest
         go:
-          - "1.21.0-rc.3"
+          - "1.21"
           - "1.20"
           - "1.19"
         goexperiment: [""]
@@ -23,7 +23,7 @@ jobs:
           # test with GOEXPERIMENT=loopvar
           # https://github.com/golang/go/wiki/LoopvarExperiment
           - os: ubuntu-latest
-            go: "1.21.0-rc.3"
+            go: "1.21"
             goexperiment: "loopvar"
 
     steps:
