@@ -3,9 +3,9 @@
 package uniseg
 
 // graphemeCodePoints are taken from
-// https://www.unicode.org/Public/15.0.0/ucd/auxiliary/GraphemeBreakProperty.txt
+// https://www.unicode.org/Public/15.1.0/ucd/auxiliary/GraphemeBreakProperty.txt
 // and
-// https://unicode.org/Public/15.0.0/ucd/emoji/emoji-data.txt
+// https://unicode.org/Public/15.1.0/ucd/emoji/emoji-data.txt
 // ("Extended_Pictographic" only)
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var graphemeCodePoints = dictionary[property]{

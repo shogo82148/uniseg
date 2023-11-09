@@ -3,9 +3,9 @@
 package uniseg
 
 // workBreakCodePoints are taken from
-// https://www.unicode.org/Public/15.0.0/ucd/auxiliary/WordBreakProperty.txt
+// https://www.unicode.org/Public/15.1.0/ucd/auxiliary/WordBreakProperty.txt
 // and
-// https://unicode.org/Public/15.0.0/ucd/emoji/emoji-data.txt
+// https://unicode.org/Public/15.1.0/ucd/emoji/emoji-data.txt
 // ("Extended_Pictographic" only)
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var workBreakCodePoints = dictionary[wbProperty]{
@@ -144,7 +144,7 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x066C, 0x066C}, wbprMidNum},                 // Po       ARABIC THOUSANDS SEPARATOR
 	{runeRange{0x0710, 0x0710}, wbprALetter},                // Lo       SYRIAC LETTER ALAPH
 	{runeRange{0x081A, 0x081A}, wbprALetter},                // Lm       SAMARITAN MODIFIER LETTER EPENTHETIC YUT
-	{runeRange{0x08E2, 0x08E2}, wbprFormat},                 // Cf       ARABIC DISPUTED END OF AYAH
+	{runeRange{0x08E2, 0x08E2}, wbprNumeric},                // Cf       ARABIC DISPUTED END OF AYAH
 	{runeRange{0x0962, 0x0963}, wbprExtend},                 // Mn   [2] DEVANAGARI VOWEL SIGN VOCALIC L..DEVANAGARI VOWEL SIGN VOCALIC LL
 	{runeRange{0x09C7, 0x09C8}, wbprExtend},                 // Mc   [2] BENGALI VOWEL SIGN E..BENGALI VOWEL SIGN AI
 	{runeRange{0x0A13, 0x0A28}, wbprALetter},                // Lo  [22] GURMUKHI LETTER OO..GURMUKHI LETTER NA
@@ -539,11 +539,11 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x0560, 0x0588}, wbprALetter},                // L&  [41] ARMENIAN SMALL LETTER TURNED AYB..ARMENIAN SMALL LETTER YI WITH STROKE
 	{runeRange{0x05BF, 0x05BF}, wbprExtend},                 // Mn       HEBREW POINT RAFE
 	{runeRange{0x05D0, 0x05EA}, wbprHebrewLetter},           // Lo  [27] HEBREW LETTER ALEF..HEBREW LETTER TAV
-	{runeRange{0x0600, 0x0605}, wbprFormat},                 // Cf   [6] ARABIC NUMBER SIGN..ARABIC NUMBER MARK ABOVE
+	{runeRange{0x0600, 0x0605}, wbprNumeric},                // Cf   [6] ARABIC NUMBER SIGN..ARABIC NUMBER MARK ABOVE
 	{runeRange{0x0620, 0x063F}, wbprALetter},                // Lo  [32] ARABIC LETTER KASHMIRI YEH..ARABIC LETTER FARSI YEH WITH THREE DOTS ABOVE
 	{runeRange{0x0660, 0x0669}, wbprNumeric},                // Nd  [10] ARABIC-INDIC DIGIT ZERO..ARABIC-INDIC DIGIT NINE
 	{runeRange{0x0670, 0x0670}, wbprExtend},                 // Mn       ARABIC LETTER SUPERSCRIPT ALEF
-	{runeRange{0x06DD, 0x06DD}, wbprFormat},                 // Cf       ARABIC END OF AYAH
+	{runeRange{0x06DD, 0x06DD}, wbprNumeric},                // Cf       ARABIC END OF AYAH
 	{runeRange{0x06EA, 0x06ED}, wbprExtend},                 // Mn   [4] ARABIC EMPTY CENTRE LOW STOP..ARABIC SMALL LOW MEEM
 	{runeRange{0x06FF, 0x06FF}, wbprALetter},                // Lo       ARABIC LETTER HEH WITH INVERTED V
 	{runeRange{0x0712, 0x072F}, wbprALetter},                // Lo  [30] SYRIAC LETTER BETH..SYRIAC LETTER PERSIAN DHALATH
@@ -1083,7 +1083,7 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x06E7, 0x06E8}, wbprExtend},                 // Mn   [2] ARABIC SMALL HIGH YEH..ARABIC SMALL HIGH NOON
 	{runeRange{0x06EE, 0x06EF}, wbprALetter},                // Lo   [2] ARABIC LETTER DAL WITH INVERTED V..ARABIC LETTER REH WITH INVERTED V
 	{runeRange{0x06FA, 0x06FC}, wbprALetter},                // Lo   [3] ARABIC LETTER SHEEN WITH DOT BELOW..ARABIC LETTER GHAIN WITH DOT BELOW
-	{runeRange{0x070F, 0x070F}, wbprFormat},                 // Cf       SYRIAC ABBREVIATION MARK
+	{runeRange{0x070F, 0x070F}, wbprALetter},                // Cf       SYRIAC ABBREVIATION MARK
 	{runeRange{0x0711, 0x0711}, wbprExtend},                 // Mn       SYRIAC LETTER SUPERSCRIPT ALAPH
 	{runeRange{0x0730, 0x074A}, wbprExtend},                 // Mn  [27] SYRIAC PTHAHA ABOVE..SYRIAC BARREKH
 	{runeRange{0x07A6, 0x07B0}, wbprExtend},                 // Mn  [11] THAANA ABAFILI..THAANA SUKUN
@@ -1097,7 +1097,7 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x0829, 0x082D}, wbprExtend},                 // Mn   [5] SAMARITAN VOWEL SIGN LONG I..SAMARITAN MARK NEQUDAA
 	{runeRange{0x0859, 0x085B}, wbprExtend},                 // Mn   [3] MANDAIC AFFRICATION MARK..MANDAIC GEMINATION MARK
 	{runeRange{0x0870, 0x0887}, wbprALetter},                // Lo  [24] ARABIC LETTER ALEF WITH ATTACHED FATHA..ARABIC BASELINE ROUND DOT
-	{runeRange{0x0890, 0x0891}, wbprFormat},                 // Cf   [2] ARABIC POUND MARK ABOVE..ARABIC PIASTRE MARK ABOVE
+	{runeRange{0x0890, 0x0891}, wbprNumeric},                // Cf   [2] ARABIC POUND MARK ABOVE..ARABIC PIASTRE MARK ABOVE
 	{runeRange{0x08A0, 0x08C8}, wbprALetter},                // Lo  [41] ARABIC LETTER BEH WITH SMALL V BELOW..ARABIC LETTER GRAF
 	{runeRange{0x08CA, 0x08E1}, wbprExtend},                 // Mn  [24] ARABIC SMALL HIGH FARSI YEH..ARABIC SMALL HIGH SIGN SAFHA
 	{runeRange{0x08E3, 0x0902}, wbprExtend},                 // Mn  [32] ARABIC TURNED DAMMA BELOW..DEVANAGARI SIGN ANUSVARA
@@ -1587,8 +1587,8 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x11082, 0x11082}, wbprExtend},               // Mc       KAITHI SIGN VISARGA
 	{runeRange{0x110B0, 0x110B2}, wbprExtend},               // Mc   [3] KAITHI VOWEL SIGN AA..KAITHI VOWEL SIGN II
 	{runeRange{0x110B7, 0x110B8}, wbprExtend},               // Mc   [2] KAITHI VOWEL SIGN O..KAITHI VOWEL SIGN AU
-	{runeRange{0x110BD, 0x110BD}, wbprFormat},               // Cf       KAITHI NUMBER SIGN
-	{runeRange{0x110CD, 0x110CD}, wbprFormat},               // Cf       KAITHI NUMBER SIGN ABOVE
+	{runeRange{0x110BD, 0x110BD}, wbprNumeric},              // Cf       KAITHI NUMBER SIGN
+	{runeRange{0x110CD, 0x110CD}, wbprNumeric},              // Cf       KAITHI NUMBER SIGN ABOVE
 	{runeRange{0x110F0, 0x110F9}, wbprNumeric},              // Nd  [10] SORA SOMPENG DIGIT ZERO..SORA SOMPENG DIGIT NINE
 	{runeRange{0x11103, 0x11126}, wbprALetter},              // Lo  [36] CHAKMA LETTER AA..CHAKMA LETTER HAA
 	{runeRange{0x1112C, 0x1112C}, wbprExtend},               // Mc       CHAKMA VOWEL SIGN E
