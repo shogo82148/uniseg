@@ -98,7 +98,12 @@ var ` + os.Args[3] + ` = []testCase {
 		if err != nil {
 			return nil, fmt.Errorf(`line %d: %v: %q`, num, err, line)
 		}
-		fmt.Fprintf(buf, "\t{original: \"%s\", expected: %s}, // %s\n", original, expected, comment)
+		fmt.Fprintf(buf, `{
+	name: %q,
+	original: %q,
+	expected: %s,
+},
+`, comment, original, expected)
 	}
 	if err := sc.Err(); err != nil {
 		return nil, err
