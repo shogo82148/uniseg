@@ -54,7 +54,13 @@ const (
 	lbOddRI
 	lbEvenRI
 	lbExtPicCn
-	lbMax = iota
+	lbAP
+	lbAK
+	lbAS
+	lbVF
+	lbVI           // (AK | ◌ | AS) VI
+	lbDottedCircle // ◌
+	lbMax          = iota
 
 	lbZWJBit     LineBreakState = 64
 	lbCPeaFWHBit LineBreakState = 128
@@ -286,6 +292,20 @@ var lbTransitions = [lbMax * lbprMax]lbTransitionResult{
 	int(lbHL)*lbprMax + int(lbprAL): {lbAL, LineDontBreak, 280},
 	int(lbHL)*lbprMax + int(lbprHL): {lbHL, LineDontBreak, 280},
 
+	// LB28a.
+	int(lbAny)*lbprMax + int(lbprAP):          {lbAP, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprAK):          {lbAK, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprAS):          {lbAS, LineCanBreak, 310},
+	int(lbAP)*lbprMax + int(lbprAK):           {lbAK, LineDontBreak, 281},
+	int(lbAP)*lbprMax + int(lbprAS):           {lbAS, LineDontBreak, 281},
+	int(lbAK)*lbprMax + int(lbprVF):           {lbVF, LineDontBreak, 281},
+	int(lbAK)*lbprMax + int(lbprVI):           {lbVI, LineDontBreak, 281},
+	int(lbDottedCircle)*lbprMax + int(lbprVF): {lbVF, LineDontBreak, 281},
+	int(lbDottedCircle)*lbprMax + int(lbprVI): {lbVI, LineDontBreak, 281},
+	int(lbAS)*lbprMax + int(lbprVF):           {lbVF, LineDontBreak, 281},
+	int(lbAS)*lbprMax + int(lbprVI):           {lbVI, LineDontBreak, 281},
+	int(lbVI)*lbprMax + int(lbprAK):           {lbAK, LineDontBreak, 281},
+
 	// LB29.
 	int(lbIS)*lbprMax + int(lbprAL):   {lbAL, LineDontBreak, 290},
 	int(lbIS)*lbprMax + int(lbprHL):   {lbHL, LineDontBreak, 290},
@@ -427,6 +447,55 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 			if pr == lbprNU {
 				return lbNU, LineDontBreak
 			}
+		}
+	}
+
+	// LB28a.
+	if rule > 281 {
+		if state == lbAP && r == '\u25CC' {
+			return lbDottedCircle, LineDontBreak
+		}
+		if state == lbVI && r == '\u25CC' {
+			return lbDottedCircle, LineDontBreak
+		}
+
+		// look ahead
+		if state == lbAK || state == lbDottedCircle || state == lbAS {
+			if nextProperty == lbprAK {
+				var r rune
+				r, _ = decoder(str)
+				if r != utf8.RuneError {
+					pr := lineBreakCodePoints.search(r).lbProperty
+					if pr == lbprVF {
+						return lbAK, LineDontBreak
+					}
+				}
+			}
+			if r == '\u25CC' {
+				var r rune
+				r, _ = decoder(str)
+				if r != utf8.RuneError {
+					pr := lineBreakCodePoints.search(r).lbProperty
+					if pr == lbprVF {
+						return lbDottedCircle, LineDontBreak
+					}
+				}
+			}
+			if nextProperty == lbprAS {
+				var r rune
+				r, _ = decoder(str)
+				if r != utf8.RuneError {
+					pr := lineBreakCodePoints.search(r).lbProperty
+					if pr == lbprVF {
+						return lbAS, LineDontBreak
+					}
+				}
+			}
+		}
+	}
+	if rule > 310 {
+		if r == '\u25CC' {
+			return lbDottedCircle, LineCanBreak
 		}
 	}
 
