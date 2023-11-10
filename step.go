@@ -190,7 +190,7 @@ func step[T bytes](p *Parser, str T, state State, decoder runeDecoder[T]) (clust
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
 		prop := graphemeCodePoints.search(r)
 		boundaries := newBoundaries(LineMustBreak, true, true, runeWidth(p, r, prop))
-		_newState := newState(grAny, wbAny, sbAny, lbAny, prop)
+		_newState := newState(grAny, wbAny, sbAny, 0, prop)
 		return str, zero, boundaries, _newState
 	}
 
@@ -248,7 +248,7 @@ func step[T bytes](p *Parser, str T, state State, decoder runeDecoder[T]) (clust
 		length += l
 		if len(str) <= length {
 			boundaries := newBoundaries(LineMustBreak, true, true, width)
-			_newState := newState(grAny, wbAny, sbAny, lbAny, prop)
+			_newState := newState(grAny, wbAny, sbAny, 0, prop)
 			return str, zero, boundaries, _newState
 		}
 	}
