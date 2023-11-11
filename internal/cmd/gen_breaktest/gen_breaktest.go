@@ -100,7 +100,7 @@ var ` + os.Args[3] + ` = []testCase {
 		}
 		fmt.Fprintf(buf, `{
 	name: %q,
-	original: %q,
+	original: "%s",
 	expected: %s,
 },
 `, comment, original, expected)
