@@ -9,6 +9,7 @@ import (
 const benchmarkStr = "This is 🏳️\u200d🌈, a test string ツ for grapheme cluster testing. 🏋🏽\u200d♀️🙂🙂 It's only relevant for benchmark tests."
 
 type testCase = struct {
+	name     string
 	original string
 	expected [][]rune
 }
