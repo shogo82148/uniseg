@@ -121,11 +121,11 @@ func firstLineSegment[T bytes](str T, state LineBreakState, decoder runeDecoder[
 	// Extract the first rune.
 	r, length := decoder(str)
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
-		return str, zero, true, 0 // LB3.
+		return str, zero, true, *new(LineBreakState) // LB3.
 	}
 
 	// If we don't know the state, determine it now.
-	if state <= 0 {
+	if state == *new(LineBreakState) {
 		state, _ = transitionLineBreakState(state, r, str[length:], decoder)
 	}
 
@@ -141,7 +141,7 @@ func firstLineSegment[T bytes](str T, state LineBreakState, decoder runeDecoder[
 
 		length += l
 		if len(str) <= length {
-			return str, zero, true, 0 // LB3.
+			return str, zero, true, *new(LineBreakState) // LB3.
 		}
 	}
 }

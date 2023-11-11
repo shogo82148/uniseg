@@ -9,7 +9,7 @@ func newState(gr grState, wb WordBreakState, sb SentenceBreakState, lb LineBreak
 	return State(gr) |
 		State(wb<<shiftWordState) |
 		State(sb<<shiftSentenceState) |
-		State(lb<<shiftLineState) |
+		// State(lb<<shiftLineState) |
 		State(prop<<shiftPropState)
 }
 
@@ -17,7 +17,7 @@ func (s State) unpack() (gr grState, wb WordBreakState, sb SentenceBreakState, l
 	gr = grState(s & maskGraphemeState)
 	wb = WordBreakState((s >> shiftWordState) & maskWordState)
 	sb = SentenceBreakState((s >> shiftSentenceState) & maskSentenceState)
-	lb = LineBreakState((s >> shiftLineState) & maskLineState)
+	// lb = LineBreakState((s >> shiftLineState) & maskLineState)
 	prop = property(s >> shiftPropState)
 	return
 }
@@ -190,7 +190,7 @@ func step[T bytes](p *Parser, str T, state State, decoder runeDecoder[T]) (clust
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
 		prop := graphemeCodePoints.search(r)
 		boundaries := newBoundaries(LineMustBreak, true, true, runeWidth(p, r, prop))
-		_newState := newState(grAny, wbAny, sbAny, 0, prop)
+		_newState := newState(grAny, wbAny, sbAny, *new(LineBreakState), prop)
 		return str, zero, boundaries, _newState
 	}
 
@@ -205,7 +205,7 @@ func step[T bytes](p *Parser, str T, state State, decoder runeDecoder[T]) (clust
 		graphemeState, firstProp, _ = transitionGraphemeState(0, r)
 		wordState, _ = transitionWordBreakState(0, r, remainder, decoder)
 		sentenceState, _ = transitionSentenceBreakState(0, r, remainder, decoder)
-		lineState, _ = transitionLineBreakState(0, r, remainder, decoder)
+		lineState, _ = transitionLineBreakState(*new(LineBreakState), r, remainder, decoder)
 	} else {
 		graphemeState, wordState, sentenceState, lineState, firstProp = state.unpack()
 	}
@@ -248,7 +248,7 @@ func step[T bytes](p *Parser, str T, state State, decoder runeDecoder[T]) (clust
 		length += l
 		if len(str) <= length {
 			boundaries := newBoundaries(LineMustBreak, true, true, width)
-			_newState := newState(grAny, wbAny, sbAny, 0, prop)
+			_newState := newState(grAny, wbAny, sbAny, *new(LineBreakState), prop)
 			return str, zero, boundaries, _newState
 		}
 	}
