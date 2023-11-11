@@ -5,7 +5,7 @@ package uniseg
 // emojiPresentation are taken from
 //
 // and
-// https://unicode.org/Public/15.0.0/ucd/emoji/emoji-data.txt
+// https://unicode.org/Public/15.1.0/ucd/emoji/emoji-data.txt
 // ("Extended_Pictographic" only)
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var emojiPresentation = dictionary[emojiProperty]{

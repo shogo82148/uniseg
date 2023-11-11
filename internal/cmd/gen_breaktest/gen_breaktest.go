@@ -24,7 +24,7 @@ import (
 // We want to test against a specific version rather than the latest. When the
 // package is upgraded to a new version, change these to generate new tests.
 const (
-	testCaseURL = `https://www.unicode.org/Public/15.0.0/ucd/auxiliary/%s.txt`
+	testCaseURL = `https://www.unicode.org/Public/15.1.0/ucd/auxiliary/%s.txt`
 )
 
 func main() {
@@ -100,7 +100,7 @@ var ` + os.Args[3] + ` = []testCase {
 		}
 		fmt.Fprintf(buf, `{
 	name: %q,
-	original: "%s",
+	original: %q,
 	expected: %s,
 },
 `, comment, original, expected)
