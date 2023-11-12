@@ -1,6 +1,8 @@
 package uniseg
 
-import "unicode/utf8"
+import (
+	"unicode/utf8"
+)
 
 // LineBreakState is the type of the line break parser's states.
 type LineBreakState int
@@ -54,10 +56,17 @@ const (
 	lbOddRI
 	lbEvenRI
 	lbExtPicCn
-	lbMax = iota
+	lbAP
+	lbAK
+	lbAS
+	lbVF
+	lbVI           // (AK | ◌ | AS) VI
+	lbDottedCircle // ◌
+	lbMax          = iota
 
-	lbZWJBit     LineBreakState = 64
-	lbCPeaFWHBit LineBreakState = 128
+	lbZWJBit          LineBreakState = 64
+	lbCPeaFWHBit      LineBreakState = 128
+	lbDottedCircleBit LineBreakState = 256
 )
 
 // LineBreak defines whether a given text may be broken into the next line.
@@ -286,6 +295,18 @@ var lbTransitions = [lbMax * lbprMax]lbTransitionResult{
 	int(lbHL)*lbprMax + int(lbprAL): {lbAL, LineDontBreak, 280},
 	int(lbHL)*lbprMax + int(lbprHL): {lbHL, LineDontBreak, 280},
 
+	// LB28a.
+	int(lbAny)*lbprMax + int(lbprAP): {lbAP, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprAK): {lbAK, LineCanBreak, 310},
+	int(lbAny)*lbprMax + int(lbprAS): {lbAS, LineCanBreak, 310},
+	int(lbAP)*lbprMax + int(lbprAK):  {lbAK, LineDontBreak, 281},
+	int(lbAP)*lbprMax + int(lbprAS):  {lbAS, LineDontBreak, 281},
+	int(lbAK)*lbprMax + int(lbprVF):  {lbVF, LineDontBreak, 281},
+	int(lbAK)*lbprMax + int(lbprVI):  {lbVI, LineDontBreak, 281},
+	int(lbAS)*lbprMax + int(lbprVF):  {lbVF, LineDontBreak, 281},
+	int(lbAS)*lbprMax + int(lbprVI):  {lbVI, LineDontBreak, 281},
+	int(lbVI)*lbprMax + int(lbprAK):  {lbAK, LineDontBreak, 281},
+
 	// LB29.
 	int(lbIS)*lbprMax + int(lbprAL):   {lbAL, LineDontBreak, 290},
 	int(lbIS)*lbprMax + int(lbprHL):   {lbHL, LineDontBreak, 290},
@@ -306,7 +327,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	generalCategory := lbProp.generalCategory
 
 	// Prepare.
-	var forceNoBreak, isCPeaFWH bool
+	var forceNoBreak, isCPeaFWH, isDottedCircle bool
 	if state > 0 && state&lbCPeaFWHBit != 0 {
 		isCPeaFWH = true // LB30: CP but ea is not F, W, or H.
 		state = state &^ lbCPeaFWHBit
@@ -314,6 +335,10 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	if state > 0 && state&lbZWJBit != 0 {
 		state = state &^ lbZWJBit // Extract zero-width joiner bit.
 		forceNoBreak = true       // LB8a.
+	}
+	if state > 0 && state&lbDottedCircleBit != 0 {
+		state = state &^ lbDottedCircleBit // Extract dotted circle bit.
+		isDottedCircle = true              // is Dotted Circle ◌.
 	}
 
 	defer func() {
@@ -323,6 +348,11 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 			if ea != eawprF && ea != eawprW && ea != eawprH {
 				newState |= lbCPeaFWHBit
 			}
+		}
+
+		// Transition into LB28a.
+		if r == '\u25CC' {
+			newState |= lbDottedCircleBit
 		}
 
 		// Override break.
@@ -426,6 +456,50 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 			pr := lineBreakCodePoints.search(r).lbProperty
 			if pr == lbprNU {
 				return lbNU, LineDontBreak
+			}
+		}
+	}
+
+	// LB28a.
+	if rule > 280 {
+		// AP × ◌
+		if state == lbAP && r == '\u25CC' {
+			return lbAL, LineDontBreak
+		}
+
+		// ◌ × (VF | VI)
+		if isDottedCircle {
+			if nextProperty == lbprVF {
+				return lbVF, LineDontBreak
+			}
+			if nextProperty == lbprVI {
+				return lbVI, LineDontBreak
+			}
+		}
+
+		// (AK | ◌ | AS) VI × ◌
+		if state == lbVI && r == '\u25CC' {
+			return lbAL, LineDontBreak
+		}
+
+		// (AK | ◌ | AS) × (AK | ◌ | AS) VF
+		if (state == lbAK || state == lbAS || isDottedCircle) &&
+			(nextProperty == lbprAK || r == '\u25CC' || nextProperty == lbprAS) {
+
+			// look ahead
+			var r rune
+			r, _ = decoder(str)
+			if r != utf8.RuneError {
+				pr := lineBreakCodePoints.search(r).lbProperty
+				if pr == lbprVF {
+					if nextProperty == lbprAK {
+						return lbAK, LineDontBreak
+					} else if nextProperty == lbprAS {
+						return lbAS, LineDontBreak
+					} else {
+						return lbAL, LineDontBreak
+					}
+				}
 			}
 		}
 	}
