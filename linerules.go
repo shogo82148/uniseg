@@ -28,7 +28,7 @@ const (
 	lbSY
 	lbOP
 	lbQU
-	lbQUSP
+	lbQUSP // (sot | BK | CR | LF | NL | OP | QU | GL | SP | ZW) [\p{Pi}&QU] SP*
 	lbNS
 	lbCLCPSP
 	lbB2
@@ -66,6 +66,7 @@ const (
 	lbZWJBit          LineBreakState = 64
 	lbCPeaFWHBit      LineBreakState = 128
 	lbDottedCircleBit LineBreakState = 256
+	lb15Bit           LineBreakState = 512
 )
 
 // LineBreak defines whether a given text may be broken into the next line.
@@ -321,7 +322,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	generalCategory := lbProp.generalCategory
 
 	// Prepare.
-	var forceNoBreak, isCPeaFWH, isDottedCircle bool
+	var forceNoBreak, isCPeaFWH, isLB15, isDottedCircle bool
 	if state > 0 && state&lbCPeaFWHBit != 0 {
 		isCPeaFWH = true // LB30: CP but ea is not F, W, or H.
 		state = state &^ lbCPeaFWHBit
@@ -329,6 +330,10 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	if state > 0 && state&lbZWJBit != 0 {
 		state = state &^ lbZWJBit // Extract zero-width joiner bit.
 		forceNoBreak = true       // LB8a.
+	}
+	if state > 0 && state&lb15Bit != 0 {
+		state = state &^ lb15Bit // Extract LB15 bit.
+		isLB15 = true            // LB15.
 	}
 	if state > 0 && state&lbDottedCircleBit != 0 {
 		state = state &^ lbDottedCircleBit // Extract dotted circle bit.
@@ -342,6 +347,15 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 			if ea != eawprF && ea != eawprW && ea != eawprH {
 				newState |= lbCPeaFWHBit
 			}
+		}
+
+		// Transition into LB15a.
+		// (sot | BK | CR | LF | NL | OP | QU | GL | SP | ZW) [\p{Pi}&QU]
+		if (state <= 0 || state == lbBK || state == lbCR || state == lbLF || state == lbNL || state == lbOP || state == lbQU || state == lbGL || state == lbSP || state == lbZW) && generalCategory == gcPi && nextProperty == lbprQU {
+			newState |= lb15Bit
+		}
+		if isLB15 && nextProperty == lbprSP {
+			newState |= lb15Bit
 		}
 
 		// Transition into LB28a.
@@ -438,6 +452,11 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		case lbprSY:
 			return lbSY, LineDontBreak
 		}
+	}
+
+	// LB15a.
+	if rule > 150 && isLB15 && state == lbSP {
+		return lbAny, LineDontBreak
 	}
 
 	// LB15b.
