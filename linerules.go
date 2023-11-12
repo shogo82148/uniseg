@@ -60,9 +60,8 @@ const (
 	lbAK
 	lbAS
 	lbVF
-	lbVI           // (AK | ◌ | AS) VI
-	lbDottedCircle // ◌
-	lbMax          = iota
+	lbVI  // (AK | ◌ | AS) VI
+	lbMax = iota
 
 	lbZWJBit          LineBreakState = 64
 	lbCPeaFWHBit      LineBreakState = 128
@@ -133,11 +132,6 @@ var lbTransitions = [lbMax * lbprMax]lbTransitionResult{
 	int(lbAny)*lbprMax + int(lbprOP): {lbOP, LineCanBreak, 310},
 	int(lbOP)*lbprMax + int(lbprSP):  {lbOP, LineDontBreak, 70},
 	int(lbOP)*lbprMax + int(lbprXX):  {lbAny, LineDontBreak, 140},
-
-	// LB15.
-	int(lbQU)*lbprMax + int(lbprSP):   {lbQUSP, LineDontBreak, 70},
-	int(lbQU)*lbprMax + int(lbprOP):   {lbOP, LineDontBreak, 150},
-	int(lbQUSP)*lbprMax + int(lbprOP): {lbOP, LineDontBreak, 150},
 
 	// LB16.
 	int(lbCL)*lbprMax + int(lbprSP):     {lbCLCPSP, LineDontBreak, 70},
@@ -443,6 +437,26 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 			return lbIS, LineDontBreak
 		case lbprSY:
 			return lbSY, LineDontBreak
+		}
+	}
+
+	// LB15b.
+	if rule > 151 && generalCategory == gcPf && nextProperty == lbprQU {
+		// ( SP | GL | WJ | CL | QU | CP | EX | IS | SY | BK | CR | LF | NL | ZW | eot)
+		var r rune
+		if len(str) == 0 {
+			return lbQU, LineDontBreak
+		}
+		r, _ = decoder(str)
+		if r != utf8.RuneError {
+			pr := lineBreakCodePoints.search(r).lbProperty
+			if pr == lbprSP || pr == lbprGL || pr == lbprWJ || pr == lbprCL ||
+				pr == lbprQU || pr == lbprCP || pr == lbprEX || pr == lbprIS ||
+				pr == lbprSY || pr == lbprBK || pr == lbprCR || pr == lbprLF ||
+				pr == lbprNL || pr == lbprZW {
+
+				return lbQU, LineDontBreak
+			}
 		}
 	}
 
