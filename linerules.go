@@ -388,6 +388,9 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		if nextProperty == lbprZWJ {
 			bit = lbZWJBit
 		}
+		if isDottedCircle {
+			bit |= lbDottedCircleBit
+		}
 		if isLB15 {
 			// LB15a.
 			bit |= lb15Bit
