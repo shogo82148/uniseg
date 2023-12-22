@@ -56,16 +56,18 @@ func TestGraphemesClass(t *testing.T) {
 	GraphemeLoop:
 		for index = 0; gr.Next(); index++ {
 			if index >= len(testCase.expected) {
-				t.Errorf(`Test case %d %q failed: More grapheme clusters returned than expected %d`,
+				t.Errorf(`Test case %d %q %q failed: More grapheme clusters returned than expected %d`,
 					testNum,
+					testCase.name,
 					testCase.original,
 					len(testCase.expected))
 				break
 			}
 			cluster := gr.Runes()
 			if len(cluster) != len(testCase.expected[index]) {
-				t.Errorf(`Test case %d %q failed: Grapheme cluster at index %d has %d codepoints %x, %d expected %x`,
+				t.Errorf(`Test case %d %q %q failed: Grapheme cluster at index %d has %d codepoints %x, %d expected %x`,
 					testNum,
+					testCase.name,
 					testCase.original,
 					index,
 					len(cluster),
@@ -76,8 +78,9 @@ func TestGraphemesClass(t *testing.T) {
 			}
 			for i, r := range cluster {
 				if r != testCase.expected[index][i] {
-					t.Errorf(`Test case %d %q failed: Grapheme cluster at index %d is %x, expected %x`,
+					t.Errorf(`Test case %d %q %q failed: Grapheme cluster at index %d is %x, expected %x`,
 						testNum,
+						testCase.name,
 						testCase.original,
 						index,
 						cluster,
@@ -87,8 +90,9 @@ func TestGraphemesClass(t *testing.T) {
 			}
 		}
 		if index < len(testCase.expected) {
-			t.Errorf(`Test case %d %q failed: Fewer grapheme clusters returned (%d) than expected (%d)`,
+			t.Errorf(`Test case %d %q %q failed: Fewer grapheme clusters returned (%d) than expected (%d)`,
 				testNum,
+				testCase.name,
 				testCase.original,
 				index,
 				len(testCase.expected))
@@ -121,8 +125,9 @@ func TestGraphemesClassWord(t *testing.T) {
 	GraphemeLoop:
 		for gr.Next() {
 			if index >= len(testCase.expected) {
-				t.Errorf(`Test case %d %q failed: More words returned than expected %d`,
+				t.Errorf(`Test case %d %q %q failed: More words returned than expected %d`,
 					testNum,
+					testCase.name,
 					testCase.original,
 					len(testCase.expected))
 				break
@@ -130,8 +135,9 @@ func TestGraphemesClassWord(t *testing.T) {
 			cluster = append(cluster, gr.Runes()...)
 			if gr.IsWordBoundary() {
 				if len(cluster) != len(testCase.expected[index]) {
-					t.Errorf(`Test case %d %q failed: Word at index %d has %d codepoints %x, %d expected %x`,
+					t.Errorf(`Test case %d %q %q failed: Word at index %d has %d codepoints %x, %d expected %x`,
 						testNum,
+						testCase.name,
 						testCase.original,
 						index,
 						len(cluster),
@@ -142,8 +148,9 @@ func TestGraphemesClassWord(t *testing.T) {
 				}
 				for i, r := range cluster {
 					if r != testCase.expected[index][i] {
-						t.Errorf(`Test case %d %q failed: Word at index %d is %x, expected %x`,
+						t.Errorf(`Test case %d %q %q failed: Word at index %d is %x, expected %x`,
 							testNum,
+							testCase.name,
 							testCase.original,
 							index,
 							cluster,
@@ -156,8 +163,9 @@ func TestGraphemesClassWord(t *testing.T) {
 			}
 		}
 		if index < len(testCase.expected) {
-			t.Errorf(`Test case %d %q failed: Fewer words returned (%d) than expected (%d)`,
+			t.Errorf(`Test case %d %q %q failed: Fewer words returned (%d) than expected (%d)`,
 				testNum,
+				testCase.name,
 				testCase.original,
 				index,
 				len(testCase.expected))

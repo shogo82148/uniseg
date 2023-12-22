@@ -99,8 +99,9 @@ func TestStepBytesWord(t *testing.T) {
 			c, b, boundaries, state = Step(b, state)
 
 			if index >= len(testCase.expected) {
-				t.Errorf(`Test case %d %q failed: More words returned than expected %d`,
+				t.Errorf(`Test case %d %q %q failed: More words returned than expected %d`,
 					testNum,
+					testCase.name,
 					testCase.original,
 					len(testCase.expected))
 				break
@@ -113,8 +114,9 @@ func TestStepBytesWord(t *testing.T) {
 			cluster := growingCluster
 			growingCluster = nil
 			if len(cluster) != len(testCase.expected[index]) {
-				t.Errorf(`Test case %d %q failed: Word at index %d has %d codepoints %x, %d expected %x`,
+				t.Errorf(`Test case %d %q %q failed: Word at index %d has %d codepoints %x, %d expected %x`,
 					testNum,
+					testCase.name,
 					testCase.original,
 					index,
 					len(cluster),
@@ -125,8 +127,9 @@ func TestStepBytesWord(t *testing.T) {
 			}
 			for i, r := range cluster {
 				if r != testCase.expected[index][i] {
-					t.Errorf(`Test case %d %q failed: Word at index %d is %x, expected %x`,
+					t.Errorf(`Test case %d %q %q failed: Word at index %d is %x, expected %x`,
 						testNum,
+						testCase.name,
 						testCase.original,
 						index,
 						cluster,
@@ -138,8 +141,9 @@ func TestStepBytesWord(t *testing.T) {
 			index++
 		}
 		if index < len(testCase.expected) {
-			t.Errorf(`Test case %d %q failed: Fewer words returned (%d) than expected (%d)`,
+			t.Errorf(`Test case %d %q %q failed: Fewer words returned (%d) than expected (%d)`,
 				testNum,
+				testCase.name,
 				testCase.original,
 				index,
 				len(testCase.expected))
