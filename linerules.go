@@ -464,7 +464,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 
 	// LB15a.
 	if rule > 150 && isLB15 && state == lbSP {
-		return lbAny, LineDontBreak
+		return newState, LineDontBreak
 	}
 
 	// LB15b.
