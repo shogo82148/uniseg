@@ -93,49 +93,64 @@ type lbProperty int8
 
 // Line break properties.
 const (
-	lbprXX  lbProperty = iota // Unknown. lbprXX must be 0.
-	lbprBK                    // Mandatory Break
-	lbprCR                    // Carriage Return
-	lbprLF                    // Line Feed
-	lbprCM                    // Combining Mark
-	lbprNL                    // Next Line
-	lbprSG                    // Surrogate
-	lbprWJ                    // Word Joiner
-	lbprZW                    // Zero Width Space
-	lbprGL                    // Non-breaking ("Glue")
-	lbprSP                    // Space
-	lbprZWJ                   // Zero Width Joiner
-	lbprB2                    // Break Opportunity Before and After
-	lbprBA                    // Break After
-	lbprBB                    // Break Before
-	lbprHY                    // Hyphen
-	lbprCB                    // Contingent Break Opportunity
-	lbprCL                    // Close Punctuation
-	lbprCP                    // Close Parenthesis
-	lbprEX                    // Exclamation/Interrogation
-	lbprIN                    // Inseparable
-	lbprNS                    // Nonstarter
-	lbprOP                    // Open Punctuation
-	lbprQU                    // Quotation
-	lbprIS                    // Infix Separator
-	lbprNU                    // Numeric
-	lbprPO                    // Postfix Numeric
-	lbprPR                    // Prefix Numeric
-	lbprSY                    // Symbols Allowing Break After
-	lbprAI                    // Ambiguous (Alphabetic or Ideograph)
-	lbprAL                    // Alphabetic
-	lbprCJ                    // Conditional Japanese Starter
-	lbprEB                    // Emoji Base
-	lbprEM                    // Emoji Modifier
-	lbprH2                    // Hangul LV Syllable
-	lbprH3                    // Hangul LVT Syllable
-	lbprHL                    // Hebrew Letter
-	lbprID                    // Ideographic
-	lbprJL                    // Hangul L Jamo
-	lbprJV                    // Hangul V Jamo
-	lbprJT                    // Hangul T Jamo
-	lbprRI                    // Regional Indicator
-	lbprSA                    // Complex Context Dependent
+	lbprXX lbProperty = iota // Unknown. lbprXX must be 0.
+
+	// Non-tailorable Line Breaking Classes
+	lbprBK  // Mandatory Break
+	lbprCR  // Carriage Return
+	lbprLF  // Line Feed
+	lbprCM  // Combining Mark
+	lbprNL  // Next Line
+	lbprSG  // Surrogate
+	lbprWJ  // Word Joiner
+	lbprZW  // Zero Width Space
+	lbprGL  // Non-breaking ("Glue")
+	lbprSP  // Space
+	lbprZWJ // Zero Width Joiner
+
+	// Break Opportunities
+	lbprB2 // Break Opportunity Before and After
+	lbprBA // Break After
+	lbprBB // Break Before
+	lbprHY // Hyphen
+	lbprCB // Contingent Break Opportunity
+
+	// Characters Prohibiting Certain Breaks
+	lbprCL // Close Punctuation
+	lbprCP // Close Parenthesis
+	lbprEX // Exclamation/Interrogation
+	lbprIN // Inseparable
+	lbprNS // Nonstarter
+	lbprOP // Open Punctuation
+	lbprQU // Quotation
+
+	// Numeric Context
+	lbprIS // Infix Separator
+	lbprNU // Numeric
+	lbprPO // Postfix Numeric
+	lbprPR // Prefix Numeric
+	lbprSY // Symbols Allowing Break After
+
+	// Other Characters
+	lbprAI  // Ambiguous (Alphabetic or Ideograph)
+	lbprAK  // Aksara
+	lbprAL  // Alphabetic
+	lbprAP  // Aksara Pre-Base
+	lbprAS  // Aksara Start
+	lbprCJ  // Conditional Japanese Starter
+	lbprEB  // Emoji Base
+	lbprEM  // Emoji Modifier
+	lbprH2  // Hangul LV Syllable
+	lbprH3  // Hangul LVT Syllable
+	lbprHL  // Hebrew Letter
+	lbprID  // Ideographic
+	lbprJL  // Hangul L Jamo
+	lbprJT  // Hangul T Jamo
+	lbprJV  // Hangul V Jamo
+	lbprRI  // Regional Indicator
+	lbprSA  // Complex Context Dependent
+	lbprVF  // Virama Final
+	lbprVI  // Virama
 	lbprMax = iota
 )
 
@@ -190,6 +205,16 @@ type propertyGeneralCategory struct {
 	lbProperty
 	generalCategory
 }
+
+// incbProperty is the Indic_Conjunct_Break property.
+type incbProperty int8
+
+const (
+	incbNone incbProperty = iota // incbNone must be 0.
+	incbLinker
+	incbConsonant
+	incbExtend
+)
 
 // Special code points.
 const (

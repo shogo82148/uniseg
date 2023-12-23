@@ -20,7 +20,13 @@ const (
 	sbSTerm
 	sbSB8aClose
 	sbSB8aSp
-	sbMax = iota
+	sbMax
+)
+
+const (
+	sbStateMask SentenceBreakState = 0x0F
+	sbSB3Mask   SentenceBreakState = 0x10
+	sbSB3       SentenceBreakState = 0x10
 )
 
 type sbTransitionResult struct {
@@ -133,6 +139,9 @@ func transitionSentenceBreakState[T bytes](state SentenceBreakState, r rune, str
 	// Determine the property of the next character.
 	nextProperty := sentenceBreakCodePoints.search(r)
 
+	sb3state := state & sbSB3Mask
+	state &= sbStateMask
+
 	// SB5 (Replacing Ignore Rules).
 	if nextProperty == sbprExtend || nextProperty == sbprFormat {
 		if state == sbParaSep || state == sbCR {
@@ -174,6 +183,15 @@ func transitionSentenceBreakState[T bytes](state SentenceBreakState, r rune, str
 			// No known transition. SB999: Any × Any.
 			newState, sentenceBreak, rule = sbAny, false, 9990
 		}
+	}
+
+	// SB3.
+	if rule > 30 && sb3state != 0 && nextProperty == sbprLF {
+		sentenceBreak = false
+		rule = 300
+	}
+	if nextProperty == sbprCR {
+		newState |= sbSB3
 	}
 
 	// SB8.

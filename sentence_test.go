@@ -85,8 +85,9 @@ func TestSentenceCasesString(t *testing.T) {
 	WordLoop:
 		for index = 0; len(str) > 0; index++ {
 			if index >= len(testCase.expected) {
-				t.Errorf(`Test case %d %q failed: More sentences %d returned than expected %d`,
+				t.Errorf(`Test case %d %q %q failed: More sentences %d returned than expected %d`,
 					testNum,
+					testCase.name,
 					testCase.original,
 					index,
 					len(testCase.expected))
@@ -95,8 +96,9 @@ func TestSentenceCasesString(t *testing.T) {
 			sentence, str, state = FirstSentenceInString(str, state)
 			cluster := []rune(string(sentence))
 			if len(cluster) != len(testCase.expected[index]) {
-				t.Errorf(`Test case %d %q failed: Sentence at index %d has %d codepoints %x, %d expected %x`,
+				t.Errorf(`Test case %d %q %q failed: Sentence at index %d has %d codepoints %x, %d expected %x`,
 					testNum,
+					testCase.name,
 					testCase.original,
 					index,
 					len(cluster),
@@ -107,8 +109,9 @@ func TestSentenceCasesString(t *testing.T) {
 			}
 			for i, r := range cluster {
 				if r != testCase.expected[index][i] {
-					t.Errorf(`Test case %d %q failed: Sentence at index %d is %x, expected %x`,
+					t.Errorf(`Test case %d %q %q failed: Sentence at index %d is %x, expected %x`,
 						testNum,
+						testCase.name,
 						testCase.original,
 						index,
 						cluster,
@@ -118,8 +121,9 @@ func TestSentenceCasesString(t *testing.T) {
 			}
 		}
 		if index < len(testCase.expected) {
-			t.Errorf(`Test case %d %q failed: Fewer sentences returned (%d) than expected (%d)`,
+			t.Errorf(`Test case %d %q %q failed: Fewer sentences returned (%d) than expected (%d)`,
 				testNum,
+				testCase.name,
 				testCase.original,
 				index,
 				len(testCase.expected))

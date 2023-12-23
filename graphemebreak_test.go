@@ -3,7 +3,7 @@
 package uniseg
 
 // graphemeBreakTestCases are Grapheme testcases taken from
-// https://www.unicode.org/Public/15.0.0/ucd/auxiliary/GraphemeBreakTest.txt
+// https://www.unicode.org/Public/15.1.0/ucd/auxiliary/GraphemeBreakTest.txt
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var graphemeBreakTestCases = []testCase{
 	{
@@ -77,14 +77,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0020, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] SPACE (Other) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0020\u0903",
-		expected: [][]rune{{0x0020, 0x0903}},
+		name:     "÷ [0.2] SPACE (Other) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0020\u0A03",
+		expected: [][]rune{{0x0020, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] SPACE (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0020\u0308\u0903",
-		expected: [][]rune{{0x0020, 0x0308, 0x0903}},
+		name:     "÷ [0.2] SPACE (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0020\u0308\u0A03",
+		expected: [][]rune{{0x0020, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] SPACE (Other) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -137,6 +137,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0020, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] SPACE (Other) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0020\u0900",
+		expected: [][]rune{{0x0020, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0020\u0308\u0900",
+		expected: [][]rune{{0x0020, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0020\u0903",
+		expected: [][]rune{{0x0020, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0020\u0308\u0903",
+		expected: [][]rune{{0x0020, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0020\u0904",
+		expected: [][]rune{{0x0020}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0020\u0308\u0904",
+		expected: [][]rune{{0x0020, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0020\u0D4E",
+		expected: [][]rune{{0x0020}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0020\u0308\u0D4E",
+		expected: [][]rune{{0x0020, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0020\u0915",
+		expected: [][]rune{{0x0020}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0020\u0308\u0915",
+		expected: [][]rune{{0x0020, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] SPACE (Other) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u0020\u231A",
 		expected: [][]rune{{0x0020}, {0x231A}},
@@ -155,6 +205,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] SPACE (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u0020\u0308\u0300",
 		expected: [][]rune{{0x0020, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0020\u093C",
+		expected: [][]rune{{0x0020, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0020\u0308\u093C",
+		expected: [][]rune{{0x0020, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0020\u094D",
+		expected: [][]rune{{0x0020, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] SPACE (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0020\u0308\u094D",
+		expected: [][]rune{{0x0020, 0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] SPACE (Other) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -247,14 +317,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u000D\u0903",
-		expected: [][]rune{{0x000D}, {0x0903}},
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u000D\u0A03",
+		expected: [][]rune{{0x000D}, {0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u000D\u0308\u0903",
-		expected: [][]rune{{0x000D}, {0x0308, 0x0903}},
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u000D\u0308\u0A03",
+		expected: [][]rune{{0x000D}, {0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -307,6 +377,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000D\u0900",
+		expected: [][]rune{{0x000D}, {0x0900}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000D\u0308\u0900",
+		expected: [][]rune{{0x000D}, {0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000D\u0903",
+		expected: [][]rune{{0x000D}, {0x0903}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000D\u0308\u0903",
+		expected: [][]rune{{0x000D}, {0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000D\u0904",
+		expected: [][]rune{{0x000D}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000D\u0308\u0904",
+		expected: [][]rune{{0x000D}, {0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000D\u0D4E",
+		expected: [][]rune{{0x000D}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000D\u0308\u0D4E",
+		expected: [][]rune{{0x000D}, {0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u000D\u0915",
+		expected: [][]rune{{0x000D}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u000D\u0308\u0915",
+		expected: [][]rune{{0x000D}, {0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u000D\u231A",
 		expected: [][]rune{{0x000D}, {0x231A}},
@@ -325,6 +445,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u000D\u0308\u0300",
 		expected: [][]rune{{0x000D}, {0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u000D\u093C",
+		expected: [][]rune{{0x000D}, {0x093C}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u000D\u0308\u093C",
+		expected: [][]rune{{0x000D}, {0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u000D\u094D",
+		expected: [][]rune{{0x000D}, {0x094D}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u000D\u0308\u094D",
+		expected: [][]rune{{0x000D}, {0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -417,14 +557,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u000A\u0903",
-		expected: [][]rune{{0x000A}, {0x0903}},
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u000A\u0A03",
+		expected: [][]rune{{0x000A}, {0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u000A\u0308\u0903",
-		expected: [][]rune{{0x000A}, {0x0308, 0x0903}},
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u000A\u0308\u0A03",
+		expected: [][]rune{{0x000A}, {0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -477,6 +617,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000A\u0900",
+		expected: [][]rune{{0x000A}, {0x0900}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000A\u0308\u0900",
+		expected: [][]rune{{0x000A}, {0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000A\u0903",
+		expected: [][]rune{{0x000A}, {0x0903}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000A\u0308\u0903",
+		expected: [][]rune{{0x000A}, {0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000A\u0904",
+		expected: [][]rune{{0x000A}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000A\u0308\u0904",
+		expected: [][]rune{{0x000A}, {0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000A\u0D4E",
+		expected: [][]rune{{0x000A}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u000A\u0308\u0D4E",
+		expected: [][]rune{{0x000A}, {0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u000A\u0915",
+		expected: [][]rune{{0x000A}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u000A\u0308\u0915",
+		expected: [][]rune{{0x000A}, {0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u000A\u231A",
 		expected: [][]rune{{0x000A}, {0x231A}},
@@ -495,6 +685,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u000A\u0308\u0300",
 		expected: [][]rune{{0x000A}, {0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u000A\u093C",
+		expected: [][]rune{{0x000A}, {0x093C}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u000A\u0308\u093C",
+		expected: [][]rune{{0x000A}, {0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u000A\u094D",
+		expected: [][]rune{{0x000A}, {0x094D}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u000A\u0308\u094D",
+		expected: [][]rune{{0x000A}, {0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -587,14 +797,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0001}, {0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0001\u0903",
-		expected: [][]rune{{0x0001}, {0x0903}},
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0001\u0A03",
+		expected: [][]rune{{0x0001}, {0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0001\u0308\u0903",
-		expected: [][]rune{{0x0001}, {0x0308, 0x0903}},
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0001\u0308\u0A03",
+		expected: [][]rune{{0x0001}, {0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -647,6 +857,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0001}, {0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0001\u0900",
+		expected: [][]rune{{0x0001}, {0x0900}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0001\u0308\u0900",
+		expected: [][]rune{{0x0001}, {0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0001\u0903",
+		expected: [][]rune{{0x0001}, {0x0903}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0001\u0308\u0903",
+		expected: [][]rune{{0x0001}, {0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0001\u0904",
+		expected: [][]rune{{0x0001}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0001\u0308\u0904",
+		expected: [][]rune{{0x0001}, {0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0001\u0D4E",
+		expected: [][]rune{{0x0001}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0001\u0308\u0D4E",
+		expected: [][]rune{{0x0001}, {0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0001\u0915",
+		expected: [][]rune{{0x0001}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0001\u0308\u0915",
+		expected: [][]rune{{0x0001}, {0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u0001\u231A",
 		expected: [][]rune{{0x0001}, {0x231A}},
@@ -665,6 +925,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u0001\u0308\u0300",
 		expected: [][]rune{{0x0001}, {0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0001\u093C",
+		expected: [][]rune{{0x0001}, {0x093C}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0001\u0308\u093C",
+		expected: [][]rune{{0x0001}, {0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0001\u094D",
+		expected: [][]rune{{0x0001}, {0x094D}},
+	},
+	{
+		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0001\u0308\u094D",
+		expected: [][]rune{{0x0001}, {0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] <START OF HEADING> (Control) ÷ [4.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -757,14 +1037,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x034F, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u034F\u0903",
-		expected: [][]rune{{0x034F, 0x0903}},
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u034F\u0A03",
+		expected: [][]rune{{0x034F, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u034F\u0308\u0903",
-		expected: [][]rune{{0x034F, 0x0308, 0x0903}},
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u034F\u0308\u0A03",
+		expected: [][]rune{{0x034F, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -817,6 +1097,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x034F, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u034F\u0900",
+		expected: [][]rune{{0x034F, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u034F\u0308\u0900",
+		expected: [][]rune{{0x034F, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u034F\u0903",
+		expected: [][]rune{{0x034F, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u034F\u0308\u0903",
+		expected: [][]rune{{0x034F, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u034F\u0904",
+		expected: [][]rune{{0x034F}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u034F\u0308\u0904",
+		expected: [][]rune{{0x034F, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u034F\u0D4E",
+		expected: [][]rune{{0x034F}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u034F\u0308\u0D4E",
+		expected: [][]rune{{0x034F, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u034F\u0915",
+		expected: [][]rune{{0x034F}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u034F\u0308\u0915",
+		expected: [][]rune{{0x034F, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u034F\u231A",
 		expected: [][]rune{{0x034F}, {0x231A}},
@@ -835,6 +1165,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u034F\u0308\u0300",
 		expected: [][]rune{{0x034F, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u034F\u093C",
+		expected: [][]rune{{0x034F, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u034F\u0308\u093C",
+		expected: [][]rune{{0x034F, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u034F\u094D",
+		expected: [][]rune{{0x034F, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u034F\u0308\u094D",
+		expected: [][]rune{{0x034F, 0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] COMBINING GRAPHEME JOINER (Extend) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -927,14 +1277,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x1F1E6, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\U0001F1E6\u0903",
-		expected: [][]rune{{0x1F1E6, 0x0903}},
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\U0001F1E6\u0A03",
+		expected: [][]rune{{0x1F1E6, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\U0001F1E6\u0308\u0903",
-		expected: [][]rune{{0x1F1E6, 0x0308, 0x0903}},
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\U0001F1E6\u0308\u0A03",
+		expected: [][]rune{{0x1F1E6, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -987,6 +1337,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x1F1E6, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\U0001F1E6\u0900",
+		expected: [][]rune{{0x1F1E6, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\U0001F1E6\u0308\u0900",
+		expected: [][]rune{{0x1F1E6, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\U0001F1E6\u0903",
+		expected: [][]rune{{0x1F1E6, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\U0001F1E6\u0308\u0903",
+		expected: [][]rune{{0x1F1E6, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\U0001F1E6\u0904",
+		expected: [][]rune{{0x1F1E6}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\U0001F1E6\u0308\u0904",
+		expected: [][]rune{{0x1F1E6, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\U0001F1E6\u0D4E",
+		expected: [][]rune{{0x1F1E6}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\U0001F1E6\u0308\u0D4E",
+		expected: [][]rune{{0x1F1E6, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\U0001F1E6\u0915",
+		expected: [][]rune{{0x1F1E6}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\U0001F1E6\u0308\u0915",
+		expected: [][]rune{{0x1F1E6, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\U0001F1E6\u231A",
 		expected: [][]rune{{0x1F1E6}, {0x231A}},
@@ -1005,6 +1405,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\U0001F1E6\u0308\u0300",
 		expected: [][]rune{{0x1F1E6, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\U0001F1E6\u093C",
+		expected: [][]rune{{0x1F1E6, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\U0001F1E6\u0308\u093C",
+		expected: [][]rune{{0x1F1E6, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\U0001F1E6\u094D",
+		expected: [][]rune{{0x1F1E6, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\U0001F1E6\u0308\u094D",
+		expected: [][]rune{{0x1F1E6, 0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -1097,14 +1517,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0600, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0600\u0903",
-		expected: [][]rune{{0x0600, 0x0903}},
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0600\u0A03",
+		expected: [][]rune{{0x0600, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0600\u0308\u0903",
-		expected: [][]rune{{0x0600, 0x0308, 0x0903}},
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0600\u0308\u0A03",
+		expected: [][]rune{{0x0600, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.2] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -1157,6 +1577,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0600, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0600\u0900",
+		expected: [][]rune{{0x0600, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0600\u0308\u0900",
+		expected: [][]rune{{0x0600, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0600\u0903",
+		expected: [][]rune{{0x0600, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0600\u0308\u0903",
+		expected: [][]rune{{0x0600, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0600\u0904",
+		expected: [][]rune{{0x0600, 0x0904}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0600\u0308\u0904",
+		expected: [][]rune{{0x0600, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0600\u0D4E",
+		expected: [][]rune{{0x0600, 0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0600\u0308\u0D4E",
+		expected: [][]rune{{0x0600, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0600\u0915",
+		expected: [][]rune{{0x0600, 0x0915}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0600\u0308\u0915",
+		expected: [][]rune{{0x0600, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.2] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u0600\u231A",
 		expected: [][]rune{{0x0600, 0x231A}},
@@ -1175,6 +1645,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u0600\u0308\u0300",
 		expected: [][]rune{{0x0600, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0600\u093C",
+		expected: [][]rune{{0x0600, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0600\u0308\u093C",
+		expected: [][]rune{{0x0600, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0600\u094D",
+		expected: [][]rune{{0x0600, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0600\u0308\u094D",
+		expected: [][]rune{{0x0600, 0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] ARABIC NUMBER SIGN (Prepend) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -1197,174 +1687,244 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0600, 0x0308}, {0x0378}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [999.0] SPACE (Other) ÷ [0.3]",
-		original: "\u0903\u0020",
-		expected: [][]rune{{0x0903}, {0x0020}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u0A03\u0020",
+		expected: [][]rune{{0x0A03}, {0x0020}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
-		original: "\u0903\u0308\u0020",
-		expected: [][]rune{{0x0903, 0x0308}, {0x0020}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u0A03\u0308\u0020",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x0020}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
-		original: "\u0903\u000D",
-		expected: [][]rune{{0x0903}, {0x000D}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0A03\u000D",
+		expected: [][]rune{{0x0A03}, {0x000D}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
-		original: "\u0903\u0308\u000D",
-		expected: [][]rune{{0x0903, 0x0308}, {0x000D}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0A03\u0308\u000D",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x000D}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
-		original: "\u0903\u000A",
-		expected: [][]rune{{0x0903}, {0x000A}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0A03\u000A",
+		expected: [][]rune{{0x0A03}, {0x000A}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
-		original: "\u0903\u0308\u000A",
-		expected: [][]rune{{0x0903, 0x0308}, {0x000A}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0A03\u0308\u000A",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x000A}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
-		original: "\u0903\u0001",
-		expected: [][]rune{{0x0903}, {0x0001}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0A03\u0001",
+		expected: [][]rune{{0x0A03}, {0x0001}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
-		original: "\u0903\u0308\u0001",
-		expected: [][]rune{{0x0903, 0x0308}, {0x0001}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0A03\u0308\u0001",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x0001}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
-		original: "\u0903\u034F",
-		expected: [][]rune{{0x0903, 0x034F}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0A03\u034F",
+		expected: [][]rune{{0x0A03, 0x034F}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
-		original: "\u0903\u0308\u034F",
-		expected: [][]rune{{0x0903, 0x0308, 0x034F}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0A03\u0308\u034F",
+		expected: [][]rune{{0x0A03, 0x0308, 0x034F}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
-		original: "\u0903\U0001F1E6",
-		expected: [][]rune{{0x0903}, {0x1F1E6}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0A03\U0001F1E6",
+		expected: [][]rune{{0x0A03}, {0x1F1E6}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
-		original: "\u0903\u0308\U0001F1E6",
-		expected: [][]rune{{0x0903, 0x0308}, {0x1F1E6}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0A03\u0308\U0001F1E6",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x1F1E6}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
-		original: "\u0903\u0600",
-		expected: [][]rune{{0x0903}, {0x0600}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0A03\u0600",
+		expected: [][]rune{{0x0A03}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
-		original: "\u0903\u0308\u0600",
-		expected: [][]rune{{0x0903, 0x0308}, {0x0600}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0A03\u0308\u0600",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0903\u0903",
-		expected: [][]rune{{0x0903, 0x0903}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0A03\u0A03",
+		expected: [][]rune{{0x0A03, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0903\u0308\u0903",
-		expected: [][]rune{{0x0903, 0x0308, 0x0903}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0A03\u0308\u0A03",
+		expected: [][]rune{{0x0A03, 0x0308, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
-		original: "\u0903\u1100",
-		expected: [][]rune{{0x0903}, {0x1100}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0A03\u1100",
+		expected: [][]rune{{0x0A03}, {0x1100}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
-		original: "\u0903\u0308\u1100",
-		expected: [][]rune{{0x0903, 0x0308}, {0x1100}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0A03\u0308\u1100",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x1100}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
-		original: "\u0903\u1160",
-		expected: [][]rune{{0x0903}, {0x1160}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0A03\u1160",
+		expected: [][]rune{{0x0A03}, {0x1160}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
-		original: "\u0903\u0308\u1160",
-		expected: [][]rune{{0x0903, 0x0308}, {0x1160}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0A03\u0308\u1160",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x1160}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
-		original: "\u0903\u11A8",
-		expected: [][]rune{{0x0903}, {0x11A8}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0A03\u11A8",
+		expected: [][]rune{{0x0A03}, {0x11A8}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
-		original: "\u0903\u0308\u11A8",
-		expected: [][]rune{{0x0903, 0x0308}, {0x11A8}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0A03\u0308\u11A8",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x11A8}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
-		original: "\u0903\uAC00",
-		expected: [][]rune{{0x0903}, {0xAC00}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0A03\uAC00",
+		expected: [][]rune{{0x0A03}, {0xAC00}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
-		original: "\u0903\u0308\uAC00",
-		expected: [][]rune{{0x0903, 0x0308}, {0xAC00}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0A03\u0308\uAC00",
+		expected: [][]rune{{0x0A03, 0x0308}, {0xAC00}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
-		original: "\u0903\uAC01",
-		expected: [][]rune{{0x0903}, {0xAC01}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0A03\uAC01",
+		expected: [][]rune{{0x0A03}, {0xAC01}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
-		original: "\u0903\u0308\uAC01",
-		expected: [][]rune{{0x0903, 0x0308}, {0xAC01}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0A03\u0308\uAC01",
+		expected: [][]rune{{0x0A03, 0x0308}, {0xAC01}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
-		original: "\u0903\u231A",
-		expected: [][]rune{{0x0903}, {0x231A}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0A03\u0900",
+		expected: [][]rune{{0x0A03, 0x0900}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
-		original: "\u0903\u0308\u231A",
-		expected: [][]rune{{0x0903, 0x0308}, {0x231A}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0A03\u0308\u0900",
+		expected: [][]rune{{0x0A03, 0x0308, 0x0900}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
-		original: "\u0903\u0300",
-		expected: [][]rune{{0x0903, 0x0300}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0A03\u0903",
+		expected: [][]rune{{0x0A03, 0x0903}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
-		original: "\u0903\u0308\u0300",
-		expected: [][]rune{{0x0903, 0x0308, 0x0300}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0A03\u0308\u0903",
+		expected: [][]rune{{0x0A03, 0x0308, 0x0903}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
-		original: "\u0903\u200D",
-		expected: [][]rune{{0x0903, 0x200D}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0A03\u0904",
+		expected: [][]rune{{0x0A03}, {0x0904}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
-		original: "\u0903\u0308\u200D",
-		expected: [][]rune{{0x0903, 0x0308, 0x200D}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0A03\u0308\u0904",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x0904}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
-		original: "\u0903\u0378",
-		expected: [][]rune{{0x0903}, {0x0378}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0A03\u0D4E",
+		expected: [][]rune{{0x0A03}, {0x0D4E}},
 	},
 	{
-		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
-		original: "\u0903\u0308\u0378",
-		expected: [][]rune{{0x0903, 0x0308}, {0x0378}},
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0A03\u0308\u0D4E",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0A03\u0915",
+		expected: [][]rune{{0x0A03}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0A03\u0308\u0915",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0A03\u231A",
+		expected: [][]rune{{0x0A03}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0A03\u0308\u231A",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0A03\u0300",
+		expected: [][]rune{{0x0A03, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0A03\u0308\u0300",
+		expected: [][]rune{{0x0A03, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0A03\u093C",
+		expected: [][]rune{{0x0A03, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0A03\u0308\u093C",
+		expected: [][]rune{{0x0A03, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0A03\u094D",
+		expected: [][]rune{{0x0A03, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0A03\u0308\u094D",
+		expected: [][]rune{{0x0A03, 0x0308, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0A03\u200D",
+		expected: [][]rune{{0x0A03, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0A03\u0308\u200D",
+		expected: [][]rune{{0x0A03, 0x0308, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0A03\u0378",
+		expected: [][]rune{{0x0A03}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] GURMUKHI SIGN VISARGA (SpacingMark) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0A03\u0308\u0378",
+		expected: [][]rune{{0x0A03, 0x0308}, {0x0378}},
 	},
 	{
 		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) ÷ [999.0] SPACE (Other) ÷ [0.3]",
@@ -1437,14 +1997,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x1100, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u1100\u0903",
-		expected: [][]rune{{0x1100, 0x0903}},
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u1100\u0A03",
+		expected: [][]rune{{0x1100, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u1100\u0308\u0903",
-		expected: [][]rune{{0x1100, 0x0308, 0x0903}},
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u1100\u0308\u0A03",
+		expected: [][]rune{{0x1100, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [6.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -1497,6 +2057,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x1100, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1100\u0900",
+		expected: [][]rune{{0x1100, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1100\u0308\u0900",
+		expected: [][]rune{{0x1100, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1100\u0903",
+		expected: [][]rune{{0x1100, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1100\u0308\u0903",
+		expected: [][]rune{{0x1100, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1100\u0904",
+		expected: [][]rune{{0x1100}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1100\u0308\u0904",
+		expected: [][]rune{{0x1100, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1100\u0D4E",
+		expected: [][]rune{{0x1100}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1100\u0308\u0D4E",
+		expected: [][]rune{{0x1100, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u1100\u0915",
+		expected: [][]rune{{0x1100}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u1100\u0308\u0915",
+		expected: [][]rune{{0x1100, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u1100\u231A",
 		expected: [][]rune{{0x1100}, {0x231A}},
@@ -1515,6 +2125,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u1100\u0308\u0300",
 		expected: [][]rune{{0x1100, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u1100\u093C",
+		expected: [][]rune{{0x1100, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u1100\u0308\u093C",
+		expected: [][]rune{{0x1100, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u1100\u094D",
+		expected: [][]rune{{0x1100, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u1100\u0308\u094D",
+		expected: [][]rune{{0x1100, 0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] HANGUL CHOSEONG KIYEOK (L) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -1607,14 +2237,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x1160, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u1160\u0903",
-		expected: [][]rune{{0x1160, 0x0903}},
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u1160\u0A03",
+		expected: [][]rune{{0x1160, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u1160\u0308\u0903",
-		expected: [][]rune{{0x1160, 0x0308, 0x0903}},
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u1160\u0308\u0A03",
+		expected: [][]rune{{0x1160, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -1667,6 +2297,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x1160, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1160\u0900",
+		expected: [][]rune{{0x1160, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1160\u0308\u0900",
+		expected: [][]rune{{0x1160, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1160\u0903",
+		expected: [][]rune{{0x1160, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1160\u0308\u0903",
+		expected: [][]rune{{0x1160, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1160\u0904",
+		expected: [][]rune{{0x1160}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1160\u0308\u0904",
+		expected: [][]rune{{0x1160, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1160\u0D4E",
+		expected: [][]rune{{0x1160}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u1160\u0308\u0D4E",
+		expected: [][]rune{{0x1160, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u1160\u0915",
+		expected: [][]rune{{0x1160}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u1160\u0308\u0915",
+		expected: [][]rune{{0x1160, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u1160\u231A",
 		expected: [][]rune{{0x1160}, {0x231A}},
@@ -1685,6 +2365,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u1160\u0308\u0300",
 		expected: [][]rune{{0x1160, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u1160\u093C",
+		expected: [][]rune{{0x1160, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u1160\u0308\u093C",
+		expected: [][]rune{{0x1160, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u1160\u094D",
+		expected: [][]rune{{0x1160, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u1160\u0308\u094D",
+		expected: [][]rune{{0x1160, 0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] HANGUL JUNGSEONG FILLER (V) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -1777,14 +2477,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x11A8, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u11A8\u0903",
-		expected: [][]rune{{0x11A8, 0x0903}},
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u11A8\u0A03",
+		expected: [][]rune{{0x11A8, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u11A8\u0308\u0903",
-		expected: [][]rune{{0x11A8, 0x0308, 0x0903}},
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u11A8\u0308\u0A03",
+		expected: [][]rune{{0x11A8, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -1837,6 +2537,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x11A8, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u11A8\u0900",
+		expected: [][]rune{{0x11A8, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u11A8\u0308\u0900",
+		expected: [][]rune{{0x11A8, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u11A8\u0903",
+		expected: [][]rune{{0x11A8, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u11A8\u0308\u0903",
+		expected: [][]rune{{0x11A8, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u11A8\u0904",
+		expected: [][]rune{{0x11A8}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u11A8\u0308\u0904",
+		expected: [][]rune{{0x11A8, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u11A8\u0D4E",
+		expected: [][]rune{{0x11A8}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u11A8\u0308\u0D4E",
+		expected: [][]rune{{0x11A8, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u11A8\u0915",
+		expected: [][]rune{{0x11A8}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u11A8\u0308\u0915",
+		expected: [][]rune{{0x11A8, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u11A8\u231A",
 		expected: [][]rune{{0x11A8}, {0x231A}},
@@ -1855,6 +2605,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u11A8\u0308\u0300",
 		expected: [][]rune{{0x11A8, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u11A8\u093C",
+		expected: [][]rune{{0x11A8, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u11A8\u0308\u093C",
+		expected: [][]rune{{0x11A8, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u11A8\u094D",
+		expected: [][]rune{{0x11A8, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u11A8\u0308\u094D",
+		expected: [][]rune{{0x11A8, 0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] HANGUL JONGSEONG KIYEOK (T) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -1947,14 +2717,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0xAC00, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\uAC00\u0903",
-		expected: [][]rune{{0xAC00, 0x0903}},
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\uAC00\u0A03",
+		expected: [][]rune{{0xAC00, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\uAC00\u0308\u0903",
-		expected: [][]rune{{0xAC00, 0x0308, 0x0903}},
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\uAC00\u0308\u0A03",
+		expected: [][]rune{{0xAC00, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -2007,6 +2777,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0xAC00, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC00\u0900",
+		expected: [][]rune{{0xAC00, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC00\u0308\u0900",
+		expected: [][]rune{{0xAC00, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC00\u0903",
+		expected: [][]rune{{0xAC00, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC00\u0308\u0903",
+		expected: [][]rune{{0xAC00, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC00\u0904",
+		expected: [][]rune{{0xAC00}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC00\u0308\u0904",
+		expected: [][]rune{{0xAC00, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC00\u0D4E",
+		expected: [][]rune{{0xAC00}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC00\u0308\u0D4E",
+		expected: [][]rune{{0xAC00, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\uAC00\u0915",
+		expected: [][]rune{{0xAC00}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\uAC00\u0308\u0915",
+		expected: [][]rune{{0xAC00, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\uAC00\u231A",
 		expected: [][]rune{{0xAC00}, {0x231A}},
@@ -2025,6 +2845,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\uAC00\u0308\u0300",
 		expected: [][]rune{{0xAC00, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\uAC00\u093C",
+		expected: [][]rune{{0xAC00, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\uAC00\u0308\u093C",
+		expected: [][]rune{{0xAC00, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\uAC00\u094D",
+		expected: [][]rune{{0xAC00, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\uAC00\u0308\u094D",
+		expected: [][]rune{{0xAC00, 0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] HANGUL SYLLABLE GA (LV) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -2117,14 +2957,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0xAC01, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\uAC01\u0903",
-		expected: [][]rune{{0xAC01, 0x0903}},
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\uAC01\u0A03",
+		expected: [][]rune{{0xAC01, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\uAC01\u0308\u0903",
-		expected: [][]rune{{0xAC01, 0x0308, 0x0903}},
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\uAC01\u0308\u0A03",
+		expected: [][]rune{{0xAC01, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -2177,6 +3017,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0xAC01, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC01\u0900",
+		expected: [][]rune{{0xAC01, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC01\u0308\u0900",
+		expected: [][]rune{{0xAC01, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC01\u0903",
+		expected: [][]rune{{0xAC01, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC01\u0308\u0903",
+		expected: [][]rune{{0xAC01, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC01\u0904",
+		expected: [][]rune{{0xAC01}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC01\u0308\u0904",
+		expected: [][]rune{{0xAC01, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC01\u0D4E",
+		expected: [][]rune{{0xAC01}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\uAC01\u0308\u0D4E",
+		expected: [][]rune{{0xAC01, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\uAC01\u0915",
+		expected: [][]rune{{0xAC01}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\uAC01\u0308\u0915",
+		expected: [][]rune{{0xAC01, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\uAC01\u231A",
 		expected: [][]rune{{0xAC01}, {0x231A}},
@@ -2197,6 +3087,26 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0xAC01, 0x0308, 0x0300}},
 	},
 	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\uAC01\u093C",
+		expected: [][]rune{{0xAC01, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\uAC01\u0308\u093C",
+		expected: [][]rune{{0xAC01, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\uAC01\u094D",
+		expected: [][]rune{{0xAC01, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\uAC01\u0308\u094D",
+		expected: [][]rune{{0xAC01, 0x0308, 0x094D}},
+	},
+	{
 		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
 		original: "\uAC01\u200D",
 		expected: [][]rune{{0xAC01, 0x200D}},
@@ -2215,6 +3125,1206 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] HANGUL SYLLABLE GAG (LVT) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
 		original: "\uAC01\u0308\u0378",
 		expected: [][]rune{{0xAC01, 0x0308}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u0900\u0020",
+		expected: [][]rune{{0x0900}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u0900\u0308\u0020",
+		expected: [][]rune{{0x0900, 0x0308}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0900\u000D",
+		expected: [][]rune{{0x0900}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0900\u0308\u000D",
+		expected: [][]rune{{0x0900, 0x0308}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0900\u000A",
+		expected: [][]rune{{0x0900}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0900\u0308\u000A",
+		expected: [][]rune{{0x0900, 0x0308}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0900\u0001",
+		expected: [][]rune{{0x0900}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0900\u0308\u0001",
+		expected: [][]rune{{0x0900, 0x0308}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0900\u034F",
+		expected: [][]rune{{0x0900, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0900\u0308\u034F",
+		expected: [][]rune{{0x0900, 0x0308, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0900\U0001F1E6",
+		expected: [][]rune{{0x0900}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0900\u0308\U0001F1E6",
+		expected: [][]rune{{0x0900, 0x0308}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0900\u0600",
+		expected: [][]rune{{0x0900}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0900\u0308\u0600",
+		expected: [][]rune{{0x0900, 0x0308}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0900\u0A03",
+		expected: [][]rune{{0x0900, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0900\u0308\u0A03",
+		expected: [][]rune{{0x0900, 0x0308, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0900\u1100",
+		expected: [][]rune{{0x0900}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0900\u0308\u1100",
+		expected: [][]rune{{0x0900, 0x0308}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0900\u1160",
+		expected: [][]rune{{0x0900}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0900\u0308\u1160",
+		expected: [][]rune{{0x0900, 0x0308}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0900\u11A8",
+		expected: [][]rune{{0x0900}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0900\u0308\u11A8",
+		expected: [][]rune{{0x0900, 0x0308}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0900\uAC00",
+		expected: [][]rune{{0x0900}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0900\u0308\uAC00",
+		expected: [][]rune{{0x0900, 0x0308}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0900\uAC01",
+		expected: [][]rune{{0x0900}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0900\u0308\uAC01",
+		expected: [][]rune{{0x0900, 0x0308}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0900\u0900",
+		expected: [][]rune{{0x0900, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0900\u0308\u0900",
+		expected: [][]rune{{0x0900, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0900\u0903",
+		expected: [][]rune{{0x0900, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0900\u0308\u0903",
+		expected: [][]rune{{0x0900, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0900\u0904",
+		expected: [][]rune{{0x0900}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0900\u0308\u0904",
+		expected: [][]rune{{0x0900, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0900\u0D4E",
+		expected: [][]rune{{0x0900}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0900\u0308\u0D4E",
+		expected: [][]rune{{0x0900, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0900\u0915",
+		expected: [][]rune{{0x0900}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0900\u0308\u0915",
+		expected: [][]rune{{0x0900, 0x0308}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0900\u231A",
+		expected: [][]rune{{0x0900}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0900\u0308\u231A",
+		expected: [][]rune{{0x0900, 0x0308}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0900\u0300",
+		expected: [][]rune{{0x0900, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0900\u0308\u0300",
+		expected: [][]rune{{0x0900, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0900\u093C",
+		expected: [][]rune{{0x0900, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0900\u0308\u093C",
+		expected: [][]rune{{0x0900, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0900\u094D",
+		expected: [][]rune{{0x0900, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0900\u0308\u094D",
+		expected: [][]rune{{0x0900, 0x0308, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0900\u200D",
+		expected: [][]rune{{0x0900, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0900\u0308\u200D",
+		expected: [][]rune{{0x0900, 0x0308, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0900\u0378",
+		expected: [][]rune{{0x0900}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0900\u0308\u0378",
+		expected: [][]rune{{0x0900, 0x0308}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u0903\u0020",
+		expected: [][]rune{{0x0903}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u0903\u0308\u0020",
+		expected: [][]rune{{0x0903, 0x0308}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0903\u000D",
+		expected: [][]rune{{0x0903}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0903\u0308\u000D",
+		expected: [][]rune{{0x0903, 0x0308}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0903\u000A",
+		expected: [][]rune{{0x0903}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0903\u0308\u000A",
+		expected: [][]rune{{0x0903, 0x0308}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0903\u0001",
+		expected: [][]rune{{0x0903}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0903\u0308\u0001",
+		expected: [][]rune{{0x0903, 0x0308}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0903\u034F",
+		expected: [][]rune{{0x0903, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0903\u0308\u034F",
+		expected: [][]rune{{0x0903, 0x0308, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0903\U0001F1E6",
+		expected: [][]rune{{0x0903}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0903\u0308\U0001F1E6",
+		expected: [][]rune{{0x0903, 0x0308}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0903\u0600",
+		expected: [][]rune{{0x0903}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0903\u0308\u0600",
+		expected: [][]rune{{0x0903, 0x0308}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0903\u0A03",
+		expected: [][]rune{{0x0903, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0903\u0308\u0A03",
+		expected: [][]rune{{0x0903, 0x0308, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0903\u1100",
+		expected: [][]rune{{0x0903}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0903\u0308\u1100",
+		expected: [][]rune{{0x0903, 0x0308}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0903\u1160",
+		expected: [][]rune{{0x0903}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0903\u0308\u1160",
+		expected: [][]rune{{0x0903, 0x0308}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0903\u11A8",
+		expected: [][]rune{{0x0903}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0903\u0308\u11A8",
+		expected: [][]rune{{0x0903, 0x0308}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0903\uAC00",
+		expected: [][]rune{{0x0903}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0903\u0308\uAC00",
+		expected: [][]rune{{0x0903, 0x0308}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0903\uAC01",
+		expected: [][]rune{{0x0903}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0903\u0308\uAC01",
+		expected: [][]rune{{0x0903, 0x0308}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0903\u0900",
+		expected: [][]rune{{0x0903, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0903\u0308\u0900",
+		expected: [][]rune{{0x0903, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0903\u0903",
+		expected: [][]rune{{0x0903, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0903\u0308\u0903",
+		expected: [][]rune{{0x0903, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0903\u0904",
+		expected: [][]rune{{0x0903}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0903\u0308\u0904",
+		expected: [][]rune{{0x0903, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0903\u0D4E",
+		expected: [][]rune{{0x0903}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0903\u0308\u0D4E",
+		expected: [][]rune{{0x0903, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0903\u0915",
+		expected: [][]rune{{0x0903}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0903\u0308\u0915",
+		expected: [][]rune{{0x0903, 0x0308}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0903\u231A",
+		expected: [][]rune{{0x0903}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0903\u0308\u231A",
+		expected: [][]rune{{0x0903, 0x0308}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0903\u0300",
+		expected: [][]rune{{0x0903, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0903\u0308\u0300",
+		expected: [][]rune{{0x0903, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0903\u093C",
+		expected: [][]rune{{0x0903, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0903\u0308\u093C",
+		expected: [][]rune{{0x0903, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0903\u094D",
+		expected: [][]rune{{0x0903, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0903\u0308\u094D",
+		expected: [][]rune{{0x0903, 0x0308, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0903\u200D",
+		expected: [][]rune{{0x0903, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0903\u0308\u200D",
+		expected: [][]rune{{0x0903, 0x0308, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0903\u0378",
+		expected: [][]rune{{0x0903}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0903\u0308\u0378",
+		expected: [][]rune{{0x0903, 0x0308}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u0904\u0020",
+		expected: [][]rune{{0x0904}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u0904\u0308\u0020",
+		expected: [][]rune{{0x0904, 0x0308}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0904\u000D",
+		expected: [][]rune{{0x0904}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0904\u0308\u000D",
+		expected: [][]rune{{0x0904, 0x0308}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0904\u000A",
+		expected: [][]rune{{0x0904}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0904\u0308\u000A",
+		expected: [][]rune{{0x0904, 0x0308}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0904\u0001",
+		expected: [][]rune{{0x0904}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0904\u0308\u0001",
+		expected: [][]rune{{0x0904, 0x0308}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0904\u034F",
+		expected: [][]rune{{0x0904, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0904\u0308\u034F",
+		expected: [][]rune{{0x0904, 0x0308, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0904\U0001F1E6",
+		expected: [][]rune{{0x0904}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0904\u0308\U0001F1E6",
+		expected: [][]rune{{0x0904, 0x0308}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0904\u0600",
+		expected: [][]rune{{0x0904}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0904\u0308\u0600",
+		expected: [][]rune{{0x0904, 0x0308}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0904\u0A03",
+		expected: [][]rune{{0x0904, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0904\u0308\u0A03",
+		expected: [][]rune{{0x0904, 0x0308, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0904\u1100",
+		expected: [][]rune{{0x0904}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0904\u0308\u1100",
+		expected: [][]rune{{0x0904, 0x0308}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0904\u1160",
+		expected: [][]rune{{0x0904}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0904\u0308\u1160",
+		expected: [][]rune{{0x0904, 0x0308}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0904\u11A8",
+		expected: [][]rune{{0x0904}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0904\u0308\u11A8",
+		expected: [][]rune{{0x0904, 0x0308}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0904\uAC00",
+		expected: [][]rune{{0x0904}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0904\u0308\uAC00",
+		expected: [][]rune{{0x0904, 0x0308}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0904\uAC01",
+		expected: [][]rune{{0x0904}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0904\u0308\uAC01",
+		expected: [][]rune{{0x0904, 0x0308}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0904\u0900",
+		expected: [][]rune{{0x0904, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0904\u0308\u0900",
+		expected: [][]rune{{0x0904, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0904\u0903",
+		expected: [][]rune{{0x0904, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0904\u0308\u0903",
+		expected: [][]rune{{0x0904, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0904\u0904",
+		expected: [][]rune{{0x0904}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0904\u0308\u0904",
+		expected: [][]rune{{0x0904, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0904\u0D4E",
+		expected: [][]rune{{0x0904}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0904\u0308\u0D4E",
+		expected: [][]rune{{0x0904, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0904\u0915",
+		expected: [][]rune{{0x0904}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0904\u0308\u0915",
+		expected: [][]rune{{0x0904, 0x0308}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0904\u231A",
+		expected: [][]rune{{0x0904}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0904\u0308\u231A",
+		expected: [][]rune{{0x0904, 0x0308}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0904\u0300",
+		expected: [][]rune{{0x0904, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0904\u0308\u0300",
+		expected: [][]rune{{0x0904, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0904\u093C",
+		expected: [][]rune{{0x0904, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0904\u0308\u093C",
+		expected: [][]rune{{0x0904, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0904\u094D",
+		expected: [][]rune{{0x0904, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0904\u0308\u094D",
+		expected: [][]rune{{0x0904, 0x0308, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0904\u200D",
+		expected: [][]rune{{0x0904, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0904\u0308\u200D",
+		expected: [][]rune{{0x0904, 0x0308, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0904\u0378",
+		expected: [][]rune{{0x0904}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0904\u0308\u0378",
+		expected: [][]rune{{0x0904, 0x0308}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] SPACE (Other) ÷ [0.3]",
+		original: "\u0D4E\u0020",
+		expected: [][]rune{{0x0D4E, 0x0020}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u0D4E\u0308\u0020",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0D4E\u000D",
+		expected: [][]rune{{0x0D4E}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0D4E\u0308\u000D",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0D4E\u000A",
+		expected: [][]rune{{0x0D4E}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0D4E\u0308\u000A",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0D4E\u0001",
+		expected: [][]rune{{0x0D4E}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0D4E\u0308\u0001",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0D4E\u034F",
+		expected: [][]rune{{0x0D4E, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0D4E\u0308\u034F",
+		expected: [][]rune{{0x0D4E, 0x0308, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0D4E\U0001F1E6",
+		expected: [][]rune{{0x0D4E, 0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0D4E\u0308\U0001F1E6",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0D4E\u0600",
+		expected: [][]rune{{0x0D4E, 0x0600}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0D4E\u0308\u0600",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0D4E\u0A03",
+		expected: [][]rune{{0x0D4E, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0D4E\u0308\u0A03",
+		expected: [][]rune{{0x0D4E, 0x0308, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0D4E\u1100",
+		expected: [][]rune{{0x0D4E, 0x1100}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0D4E\u0308\u1100",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0D4E\u1160",
+		expected: [][]rune{{0x0D4E, 0x1160}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0D4E\u0308\u1160",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0D4E\u11A8",
+		expected: [][]rune{{0x0D4E, 0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0D4E\u0308\u11A8",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0D4E\uAC00",
+		expected: [][]rune{{0x0D4E, 0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0D4E\u0308\uAC00",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0D4E\uAC01",
+		expected: [][]rune{{0x0D4E, 0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0D4E\u0308\uAC01",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0D4E\u0900",
+		expected: [][]rune{{0x0D4E, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0D4E\u0308\u0900",
+		expected: [][]rune{{0x0D4E, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0D4E\u0903",
+		expected: [][]rune{{0x0D4E, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0D4E\u0308\u0903",
+		expected: [][]rune{{0x0D4E, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0D4E\u0904",
+		expected: [][]rune{{0x0D4E, 0x0904}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0D4E\u0308\u0904",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0D4E\u0D4E",
+		expected: [][]rune{{0x0D4E, 0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0D4E\u0308\u0D4E",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0D4E\u0915",
+		expected: [][]rune{{0x0D4E, 0x0915}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0D4E\u0308\u0915",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0D4E\u231A",
+		expected: [][]rune{{0x0D4E, 0x231A}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0D4E\u0308\u231A",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0D4E\u0300",
+		expected: [][]rune{{0x0D4E, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0D4E\u0308\u0300",
+		expected: [][]rune{{0x0D4E, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0D4E\u093C",
+		expected: [][]rune{{0x0D4E, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0D4E\u0308\u093C",
+		expected: [][]rune{{0x0D4E, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0D4E\u094D",
+		expected: [][]rune{{0x0D4E, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0D4E\u0308\u094D",
+		expected: [][]rune{{0x0D4E, 0x0308, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0D4E\u200D",
+		expected: [][]rune{{0x0D4E, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0D4E\u0308\u200D",
+		expected: [][]rune{{0x0D4E, 0x0308, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.2] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0D4E\u0378",
+		expected: [][]rune{{0x0D4E, 0x0378}},
+	},
+	{
+		name:     "÷ [0.2] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0D4E\u0308\u0378",
+		expected: [][]rune{{0x0D4E, 0x0308}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u0915\u0020",
+		expected: [][]rune{{0x0915}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u0915\u0308\u0020",
+		expected: [][]rune{{0x0915, 0x0308}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0915\u000D",
+		expected: [][]rune{{0x0915}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0915\u0308\u000D",
+		expected: [][]rune{{0x0915, 0x0308}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0915\u000A",
+		expected: [][]rune{{0x0915}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0915\u0308\u000A",
+		expected: [][]rune{{0x0915, 0x0308}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0915\u0001",
+		expected: [][]rune{{0x0915}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u0915\u0308\u0001",
+		expected: [][]rune{{0x0915, 0x0308}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0915\u034F",
+		expected: [][]rune{{0x0915, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u0915\u0308\u034F",
+		expected: [][]rune{{0x0915, 0x0308, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0915\U0001F1E6",
+		expected: [][]rune{{0x0915}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u0915\u0308\U0001F1E6",
+		expected: [][]rune{{0x0915, 0x0308}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0915\u0600",
+		expected: [][]rune{{0x0915}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u0915\u0308\u0600",
+		expected: [][]rune{{0x0915, 0x0308}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0915\u0A03",
+		expected: [][]rune{{0x0915, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0915\u0308\u0A03",
+		expected: [][]rune{{0x0915, 0x0308, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0915\u1100",
+		expected: [][]rune{{0x0915}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u0915\u0308\u1100",
+		expected: [][]rune{{0x0915, 0x0308}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0915\u1160",
+		expected: [][]rune{{0x0915}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u0915\u0308\u1160",
+		expected: [][]rune{{0x0915, 0x0308}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0915\u11A8",
+		expected: [][]rune{{0x0915}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u0915\u0308\u11A8",
+		expected: [][]rune{{0x0915, 0x0308}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0915\uAC00",
+		expected: [][]rune{{0x0915}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u0915\u0308\uAC00",
+		expected: [][]rune{{0x0915, 0x0308}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0915\uAC01",
+		expected: [][]rune{{0x0915}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u0915\u0308\uAC01",
+		expected: [][]rune{{0x0915, 0x0308}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0915\u0900",
+		expected: [][]rune{{0x0915, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0915\u0308\u0900",
+		expected: [][]rune{{0x0915, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0915\u0903",
+		expected: [][]rune{{0x0915, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0915\u0308\u0903",
+		expected: [][]rune{{0x0915, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0915\u0904",
+		expected: [][]rune{{0x0915}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0915\u0308\u0904",
+		expected: [][]rune{{0x0915, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0915\u0D4E",
+		expected: [][]rune{{0x0915}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0915\u0308\u0D4E",
+		expected: [][]rune{{0x0915, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0915\u0915",
+		expected: [][]rune{{0x0915}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0915\u0308\u0915",
+		expected: [][]rune{{0x0915, 0x0308}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0915\u231A",
+		expected: [][]rune{{0x0915}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u0915\u0308\u231A",
+		expected: [][]rune{{0x0915, 0x0308}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0915\u0300",
+		expected: [][]rune{{0x0915, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u0915\u0308\u0300",
+		expected: [][]rune{{0x0915, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0915\u093C",
+		expected: [][]rune{{0x0915, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0915\u0308\u093C",
+		expected: [][]rune{{0x0915, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0915\u094D",
+		expected: [][]rune{{0x0915, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0915\u0308\u094D",
+		expected: [][]rune{{0x0915, 0x0308, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0915\u200D",
+		expected: [][]rune{{0x0915, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u0915\u0308\u200D",
+		expected: [][]rune{{0x0915, 0x0308, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0915\u0378",
+		expected: [][]rune{{0x0915}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u0915\u0308\u0378",
+		expected: [][]rune{{0x0915, 0x0308}, {0x0378}},
 	},
 	{
 		name:     "÷ [0.2] WATCH (ExtPict) ÷ [999.0] SPACE (Other) ÷ [0.3]",
@@ -2287,14 +4397,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x231A, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] WATCH (ExtPict) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u231A\u0903",
-		expected: [][]rune{{0x231A, 0x0903}},
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u231A\u0A03",
+		expected: [][]rune{{0x231A, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u231A\u0308\u0903",
-		expected: [][]rune{{0x231A, 0x0308, 0x0903}},
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u231A\u0308\u0A03",
+		expected: [][]rune{{0x231A, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] WATCH (ExtPict) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -2347,6 +4457,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x231A, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u231A\u0900",
+		expected: [][]rune{{0x231A, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u231A\u0308\u0900",
+		expected: [][]rune{{0x231A, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u231A\u0903",
+		expected: [][]rune{{0x231A, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u231A\u0308\u0903",
+		expected: [][]rune{{0x231A, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u231A\u0904",
+		expected: [][]rune{{0x231A}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u231A\u0308\u0904",
+		expected: [][]rune{{0x231A, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u231A\u0D4E",
+		expected: [][]rune{{0x231A}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u231A\u0308\u0D4E",
+		expected: [][]rune{{0x231A, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u231A\u0915",
+		expected: [][]rune{{0x231A}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u231A\u0308\u0915",
+		expected: [][]rune{{0x231A, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] WATCH (ExtPict) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u231A\u231A",
 		expected: [][]rune{{0x231A}, {0x231A}},
@@ -2365,6 +4525,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u231A\u0308\u0300",
 		expected: [][]rune{{0x231A, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u231A\u093C",
+		expected: [][]rune{{0x231A, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u231A\u0308\u093C",
+		expected: [][]rune{{0x231A, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u231A\u094D",
+		expected: [][]rune{{0x231A, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u231A\u0308\u094D",
+		expected: [][]rune{{0x231A, 0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] WATCH (ExtPict) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -2457,14 +4637,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0300, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0300\u0903",
-		expected: [][]rune{{0x0300, 0x0903}},
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0300\u0A03",
+		expected: [][]rune{{0x0300, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0300\u0308\u0903",
-		expected: [][]rune{{0x0300, 0x0308, 0x0903}},
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0300\u0308\u0A03",
+		expected: [][]rune{{0x0300, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -2517,6 +4697,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0300, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0300\u0900",
+		expected: [][]rune{{0x0300, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0300\u0308\u0900",
+		expected: [][]rune{{0x0300, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0300\u0903",
+		expected: [][]rune{{0x0300, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0300\u0308\u0903",
+		expected: [][]rune{{0x0300, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0300\u0904",
+		expected: [][]rune{{0x0300}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0300\u0308\u0904",
+		expected: [][]rune{{0x0300, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0300\u0D4E",
+		expected: [][]rune{{0x0300}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0300\u0308\u0D4E",
+		expected: [][]rune{{0x0300, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0300\u0915",
+		expected: [][]rune{{0x0300}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0300\u0308\u0915",
+		expected: [][]rune{{0x0300, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u0300\u231A",
 		expected: [][]rune{{0x0300}, {0x231A}},
@@ -2537,6 +4767,26 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0300, 0x0308, 0x0300}},
 	},
 	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0300\u093C",
+		expected: [][]rune{{0x0300, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0300\u0308\u093C",
+		expected: [][]rune{{0x0300, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0300\u094D",
+		expected: [][]rune{{0x0300, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0300\u0308\u094D",
+		expected: [][]rune{{0x0300, 0x0308, 0x094D}},
+	},
+	{
 		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
 		original: "\u0300\u200D",
 		expected: [][]rune{{0x0300, 0x200D}},
@@ -2555,6 +4805,486 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
 		original: "\u0300\u0308\u0378",
 		expected: [][]rune{{0x0300, 0x0308}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u093C\u0020",
+		expected: [][]rune{{0x093C}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u093C\u0308\u0020",
+		expected: [][]rune{{0x093C, 0x0308}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u093C\u000D",
+		expected: [][]rune{{0x093C}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u093C\u0308\u000D",
+		expected: [][]rune{{0x093C, 0x0308}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u093C\u000A",
+		expected: [][]rune{{0x093C}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u093C\u0308\u000A",
+		expected: [][]rune{{0x093C, 0x0308}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u093C\u0001",
+		expected: [][]rune{{0x093C}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u093C\u0308\u0001",
+		expected: [][]rune{{0x093C, 0x0308}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u093C\u034F",
+		expected: [][]rune{{0x093C, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u093C\u0308\u034F",
+		expected: [][]rune{{0x093C, 0x0308, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u093C\U0001F1E6",
+		expected: [][]rune{{0x093C}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u093C\u0308\U0001F1E6",
+		expected: [][]rune{{0x093C, 0x0308}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u093C\u0600",
+		expected: [][]rune{{0x093C}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u093C\u0308\u0600",
+		expected: [][]rune{{0x093C, 0x0308}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u093C\u0A03",
+		expected: [][]rune{{0x093C, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u093C\u0308\u0A03",
+		expected: [][]rune{{0x093C, 0x0308, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u093C\u1100",
+		expected: [][]rune{{0x093C}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u093C\u0308\u1100",
+		expected: [][]rune{{0x093C, 0x0308}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u093C\u1160",
+		expected: [][]rune{{0x093C}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u093C\u0308\u1160",
+		expected: [][]rune{{0x093C, 0x0308}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u093C\u11A8",
+		expected: [][]rune{{0x093C}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u093C\u0308\u11A8",
+		expected: [][]rune{{0x093C, 0x0308}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u093C\uAC00",
+		expected: [][]rune{{0x093C}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u093C\u0308\uAC00",
+		expected: [][]rune{{0x093C, 0x0308}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u093C\uAC01",
+		expected: [][]rune{{0x093C}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u093C\u0308\uAC01",
+		expected: [][]rune{{0x093C, 0x0308}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u093C\u0900",
+		expected: [][]rune{{0x093C, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u093C\u0308\u0900",
+		expected: [][]rune{{0x093C, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u093C\u0903",
+		expected: [][]rune{{0x093C, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u093C\u0308\u0903",
+		expected: [][]rune{{0x093C, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u093C\u0904",
+		expected: [][]rune{{0x093C}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u093C\u0308\u0904",
+		expected: [][]rune{{0x093C, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u093C\u0D4E",
+		expected: [][]rune{{0x093C}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u093C\u0308\u0D4E",
+		expected: [][]rune{{0x093C, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u093C\u0915",
+		expected: [][]rune{{0x093C}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u093C\u0308\u0915",
+		expected: [][]rune{{0x093C, 0x0308}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u093C\u231A",
+		expected: [][]rune{{0x093C}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u093C\u0308\u231A",
+		expected: [][]rune{{0x093C, 0x0308}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u093C\u0300",
+		expected: [][]rune{{0x093C, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u093C\u0308\u0300",
+		expected: [][]rune{{0x093C, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u093C\u093C",
+		expected: [][]rune{{0x093C, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u093C\u0308\u093C",
+		expected: [][]rune{{0x093C, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u093C\u094D",
+		expected: [][]rune{{0x093C, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u093C\u0308\u094D",
+		expected: [][]rune{{0x093C, 0x0308, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u093C\u200D",
+		expected: [][]rune{{0x093C, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u093C\u0308\u200D",
+		expected: [][]rune{{0x093C, 0x0308, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u093C\u0378",
+		expected: [][]rune{{0x093C}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u093C\u0308\u0378",
+		expected: [][]rune{{0x093C, 0x0308}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u094D\u0020",
+		expected: [][]rune{{0x094D}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
+		original: "\u094D\u0308\u0020",
+		expected: [][]rune{{0x094D, 0x0308}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u094D\u000D",
+		expected: [][]rune{{0x094D}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u094D\u0308\u000D",
+		expected: [][]rune{{0x094D, 0x0308}, {0x000D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u094D\u000A",
+		expected: [][]rune{{0x094D}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u094D\u0308\u000A",
+		expected: [][]rune{{0x094D, 0x0308}, {0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u094D\u0001",
+		expected: [][]rune{{0x094D}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [5.0] <START OF HEADING> (Control) ÷ [0.3]",
+		original: "\u094D\u0308\u0001",
+		expected: [][]rune{{0x094D, 0x0308}, {0x0001}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u094D\u034F",
+		expected: [][]rune{{0x094D, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAPHEME JOINER (Extend) ÷ [0.3]",
+		original: "\u094D\u0308\u034F",
+		expected: [][]rune{{0x094D, 0x0308, 0x034F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u094D\U0001F1E6",
+		expected: [][]rune{{0x094D}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] REGIONAL INDICATOR SYMBOL LETTER A (RI) ÷ [0.3]",
+		original: "\u094D\u0308\U0001F1E6",
+		expected: [][]rune{{0x094D, 0x0308}, {0x1F1E6}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u094D\u0600",
+		expected: [][]rune{{0x094D}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] ARABIC NUMBER SIGN (Prepend) ÷ [0.3]",
+		original: "\u094D\u0308\u0600",
+		expected: [][]rune{{0x094D, 0x0308}, {0x0600}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u094D\u0A03",
+		expected: [][]rune{{0x094D, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u094D\u0308\u0A03",
+		expected: [][]rune{{0x094D, 0x0308, 0x0A03}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u094D\u1100",
+		expected: [][]rune{{0x094D}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
+		original: "\u094D\u0308\u1100",
+		expected: [][]rune{{0x094D, 0x0308}, {0x1100}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u094D\u1160",
+		expected: [][]rune{{0x094D}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JUNGSEONG FILLER (V) ÷ [0.3]",
+		original: "\u094D\u0308\u1160",
+		expected: [][]rune{{0x094D, 0x0308}, {0x1160}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u094D\u11A8",
+		expected: [][]rune{{0x094D}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL JONGSEONG KIYEOK (T) ÷ [0.3]",
+		original: "\u094D\u0308\u11A8",
+		expected: [][]rune{{0x094D, 0x0308}, {0x11A8}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u094D\uAC00",
+		expected: [][]rune{{0x094D}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GA (LV) ÷ [0.3]",
+		original: "\u094D\u0308\uAC00",
+		expected: [][]rune{{0x094D, 0x0308}, {0xAC00}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u094D\uAC01",
+		expected: [][]rune{{0x094D}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] HANGUL SYLLABLE GAG (LVT) ÷ [0.3]",
+		original: "\u094D\u0308\uAC01",
+		expected: [][]rune{{0x094D, 0x0308}, {0xAC01}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u094D\u0900",
+		expected: [][]rune{{0x094D, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u094D\u0308\u0900",
+		expected: [][]rune{{0x094D, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u094D\u0903",
+		expected: [][]rune{{0x094D, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u094D\u0308\u0903",
+		expected: [][]rune{{0x094D, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u094D\u0904",
+		expected: [][]rune{{0x094D}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u094D\u0308\u0904",
+		expected: [][]rune{{0x094D, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u094D\u0D4E",
+		expected: [][]rune{{0x094D}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u094D\u0308\u0D4E",
+		expected: [][]rune{{0x094D, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u094D\u0915",
+		expected: [][]rune{{0x094D}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u094D\u0308\u0915",
+		expected: [][]rune{{0x094D, 0x0308}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u094D\u231A",
+		expected: [][]rune{{0x094D}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
+		original: "\u094D\u0308\u231A",
+		expected: [][]rune{{0x094D, 0x0308}, {0x231A}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u094D\u0300",
+		expected: [][]rune{{0x094D, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
+		original: "\u094D\u0308\u0300",
+		expected: [][]rune{{0x094D, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u094D\u093C",
+		expected: [][]rune{{0x094D, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u094D\u0308\u093C",
+		expected: [][]rune{{0x094D, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u094D\u094D",
+		expected: [][]rune{{0x094D, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u094D\u0308\u094D",
+		expected: [][]rune{{0x094D, 0x0308, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u094D\u200D",
+		expected: [][]rune{{0x094D, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
+		original: "\u094D\u0308\u200D",
+		expected: [][]rune{{0x094D, 0x0308, 0x200D}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u094D\u0378",
+		expected: [][]rune{{0x094D}, {0x0378}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] <reserved-0378> (Other) ÷ [0.3]",
+		original: "\u094D\u0308\u0378",
+		expected: [][]rune{{0x094D, 0x0308}, {0x0378}},
 	},
 	{
 		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [999.0] SPACE (Other) ÷ [0.3]",
@@ -2627,14 +5357,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x200D, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u200D\u0903",
-		expected: [][]rune{{0x200D, 0x0903}},
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u200D\u0A03",
+		expected: [][]rune{{0x200D, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u200D\u0308\u0903",
-		expected: [][]rune{{0x200D, 0x0308, 0x0903}},
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u200D\u0308\u0A03",
+		expected: [][]rune{{0x200D, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -2687,6 +5417,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x200D, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u200D\u0900",
+		expected: [][]rune{{0x200D, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u200D\u0308\u0900",
+		expected: [][]rune{{0x200D, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u200D\u0903",
+		expected: [][]rune{{0x200D, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u200D\u0308\u0903",
+		expected: [][]rune{{0x200D, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u200D\u0904",
+		expected: [][]rune{{0x200D}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u200D\u0308\u0904",
+		expected: [][]rune{{0x200D, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u200D\u0D4E",
+		expected: [][]rune{{0x200D}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u200D\u0308\u0D4E",
+		expected: [][]rune{{0x200D, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u200D\u0915",
+		expected: [][]rune{{0x200D}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u200D\u0308\u0915",
+		expected: [][]rune{{0x200D, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u200D\u231A",
 		expected: [][]rune{{0x200D}, {0x231A}},
@@ -2705,6 +5485,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u200D\u0308\u0300",
 		expected: [][]rune{{0x200D, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u200D\u093C",
+		expected: [][]rune{{0x200D, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u200D\u0308\u093C",
+		expected: [][]rune{{0x200D, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u200D\u094D",
+		expected: [][]rune{{0x200D, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u200D\u0308\u094D",
+		expected: [][]rune{{0x200D, 0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -2797,14 +5597,14 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0378, 0x0308}, {0x0600}},
 	},
 	{
-		name:     "÷ [0.2] <reserved-0378> (Other) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0378\u0903",
-		expected: [][]rune{{0x0378, 0x0903}},
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0378\u0A03",
+		expected: [][]rune{{0x0378, 0x0A03}},
 	},
 	{
-		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [0.3]",
-		original: "\u0378\u0308\u0903",
-		expected: [][]rune{{0x0378, 0x0308, 0x0903}},
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] GURMUKHI SIGN VISARGA (SpacingMark) ÷ [0.3]",
+		original: "\u0378\u0308\u0A03",
+		expected: [][]rune{{0x0378, 0x0308, 0x0A03}},
 	},
 	{
 		name:     "÷ [0.2] <reserved-0378> (Other) ÷ [999.0] HANGUL CHOSEONG KIYEOK (L) ÷ [0.3]",
@@ -2857,6 +5657,56 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0378, 0x0308}, {0xAC01}},
 	},
 	{
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0378\u0900",
+		expected: [][]rune{{0x0378, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN INVERTED CANDRABINDU (Extend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0378\u0308\u0900",
+		expected: [][]rune{{0x0378, 0x0308, 0x0900}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0378\u0903",
+		expected: [][]rune{{0x0378, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0378\u0308\u0903",
+		expected: [][]rune{{0x0378, 0x0308, 0x0903}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0378\u0904",
+		expected: [][]rune{{0x0378}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER SHORT A (ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0378\u0308\u0904",
+		expected: [][]rune{{0x0378, 0x0308}, {0x0904}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0378\u0D4E",
+		expected: [][]rune{{0x0378}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] MALAYALAM LETTER DOT REPH (Prepend_ConjunctLinkingScripts) ÷ [0.3]",
+		original: "\u0378\u0308\u0D4E",
+		expected: [][]rune{{0x0378, 0x0308}, {0x0D4E}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0378\u0915",
+		expected: [][]rune{{0x0378}, {0x0915}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0378\u0308\u0915",
+		expected: [][]rune{{0x0378, 0x0308}, {0x0915}},
+	},
+	{
 		name:     "÷ [0.2] <reserved-0378> (Other) ÷ [999.0] WATCH (ExtPict) ÷ [0.3]",
 		original: "\u0378\u231A",
 		expected: [][]rune{{0x0378}, {0x231A}},
@@ -2875,6 +5725,26 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] COMBINING GRAVE ACCENT (Extend_ExtCccZwj) ÷ [0.3]",
 		original: "\u0378\u0308\u0300",
 		expected: [][]rune{{0x0378, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0378\u093C",
+		expected: [][]rune{{0x0378, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) ÷ [0.3]",
+		original: "\u0378\u0308\u093C",
+		expected: [][]rune{{0x0378, 0x0308, 0x093C}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0378\u094D",
+		expected: [][]rune{{0x0378, 0x094D}},
+	},
+	{
+		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] COMBINING DIAERESIS (Extend_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [0.3]",
+		original: "\u0378\u0308\u094D",
+		expected: [][]rune{{0x0378, 0x0308, 0x094D}},
 	},
 	{
 		name:     "÷ [0.2] <reserved-0378> (Other) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [0.3]",
@@ -2967,7 +5837,7 @@ var graphemeBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x0308}, {0x0062}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Other) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark) ÷ [999.0] LATIN SMALL LETTER B (Other) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Other) × [9.1] DEVANAGARI SIGN VISARGA (SpacingMark_ConjunctLinkingScripts) ÷ [999.0] LATIN SMALL LETTER B (Other) ÷ [0.3]",
 		original: "\u0061\u0903\u0062",
 		expected: [][]rune{{0x0061, 0x0903}, {0x0062}},
 	},
@@ -3015,5 +5885,60 @@ var graphemeBreakTestCases = []testCase{
 		name:     "÷ [0.2] LATIN SMALL LETTER A (Other) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) ÷ [999.0] UPPER BLADE SCISSORS (Other) ÷ [0.3]",
 		original: "\u0061\u200D\u2701",
 		expected: [][]rune{{0x0061, 0x200D}, {0x2701}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) ÷ [999.0] DEVANAGARI LETTER TA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0915\u0924",
+		expected: [][]rune{{0x0915}, {0x0924}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.3] DEVANAGARI LETTER TA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0915\u094D\u0924",
+		expected: [][]rune{{0x0915, 0x094D, 0x0924}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.3] DEVANAGARI LETTER TA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0915\u094D\u094D\u0924",
+		expected: [][]rune{{0x0915, 0x094D, 0x094D, 0x0924}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.3] DEVANAGARI LETTER TA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0915\u094D\u200D\u0924",
+		expected: [][]rune{{0x0915, 0x094D, 0x200D, 0x0924}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.3] DEVANAGARI LETTER TA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0915\u093C\u200D\u094D\u0924",
+		expected: [][]rune{{0x0915, 0x093C, 0x200D, 0x094D, 0x0924}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN NUKTA (Extend_ConjunctLinkingScripts_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] ZERO WIDTH JOINER (ZWJ_ExtCccZwj) × [9.3] DEVANAGARI LETTER TA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0915\u093C\u094D\u200D\u0924",
+		expected: [][]rune{{0x0915, 0x093C, 0x094D, 0x200D, 0x0924}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.3] DEVANAGARI LETTER TA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.3] DEVANAGARI LETTER YA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0915\u094D\u0924\u094D\u092F",
+		expected: [][]rune{{0x0915, 0x094D, 0x0924, 0x094D, 0x092F}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] LATIN SMALL LETTER A (Other) ÷ [0.3]",
+		original: "\u0915\u094D\u0061",
+		expected: [][]rune{{0x0915, 0x094D}, {0x0061}},
+	},
+	{
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Other) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER TA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0061\u094D\u0924",
+		expected: [][]rune{{0x0061, 0x094D}, {0x0924}},
+	},
+	{
+		name:     "÷ [0.2] QUESTION MARK (Other) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) ÷ [999.0] DEVANAGARI LETTER TA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u003F\u094D\u0924",
+		expected: [][]rune{{0x003F, 0x094D}, {0x0924}},
+	},
+	{
+		name:     "÷ [0.2] DEVANAGARI LETTER KA (ConjunctLinkingScripts_LinkingConsonant) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.0] DEVANAGARI SIGN VIRAMA (Extend_ConjunctLinkingScripts_ConjunctLinker_ExtCccZwj) × [9.3] DEVANAGARI LETTER TA (ConjunctLinkingScripts_LinkingConsonant) ÷ [0.3]",
+		original: "\u0915\u094D\u094D\u0924",
+		expected: [][]rune{{0x0915, 0x094D, 0x094D, 0x0924}},
 	},
 }

@@ -3,7 +3,7 @@
 package uniseg
 
 // wordBreakTestCases are Grapheme testcases taken from
-// https://www.unicode.org/Public/15.0.0/ucd/auxiliary/WordBreakTest.txt
+// https://www.unicode.org/Public/15.1.0/ucd/auxiliary/WordBreakTest.txt
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var wordBreakTestCases = []testCase{
 	{
@@ -8435,6 +8435,21 @@ var wordBreakTestCases = []testCase{
 		name:     "÷ [0.2] ARABIC LETTER NOON (ALetter) × [4.0] ZERO WIDTH JOINER (ZWJ_FE) ÷ [999.0] SPACE (WSegSpace) ÷ [0.3]",
 		original: "\u0646\u200D\u0020",
 		expected: [][]rune{{0x0646, 0x200D}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] ARABIC LETTER ALEF WASLA (ALetter) × [5.0] ARABIC LETTER LAM (ALetter) × [5.0] ARABIC LETTER REH (ALetter) × [4.0] ARABIC FATHA (Extend_FE) × [4.0] ARABIC SHADDA (Extend_FE) × [5.0] ARABIC LETTER HAH (ALetter) × [4.0] ARABIC KASRA (Extend_FE) × [5.0] ARABIC LETTER YEH (ALetter) × [5.0] ARABIC LETTER MEEM (ALetter) × [4.0] ARABIC KASRA (Extend_FE) ÷ [999.0] SPACE (WSegSpace) ÷ [999.0] ARABIC END OF AYAH (Numeric) × [8.0] ARABIC-INDIC DIGIT ONE (Numeric) ÷ [0.3]",
+		original: "\u0671\u0644\u0631\u064E\u0651\u062D\u0650\u064A\u0645\u0650\u0020\u06DD\u0661",
+		expected: [][]rune{{0x0671, 0x0644, 0x0631, 0x064E, 0x0651, 0x062D, 0x0650, 0x064A, 0x0645, 0x0650}, {0x0020}, {0x06DD, 0x0661}},
+	},
+	{
+		name:     "÷ [0.2] SYRIAC LETTER MIM (ALetter) × [5.0] SYRIAC LETTER ZAIN (ALetter) × [5.0] SYRIAC LETTER MIM (ALetter) × [5.0] SYRIAC LETTER WAW (ALetter) × [5.0] SYRIAC LETTER RISH (ALetter) × [5.0] SYRIAC LETTER ALAPH (ALetter) ÷ [999.0] SPACE (WSegSpace) ÷ [999.0] SYRIAC ABBREVIATION MARK (ALetter) × [5.0] SYRIAC LETTER YUDH (ALetter) × [5.0] SYRIAC LETTER HE (ALetter) ÷ [0.3]",
+		original: "\u0721\u0719\u0721\u0718\u072A\u0710\u0020\u070F\u071D\u0717",
+		expected: [][]rune{{0x0721, 0x0719, 0x0721, 0x0718, 0x072A, 0x0710}, {0x0020}, {0x070F, 0x071D, 0x0717}},
+	},
+	{
+		name:     "÷ [0.2] SYRIAC LETTER TAW (ALetter) × [5.0] SYRIAC ABBREVIATION MARK (ALetter) × [5.0] SYRIAC LETTER SHIN (ALetter) × [5.0] SYRIAC LETTER BETH (ALetter) × [5.0] SYRIAC LETTER WAW (ALetter) ÷ [0.3]",
+		original: "\u072C\u070F\u072B\u0712\u0718",
+		expected: [][]rune{{0x072C, 0x070F, 0x072B, 0x0712, 0x0718}},
 	},
 	{
 		name:     "÷ [0.2] LATIN CAPITAL LETTER A (ALetter) × [5.0] LATIN CAPITAL LETTER A (ALetter) × [5.0] LATIN CAPITAL LETTER A (ALetter) ÷ [0.3]",

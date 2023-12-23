@@ -20,6 +20,15 @@ const (
 	grMax = iota
 )
 
+const (
+	grStateMask     grState = 0x0f
+	grGB9cStateMask grState = 0xf0
+
+	// GB9c states.
+	grGB9c1 grState = 0x10 // seen \p{InCB=Consonant}
+	grGB9c2 grState = 0x20 // seen \p{InCB=Linker}
+)
+
 type grTransitionResult struct {
 	grState
 	boundary   bool
@@ -41,7 +50,7 @@ type grTransitionResult struct {
 //     are equal. Stop.
 //  6. Assume grAny and grBoundary.
 //
-// Unicode version 15.0.0.
+// Unicode version 15.1.0.
 var grTransitions = [grMax * prMax]grTransitionResult{
 	// GB5
 	int(grAny)*prMax + int(prCR):      {grCR, true, 50},
@@ -103,41 +112,76 @@ var grTransitions = [grMax * prMax]grTransitionResult{
 func transitionGraphemeState(state grState, r rune) (newState grState, prop property, boundary bool) {
 	// Determine the property of the next character.
 	prop = graphemeCodePoints.search(r)
+	incbProp := incb.search(r)
 
 	// Find the applicable transition.
+	gb9cState := state & grGB9cStateMask
+	state &= grStateMask
 	transition := grTransitions[int(state)*prMax+int(prop)]
+	ruleNumber := 0
 	if transition.ruleNumber > 0 {
-		// We have a specific transition. We'll use it.
-		return transition.grState, prop, transition.boundary
-	}
-
-	// No specific transition found. Try the less specific ones.
-	transAnyProp := grTransitions[int(state)*prMax+int(prAny)]
-	transAnyState := grTransitions[int(grAny)*prMax+int(prop)]
-	if transAnyProp.ruleNumber > 0 && transAnyState.ruleNumber > 0 {
-		// Both apply. We'll use a mix (see comments for grTransitions).
-		newState = transAnyState.grState
-		boundary = transAnyState.boundary
-		if transAnyProp.ruleNumber < transAnyState.ruleNumber {
+		// We have a specific transition.
+		ruleNumber = transition.ruleNumber
+		newState = transition.grState
+		boundary = transition.boundary
+	} else {
+		// No specific transition found. Try the less specific ones.
+		transAnyProp := grTransitions[int(state)*prMax+int(prAny)]
+		transAnyState := grTransitions[int(grAny)*prMax+int(prop)]
+		if transAnyProp.ruleNumber > 0 && transAnyState.ruleNumber > 0 {
+			// Both apply. We'll use a mix (see comments for grTransitions).
+			ruleNumber = transAnyState.ruleNumber
+			newState = transAnyState.grState
+			boundary = transAnyState.boundary
+			if transAnyProp.ruleNumber < transAnyState.ruleNumber {
+				ruleNumber = transAnyProp.ruleNumber
+				boundary = transAnyProp.boundary
+			}
+		} else if transAnyProp.ruleNumber > 0 {
+			ruleNumber = transAnyProp.ruleNumber
+			newState = transAnyProp.grState
 			boundary = transAnyProp.boundary
+		} else if transAnyState.ruleNumber > 0 {
+			ruleNumber = transAnyState.ruleNumber
+			newState = transAnyState.grState
+			boundary = transAnyState.boundary
+		} else {
+			// No known transition. GB999: Any ÷ Any.
+			ruleNumber = 9990
+			newState = grAny
+			boundary = true
 		}
-		return
 	}
 
-	if transAnyProp.ruleNumber > 0 {
-		// We only have a specific state.
-		return transAnyProp.grState, prop, transAnyProp.boundary
-		// This branch will probably never be reached because okAnyState will
-		// always be true given the current transition map. But we keep it here
-		// for future modifications to the transition map where this may not be
-		// true anymore.
+	// GB9c: \p{InCB=Consonant} [ \p{InCB=Extend} \p{InCB=Linker} ]* \p{InCB=Linker} [ \p{InCB=Extend} \p{InCB=Linker} ]* 	× 	\p{InCB=Consonant}
+	if ruleNumber >= 93 {
+		if gb9cState == grGB9c2 && incbProp == incbConsonant {
+			boundary = false
+		}
 	}
 
-	if transAnyState.ruleNumber > 0 {
-		// We only have a specific property.
-		return transAnyState.grState, prop, transAnyState.boundary
+	var newGBcState grState
+
+	// GB9c: state transition
+	switch gb9cState {
+	case grGB9c1:
+		switch incbProp {
+		case incbLinker:
+			newGBcState = grGB9c2
+		case incbExtend:
+			newGBcState = grGB9c1
+		}
+	case grGB9c2:
+		switch incbProp {
+		case incbLinker, incbExtend:
+			newGBcState = grGB9c2
+		}
+	}
+	if incbProp == incbConsonant {
+		newGBcState = grGB9c1
 	}
 
-	// No known transition. GB999: Any ÷ Any.
-	return grAny, prop, true
+	newState |= newGBcState
+
+	return
 }

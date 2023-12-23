@@ -3,7 +3,7 @@
 package uniseg
 
 // sentenceBreakTestCases are Grapheme testcases taken from
-// https://www.unicode.org/Public/15.0.0/ucd/auxiliary/SentenceBreakTest.txt
+// https://www.unicode.org/Public/15.1.0/ucd/auxiliary/SentenceBreakTest.txt
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var sentenceBreakTestCases = []testCase{
 	{
@@ -2397,6 +2397,31 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021, 0x0020, 0x0020}},
 	},
 	{
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		original: "\u0061\u002E",
+		expected: [][]rune{{0x0061, 0x002E}},
+	},
+	{
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [998.0] FULL STOP (ATerm) × [9.0] <CARRIAGE RETURN (CR)> (CR) × [3.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0061\u002E\u000D\u000A",
+		expected: [][]rune{{0x0061, 0x002E, 0x000D, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [998.0] FULL STOP (ATerm) × [9.0] <CARRIAGE RETURN (CR)> (CR) × [3.0] <LINE FEED (LF)> (LF) ÷ [4.0] SPACE (Sp) ÷ [0.3]",
+		original: "\u0061\u002E\u000D\u000A\u0020",
+		expected: [][]rune{{0x0061, 0x002E, 0x000D, 0x000A}, {0x0020}},
+	},
+	{
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [998.0] FULL STOP (ATerm) × [9.0] <CARRIAGE RETURN (CR)> (CR) × [3.0] <LINE FEED (LF)> (LF) ÷ [4.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		original: "\u0061\u002E\u000D\u000A\u0061",
+		expected: [][]rune{{0x0061, 0x002E, 0x000D, 0x000A}, {0x0061}},
+	},
+	{
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [998.0] FULL STOP (ATerm) × [9.0] <CARRIAGE RETURN (CR)> (CR) × [3.0] <LINE FEED (LF)> (LF) ÷ [4.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		original: "\u0041\u002E\u000D\u000A\u0041",
+		expected: [][]rune{{0x0041, 0x002E, 0x000D, 0x000A}, {0x0041}},
+	},
+	{
 		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER G (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER O (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) ÷ [11.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER H (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER I (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
 		original: "\u2060\u0028\u2060\u0022\u2060\u0047\u2060\u006F\u2060\u002E\u2060\u0022\u2060\u0029\u2060\u0020\u2060\u0028\u2060\u0048\u2060\u0065\u2060\u0020\u2060\u0064\u2060\u0069\u2060\u0064\u2060\u002E\u2060\u0029\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0028, 0x2060, 0x0022, 0x2060, 0x0047, 0x2060, 0x006F, 0x2060, 0x002E, 0x2060, 0x0022, 0x2060, 0x0029, 0x2060, 0x0020, 0x2060}, {0x0028, 0x2060, 0x0048, 0x2060, 0x0065, 0x2060, 0x0020, 0x2060, 0x0064, 0x2060, 0x0069, 0x2060, 0x0064, 0x2060, 0x002E, 0x2060, 0x0029, 0x2060, 0x2060}},
@@ -2515,5 +2540,30 @@ var sentenceBreakTestCases = []testCase{
 		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] EXCLAMATION MARK (STerm) × [5.0] WORD JOINER (Format_FE) × [9.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [10.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
 		original: "\u2060\u0021\u2060\u0020\u2060\u0020\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0021, 0x2060, 0x0020, 0x2060, 0x0020, 0x2060, 0x2060}},
+	},
+	{
+		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		original: "\u2060\u0061\u2060\u002E\u2060\u2060",
+		expected: [][]rune{{0x2060, 0x0061, 0x2060, 0x002E, 0x2060, 0x2060}},
+	},
+	{
+		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		original: "\u2060\u0061\u2060\u002E\u2060\u000D\u2060\u000A\u2060",
+		expected: [][]rune{{0x2060, 0x0061, 0x2060, 0x002E, 0x2060, 0x000D}, {0x2060, 0x000A}, {0x2060}},
+	},
+	{
+		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		original: "\u2060\u0061\u2060\u002E\u2060\u000D\u2060\u000A\u0020\u2060\u2060",
+		expected: [][]rune{{0x2060, 0x0061, 0x2060, 0x002E, 0x2060, 0x000D}, {0x2060, 0x000A}, {0x0020, 0x2060, 0x2060}},
+	},
+	{
+		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		original: "\u2060\u0061\u2060\u002E\u2060\u000D\u2060\u000A\u0061\u2060\u2060",
+		expected: [][]rune{{0x2060, 0x0061, 0x2060, 0x002E, 0x2060, 0x000D}, {0x2060, 0x000A}, {0x0061, 0x2060, 0x2060}},
+	},
+	{
+		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		original: "\u2060\u0041\u2060\u002E\u2060\u000D\u2060\u000A\u0041\u2060\u2060",
+		expected: [][]rune{{0x2060, 0x0041, 0x2060, 0x002E, 0x2060, 0x000D}, {0x2060, 0x000A}, {0x0041, 0x2060, 0x2060}},
 	},
 }
