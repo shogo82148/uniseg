@@ -25,6 +25,14 @@ const (
 	grGB9cStateMask grState = 0xf0
 
 	// GB9c states.
+	// ```mermaid
+	// graph LR
+	//     start--Consonant-->A((1))
+	//     A--Linker-->B((2))
+	//     A--Extended-->A
+	//     B--Extended-->B
+	//     B--Linker-->B
+	// ```
 	grGB9c1 grState = 0x10 // seen \p{InCB=Consonant}
 	grGB9c2 grState = 0x20 // seen \p{InCB=Linker}
 )
