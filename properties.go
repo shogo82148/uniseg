@@ -206,6 +206,16 @@ type propertyGeneralCategory struct {
 	generalCategory
 }
 
+// incbProperty is the Indic_Conjunct_Break property.
+type incbProperty int8
+
+const (
+	incbNone incbProperty = iota // incbNone must be 0.
+	incbLinker
+	incbConsonant
+	incbExtend
+)
+
 // Special code points.
 const (
 	vs15 = 0xfe0e // Variation Selector-15 (text presentation)

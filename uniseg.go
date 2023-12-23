@@ -14,6 +14,7 @@ import "os"
 //go:generate go run ./internal/cmd/gen_properties -logprefix=eastasianwidth -property=EastAsianWidth -prefix=eawpr -type eawProperty eastasianwidth.go eastAsianWidth
 //go:generate go run ./internal/cmd/gen_properties -logprefix=emojipresentation -emojis=Emoji_Presentation -type=emojiProperty emojipresentation.go emojiPresentation
 //go:generate go run ./internal/cmd/gen_properties -logprefix=emoji -emojis=Emoji -type=emojiProperty emoji.go emoji
+//go:generate go run ./internal/cmd/gen_incb/gen_incb.go
 
 // Parser is a parser for Unicode text.
 type Parser struct {
