@@ -104,7 +104,7 @@ func TestGraphemesClass(t *testing.T) {
 // class.
 func TestGraphemesClassWord(t *testing.T) {
 	for testNum, testCase := range wordBreakTestCases {
-		if testNum == 1700 {
+		if testNum == 1703 {
 			// This test case reveals an inconsistency in the Unicode rule set,
 			// namely the handling of ZWJ within two RI graphemes. (Grapheme
 			// rules will restart the RI count, word rules will ignore the ZWJ.)
