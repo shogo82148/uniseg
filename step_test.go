@@ -73,13 +73,6 @@ func TestStepBytesGrapheme(t *testing.T) {
 // the [Step] function.
 func TestStepBytesWord(t *testing.T) {
 	for testNum, testCase := range wordBreakTestCases {
-		if testNum == 1703 {
-			// This test case reveals an inconsistency in the Unicode rule set,
-			// namely the handling of ZWJ within two RI graphemes. (Grapheme
-			// rules will restart the RI count, word rules will ignore the ZWJ.)
-			// An error has been reported.
-			continue
-		}
 		/*t.Logf(`Test case %d %q: Expecting %x, getting %x, code points %x"`,
 		testNum,
 		strings.TrimSpace(testCase.original),
@@ -296,13 +289,6 @@ func TestStepStringGrapheme(t *testing.T) {
 // the StepString() function.
 func TestStepStringWord(t *testing.T) {
 	for testNum, testCase := range wordBreakTestCases {
-		if testNum == 1703 {
-			// This test case reveals an inconsistency in the Unicode rule set,
-			// namely the handling of ZWJ within two RI graphemes. (Grapheme
-			// rules will restart the RI count, word rules will ignore the ZWJ.)
-			// An error has been reported.
-			continue
-		}
 		/*t.Logf(`Test case %d %q: Expecting %x, getting %x, code points %x"`,
 		testNum,
 		strings.TrimSpace(testCase.original),
