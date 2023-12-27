@@ -15,14 +15,13 @@ const (
 	grPrepend
 	grExtendedPictographic
 	grExtendedPictographicZWJ
-	grRIOdd
-	grRIEven
 	grMax = iota
 )
 
 const (
-	grStateMask     grState = 0x0f
-	grGB9cStateMask grState = 0xf0
+	grStateMask     grState = 0x00f
+	grGB9cStateMask grState = 0x030
+	grGB12StateMask grState = 0x040
 
 	// GB9c states.
 	// It matches \p{InCB=Consonant} [ \p{InCB=Extend} \p{InCB=Linker} ]* \p{InCB=Linker} [ \p{InCB=Extend} \p{InCB=Linker} ]*
@@ -37,8 +36,14 @@ const (
 	//     B--Extended-->B
 	//     B--Linker-->B
 	// ```
+	grGB9c0 grState = 0x00 // initial state
 	grGB9c1 grState = 0x10 // seen \p{InCB=Consonant}
 	grGB9c2 grState = 0x20 // seen \p{InCB=Linker}
+
+	// GB12 states.
+	// It matches (sot | [^RI]) (RI RI)* RI
+	grGB12_0 grState = 0x00 // RI even
+	grGB12_1 grState = 0x40 // RI odd
 )
 
 type grTransitionResult struct {
@@ -110,11 +115,6 @@ var grTransitions = [grMax * prMax]grTransitionResult{
 	int(grExtendedPictographic)*prMax + int(prExtend):                  {grExtendedPictographic, false, 110},
 	int(grExtendedPictographic)*prMax + int(prZWJ):                     {grExtendedPictographicZWJ, false, 110},
 	int(grExtendedPictographicZWJ)*prMax + int(prExtendedPictographic): {grExtendedPictographic, false, 110},
-
-	// GB12 / GB13.
-	int(grAny)*prMax + int(prRegionalIndicator):    {grRIOdd, true, 9990},
-	int(grRIOdd)*prMax + int(prRegionalIndicator):  {grRIEven, false, 120},
-	int(grRIEven)*prMax + int(prRegionalIndicator): {grRIOdd, true, 120},
 }
 
 // transitionGraphemeState determines the new state of the grapheme cluster
@@ -128,6 +128,7 @@ func transitionGraphemeState(state grState, r rune) (newState grState, prop prop
 
 	// Find the applicable transition.
 	gb9cState := state & grGB9cStateMask
+	gb12State := state & grGB12StateMask
 	state &= grStateMask
 	transition := grTransitions[int(state)*prMax+int(prop)]
 	ruleNumber := 0
@@ -168,32 +169,51 @@ func transitionGraphemeState(state grState, r rune) (newState grState, prop prop
 	// GB9c: \p{InCB=Consonant} [ \p{InCB=Extend} \p{InCB=Linker} ]* \p{InCB=Linker} [ \p{InCB=Extend} \p{InCB=Linker} ]* 	× 	\p{InCB=Consonant}
 	if ruleNumber >= 93 {
 		if gb9cState == grGB9c2 && incbProp == incbConsonant {
+			ruleNumber = 93
 			boundary = false
 		}
 	}
 
-	var newGBcState grState
+	// GB12: (sot | [^RI]) (RI RI)* RI 	× 	RI
+	if ruleNumber >= 120 {
+		if gb12State == grGB12_1 && prop == prRegionalIndicator {
+			ruleNumber = 120
+			boundary = false
+		}
+	}
 
 	// GB9c: state transition
+	var newGB9cState grState
 	switch gb9cState {
 	case grGB9c1:
 		switch incbProp {
 		case incbLinker:
-			newGBcState = grGB9c2
+			newGB9cState = grGB9c2
 		case incbExtend:
-			newGBcState = grGB9c1
+			newGB9cState = grGB9c1
 		}
 	case grGB9c2:
 		switch incbProp {
 		case incbLinker, incbExtend:
-			newGBcState = grGB9c2
+			newGB9cState = grGB9c2
 		}
 	}
 	if incbProp == incbConsonant {
-		newGBcState = grGB9c1
+		newGB9cState = grGB9c1
 	}
+	newState |= newGB9cState
 
-	newState |= newGBcState
+	// GB12: state transition
+	var newGB12State grState
+	switch gb12State {
+	case grGB12_0:
+		if prop == prRegionalIndicator {
+			newGB12State = grGB12_1
+		}
+	case grGB12_1:
+		newGB12State = grGB12_0
+	}
+	newState |= newGB12State
 
 	return
 }
