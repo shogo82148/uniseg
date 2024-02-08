@@ -334,16 +334,14 @@ func firstGraphemeCluster[T bytes](p *Parser, str T, state GraphemeBreakState, d
 			return str[:length], str[length:], width, newGraphemeBreakState(myState, prop)
 		}
 
-		if r == vs16 {
-			width = 2
-		} else if firstProp != prExtendedPictographic && firstProp != prRegionalIndicator && firstProp != prL {
-			width += runeWidth(p, r, prop)
-		} else if firstProp == prExtendedPictographic {
+		if firstProp == prExtendedPictographic {
 			if r == vs15 {
 				width = 1
-			} else {
+			} else if r == vs16 {
 				width = 2
 			}
+		} else if firstProp != prRegionalIndicator && firstProp != prL {
+			width += runeWidth(p, r, prop)
 		}
 
 		length += l

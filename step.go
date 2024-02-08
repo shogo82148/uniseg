@@ -233,16 +233,14 @@ func step[T bytes](p *Parser, str T, state State, decoder runeDecoder[T]) (clust
 			return str[:length], str[length:], boundary, _newState
 		}
 
-		if r == vs16 {
-			width = 2
-		} else if firstProp != prExtendedPictographic && firstProp != prRegionalIndicator && firstProp != prL {
-			width += runeWidth(p, r, prop)
-		} else if firstProp == prExtendedPictographic {
+		if firstProp == prExtendedPictographic {
 			if r == vs15 {
 				width = 1
-			} else {
+			} else if r == vs16 {
 				width = 2
 			}
+		} else if firstProp != prRegionalIndicator && firstProp != prL {
+			width += runeWidth(p, r, prop)
 		}
 
 		length += l
