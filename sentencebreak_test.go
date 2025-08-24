@@ -3,7 +3,7 @@
 package uniseg
 
 // sentenceBreakTestCases are Grapheme testcases taken from
-// https://www.unicode.org/Public/15.1.0/ucd/auxiliary/SentenceBreakTest.txt
+// https://www.unicode.org/Public/16.0.0/ucd/auxiliary/SentenceBreakTest.txt
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var sentenceBreakTestCases = []testCase{
 	{
