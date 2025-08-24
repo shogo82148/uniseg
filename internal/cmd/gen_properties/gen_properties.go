@@ -31,7 +31,7 @@ import (
 // We want to test against a specific version rather than the latest. When the
 // package is upgraded to a new version, change these to generate new tests.
 const (
-	unicodeVersion    = "15.1.0"
+	unicodeVersion    = "16.0.0"
 	propertyURLFormat = `https://www.unicode.org/Public/%s/ucd/%s.txt`
 	emojiURLFormat    = `https://unicode.org/Public/%s/ucd/emoji/emoji-data.txt`
 )
