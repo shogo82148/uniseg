@@ -3,7 +3,7 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/shogo82148/uniseg.svg)](https://pkg.go.dev/github.com/shogo82148/uniseg)
 [![Go Report](https://img.shields.io/badge/go%20report-A%2B-brightgreen.svg)](https://goreportcard.com/report/github.com/shogo82148/uniseg)
 
-This Go package implements Unicode Text Segmentation according to [Unicode Standard Annex #29](https://www.unicode.org/reports/tr29/tr29-43.html), Unicode Line Breaking according to [Unicode Standard Annex #14](https://www.unicode.org/reports/tr14/tr14-51.html) (Unicode version 15.1.0), and monospace font string width calculation similar to [wcwidth](https://man7.org/linux/man-pages/man3/wcwidth.3.html).
+This Go package implements Unicode Text Segmentation according to [Unicode Standard Annex #29](https://www.unicode.org/reports/tr29/tr29-43.html), Unicode Line Breaking according to [Unicode Standard Annex #14](https://www.unicode.org/reports/tr14/tr14-51.html) (Unicode version 16.0.0), and monospace font string width calculation similar to [wcwidth](https://man7.org/linux/man-pages/man3/wcwidth.3.html).
 
 ## Background
 
