@@ -1,6 +1,7 @@
 package uniseg
 
 import (
+	"unicode"
 	"unicode/utf8"
 )
 
@@ -523,12 +524,12 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		r2, _ := decoder(str)
 		if r2 != utf8.RuneError {
 			p2 := lineBreakCodePoints.search(r2).lbProperty
-			if isCJKIdeograph(r2) || p2 == lbprOP {
+			if (p2 == lbprID && unicode.Is(unicode.Han, r2)) || p2 == lbprOP {
 				return lbQU, LineCanBreak
 			}
 		}
 	}
-	if rule == 190 && state == lbQU && wasQUPf && nextProperty == lbprID && isCJKIdeograph(r) {
+	if rule == 190 && state == lbQU && wasQUPf && nextProperty == lbprID && unicode.Is(unicode.Han, r) {
 		return lbIDEM, LineCanBreak
 	}
 	if rule == 201 && state == lbHY && nextProperty == lbprAL {
@@ -652,16 +653,4 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	}
 
 	return
-}
-
-func isCJKIdeograph(r rune) bool {
-	return (r >= 0x3400 && r <= 0x4DBF) ||
-		(r >= 0x4E00 && r <= 0x9FFF) ||
-		(r >= 0xF900 && r <= 0xFAFF) ||
-		(r >= 0x20000 && r <= 0x2A6DF) ||
-		(r >= 0x2A700 && r <= 0x2B73F) ||
-		(r >= 0x2B740 && r <= 0x2B81F) ||
-		(r >= 0x2B820 && r <= 0x2CEAF) ||
-		(r >= 0x2CEB0 && r <= 0x2EBEF) ||
-		(r >= 0x2F800 && r <= 0x2FA1F)
 }
