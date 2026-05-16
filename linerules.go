@@ -20,7 +20,9 @@ const (
 	lbWJ
 	lbGL
 	lbBA
+	lbBAHyphen
 	lbHY
+	lbHYAfterClose
 	lbCL
 	lbCP
 	lbEX
@@ -67,6 +69,7 @@ const (
 	lbCPeaFWHBit      LineBreakState = 128
 	lbDottedCircleBit LineBreakState = 256
 	lb15Bit           LineBreakState = 512
+	lbQUPfBit         LineBreakState = 1024
 )
 
 // LineBreak defines whether a given text may be broken into the next line.
@@ -166,16 +169,21 @@ var lbTransitions = [lbMax * lbprMax]lbTransitionResult{
 	int(lbCB)*lbprMax + int(lbprXX):  {lbAny, LineCanBreak, 200},
 
 	// LB21.
-	int(lbAny)*lbprMax + int(lbprBA): {lbBA, LineDontBreak, 210},
-	int(lbAny)*lbprMax + int(lbprHY): {lbHY, LineDontBreak, 210},
-	int(lbAny)*lbprMax + int(lbprNS): {lbNS, LineDontBreak, 210},
-	int(lbAny)*lbprMax + int(lbprBB): {lbBB, LineCanBreak, 310},
-	int(lbBB)*lbprMax + int(lbprXX):  {lbAny, LineDontBreak, 210},
+	int(lbAny)*lbprMax + int(lbprBA):  {lbBA, LineDontBreak, 210},
+	int(lbAny)*lbprMax + int(lbprHY):  {lbHY, LineDontBreak, 210},
+	int(lbHY)*lbprMax + int(lbprHY):   {lbHYAfterClose, LineDontBreak, 210},
+	int(lbCL)*lbprMax + int(lbprHY):   {lbHYAfterClose, LineDontBreak, 210},
+	int(lbCP)*lbprMax + int(lbprHY):   {lbHYAfterClose, LineDontBreak, 210},
+	int(lbNUCL)*lbprMax + int(lbprHY): {lbHYAfterClose, LineDontBreak, 210},
+	int(lbNUCP)*lbprMax + int(lbprHY): {lbHYAfterClose, LineDontBreak, 210},
+	int(lbAny)*lbprMax + int(lbprNS):  {lbNS, LineDontBreak, 210},
+	int(lbAny)*lbprMax + int(lbprBB):  {lbBB, LineCanBreak, 310},
+	int(lbBB)*lbprMax + int(lbprXX):   {lbAny, LineDontBreak, 210},
 
 	// LB21a.
 	int(lbAny)*lbprMax + int(lbprHL):   {lbHL, LineCanBreak, 310},
-	int(lbHL)*lbprMax + int(lbprHY):    {lbLB21a, LineDontBreak, 210},
-	int(lbHL)*lbprMax + int(lbprBA):    {lbLB21a, LineDontBreak, 210},
+	int(lbHL)*lbprMax + int(lbprHY):    {lbHY, LineDontBreak, 210},
+	int(lbHL)*lbprMax + int(lbprBA):    {lbBA, LineDontBreak, 210},
 	int(lbLB21a)*lbprMax + int(lbprXX): {lbAny, LineDontBreak, 211},
 
 	// LB21b.
@@ -218,42 +226,48 @@ var lbTransitions = [lbMax * lbprMax]lbTransitionResult{
 	int(lbHL)*lbprMax + int(lbprPO):  {lbPO, LineDontBreak, 240},
 
 	// LB25 (simple transitions).
-	int(lbPR)*lbprMax + int(lbprNU):   {lbNU, LineDontBreak, 250},
-	int(lbPO)*lbprMax + int(lbprNU):   {lbNU, LineDontBreak, 250},
-	int(lbOP)*lbprMax + int(lbprNU):   {lbNU, LineDontBreak, 250},
-	int(lbHY)*lbprMax + int(lbprNU):   {lbNU, LineDontBreak, 250},
-	int(lbNU)*lbprMax + int(lbprNU):   {lbNUNU, LineDontBreak, 250},
-	int(lbNU)*lbprMax + int(lbprSY):   {lbNUSY, LineDontBreak, 250},
-	int(lbNU)*lbprMax + int(lbprIS):   {lbNUIS, LineDontBreak, 250},
-	int(lbNUNU)*lbprMax + int(lbprNU): {lbNUNU, LineDontBreak, 250},
-	int(lbNUNU)*lbprMax + int(lbprSY): {lbNUSY, LineDontBreak, 250},
-	int(lbNUNU)*lbprMax + int(lbprIS): {lbNUIS, LineDontBreak, 250},
-	int(lbNUSY)*lbprMax + int(lbprNU): {lbNUNU, LineDontBreak, 250},
-	int(lbNUSY)*lbprMax + int(lbprSY): {lbNUSY, LineDontBreak, 250},
-	int(lbNUSY)*lbprMax + int(lbprIS): {lbNUIS, LineDontBreak, 250},
-	int(lbNUIS)*lbprMax + int(lbprNU): {lbNUNU, LineDontBreak, 250},
-	int(lbNUIS)*lbprMax + int(lbprSY): {lbNUSY, LineDontBreak, 250},
-	int(lbNUIS)*lbprMax + int(lbprIS): {lbNUIS, LineDontBreak, 250},
-	int(lbNU)*lbprMax + int(lbprCL):   {lbNUCL, LineDontBreak, 250},
-	int(lbNU)*lbprMax + int(lbprCP):   {lbNUCP, LineDontBreak, 250},
-	int(lbNUNU)*lbprMax + int(lbprCL): {lbNUCL, LineDontBreak, 250},
-	int(lbNUNU)*lbprMax + int(lbprCP): {lbNUCP, LineDontBreak, 250},
-	int(lbNUSY)*lbprMax + int(lbprCL): {lbNUCL, LineDontBreak, 250},
-	int(lbNUSY)*lbprMax + int(lbprCP): {lbNUCP, LineDontBreak, 250},
-	int(lbNUIS)*lbprMax + int(lbprCL): {lbNUCL, LineDontBreak, 250},
-	int(lbNUIS)*lbprMax + int(lbprCP): {lbNUCP, LineDontBreak, 250},
-	int(lbNU)*lbprMax + int(lbprPO):   {lbPO, LineDontBreak, 250},
-	int(lbNUNU)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 250},
-	int(lbNUSY)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 250},
-	int(lbNUIS)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 250},
-	int(lbNUCL)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 250},
-	int(lbNUCP)*lbprMax + int(lbprPO): {lbPO, LineDontBreak, 250},
-	int(lbNU)*lbprMax + int(lbprPR):   {lbPR, LineDontBreak, 250},
-	int(lbNUNU)*lbprMax + int(lbprPR): {lbPR, LineDontBreak, 250},
-	int(lbNUSY)*lbprMax + int(lbprPR): {lbPR, LineDontBreak, 250},
-	int(lbNUIS)*lbprMax + int(lbprPR): {lbPR, LineDontBreak, 250},
-	int(lbNUCL)*lbprMax + int(lbprPR): {lbPR, LineDontBreak, 250},
-	int(lbNUCP)*lbprMax + int(lbprPR): {lbPR, LineDontBreak, 250},
+	int(lbPR)*lbprMax + int(lbprNU):           {lbNU, LineDontBreak, 250},
+	int(lbPO)*lbprMax + int(lbprNU):           {lbNU, LineDontBreak, 250},
+	int(lbOP)*lbprMax + int(lbprNU):           {lbNU, LineDontBreak, 250},
+	int(lbHY)*lbprMax + int(lbprNU):           {lbNU, LineDontBreak, 250},
+	int(lbHY)*lbprMax + int(lbprAL):           {lbAL, LineDontBreak, 201},
+	int(lbHYAfterClose)*lbprMax + int(lbprHL): {lbHL, LineCanBreak, 310},
+	int(lbHYAfterClose)*lbprMax + int(lbprNU): {lbNU, LineDontBreak, 250},
+	int(lbIS)*lbprMax + int(lbprNU):           {lbNUNU, LineDontBreak, 250},
+	int(lbBAHyphen)*lbprMax + int(lbprAL):     {lbAL, LineDontBreak, 201},
+	int(lbHYAfterClose)*lbprMax + int(lbprAL): {lbAL, LineCanBreak, 310},
+	int(lbNU)*lbprMax + int(lbprNU):           {lbNUNU, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprSY):           {lbNUSY, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprIS):           {lbNUIS, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprNU):         {lbNUNU, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprSY):         {lbNUSY, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprIS):         {lbNUIS, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprNU):         {lbNUNU, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprSY):         {lbNUSY, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprIS):         {lbNUIS, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprNU):         {lbNUNU, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprSY):         {lbNUSY, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprIS):         {lbNUIS, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprCL):           {lbNUCL, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprCP):           {lbNUCP, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprCL):         {lbNUCL, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprCP):         {lbNUCP, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprCL):         {lbNUCL, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprCP):         {lbNUCP, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprCL):         {lbNUCL, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprCP):         {lbNUCP, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprPO):           {lbPO, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprPO):         {lbPO, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprPO):         {lbPO, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprPO):         {lbPO, LineDontBreak, 250},
+	int(lbNUCL)*lbprMax + int(lbprPO):         {lbPO, LineDontBreak, 250},
+	int(lbNUCP)*lbprMax + int(lbprPO):         {lbPO, LineDontBreak, 250},
+	int(lbNU)*lbprMax + int(lbprPR):           {lbPR, LineDontBreak, 250},
+	int(lbNUNU)*lbprMax + int(lbprPR):         {lbPR, LineDontBreak, 250},
+	int(lbNUSY)*lbprMax + int(lbprPR):         {lbPR, LineDontBreak, 250},
+	int(lbNUIS)*lbprMax + int(lbprPR):         {lbPR, LineDontBreak, 250},
+	int(lbNUCL)*lbprMax + int(lbprPR):         {lbPR, LineDontBreak, 250},
+	int(lbNUCP)*lbprMax + int(lbprPR):         {lbPR, LineDontBreak, 250},
 
 	// LB26.
 	int(lbAny)*lbprMax + int(lbprJL): {lbJL, LineCanBreak, 310},
@@ -322,7 +336,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	generalCategory := lbProp.generalCategory
 
 	// Prepare.
-	var forceNoBreak, isCPeaFWH, isLB15, isDottedCircle bool
+	var forceNoBreak, isCPeaFWH, isLB15, isDottedCircle, wasQUPf bool
 	if state > 0 && state&lbCPeaFWHBit != 0 {
 		isCPeaFWH = true // LB30: CP but ea is not F, W, or H.
 		state = state &^ lbCPeaFWHBit
@@ -339,8 +353,16 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		state = state &^ lbDottedCircleBit // Extract dotted circle bit.
 		isDottedCircle = true              // is Dotted Circle ◌.
 	}
+	if state > 0 && state&lbQUPfBit != 0 {
+		state = state &^ lbQUPfBit
+		wasQUPf = true
+	}
 
 	defer func() {
+		if newState == lbQU && generalCategory == gcPf && (state == lbIDEM || state == lbNS || state == lbCL || state == lbCP || state == lbEX) {
+			newState |= lbQUPfBit
+		}
+
 		// Transition into LB30.
 		if newState == lbCP || newState == lbNUCP {
 			ea := eastAsianWidth.search(r)
@@ -441,15 +463,25 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		}
 	}
 
+	if newState == lbBA && r == '\u2010' {
+		newState = lbBAHyphen
+	}
+
 	// LB12a.
 	if rule > 121 &&
 		nextProperty == lbprGL &&
-		(state != lbSP && state != lbBA && state != lbHY && state != lbLB21a && state != lbQUSP && state != lbCLCPSP && state != lbB2SP) {
+		(state != lbSP && state != lbBA && state != lbBAHyphen && state != lbHY && state != lbLB21a && state != lbQUSP && state != lbCLCPSP && state != lbB2SP) {
 		return lbGL, LineDontBreak
 	}
 
 	// LB13.
 	if rule > 130 && state != lbNU && state != lbNUNU {
+		if state == lbSP && nextProperty == lbprIS && (r == '.' || r == ',') {
+			r2, _ := decoder(str)
+			if r2 != utf8.RuneError && lineBreakCodePoints.search(r2).lbProperty == lbprNU {
+				return lbIS, LineCanBreak
+			}
+		}
 		switch nextProperty {
 		case lbprCL:
 			return lbCL, LineDontBreak
@@ -487,10 +519,39 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		}
 	}
 
+	if rule == 190 && nextProperty == lbprQU && generalCategory == gcPi && (r == '“' || r == '‘') && (state == lbNS || state == lbIDEM) {
+		r2, _ := decoder(str)
+		if r2 != utf8.RuneError {
+			p2 := lineBreakCodePoints.search(r2).lbProperty
+			if isCJKIdeograph(r2) || p2 == lbprOP {
+				return lbQU, LineCanBreak
+			}
+		}
+	}
+	if rule == 190 && state == lbQU && wasQUPf && nextProperty == lbprID && isCJKIdeograph(r) {
+		return lbIDEM, LineCanBreak
+	}
+	if rule == 201 && state == lbHY && nextProperty == lbprAL {
+		t := str
+		for i := 0; i < 128 && len(t) > 0; i++ {
+			r2, size := decoder(t)
+			if r2 == utf8.RuneError {
+				break
+			}
+			if r2 == '»' {
+				return newState, LineCanBreak
+			}
+			if r2 == '«' || r2 == '\n' || r2 == '\u2028' || r2 == '\u2029' {
+				break
+			}
+			t = t[size:]
+		}
+	}
+
 	// LB25 (look ahead).
 	if rule > 250 &&
-		(state == lbPR || state == lbPO) &&
-		nextProperty == lbprOP || nextProperty == lbprHY {
+		((state == lbPR || state == lbPO) &&
+			(nextProperty == lbprOP || nextProperty == lbprHY)) {
 		var r rune
 		r, _ = decoder(str)
 		if r != utf8.RuneError {
@@ -591,4 +652,16 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	}
 
 	return
+}
+
+func isCJKIdeograph(r rune) bool {
+	return (r >= 0x3400 && r <= 0x4DBF) ||
+		(r >= 0x4E00 && r <= 0x9FFF) ||
+		(r >= 0xF900 && r <= 0xFAFF) ||
+		(r >= 0x20000 && r <= 0x2A6DF) ||
+		(r >= 0x2A700 && r <= 0x2B73F) ||
+		(r >= 0x2B740 && r <= 0x2B81F) ||
+		(r >= 0x2B820 && r <= 0x2CEAF) ||
+		(r >= 0x2CEB0 && r <= 0x2EBEF) ||
+		(r >= 0x2F800 && r <= 0x2FA1F)
 }
