@@ -18,7 +18,7 @@ import "unicode/utf8"
 //
 // Given an empty byte slice "b", the function returns nil values.
 //
-// [Unicode Standard Annex #29, Word Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Word_Boundaries
+// [Unicode Standard Annex #29, Word Boundaries]: https://www.unicode.org/reports/tr29/tr29-45.html#Word_Boundaries
 func FirstWord(b []byte, state WordBreakState) (word, rest []byte, newState WordBreakState) {
 	return firstWord(b, state, utf8.DecodeRune)
 }
@@ -39,7 +39,7 @@ func FirstWord(b []byte, state WordBreakState) (word, rest []byte, newState Word
 //
 // Given an empty byte slice "b", the function returns nil values.
 //
-// [Unicode Standard Annex #29, Word Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Word_Boundaries
+// [Unicode Standard Annex #29, Word Boundaries]: https://www.unicode.org/reports/tr29/tr29-45.html#Word_Boundaries
 func (*Parser) FirstWord(b []byte, state WordBreakState) (word, rest []byte, newState WordBreakState) {
 	return firstWord(b, state, utf8.DecodeRune)
 }

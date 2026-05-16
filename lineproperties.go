@@ -3,72 +3,72 @@
 package uniseg
 
 // lineBreakCodePoints are taken from
-// https://www.unicode.org/Public/15.1.0/ucd/LineBreak.txt
+// https://www.unicode.org/Public/16.0.0/ucd/LineBreak.txt
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
-	{runeRange{0xC0AD, 0xC0C7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SAG..HANGUL SYLLABLE SAH
-	{runeRange{0x2227, 0x222C}, propertyGeneralCategory{lbprAI, gcSm}},     //     [6] LOGICAL AND..DOUBLE INTEGRAL
-	{runeRange{0x11D00, 0x11D06}, propertyGeneralCategory{lbprAL, gcLo}},   //     [7] MASARAM GONDI LETTER A..MASARAM GONDI LETTER E
+	{runeRange{0xC0E5, 0xC0FF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SYAG..HANGUL SYLLABLE SYAH
+	{runeRange{0x2234, 0x2237}, propertyGeneralCategory{lbprAI, gcSm}},     //     [4] THEREFORE..PROPORTION
+	{runeRange{0x11C38, 0x11C3D}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] BHAIKSUKI VOWEL SIGN E..BHAIKSUKI SIGN ANUSVARA
 	{runeRange{0x0F2A, 0x0F33}, propertyGeneralCategory{lbprAL, gcNo}},     //    [10] TIBETAN DIGIT HALF ONE..TIBETAN DIGIT HALF ZERO
-	{runeRange{0xA7FA, 0xA7FA}, propertyGeneralCategory{lbprAL, gcLl}},     //         LATIN LETTER SMALL CAPITAL TURNED M
-	{runeRange{0xFF05, 0xFF05}, propertyGeneralCategory{lbprPO, gcPo}},     //         FULLWIDTH PERCENT SIGN
-	{runeRange{0x1E95E, 0x1E95F}, propertyGeneralCategory{lbprOP, gcPo}},   //     [2] ADLAM INITIAL EXCLAMATION MARK..ADLAM INITIAL QUESTION MARK
+	{runeRange{0xA803, 0xA805}, propertyGeneralCategory{lbprAL, gcLo}},     //     [3] SYLOTI NAGRI LETTER U..SYLOTI NAGRI LETTER O
+	{runeRange{0xFE6A, 0xFE6A}, propertyGeneralCategory{lbprPO, gcPo}},     //         SMALL PERCENT SIGN
+	{runeRange{0x1E800, 0x1E8C4}, propertyGeneralCategory{lbprAL, gcLo}},   //   [197] MENDE KIKAKUI SYLLABLE M001 KI..MENDE KIKAKUI SYLLABLE M060 NYON
 	{runeRange{0x0972, 0x097F}, propertyGeneralCategory{lbprAL, gcLo}},     //    [14] DEVANAGARI LETTER CANDRA A..DEVANAGARI LETTER BBA
-	{runeRange{0x1BF2, 0x1BF3}, propertyGeneralCategory{lbprVF, gcMc}},     //     [2] BATAK PANGOLAT..BATAK PANONGONAN
-	{runeRange{0x2CEF, 0x2CF1}, propertyGeneralCategory{lbprCM, gcMn}},     //     [3] COPTIC COMBINING NI ABOVE..COPTIC COMBINING SPIRITUS LENIS
-	{runeRange{0xB2AD, 0xB2C7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NYIG..HANGUL SYLLABLE NYIH
-	{runeRange{0xCEAD, 0xCEC7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KYAG..HANGUL SYLLABLE KYAH
-	{runeRange{0x111C5, 0x111C6}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] SHARADA DANDA..SHARADA DOUBLE DANDA
-	{runeRange{0x1B150, 0x1B152}, propertyGeneralCategory{lbprCJ, gcLo}},   //     [3] HIRAGANA LETTER SMALL WI..HIRAGANA LETTER SMALL WO
-	{runeRange{0x1F576, 0x1F579}, propertyGeneralCategory{lbprID, gcSo}},   //     [4] DARK SUNGLASSES..JOYSTICK
+	{runeRange{0x1BEF, 0x1BF1}, propertyGeneralCategory{lbprCM, gcMn}},     //     [3] BATAK VOWEL SIGN U FOR SIMALUNGUN SA..BATAK CONSONANT SIGN H
+	{runeRange{0x2CFD, 0x2CFD}, propertyGeneralCategory{lbprAL, gcNo}},     //         COPTIC FRACTION ONE HALF
+	{runeRange{0xB2E5, 0xB2FF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DAG..HANGUL SYLLABLE DAH
+	{runeRange{0xCEE5, 0xCEFF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KEOG..HANGUL SYLLABLE KEOH
+	{runeRange{0x11127, 0x1112B}, propertyGeneralCategory{lbprCM, gcMn}},   //     [5] CHAKMA VOWEL SIGN A..CHAKMA VOWEL SIGN UU
+	{runeRange{0x1B155, 0x1B155}, propertyGeneralCategory{lbprCJ, gcLo}},   //         KATAKANA LETTER SMALL KO
+	{runeRange{0x1F507, 0x1F516}, propertyGeneralCategory{lbprID, gcSo}},   //    [16] SPEAKER WITH CANCELLATION STROKE..BOOKMARK
 	{runeRange{0x03F7, 0x03FF}, propertyGeneralCategory{lbprAL, gcLC}},     //     [9] GREEK CAPITAL LETTER SHO..GREEK CAPITAL REVERSED DOTTED LUNATE SIGMA SYMBOL
 	{runeRange{0x0C00, 0x0C00}, propertyGeneralCategory{lbprCM, gcMn}},     //         TELUGU SIGN COMBINING CANDRABINDU ABOVE
 	{runeRange{0x176E, 0x1770}, propertyGeneralCategory{lbprAL, gcLo}},     //     [3] TAGBANWA LETTER LA..TAGBANWA LETTER SA
-	{runeRange{0x2074, 0x2074}, propertyGeneralCategory{lbprAI, gcNo}},     //         SUPERSCRIPT FOUR
-	{runeRange{0x266C, 0x266D}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] BEAMED SIXTEENTH NOTES..MUSIC FLAT SIGN
-	{runeRange{0x303C, 0x303C}, propertyGeneralCategory{lbprNS, gcLo}},     //         MASU MARK
-	{runeRange{0xABE9, 0xABEA}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] MEETEI MAYEK VOWEL SIGN CHEINAP..MEETEI MAYEK VOWEL SIGN NUNG
-	{runeRange{0xB9AD, 0xB9C7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RIG..HANGUL SYLLABLE RIH
-	{runeRange{0xC7AD, 0xC7C7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JAEG..HANGUL SYLLABLE JAEH
-	{runeRange{0xD5AD, 0xD5C7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HYAEG..HANGUL SYLLABLE HYAEH
-	{runeRange{0x10879, 0x1087F}, propertyGeneralCategory{lbprAL, gcNo}},   //     [7] PALMYRENE NUMBER ONE..PALMYRENE NUMBER TWENTY
-	{runeRange{0x11700, 0x1171A}, propertyGeneralCategory{lbprSA, gcLo}},   //    [27] AHOM LETTER KA..AHOM LETTER ALTERNATE BA
-	{runeRange{0x1337A, 0x1337B}, propertyGeneralCategory{lbprCL, gcLo}},   //     [2] EGYPTIAN HIEROGLYPH V011B..EGYPTIAN HIEROGLYPH V011C
-	{runeRange{0x1D735, 0x1D735}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL BOLD ITALIC NABLA
-	{runeRange{0x1F1AE, 0x1F1E5}, propertyGeneralCategory{lbprID, gcCn}},   //    [56] <reserved-1F1AE>..<reserved-1F1E5>
-	{runeRange{0x1F927, 0x1F92F}, propertyGeneralCategory{lbprID, gcSo}},   //     [9] SNEEZING FACE..SHOCKED FACE WITH EXPLODING HEAD
+	{runeRange{0x2071, 0x2071}, propertyGeneralCategory{lbprAL, gcLm}},     //         SUPERSCRIPT LATIN SMALL LETTER I
+	{runeRange{0x267F, 0x267F}, propertyGeneralCategory{lbprID, gcSo}},     //         WHEELCHAIR SYMBOL
+	{runeRange{0x3042, 0x3042}, propertyGeneralCategory{lbprID, gcLo}},     //         HIRAGANA LETTER A
+	{runeRange{0xABF0, 0xABF9}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] MEETEI MAYEK DIGIT ZERO..MEETEI MAYEK DIGIT NINE
+	{runeRange{0xB9E5, 0xB9FF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MAEG..HANGUL SYLLABLE MAEH
+	{runeRange{0xC7E5, 0xC7FF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JYAEG..HANGUL SYLLABLE JYAEH
+	{runeRange{0xD5E5, 0xD5FF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HEG..HANGUL SYLLABLE HEH
+	{runeRange{0x1080A, 0x10835}, propertyGeneralCategory{lbprAL, gcLo}},   //    [44] CYPRIOT SYLLABLE KA..CYPRIOT SYLLABLE WO
+	{runeRange{0x114C4, 0x114C5}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] TIRHUTA SIGN AVAGRAHA..TIRHUTA GVANG
+	{runeRange{0x13460, 0x143FA}, propertyGeneralCategory{lbprAL, gcLo}},   //  [3995] EGYPTIAN HIEROGLYPH-13460..EGYPTIAN HIEROGLYPH-143FA
+	{runeRange{0x1D715, 0x1D715}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL ITALIC PARTIAL DIFFERENTIAL
+	{runeRange{0x1F110, 0x1F12D}, propertyGeneralCategory{lbprAI, gcSo}},   //    [30] PARENTHESIZED LATIN CAPITAL LETTER A..CIRCLED CD
+	{runeRange{0x1F926, 0x1F926}, propertyGeneralCategory{lbprEB, gcSo}},   //         FACE PALM
 	{runeRange{0x00B8, 0x00B8}, propertyGeneralCategory{lbprAI, gcSk}},     //         CEDILLA
 	{runeRange{0x070F, 0x070F}, propertyGeneralCategory{lbprAL, gcCf}},     //         SYRIAC ABBREVIATION MARK
 	{runeRange{0x0ABE, 0x0AC0}, propertyGeneralCategory{lbprCM, gcMc}},     //     [3] GUJARATI VOWEL SIGN AA..GUJARATI VOWEL SIGN II
 	{runeRange{0x0D5F, 0x0D61}, propertyGeneralCategory{lbprAL, gcLo}},     //     [3] MALAYALAM LETTER ARCHAIC II..MALAYALAM LETTER VOCALIC LL
 	{runeRange{0x108F, 0x108F}, propertyGeneralCategory{lbprSA, gcMc}},     //         MYANMAR SIGN RUMAI PALAUNG TONE-5
 	{runeRange{0x1A1B, 0x1A1B}, propertyGeneralCategory{lbprCM, gcMn}},     //         BUGINESE VOWEL SIGN AE
-	{runeRange{0x1FE0, 0x1FEC}, propertyGeneralCategory{lbprAL, gcLC}},     //    [13] GREEK SMALL LETTER UPSILON WITH VRACHY..GREEK CAPITAL LETTER RHO WITH DASIA
-	{runeRange{0x2140, 0x2144}, propertyGeneralCategory{lbprAL, gcSm}},     //     [5] DOUBLE-STRUCK N-ARY SUMMATION..TURNED SANS-SERIF CAPITAL Y
-	{runeRange{0x24FF, 0x24FF}, propertyGeneralCategory{lbprAL, gcNo}},     //         NEGATIVE CIRCLED DIGIT ZERO
-	{runeRange{0x27C6, 0x27C6}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT S-SHAPED BAG DELIMITER
-	{runeRange{0x2E3F, 0x2E3F}, propertyGeneralCategory{lbprAL, gcPo}},     //         CAPITULUM
-	{runeRange{0x3200, 0x321E}, propertyGeneralCategory{lbprID, gcSo}},     //    [31] PARENTHESIZED HANGUL KIYEOK..PARENTHESIZED KOREAN CHARACTER O HU
-	{runeRange{0xA9FA, 0xA9FE}, propertyGeneralCategory{lbprSA, gcLo}},     //     [5] MYANMAR LETTER TAI LAING LLA..MYANMAR LETTER TAI LAING BHA
-	{runeRange{0xAF2D, 0xAF47}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGOG..HANGUL SYLLABLE GGOH
-	{runeRange{0xB62D, 0xB647}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDWAG..HANGUL SYLLABLE DDWAH
-	{runeRange{0xBD2D, 0xBD47}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BWAEG..HANGUL SYLLABLE BWAEH
-	{runeRange{0xC42D, 0xC447}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSOEG..HANGUL SYLLABLE SSOEH
-	{runeRange{0xCB2D, 0xCB47}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJYOG..HANGUL SYLLABLE JJYOH
-	{runeRange{0xD22D, 0xD247}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TUG..HANGUL SYLLABLE TUH
-	{runeRange{0xFD92, 0xFDC7}, propertyGeneralCategory{lbprAL, gcLo}},     //    [54] ARABIC LIGATURE MEEM WITH JEEM WITH KHAH INITIAL FORM..ARABIC LIGATURE NOON WITH JEEM WITH YEH FINAL FORM
-	{runeRange{0x10107, 0x10133}, propertyGeneralCategory{lbprAL, gcNo}},   //    [45] AEGEAN NUMBER ONE..AEGEAN NUMBER NINETY THOUSAND
-	{runeRange{0x10F1D, 0x10F26}, propertyGeneralCategory{lbprAL, gcNo}},   //    [10] OLD SOGDIAN NUMBER ONE..OLD SOGDIAN FRACTION ONE HALF
-	{runeRange{0x11435, 0x11437}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] NEWA VOWEL SIGN AA..NEWA VOWEL SIGN II
-	{runeRange{0x11A57, 0x11A58}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] SOYOMBO VOWEL SIGN AI..SOYOMBO VOWEL SIGN AU
-	{runeRange{0x11F36, 0x11F3A}, propertyGeneralCategory{lbprCM, gcMn}},   //     [5] KAWI VOWEL SIGN I..KAWI VOWEL SIGN VOCALIC R
-	{runeRange{0x16B40, 0x16B43}, propertyGeneralCategory{lbprAL, gcLm}},   //     [4] PAHAWH HMONG SIGN VOS SEEV..PAHAWH HMONG SIGN IB YAM
-	{runeRange{0x1D2C0, 0x1D2D3}, propertyGeneralCategory{lbprAL, gcNo}},   //    [20] KAKTOVIK NUMERAL ZERO..KAKTOVIK NUMERAL NINETEEN
-	{runeRange{0x1E01B, 0x1E021}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] COMBINING GLAGOLITIC LETTER SHTA..COMBINING GLAGOLITIC LETTER YATI
-	{runeRange{0x1EE67, 0x1EE6A}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ARABIC MATHEMATICAL STRETCHED HAH..ARABIC MATHEMATICAL STRETCHED KAF
-	{runeRange{0x1F451, 0x1F465}, propertyGeneralCategory{lbprID, gcSo}},   //    [21] CROWN..BUSTS IN SILHOUETTE
-	{runeRange{0x1F6FD, 0x1F6FF}, propertyGeneralCategory{lbprID, gcCn}},   //     [3] <reserved-1F6FD>..<reserved-1F6FF>
-	{runeRange{0x1FAE0, 0x1FAE8}, propertyGeneralCategory{lbprID, gcSo}},   //     [9] MELTING FACE..SHAKING FACE
+	{runeRange{0x1FDD, 0x1FDF}, propertyGeneralCategory{lbprAL, gcSk}},     //     [3] GREEK DASIA AND VARIA..GREEK DASIA AND PERISPOMENI
+	{runeRange{0x213C, 0x213F}, propertyGeneralCategory{lbprAL, gcLC}},     //     [4] DOUBLE-STRUCK SMALL PI..DOUBLE-STRUCK CAPITAL PI
+	{runeRange{0x2575, 0x257F}, propertyGeneralCategory{lbprAL, gcSo}},     //    [11] BOX DRAWINGS LIGHT UP..BOX DRAWINGS HEAVY UP AND LIGHT DOWN
+	{runeRange{0x27E8, 0x27E8}, propertyGeneralCategory{lbprOP, gcPs}},     //         MATHEMATICAL LEFT ANGLE BRACKET
+	{runeRange{0x2E43, 0x2E4A}, propertyGeneralCategory{lbprBA, gcPo}},     //     [8] DASH WITH LEFT UPTURN..DOTTED SOLIDUS
+	{runeRange{0x3250, 0x3250}, propertyGeneralCategory{lbprID, gcSo}},     //         PARTNERSHIP SIGN
+	{runeRange{0xAA31, 0xAA32}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] CHAM VOWEL SIGN AU..CHAM VOWEL SIGN UE
+	{runeRange{0xAF65, 0xAF7F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGWAEG..HANGUL SYLLABLE GGWAEH
+	{runeRange{0xB665, 0xB67F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDOEG..HANGUL SYLLABLE DDOEH
+	{runeRange{0xBD65, 0xBD7F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BYOG..HANGUL SYLLABLE BYOH
+	{runeRange{0xC465, 0xC47F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSUG..HANGUL SYLLABLE SSUH
+	{runeRange{0xCB65, 0xCB7F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJWEOG..HANGUL SYLLABLE JJWEOH
+	{runeRange{0xD265, 0xD27F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TWEG..HANGUL SYLLABLE TWEH
+	{runeRange{0xFDFD, 0xFDFF}, propertyGeneralCategory{lbprAL, gcSo}},     //     [3] ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM..ARABIC LIGATURE AZZA WA JALL
+	{runeRange{0x10000, 0x1000B}, propertyGeneralCategory{lbprAL, gcLo}},   //    [12] LINEAR B SYLLABLE B008 A..LINEAR B SYLLABLE B046 JE
+	{runeRange{0x10D24, 0x10D27}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] HANIFI ROHINGYA SIGN HARBAHAY..HANIFI ROHINGYA SIGN TASSI
+	{runeRange{0x1132A, 0x11330}, propertyGeneralCategory{lbprAK, gcLo}},   //     [7] GRANTHA LETTER PA..GRANTHA LETTER RA
+	{runeRange{0x118FF, 0x118FF}, propertyGeneralCategory{lbprAL, gcLo}},   //         WARANG CITI OM
+	{runeRange{0x12000, 0x12399}, propertyGeneralCategory{lbprAL, gcLo}},   //   [922] CUNEIFORM SIGN A..CUNEIFORM SIGN U U
+	{runeRange{0x16D43, 0x16D6A}, propertyGeneralCategory{lbprAL, gcLo}},   //    [40] KIRAT RAI LETTER A..KIRAT RAI VOWEL SIGN AU
+	{runeRange{0x1D242, 0x1D244}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] COMBINING GREEK MUSICAL TRISEME..COMBINING GREEK MUSICAL PENTASEME
+	{runeRange{0x1E000, 0x1E006}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] COMBINING GLAGOLITIC LETTER AZU..COMBINING GLAGOLITIC LETTER ZHIVETE
+	{runeRange{0x1EE57, 0x1EE57}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED KHAH
+	{runeRange{0x1F3CD, 0x1F3FA}, propertyGeneralCategory{lbprID, gcSo}},   //    [46] RACING MOTORCYCLE..AMPHORA
+	{runeRange{0x1F6CC, 0x1F6CC}, propertyGeneralCategory{lbprEB, gcSo}},   //         SLEEPING ACCOMMODATION
+	{runeRange{0x1FADF, 0x1FAE9}, propertyGeneralCategory{lbprID, gcSo}},   //    [11] SPLATTER..FACE WITH BAGS UNDER EYES
 	{runeRange{0x005E, 0x005E}, propertyGeneralCategory{lbprAL, gcSk}},     //         CIRCUMFLEX ACCENT
 	{runeRange{0x02D8, 0x02DB}, propertyGeneralCategory{lbprAI, gcSk}},     //     [4] BREVE..OGONEK
 	{runeRange{0x060E, 0x060F}, propertyGeneralCategory{lbprAL, gcSo}},     //     [2] ARABIC POETIC VERSE SIGN..ARABIC SIGN MISRA
@@ -81,57 +81,57 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1360, 0x1360}, propertyGeneralCategory{lbprAL, gcPo}},     //         ETHIOPIC SECTION MARK
 	{runeRange{0x1820, 0x1842}, propertyGeneralCategory{lbprAL, gcLo}},     //    [35] MONGOLIAN LETTER A..MONGOLIAN LETTER CHI
 	{runeRange{0x1B42, 0x1B42}, propertyGeneralCategory{lbprCM, gcMn}},     //         BALINESE VOWEL SIGN PEPET
-	{runeRange{0x1D2C, 0x1D6A}, propertyGeneralCategory{lbprAL, gcLm}},     //    [63] MODIFIER LETTER CAPITAL A..GREEK SUBSCRIPT SMALL LETTER CHI
-	{runeRange{0x2029, 0x2029}, propertyGeneralCategory{lbprBK, gcZp}},     //         PARAGRAPH SEPARATOR
-	{runeRange{0x2104, 0x2104}, propertyGeneralCategory{lbprAL, gcSo}},     //         CENTRE LINE SYMBOL
-	{runeRange{0x21AE, 0x21AE}, propertyGeneralCategory{lbprAL, gcSm}},     //         LEFT RIGHT ARROW WITH STROKE
-	{runeRange{0x22BF, 0x22BF}, propertyGeneralCategory{lbprAI, gcSm}},     //         RIGHT TRIANGLE
-	{runeRange{0x25F0, 0x25F7}, propertyGeneralCategory{lbprAL, gcSo}},     //     [8] WHITE SQUARE WITH UPPER LEFT QUADRANT..WHITE CIRCLE WITH UPPER RIGHT QUADRANT
-	{runeRange{0x26FB, 0x26FC}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] JAPANESE BANK SYMBOL..HEADSTONE GRAVEYARD SYMBOL
-	{runeRange{0x2993, 0x2993}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT ARC LESS-THAN BRACKET
-	{runeRange{0x2E0B, 0x2E0B}, propertyGeneralCategory{lbprQU, gcPo}},     //         RAISED SQUARE
-	{runeRange{0x3008, 0x3008}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT ANGLE BRACKET
-	{runeRange{0x30A4, 0x30A4}, propertyGeneralCategory{lbprID, gcLo}},     //         KATAKANA LETTER I
-	{runeRange{0xA66F, 0xA66F}, propertyGeneralCategory{lbprCM, gcMn}},     //         COMBINING CYRILLIC VZMET
-	{runeRange{0xA8FD, 0xA8FE}, propertyGeneralCategory{lbprAL, gcLo}},     //     [2] DEVANAGARI JAIN OM..DEVANAGARI LETTER AY
-	{runeRange{0xAAC0, 0xAAC0}, propertyGeneralCategory{lbprSA, gcLo}},     //         TAI VIET TONE MAI NUENG
-	{runeRange{0xAD6D, 0xAD87}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GUG..HANGUL SYLLABLE GUH
-	{runeRange{0xB0ED, 0xB107}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NYAEG..HANGUL SYLLABLE NYAEH
-	{runeRange{0xB46D, 0xB487}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DWEOG..HANGUL SYLLABLE DWEOH
-	{runeRange{0xB7ED, 0xB807}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE REOG..HANGUL SYLLABLE REOH
-	{runeRange{0xBB6D, 0xBB87}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MWEG..HANGUL SYLLABLE MWEH
-	{runeRange{0xBEED, 0xBF07}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBEG..HANGUL SYLLABLE BBEH
-	{runeRange{0xC26D, 0xC287}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SWIG..HANGUL SYLLABLE SWIH
-	{runeRange{0xC5ED, 0xC607}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE YEOG..HANGUL SYLLABLE YEOH
-	{runeRange{0xC96D, 0xC987}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JYUG..HANGUL SYLLABLE JYUH
-	{runeRange{0xCCED, 0xCD07}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CYEG..HANGUL SYLLABLE CYEH
-	{runeRange{0xD06D, 0xD087}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KEUG..HANGUL SYLLABLE KEUH
-	{runeRange{0xD3ED, 0xD407}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE POG..HANGUL SYLLABLE POH
-	{runeRange{0xD76D, 0xD787}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HYIG..HANGUL SYLLABLE HYIH
-	{runeRange{0xFE44, 0xFE44}, propertyGeneralCategory{lbprCL, gcPe}},     //         PRESENTATION FORM FOR VERTICAL RIGHT WHITE CORNER BRACKET
-	{runeRange{0xFF64, 0xFF64}, propertyGeneralCategory{lbprCL, gcPo}},     //         HALFWIDTH IDEOGRAPHIC COMMA
-	{runeRange{0x10480, 0x1049D}, propertyGeneralCategory{lbprAL, gcLo}},   //    [30] OSMANYA LETTER ALEF..OSMANYA LETTER OO
-	{runeRange{0x10A80, 0x10A9C}, propertyGeneralCategory{lbprAL, gcLo}},   //    [29] OLD NORTH ARABIAN LETTER HEH..OLD NORTH ARABIAN LETTER ZAH
-	{runeRange{0x110B3, 0x110B6}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] KAITHI VOWEL SIGN U..KAITHI VOWEL SIGN AI
-	{runeRange{0x1129F, 0x112A8}, propertyGeneralCategory{lbprAL, gcLo}},   //    [10] MULTANI LETTER BHA..MULTANI LETTER RHA
-	{runeRange{0x115BE, 0x115BE}, propertyGeneralCategory{lbprCM, gcMc}},   //         SIDDHAM SIGN VISARGA
-	{runeRange{0x11940, 0x11940}, propertyGeneralCategory{lbprCM, gcMc}},   //         DIVES AKURU MEDIAL YA
-	{runeRange{0x11C3E, 0x11C3E}, propertyGeneralCategory{lbprCM, gcMc}},   //         BHAIKSUKI SIGN VISARGA
-	{runeRange{0x11D95, 0x11D95}, propertyGeneralCategory{lbprCM, gcMn}},   //         GUNJALA GONDI SIGN ANUSVARA
-	{runeRange{0x12470, 0x12474}, propertyGeneralCategory{lbprBA, gcPo}},   //     [5] CUNEIFORM PUNCTUATION SIGN OLD ASSYRIAN WORD DIVIDER..CUNEIFORM PUNCTUATION SIGN DIAGONAL QUADCOLON
-	{runeRange{0x145CF, 0x145CF}, propertyGeneralCategory{lbprCL, gcLo}},   //         ANATOLIAN HIEROGLYPH A410A END LOGOGRAM MARK
-	{runeRange{0x16F93, 0x16F9F}, propertyGeneralCategory{lbprAL, gcLm}},   //    [13] MIAO LETTER TONE-2..MIAO LETTER REFORMED TONE-8
-	{runeRange{0x1D100, 0x1D126}, propertyGeneralCategory{lbprAL, gcSo}},   //    [39] MUSICAL SYMBOL SINGLE BARLINE..MUSICAL SYMBOL DRUM CLEF-2
-	{runeRange{0x1D516, 0x1D51C}, propertyGeneralCategory{lbprAL, gcLu}},   //     [7] MATHEMATICAL FRAKTUR CAPITAL S..MATHEMATICAL FRAKTUR CAPITAL Y
-	{runeRange{0x1DA3B, 0x1DA6C}, propertyGeneralCategory{lbprCM, gcMn}},   //    [50] SIGNWRITING MOUTH CLOSED NEUTRAL..SIGNWRITING EXCITEMENT
-	{runeRange{0x1E2FF, 0x1E2FF}, propertyGeneralCategory{lbprPR, gcSc}},   //         WANCHO NGUN SIGN
-	{runeRange{0x1EE39, 0x1EE39}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL INITIAL DAD
-	{runeRange{0x1F0AF, 0x1F0B0}, propertyGeneralCategory{lbprID, gcCn}},   //     [2] <reserved-1F0AF>..<reserved-1F0B0>
-	{runeRange{0x1F39E, 0x1F3B4}, propertyGeneralCategory{lbprID, gcSo}},   //    [23] FILM FRAMES..FLOWER PLAYING CARDS
-	{runeRange{0x1F4A3, 0x1F4A3}, propertyGeneralCategory{lbprID, gcSo}},   //         BOMB
-	{runeRange{0x1F676, 0x1F678}, propertyGeneralCategory{lbprQU, gcSo}},   //     [3] SANS-SERIF HEAVY DOUBLE TURNED COMMA QUOTATION MARK ORNAMENT..SANS-SERIF HEAVY LOW DOUBLE COMMA QUOTATION MARK ORNAMENT
-	{runeRange{0x1F850, 0x1F859}, propertyGeneralCategory{lbprAL, gcSo}},   //    [10] LEFTWARDS SANS-SERIF ARROW..UP DOWN SANS-SERIF ARROW
-	{runeRange{0x1F9DE, 0x1F9FF}, propertyGeneralCategory{lbprID, gcSo}},   //    [34] GENIE..NAZAR AMULET
+	{runeRange{0x1D00, 0x1D2B}, propertyGeneralCategory{lbprAL, gcLl}},     //    [44] LATIN LETTER SMALL CAPITAL A..CYRILLIC LETTER SMALL CAPITAL EL
+	{runeRange{0x2028, 0x2028}, propertyGeneralCategory{lbprBK, gcZl}},     //         LINE SEPARATOR
+	{runeRange{0x2103, 0x2103}, propertyGeneralCategory{lbprPO, gcSo}},     //         DEGREE CELSIUS
+	{runeRange{0x21D2, 0x21D2}, propertyGeneralCategory{lbprAI, gcSm}},     //         RIGHTWARDS DOUBLE ARROW
+	{runeRange{0x2300, 0x2307}, propertyGeneralCategory{lbprAL, gcSo}},     //     [8] DIAMETER SIGN..WAVY LINE
+	{runeRange{0x2605, 0x2606}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] BLACK STAR..WHITE STAR
+	{runeRange{0x2708, 0x2709}, propertyGeneralCategory{lbprID, gcSo}},     //     [2] AIRPLANE..ENVELOPE
+	{runeRange{0x2997, 0x2997}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT BLACK TORTOISE SHELL BRACKET
+	{runeRange{0x2E16, 0x2E16}, propertyGeneralCategory{lbprAL, gcPo}},     //         DOTTED RIGHT-POINTING ANGLE
+	{runeRange{0x300C, 0x300C}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT CORNER BRACKET
+	{runeRange{0x30A8, 0x30A8}, propertyGeneralCategory{lbprID, gcLo}},     //         KATAKANA LETTER E
+	{runeRange{0xA67E, 0xA67E}, propertyGeneralCategory{lbprAL, gcPo}},     //         CYRILLIC KAVYKA
+	{runeRange{0xA926, 0xA92D}, propertyGeneralCategory{lbprCM, gcMn}},     //     [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
+	{runeRange{0xAADD, 0xAADD}, propertyGeneralCategory{lbprSA, gcLm}},     //         TAI VIET SYMBOL SAM
+	{runeRange{0xADA5, 0xADBF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GWEG..HANGUL SYLLABLE GWEH
+	{runeRange{0xB125, 0xB13F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NEG..HANGUL SYLLABLE NEH
+	{runeRange{0xB4A5, 0xB4BF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DWIG..HANGUL SYLLABLE DWIH
+	{runeRange{0xB825, 0xB83F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RYEOG..HANGUL SYLLABLE RYEOH
+	{runeRange{0xBBA5, 0xBBBF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MYUG..HANGUL SYLLABLE MYUH
+	{runeRange{0xBF25, 0xBF3F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBYEG..HANGUL SYLLABLE BBYEH
+	{runeRange{0xC2A5, 0xC2BF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SEUG..HANGUL SYLLABLE SEUH
+	{runeRange{0xC625, 0xC63F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE OG..HANGUL SYLLABLE OH
+	{runeRange{0xC9A5, 0xC9BF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JYIG..HANGUL SYLLABLE JYIH
+	{runeRange{0xCD25, 0xCD3F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CWAG..HANGUL SYLLABLE CWAH
+	{runeRange{0xD0A5, 0xD0BF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KIG..HANGUL SYLLABLE KIH
+	{runeRange{0xD425, 0xD43F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PWAEG..HANGUL SYLLABLE PWAEH
+	{runeRange{0xD7CB, 0xD7FB}, propertyGeneralCategory{lbprJT, gcLo}},     //    [49] HANGUL JONGSEONG NIEUN-RIEUL..HANGUL JONGSEONG PHIEUPH-THIEUTH
+	{runeRange{0xFE3C, 0xFE3C}, propertyGeneralCategory{lbprCL, gcPe}},     //         PRESENTATION FORM FOR VERTICAL RIGHT BLACK LENTICULAR BRACKET
+	{runeRange{0xFF5C, 0xFF5C}, propertyGeneralCategory{lbprID, gcSm}},     //         FULLWIDTH VERTICAL LINE
+	{runeRange{0x10380, 0x1039D}, propertyGeneralCategory{lbprAL, gcLo}},   //    [30] UGARITIC LETTER ALPA..UGARITIC LETTER SSU
+	{runeRange{0x10A19, 0x10A35}, propertyGeneralCategory{lbprAL, gcLo}},   //    [29] KHAROSHTHI LETTER NYA..KHAROSHTHI LETTER VHA
+	{runeRange{0x11000, 0x11000}, propertyGeneralCategory{lbprCM, gcMc}},   //         BRAHMI SIGN CANDRABINDU
+	{runeRange{0x111E1, 0x111F4}, propertyGeneralCategory{lbprAL, gcNo}},   //    [20] SINHALA ARCHAIC DIGIT ONE..SINHALA ARCHAIC NUMBER ONE THOUSAND
+	{runeRange{0x113CF, 0x113CF}, propertyGeneralCategory{lbprCM, gcMc}},   //         TULU-TIGALARI SIGN LOOPED VIRAMA
+	{runeRange{0x116AC, 0x116AC}, propertyGeneralCategory{lbprCM, gcMc}},   //         TAKRI SIGN VISARGA
+	{runeRange{0x11A33, 0x11A38}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] ZANABAZAR SQUARE FINAL CONSONANT MARK..ZANABAZAR SQUARE SIGN ANUSVARA
+	{runeRange{0x11D93, 0x11D94}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] GUNJALA GONDI VOWEL SIGN OO..GUNJALA GONDI VOWEL SIGN AU
+	{runeRange{0x1328A, 0x13378}, propertyGeneralCategory{lbprAL, gcLo}},   //   [239] EGYPTIAN HIEROGLYPH O037..EGYPTIAN HIEROGLYPH V011
+	{runeRange{0x16AD0, 0x16AED}, propertyGeneralCategory{lbprAL, gcLo}},   //    [30] BASSA VAH LETTER ENNI..BASSA VAH LETTER I
+	{runeRange{0x16FE2, 0x16FE2}, propertyGeneralCategory{lbprNS, gcPo}},   //         OLD CHINESE HOOK MARK
+	{runeRange{0x1CF50, 0x1CFC3}, propertyGeneralCategory{lbprAL, gcSo}},   //   [116] ZNAMENNY NEUME KRYUK..ZNAMENNY NEUME PAUK
+	{runeRange{0x1D507, 0x1D50A}, propertyGeneralCategory{lbprAL, gcLu}},   //     [4] MATHEMATICAL FRAKTUR CAPITAL D..MATHEMATICAL FRAKTUR CAPITAL G
+	{runeRange{0x1DA00, 0x1DA36}, propertyGeneralCategory{lbprCM, gcMn}},   //    [55] SIGNWRITING HEAD RIM..SIGNWRITING AIR SUCKING IN
+	{runeRange{0x1E2EC, 0x1E2EF}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] WANCHO TONE TUP..WANCHO TONE KOINI
+	{runeRange{0x1EE00, 0x1EE03}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ARABIC MATHEMATICAL ALEF..ARABIC MATHEMATICAL DAL
+	{runeRange{0x1EEAB, 0x1EEBB}, propertyGeneralCategory{lbprAL, gcLo}},   //    [17] ARABIC MATHEMATICAL DOUBLE-STRUCK LAM..ARABIC MATHEMATICAL DOUBLE-STRUCK GHAIN
+	{runeRange{0x1F260, 0x1F265}, propertyGeneralCategory{lbprID, gcSo}},   //     [6] ROUNDED SYMBOL FOR FU..ROUNDED SYMBOL FOR CAI
+	{runeRange{0x1F490, 0x1F490}, propertyGeneralCategory{lbprID, gcSo}},   //         BOUQUET
+	{runeRange{0x1F5FA, 0x1F5FF}, propertyGeneralCategory{lbprID, gcSo}},   //     [6] WORLD MAP..MOYAI
+	{runeRange{0x1F7F0, 0x1F7F0}, propertyGeneralCategory{lbprID, gcSo}},   //         HEAVY EQUALS SIGN
+	{runeRange{0x1F9D1, 0x1F9DD}, propertyGeneralCategory{lbprEB, gcSo}},   //    [13] ADULT..ELF
 	{runeRange{0x2CEB0, 0x2EBE0}, propertyGeneralCategory{lbprID, gcLo}},   //  [7473] CJK UNIFIED IDEOGRAPH-2CEB0..CJK UNIFIED IDEOGRAPH-2EBE0
 	{runeRange{0x0029, 0x0029}, propertyGeneralCategory{lbprCP, gcPe}},     //         RIGHT PARENTHESIS
 	{runeRange{0x00A6, 0x00A6}, propertyGeneralCategory{lbprAL, gcSo}},     //         BROKEN BAR
@@ -156,109 +156,109 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x17DB, 0x17DB}, propertyGeneralCategory{lbprPR, gcSc}},     //         KHMER CURRENCY SYMBOL RIEL
 	{runeRange{0x1933, 0x1938}, propertyGeneralCategory{lbprCM, gcMc}},     //     [6] LIMBU SMALL LETTER TA..LIMBU SMALL LETTER LA
 	{runeRange{0x1A90, 0x1A99}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] TAI THAM THAM DIGIT ZERO..TAI THAM THAM DIGIT NINE
-	{runeRange{0x1BA2, 0x1BA5}, propertyGeneralCategory{lbprCM, gcMn}},     //     [4] SUNDANESE CONSONANT SIGN PANYAKRA..SUNDANESE VOWEL SIGN PANYUKU
-	{runeRange{0x1CBD, 0x1CBF}, propertyGeneralCategory{lbprAL, gcLu}},     //     [3] GEORGIAN MTAVRULI CAPITAL LETTER AEN..GEORGIAN MTAVRULI CAPITAL LETTER LABIAL SIGN
-	{runeRange{0x1F50, 0x1F57}, propertyGeneralCategory{lbprAL, gcLl}},     //     [8] GREEK SMALL LETTER UPSILON WITH PSILI..GREEK SMALL LETTER UPSILON WITH DASIA AND PERISPOMENI
-	{runeRange{0x2014, 0x2014}, propertyGeneralCategory{lbprB2, gcPd}},     //         EM DASH
-	{runeRange{0x204A, 0x2051}, propertyGeneralCategory{lbprAL, gcPo}},     //     [8] TIRONIAN SIGN ET..TWO ASTERISKS ALIGNED VERTICALLY
-	{runeRange{0x20B6, 0x20B6}, propertyGeneralCategory{lbprPO, gcSc}},     //         LIVRE TOURNOIS SIGN
-	{runeRange{0x2123, 0x2123}, propertyGeneralCategory{lbprAL, gcSo}},     //         VERSICLE
-	{runeRange{0x2170, 0x2179}, propertyGeneralCategory{lbprAI, gcNl}},     //    [10] SMALL ROMAN NUMERAL ONE..SMALL ROMAN NUMERAL TEN
-	{runeRange{0x220C, 0x220E}, propertyGeneralCategory{lbprAL, gcSm}},     //     [3] DOES NOT CONTAIN AS MEMBER..END OF PROOF
-	{runeRange{0x2264, 0x2267}, propertyGeneralCategory{lbprAI, gcSm}},     //     [4] LESS-THAN OR EQUAL TO..GREATER-THAN OVER EQUAL TO
-	{runeRange{0x2329, 0x2329}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT-POINTING ANGLE BRACKET
-	{runeRange{0x25B7, 0x25B7}, propertyGeneralCategory{lbprAI, gcSm}},     //         WHITE RIGHT-POINTING TRIANGLE
-	{runeRange{0x261E, 0x261F}, propertyGeneralCategory{lbprID, gcSo}},     //     [2] WHITE RIGHT POINTING INDEX..WHITE DOWN POINTING INDEX
-	{runeRange{0x26D8, 0x26D9}, propertyGeneralCategory{lbprID, gcSo}},     //     [2] BLACK LEFT LANE MERGE..WHITE LEFT LANE MERGE
-	{runeRange{0x276A, 0x276A}, propertyGeneralCategory{lbprOP, gcPs}},     //         MEDIUM FLATTENED LEFT PARENTHESIS ORNAMENT
-	{runeRange{0x2983, 0x2983}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT WHITE CURLY BRACKET
-	{runeRange{0x2B00, 0x2B2F}, propertyGeneralCategory{lbprAL, gcSo}},     //    [48] NORTH EAST WHITE ARROW..WHITE VERTICAL ELLIPSE
-	{runeRange{0x2DA8, 0x2DAE}, propertyGeneralCategory{lbprAL, gcLo}},     //     [7] ETHIOPIC SYLLABLE CCA..ETHIOPIC SYLLABLE CCO
-	{runeRange{0x2E23, 0x2E23}, propertyGeneralCategory{lbprCL, gcPe}},     //         TOP RIGHT HALF BRACKET
-	{runeRange{0x2E59, 0x2E59}, propertyGeneralCategory{lbprOP, gcPs}},     //         TOP HALF LEFT PARENTHESIS
-	{runeRange{0x3019, 0x3019}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT WHITE TORTOISE SHELL BRACKET
-	{runeRange{0x3084, 0x3084}, propertyGeneralCategory{lbprID, gcLo}},     //         HIRAGANA LETTER YA
-	{runeRange{0x30EF, 0x30F4}, propertyGeneralCategory{lbprID, gcLo}},     //     [6] KATAKANA LETTER WA..KATAKANA LETTER VU
-	{runeRange{0xA015, 0xA015}, propertyGeneralCategory{lbprNS, gcLm}},     //         YI SYLLABLE WU
-	{runeRange{0xA720, 0xA721}, propertyGeneralCategory{lbprAL, gcSk}},     //     [2] MODIFIER LETTER STRESS AND HIGH TONE..MODIFIER LETTER STRESS AND LOW TONE
-	{runeRange{0xA838, 0xA838}, propertyGeneralCategory{lbprPO, gcSc}},     //         NORTH INDIC RUPEE MARK
-	{runeRange{0xA9B6, 0xA9B9}, propertyGeneralCategory{lbprCM, gcMn}},     //     [4] JAVANESE VOWEL SIGN WULU..JAVANESE VOWEL SIGN SUKU MENDUT
-	{runeRange{0xAA70, 0xAA70}, propertyGeneralCategory{lbprSA, gcLm}},     //         MYANMAR MODIFIER LETTER KHAMTI REDUPLICATION
-	{runeRange{0xAB09, 0xAB0E}, propertyGeneralCategory{lbprAL, gcLo}},     //     [6] ETHIOPIC SYLLABLE DDHU..ETHIOPIC SYLLABLE DDHO
-	{runeRange{0xAC8D, 0xACA7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GEG..HANGUL SYLLABLE GEH
-	{runeRange{0xAE4D, 0xAE67}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGAG..HANGUL SYLLABLE GGAH
-	{runeRange{0xB00D, 0xB027}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGWIG..HANGUL SYLLABLE GGWIH
-	{runeRange{0xB1CD, 0xB1E7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NOEG..HANGUL SYLLABLE NOEH
-	{runeRange{0xB38D, 0xB3A7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DYEOG..HANGUL SYLLABLE DYEOH
-	{runeRange{0xB54D, 0xB567}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDAEG..HANGUL SYLLABLE DDAEH
-	{runeRange{0xB70D, 0xB727}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDYUG..HANGUL SYLLABLE DDYUH
-	{runeRange{0xB8CD, 0xB8E7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RYOG..HANGUL SYLLABLE RYOH
-	{runeRange{0xBA8D, 0xBAA7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MYEG..HANGUL SYLLABLE MYEH
-	{runeRange{0xBC4D, 0xBC67}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BYAG..HANGUL SYLLABLE BYAH
-	{runeRange{0xBE0D, 0xBE27}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BEUG..HANGUL SYLLABLE BEUH
-	{runeRange{0xBFCD, 0xBFE7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBUG..HANGUL SYLLABLE BBUH
-	{runeRange{0xC18D, 0xC1A7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SOG..HANGUL SYLLABLE SOH
-	{runeRange{0xC34D, 0xC367}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSYAEG..HANGUL SYLLABLE SSYAEH
-	{runeRange{0xC50D, 0xC527}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSYIG..HANGUL SYLLABLE SSYIH
-	{runeRange{0xC6CD, 0xC6E7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE WEOG..HANGUL SYLLABLE WEOH
-	{runeRange{0xC88D, 0xC8A7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JWAG..HANGUL SYLLABLE JWAH
-	{runeRange{0xCA4D, 0xCA67}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJEOG..HANGUL SYLLABLE JJEOH
-	{runeRange{0xCC0D, 0xCC27}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJIG..HANGUL SYLLABLE JJIH
-	{runeRange{0xCDCD, 0xCDE7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CWEG..HANGUL SYLLABLE CWEH
-	{runeRange{0xCF8D, 0xCFA7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KWAEG..HANGUL SYLLABLE KWAEH
-	{runeRange{0xD14D, 0xD167}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TEG..HANGUL SYLLABLE TEH
-	{runeRange{0xD30D, 0xD327}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PAG..HANGUL SYLLABLE PAH
-	{runeRange{0xD4CD, 0xD4E7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PWIG..HANGUL SYLLABLE PWIH
-	{runeRange{0xD68D, 0xD6A7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HOEG..HANGUL SYLLABLE HOEH
-	{runeRange{0xFB1E, 0xFB1E}, propertyGeneralCategory{lbprCM, gcMn}},     //         HEBREW POINT JUDEO-SPANISH VARIKA
-	{runeRange{0xFE33, 0xFE34}, propertyGeneralCategory{lbprID, gcPc}},     //     [2] PRESENTATION FORM FOR VERTICAL LOW LINE..PRESENTATION FORM FOR VERTICAL WAVY LOW LINE
-	{runeRange{0xFE5D, 0xFE5D}, propertyGeneralCategory{lbprOP, gcPs}},     //         SMALL LEFT TORTOISE SHELL BRACKET
-	{runeRange{0xFF3B, 0xFF3B}, propertyGeneralCategory{lbprOP, gcPs}},     //         FULLWIDTH LEFT SQUARE BRACKET
-	{runeRange{0xFFE4, 0xFFE4}, propertyGeneralCategory{lbprID, gcSo}},     //         FULLWIDTH BROKEN BAR
-	{runeRange{0x10320, 0x10323}, propertyGeneralCategory{lbprAL, gcNo}},   //     [4] OLD ITALIC NUMERAL ONE..OLD ITALIC NUMERAL FIFTY
-	{runeRange{0x10740, 0x10755}, propertyGeneralCategory{lbprAL, gcLo}},   //    [22] LINEAR A SIGN A701 A..LINEAR A SIGN A732 JE
-	{runeRange{0x109D2, 0x109FF}, propertyGeneralCategory{lbprAL, gcNo}},   //    [46] MEROITIC CURSIVE NUMBER ONE HUNDRED..MEROITIC CURSIVE FRACTION TEN TWELFTHS
-	{runeRange{0x10B99, 0x10B9C}, propertyGeneralCategory{lbprAL, gcPo}},   //     [4] PSALTER PAHLAVI SECTION MARK..PSALTER PAHLAVI FOUR DOTS WITH DOT
-	{runeRange{0x11005, 0x11037}, propertyGeneralCategory{lbprAK, gcLo}},   //    [51] BRAHMI LETTER A..BRAHMI LETTER OLD TAMIL NNNA
-	{runeRange{0x11140, 0x11143}, propertyGeneralCategory{lbprBA, gcPo}},   //     [4] CHAKMA SECTION MARK..CHAKMA QUESTION MARK
-	{runeRange{0x1122F, 0x11231}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] KHOJKI VOWEL SIGN U..KHOJKI VOWEL SIGN AI
-	{runeRange{0x1133D, 0x1133D}, propertyGeneralCategory{lbprBA, gcLo}},   //         GRANTHA SIGN AVAGRAHA
-	{runeRange{0x114B3, 0x114B8}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] TIRHUTA VOWEL SIGN U..TIRHUTA VOWEL SIGN VOCALIC LL
-	{runeRange{0x11641, 0x11642}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] MODI DANDA..MODI DOUBLE DANDA
-	{runeRange{0x1183B, 0x1183B}, propertyGeneralCategory{lbprAL, gcPo}},   //         DOGRA ABBREVIATION SIGN
-	{runeRange{0x119E4, 0x119E4}, propertyGeneralCategory{lbprCM, gcMc}},   //         NANDINAGARI VOWEL SIGN PRISHTHAMATRA E
-	{runeRange{0x11AB0, 0x11ABF}, propertyGeneralCategory{lbprAL, gcLo}},   //    [16] CANADIAN SYLLABICS NATTILIK HI..CANADIAN SYLLABICS SPA
-	{runeRange{0x11C72, 0x11C8F}, propertyGeneralCategory{lbprAL, gcLo}},   //    [30] MARCHEN LETTER KA..MARCHEN LETTER A
-	{runeRange{0x11D47, 0x11D47}, propertyGeneralCategory{lbprCM, gcMn}},   //         MASARAM GONDI RA-KARA
-	{runeRange{0x11EF5, 0x11EF6}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] MAKASAR VOWEL SIGN E..MAKASAR VOWEL SIGN O
-	{runeRange{0x11FB0, 0x11FB0}, propertyGeneralCategory{lbprAL, gcLo}},   //         LISU LETTER YHA
-	{runeRange{0x13282, 0x13282}, propertyGeneralCategory{lbprCL, gcLo}},   //         EGYPTIAN HIEROGLYPH O033A
-	{runeRange{0x1343D, 0x1343D}, propertyGeneralCategory{lbprCL, gcCf}},   //         EGYPTIAN HIEROGLYPH END ENCLOSURE
-	{runeRange{0x16AD0, 0x16AED}, propertyGeneralCategory{lbprAL, gcLo}},   //    [30] BASSA VAH LETTER ENNI..BASSA VAH LETTER I
-	{runeRange{0x16E80, 0x16E96}, propertyGeneralCategory{lbprAL, gcNo}},   //    [23] MEDEFAIDRIN DIGIT ZERO..MEDEFAIDRIN DIGIT THREE ALTERNATE FORM
-	{runeRange{0x18B00, 0x18CD5}, propertyGeneralCategory{lbprAL, gcLo}},   //   [470] KHITAN SMALL SCRIPT CHARACTER-18B00..KHITAN SMALL SCRIPT CHARACTER-18CD5
-	{runeRange{0x1BC9C, 0x1BC9C}, propertyGeneralCategory{lbprAL, gcSo}},   //         DUPLOYAN SIGN O WITH CROSS
-	{runeRange{0x1D183, 0x1D184}, propertyGeneralCategory{lbprAL, gcSo}},   //     [2] MUSICAL SYMBOL ARPEGGIATO UP..MUSICAL SYMBOL ARPEGGIATO DOWN
-	{runeRange{0x1D4A5, 0x1D4A6}, propertyGeneralCategory{lbprAL, gcLu}},   //     [2] MATHEMATICAL SCRIPT CAPITAL J..MATHEMATICAL SCRIPT CAPITAL K
-	{runeRange{0x1D6C1, 0x1D6C1}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL BOLD NABLA
-	{runeRange{0x1D7A9, 0x1D7A9}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL SANS-SERIF BOLD ITALIC NABLA
-	{runeRange{0x1DA9B, 0x1DA9F}, propertyGeneralCategory{lbprCM, gcMn}},   //     [5] SIGNWRITING FILL MODIFIER-2..SIGNWRITING FILL MODIFIER-6
-	{runeRange{0x1E140, 0x1E149}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] NYIAKENG PUACHUE HMONG DIGIT ZERO..NYIAKENG PUACHUE HMONG DIGIT NINE
-	{runeRange{0x1E7F0, 0x1E7FE}, propertyGeneralCategory{lbprAL, gcLo}},   //    [15] ETHIOPIC SYLLABLE GURAGE QWI..ETHIOPIC SYLLABLE GURAGE PWEE
-	{runeRange{0x1ED2F, 0x1ED3D}, propertyGeneralCategory{lbprAL, gcNo}},   //    [15] OTTOMAN SIYAQ ALTERNATE NUMBER TWO..OTTOMAN SIYAQ FRACTION ONE SIXTH
-	{runeRange{0x1EE54, 0x1EE54}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED SHEEN
-	{runeRange{0x1EEA5, 0x1EEA9}, propertyGeneralCategory{lbprAL, gcLo}},   //     [5] ARABIC MATHEMATICAL DOUBLE-STRUCK WAW..ARABIC MATHEMATICAL DOUBLE-STRUCK YEH
-	{runeRange{0x1F10D, 0x1F10F}, propertyGeneralCategory{lbprID, gcSo}},   //     [3] CIRCLED ZERO WITH SLASH..CIRCLED DOLLAR SIGN WITH OVERLAID BACKSLASH
-	{runeRange{0x1F250, 0x1F251}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] CIRCLED IDEOGRAPH ADVANTAGE..CIRCLED IDEOGRAPH ACCEPT
-	{runeRange{0x1F3C8, 0x1F3C9}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] AMERICAN FOOTBALL..RUGBY FOOTBALL
-	{runeRange{0x1F488, 0x1F48E}, propertyGeneralCategory{lbprID, gcSo}},   //     [7] BARBER POLE..GEM STONE
-	{runeRange{0x1F4B3, 0x1F4FF}, propertyGeneralCategory{lbprID, gcSo}},   //    [77] CREDIT CARD..PRAYER BEADS
-	{runeRange{0x1F5DC, 0x1F5F3}, propertyGeneralCategory{lbprID, gcSo}},   //    [24] COMPRESSION..BALLOT BOX WITH BALLOT
-	{runeRange{0x1F6C0, 0x1F6C0}, propertyGeneralCategory{lbprEB, gcSo}},   //         BATH
-	{runeRange{0x1F7E0, 0x1F7EB}, propertyGeneralCategory{lbprID, gcSo}},   //    [12] LARGE ORANGE CIRCLE..LARGE BROWN SQUARE
-	{runeRange{0x1F900, 0x1F90B}, propertyGeneralCategory{lbprAL, gcSo}},   //    [12] CIRCLED CROSS FORMEE WITH FOUR DOTS..DOWNWARD FACING NOTCHED HOOK WITH DOT
-	{runeRange{0x1F9B7, 0x1F9B7}, propertyGeneralCategory{lbprID, gcSo}},   //         TOOTH
-	{runeRange{0x1FA89, 0x1FA8F}, propertyGeneralCategory{lbprID, gcCn}},   //     [7] <reserved-1FA89>..<reserved-1FA8F>
+	{runeRange{0x1BA1, 0x1BA1}, propertyGeneralCategory{lbprCM, gcMc}},     //         SUNDANESE CONSONANT SIGN PAMINGKAL
+	{runeRange{0x1C90, 0x1CBA}, propertyGeneralCategory{lbprAL, gcLu}},     //    [43] GEORGIAN MTAVRULI CAPITAL LETTER AN..GEORGIAN MTAVRULI CAPITAL LETTER AIN
+	{runeRange{0x1F48, 0x1F4D}, propertyGeneralCategory{lbprAL, gcLu}},     //     [6] GREEK CAPITAL LETTER OMICRON WITH PSILI..GREEK CAPITAL LETTER OMICRON WITH DASIA AND OXIA
+	{runeRange{0x2012, 0x2013}, propertyGeneralCategory{lbprBA, gcPd}},     //     [2] FIGURE DASH..EN DASH
+	{runeRange{0x2047, 0x2049}, propertyGeneralCategory{lbprNS, gcPo}},     //     [3] DOUBLE QUESTION MARK..EXCLAMATION QUESTION MARK
+	{runeRange{0x20A8, 0x20B5}, propertyGeneralCategory{lbprPR, gcSc}},     //    [14] RUPEE SIGN..CEDI SIGN
+	{runeRange{0x2121, 0x2122}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] TELEPHONE SIGN..TRADE MARK SIGN
+	{runeRange{0x2189, 0x2189}, propertyGeneralCategory{lbprAI, gcNo}},     //         VULGAR FRACTION ZERO THIRDS
+	{runeRange{0x2212, 0x2213}, propertyGeneralCategory{lbprPR, gcSm}},     //     [2] MINUS SIGN..MINUS-OR-PLUS SIGN
+	{runeRange{0x226E, 0x226F}, propertyGeneralCategory{lbprAI, gcSm}},     //     [2] NOT LESS-THAN..NOT GREATER-THAN
+	{runeRange{0x237D, 0x239A}, propertyGeneralCategory{lbprAL, gcSo}},     //    [30] SHOULDERED OPEN BOX..CLEAR SCREEN SYMBOL
+	{runeRange{0x25C0, 0x25C0}, propertyGeneralCategory{lbprAI, gcSo}},     //         BLACK LEFT-POINTING TRIANGLE
+	{runeRange{0x2640, 0x2640}, propertyGeneralCategory{lbprAI, gcSo}},     //         FEMALE SIGN
+	{runeRange{0x26DF, 0x26E1}, propertyGeneralCategory{lbprID, gcSo}},     //     [3] BLACK TRUCK..RESTRICTED LEFT ENTRY-2
+	{runeRange{0x276E, 0x276E}, propertyGeneralCategory{lbprOP, gcPs}},     //         HEAVY LEFT-POINTING ANGLE QUOTATION MARK ORNAMENT
+	{runeRange{0x2987, 0x2987}, propertyGeneralCategory{lbprOP, gcPs}},     //         Z NOTATION LEFT IMAGE BRACKET
+	{runeRange{0x2B4D, 0x2B54}, propertyGeneralCategory{lbprAL, gcSo}},     //     [8] DOWNWARDS TRIANGLE-HEADED ZIGZAG ARROW..WHITE RIGHT-POINTING PENTAGON
+	{runeRange{0x2DC8, 0x2DCE}, propertyGeneralCategory{lbprAL, gcLo}},     //     [7] ETHIOPIC SYLLABLE KYA..ETHIOPIC SYLLABLE KYO
+	{runeRange{0x2E27, 0x2E27}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT SIDEWAYS U BRACKET
+	{runeRange{0x2E5D, 0x2E5D}, propertyGeneralCategory{lbprBA, gcPd}},     //         OBLIQUE HYPHEN
+	{runeRange{0x301D, 0x301D}, propertyGeneralCategory{lbprOP, gcPs}},     //         REVERSED DOUBLE PRIME QUOTATION MARK
+	{runeRange{0x3088, 0x308D}, propertyGeneralCategory{lbprID, gcLo}},     //     [6] HIRAGANA LETTER YO..HIRAGANA LETTER RO
+	{runeRange{0x30FC, 0x30FC}, propertyGeneralCategory{lbprCJ, gcLm}},     //         KATAKANA-HIRAGANA PROLONGED SOUND MARK
+	{runeRange{0xA4F8, 0xA4FD}, propertyGeneralCategory{lbprAL, gcLm}},     //     [6] LISU LETTER TONE MYA TI..LISU LETTER TONE MYA JEU
+	{runeRange{0xA788, 0xA788}, propertyGeneralCategory{lbprAL, gcLm}},     //         MODIFIER LETTER LOW CIRCUMFLEX ACCENT
+	{runeRange{0xA876, 0xA877}, propertyGeneralCategory{lbprEX, gcPo}},     //     [2] PHAGS-PA MARK SHAD..PHAGS-PA MARK DOUBLE SHAD
+	{runeRange{0xA9C0, 0xA9C0}, propertyGeneralCategory{lbprVI, gcMc}},     //         JAVANESE PANGKON
+	{runeRange{0xAA7B, 0xAA7B}, propertyGeneralCategory{lbprSA, gcMc}},     //         MYANMAR SIGN PAO KAREN TONE
+	{runeRange{0xAB30, 0xAB5A}, propertyGeneralCategory{lbprAL, gcLl}},     //    [43] LATIN SMALL LETTER BARRED ALPHA..LATIN SMALL LETTER Y WITH SHORT RIGHT LEG
+	{runeRange{0xACC5, 0xACDF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GYEG..HANGUL SYLLABLE GYEH
+	{runeRange{0xAE85, 0xAE9F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGYAG..HANGUL SYLLABLE GGYAH
+	{runeRange{0xB045, 0xB05F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGEUG..HANGUL SYLLABLE GGEUH
+	{runeRange{0xB205, 0xB21F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NUG..HANGUL SYLLABLE NUH
+	{runeRange{0xB3C5, 0xB3DF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DOG..HANGUL SYLLABLE DOH
+	{runeRange{0xB585, 0xB59F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDYAEG..HANGUL SYLLABLE DDYAEH
+	{runeRange{0xB745, 0xB75F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDYIG..HANGUL SYLLABLE DDYIH
+	{runeRange{0xB905, 0xB91F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RWEOG..HANGUL SYLLABLE RWEOH
+	{runeRange{0xBAC5, 0xBADF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MWAG..HANGUL SYLLABLE MWAH
+	{runeRange{0xBC85, 0xBC9F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BEOG..HANGUL SYLLABLE BEOH
+	{runeRange{0xBE45, 0xBE5F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BIG..HANGUL SYLLABLE BIH
+	{runeRange{0xC005, 0xC01F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBWEG..HANGUL SYLLABLE BBWEH
+	{runeRange{0xC1C5, 0xC1DF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SWAEG..HANGUL SYLLABLE SWAEH
+	{runeRange{0xC385, 0xC39F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSEG..HANGUL SYLLABLE SSEH
+	{runeRange{0xC545, 0xC55F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE AG..HANGUL SYLLABLE AH
+	{runeRange{0xC705, 0xC71F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE WIG..HANGUL SYLLABLE WIH
+	{runeRange{0xC8C5, 0xC8DF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JOEG..HANGUL SYLLABLE JOEH
+	{runeRange{0xCA85, 0xCA9F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJYEOG..HANGUL SYLLABLE JJYEOH
+	{runeRange{0xCC45, 0xCC5F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CAEG..HANGUL SYLLABLE CAEH
+	{runeRange{0xCE05, 0xCE1F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CYUG..HANGUL SYLLABLE CYUH
+	{runeRange{0xCFC5, 0xCFDF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KYOG..HANGUL SYLLABLE KYOH
+	{runeRange{0xD185, 0xD19F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TYEG..HANGUL SYLLABLE TYEH
+	{runeRange{0xD345, 0xD35F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PYAG..HANGUL SYLLABLE PYAH
+	{runeRange{0xD505, 0xD51F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PEUG..HANGUL SYLLABLE PEUH
+	{runeRange{0xD6C5, 0xD6DF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HUG..HANGUL SYLLABLE HUH
+	{runeRange{0xFB38, 0xFB3C}, propertyGeneralCategory{lbprHL, gcLo}},     //     [5] HEBREW LETTER TET WITH DAGESH..HEBREW LETTER LAMED WITH DAGESH
+	{runeRange{0xFE29, 0xFE29}, propertyGeneralCategory{lbprGL, gcMn}},     //         COMBINING TILDE LEFT HALF BELOW
+	{runeRange{0xFE52, 0xFE52}, propertyGeneralCategory{lbprCL, gcPo}},     //         SMALL FULL STOP
+	{runeRange{0xFF0E, 0xFF0E}, propertyGeneralCategory{lbprCL, gcPo}},     //         FULLWIDTH FULL STOP
+	{runeRange{0xFFC2, 0xFFC7}, propertyGeneralCategory{lbprID, gcLo}},     //     [6] HALFWIDTH HANGUL LETTER A..HALFWIDTH HANGUL LETTER E
+	{runeRange{0x101A0, 0x101A0}, propertyGeneralCategory{lbprAL, gcSo}},   //         GREEK SYMBOL TAU RHO
+	{runeRange{0x1057C, 0x1058A}, propertyGeneralCategory{lbprAL, gcLu}},   //    [15] VITHKUQI CAPITAL LETTER HA..VITHKUQI CAPITAL LETTER RE
+	{runeRange{0x10916, 0x1091B}, propertyGeneralCategory{lbprAL, gcNo}},   //     [6] PHOENICIAN NUMBER ONE..PHOENICIAN NUMBER THREE
+	{runeRange{0x10AF0, 0x10AF5}, propertyGeneralCategory{lbprBA, gcPo}},   //     [6] MANICHAEAN PUNCTUATION STAR..MANICHAEAN PUNCTUATION TWO DOTS
+	{runeRange{0x10EB0, 0x10EB1}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] YEZIDI LETTER LAM WITH DOT ABOVE..YEZIDI LETTER YOT WITH CIRCUMFLEX ABOVE
+	{runeRange{0x11080, 0x11081}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] KAITHI SIGN CANDRABINDU..KAITHI SIGN ANUSVARA
+	{runeRange{0x111B3, 0x111B5}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] SHARADA VOWEL SIGN AA..SHARADA VOWEL SIGN II
+	{runeRange{0x11280, 0x11286}, propertyGeneralCategory{lbprAL, gcLo}},   //     [7] MULTANI LETTER A..MULTANI LETTER GA
+	{runeRange{0x11362, 0x11363}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] GRANTHA VOWEL SIGN VOCALIC L..GRANTHA VOWEL SIGN VOCALIC LL
+	{runeRange{0x1144B, 0x1144E}, propertyGeneralCategory{lbprBA, gcPo}},   //     [4] NEWA DANDA..NEWA GAP FILLER
+	{runeRange{0x115D8, 0x115DB}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] SIDDHAM LETTER THREE-CIRCLE ALTERNATE I..SIDDHAM LETTER ALTERNATE U
+	{runeRange{0x11726, 0x11726}, propertyGeneralCategory{lbprSA, gcMc}},   //         AHOM VOWEL SIGN E
+	{runeRange{0x11944, 0x11946}, propertyGeneralCategory{lbprBA, gcPo}},   //     [3] DIVES AKURU DOUBLE DANDA..DIVES AKURU END OF TEXT MARK
+	{runeRange{0x11A97, 0x11A97}, propertyGeneralCategory{lbprCM, gcMc}},   //         SOYOMBO SIGN VISARGA
+	{runeRange{0x11CB5, 0x11CB6}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] MARCHEN SIGN ANUSVARA..MARCHEN SIGN CANDRABINDU
+	{runeRange{0x11F34, 0x11F35}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] KAWI VOWEL SIGN AA..KAWI VOWEL SIGN ALTERNATE AA
+	{runeRange{0x1325B, 0x1325D}, propertyGeneralCategory{lbprCL, gcLo}},   //     [3] EGYPTIAN HIEROGLYPH O006D..EGYPTIAN HIEROGLYPH O006F
+	{runeRange{0x13439, 0x1343B}, propertyGeneralCategory{lbprGL, gcCf}},   //     [3] EGYPTIAN HIEROGLYPH INSERT AT MIDDLE..EGYPTIAN HIEROGLYPH INSERT AT BOTTOM
+	{runeRange{0x1612D, 0x1612F}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] GURUNG KHEMA SIGN ANUSVARA..GURUNG KHEMA SIGN THOLHOMA
+	{runeRange{0x16B40, 0x16B43}, propertyGeneralCategory{lbprAL, gcLm}},   //     [4] PAHAWH HMONG SIGN VOS SEEV..PAHAWH HMONG SIGN IB YAM
+	{runeRange{0x16E99, 0x16E9A}, propertyGeneralCategory{lbprAL, gcPo}},   //     [2] MEDEFAIDRIN SYMBOL AIVA..MEDEFAIDRIN EXCLAMATION OH
+	{runeRange{0x18D00, 0x18D08}, propertyGeneralCategory{lbprID, gcLo}},   //     [9] TANGUT IDEOGRAPH-18D00..TANGUT IDEOGRAPH-18D08
+	{runeRange{0x1BC9D, 0x1BC9E}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] DUPLOYAN THICK LETTER SELECTOR..DUPLOYAN DOUBLE MARK
+	{runeRange{0x1D173, 0x1D17A}, propertyGeneralCategory{lbprCM, gcCf}},   //     [8] MUSICAL SYMBOL BEGIN BEAM..MUSICAL SYMBOL END PHRASE
+	{runeRange{0x1D49E, 0x1D49F}, propertyGeneralCategory{lbprAL, gcLu}},   //     [2] MATHEMATICAL SCRIPT CAPITAL C..MATHEMATICAL SCRIPT CAPITAL D
+	{runeRange{0x1D552, 0x1D6A5}, propertyGeneralCategory{lbprAL, gcLC}},   //   [340] MATHEMATICAL DOUBLE-STRUCK SMALL A..MATHEMATICAL ITALIC SMALL DOTLESS J
+	{runeRange{0x1D789, 0x1D789}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL SANS-SERIF BOLD PARTIAL DIFFERENTIAL
+	{runeRange{0x1DA87, 0x1DA8A}, propertyGeneralCategory{lbprBA, gcPo}},   //     [4] SIGNWRITING COMMA..SIGNWRITING COLON
+	{runeRange{0x1E130, 0x1E136}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] NYIAKENG PUACHUE HMONG TONE-B..NYIAKENG PUACHUE HMONG TONE-D
+	{runeRange{0x1E5EE, 0x1E5EF}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] OL ONAL SIGN MU..OL ONAL SIGN IKIR
+	{runeRange{0x1EC71, 0x1ECAB}, propertyGeneralCategory{lbprAL, gcNo}},   //    [59] INDIC SIYAQ NUMBER ONE..INDIC SIYAQ NUMBER PREFIXED NINE
+	{runeRange{0x1EE3B, 0x1EE3B}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL INITIAL GHAIN
+	{runeRange{0x1EE6C, 0x1EE72}, propertyGeneralCategory{lbprAL, gcLo}},   //     [7] ARABIC MATHEMATICAL STRETCHED MEEM..ARABIC MATHEMATICAL STRETCHED QAF
+	{runeRange{0x1F0B1, 0x1F0BF}, propertyGeneralCategory{lbprID, gcSo}},   //    [15] PLAYING CARD ACE OF HEARTS..PLAYING CARD RED JOKER
+	{runeRange{0x1F200, 0x1F202}, propertyGeneralCategory{lbprID, gcSo}},   //     [3] SQUARE HIRAGANA HOKA..SQUARED KATAKANA SA
+	{runeRange{0x1F3B7, 0x1F3BB}, propertyGeneralCategory{lbprID, gcSo}},   //     [5] SAXOPHONE..VIOLIN
+	{runeRange{0x1F479, 0x1F47B}, propertyGeneralCategory{lbprID, gcSo}},   //     [3] JAPANESE OGRE..GHOST
+	{runeRange{0x1F4A5, 0x1F4A9}, propertyGeneralCategory{lbprID, gcSo}},   //     [5] COLLISION SYMBOL..PILE OF POO
+	{runeRange{0x1F57B, 0x1F58F}, propertyGeneralCategory{lbprID, gcSo}},   //    [21] LEFT HAND TELEPHONE RECEIVER..TURNED OK HAND SIGN
+	{runeRange{0x1F67C, 0x1F67F}, propertyGeneralCategory{lbprAL, gcSo}},   //     [4] VERY HEAVY SOLIDUS..REVERSE CHECKER BOARD
+	{runeRange{0x1F774, 0x1F776}, propertyGeneralCategory{lbprID, gcSo}},   //     [3] LOT OF FORTUNE..LUNAR ECLIPSE
+	{runeRange{0x1F8C0, 0x1F8C1}, propertyGeneralCategory{lbprAL, gcSo}},   //     [2] LEFTWARDS ARROW FROM DOWNWARDS ARROW..RIGHTWARDS ARROW FROM DOWNWARDS ARROW
+	{runeRange{0x1F9B5, 0x1F9B6}, propertyGeneralCategory{lbprEB, gcSo}},   //     [2] LEG..FOOT
+	{runeRange{0x1FA80, 0x1FA89}, propertyGeneralCategory{lbprID, gcSo}},   //    [10] YO-YO..HARP
 	{runeRange{0x20000, 0x2A6DF}, propertyGeneralCategory{lbprID, gcLo}},   // [42720] CJK UNIFIED IDEOGRAPH-20000..CJK UNIFIED IDEOGRAPH-2A6DF
 	{runeRange{0x3134B, 0x3134F}, propertyGeneralCategory{lbprID, gcCn}},   //     [5] <reserved-3134B>..<reserved-3134F>
 	{runeRange{0x0021, 0x0021}, propertyGeneralCategory{lbprEX, gcPo}},     //         EXCLAMATION MARK
@@ -307,212 +307,212 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x19B0, 0x19C9}, propertyGeneralCategory{lbprSA, gcLo}},     //    [26] NEW TAI LUE VOWEL SIGN VOWEL SHORTENER..NEW TAI LUE TONE MARK-2
 	{runeRange{0x1A61, 0x1A61}, propertyGeneralCategory{lbprSA, gcMc}},     //         TAI THAM VOWEL SIGN A
 	{runeRange{0x1B04, 0x1B04}, propertyGeneralCategory{lbprCM, gcMc}},     //         BALINESE SIGN BISAH
-	{runeRange{0x1B61, 0x1B6A}, propertyGeneralCategory{lbprID, gcSo}},     //    [10] BALINESE MUSICAL SYMBOL DONG..BALINESE MUSICAL SYMBOL DANG GEDE
-	{runeRange{0x1BC0, 0x1BE5}, propertyGeneralCategory{lbprAS, gcLo}},     //    [38] BATAK LETTER A..BATAK LETTER U
-	{runeRange{0x1C40, 0x1C49}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] LEPCHA DIGIT ZERO..LEPCHA DIGIT NINE
-	{runeRange{0x1CED, 0x1CED}, propertyGeneralCategory{lbprCM, gcMn}},     //         VEDIC SIGN TIRYAK
-	{runeRange{0x1DCE, 0x1DFB}, propertyGeneralCategory{lbprCM, gcMn}},     //    [46] COMBINING OGONEK ABOVE..COMBINING DELETION MARK
-	{runeRange{0x1FBE, 0x1FBE}, propertyGeneralCategory{lbprAL, gcLl}},     //         GREEK PROSGEGRAMMENI
-	{runeRange{0x2008, 0x200A}, propertyGeneralCategory{lbprBA, gcZs}},     //     [3] PUNCTUATION SPACE..HAIR SPACE
-	{runeRange{0x201D, 0x201D}, propertyGeneralCategory{lbprQU, gcPf}},     //         RIGHT DOUBLE QUOTATION MARK
-	{runeRange{0x203C, 0x203D}, propertyGeneralCategory{lbprNS, gcPo}},     //     [2] DOUBLE EXCLAMATION MARK..INTERROBANG
-	{runeRange{0x205C, 0x205C}, propertyGeneralCategory{lbprAL, gcPo}},     //         DOTTED CROSS
-	{runeRange{0x2085, 0x2089}, propertyGeneralCategory{lbprAL, gcNo}},     //     [5] SUBSCRIPT FIVE..SUBSCRIPT NINE
-	{runeRange{0x20D0, 0x20DC}, propertyGeneralCategory{lbprCM, gcMn}},     //    [13] COMBINING LEFT HARPOON ABOVE..COMBINING FOUR DOTS ABOVE
-	{runeRange{0x2114, 0x2114}, propertyGeneralCategory{lbprAL, gcSo}},     //         L B BAR SYMBOL
-	{runeRange{0x212B, 0x212B}, propertyGeneralCategory{lbprAI, gcLu}},     //         ANGSTROM SIGN
-	{runeRange{0x2154, 0x2155}, propertyGeneralCategory{lbprAI, gcNo}},     //     [2] VULGAR FRACTION TWO THIRDS..VULGAR FRACTION ONE FIFTH
-	{runeRange{0x219A, 0x219B}, propertyGeneralCategory{lbprAL, gcSm}},     //     [2] LEFTWARDS ARROW WITH STROKE..RIGHTWARDS ARROW WITH STROKE
-	{runeRange{0x21F4, 0x21FF}, propertyGeneralCategory{lbprAL, gcSm}},     //    [12] RIGHT ARROW WITH SMALL CIRCLE..LEFT RIGHT OPEN-HEADED ARROW
-	{runeRange{0x221A, 0x221A}, propertyGeneralCategory{lbprAI, gcSm}},     //         SQUARE ROOT
-	{runeRange{0x2248, 0x2248}, propertyGeneralCategory{lbprAI, gcSm}},     //         ALMOST EQUAL TO
-	{runeRange{0x2286, 0x2287}, propertyGeneralCategory{lbprAI, gcSm}},     //     [2] SUBSET OF OR EQUAL TO..SUPERSET OF OR EQUAL TO
-	{runeRange{0x230B, 0x230B}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT FLOOR
-	{runeRange{0x23E2, 0x23EF}, propertyGeneralCategory{lbprAL, gcSo}},     //    [14] WHITE TRAPEZIUM..BLACK RIGHT-POINTING TRIANGLE WITH DOUBLE VERTICAL BAR
-	{runeRange{0x2596, 0x259F}, propertyGeneralCategory{lbprAL, gcSo}},     //    [10] QUADRANT LOWER LEFT..QUADRANT UPPER RIGHT AND LOWER LEFT AND LOWER RIGHT
-	{runeRange{0x25C9, 0x25CA}, propertyGeneralCategory{lbprAL, gcSo}},     //     [2] FISHEYE..LOZENGE
-	{runeRange{0x260E, 0x260F}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] BLACK TELEPHONE..WHITE TELEPHONE
-	{runeRange{0x2660, 0x2661}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] BLACK SPADE SUIT..WHITE HEART SUIT
-	{runeRange{0x26BD, 0x26C8}, propertyGeneralCategory{lbprID, gcSo}},     //    [12] SOCCER BALL..THUNDER CLOUD AND RAIN
-	{runeRange{0x26E8, 0x26E9}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] BLACK CROSS ON SHIELD..SHINTO SHRINE
-	{runeRange{0x2758, 0x275A}, propertyGeneralCategory{lbprAL, gcSo}},     //     [3] LIGHT VERTICAL BAR..HEAVY VERTICAL BAR
-	{runeRange{0x2772, 0x2772}, propertyGeneralCategory{lbprOP, gcPs}},     //         LIGHT LEFT TORTOISE SHELL BRACKET ORNAMENT
-	{runeRange{0x27EC, 0x27EC}, propertyGeneralCategory{lbprOP, gcPs}},     //         MATHEMATICAL LEFT WHITE TORTOISE SHELL BRACKET
-	{runeRange{0x298B, 0x298B}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT SQUARE BRACKET WITH UNDERBAR
-	{runeRange{0x29D9, 0x29D9}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT WIGGLY FENCE
-	{runeRange{0x2B97, 0x2BFF}, propertyGeneralCategory{lbprAL, gcSo}},     //   [105] SYMBOL FOR TYPE A ELECTRONICS..HELLSCHREIBER PAUSE SYMBOL
-	{runeRange{0x2D27, 0x2D27}, propertyGeneralCategory{lbprAL, gcLl}},     //         GEORGIAN SMALL LETTER YN
-	{runeRange{0x2E00, 0x2E01}, propertyGeneralCategory{lbprQU, gcPo}},     //     [2] RIGHT ANGLE SUBSTITUTION MARKER..RIGHT ANGLE DOTTED SUBSTITUTION MARKER
-	{runeRange{0x2E1A, 0x2E1A}, propertyGeneralCategory{lbprAL, gcPd}},     //         HYPHEN WITH DIAERESIS
-	{runeRange{0x2E2E, 0x2E2E}, propertyGeneralCategory{lbprEX, gcPo}},     //         REVERSED QUESTION MARK
-	{runeRange{0x2E4E, 0x2E4F}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] PUNCTUS ELEVATUS MARK..CORNISH VERSE DIVIDER
-	{runeRange{0x2FF0, 0x2FFF}, propertyGeneralCategory{lbprID, gcSo}},     //    [16] IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT..IDEOGRAPHIC DESCRIPTION CHARACTER ROTATION
-	{runeRange{0x3010, 0x3010}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT BLACK LENTICULAR BRACKET
-	{runeRange{0x302A, 0x302D}, propertyGeneralCategory{lbprCM, gcMn}},     //     [4] IDEOGRAPHIC LEVEL TONE MARK..IDEOGRAPHIC ENTERING TONE MARK
-	{runeRange{0x3046, 0x3046}, propertyGeneralCategory{lbprID, gcLo}},     //         HIRAGANA LETTER U
-	{runeRange{0x3099, 0x309A}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK..COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
-	{runeRange{0x30C4, 0x30E2}, propertyGeneralCategory{lbprID, gcLo}},     //    [31] KATAKANA LETTER TU..KATAKANA LETTER MO
-	{runeRange{0x3131, 0x318E}, propertyGeneralCategory{lbprID, gcLo}},     //    [94] HANGUL LETTER KIYEOK..HANGUL LETTER ARAEAE
-	{runeRange{0x328A, 0x32B0}, propertyGeneralCategory{lbprID, gcSo}},     //    [39] CIRCLED IDEOGRAPH MOON..CIRCLED IDEOGRAPH NIGHT
-	{runeRange{0xA60D, 0xA60D}, propertyGeneralCategory{lbprBA, gcPo}},     //         VAI COMMA
-	{runeRange{0xA69E, 0xA69F}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] COMBINING CYRILLIC LETTER EF..COMBINING CYRILLIC LETTER IOTIFIED E
-	{runeRange{0xA790, 0xA7CA}, propertyGeneralCategory{lbprAL, gcLC}},     //    [59] LATIN CAPITAL LETTER N WITH DESCENDER..LATIN SMALL LETTER S WITH SHORT STROKE OVERLAY
-	{runeRange{0xA80C, 0xA822}, propertyGeneralCategory{lbprAL, gcLo}},     //    [23] SYLOTI NAGRI LETTER CO..SYLOTI NAGRI LETTER HO
-	{runeRange{0xA8C4, 0xA8C5}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] SAURASHTRA SIGN VIRAMA..SAURASHTRA SIGN CANDRABINDU
-	{runeRange{0xA952, 0xA953}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] REJANG CONSONANT SIGN H..REJANG VIRAMA
-	{runeRange{0xA9CF, 0xA9CF}, propertyGeneralCategory{lbprBA, gcLm}},     //         JAVANESE PANGRANGKEP
-	{runeRange{0xAA43, 0xAA43}, propertyGeneralCategory{lbprCM, gcMn}},     //         CHAM CONSONANT SIGN FINAL NG
-	{runeRange{0xAA80, 0xAAAF}, propertyGeneralCategory{lbprSA, gcLo}},     //    [48] TAI VIET LETTER LOW KO..TAI VIET LETTER HIGH O
-	{runeRange{0xAAEC, 0xAAED}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] MEETEI MAYEK VOWEL SIGN UU..MEETEI MAYEK VOWEL SIGN AAI
-	{runeRange{0xAB69, 0xAB69}, propertyGeneralCategory{lbprAL, gcLm}},     //         MODIFIER LETTER SMALL TURNED W
-	{runeRange{0xAC1D, 0xAC37}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GAEG..HANGUL SYLLABLE GAEH
-	{runeRange{0xACFD, 0xAD17}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GWAG..HANGUL SYLLABLE GWAH
-	{runeRange{0xADDD, 0xADF7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GYUG..HANGUL SYLLABLE GYUH
-	{runeRange{0xAEBD, 0xAED7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGEOG..HANGUL SYLLABLE GGEOH
-	{runeRange{0xAF9D, 0xAFB7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGYOG..HANGUL SYLLABLE GGYOH
-	{runeRange{0xB07D, 0xB097}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGIG..HANGUL SYLLABLE GGIH
-	{runeRange{0xB15D, 0xB177}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NYEG..HANGUL SYLLABLE NYEH
-	{runeRange{0xB23D, 0xB257}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NWEG..HANGUL SYLLABLE NWEH
-	{runeRange{0xB31D, 0xB337}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DYAG..HANGUL SYLLABLE DYAH
-	{runeRange{0xB3FD, 0xB417}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DWAEG..HANGUL SYLLABLE DWAEH
-	{runeRange{0xB4DD, 0xB4F7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DEUG..HANGUL SYLLABLE DEUH
-	{runeRange{0xB5BD, 0xB5D7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDEG..HANGUL SYLLABLE DDEH
-	{runeRange{0xB69D, 0xB6B7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDUG..HANGUL SYLLABLE DDUH
-	{runeRange{0xB77D, 0xB797}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RAG..HANGUL SYLLABLE RAH
-	{runeRange{0xB85D, 0xB877}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE ROG..HANGUL SYLLABLE ROH
-	{runeRange{0xB93D, 0xB957}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RWIG..HANGUL SYLLABLE RWIH
-	{runeRange{0xBA1D, 0xBA37}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MYAEG..HANGUL SYLLABLE MYAEH
-	{runeRange{0xBAFD, 0xBB17}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MOEG..HANGUL SYLLABLE MOEH
-	{runeRange{0xBBDD, 0xBBF7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MYIG..HANGUL SYLLABLE MYIH
-	{runeRange{0xBCBD, 0xBCD7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BYEOG..HANGUL SYLLABLE BYEOH
-	{runeRange{0xBD9D, 0xBDB7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BWEOG..HANGUL SYLLABLE BWEOH
-	{runeRange{0xBE7D, 0xBE97}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBAEG..HANGUL SYLLABLE BBAEH
-	{runeRange{0xBF5D, 0xBF77}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBWAG..HANGUL SYLLABLE BBWAH
-	{runeRange{0xC03D, 0xC057}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBYUG..HANGUL SYLLABLE BBYUH
-	{runeRange{0xC11D, 0xC137}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SEOG..HANGUL SYLLABLE SEOH
-	{runeRange{0xC1FD, 0xC217}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SYOG..HANGUL SYLLABLE SYOH
-	{runeRange{0xC2DD, 0xC2F7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SIG..HANGUL SYLLABLE SIH
-	{runeRange{0xC3BD, 0xC3D7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSYEG..HANGUL SYLLABLE SSYEH
-	{runeRange{0xC49D, 0xC4B7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSWEG..HANGUL SYLLABLE SSWEH
-	{runeRange{0xC57D, 0xC597}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE YAG..HANGUL SYLLABLE YAH
-	{runeRange{0xC65D, 0xC677}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE WAEG..HANGUL SYLLABLE WAEH
-	{runeRange{0xC73D, 0xC757}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE EUG..HANGUL SYLLABLE EUH
-	{runeRange{0xC81D, 0xC837}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JEG..HANGUL SYLLABLE JEH
-	{runeRange{0xC8FD, 0xC917}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JUG..HANGUL SYLLABLE JUH
-	{runeRange{0xC9DD, 0xC9F7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJAG..HANGUL SYLLABLE JJAH
-	{runeRange{0xCABD, 0xCAD7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJOG..HANGUL SYLLABLE JJOH
-	{runeRange{0xCB9D, 0xCBB7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJWIG..HANGUL SYLLABLE JJWIH
-	{runeRange{0xCC7D, 0xCC97}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CYAEG..HANGUL SYLLABLE CYAEH
-	{runeRange{0xCD5D, 0xCD77}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE COEG..HANGUL SYLLABLE COEH
-	{runeRange{0xCE3D, 0xCE57}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CYIG..HANGUL SYLLABLE CYIH
-	{runeRange{0xCF1D, 0xCF37}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KYEOG..HANGUL SYLLABLE KYEOH
-	{runeRange{0xCFFD, 0xD017}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KWEOG..HANGUL SYLLABLE KWEOH
-	{runeRange{0xD0DD, 0xD0F7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TAEG..HANGUL SYLLABLE TAEH
-	{runeRange{0xD1BD, 0xD1D7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TWAG..HANGUL SYLLABLE TWAH
-	{runeRange{0xD29D, 0xD2B7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TYUG..HANGUL SYLLABLE TYUH
-	{runeRange{0xD37D, 0xD397}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PEOG..HANGUL SYLLABLE PEOH
-	{runeRange{0xD45D, 0xD477}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PYOG..HANGUL SYLLABLE PYOH
-	{runeRange{0xD53D, 0xD557}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PIG..HANGUL SYLLABLE PIH
-	{runeRange{0xD61D, 0xD637}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HYEG..HANGUL SYLLABLE HYEH
-	{runeRange{0xD6FD, 0xD717}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HWEG..HANGUL SYLLABLE HWEH
-	{runeRange{0xE000, 0xF8FF}, propertyGeneralCategory{lbprXX, gcCo}},     //  [6400] <private-use-E000>..<private-use-F8FF>
-	{runeRange{0xFB46, 0xFB4F}, propertyGeneralCategory{lbprHL, gcLo}},     //    [10] HEBREW LETTER TSADI WITH DAGESH..HEBREW LIGATURE ALEF LAMED
-	{runeRange{0xFE13, 0xFE14}, propertyGeneralCategory{lbprIS, gcPo}},     //     [2] PRESENTATION FORM FOR VERTICAL COLON..PRESENTATION FORM FOR VERTICAL SEMICOLON
-	{runeRange{0xFE3C, 0xFE3C}, propertyGeneralCategory{lbprCL, gcPe}},     //         PRESENTATION FORM FOR VERTICAL RIGHT BLACK LENTICULAR BRACKET
-	{runeRange{0xFE52, 0xFE52}, propertyGeneralCategory{lbprCL, gcPo}},     //         SMALL FULL STOP
-	{runeRange{0xFE6A, 0xFE6A}, propertyGeneralCategory{lbprPO, gcPo}},     //         SMALL PERCENT SIGN
-	{runeRange{0xFF0E, 0xFF0E}, propertyGeneralCategory{lbprCL, gcPo}},     //         FULLWIDTH FULL STOP
-	{runeRange{0xFF5C, 0xFF5C}, propertyGeneralCategory{lbprID, gcSm}},     //         FULLWIDTH VERTICAL LINE
-	{runeRange{0xFFC2, 0xFFC7}, propertyGeneralCategory{lbprID, gcLo}},     //     [6] HALFWIDTH HANGUL LETTER A..HALFWIDTH HANGUL LETTER E
-	{runeRange{0x10000, 0x1000B}, propertyGeneralCategory{lbprAL, gcLo}},   //    [12] LINEAR B SYLLABLE B008 A..LINEAR B SYLLABLE B046 JE
-	{runeRange{0x101A0, 0x101A0}, propertyGeneralCategory{lbprAL, gcSo}},   //         GREEK SYMBOL TAU RHO
-	{runeRange{0x10380, 0x1039D}, propertyGeneralCategory{lbprAL, gcLo}},   //    [30] UGARITIC LETTER ALPA..UGARITIC LETTER SSU
-	{runeRange{0x1057C, 0x1058A}, propertyGeneralCategory{lbprAL, gcLu}},   //    [15] VITHKUQI CAPITAL LETTER HA..VITHKUQI CAPITAL LETTER RE
-	{runeRange{0x10837, 0x10838}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] CYPRIOT SYLLABLE XA..CYPRIOT SYLLABLE XE
-	{runeRange{0x1091F, 0x1091F}, propertyGeneralCategory{lbprBA, gcPo}},   //         PHOENICIAN WORD SEPARATOR
-	{runeRange{0x10A38, 0x10A3A}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] KHAROSHTHI SIGN BAR ABOVE..KHAROSHTHI SIGN DOT BELOW
-	{runeRange{0x10AF6, 0x10AF6}, propertyGeneralCategory{lbprIN, gcPo}},   //         MANICHAEAN PUNCTUATION LINE FILLER
-	{runeRange{0x10D30, 0x10D39}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] HANIFI ROHINGYA DIGIT ZERO..HANIFI ROHINGYA DIGIT NINE
-	{runeRange{0x10F86, 0x10F89}, propertyGeneralCategory{lbprAL, gcPo}},   //     [4] OLD UYGHUR PUNCTUATION BAR..OLD UYGHUR PUNCTUATION FOUR DOTS
-	{runeRange{0x11071, 0x11072}, propertyGeneralCategory{lbprAK, gcLo}},   //     [2] BRAHMI LETTER OLD TAMIL SHORT E..BRAHMI LETTER OLD TAMIL SHORT O
-	{runeRange{0x110D0, 0x110E8}, propertyGeneralCategory{lbprAL, gcLo}},   //    [25] SORA SOMPENG LETTER SAH..SORA SOMPENG LETTER MAE
-	{runeRange{0x11176, 0x11176}, propertyGeneralCategory{lbprAL, gcLo}},   //         MAHAJANI LIGATURE SHRI
-	{runeRange{0x111DA, 0x111DA}, propertyGeneralCategory{lbprAL, gcLo}},   //         SHARADA EKAM
-	{runeRange{0x1123D, 0x1123D}, propertyGeneralCategory{lbprAL, gcPo}},   //         KHOJKI ABBREVIATION SIGN
-	{runeRange{0x11302, 0x11303}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] GRANTHA SIGN ANUSVARA..GRANTHA SIGN VISARGA
-	{runeRange{0x11357, 0x11357}, propertyGeneralCategory{lbprCM, gcMc}},   //         GRANTHA AU LENGTH MARK
-	{runeRange{0x1144F, 0x1144F}, propertyGeneralCategory{lbprAL, gcPo}},   //         NEWA ABBREVIATION SIGN
-	{runeRange{0x114C6, 0x114C6}, propertyGeneralCategory{lbprAL, gcPo}},   //         TIRHUTA ABBREVIATION SIGN
-	{runeRange{0x115DC, 0x115DD}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] SIDDHAM VOWEL SIGN ALTERNATE U..SIDDHAM VOWEL SIGN ALTERNATE UU
-	{runeRange{0x116AD, 0x116AD}, propertyGeneralCategory{lbprCM, gcMn}},   //         TAKRI VOWEL SIGN AA
-	{runeRange{0x1173C, 0x1173E}, propertyGeneralCategory{lbprBA, gcPo}},   //     [3] AHOM SIGN SMALL SECTION..AHOM SIGN RULAI
-	{runeRange{0x11915, 0x11916}, propertyGeneralCategory{lbprAK, gcLo}},   //     [2] DIVES AKURU LETTER NYA..DIVES AKURU LETTER TTA
-	{runeRange{0x119D1, 0x119D3}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] NANDINAGARI VOWEL SIGN AA..NANDINAGARI VOWEL SIGN II
-	{runeRange{0x11A3F, 0x11A3F}, propertyGeneralCategory{lbprBB, gcPo}},   //         ZANABAZAR SQUARE INITIAL HEAD MARK
-	{runeRange{0x11A9A, 0x11A9C}, propertyGeneralCategory{lbprBA, gcPo}},   //     [3] SOYOMBO MARK TSHEG..SOYOMBO MARK DOUBLE SHAD
-	{runeRange{0x11C0A, 0x11C2E}, propertyGeneralCategory{lbprAL, gcLo}},   //    [37] BHAIKSUKI LETTER E..BHAIKSUKI LETTER HA
-	{runeRange{0x11C50, 0x11C59}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] BHAIKSUKI DIGIT ZERO..BHAIKSUKI DIGIT NINE
-	{runeRange{0x11CB1, 0x11CB1}, propertyGeneralCategory{lbprCM, gcMc}},   //         MARCHEN VOWEL SIGN I
-	{runeRange{0x11D3A, 0x11D3A}, propertyGeneralCategory{lbprCM, gcMn}},   //         MASARAM GONDI VOWEL SIGN E
-	{runeRange{0x11D6A, 0x11D89}, propertyGeneralCategory{lbprAL, gcLo}},   //    [32] GUNJALA GONDI LETTER OO..GUNJALA GONDI LETTER SA
-	{runeRange{0x11DA0, 0x11DA9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] GUNJALA GONDI DIGIT ZERO..GUNJALA GONDI DIGIT NINE
-	{runeRange{0x11F03, 0x11F03}, propertyGeneralCategory{lbprCM, gcMc}},   //         KAWI SIGN VISARGA
-	{runeRange{0x11F42, 0x11F42}, propertyGeneralCategory{lbprVI, gcMn}},   //         KAWI CONJOINER
-	{runeRange{0x11FE1, 0x11FF1}, propertyGeneralCategory{lbprAL, gcSo}},   //    [17] TAMIL SIGN PAARAM..TAMIL SIGN VAKAIYARAA
-	{runeRange{0x13000, 0x13257}, propertyGeneralCategory{lbprAL, gcLo}},   //   [600] EGYPTIAN HIEROGLYPH A001..EGYPTIAN HIEROGLYPH O006
-	{runeRange{0x13288, 0x13288}, propertyGeneralCategory{lbprOP, gcLo}},   //         EGYPTIAN HIEROGLYPH O036C
-	{runeRange{0x13437, 0x13437}, propertyGeneralCategory{lbprOP, gcCf}},   //         EGYPTIAN HIEROGLYPH BEGIN SEGMENT
-	{runeRange{0x13441, 0x13446}, propertyGeneralCategory{lbprAL, gcLo}},   //     [6] EGYPTIAN HIEROGLYPH FULL BLANK..EGYPTIAN HIEROGLYPH WIDE LOST SIGN
+	{runeRange{0x1B5D, 0x1B60}, propertyGeneralCategory{lbprBA, gcPo}},     //     [4] BALINESE CARIK PAMUNGKAH..BALINESE PAMENENG
+	{runeRange{0x1BBA, 0x1BBF}, propertyGeneralCategory{lbprAL, gcLo}},     //     [6] SUNDANESE AVAGRAHA..SUNDANESE LETTER FINAL M
+	{runeRange{0x1C3B, 0x1C3F}, propertyGeneralCategory{lbprBA, gcPo}},     //     [5] LEPCHA PUNCTUATION TA-ROL..LEPCHA PUNCTUATION TSHOOK
+	{runeRange{0x1CE9, 0x1CEC}, propertyGeneralCategory{lbprAL, gcLo}},     //     [4] VEDIC SIGN ANUSVARA ANTARGOMUKHA..VEDIC SIGN ANUSVARA VAMAGOMUKHA WITH TAIL
+	{runeRange{0x1DCD, 0x1DCD}, propertyGeneralCategory{lbprGL, gcMn}},     //         COMBINING DOUBLE CIRCUMFLEX ABOVE
+	{runeRange{0x1FBD, 0x1FBD}, propertyGeneralCategory{lbprAL, gcSk}},     //         GREEK KORONIS
+	{runeRange{0x2007, 0x2007}, propertyGeneralCategory{lbprGL, gcZs}},     //         FIGURE SPACE
+	{runeRange{0x201B, 0x201C}, propertyGeneralCategory{lbprQU, gcPi}},     //     [2] SINGLE HIGH-REVERSED-9 QUOTATION MARK..LEFT DOUBLE QUOTATION MARK
+	{runeRange{0x203B, 0x203B}, propertyGeneralCategory{lbprAI, gcPo}},     //         REFERENCE MARK
+	{runeRange{0x2058, 0x205B}, propertyGeneralCategory{lbprBA, gcPo}},     //     [4] FOUR DOT PUNCTUATION..FOUR DOT MARK
+	{runeRange{0x2081, 0x2084}, propertyGeneralCategory{lbprAI, gcNo}},     //     [4] SUBSCRIPT ONE..SUBSCRIPT FOUR
+	{runeRange{0x20C1, 0x20CF}, propertyGeneralCategory{lbprPR, gcCn}},     //    [15] <reserved-20C1>..<reserved-20CF>
+	{runeRange{0x2113, 0x2113}, propertyGeneralCategory{lbprAI, gcLl}},     //         SCRIPT SMALL L
+	{runeRange{0x212A, 0x212A}, propertyGeneralCategory{lbprAL, gcLu}},     //         KELVIN SIGN
+	{runeRange{0x2150, 0x215E}, propertyGeneralCategory{lbprAI, gcNo}},     //    [15] VULGAR FRACTION ONE SEVENTH..VULGAR FRACTION SEVEN EIGHTHS
+	{runeRange{0x21A3, 0x21A3}, propertyGeneralCategory{lbprAL, gcSm}},     //         RIGHTWARDS ARROW WITH TAIL
+	{runeRange{0x2204, 0x2206}, propertyGeneralCategory{lbprAL, gcSm}},     //     [3] THERE DOES NOT EXIST..INCREMENT
+	{runeRange{0x2223, 0x2223}, propertyGeneralCategory{lbprAI, gcSm}},     //         DIVIDES
+	{runeRange{0x2252, 0x2252}, propertyGeneralCategory{lbprAI, gcSm}},     //         APPROXIMATELY EQUAL TO OR THE IMAGE OF
+	{runeRange{0x2299, 0x2299}, propertyGeneralCategory{lbprAI, gcSm}},     //         CIRCLED DOT OPERATOR
+	{runeRange{0x231A, 0x231B}, propertyGeneralCategory{lbprID, gcSo}},     //     [2] WATCH..HOURGLASS
+	{runeRange{0x2440, 0x244A}, propertyGeneralCategory{lbprAL, gcSo}},     //    [11] OCR HOOK..OCR DOUBLE BACKSLASH
+	{runeRange{0x25AA, 0x25B1}, propertyGeneralCategory{lbprAL, gcSo}},     //     [8] BLACK SMALL SQUARE..WHITE PARALLELOGRAM
+	{runeRange{0x25D2, 0x25E1}, propertyGeneralCategory{lbprAL, gcSo}},     //    [16] CIRCLE WITH LOWER HALF BLACK..LOWER HALF CIRCLE
+	{runeRange{0x2618, 0x2618}, propertyGeneralCategory{lbprID, gcSo}},     //         SHAMROCK
+	{runeRange{0x2667, 0x2667}, propertyGeneralCategory{lbprAI, gcSo}},     //         WHITE CLUB SUIT
+	{runeRange{0x26CF, 0x26D1}, propertyGeneralCategory{lbprID, gcSo}},     //     [3] PICK..HELMET WITH WHITE CROSS
+	{runeRange{0x26F6, 0x26F6}, propertyGeneralCategory{lbprAI, gcSo}},     //         SQUARE FOUR CORNERS
+	{runeRange{0x2764, 0x2764}, propertyGeneralCategory{lbprID, gcSo}},     //         HEAVY BLACK HEART
+	{runeRange{0x2776, 0x2793}, propertyGeneralCategory{lbprAI, gcNo}},     //    [30] DINGBAT NEGATIVE CIRCLED DIGIT ONE..DINGBAT NEGATIVE CIRCLED SANS-SERIF NUMBER TEN
+	{runeRange{0x27F0, 0x27FF}, propertyGeneralCategory{lbprAL, gcSm}},     //    [16] UPWARDS QUADRUPLE ARROW..LONG RIGHTWARDS SQUIGGLE ARROW
+	{runeRange{0x298F, 0x298F}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT SQUARE BRACKET WITH TICK IN BOTTOM CORNER
+	{runeRange{0x29FC, 0x29FC}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT-POINTING CURVED ANGLE BRACKET
+	{runeRange{0x2C7E, 0x2C7F}, propertyGeneralCategory{lbprAL, gcLu}},     //     [2] LATIN CAPITAL LETTER S WITH SWASH TAIL..LATIN CAPITAL LETTER Z WITH SWASH TAIL
+	{runeRange{0x2D70, 0x2D70}, propertyGeneralCategory{lbprBA, gcPo}},     //         TIFINAGH SEPARATOR MARK
+	{runeRange{0x2E05, 0x2E05}, propertyGeneralCategory{lbprQU, gcPf}},     //         RIGHT DOTTED SUBSTITUTION BRACKET
+	{runeRange{0x2E1E, 0x2E1F}, propertyGeneralCategory{lbprAL, gcPo}},     //     [2] TILDE WITH DOT ABOVE..TILDE WITH DOT BELOW
+	{runeRange{0x2E33, 0x2E34}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] RAISED DOT..RAISED COMMA
+	{runeRange{0x2E55, 0x2E55}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT SQUARE BRACKET WITH STROKE
+	{runeRange{0x3004, 0x3004}, propertyGeneralCategory{lbprID, gcSo}},     //         JAPANESE INDUSTRIAL STANDARD SYMBOL
+	{runeRange{0x3015, 0x3015}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT TORTOISE SHELL BRACKET
+	{runeRange{0x3035, 0x3035}, propertyGeneralCategory{lbprCM, gcLm}},     //         VERTICAL KANA REPEAT MARK LOWER HALF
+	{runeRange{0x304A, 0x3062}, propertyGeneralCategory{lbprID, gcLo}},     //    [25] HIRAGANA LETTER O..HIRAGANA LETTER DI
+	{runeRange{0x30A0, 0x30A0}, propertyGeneralCategory{lbprNS, gcPd}},     //         KATAKANA-HIRAGANA DOUBLE HYPHEN
+	{runeRange{0x30E6, 0x30E6}, propertyGeneralCategory{lbprID, gcLo}},     //         KATAKANA LETTER YU
+	{runeRange{0x31A0, 0x31BF}, propertyGeneralCategory{lbprID, gcLo}},     //    [32] BOPOMOFO LETTER BU..BOPOMOFO LETTER AH
+	{runeRange{0x3400, 0x4DBF}, propertyGeneralCategory{lbprID, gcLo}},     //  [6592] CJK UNIFIED IDEOGRAPH-3400..CJK UNIFIED IDEOGRAPH-4DBF
+	{runeRange{0xA620, 0xA629}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] VAI DIGIT ZERO..VAI DIGIT NINE
+	{runeRange{0xA6F2, 0xA6F2}, propertyGeneralCategory{lbprAL, gcPo}},     //         BAMUM NJAEMLI
+	{runeRange{0xA7F2, 0xA7F4}, propertyGeneralCategory{lbprAL, gcLm}},     //     [3] MODIFIER LETTER CAPITAL C..MODIFIER LETTER CAPITAL Q
+	{runeRange{0xA828, 0xA82B}, propertyGeneralCategory{lbprAL, gcSo}},     //     [4] SYLOTI NAGRI POETRY MARK-1..SYLOTI NAGRI POETRY MARK-4
+	{runeRange{0xA8F2, 0xA8F7}, propertyGeneralCategory{lbprAL, gcLo}},     //     [6] DEVANAGARI SIGN SPACING CANDRABINDU..DEVANAGARI SIGN CANDRABINDU AVAGRAHA
+	{runeRange{0xA983, 0xA983}, propertyGeneralCategory{lbprCM, gcMc}},     //         JAVANESE SIGN WIGNYAN
+	{runeRange{0xA9E5, 0xA9E5}, propertyGeneralCategory{lbprSA, gcMn}},     //         MYANMAR SIGN SHAN SAW
+	{runeRange{0xAA50, 0xAA59}, propertyGeneralCategory{lbprAS, gcNd}},     //    [10] CHAM DIGIT ZERO..CHAM DIGIT NINE
+	{runeRange{0xAAB5, 0xAAB6}, propertyGeneralCategory{lbprSA, gcLo}},     //     [2] TAI VIET VOWEL E..TAI VIET VOWEL O
+	{runeRange{0xAAF3, 0xAAF4}, propertyGeneralCategory{lbprAL, gcLm}},     //     [2] MEETEI MAYEK SYLLABLE REPETITION MARK..MEETEI MAYEK WORD REPETITION MARK
+	{runeRange{0xABE3, 0xABE4}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] MEETEI MAYEK VOWEL SIGN ONAP..MEETEI MAYEK VOWEL SIGN INAP
+	{runeRange{0xAC55, 0xAC6F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GYAEG..HANGUL SYLLABLE GYAEH
+	{runeRange{0xAD35, 0xAD4F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GOEG..HANGUL SYLLABLE GOEH
+	{runeRange{0xAE15, 0xAE2F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GYIG..HANGUL SYLLABLE GYIH
+	{runeRange{0xAEF5, 0xAF0F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGYEOG..HANGUL SYLLABLE GGYEOH
+	{runeRange{0xAFD5, 0xAFEF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGWEOG..HANGUL SYLLABLE GGWEOH
+	{runeRange{0xB0B5, 0xB0CF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NAEG..HANGUL SYLLABLE NAEH
+	{runeRange{0xB195, 0xB1AF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NWAG..HANGUL SYLLABLE NWAH
+	{runeRange{0xB275, 0xB28F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NYUG..HANGUL SYLLABLE NYUH
+	{runeRange{0xB355, 0xB36F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DEOG..HANGUL SYLLABLE DEOH
+	{runeRange{0xB435, 0xB44F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DYOG..HANGUL SYLLABLE DYOH
+	{runeRange{0xB515, 0xB52F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DIG..HANGUL SYLLABLE DIH
+	{runeRange{0xB5F5, 0xB60F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDYEG..HANGUL SYLLABLE DDYEH
+	{runeRange{0xB6D5, 0xB6EF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDWEG..HANGUL SYLLABLE DDWEH
+	{runeRange{0xB7B5, 0xB7CF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RYAG..HANGUL SYLLABLE RYAH
+	{runeRange{0xB895, 0xB8AF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RWAEG..HANGUL SYLLABLE RWAEH
+	{runeRange{0xB975, 0xB98F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE REUG..HANGUL SYLLABLE REUH
+	{runeRange{0xBA55, 0xBA6F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MEG..HANGUL SYLLABLE MEH
+	{runeRange{0xBB35, 0xBB4F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MUG..HANGUL SYLLABLE MUH
+	{runeRange{0xBC15, 0xBC2F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BAG..HANGUL SYLLABLE BAH
+	{runeRange{0xBCF5, 0xBD0F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BOG..HANGUL SYLLABLE BOH
+	{runeRange{0xBDD5, 0xBDEF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BWIG..HANGUL SYLLABLE BWIH
+	{runeRange{0xBEB5, 0xBECF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBYAEG..HANGUL SYLLABLE BBYAEH
+	{runeRange{0xBF95, 0xBFAF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBOEG..HANGUL SYLLABLE BBOEH
+	{runeRange{0xC075, 0xC08F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBYIG..HANGUL SYLLABLE BBYIH
+	{runeRange{0xC155, 0xC16F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SYEOG..HANGUL SYLLABLE SYEOH
+	{runeRange{0xC235, 0xC24F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SWEOG..HANGUL SYLLABLE SWEOH
+	{runeRange{0xC315, 0xC32F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSAEG..HANGUL SYLLABLE SSAEH
+	{runeRange{0xC3F5, 0xC40F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSWAG..HANGUL SYLLABLE SSWAH
+	{runeRange{0xC4D5, 0xC4EF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSYUG..HANGUL SYLLABLE SSYUH
+	{runeRange{0xC5B5, 0xC5CF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE EOG..HANGUL SYLLABLE EOH
+	{runeRange{0xC695, 0xC6AF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE YOG..HANGUL SYLLABLE YOH
+	{runeRange{0xC775, 0xC78F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE IG..HANGUL SYLLABLE IH
+	{runeRange{0xC855, 0xC86F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JYEG..HANGUL SYLLABLE JYEH
+	{runeRange{0xC935, 0xC94F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JWEG..HANGUL SYLLABLE JWEH
+	{runeRange{0xCA15, 0xCA2F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJYAG..HANGUL SYLLABLE JJYAH
+	{runeRange{0xCAF5, 0xCB0F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJWAEG..HANGUL SYLLABLE JJWAEH
+	{runeRange{0xCBD5, 0xCBEF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJEUG..HANGUL SYLLABLE JJEUH
+	{runeRange{0xCCB5, 0xCCCF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CEG..HANGUL SYLLABLE CEH
+	{runeRange{0xCD95, 0xCDAF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CUG..HANGUL SYLLABLE CUH
+	{runeRange{0xCE75, 0xCE8F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KAG..HANGUL SYLLABLE KAH
+	{runeRange{0xCF55, 0xCF6F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KOG..HANGUL SYLLABLE KOH
+	{runeRange{0xD035, 0xD04F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KWIG..HANGUL SYLLABLE KWIH
+	{runeRange{0xD115, 0xD12F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TYAEG..HANGUL SYLLABLE TYAEH
+	{runeRange{0xD1F5, 0xD20F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TOEG..HANGUL SYLLABLE TOEH
+	{runeRange{0xD2D5, 0xD2EF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TYIG..HANGUL SYLLABLE TYIH
+	{runeRange{0xD3B5, 0xD3CF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PYEOG..HANGUL SYLLABLE PYEOH
+	{runeRange{0xD495, 0xD4AF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PWEOG..HANGUL SYLLABLE PWEOH
+	{runeRange{0xD575, 0xD58F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HAEG..HANGUL SYLLABLE HAEH
+	{runeRange{0xD655, 0xD66F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HWAG..HANGUL SYLLABLE HWAH
+	{runeRange{0xD735, 0xD74F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HYUG..HANGUL SYLLABLE HYUH
+	{runeRange{0xFADA, 0xFAFF}, propertyGeneralCategory{lbprID, gcCn}},     //    [38] <reserved-FADA>..<reserved-FAFF>
+	{runeRange{0xFD3E, 0xFD3E}, propertyGeneralCategory{lbprCL, gcPe}},     //         ORNATE LEFT PARENTHESIS
+	{runeRange{0xFE20, 0xFE20}, propertyGeneralCategory{lbprGL, gcMn}},     //         COMBINING LIGATURE LEFT HALF
+	{runeRange{0xFE33, 0xFE34}, propertyGeneralCategory{lbprID, gcPc}},     //     [2] PRESENTATION FORM FOR VERTICAL LOW LINE..PRESENTATION FORM FOR VERTICAL WAVY LOW LINE
+	{runeRange{0xFE44, 0xFE44}, propertyGeneralCategory{lbprCL, gcPe}},     //         PRESENTATION FORM FOR VERTICAL RIGHT WHITE CORNER BRACKET
+	{runeRange{0xFE5D, 0xFE5D}, propertyGeneralCategory{lbprOP, gcPs}},     //         SMALL LEFT TORTOISE SHELL BRACKET
+	{runeRange{0xFF05, 0xFF05}, propertyGeneralCategory{lbprPO, gcPo}},     //         FULLWIDTH PERCENT SIGN
+	{runeRange{0xFF3B, 0xFF3B}, propertyGeneralCategory{lbprOP, gcPs}},     //         FULLWIDTH LEFT SQUARE BRACKET
+	{runeRange{0xFF64, 0xFF64}, propertyGeneralCategory{lbprCL, gcPo}},     //         HALFWIDTH IDEOGRAPHIC COMMA
+	{runeRange{0xFFE4, 0xFFE4}, propertyGeneralCategory{lbprID, gcSo}},     //         FULLWIDTH BROKEN BAR
+	{runeRange{0x10107, 0x10133}, propertyGeneralCategory{lbprAL, gcNo}},   //    [45] AEGEAN NUMBER ONE..AEGEAN NUMBER NINETY THOUSAND
+	{runeRange{0x10320, 0x10323}, propertyGeneralCategory{lbprAL, gcNo}},   //     [4] OLD ITALIC NUMERAL ONE..OLD ITALIC NUMERAL FIFTY
+	{runeRange{0x10480, 0x1049D}, propertyGeneralCategory{lbprAL, gcLo}},   //    [30] OSMANYA LETTER ALEF..OSMANYA LETTER OO
+	{runeRange{0x10600, 0x10736}, propertyGeneralCategory{lbprAL, gcLo}},   //   [311] LINEAR A SIGN AB001..LINEAR A SIGN A664
+	{runeRange{0x10877, 0x10878}, propertyGeneralCategory{lbprAL, gcSo}},   //     [2] PALMYRENE LEFT-POINTING FLEURON..PALMYRENE RIGHT-POINTING FLEURON
+	{runeRange{0x109C0, 0x109CF}, propertyGeneralCategory{lbprAL, gcNo}},   //    [16] MEROITIC CURSIVE NUMBER ONE..MEROITIC CURSIVE NUMBER SEVENTY
+	{runeRange{0x10A7F, 0x10A7F}, propertyGeneralCategory{lbprAL, gcPo}},   //         OLD SOUTH ARABIAN NUMERIC INDICATOR
+	{runeRange{0x10B80, 0x10B91}, propertyGeneralCategory{lbprAL, gcLo}},   //    [18] PSALTER PAHLAVI LETTER ALEPH..PSALTER PAHLAVI LETTER TAW
+	{runeRange{0x10D6E, 0x10D6E}, propertyGeneralCategory{lbprBA, gcPd}},   //         GARAY HYPHEN
+	{runeRange{0x10F51, 0x10F54}, propertyGeneralCategory{lbprAL, gcNo}},   //     [4] SOGDIAN NUMBER ONE..SOGDIAN NUMBER ONE HUNDRED
+	{runeRange{0x11049, 0x1104D}, propertyGeneralCategory{lbprID, gcPo}},   //     [5] BRAHMI PUNCTUATION DOT..BRAHMI PUNCTUATION LOTUS
+	{runeRange{0x110BD, 0x110BD}, propertyGeneralCategory{lbprNU, gcCf}},   //         KAITHI NUMBER SIGN
+	{runeRange{0x11150, 0x11172}, propertyGeneralCategory{lbprAL, gcLo}},   //    [35] MAHAJANI LETTER A..MAHAJANI LETTER RRA
+	{runeRange{0x111CD, 0x111CD}, propertyGeneralCategory{lbprAL, gcPo}},   //         SHARADA SUTRA MARK
+	{runeRange{0x11236, 0x11237}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] KHOJKI SIGN NUKTA..KHOJKI SIGN SHADDA
+	{runeRange{0x112E0, 0x112E2}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] KHUDAWADI VOWEL SIGN AA..KHUDAWADI VOWEL SIGN II
+	{runeRange{0x11347, 0x11348}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] GRANTHA VOWEL SIGN EE..GRANTHA VOWEL SIGN AI
+	{runeRange{0x113B7, 0x113B7}, propertyGeneralCategory{lbprID, gcLo}},   //         TULU-TIGALARI SIGN AVAGRAHA
+	{runeRange{0x11400, 0x11434}, propertyGeneralCategory{lbprAL, gcLo}},   //    [53] NEWA LETTER A..NEWA LETTER HA
+	{runeRange{0x114B0, 0x114B2}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] TIRHUTA VOWEL SIGN AA..TIRHUTA VOWEL SIGN II
+	{runeRange{0x115BC, 0x115BD}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] SIDDHAM SIGN CANDRABINDU..SIDDHAM SIGN ANUSVARA
+	{runeRange{0x1163F, 0x11640}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] MODI SIGN VIRAMA..MODI SIGN ARDHACANDRA
+	{runeRange{0x116C0, 0x116C9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] TAKRI DIGIT ZERO..TAKRI DIGIT NINE
+	{runeRange{0x1182C, 0x1182E}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] DOGRA VOWEL SIGN AA..DOGRA VOWEL SIGN II
+	{runeRange{0x1193B, 0x1193C}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] DIVES AKURU SIGN ANUSVARA..DIVES AKURU SIGN CANDRABINDU
+	{runeRange{0x119E0, 0x119E0}, propertyGeneralCategory{lbprCM, gcMn}},   //         NANDINAGARI SIGN VIRAMA
+	{runeRange{0x11A46, 0x11A46}, propertyGeneralCategory{lbprAL, gcPo}},   //         ZANABAZAR SQUARE CLOSING DOUBLE-LINED HEAD MARK
+	{runeRange{0x11B00, 0x11B09}, propertyGeneralCategory{lbprBB, gcPo}},   //    [10] DEVANAGARI HEAD MARK..DEVANAGARI SIGN MINDU
+	{runeRange{0x11C71, 0x11C71}, propertyGeneralCategory{lbprEX, gcPo}},   //         MARCHEN MARK SHAD
+	{runeRange{0x11D46, 0x11D46}, propertyGeneralCategory{lbprAL, gcLo}},   //         MASARAM GONDI REPHA
+	{runeRange{0x11EF3, 0x11EF4}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] MAKASAR VOWEL SIGN I..MAKASAR VOWEL SIGN U
+	{runeRange{0x11F50, 0x11F59}, propertyGeneralCategory{lbprAS, gcNd}},   //    [10] KAWI DIGIT ZERO..KAWI DIGIT NINE
+	{runeRange{0x12F90, 0x12FF0}, propertyGeneralCategory{lbprAL, gcLo}},   //    [97] CYPRO-MINOAN SIGN CM001..CYPRO-MINOAN SIGN CM114
+	{runeRange{0x13286, 0x13286}, propertyGeneralCategory{lbprOP, gcLo}},   //         EGYPTIAN HIEROGLYPH O036A
+	{runeRange{0x1342F, 0x1342F}, propertyGeneralCategory{lbprOP, gcLo}},   //         EGYPTIAN HIEROGLYPH V011D
+	{runeRange{0x1343F, 0x1343F}, propertyGeneralCategory{lbprCL, gcCf}},   //         EGYPTIAN HIEROGLYPH END WALLED ENCLOSURE
+	{runeRange{0x145D0, 0x14646}, propertyGeneralCategory{lbprAL, gcLo}},   //   [119] ANATOLIAN HIEROGLYPH A411..ANATOLIAN HIEROGLYPH A530
 	{runeRange{0x16A60, 0x16A69}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] MRO DIGIT ZERO..MRO DIGIT NINE
 	{runeRange{0x16B30, 0x16B36}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] PAHAWH HMONG MARK CIM TUB..PAHAWH HMONG MARK CIM TAUM
 	{runeRange{0x16B5B, 0x16B61}, propertyGeneralCategory{lbprAL, gcNo}},   //     [7] PAHAWH HMONG NUMBER TENS..PAHAWH HMONG NUMBER TRILLIONS
-	{runeRange{0x16F4F, 0x16F4F}, propertyGeneralCategory{lbprCM, gcMn}},   //         MIAO SIGN CONSONANT MODIFIER BAR
-	{runeRange{0x16FE4, 0x16FE4}, propertyGeneralCategory{lbprGL, gcMn}},   //         KHITAN SMALL SCRIPT FILLER
-	{runeRange{0x1AFFD, 0x1AFFE}, propertyGeneralCategory{lbprAL, gcLm}},   //     [2] KATAKANA LETTER MINNAN NASALIZED TONE-7..KATAKANA LETTER MINNAN NASALIZED TONE-8
-	{runeRange{0x1BC00, 0x1BC6A}, propertyGeneralCategory{lbprAL, gcLo}},   //   [107] DUPLOYAN LETTER H..DUPLOYAN LETTER VOCALIC M
-	{runeRange{0x1CF00, 0x1CF2D}, propertyGeneralCategory{lbprCM, gcMn}},   //    [46] ZNAMENNY COMBINING MARK GORAZDO NIZKO S KRYZHEM ON LEFT..ZNAMENNY COMBINING MARK KRYZH ON LEFT
-	{runeRange{0x1D16A, 0x1D16C}, propertyGeneralCategory{lbprAL, gcSo}},   //     [3] MUSICAL SYMBOL FINGERED TREMOLO-1..MUSICAL SYMBOL FINGERED TREMOLO-3
-	{runeRange{0x1D1AE, 0x1D1EA}, propertyGeneralCategory{lbprAL, gcSo}},   //    [61] MUSICAL SYMBOL PEDAL MARK..MUSICAL SYMBOL KORON
-	{runeRange{0x1D400, 0x1D454}, propertyGeneralCategory{lbprAL, gcLC}},   //    [85] MATHEMATICAL BOLD CAPITAL A..MATHEMATICAL ITALIC SMALL G
-	{runeRange{0x1D4BD, 0x1D4C3}, propertyGeneralCategory{lbprAL, gcLl}},   //     [7] MATHEMATICAL SCRIPT SMALL H..MATHEMATICAL SCRIPT SMALL N
-	{runeRange{0x1D546, 0x1D546}, propertyGeneralCategory{lbprAL, gcLu}},   //         MATHEMATICAL DOUBLE-STRUCK CAPITAL O
-	{runeRange{0x1D6FB, 0x1D6FB}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL ITALIC NABLA
-	{runeRange{0x1D76F, 0x1D76F}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL SANS-SERIF BOLD NABLA
-	{runeRange{0x1D7CE, 0x1D7FF}, propertyGeneralCategory{lbprNU, gcNd}},   //    [50] MATHEMATICAL BOLD DIGIT ZERO..MATHEMATICAL MONOSPACE DIGIT NINE
-	{runeRange{0x1DA84, 0x1DA84}, propertyGeneralCategory{lbprCM, gcMn}},   //         SIGNWRITING LOCATION HEAD NECK
-	{runeRange{0x1DF0B, 0x1DF1E}, propertyGeneralCategory{lbprAL, gcLl}},   //    [20] LATIN SMALL LETTER ESH WITH DOUBLE BAR..LATIN SMALL LETTER S WITH CURL
-	{runeRange{0x1E08F, 0x1E08F}, propertyGeneralCategory{lbprCM, gcMn}},   //         COMBINING CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I
-	{runeRange{0x1E2AE, 0x1E2AE}, propertyGeneralCategory{lbprCM, gcMn}},   //         TOTO SIGN RISING TONE
-	{runeRange{0x1E4F0, 0x1E4F9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] NAG MUNDARI DIGIT ZERO..NAG MUNDARI DIGIT NINE
-	{runeRange{0x1E900, 0x1E943}, propertyGeneralCategory{lbprAL, gcLC}},   //    [68] ADLAM CAPITAL LETTER ALIF..ADLAM SMALL LETTER SHA
-	{runeRange{0x1ECB0, 0x1ECB0}, propertyGeneralCategory{lbprPO, gcSc}},   //         INDIC SIYAQ RUPEE MARK
-	{runeRange{0x1EE24, 0x1EE24}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL INITIAL HEH
-	{runeRange{0x1EE49, 0x1EE49}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED YEH
-	{runeRange{0x1EE5D, 0x1EE5D}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED DOTLESS NOON
-	{runeRange{0x1EE7E, 0x1EE7E}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL STRETCHED DOTLESS FEH
-	{runeRange{0x1F02C, 0x1F02F}, propertyGeneralCategory{lbprID, gcCn}},   //     [4] <reserved-1F02C>..<reserved-1F02F>
-	{runeRange{0x1F0D0, 0x1F0D0}, propertyGeneralCategory{lbprID, gcCn}},   //         <reserved-1F0D0>
-	{runeRange{0x1F16A, 0x1F16C}, propertyGeneralCategory{lbprAL, gcSo}},   //     [3] RAISED MC SIGN..RAISED MR SIGN
-	{runeRange{0x1F210, 0x1F23B}, propertyGeneralCategory{lbprID, gcSo}},   //    [44] SQUARED CJK UNIFIED IDEOGRAPH-624B..SQUARED CJK UNIFIED IDEOGRAPH-914D
-	{runeRange{0x1F300, 0x1F384}, propertyGeneralCategory{lbprID, gcSo}},   //   [133] CYCLONE..CHRISTMAS TREE
-	{runeRange{0x1F3BD, 0x1F3C1}, propertyGeneralCategory{lbprID, gcSo}},   //     [5] RUNNING SHIRT WITH SASH..CHEQUERED FLAG
-	{runeRange{0x1F400, 0x1F441}, propertyGeneralCategory{lbprID, gcSo}},   //    [66] RAT..EYE
-	{runeRange{0x1F47D, 0x1F480}, propertyGeneralCategory{lbprID, gcSo}},   //     [4] EXTRATERRESTRIAL ALIEN..SKULL
-	{runeRange{0x1F492, 0x1F49F}, propertyGeneralCategory{lbprID, gcSo}},   //    [14] WEDDING..HEART DECORATION
-	{runeRange{0x1F4AB, 0x1F4AE}, propertyGeneralCategory{lbprID, gcSo}},   //     [4] DIZZY SYMBOL..WHITE FLOWER
-	{runeRange{0x1F525, 0x1F531}, propertyGeneralCategory{lbprID, gcSo}},   //    [13] FIRE..TRIDENT EMBLEM
-	{runeRange{0x1F591, 0x1F594}, propertyGeneralCategory{lbprID, gcSo}},   //     [4] REVERSED RAISED HAND WITH FINGERS SPLAYED..REVERSED VICTORY HAND
-	{runeRange{0x1F645, 0x1F647}, propertyGeneralCategory{lbprEB, gcSo}},   //     [3] FACE WITH NO GOOD GESTURE..PERSON BOWING DEEPLY
-	{runeRange{0x1F6A3, 0x1F6A3}, propertyGeneralCategory{lbprEB, gcSo}},   //         ROWBOAT
-	{runeRange{0x1F6D8, 0x1F6DB}, propertyGeneralCategory{lbprID, gcCn}},   //     [4] <reserved-1F6D8>..<reserved-1F6DB>
-	{runeRange{0x1F77B, 0x1F77F}, propertyGeneralCategory{lbprID, gcSo}},   //     [5] HAUMEA..ORCUS
-	{runeRange{0x1F800, 0x1F80B}, propertyGeneralCategory{lbprAL, gcSo}},   //    [12] LEFTWARDS ARROW WITH SMALL TRIANGLE ARROWHEAD..DOWNWARDS ARROW WITH LARGE TRIANGLE ARROWHEAD
-	{runeRange{0x1F890, 0x1F8AD}, propertyGeneralCategory{lbprAL, gcSo}},   //    [30] LEFTWARDS TRIANGLE ARROWHEAD..WHITE ARROW SHAFT WIDTH TWO THIRDS
-	{runeRange{0x1F910, 0x1F917}, propertyGeneralCategory{lbprID, gcSo}},   //     [8] ZIPPER-MOUTH FACE..HUGGING FACE
-	{runeRange{0x1F93F, 0x1F976}, propertyGeneralCategory{lbprID, gcSo}},   //    [56] DIVING MASK..FREEZING FACE
-	{runeRange{0x1F9BC, 0x1F9CC}, propertyGeneralCategory{lbprID, gcSo}},   //    [17] MOTORIZED WHEELCHAIR..TROLL
-	{runeRange{0x1FA6E, 0x1FA6F}, propertyGeneralCategory{lbprID, gcCn}},   //     [2] <reserved-1FA6E>..<reserved-1FA6F>
-	{runeRange{0x1FAC3, 0x1FAC5}, propertyGeneralCategory{lbprEB, gcSo}},   //     [3] PREGNANT MAN..PERSON WITH CROWN
+	{runeRange{0x16D70, 0x16D79}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] KIRAT RAI DIGIT ZERO..KIRAT RAI DIGIT NINE
+	{runeRange{0x16F51, 0x16F87}, propertyGeneralCategory{lbprCM, gcMc}},   //    [55] MIAO SIGN ASPIRATION..MIAO VOWEL SIGN UI
+	{runeRange{0x17000, 0x187F7}, propertyGeneralCategory{lbprID, gcLo}},   //  [6136] TANGUT IDEOGRAPH-17000..TANGUT IDEOGRAPH-187F7
+	{runeRange{0x1B000, 0x1B0FF}, propertyGeneralCategory{lbprID, gcLo}},   //   [256] KATAKANA LETTER ARCHAIC E..HENTAIGANA LETTER RE-2
+	{runeRange{0x1BC70, 0x1BC7C}, propertyGeneralCategory{lbprAL, gcLo}},   //    [13] DUPLOYAN AFFIX LEFT HORIZONTAL SECANT..DUPLOYAN AFFIX ATTACHED TANGENT HOOK
+	{runeRange{0x1CCF0, 0x1CCF9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] OUTLINED DIGIT ZERO..OUTLINED DIGIT NINE
+	{runeRange{0x1D165, 0x1D166}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] MUSICAL SYMBOL COMBINING STEM..MUSICAL SYMBOL COMBINING SPRECHGESANG STEM
+	{runeRange{0x1D18C, 0x1D1A9}, propertyGeneralCategory{lbprAL, gcSo}},   //    [30] MUSICAL SYMBOL RINFORZANDO..MUSICAL SYMBOL DEGREE SLASH
+	{runeRange{0x1D300, 0x1D356}, propertyGeneralCategory{lbprAL, gcSo}},   //    [87] MONOGRAM FOR EARTH..TETRAGRAM FOR FOSTERING
+	{runeRange{0x1D4AE, 0x1D4B9}, propertyGeneralCategory{lbprAL, gcLC}},   //    [12] MATHEMATICAL SCRIPT CAPITAL S..MATHEMATICAL SCRIPT SMALL D
+	{runeRange{0x1D53B, 0x1D53E}, propertyGeneralCategory{lbprAL, gcLu}},   //     [4] MATHEMATICAL DOUBLE-STRUCK CAPITAL D..MATHEMATICAL DOUBLE-STRUCK CAPITAL G
+	{runeRange{0x1D6DB, 0x1D6DB}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL BOLD PARTIAL DIFFERENTIAL
+	{runeRange{0x1D74F, 0x1D74F}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL BOLD ITALIC PARTIAL DIFFERENTIAL
+	{runeRange{0x1D7C3, 0x1D7C3}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL SANS-SERIF BOLD ITALIC PARTIAL DIFFERENTIAL
+	{runeRange{0x1DA75, 0x1DA75}, propertyGeneralCategory{lbprCM, gcMn}},   //         SIGNWRITING UPPER BODY TILTING FROM HIP JOINTS
+	{runeRange{0x1DF00, 0x1DF09}, propertyGeneralCategory{lbprAL, gcLl}},   //    [10] LATIN SMALL LETTER FENG DIGRAPH WITH TRILL..LATIN SMALL LETTER T WITH HOOK AND RETROFLEX HOOK
+	{runeRange{0x1E026, 0x1E02A}, propertyGeneralCategory{lbprCM, gcMn}},   //     [5] COMBINING GLAGOLITIC LETTER YO..COMBINING GLAGOLITIC LETTER FITA
+	{runeRange{0x1E14F, 0x1E14F}, propertyGeneralCategory{lbprAL, gcSo}},   //         NYIAKENG PUACHUE HMONG CIRCLED CA
+	{runeRange{0x1E4EB, 0x1E4EB}, propertyGeneralCategory{lbprAL, gcLm}},   //         NAG MUNDARI SIGN OJOD
+	{runeRange{0x1E7E0, 0x1E7E6}, propertyGeneralCategory{lbprAL, gcLo}},   //     [7] ETHIOPIC SYLLABLE HHYA..ETHIOPIC SYLLABLE HHYO
+	{runeRange{0x1E944, 0x1E94A}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] ADLAM ALIF LENGTHENER..ADLAM NUKTA
+	{runeRange{0x1ECB1, 0x1ECB4}, propertyGeneralCategory{lbprAL, gcNo}},   //     [4] INDIC SIYAQ NUMBER ALTERNATE ONE..INDIC SIYAQ ALTERNATE LAKH MARK
+	{runeRange{0x1EE27, 0x1EE27}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL INITIAL HAH
+	{runeRange{0x1EE4B, 0x1EE4B}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED LAM
+	{runeRange{0x1EE5F, 0x1EE5F}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED DOTLESS QAF
+	{runeRange{0x1EE80, 0x1EE89}, propertyGeneralCategory{lbprAL, gcLo}},   //    [10] ARABIC MATHEMATICAL LOOPED ALEF..ARABIC MATHEMATICAL LOOPED YEH
+	{runeRange{0x1F030, 0x1F093}, propertyGeneralCategory{lbprID, gcSo}},   //   [100] DOMINO TILE HORIZONTAL BACK..DOMINO TILE VERTICAL-06-06
+	{runeRange{0x1F0D1, 0x1F0F5}, propertyGeneralCategory{lbprID, gcSo}},   //    [37] PLAYING CARD ACE OF CLUBS..PLAYING CARD TRUMP-21
+	{runeRange{0x1F170, 0x1F1AC}, propertyGeneralCategory{lbprAI, gcSo}},   //    [61] NEGATIVE SQUARED LATIN CAPITAL LETTER A..SQUARED VOD
+	{runeRange{0x1F240, 0x1F248}, propertyGeneralCategory{lbprID, gcSo}},   //     [9] TORTOISE SHELL BRACKETED CJK UNIFIED IDEOGRAPH-672C..TORTOISE SHELL BRACKETED CJK UNIFIED IDEOGRAPH-6557
+	{runeRange{0x1F386, 0x1F39B}, propertyGeneralCategory{lbprID, gcSo}},   //    [22] FIREWORKS..CONTROL KNOBS
+	{runeRange{0x1F3C5, 0x1F3C6}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] SPORTS MEDAL..TROPHY
+	{runeRange{0x1F444, 0x1F445}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] MOUTH..TONGUE
+	{runeRange{0x1F484, 0x1F484}, propertyGeneralCategory{lbprID, gcSo}},   //         LIPSTICK
+	{runeRange{0x1F4A1, 0x1F4A1}, propertyGeneralCategory{lbprID, gcSo}},   //         ELECTRIC LIGHT BULB
+	{runeRange{0x1F4B0, 0x1F4B0}, propertyGeneralCategory{lbprID, gcSo}},   //         MONEY BAG
+	{runeRange{0x1F54A, 0x1F573}, propertyGeneralCategory{lbprID, gcSo}},   //    [42] DOVE OF PEACE..HOLE
+	{runeRange{0x1F597, 0x1F5D3}, propertyGeneralCategory{lbprID, gcSo}},   //    [61] WHITE DOWN POINTING LEFT HAND INDEX..SPIRAL CALENDAR PAD
+	{runeRange{0x1F64B, 0x1F64F}, propertyGeneralCategory{lbprEB, gcSo}},   //     [5] HAPPY PERSON RAISING ONE HAND..PERSON WITH FOLDED HANDS
+	{runeRange{0x1F6B4, 0x1F6B6}, propertyGeneralCategory{lbprEB, gcSo}},   //     [3] BICYCLIST..PEDESTRIAN
+	{runeRange{0x1F6ED, 0x1F6EF}, propertyGeneralCategory{lbprID, gcCn}},   //     [3] <reserved-1F6ED>..<reserved-1F6EF>
+	{runeRange{0x1F7D5, 0x1F7D9}, propertyGeneralCategory{lbprID, gcSo}},   //     [5] CIRCLED TRIANGLE..NINE POINTED WHITE STAR
+	{runeRange{0x1F850, 0x1F859}, propertyGeneralCategory{lbprAL, gcSo}},   //    [10] LEFTWARDS SANS-SERIF ARROW..UP DOWN SANS-SERIF ARROW
+	{runeRange{0x1F90F, 0x1F90F}, propertyGeneralCategory{lbprEB, gcSo}},   //         PINCHING HAND
+	{runeRange{0x1F93C, 0x1F93E}, propertyGeneralCategory{lbprEB, gcSo}},   //     [3] WRESTLERS..HANDBALL
+	{runeRange{0x1F9BB, 0x1F9BB}, propertyGeneralCategory{lbprEB, gcSo}},   //         EAR WITH HEARING AID
+	{runeRange{0x1FA60, 0x1FA6D}, propertyGeneralCategory{lbprID, gcSo}},   //    [14] XIANGQI RED GENERAL..XIANGQI BLACK SOLDIER
+	{runeRange{0x1FAC6, 0x1FAC6}, propertyGeneralCategory{lbprID, gcSo}},   //         FINGERPRINT
 	{runeRange{0x1FB00, 0x1FB92}, propertyGeneralCategory{lbprAL, gcSo}},   //   [147] BLOCK SEXTANT-1..UPPER HALF INVERSE MEDIUM SHADE AND LOWER HALF BLOCK
 	{runeRange{0x2B740, 0x2B81D}, propertyGeneralCategory{lbprID, gcLo}},   //   [222] CJK UNIFIED IDEOGRAPH-2B740..CJK UNIFIED IDEOGRAPH-2B81D
 	{runeRange{0x2F800, 0x2FA1D}, propertyGeneralCategory{lbprID, gcLo}},   //   [542] CJK COMPATIBILITY IDEOGRAPH-2F800..CJK COMPATIBILITY IDEOGRAPH-2FA1D
@@ -609,228 +609,229 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1A6D, 0x1A72}, propertyGeneralCategory{lbprSA, gcMc}},     //     [6] TAI THAM VOWEL SIGN OY..TAI THAM VOWEL SIGN THAM AI
 	{runeRange{0x1AB0, 0x1ABD}, propertyGeneralCategory{lbprCM, gcMn}},     //    [14] COMBINING DOUBLED CIRCUMFLEX ACCENT..COMBINING PARENTHESES BELOW
 	{runeRange{0x1B36, 0x1B3A}, propertyGeneralCategory{lbprCM, gcMn}},     //     [5] BALINESE VOWEL SIGN ULU..BALINESE VOWEL SIGN RA REPA
-	{runeRange{0x1B50, 0x1B59}, propertyGeneralCategory{lbprID, gcNd}},     //    [10] BALINESE DIGIT ZERO..BALINESE DIGIT NINE
-	{runeRange{0x1B80, 0x1B81}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] SUNDANESE SIGN PANYECEK..SUNDANESE SIGN PANGLAYAR
-	{runeRange{0x1BAB, 0x1BAD}, propertyGeneralCategory{lbprCM, gcMn}},     //     [3] SUNDANESE SIGN VIRAMA..SUNDANESE CONSONANT SIGN PASANGAN WA
-	{runeRange{0x1BEA, 0x1BEC}, propertyGeneralCategory{lbprCM, gcMc}},     //     [3] BATAK VOWEL SIGN I..BATAK VOWEL SIGN O
-	{runeRange{0x1C2C, 0x1C33}, propertyGeneralCategory{lbprCM, gcMn}},     //     [8] LEPCHA VOWEL SIGN E..LEPCHA CONSONANT SIGN T
-	{runeRange{0x1C78, 0x1C7D}, propertyGeneralCategory{lbprAL, gcLm}},     //     [6] OL CHIKI MU TTUDDAG..OL CHIKI AHAD
-	{runeRange{0x1CD4, 0x1CE0}, propertyGeneralCategory{lbprCM, gcMn}},     //    [13] VEDIC SIGN YAJURVEDIC MIDLINE SVARITA..VEDIC TONE RIGVEDIC KASHMIRI INDEPENDENT SVARITA
-	{runeRange{0x1CF7, 0x1CF7}, propertyGeneralCategory{lbprCM, gcMc}},     //         VEDIC SIGN ATIKRAMA
-	{runeRange{0x1D80, 0x1D9A}, propertyGeneralCategory{lbprAL, gcLl}},     //    [27] LATIN SMALL LETTER B WITH PALATAL HOOK..LATIN SMALL LETTER EZH WITH RETROFLEX HOOK
-	{runeRange{0x1F00, 0x1F15}, propertyGeneralCategory{lbprAL, gcLC}},     //    [22] GREEK SMALL LETTER ALPHA WITH PSILI..GREEK SMALL LETTER EPSILON WITH DASIA AND OXIA
-	{runeRange{0x1F5F, 0x1F7D}, propertyGeneralCategory{lbprAL, gcLC}},     //    [31] GREEK CAPITAL LETTER UPSILON WITH DASIA AND PERISPOMENI..GREEK SMALL LETTER OMEGA WITH OXIA
-	{runeRange{0x1FCD, 0x1FCF}, propertyGeneralCategory{lbprAL, gcSk}},     //     [3] GREEK PSILI AND VARIA..GREEK PSILI AND PERISPOMENI
-	{runeRange{0x1FFD, 0x1FFD}, propertyGeneralCategory{lbprBB, gcSk}},     //         GREEK OXIA
-	{runeRange{0x200E, 0x200F}, propertyGeneralCategory{lbprCM, gcCf}},     //     [2] LEFT-TO-RIGHT MARK..RIGHT-TO-LEFT MARK
-	{runeRange{0x2018, 0x2018}, propertyGeneralCategory{lbprQU, gcPi}},     //         LEFT SINGLE QUOTATION MARK
-	{runeRange{0x2022, 0x2023}, propertyGeneralCategory{lbprAL, gcPo}},     //     [2] BULLET..TRIANGULAR BULLET
-	{runeRange{0x2038, 0x2038}, propertyGeneralCategory{lbprAL, gcPo}},     //         CARET
-	{runeRange{0x2044, 0x2044}, propertyGeneralCategory{lbprIS, gcSm}},     //         FRACTION SLASH
-	{runeRange{0x2055, 0x2055}, propertyGeneralCategory{lbprAL, gcPo}},     //         FLOWER PUNCTUATION MARK
-	{runeRange{0x2061, 0x2064}, propertyGeneralCategory{lbprAL, gcCf}},     //     [4] FUNCTION APPLICATION..INVISIBLE PLUS
-	{runeRange{0x207E, 0x207E}, propertyGeneralCategory{lbprCL, gcPe}},     //         SUPERSCRIPT RIGHT PARENTHESIS
-	{runeRange{0x2090, 0x209C}, propertyGeneralCategory{lbprAL, gcLm}},     //    [13] LATIN SUBSCRIPT SMALL LETTER A..LATIN SUBSCRIPT SMALL LETTER T
-	{runeRange{0x20BE, 0x20BE}, propertyGeneralCategory{lbprPO, gcSc}},     //         LARI SIGN
-	{runeRange{0x20E5, 0x20F0}, propertyGeneralCategory{lbprCM, gcMn}},     //    [12] COMBINING REVERSE SOLIDUS OVERLAY..COMBINING ASTERISK ABOVE
-	{runeRange{0x2108, 0x2108}, propertyGeneralCategory{lbprAL, gcSo}},     //         SCRUPLE
-	{runeRange{0x2118, 0x2118}, propertyGeneralCategory{lbprAL, gcSm}},     //         SCRIPT CAPITAL P
-	{runeRange{0x2127, 0x2127}, propertyGeneralCategory{lbprAL, gcSo}},     //         INVERTED OHM SIGN
-	{runeRange{0x2135, 0x2138}, propertyGeneralCategory{lbprAL, gcLo}},     //     [4] ALEF SYMBOL..DALET SYMBOL
-	{runeRange{0x214C, 0x214D}, propertyGeneralCategory{lbprAL, gcSo}},     //     [2] PER SIGN..AKTIESELSKAB
-	{runeRange{0x215E, 0x215E}, propertyGeneralCategory{lbprAI, gcNo}},     //         VULGAR FRACTION SEVEN EIGHTHS
-	{runeRange{0x2189, 0x2189}, propertyGeneralCategory{lbprAI, gcNo}},     //         VULGAR FRACTION ZERO THIRDS
-	{runeRange{0x21A3, 0x21A3}, propertyGeneralCategory{lbprAL, gcSm}},     //         RIGHTWARDS ARROW WITH TAIL
-	{runeRange{0x21D2, 0x21D2}, propertyGeneralCategory{lbprAI, gcSm}},     //         RIGHTWARDS DOUBLE ARROW
-	{runeRange{0x2204, 0x2206}, propertyGeneralCategory{lbprAL, gcSm}},     //     [3] THERE DOES NOT EXIST..INCREMENT
-	{runeRange{0x2212, 0x2213}, propertyGeneralCategory{lbprPR, gcSm}},     //     [2] MINUS SIGN..MINUS-OR-PLUS SIGN
-	{runeRange{0x2223, 0x2223}, propertyGeneralCategory{lbprAI, gcSm}},     //         DIVIDES
-	{runeRange{0x2234, 0x2237}, propertyGeneralCategory{lbprAI, gcSm}},     //     [4] THEREFORE..PROPORTION
-	{runeRange{0x2252, 0x2252}, propertyGeneralCategory{lbprAI, gcSm}},     //         APPROXIMATELY EQUAL TO OR THE IMAGE OF
-	{runeRange{0x226E, 0x226F}, propertyGeneralCategory{lbprAI, gcSm}},     //     [2] NOT LESS-THAN..NOT GREATER-THAN
-	{runeRange{0x2299, 0x2299}, propertyGeneralCategory{lbprAI, gcSm}},     //         CIRCLED DOT OPERATOR
-	{runeRange{0x2300, 0x2307}, propertyGeneralCategory{lbprAL, gcSo}},     //     [8] DIAMETER SIGN..WAVY LINE
-	{runeRange{0x231A, 0x231B}, propertyGeneralCategory{lbprID, gcSo}},     //     [2] WATCH..HOURGLASS
-	{runeRange{0x237D, 0x239A}, propertyGeneralCategory{lbprAL, gcSo}},     //    [30] SHOULDERED OPEN BOX..CLEAR SCREEN SYMBOL
-	{runeRange{0x2440, 0x244A}, propertyGeneralCategory{lbprAL, gcSo}},     //    [11] OCR HOOK..OCR DOUBLE BACKSLASH
-	{runeRange{0x2575, 0x257F}, propertyGeneralCategory{lbprAL, gcSo}},     //    [11] BOX DRAWINGS LIGHT UP..BOX DRAWINGS HEAVY UP AND LIGHT DOWN
-	{runeRange{0x25AA, 0x25B1}, propertyGeneralCategory{lbprAL, gcSo}},     //     [8] BLACK SMALL SQUARE..WHITE PARALLELOGRAM
-	{runeRange{0x25C0, 0x25C0}, propertyGeneralCategory{lbprAI, gcSo}},     //         BLACK LEFT-POINTING TRIANGLE
-	{runeRange{0x25D2, 0x25E1}, propertyGeneralCategory{lbprAL, gcSo}},     //    [16] CIRCLE WITH LOWER HALF BLACK..LOWER HALF CIRCLE
-	{runeRange{0x2605, 0x2606}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] BLACK STAR..WHITE STAR
-	{runeRange{0x2618, 0x2618}, propertyGeneralCategory{lbprID, gcSo}},     //         SHAMROCK
-	{runeRange{0x2640, 0x2640}, propertyGeneralCategory{lbprAI, gcSo}},     //         FEMALE SIGN
-	{runeRange{0x2667, 0x2667}, propertyGeneralCategory{lbprAI, gcSo}},     //         WHITE CLUB SUIT
-	{runeRange{0x267F, 0x267F}, propertyGeneralCategory{lbprID, gcSo}},     //         WHEELCHAIR SYMBOL
-	{runeRange{0x26CF, 0x26D1}, propertyGeneralCategory{lbprID, gcSo}},     //     [3] PICK..HELMET WITH WHITE CROSS
-	{runeRange{0x26DF, 0x26E1}, propertyGeneralCategory{lbprID, gcSo}},     //     [3] BLACK TRUCK..RESTRICTED LEFT ENTRY-2
-	{runeRange{0x26F6, 0x26F6}, propertyGeneralCategory{lbprAI, gcSo}},     //         SQUARE FOUR CORNERS
-	{runeRange{0x2708, 0x2709}, propertyGeneralCategory{lbprID, gcSo}},     //     [2] AIRPLANE..ENVELOPE
-	{runeRange{0x2764, 0x2764}, propertyGeneralCategory{lbprID, gcSo}},     //         HEAVY BLACK HEART
-	{runeRange{0x276E, 0x276E}, propertyGeneralCategory{lbprOP, gcPs}},     //         HEAVY LEFT-POINTING ANGLE QUOTATION MARK ORNAMENT
-	{runeRange{0x2776, 0x2793}, propertyGeneralCategory{lbprAI, gcNo}},     //    [30] DINGBAT NEGATIVE CIRCLED DIGIT ONE..DINGBAT NEGATIVE CIRCLED SANS-SERIF NUMBER TEN
-	{runeRange{0x27E8, 0x27E8}, propertyGeneralCategory{lbprOP, gcPs}},     //         MATHEMATICAL LEFT ANGLE BRACKET
-	{runeRange{0x27F0, 0x27FF}, propertyGeneralCategory{lbprAL, gcSm}},     //    [16] UPWARDS QUADRUPLE ARROW..LONG RIGHTWARDS SQUIGGLE ARROW
-	{runeRange{0x2987, 0x2987}, propertyGeneralCategory{lbprOP, gcPs}},     //         Z NOTATION LEFT IMAGE BRACKET
-	{runeRange{0x298F, 0x298F}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT SQUARE BRACKET WITH TICK IN BOTTOM CORNER
-	{runeRange{0x2997, 0x2997}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT BLACK TORTOISE SHELL BRACKET
-	{runeRange{0x29FC, 0x29FC}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT-POINTING CURVED ANGLE BRACKET
-	{runeRange{0x2B4D, 0x2B54}, propertyGeneralCategory{lbprAL, gcSo}},     //     [8] DOWNWARDS TRIANGLE-HEADED ZIGZAG ARROW..WHITE RIGHT-POINTING PENTAGON
-	{runeRange{0x2C7E, 0x2C7F}, propertyGeneralCategory{lbprAL, gcLu}},     //     [2] LATIN CAPITAL LETTER S WITH SWASH TAIL..LATIN CAPITAL LETTER Z WITH SWASH TAIL
-	{runeRange{0x2CFD, 0x2CFD}, propertyGeneralCategory{lbprAL, gcNo}},     //         COPTIC FRACTION ONE HALF
-	{runeRange{0x2D70, 0x2D70}, propertyGeneralCategory{lbprBA, gcPo}},     //         TIFINAGH SEPARATOR MARK
-	{runeRange{0x2DC8, 0x2DCE}, propertyGeneralCategory{lbprAL, gcLo}},     //     [7] ETHIOPIC SYLLABLE KYA..ETHIOPIC SYLLABLE KYO
-	{runeRange{0x2E05, 0x2E05}, propertyGeneralCategory{lbprQU, gcPf}},     //         RIGHT DOTTED SUBSTITUTION BRACKET
-	{runeRange{0x2E16, 0x2E16}, propertyGeneralCategory{lbprAL, gcPo}},     //         DOTTED RIGHT-POINTING ANGLE
-	{runeRange{0x2E1E, 0x2E1F}, propertyGeneralCategory{lbprAL, gcPo}},     //     [2] TILDE WITH DOT ABOVE..TILDE WITH DOT BELOW
-	{runeRange{0x2E27, 0x2E27}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT SIDEWAYS U BRACKET
-	{runeRange{0x2E33, 0x2E34}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] RAISED DOT..RAISED COMMA
-	{runeRange{0x2E43, 0x2E4A}, propertyGeneralCategory{lbprBA, gcPo}},     //     [8] DASH WITH LEFT UPTURN..DOTTED SOLIDUS
-	{runeRange{0x2E55, 0x2E55}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT SQUARE BRACKET WITH STROKE
-	{runeRange{0x2E5D, 0x2E5D}, propertyGeneralCategory{lbprBA, gcPd}},     //         OBLIQUE HYPHEN
-	{runeRange{0x3004, 0x3004}, propertyGeneralCategory{lbprID, gcSo}},     //         JAPANESE INDUSTRIAL STANDARD SYMBOL
-	{runeRange{0x300C, 0x300C}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT CORNER BRACKET
-	{runeRange{0x3015, 0x3015}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT TORTOISE SHELL BRACKET
-	{runeRange{0x301D, 0x301D}, propertyGeneralCategory{lbprOP, gcPs}},     //         REVERSED DOUBLE PRIME QUOTATION MARK
-	{runeRange{0x3035, 0x3035}, propertyGeneralCategory{lbprCM, gcLm}},     //         VERTICAL KANA REPEAT MARK LOWER HALF
-	{runeRange{0x3042, 0x3042}, propertyGeneralCategory{lbprID, gcLo}},     //         HIRAGANA LETTER A
-	{runeRange{0x304A, 0x3062}, propertyGeneralCategory{lbprID, gcLo}},     //    [25] HIRAGANA LETTER O..HIRAGANA LETTER DI
-	{runeRange{0x3088, 0x308D}, propertyGeneralCategory{lbprID, gcLo}},     //     [6] HIRAGANA LETTER YO..HIRAGANA LETTER RO
-	{runeRange{0x30A0, 0x30A0}, propertyGeneralCategory{lbprNS, gcPd}},     //         KATAKANA-HIRAGANA DOUBLE HYPHEN
-	{runeRange{0x30A8, 0x30A8}, propertyGeneralCategory{lbprID, gcLo}},     //         KATAKANA LETTER E
-	{runeRange{0x30E6, 0x30E6}, propertyGeneralCategory{lbprID, gcLo}},     //         KATAKANA LETTER YU
-	{runeRange{0x30FC, 0x30FC}, propertyGeneralCategory{lbprCJ, gcLm}},     //         KATAKANA-HIRAGANA PROLONGED SOUND MARK
-	{runeRange{0x31A0, 0x31BF}, propertyGeneralCategory{lbprID, gcLo}},     //    [32] BOPOMOFO LETTER BU..BOPOMOFO LETTER AH
-	{runeRange{0x3250, 0x3250}, propertyGeneralCategory{lbprID, gcSo}},     //         PARTNERSHIP SIGN
-	{runeRange{0x3400, 0x4DBF}, propertyGeneralCategory{lbprID, gcLo}},     //  [6592] CJK UNIFIED IDEOGRAPH-3400..CJK UNIFIED IDEOGRAPH-4DBF
-	{runeRange{0xA4F8, 0xA4FD}, propertyGeneralCategory{lbprAL, gcLm}},     //     [6] LISU LETTER TONE MYA TI..LISU LETTER TONE MYA JEU
-	{runeRange{0xA620, 0xA629}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] VAI DIGIT ZERO..VAI DIGIT NINE
-	{runeRange{0xA67E, 0xA67E}, propertyGeneralCategory{lbprAL, gcPo}},     //         CYRILLIC KAVYKA
-	{runeRange{0xA6F2, 0xA6F2}, propertyGeneralCategory{lbprAL, gcPo}},     //         BAMUM NJAEMLI
-	{runeRange{0xA788, 0xA788}, propertyGeneralCategory{lbprAL, gcLm}},     //         MODIFIER LETTER LOW CIRCUMFLEX ACCENT
-	{runeRange{0xA7F2, 0xA7F4}, propertyGeneralCategory{lbprAL, gcLm}},     //     [3] MODIFIER LETTER CAPITAL C..MODIFIER LETTER CAPITAL Q
-	{runeRange{0xA803, 0xA805}, propertyGeneralCategory{lbprAL, gcLo}},     //     [3] SYLOTI NAGRI LETTER U..SYLOTI NAGRI LETTER O
-	{runeRange{0xA828, 0xA82B}, propertyGeneralCategory{lbprAL, gcSo}},     //     [4] SYLOTI NAGRI POETRY MARK-1..SYLOTI NAGRI POETRY MARK-4
-	{runeRange{0xA876, 0xA877}, propertyGeneralCategory{lbprEX, gcPo}},     //     [2] PHAGS-PA MARK SHAD..PHAGS-PA MARK DOUBLE SHAD
-	{runeRange{0xA8F2, 0xA8F7}, propertyGeneralCategory{lbprAL, gcLo}},     //     [6] DEVANAGARI SIGN SPACING CANDRABINDU..DEVANAGARI SIGN CANDRABINDU AVAGRAHA
-	{runeRange{0xA926, 0xA92D}, propertyGeneralCategory{lbprCM, gcMn}},     //     [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
-	{runeRange{0xA983, 0xA983}, propertyGeneralCategory{lbprCM, gcMc}},     //         JAVANESE SIGN WIGNYAN
-	{runeRange{0xA9C0, 0xA9C0}, propertyGeneralCategory{lbprVI, gcMc}},     //         JAVANESE PANGKON
-	{runeRange{0xA9E5, 0xA9E5}, propertyGeneralCategory{lbprSA, gcMn}},     //         MYANMAR SIGN SHAN SAW
-	{runeRange{0xAA31, 0xAA32}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] CHAM VOWEL SIGN AU..CHAM VOWEL SIGN UE
-	{runeRange{0xAA50, 0xAA59}, propertyGeneralCategory{lbprID, gcNd}},     //    [10] CHAM DIGIT ZERO..CHAM DIGIT NINE
-	{runeRange{0xAA7B, 0xAA7B}, propertyGeneralCategory{lbprSA, gcMc}},     //         MYANMAR SIGN PAO KAREN TONE
-	{runeRange{0xAAB5, 0xAAB6}, propertyGeneralCategory{lbprSA, gcLo}},     //     [2] TAI VIET VOWEL E..TAI VIET VOWEL O
-	{runeRange{0xAADD, 0xAADD}, propertyGeneralCategory{lbprSA, gcLm}},     //         TAI VIET SYMBOL SAM
-	{runeRange{0xAAF3, 0xAAF4}, propertyGeneralCategory{lbprAL, gcLm}},     //     [2] MEETEI MAYEK SYLLABLE REPETITION MARK..MEETEI MAYEK WORD REPETITION MARK
-	{runeRange{0xAB30, 0xAB5A}, propertyGeneralCategory{lbprAL, gcLl}},     //    [43] LATIN SMALL LETTER BARRED ALPHA..LATIN SMALL LETTER Y WITH SHORT RIGHT LEG
-	{runeRange{0xABE3, 0xABE4}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] MEETEI MAYEK VOWEL SIGN ONAP..MEETEI MAYEK VOWEL SIGN INAP
-	{runeRange{0xABF0, 0xABF9}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] MEETEI MAYEK DIGIT ZERO..MEETEI MAYEK DIGIT NINE
-	{runeRange{0xAC55, 0xAC6F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GYAEG..HANGUL SYLLABLE GYAEH
-	{runeRange{0xACC5, 0xACDF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GYEG..HANGUL SYLLABLE GYEH
-	{runeRange{0xAD35, 0xAD4F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GOEG..HANGUL SYLLABLE GOEH
-	{runeRange{0xADA5, 0xADBF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GWEG..HANGUL SYLLABLE GWEH
-	{runeRange{0xAE15, 0xAE2F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GYIG..HANGUL SYLLABLE GYIH
-	{runeRange{0xAE85, 0xAE9F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGYAG..HANGUL SYLLABLE GGYAH
-	{runeRange{0xAEF5, 0xAF0F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGYEOG..HANGUL SYLLABLE GGYEOH
-	{runeRange{0xAF65, 0xAF7F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGWAEG..HANGUL SYLLABLE GGWAEH
-	{runeRange{0xAFD5, 0xAFEF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGWEOG..HANGUL SYLLABLE GGWEOH
-	{runeRange{0xB045, 0xB05F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGEUG..HANGUL SYLLABLE GGEUH
-	{runeRange{0xB0B5, 0xB0CF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NAEG..HANGUL SYLLABLE NAEH
-	{runeRange{0xB125, 0xB13F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NEG..HANGUL SYLLABLE NEH
-	{runeRange{0xB195, 0xB1AF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NWAG..HANGUL SYLLABLE NWAH
-	{runeRange{0xB205, 0xB21F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NUG..HANGUL SYLLABLE NUH
-	{runeRange{0xB275, 0xB28F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NYUG..HANGUL SYLLABLE NYUH
-	{runeRange{0xB2E5, 0xB2FF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DAG..HANGUL SYLLABLE DAH
-	{runeRange{0xB355, 0xB36F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DEOG..HANGUL SYLLABLE DEOH
-	{runeRange{0xB3C5, 0xB3DF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DOG..HANGUL SYLLABLE DOH
-	{runeRange{0xB435, 0xB44F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DYOG..HANGUL SYLLABLE DYOH
-	{runeRange{0xB4A5, 0xB4BF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DWIG..HANGUL SYLLABLE DWIH
-	{runeRange{0xB515, 0xB52F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DIG..HANGUL SYLLABLE DIH
-	{runeRange{0xB585, 0xB59F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDYAEG..HANGUL SYLLABLE DDYAEH
-	{runeRange{0xB5F5, 0xB60F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDYEG..HANGUL SYLLABLE DDYEH
-	{runeRange{0xB665, 0xB67F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDOEG..HANGUL SYLLABLE DDOEH
-	{runeRange{0xB6D5, 0xB6EF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDWEG..HANGUL SYLLABLE DDWEH
-	{runeRange{0xB745, 0xB75F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDYIG..HANGUL SYLLABLE DDYIH
-	{runeRange{0xB7B5, 0xB7CF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RYAG..HANGUL SYLLABLE RYAH
-	{runeRange{0xB825, 0xB83F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RYEOG..HANGUL SYLLABLE RYEOH
-	{runeRange{0xB895, 0xB8AF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RWAEG..HANGUL SYLLABLE RWAEH
-	{runeRange{0xB905, 0xB91F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RWEOG..HANGUL SYLLABLE RWEOH
-	{runeRange{0xB975, 0xB98F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE REUG..HANGUL SYLLABLE REUH
-	{runeRange{0xB9E5, 0xB9FF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MAEG..HANGUL SYLLABLE MAEH
-	{runeRange{0xBA55, 0xBA6F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MEG..HANGUL SYLLABLE MEH
-	{runeRange{0xBAC5, 0xBADF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MWAG..HANGUL SYLLABLE MWAH
-	{runeRange{0xBB35, 0xBB4F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MUG..HANGUL SYLLABLE MUH
-	{runeRange{0xBBA5, 0xBBBF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MYUG..HANGUL SYLLABLE MYUH
-	{runeRange{0xBC15, 0xBC2F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BAG..HANGUL SYLLABLE BAH
-	{runeRange{0xBC85, 0xBC9F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BEOG..HANGUL SYLLABLE BEOH
-	{runeRange{0xBCF5, 0xBD0F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BOG..HANGUL SYLLABLE BOH
-	{runeRange{0xBD65, 0xBD7F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BYOG..HANGUL SYLLABLE BYOH
-	{runeRange{0xBDD5, 0xBDEF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BWIG..HANGUL SYLLABLE BWIH
-	{runeRange{0xBE45, 0xBE5F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BIG..HANGUL SYLLABLE BIH
-	{runeRange{0xBEB5, 0xBECF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBYAEG..HANGUL SYLLABLE BBYAEH
-	{runeRange{0xBF25, 0xBF3F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBYEG..HANGUL SYLLABLE BBYEH
-	{runeRange{0xBF95, 0xBFAF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBOEG..HANGUL SYLLABLE BBOEH
-	{runeRange{0xC005, 0xC01F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBWEG..HANGUL SYLLABLE BBWEH
-	{runeRange{0xC075, 0xC08F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBYIG..HANGUL SYLLABLE BBYIH
-	{runeRange{0xC0E5, 0xC0FF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SYAG..HANGUL SYLLABLE SYAH
-	{runeRange{0xC155, 0xC16F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SYEOG..HANGUL SYLLABLE SYEOH
-	{runeRange{0xC1C5, 0xC1DF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SWAEG..HANGUL SYLLABLE SWAEH
-	{runeRange{0xC235, 0xC24F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SWEOG..HANGUL SYLLABLE SWEOH
-	{runeRange{0xC2A5, 0xC2BF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SEUG..HANGUL SYLLABLE SEUH
-	{runeRange{0xC315, 0xC32F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSAEG..HANGUL SYLLABLE SSAEH
-	{runeRange{0xC385, 0xC39F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSEG..HANGUL SYLLABLE SSEH
-	{runeRange{0xC3F5, 0xC40F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSWAG..HANGUL SYLLABLE SSWAH
-	{runeRange{0xC465, 0xC47F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSUG..HANGUL SYLLABLE SSUH
-	{runeRange{0xC4D5, 0xC4EF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSYUG..HANGUL SYLLABLE SSYUH
-	{runeRange{0xC545, 0xC55F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE AG..HANGUL SYLLABLE AH
-	{runeRange{0xC5B5, 0xC5CF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE EOG..HANGUL SYLLABLE EOH
-	{runeRange{0xC625, 0xC63F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE OG..HANGUL SYLLABLE OH
-	{runeRange{0xC695, 0xC6AF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE YOG..HANGUL SYLLABLE YOH
-	{runeRange{0xC705, 0xC71F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE WIG..HANGUL SYLLABLE WIH
-	{runeRange{0xC775, 0xC78F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE IG..HANGUL SYLLABLE IH
-	{runeRange{0xC7E5, 0xC7FF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JYAEG..HANGUL SYLLABLE JYAEH
-	{runeRange{0xC855, 0xC86F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JYEG..HANGUL SYLLABLE JYEH
-	{runeRange{0xC8C5, 0xC8DF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JOEG..HANGUL SYLLABLE JOEH
-	{runeRange{0xC935, 0xC94F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JWEG..HANGUL SYLLABLE JWEH
-	{runeRange{0xC9A5, 0xC9BF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JYIG..HANGUL SYLLABLE JYIH
-	{runeRange{0xCA15, 0xCA2F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJYAG..HANGUL SYLLABLE JJYAH
-	{runeRange{0xCA85, 0xCA9F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJYEOG..HANGUL SYLLABLE JJYEOH
-	{runeRange{0xCAF5, 0xCB0F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJWAEG..HANGUL SYLLABLE JJWAEH
-	{runeRange{0xCB65, 0xCB7F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJWEOG..HANGUL SYLLABLE JJWEOH
-	{runeRange{0xCBD5, 0xCBEF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJEUG..HANGUL SYLLABLE JJEUH
-	{runeRange{0xCC45, 0xCC5F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CAEG..HANGUL SYLLABLE CAEH
-	{runeRange{0xCCB5, 0xCCCF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CEG..HANGUL SYLLABLE CEH
-	{runeRange{0xCD25, 0xCD3F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CWAG..HANGUL SYLLABLE CWAH
-	{runeRange{0xCD95, 0xCDAF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CUG..HANGUL SYLLABLE CUH
-	{runeRange{0xCE05, 0xCE1F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CYUG..HANGUL SYLLABLE CYUH
-	{runeRange{0xCE75, 0xCE8F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KAG..HANGUL SYLLABLE KAH
-	{runeRange{0xCEE5, 0xCEFF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KEOG..HANGUL SYLLABLE KEOH
-	{runeRange{0xCF55, 0xCF6F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KOG..HANGUL SYLLABLE KOH
-	{runeRange{0xCFC5, 0xCFDF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KYOG..HANGUL SYLLABLE KYOH
-	{runeRange{0xD035, 0xD04F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KWIG..HANGUL SYLLABLE KWIH
-	{runeRange{0xD0A5, 0xD0BF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KIG..HANGUL SYLLABLE KIH
-	{runeRange{0xD115, 0xD12F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TYAEG..HANGUL SYLLABLE TYAEH
-	{runeRange{0xD185, 0xD19F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TYEG..HANGUL SYLLABLE TYEH
-	{runeRange{0xD1F5, 0xD20F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TOEG..HANGUL SYLLABLE TOEH
-	{runeRange{0xD265, 0xD27F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TWEG..HANGUL SYLLABLE TWEH
-	{runeRange{0xD2D5, 0xD2EF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TYIG..HANGUL SYLLABLE TYIH
-	{runeRange{0xD345, 0xD35F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PYAG..HANGUL SYLLABLE PYAH
-	{runeRange{0xD3B5, 0xD3CF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PYEOG..HANGUL SYLLABLE PYEOH
-	{runeRange{0xD425, 0xD43F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PWAEG..HANGUL SYLLABLE PWAEH
-	{runeRange{0xD495, 0xD4AF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PWEOG..HANGUL SYLLABLE PWEOH
-	{runeRange{0xD505, 0xD51F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PEUG..HANGUL SYLLABLE PEUH
-	{runeRange{0xD575, 0xD58F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HAEG..HANGUL SYLLABLE HAEH
-	{runeRange{0xD5E5, 0xD5FF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HEG..HANGUL SYLLABLE HEH
-	{runeRange{0xD655, 0xD66F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HWAG..HANGUL SYLLABLE HWAH
-	{runeRange{0xD6C5, 0xD6DF}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HUG..HANGUL SYLLABLE HUH
-	{runeRange{0xD735, 0xD74F}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HYUG..HANGUL SYLLABLE HYUH
-	{runeRange{0xD7CB, 0xD7FB}, propertyGeneralCategory{lbprJT, gcLo}},     //    [49] HANGUL JONGSEONG NIEUN-RIEUL..HANGUL JONGSEONG PHIEUPH-THIEUTH
-	{runeRange{0xFADA, 0xFAFF}, propertyGeneralCategory{lbprID, gcCn}},     //    [38] <reserved-FADA>..<reserved-FAFF>
-	{runeRange{0xFB38, 0xFB3C}, propertyGeneralCategory{lbprHL, gcLo}},     //     [5] HEBREW LETTER TET WITH DAGESH..HEBREW LETTER LAMED WITH DAGESH
-	{runeRange{0xFD3E, 0xFD3E}, propertyGeneralCategory{lbprCL, gcPe}},     //         ORNATE LEFT PARENTHESIS
-	{runeRange{0xFDFD, 0xFDFF}, propertyGeneralCategory{lbprAL, gcSo}},     //     [3] ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM..ARABIC LIGATURE AZZA WA JALL
-	{runeRange{0xFE19, 0xFE19}, propertyGeneralCategory{lbprIN, gcPo}},     //         PRESENTATION FORM FOR VERTICAL HORIZONTAL ELLIPSIS
+	{runeRange{0x1B4E, 0x1B4F}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] BALINESE INVERTED CARIK SIKI..BALINESE INVERTED CARIK PAREREN
+	{runeRange{0x1B7D, 0x1B7F}, propertyGeneralCategory{lbprBA, gcPo}},     //     [3] BALINESE PANTI LANTANG..BALINESE PANTI BAWAK
+	{runeRange{0x1BAA, 0x1BAA}, propertyGeneralCategory{lbprCM, gcMc}},     //         SUNDANESE SIGN PAMAAEH
+	{runeRange{0x1BE8, 0x1BE9}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] BATAK VOWEL SIGN PAKPAK E..BATAK VOWEL SIGN EE
+	{runeRange{0x1C24, 0x1C2B}, propertyGeneralCategory{lbprCM, gcMc}},     //     [8] LEPCHA SUBJOINED LETTER YA..LEPCHA VOWEL SIGN UU
+	{runeRange{0x1C5A, 0x1C77}, propertyGeneralCategory{lbprAL, gcLo}},     //    [30] OL CHIKI LETTER LA..OL CHIKI LETTER OH
+	{runeRange{0x1CD3, 0x1CD3}, propertyGeneralCategory{lbprAL, gcPo}},     //         VEDIC SIGN NIHSHVASA
+	{runeRange{0x1CF5, 0x1CF6}, propertyGeneralCategory{lbprAL, gcLo}},     //     [2] VEDIC SIGN JIHVAMULIYA..VEDIC SIGN UPADHMANIYA
+	{runeRange{0x1D79, 0x1D7F}, propertyGeneralCategory{lbprAL, gcLl}},     //     [7] LATIN SMALL LETTER INSULAR G..LATIN SMALL LETTER UPSILON WITH STROKE
+	{runeRange{0x1E00, 0x1EFF}, propertyGeneralCategory{lbprAL, gcLC}},     //   [256] LATIN CAPITAL LETTER A WITH RING BELOW..LATIN SMALL LETTER Y WITH LOOP
+	{runeRange{0x1F5D, 0x1F5D}, propertyGeneralCategory{lbprAL, gcLu}},     //         GREEK CAPITAL LETTER UPSILON WITH DASIA AND OXIA
+	{runeRange{0x1FC6, 0x1FCC}, propertyGeneralCategory{lbprAL, gcLC}},     //     [7] GREEK SMALL LETTER ETA WITH PERISPOMENI..GREEK CAPITAL LETTER ETA WITH PROSGEGRAMMENI
+	{runeRange{0x1FF6, 0x1FFC}, propertyGeneralCategory{lbprAL, gcLC}},     //     [7] GREEK SMALL LETTER OMEGA WITH PERISPOMENI..GREEK CAPITAL LETTER OMEGA WITH PROSGEGRAMMENI
+	{runeRange{0x200D, 0x200D}, propertyGeneralCategory{lbprZWJ, gcCf}},    //         ZERO WIDTH JOINER
+	{runeRange{0x2017, 0x2017}, propertyGeneralCategory{lbprAL, gcPo}},     //         DOUBLE LOW LINE
+	{runeRange{0x2020, 0x2021}, propertyGeneralCategory{lbprAI, gcPo}},     //     [2] DAGGER..DOUBLE DAGGER
+	{runeRange{0x2030, 0x2037}, propertyGeneralCategory{lbprPO, gcPo}},     //     [8] PER MILLE SIGN..REVERSED TRIPLE PRIME
+	{runeRange{0x2041, 0x2043}, propertyGeneralCategory{lbprAL, gcPo}},     //     [3] CARET INSERTION POINT..HYPHEN BULLET
+	{runeRange{0x2054, 0x2054}, propertyGeneralCategory{lbprAL, gcPc}},     //         INVERTED UNDERTIE
+	{runeRange{0x2060, 0x2060}, propertyGeneralCategory{lbprWJ, gcCf}},     //         WORD JOINER
+	{runeRange{0x207D, 0x207D}, propertyGeneralCategory{lbprOP, gcPs}},     //         SUPERSCRIPT LEFT PARENTHESIS
+	{runeRange{0x208E, 0x208E}, propertyGeneralCategory{lbprCL, gcPe}},     //         SUBSCRIPT RIGHT PARENTHESIS
+	{runeRange{0x20BC, 0x20BD}, propertyGeneralCategory{lbprPR, gcSc}},     //     [2] MANAT SIGN..RUBLE SIGN
+	{runeRange{0x20E2, 0x20E4}, propertyGeneralCategory{lbprCM, gcMe}},     //     [3] COMBINING ENCLOSING SCREEN..COMBINING ENCLOSING UPWARD POINTING TRIANGLE
+	{runeRange{0x2107, 0x2107}, propertyGeneralCategory{lbprAL, gcLu}},     //         EULER CONSTANT
+	{runeRange{0x2117, 0x2117}, propertyGeneralCategory{lbprAL, gcSo}},     //         SOUND RECORDING COPYRIGHT
+	{runeRange{0x2126, 0x2126}, propertyGeneralCategory{lbprAL, gcLu}},     //         OHM SIGN
+	{runeRange{0x212F, 0x2134}, propertyGeneralCategory{lbprAL, gcLC}},     //     [6] SCRIPT SMALL E..SCRIPT SMALL O
+	{runeRange{0x214B, 0x214B}, propertyGeneralCategory{lbprAL, gcSm}},     //         TURNED AMPERSAND
+	{runeRange{0x2170, 0x2179}, propertyGeneralCategory{lbprAI, gcNl}},     //    [10] SMALL ROMAN NUMERAL ONE..SMALL ROMAN NUMERAL TEN
+	{runeRange{0x219A, 0x219B}, propertyGeneralCategory{lbprAL, gcSm}},     //     [2] LEFTWARDS ARROW WITH STROKE..RIGHTWARDS ARROW WITH STROKE
+	{runeRange{0x21AE, 0x21AE}, propertyGeneralCategory{lbprAL, gcSm}},     //         LEFT RIGHT ARROW WITH STROKE
+	{runeRange{0x21F4, 0x21FF}, propertyGeneralCategory{lbprAL, gcSm}},     //    [12] RIGHT ARROW WITH SMALL CIRCLE..LEFT RIGHT OPEN-HEADED ARROW
+	{runeRange{0x220C, 0x220E}, propertyGeneralCategory{lbprAL, gcSm}},     //     [3] DOES NOT CONTAIN AS MEMBER..END OF PROOF
+	{runeRange{0x221A, 0x221A}, propertyGeneralCategory{lbprAI, gcSm}},     //         SQUARE ROOT
+	{runeRange{0x2227, 0x222C}, propertyGeneralCategory{lbprAI, gcSm}},     //     [6] LOGICAL AND..DOUBLE INTEGRAL
+	{runeRange{0x2248, 0x2248}, propertyGeneralCategory{lbprAI, gcSm}},     //         ALMOST EQUAL TO
+	{runeRange{0x2264, 0x2267}, propertyGeneralCategory{lbprAI, gcSm}},     //     [4] LESS-THAN OR EQUAL TO..GREATER-THAN OVER EQUAL TO
+	{runeRange{0x2286, 0x2287}, propertyGeneralCategory{lbprAI, gcSm}},     //     [2] SUBSET OF OR EQUAL TO..SUPERSET OF OR EQUAL TO
+	{runeRange{0x22BF, 0x22BF}, propertyGeneralCategory{lbprAI, gcSm}},     //         RIGHT TRIANGLE
+	{runeRange{0x230B, 0x230B}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT FLOOR
+	{runeRange{0x2329, 0x2329}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT-POINTING ANGLE BRACKET
+	{runeRange{0x23E2, 0x23EF}, propertyGeneralCategory{lbprAL, gcSo}},     //    [14] WHITE TRAPEZIUM..BLACK RIGHT-POINTING TRIANGLE WITH DOUBLE VERTICAL BAR
+	{runeRange{0x24FF, 0x24FF}, propertyGeneralCategory{lbprAL, gcNo}},     //         NEGATIVE CIRCLED DIGIT ZERO
+	{runeRange{0x2596, 0x259F}, propertyGeneralCategory{lbprAL, gcSo}},     //    [10] QUADRANT LOWER LEFT..QUADRANT UPPER RIGHT AND LOWER LEFT AND LOWER RIGHT
+	{runeRange{0x25B7, 0x25B7}, propertyGeneralCategory{lbprAI, gcSm}},     //         WHITE RIGHT-POINTING TRIANGLE
+	{runeRange{0x25C9, 0x25CA}, propertyGeneralCategory{lbprAL, gcSo}},     //     [2] FISHEYE..LOZENGE
+	{runeRange{0x25F0, 0x25F7}, propertyGeneralCategory{lbprAL, gcSo}},     //     [8] WHITE SQUARE WITH UPPER LEFT QUADRANT..WHITE CIRCLE WITH UPPER RIGHT QUADRANT
+	{runeRange{0x260E, 0x260F}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] BLACK TELEPHONE..WHITE TELEPHONE
+	{runeRange{0x261E, 0x261F}, propertyGeneralCategory{lbprID, gcSo}},     //     [2] WHITE RIGHT POINTING INDEX..WHITE DOWN POINTING INDEX
+	{runeRange{0x2660, 0x2661}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] BLACK SPADE SUIT..WHITE HEART SUIT
+	{runeRange{0x266C, 0x266D}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] BEAMED SIXTEENTH NOTES..MUSIC FLAT SIGN
+	{runeRange{0x26BD, 0x26C8}, propertyGeneralCategory{lbprID, gcSo}},     //    [12] SOCCER BALL..THUNDER CLOUD AND RAIN
+	{runeRange{0x26D8, 0x26D9}, propertyGeneralCategory{lbprID, gcSo}},     //     [2] BLACK LEFT LANE MERGE..WHITE LEFT LANE MERGE
+	{runeRange{0x26E8, 0x26E9}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] BLACK CROSS ON SHIELD..SHINTO SHRINE
+	{runeRange{0x26FB, 0x26FC}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] JAPANESE BANK SYMBOL..HEADSTONE GRAVEYARD SYMBOL
+	{runeRange{0x2758, 0x275A}, propertyGeneralCategory{lbprAL, gcSo}},     //     [3] LIGHT VERTICAL BAR..HEAVY VERTICAL BAR
+	{runeRange{0x276A, 0x276A}, propertyGeneralCategory{lbprOP, gcPs}},     //         MEDIUM FLATTENED LEFT PARENTHESIS ORNAMENT
+	{runeRange{0x2772, 0x2772}, propertyGeneralCategory{lbprOP, gcPs}},     //         LIGHT LEFT TORTOISE SHELL BRACKET ORNAMENT
+	{runeRange{0x27C6, 0x27C6}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT S-SHAPED BAG DELIMITER
+	{runeRange{0x27EC, 0x27EC}, propertyGeneralCategory{lbprOP, gcPs}},     //         MATHEMATICAL LEFT WHITE TORTOISE SHELL BRACKET
+	{runeRange{0x2983, 0x2983}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT WHITE CURLY BRACKET
+	{runeRange{0x298B, 0x298B}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT SQUARE BRACKET WITH UNDERBAR
+	{runeRange{0x2993, 0x2993}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT ARC LESS-THAN BRACKET
+	{runeRange{0x29D9, 0x29D9}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT WIGGLY FENCE
+	{runeRange{0x2B00, 0x2B2F}, propertyGeneralCategory{lbprAL, gcSo}},     //    [48] NORTH EAST WHITE ARROW..WHITE VERTICAL ELLIPSE
+	{runeRange{0x2B97, 0x2BFF}, propertyGeneralCategory{lbprAL, gcSo}},     //   [105] SYMBOL FOR TYPE A ELECTRONICS..HELLSCHREIBER PAUSE SYMBOL
+	{runeRange{0x2CEF, 0x2CF1}, propertyGeneralCategory{lbprCM, gcMn}},     //     [3] COPTIC COMBINING NI ABOVE..COPTIC COMBINING SPIRITUS LENIS
+	{runeRange{0x2D27, 0x2D27}, propertyGeneralCategory{lbprAL, gcLl}},     //         GEORGIAN SMALL LETTER YN
+	{runeRange{0x2DA8, 0x2DAE}, propertyGeneralCategory{lbprAL, gcLo}},     //     [7] ETHIOPIC SYLLABLE CCA..ETHIOPIC SYLLABLE CCO
+	{runeRange{0x2E00, 0x2E01}, propertyGeneralCategory{lbprQU, gcPo}},     //     [2] RIGHT ANGLE SUBSTITUTION MARKER..RIGHT ANGLE DOTTED SUBSTITUTION MARKER
+	{runeRange{0x2E0B, 0x2E0B}, propertyGeneralCategory{lbprQU, gcPo}},     //         RAISED SQUARE
+	{runeRange{0x2E1A, 0x2E1A}, propertyGeneralCategory{lbprAL, gcPd}},     //         HYPHEN WITH DIAERESIS
+	{runeRange{0x2E23, 0x2E23}, propertyGeneralCategory{lbprCL, gcPe}},     //         TOP RIGHT HALF BRACKET
+	{runeRange{0x2E2E, 0x2E2E}, propertyGeneralCategory{lbprEX, gcPo}},     //         REVERSED QUESTION MARK
+	{runeRange{0x2E3F, 0x2E3F}, propertyGeneralCategory{lbprAL, gcPo}},     //         CAPITULUM
+	{runeRange{0x2E4E, 0x2E4F}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] PUNCTUS ELEVATUS MARK..CORNISH VERSE DIVIDER
+	{runeRange{0x2E59, 0x2E59}, propertyGeneralCategory{lbprOP, gcPs}},     //         TOP HALF LEFT PARENTHESIS
+	{runeRange{0x2FF0, 0x2FFF}, propertyGeneralCategory{lbprID, gcSo}},     //    [16] IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT..IDEOGRAPHIC DESCRIPTION CHARACTER ROTATION
+	{runeRange{0x3008, 0x3008}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT ANGLE BRACKET
+	{runeRange{0x3010, 0x3010}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT BLACK LENTICULAR BRACKET
+	{runeRange{0x3019, 0x3019}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT WHITE TORTOISE SHELL BRACKET
+	{runeRange{0x302A, 0x302D}, propertyGeneralCategory{lbprCM, gcMn}},     //     [4] IDEOGRAPHIC LEVEL TONE MARK..IDEOGRAPHIC ENTERING TONE MARK
+	{runeRange{0x303C, 0x303C}, propertyGeneralCategory{lbprNS, gcLo}},     //         MASU MARK
+	{runeRange{0x3046, 0x3046}, propertyGeneralCategory{lbprID, gcLo}},     //         HIRAGANA LETTER U
+	{runeRange{0x3084, 0x3084}, propertyGeneralCategory{lbprID, gcLo}},     //         HIRAGANA LETTER YA
+	{runeRange{0x3099, 0x309A}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK..COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
+	{runeRange{0x30A4, 0x30A4}, propertyGeneralCategory{lbprID, gcLo}},     //         KATAKANA LETTER I
+	{runeRange{0x30C4, 0x30E2}, propertyGeneralCategory{lbprID, gcLo}},     //    [31] KATAKANA LETTER TU..KATAKANA LETTER MO
+	{runeRange{0x30EF, 0x30F4}, propertyGeneralCategory{lbprID, gcLo}},     //     [6] KATAKANA LETTER WA..KATAKANA LETTER VU
+	{runeRange{0x3131, 0x318E}, propertyGeneralCategory{lbprID, gcLo}},     //    [94] HANGUL LETTER KIYEOK..HANGUL LETTER ARAEAE
+	{runeRange{0x3200, 0x321E}, propertyGeneralCategory{lbprID, gcSo}},     //    [31] PARENTHESIZED HANGUL KIYEOK..PARENTHESIZED KOREAN CHARACTER O HU
+	{runeRange{0x328A, 0x32B0}, propertyGeneralCategory{lbprID, gcSo}},     //    [39] CIRCLED IDEOGRAPH MOON..CIRCLED IDEOGRAPH NIGHT
+	{runeRange{0xA015, 0xA015}, propertyGeneralCategory{lbprNS, gcLm}},     //         YI SYLLABLE WU
+	{runeRange{0xA60D, 0xA60D}, propertyGeneralCategory{lbprBA, gcPo}},     //         VAI COMMA
+	{runeRange{0xA66F, 0xA66F}, propertyGeneralCategory{lbprCM, gcMn}},     //         COMBINING CYRILLIC VZMET
+	{runeRange{0xA69E, 0xA69F}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] COMBINING CYRILLIC LETTER EF..COMBINING CYRILLIC LETTER IOTIFIED E
+	{runeRange{0xA720, 0xA721}, propertyGeneralCategory{lbprAL, gcSk}},     //     [2] MODIFIER LETTER STRESS AND HIGH TONE..MODIFIER LETTER STRESS AND LOW TONE
+	{runeRange{0xA790, 0xA7CD}, propertyGeneralCategory{lbprAL, gcLC}},     //    [62] LATIN CAPITAL LETTER N WITH DESCENDER..LATIN SMALL LETTER S WITH DIAGONAL STROKE
+	{runeRange{0xA7FA, 0xA7FA}, propertyGeneralCategory{lbprAL, gcLl}},     //         LATIN LETTER SMALL CAPITAL TURNED M
+	{runeRange{0xA80C, 0xA822}, propertyGeneralCategory{lbprAL, gcLo}},     //    [23] SYLOTI NAGRI LETTER CO..SYLOTI NAGRI LETTER HO
+	{runeRange{0xA838, 0xA838}, propertyGeneralCategory{lbprPO, gcSc}},     //         NORTH INDIC RUPEE MARK
+	{runeRange{0xA8C4, 0xA8C5}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] SAURASHTRA SIGN VIRAMA..SAURASHTRA SIGN CANDRABINDU
+	{runeRange{0xA8FD, 0xA8FE}, propertyGeneralCategory{lbprAL, gcLo}},     //     [2] DEVANAGARI JAIN OM..DEVANAGARI LETTER AY
+	{runeRange{0xA952, 0xA953}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] REJANG CONSONANT SIGN H..REJANG VIRAMA
+	{runeRange{0xA9B6, 0xA9B9}, propertyGeneralCategory{lbprCM, gcMn}},     //     [4] JAVANESE VOWEL SIGN WULU..JAVANESE VOWEL SIGN SUKU MENDUT
+	{runeRange{0xA9CF, 0xA9CF}, propertyGeneralCategory{lbprBA, gcLm}},     //         JAVANESE PANGRANGKEP
+	{runeRange{0xA9FA, 0xA9FE}, propertyGeneralCategory{lbprSA, gcLo}},     //     [5] MYANMAR LETTER TAI LAING LLA..MYANMAR LETTER TAI LAING BHA
+	{runeRange{0xAA43, 0xAA43}, propertyGeneralCategory{lbprCM, gcMn}},     //         CHAM CONSONANT SIGN FINAL NG
+	{runeRange{0xAA70, 0xAA70}, propertyGeneralCategory{lbprSA, gcLm}},     //         MYANMAR MODIFIER LETTER KHAMTI REDUPLICATION
+	{runeRange{0xAA80, 0xAAAF}, propertyGeneralCategory{lbprSA, gcLo}},     //    [48] TAI VIET LETTER LOW KO..TAI VIET LETTER HIGH O
+	{runeRange{0xAAC0, 0xAAC0}, propertyGeneralCategory{lbprSA, gcLo}},     //         TAI VIET TONE MAI NUENG
+	{runeRange{0xAAEC, 0xAAED}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] MEETEI MAYEK VOWEL SIGN UU..MEETEI MAYEK VOWEL SIGN AAI
+	{runeRange{0xAB09, 0xAB0E}, propertyGeneralCategory{lbprAL, gcLo}},     //     [6] ETHIOPIC SYLLABLE DDHU..ETHIOPIC SYLLABLE DDHO
+	{runeRange{0xAB69, 0xAB69}, propertyGeneralCategory{lbprAL, gcLm}},     //         MODIFIER LETTER SMALL TURNED W
+	{runeRange{0xABE9, 0xABEA}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] MEETEI MAYEK VOWEL SIGN CHEINAP..MEETEI MAYEK VOWEL SIGN NUNG
+	{runeRange{0xAC1D, 0xAC37}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GAEG..HANGUL SYLLABLE GAEH
+	{runeRange{0xAC8D, 0xACA7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GEG..HANGUL SYLLABLE GEH
+	{runeRange{0xACFD, 0xAD17}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GWAG..HANGUL SYLLABLE GWAH
+	{runeRange{0xAD6D, 0xAD87}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GUG..HANGUL SYLLABLE GUH
+	{runeRange{0xADDD, 0xADF7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GYUG..HANGUL SYLLABLE GYUH
+	{runeRange{0xAE4D, 0xAE67}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGAG..HANGUL SYLLABLE GGAH
+	{runeRange{0xAEBD, 0xAED7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGEOG..HANGUL SYLLABLE GGEOH
+	{runeRange{0xAF2D, 0xAF47}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGOG..HANGUL SYLLABLE GGOH
+	{runeRange{0xAF9D, 0xAFB7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGYOG..HANGUL SYLLABLE GGYOH
+	{runeRange{0xB00D, 0xB027}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGWIG..HANGUL SYLLABLE GGWIH
+	{runeRange{0xB07D, 0xB097}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE GGIG..HANGUL SYLLABLE GGIH
+	{runeRange{0xB0ED, 0xB107}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NYAEG..HANGUL SYLLABLE NYAEH
+	{runeRange{0xB15D, 0xB177}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NYEG..HANGUL SYLLABLE NYEH
+	{runeRange{0xB1CD, 0xB1E7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NOEG..HANGUL SYLLABLE NOEH
+	{runeRange{0xB23D, 0xB257}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NWEG..HANGUL SYLLABLE NWEH
+	{runeRange{0xB2AD, 0xB2C7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE NYIG..HANGUL SYLLABLE NYIH
+	{runeRange{0xB31D, 0xB337}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DYAG..HANGUL SYLLABLE DYAH
+	{runeRange{0xB38D, 0xB3A7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DYEOG..HANGUL SYLLABLE DYEOH
+	{runeRange{0xB3FD, 0xB417}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DWAEG..HANGUL SYLLABLE DWAEH
+	{runeRange{0xB46D, 0xB487}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DWEOG..HANGUL SYLLABLE DWEOH
+	{runeRange{0xB4DD, 0xB4F7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DEUG..HANGUL SYLLABLE DEUH
+	{runeRange{0xB54D, 0xB567}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDAEG..HANGUL SYLLABLE DDAEH
+	{runeRange{0xB5BD, 0xB5D7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDEG..HANGUL SYLLABLE DDEH
+	{runeRange{0xB62D, 0xB647}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDWAG..HANGUL SYLLABLE DDWAH
+	{runeRange{0xB69D, 0xB6B7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDUG..HANGUL SYLLABLE DDUH
+	{runeRange{0xB70D, 0xB727}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE DDYUG..HANGUL SYLLABLE DDYUH
+	{runeRange{0xB77D, 0xB797}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RAG..HANGUL SYLLABLE RAH
+	{runeRange{0xB7ED, 0xB807}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE REOG..HANGUL SYLLABLE REOH
+	{runeRange{0xB85D, 0xB877}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE ROG..HANGUL SYLLABLE ROH
+	{runeRange{0xB8CD, 0xB8E7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RYOG..HANGUL SYLLABLE RYOH
+	{runeRange{0xB93D, 0xB957}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RWIG..HANGUL SYLLABLE RWIH
+	{runeRange{0xB9AD, 0xB9C7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE RIG..HANGUL SYLLABLE RIH
+	{runeRange{0xBA1D, 0xBA37}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MYAEG..HANGUL SYLLABLE MYAEH
+	{runeRange{0xBA8D, 0xBAA7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MYEG..HANGUL SYLLABLE MYEH
+	{runeRange{0xBAFD, 0xBB17}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MOEG..HANGUL SYLLABLE MOEH
+	{runeRange{0xBB6D, 0xBB87}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MWEG..HANGUL SYLLABLE MWEH
+	{runeRange{0xBBDD, 0xBBF7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE MYIG..HANGUL SYLLABLE MYIH
+	{runeRange{0xBC4D, 0xBC67}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BYAG..HANGUL SYLLABLE BYAH
+	{runeRange{0xBCBD, 0xBCD7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BYEOG..HANGUL SYLLABLE BYEOH
+	{runeRange{0xBD2D, 0xBD47}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BWAEG..HANGUL SYLLABLE BWAEH
+	{runeRange{0xBD9D, 0xBDB7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BWEOG..HANGUL SYLLABLE BWEOH
+	{runeRange{0xBE0D, 0xBE27}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BEUG..HANGUL SYLLABLE BEUH
+	{runeRange{0xBE7D, 0xBE97}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBAEG..HANGUL SYLLABLE BBAEH
+	{runeRange{0xBEED, 0xBF07}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBEG..HANGUL SYLLABLE BBEH
+	{runeRange{0xBF5D, 0xBF77}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBWAG..HANGUL SYLLABLE BBWAH
+	{runeRange{0xBFCD, 0xBFE7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBUG..HANGUL SYLLABLE BBUH
+	{runeRange{0xC03D, 0xC057}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE BBYUG..HANGUL SYLLABLE BBYUH
+	{runeRange{0xC0AD, 0xC0C7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SAG..HANGUL SYLLABLE SAH
+	{runeRange{0xC11D, 0xC137}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SEOG..HANGUL SYLLABLE SEOH
+	{runeRange{0xC18D, 0xC1A7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SOG..HANGUL SYLLABLE SOH
+	{runeRange{0xC1FD, 0xC217}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SYOG..HANGUL SYLLABLE SYOH
+	{runeRange{0xC26D, 0xC287}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SWIG..HANGUL SYLLABLE SWIH
+	{runeRange{0xC2DD, 0xC2F7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SIG..HANGUL SYLLABLE SIH
+	{runeRange{0xC34D, 0xC367}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSYAEG..HANGUL SYLLABLE SSYAEH
+	{runeRange{0xC3BD, 0xC3D7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSYEG..HANGUL SYLLABLE SSYEH
+	{runeRange{0xC42D, 0xC447}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSOEG..HANGUL SYLLABLE SSOEH
+	{runeRange{0xC49D, 0xC4B7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSWEG..HANGUL SYLLABLE SSWEH
+	{runeRange{0xC50D, 0xC527}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE SSYIG..HANGUL SYLLABLE SSYIH
+	{runeRange{0xC57D, 0xC597}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE YAG..HANGUL SYLLABLE YAH
+	{runeRange{0xC5ED, 0xC607}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE YEOG..HANGUL SYLLABLE YEOH
+	{runeRange{0xC65D, 0xC677}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE WAEG..HANGUL SYLLABLE WAEH
+	{runeRange{0xC6CD, 0xC6E7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE WEOG..HANGUL SYLLABLE WEOH
+	{runeRange{0xC73D, 0xC757}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE EUG..HANGUL SYLLABLE EUH
+	{runeRange{0xC7AD, 0xC7C7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JAEG..HANGUL SYLLABLE JAEH
+	{runeRange{0xC81D, 0xC837}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JEG..HANGUL SYLLABLE JEH
+	{runeRange{0xC88D, 0xC8A7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JWAG..HANGUL SYLLABLE JWAH
+	{runeRange{0xC8FD, 0xC917}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JUG..HANGUL SYLLABLE JUH
+	{runeRange{0xC96D, 0xC987}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JYUG..HANGUL SYLLABLE JYUH
+	{runeRange{0xC9DD, 0xC9F7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJAG..HANGUL SYLLABLE JJAH
+	{runeRange{0xCA4D, 0xCA67}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJEOG..HANGUL SYLLABLE JJEOH
+	{runeRange{0xCABD, 0xCAD7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJOG..HANGUL SYLLABLE JJOH
+	{runeRange{0xCB2D, 0xCB47}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJYOG..HANGUL SYLLABLE JJYOH
+	{runeRange{0xCB9D, 0xCBB7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJWIG..HANGUL SYLLABLE JJWIH
+	{runeRange{0xCC0D, 0xCC27}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE JJIG..HANGUL SYLLABLE JJIH
+	{runeRange{0xCC7D, 0xCC97}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CYAEG..HANGUL SYLLABLE CYAEH
+	{runeRange{0xCCED, 0xCD07}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CYEG..HANGUL SYLLABLE CYEH
+	{runeRange{0xCD5D, 0xCD77}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE COEG..HANGUL SYLLABLE COEH
+	{runeRange{0xCDCD, 0xCDE7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CWEG..HANGUL SYLLABLE CWEH
+	{runeRange{0xCE3D, 0xCE57}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE CYIG..HANGUL SYLLABLE CYIH
+	{runeRange{0xCEAD, 0xCEC7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KYAG..HANGUL SYLLABLE KYAH
+	{runeRange{0xCF1D, 0xCF37}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KYEOG..HANGUL SYLLABLE KYEOH
+	{runeRange{0xCF8D, 0xCFA7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KWAEG..HANGUL SYLLABLE KWAEH
+	{runeRange{0xCFFD, 0xD017}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KWEOG..HANGUL SYLLABLE KWEOH
+	{runeRange{0xD06D, 0xD087}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE KEUG..HANGUL SYLLABLE KEUH
+	{runeRange{0xD0DD, 0xD0F7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TAEG..HANGUL SYLLABLE TAEH
+	{runeRange{0xD14D, 0xD167}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TEG..HANGUL SYLLABLE TEH
+	{runeRange{0xD1BD, 0xD1D7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TWAG..HANGUL SYLLABLE TWAH
+	{runeRange{0xD22D, 0xD247}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TUG..HANGUL SYLLABLE TUH
+	{runeRange{0xD29D, 0xD2B7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE TYUG..HANGUL SYLLABLE TYUH
+	{runeRange{0xD30D, 0xD327}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PAG..HANGUL SYLLABLE PAH
+	{runeRange{0xD37D, 0xD397}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PEOG..HANGUL SYLLABLE PEOH
+	{runeRange{0xD3ED, 0xD407}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE POG..HANGUL SYLLABLE POH
+	{runeRange{0xD45D, 0xD477}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PYOG..HANGUL SYLLABLE PYOH
+	{runeRange{0xD4CD, 0xD4E7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PWIG..HANGUL SYLLABLE PWIH
+	{runeRange{0xD53D, 0xD557}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE PIG..HANGUL SYLLABLE PIH
+	{runeRange{0xD5AD, 0xD5C7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HYAEG..HANGUL SYLLABLE HYAEH
+	{runeRange{0xD61D, 0xD637}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HYEG..HANGUL SYLLABLE HYEH
+	{runeRange{0xD68D, 0xD6A7}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HOEG..HANGUL SYLLABLE HOEH
+	{runeRange{0xD6FD, 0xD717}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HWEG..HANGUL SYLLABLE HWEH
+	{runeRange{0xD76D, 0xD787}, propertyGeneralCategory{lbprH3, gcLo}},     //    [27] HANGUL SYLLABLE HYIG..HANGUL SYLLABLE HYIH
+	{runeRange{0xE000, 0xF8FF}, propertyGeneralCategory{lbprXX, gcCo}},     //  [6400] <private-use-E000>..<private-use-F8FF>
+	{runeRange{0xFB1E, 0xFB1E}, propertyGeneralCategory{lbprCM, gcMn}},     //         HEBREW POINT JUDEO-SPANISH VARIKA
+	{runeRange{0xFB46, 0xFB4F}, propertyGeneralCategory{lbprHL, gcLo}},     //    [10] HEBREW LETTER TSADI WITH DAGESH..HEBREW LIGATURE ALEF LAMED
+	{runeRange{0xFD92, 0xFDC7}, propertyGeneralCategory{lbprAL, gcLo}},     //    [54] ARABIC LIGATURE MEEM WITH JEEM WITH KHAH INITIAL FORM..ARABIC LIGATURE NOON WITH JEEM WITH YEH FINAL FORM
+	{runeRange{0xFE15, 0xFE16}, propertyGeneralCategory{lbprEX, gcPo}},     //     [2] PRESENTATION FORM FOR VERTICAL EXCLAMATION MARK..PRESENTATION FORM FOR VERTICAL QUESTION MARK
+	{runeRange{0xFE24, 0xFE24}, propertyGeneralCategory{lbprGL, gcMn}},     //         COMBINING MACRON LEFT HALF
+	{runeRange{0xFE2D, 0xFE2E}, propertyGeneralCategory{lbprGL, gcMn}},     //     [2] COMBINING CONJOINING MACRON BELOW..COMBINING CYRILLIC TITLO LEFT HALF
 	{runeRange{0xFE38, 0xFE38}, propertyGeneralCategory{lbprCL, gcPe}},     //         PRESENTATION FORM FOR VERTICAL RIGHT CURLY BRACKET
 	{runeRange{0xFE40, 0xFE40}, propertyGeneralCategory{lbprCL, gcPe}},     //         PRESENTATION FORM FOR VERTICAL RIGHT ANGLE BRACKET
 	{runeRange{0xFE49, 0xFE4C}, propertyGeneralCategory{lbprID, gcPo}},     //     [4] DASHED OVERLINE..DOUBLE WAVY OVERLINE
@@ -851,176 +852,175 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x103D0, 0x103D0}, propertyGeneralCategory{lbprBA, gcPo}},   //         OLD PERSIAN WORD DIVIDER
 	{runeRange{0x10500, 0x10527}, propertyGeneralCategory{lbprAL, gcLo}},   //    [40] ELBASAN LETTER A..ELBASAN LETTER KHE
 	{runeRange{0x105A3, 0x105B1}, propertyGeneralCategory{lbprAL, gcLl}},   //    [15] VITHKUQI SMALL LETTER HA..VITHKUQI SMALL LETTER RE
-	{runeRange{0x107B2, 0x107BA}, propertyGeneralCategory{lbprAL, gcLm}},   //     [9] MODIFIER LETTER SMALL CAPITAL Y..MODIFIER LETTER SMALL S WITH CURL
-	{runeRange{0x10857, 0x10857}, propertyGeneralCategory{lbprBA, gcPo}},   //         IMPERIAL ARAMAIC SECTION SIGN
-	{runeRange{0x108F4, 0x108F5}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] HATRAN LETTER SHIN..HATRAN LETTER TAW
-	{runeRange{0x109A0, 0x109B7}, propertyGeneralCategory{lbprAL, gcLo}},   //    [24] MEROITIC CURSIVE LETTER A..MEROITIC CURSIVE LETTER DA
-	{runeRange{0x10A0C, 0x10A0F}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] KHAROSHTHI VOWEL LENGTH MARK..KHAROSHTHI SIGN VISARGA
-	{runeRange{0x10A58, 0x10A58}, propertyGeneralCategory{lbprAL, gcPo}},   //         KHAROSHTHI PUNCTUATION LINES
-	{runeRange{0x10AC9, 0x10AE4}, propertyGeneralCategory{lbprAL, gcLo}},   //    [28] MANICHAEAN LETTER ZAYIN..MANICHAEAN LETTER TAW
-	{runeRange{0x10B58, 0x10B5F}, propertyGeneralCategory{lbprAL, gcNo}},   //     [8] INSCRIPTIONAL PARTHIAN NUMBER ONE..INSCRIPTIONAL PARTHIAN NUMBER ONE THOUSAND
-	{runeRange{0x10CC0, 0x10CF2}, propertyGeneralCategory{lbprAL, gcLl}},   //    [51] OLD HUNGARIAN SMALL LETTER A..OLD HUNGARIAN SMALL LETTER US
-	{runeRange{0x10EAD, 0x10EAD}, propertyGeneralCategory{lbprBA, gcPd}},   //         YEZIDI HYPHENATION MARK
-	{runeRange{0x10F51, 0x10F54}, propertyGeneralCategory{lbprAL, gcNo}},   //     [4] SOGDIAN NUMBER ONE..SOGDIAN NUMBER ONE HUNDRED
-	{runeRange{0x11000, 0x11000}, propertyGeneralCategory{lbprCM, gcMc}},   //         BRAHMI SIGN CANDRABINDU
-	{runeRange{0x11049, 0x1104D}, propertyGeneralCategory{lbprID, gcPo}},   //     [5] BRAHMI PUNCTUATION DOT..BRAHMI PUNCTUATION LOTUS
-	{runeRange{0x11080, 0x11081}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] KAITHI SIGN CANDRABINDU..KAITHI SIGN ANUSVARA
-	{runeRange{0x110BD, 0x110BD}, propertyGeneralCategory{lbprNU, gcCf}},   //         KAITHI NUMBER SIGN
-	{runeRange{0x11127, 0x1112B}, propertyGeneralCategory{lbprCM, gcMn}},   //     [5] CHAKMA VOWEL SIGN A..CHAKMA VOWEL SIGN UU
-	{runeRange{0x11150, 0x11172}, propertyGeneralCategory{lbprAL, gcLo}},   //    [35] MAHAJANI LETTER A..MAHAJANI LETTER RRA
-	{runeRange{0x111B3, 0x111B5}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] SHARADA VOWEL SIGN AA..SHARADA VOWEL SIGN II
-	{runeRange{0x111CD, 0x111CD}, propertyGeneralCategory{lbprAL, gcPo}},   //         SHARADA SUTRA MARK
-	{runeRange{0x111E1, 0x111F4}, propertyGeneralCategory{lbprAL, gcNo}},   //    [20] SINHALA ARCHAIC DIGIT ONE..SINHALA ARCHAIC NUMBER ONE THOUSAND
-	{runeRange{0x11236, 0x11237}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] KHOJKI SIGN NUKTA..KHOJKI SIGN SHADDA
-	{runeRange{0x11280, 0x11286}, propertyGeneralCategory{lbprAL, gcLo}},   //     [7] MULTANI LETTER A..MULTANI LETTER GA
-	{runeRange{0x112E0, 0x112E2}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] KHUDAWADI VOWEL SIGN AA..KHUDAWADI VOWEL SIGN II
-	{runeRange{0x1132A, 0x11330}, propertyGeneralCategory{lbprAK, gcLo}},   //     [7] GRANTHA LETTER PA..GRANTHA LETTER RA
-	{runeRange{0x11347, 0x11348}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] GRANTHA VOWEL SIGN EE..GRANTHA VOWEL SIGN AI
-	{runeRange{0x11362, 0x11363}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] GRANTHA VOWEL SIGN VOCALIC L..GRANTHA VOWEL SIGN VOCALIC LL
-	{runeRange{0x11445, 0x11445}, propertyGeneralCategory{lbprCM, gcMc}},   //         NEWA SIGN VISARGA
-	{runeRange{0x1145E, 0x1145E}, propertyGeneralCategory{lbprCM, gcMn}},   //         NEWA SANDHI MARK
-	{runeRange{0x114BF, 0x114C0}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] TIRHUTA SIGN CANDRABINDU..TIRHUTA SIGN ANUSVARA
-	{runeRange{0x115AF, 0x115B1}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] SIDDHAM VOWEL SIGN AA..SIDDHAM VOWEL SIGN II
-	{runeRange{0x115C4, 0x115C5}, propertyGeneralCategory{lbprEX, gcPo}},   //     [2] SIDDHAM SEPARATOR DOT..SIDDHAM SEPARATOR BAR
-	{runeRange{0x1163B, 0x1163C}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] MODI VOWEL SIGN O..MODI VOWEL SIGN AU
-	{runeRange{0x11660, 0x1166C}, propertyGeneralCategory{lbprBB, gcPo}},   //    [13] MONGOLIAN BIRGA WITH ORNAMENT..MONGOLIAN TURNED SWIRL BIRGA WITH DOUBLE ORNAMENT
-	{runeRange{0x116B7, 0x116B7}, propertyGeneralCategory{lbprCM, gcMn}},   //         TAKRI SIGN NUKTA
-	{runeRange{0x11726, 0x11726}, propertyGeneralCategory{lbprSA, gcMc}},   //         AHOM VOWEL SIGN E
-	{runeRange{0x1182C, 0x1182E}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] DOGRA VOWEL SIGN AA..DOGRA VOWEL SIGN II
-	{runeRange{0x118FF, 0x118FF}, propertyGeneralCategory{lbprAL, gcLo}},   //         WARANG CITI OM
-	{runeRange{0x1193B, 0x1193C}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] DIVES AKURU SIGN ANUSVARA..DIVES AKURU SIGN CANDRABINDU
-	{runeRange{0x11944, 0x11946}, propertyGeneralCategory{lbprBA, gcPo}},   //     [3] DIVES AKURU DOUBLE DANDA..DIVES AKURU END OF TEXT MARK
-	{runeRange{0x119E0, 0x119E0}, propertyGeneralCategory{lbprCM, gcMn}},   //         NANDINAGARI SIGN VIRAMA
-	{runeRange{0x11A33, 0x11A38}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] ZANABAZAR SQUARE FINAL CONSONANT MARK..ZANABAZAR SQUARE SIGN ANUSVARA
-	{runeRange{0x11A46, 0x11A46}, propertyGeneralCategory{lbprAL, gcPo}},   //         ZANABAZAR SQUARE CLOSING DOUBLE-LINED HEAD MARK
-	{runeRange{0x11A97, 0x11A97}, propertyGeneralCategory{lbprCM, gcMc}},   //         SOYOMBO SIGN VISARGA
+	{runeRange{0x10787, 0x107B0}, propertyGeneralCategory{lbprAL, gcLm}},   //    [42] MODIFIER LETTER SMALL DZ DIGRAPH..MODIFIER LETTER SMALL V WITH RIGHT HOOK
+	{runeRange{0x10840, 0x10855}, propertyGeneralCategory{lbprAL, gcLo}},   //    [22] IMPERIAL ARAMAIC LETTER ALEPH..IMPERIAL ARAMAIC LETTER TAW
+	{runeRange{0x108E0, 0x108F2}, propertyGeneralCategory{lbprAL, gcLo}},   //    [19] HATRAN LETTER ALEPH..HATRAN LETTER QOPH
+	{runeRange{0x10980, 0x1099F}, propertyGeneralCategory{lbprAL, gcLo}},   //    [32] MEROITIC HIEROGLYPHIC LETTER A..MEROITIC HIEROGLYPHIC SYMBOL VIDJ-2
+	{runeRange{0x10A05, 0x10A06}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
+	{runeRange{0x10A50, 0x10A57}, propertyGeneralCategory{lbprBA, gcPo}},   //     [8] KHAROSHTHI PUNCTUATION DOT..KHAROSHTHI PUNCTUATION DOUBLE DANDA
+	{runeRange{0x10AC8, 0x10AC8}, propertyGeneralCategory{lbprAL, gcSo}},   //         MANICHAEAN SIGN UD
+	{runeRange{0x10B40, 0x10B55}, propertyGeneralCategory{lbprAL, gcLo}},   //    [22] INSCRIPTIONAL PARTHIAN LETTER ALEPH..INSCRIPTIONAL PARTHIAN LETTER TAW
+	{runeRange{0x10C80, 0x10CB2}, propertyGeneralCategory{lbprAL, gcLu}},   //    [51] OLD HUNGARIAN CAPITAL LETTER A..OLD HUNGARIAN CAPITAL LETTER US
+	{runeRange{0x10D4E, 0x10D4E}, propertyGeneralCategory{lbprAL, gcLm}},   //         GARAY VOWEL LENGTH MARK
+	{runeRange{0x10E60, 0x10E7E}, propertyGeneralCategory{lbprAL, gcNo}},   //    [31] RUMI DIGIT ONE..RUMI FRACTION TWO THIRDS
+	{runeRange{0x10F1D, 0x10F26}, propertyGeneralCategory{lbprAL, gcNo}},   //    [10] OLD SOGDIAN NUMBER ONE..OLD SOGDIAN FRACTION ONE HALF
+	{runeRange{0x10F86, 0x10F89}, propertyGeneralCategory{lbprAL, gcPo}},   //     [4] OLD UYGHUR PUNCTUATION BAR..OLD UYGHUR PUNCTUATION FOUR DOTS
+	{runeRange{0x11005, 0x11037}, propertyGeneralCategory{lbprAK, gcLo}},   //    [51] BRAHMI LETTER A..BRAHMI LETTER OLD TAMIL NNNA
+	{runeRange{0x11071, 0x11072}, propertyGeneralCategory{lbprAK, gcLo}},   //     [2] BRAHMI LETTER OLD TAMIL SHORT E..BRAHMI LETTER OLD TAMIL SHORT O
+	{runeRange{0x110B3, 0x110B6}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] KAITHI VOWEL SIGN U..KAITHI VOWEL SIGN AI
+	{runeRange{0x110D0, 0x110E8}, propertyGeneralCategory{lbprAL, gcLo}},   //    [25] SORA SOMPENG LETTER SAH..SORA SOMPENG LETTER MAE
+	{runeRange{0x11140, 0x11143}, propertyGeneralCategory{lbprBA, gcPo}},   //     [4] CHAKMA SECTION MARK..CHAKMA QUESTION MARK
+	{runeRange{0x11176, 0x11176}, propertyGeneralCategory{lbprAL, gcLo}},   //         MAHAJANI LIGATURE SHRI
+	{runeRange{0x111C5, 0x111C6}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] SHARADA DANDA..SHARADA DOUBLE DANDA
+	{runeRange{0x111DA, 0x111DA}, propertyGeneralCategory{lbprAL, gcLo}},   //         SHARADA EKAM
+	{runeRange{0x1122F, 0x11231}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] KHOJKI VOWEL SIGN U..KHOJKI VOWEL SIGN AI
+	{runeRange{0x1123D, 0x1123D}, propertyGeneralCategory{lbprAL, gcPo}},   //         KHOJKI ABBREVIATION SIGN
+	{runeRange{0x1129F, 0x112A8}, propertyGeneralCategory{lbprAL, gcLo}},   //    [10] MULTANI LETTER BHA..MULTANI LETTER RHA
+	{runeRange{0x11302, 0x11303}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] GRANTHA SIGN ANUSVARA..GRANTHA SIGN VISARGA
+	{runeRange{0x1133D, 0x1133D}, propertyGeneralCategory{lbprBA, gcLo}},   //         GRANTHA SIGN AVAGRAHA
+	{runeRange{0x11357, 0x11357}, propertyGeneralCategory{lbprCM, gcMc}},   //         GRANTHA AU LENGTH MARK
+	{runeRange{0x1138B, 0x1138B}, propertyGeneralCategory{lbprAS, gcLo}},   //         TULU-TIGALARI LETTER EE
+	{runeRange{0x113C5, 0x113C5}, propertyGeneralCategory{lbprCM, gcMc}},   //         TULU-TIGALARI VOWEL SIGN AI
+	{runeRange{0x113D3, 0x113D3}, propertyGeneralCategory{lbprID, gcLo}},   //         TULU-TIGALARI SIGN PLUTA
+	{runeRange{0x11442, 0x11444}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] NEWA SIGN VIRAMA..NEWA SIGN ANUSVARA
+	{runeRange{0x1145D, 0x1145D}, propertyGeneralCategory{lbprAL, gcPo}},   //         NEWA INSERTION SIGN
+	{runeRange{0x114BB, 0x114BE}, propertyGeneralCategory{lbprCM, gcMc}},   //     [4] TIRHUTA VOWEL SIGN AI..TIRHUTA VOWEL SIGN AU
+	{runeRange{0x11580, 0x115AE}, propertyGeneralCategory{lbprAL, gcLo}},   //    [47] SIDDHAM LETTER A..SIDDHAM LETTER HA
+	{runeRange{0x115C2, 0x115C3}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] SIDDHAM DANDA..SIDDHAM DOUBLE DANDA
+	{runeRange{0x11633, 0x1163A}, propertyGeneralCategory{lbprCM, gcMn}},   //     [8] MODI VOWEL SIGN U..MODI VOWEL SIGN AI
+	{runeRange{0x11650, 0x11659}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] MODI DIGIT ZERO..MODI DIGIT NINE
+	{runeRange{0x116B6, 0x116B6}, propertyGeneralCategory{lbprCM, gcMc}},   //         TAKRI SIGN VIRAMA
+	{runeRange{0x1171E, 0x1171E}, propertyGeneralCategory{lbprSA, gcMc}},   //         AHOM CONSONANT SIGN MEDIAL RA
+	{runeRange{0x1173C, 0x1173E}, propertyGeneralCategory{lbprBA, gcPo}},   //     [3] AHOM SIGN SMALL SECTION..AHOM SIGN RULAI
+	{runeRange{0x1183B, 0x1183B}, propertyGeneralCategory{lbprAL, gcPo}},   //         DOGRA ABBREVIATION SIGN
+	{runeRange{0x11915, 0x11916}, propertyGeneralCategory{lbprAK, gcLo}},   //     [2] DIVES AKURU LETTER NYA..DIVES AKURU LETTER TTA
+	{runeRange{0x11940, 0x11940}, propertyGeneralCategory{lbprCM, gcMc}},   //         DIVES AKURU MEDIAL YA
+	{runeRange{0x119D1, 0x119D3}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] NANDINAGARI VOWEL SIGN AA..NANDINAGARI VOWEL SIGN II
+	{runeRange{0x119E4, 0x119E4}, propertyGeneralCategory{lbprCM, gcMc}},   //         NANDINAGARI VOWEL SIGN PRISHTHAMATRA E
+	{runeRange{0x11A3F, 0x11A3F}, propertyGeneralCategory{lbprBB, gcPo}},   //         ZANABAZAR SQUARE INITIAL HEAD MARK
+	{runeRange{0x11A57, 0x11A58}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] SOYOMBO VOWEL SIGN AI..SOYOMBO VOWEL SIGN AU
 	{runeRange{0x11A9E, 0x11AA0}, propertyGeneralCategory{lbprBB, gcPo}},   //     [3] SOYOMBO HEAD MARK WITH MOON AND SUN AND TRIPLE FLAME..SOYOMBO HEAD MARK WITH MOON AND SUN
-	{runeRange{0x11B00, 0x11B09}, propertyGeneralCategory{lbprBB, gcPo}},   //    [10] DEVANAGARI HEAD MARK..DEVANAGARI SIGN MINDU
-	{runeRange{0x11C30, 0x11C36}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] BHAIKSUKI VOWEL SIGN I..BHAIKSUKI VOWEL SIGN VOCALIC L
-	{runeRange{0x11C40, 0x11C40}, propertyGeneralCategory{lbprAL, gcLo}},   //         BHAIKSUKI SIGN AVAGRAHA
-	{runeRange{0x11C70, 0x11C70}, propertyGeneralCategory{lbprBB, gcPo}},   //         MARCHEN HEAD MARK
-	{runeRange{0x11CA9, 0x11CA9}, propertyGeneralCategory{lbprCM, gcMc}},   //         MARCHEN SUBJOINED LETTER YA
-	{runeRange{0x11CB4, 0x11CB4}, propertyGeneralCategory{lbprCM, gcMc}},   //         MARCHEN VOWEL SIGN O
-	{runeRange{0x11D0B, 0x11D30}, propertyGeneralCategory{lbprAL, gcLo}},   //    [38] MASARAM GONDI LETTER AU..MASARAM GONDI LETTER TRA
-	{runeRange{0x11D3F, 0x11D45}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] MASARAM GONDI VOWEL SIGN AU..MASARAM GONDI VIRAMA
-	{runeRange{0x11D60, 0x11D65}, propertyGeneralCategory{lbprAL, gcLo}},   //     [6] GUNJALA GONDI LETTER A..GUNJALA GONDI LETTER UU
-	{runeRange{0x11D90, 0x11D91}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] GUNJALA GONDI VOWEL SIGN EE..GUNJALA GONDI VOWEL SIGN AI
-	{runeRange{0x11D97, 0x11D97}, propertyGeneralCategory{lbprCM, gcMn}},   //         GUNJALA GONDI VIRAMA
-	{runeRange{0x11EF2, 0x11EF2}, propertyGeneralCategory{lbprBA, gcLo}},   //         MAKASAR ANGKA
-	{runeRange{0x11F00, 0x11F01}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] KAWI SIGN CANDRABINDU..KAWI SIGN ANUSVARA
-	{runeRange{0x11F12, 0x11F33}, propertyGeneralCategory{lbprAK, gcLo}},   //    [34] KAWI LETTER KA..KAWI LETTER JNYA
-	{runeRange{0x11F40, 0x11F40}, propertyGeneralCategory{lbprCM, gcMn}},   //         KAWI VOWEL SIGN EU
-	{runeRange{0x11F45, 0x11F4F}, propertyGeneralCategory{lbprID, gcPo}},   //    [11] KAWI PUNCTUATION SECTION MARKER..KAWI PUNCTUATION CLOSING SPIRAL
+	{runeRange{0x11C00, 0x11C08}, propertyGeneralCategory{lbprAL, gcLo}},   //     [9] BHAIKSUKI LETTER A..BHAIKSUKI LETTER VOCALIC L
+	{runeRange{0x11C41, 0x11C45}, propertyGeneralCategory{lbprBA, gcPo}},   //     [5] BHAIKSUKI DANDA..BHAIKSUKI GAP FILLER-2
+	{runeRange{0x11CAA, 0x11CB0}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] MARCHEN SUBJOINED LETTER RA..MARCHEN VOWEL SIGN AA
+	{runeRange{0x11D31, 0x11D36}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] MASARAM GONDI VOWEL SIGN AA..MASARAM GONDI VOWEL SIGN VOCALIC R
+	{runeRange{0x11D67, 0x11D68}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] GUNJALA GONDI LETTER EE..GUNJALA GONDI LETTER AI
+	{runeRange{0x11D98, 0x11D98}, propertyGeneralCategory{lbprAL, gcLo}},   //         GUNJALA GONDI OM
+	{runeRange{0x11F02, 0x11F02}, propertyGeneralCategory{lbprAP, gcLo}},   //         KAWI SIGN REPHA
+	{runeRange{0x11F41, 0x11F41}, propertyGeneralCategory{lbprCM, gcMc}},   //         KAWI SIGN KILLER
 	{runeRange{0x11FD5, 0x11FDC}, propertyGeneralCategory{lbprAL, gcSo}},   //     [8] TAMIL SIGN NEL..TAMIL SIGN MUKKURUNI
-	{runeRange{0x12000, 0x12399}, propertyGeneralCategory{lbprAL, gcLo}},   //   [922] CUNEIFORM SIGN A..CUNEIFORM SIGN U U
-	{runeRange{0x12F90, 0x12FF0}, propertyGeneralCategory{lbprAL, gcLo}},   //    [97] CYPRO-MINOAN SIGN CM001..CYPRO-MINOAN SIGN CM114
-	{runeRange{0x1325B, 0x1325D}, propertyGeneralCategory{lbprCL, gcLo}},   //     [3] EGYPTIAN HIEROGLYPH O006D..EGYPTIAN HIEROGLYPH O006F
-	{runeRange{0x13286, 0x13286}, propertyGeneralCategory{lbprOP, gcLo}},   //         EGYPTIAN HIEROGLYPH O036A
-	{runeRange{0x1328A, 0x13378}, propertyGeneralCategory{lbprAL, gcLo}},   //   [239] EGYPTIAN HIEROGLYPH O037..EGYPTIAN HIEROGLYPH V011
-	{runeRange{0x1342F, 0x1342F}, propertyGeneralCategory{lbprOP, gcLo}},   //         EGYPTIAN HIEROGLYPH V011D
-	{runeRange{0x13439, 0x1343B}, propertyGeneralCategory{lbprGL, gcCf}},   //     [3] EGYPTIAN HIEROGLYPH INSERT AT MIDDLE..EGYPTIAN HIEROGLYPH INSERT AT BOTTOM
-	{runeRange{0x1343F, 0x1343F}, propertyGeneralCategory{lbprCL, gcCf}},   //         EGYPTIAN HIEROGLYPH END WALLED ENCLOSURE
-	{runeRange{0x14400, 0x145CD}, propertyGeneralCategory{lbprAL, gcLo}},   //   [462] ANATOLIAN HIEROGLYPH A001..ANATOLIAN HIEROGLYPH A409
+	{runeRange{0x12470, 0x12474}, propertyGeneralCategory{lbprBA, gcPo}},   //     [5] CUNEIFORM PUNCTUATION SIGN OLD ASSYRIAN WORD DIVIDER..CUNEIFORM PUNCTUATION SIGN DIAGONAL QUADCOLON
+	{runeRange{0x13000, 0x13257}, propertyGeneralCategory{lbprAL, gcLo}},   //   [600] EGYPTIAN HIEROGLYPH A001..EGYPTIAN HIEROGLYPH O006
+	{runeRange{0x13282, 0x13282}, propertyGeneralCategory{lbprCL, gcLo}},   //         EGYPTIAN HIEROGLYPH O033A
+	{runeRange{0x13288, 0x13288}, propertyGeneralCategory{lbprOP, gcLo}},   //         EGYPTIAN HIEROGLYPH O036C
+	{runeRange{0x1337A, 0x1337B}, propertyGeneralCategory{lbprCL, gcLo}},   //     [2] EGYPTIAN HIEROGLYPH V011B..EGYPTIAN HIEROGLYPH V011C
+	{runeRange{0x13437, 0x13437}, propertyGeneralCategory{lbprOP, gcCf}},   //         EGYPTIAN HIEROGLYPH BEGIN SEGMENT
+	{runeRange{0x1343D, 0x1343D}, propertyGeneralCategory{lbprCL, gcCf}},   //         EGYPTIAN HIEROGLYPH END ENCLOSURE
+	{runeRange{0x13441, 0x13446}, propertyGeneralCategory{lbprAL, gcLo}},   //     [6] EGYPTIAN HIEROGLYPH FULL BLANK..EGYPTIAN HIEROGLYPH WIDE LOST SIGN
+	{runeRange{0x145CE, 0x145CE}, propertyGeneralCategory{lbprOP, gcLo}},   //         ANATOLIAN HIEROGLYPH A410 BEGIN LOGOGRAM MARK
+	{runeRange{0x1611E, 0x16129}, propertyGeneralCategory{lbprCM, gcMn}},   //    [12] GURUNG KHEMA VOWEL SIGN AA..GURUNG KHEMA VOWEL LENGTH MARK
 	{runeRange{0x16800, 0x16A38}, propertyGeneralCategory{lbprAL, gcLo}},   //   [569] BAMUM LETTER PHASE-A NGKUE MFON..BAMUM LETTER PHASE-F VUEQ
 	{runeRange{0x16A70, 0x16ABE}, propertyGeneralCategory{lbprAL, gcLo}},   //    [79] TANGSA LETTER OZ..TANGSA LETTER ZA
 	{runeRange{0x16AF5, 0x16AF5}, propertyGeneralCategory{lbprBA, gcPo}},   //         BASSA VAH FULL STOP
 	{runeRange{0x16B3A, 0x16B3B}, propertyGeneralCategory{lbprAL, gcPo}},   //     [2] PAHAWH HMONG SIGN VOS THIAB..PAHAWH HMONG SIGN VOS FEEM
 	{runeRange{0x16B45, 0x16B45}, propertyGeneralCategory{lbprAL, gcSo}},   //         PAHAWH HMONG SIGN CIM TSOV ROG
 	{runeRange{0x16B7D, 0x16B8F}, propertyGeneralCategory{lbprAL, gcLo}},   //    [19] PAHAWH HMONG CLAN SIGN TSHEEJ..PAHAWH HMONG CLAN SIGN VWJ
-	{runeRange{0x16E99, 0x16E9A}, propertyGeneralCategory{lbprAL, gcPo}},   //     [2] MEDEFAIDRIN SYMBOL AIVA..MEDEFAIDRIN EXCLAMATION OH
-	{runeRange{0x16F51, 0x16F87}, propertyGeneralCategory{lbprCM, gcMc}},   //    [55] MIAO SIGN ASPIRATION..MIAO VOWEL SIGN UI
-	{runeRange{0x16FE2, 0x16FE2}, propertyGeneralCategory{lbprNS, gcPo}},   //         OLD CHINESE HOOK MARK
-	{runeRange{0x17000, 0x187F7}, propertyGeneralCategory{lbprID, gcLo}},   //  [6136] TANGUT IDEOGRAPH-17000..TANGUT IDEOGRAPH-187F7
-	{runeRange{0x1AFF0, 0x1AFF3}, propertyGeneralCategory{lbprAL, gcLm}},   //     [4] KATAKANA LETTER MINNAN TONE-2..KATAKANA LETTER MINNAN TONE-5
-	{runeRange{0x1B100, 0x1B122}, propertyGeneralCategory{lbprID, gcLo}},   //    [35] HENTAIGANA LETTER RE-3..KATAKANA LETTER ARCHAIC WU
-	{runeRange{0x1B164, 0x1B167}, propertyGeneralCategory{lbprCJ, gcLo}},   //     [4] KATAKANA LETTER SMALL WI..KATAKANA LETTER SMALL N
-	{runeRange{0x1BC80, 0x1BC88}, propertyGeneralCategory{lbprAL, gcLo}},   //     [9] DUPLOYAN AFFIX HIGH ACUTE..DUPLOYAN AFFIX HIGH VERTICAL
-	{runeRange{0x1BC9F, 0x1BC9F}, propertyGeneralCategory{lbprBA, gcPo}},   //         DUPLOYAN PUNCTUATION CHINOOK FULL STOP
-	{runeRange{0x1CF50, 0x1CFC3}, propertyGeneralCategory{lbprAL, gcSo}},   //   [116] ZNAMENNY NEUME KRYUK..ZNAMENNY NEUME PAUK
-	{runeRange{0x1D165, 0x1D166}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] MUSICAL SYMBOL COMBINING STEM..MUSICAL SYMBOL COMBINING SPRECHGESANG STEM
-	{runeRange{0x1D173, 0x1D17A}, propertyGeneralCategory{lbprCM, gcCf}},   //     [8] MUSICAL SYMBOL BEGIN BEAM..MUSICAL SYMBOL END PHRASE
-	{runeRange{0x1D18C, 0x1D1A9}, propertyGeneralCategory{lbprAL, gcSo}},   //    [30] MUSICAL SYMBOL RINFORZANDO..MUSICAL SYMBOL DEGREE SLASH
-	{runeRange{0x1D242, 0x1D244}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] COMBINING GREEK MUSICAL TRISEME..COMBINING GREEK MUSICAL PENTASEME
-	{runeRange{0x1D300, 0x1D356}, propertyGeneralCategory{lbprAL, gcSo}},   //    [87] MONOGRAM FOR EARTH..TETRAGRAM FOR FOSTERING
-	{runeRange{0x1D49E, 0x1D49F}, propertyGeneralCategory{lbprAL, gcLu}},   //     [2] MATHEMATICAL SCRIPT CAPITAL C..MATHEMATICAL SCRIPT CAPITAL D
-	{runeRange{0x1D4AE, 0x1D4B9}, propertyGeneralCategory{lbprAL, gcLC}},   //    [12] MATHEMATICAL SCRIPT CAPITAL S..MATHEMATICAL SCRIPT SMALL D
-	{runeRange{0x1D507, 0x1D50A}, propertyGeneralCategory{lbprAL, gcLu}},   //     [4] MATHEMATICAL FRAKTUR CAPITAL D..MATHEMATICAL FRAKTUR CAPITAL G
-	{runeRange{0x1D53B, 0x1D53E}, propertyGeneralCategory{lbprAL, gcLu}},   //     [4] MATHEMATICAL DOUBLE-STRUCK CAPITAL D..MATHEMATICAL DOUBLE-STRUCK CAPITAL G
-	{runeRange{0x1D552, 0x1D6A5}, propertyGeneralCategory{lbprAL, gcLC}},   //   [340] MATHEMATICAL DOUBLE-STRUCK SMALL A..MATHEMATICAL ITALIC SMALL DOTLESS J
-	{runeRange{0x1D6DB, 0x1D6DB}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL BOLD PARTIAL DIFFERENTIAL
-	{runeRange{0x1D715, 0x1D715}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL ITALIC PARTIAL DIFFERENTIAL
-	{runeRange{0x1D74F, 0x1D74F}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL BOLD ITALIC PARTIAL DIFFERENTIAL
-	{runeRange{0x1D789, 0x1D789}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL SANS-SERIF BOLD PARTIAL DIFFERENTIAL
-	{runeRange{0x1D7C3, 0x1D7C3}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL SANS-SERIF BOLD ITALIC PARTIAL DIFFERENTIAL
-	{runeRange{0x1DA00, 0x1DA36}, propertyGeneralCategory{lbprCM, gcMn}},   //    [55] SIGNWRITING HEAD RIM..SIGNWRITING AIR SUCKING IN
-	{runeRange{0x1DA75, 0x1DA75}, propertyGeneralCategory{lbprCM, gcMn}},   //         SIGNWRITING UPPER BODY TILTING FROM HIP JOINTS
-	{runeRange{0x1DA87, 0x1DA8A}, propertyGeneralCategory{lbprBA, gcPo}},   //     [4] SIGNWRITING COMMA..SIGNWRITING COLON
-	{runeRange{0x1DF00, 0x1DF09}, propertyGeneralCategory{lbprAL, gcLl}},   //    [10] LATIN SMALL LETTER FENG DIGRAPH WITH TRILL..LATIN SMALL LETTER T WITH HOOK AND RETROFLEX HOOK
-	{runeRange{0x1E000, 0x1E006}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] COMBINING GLAGOLITIC LETTER AZU..COMBINING GLAGOLITIC LETTER ZHIVETE
-	{runeRange{0x1E026, 0x1E02A}, propertyGeneralCategory{lbprCM, gcMn}},   //     [5] COMBINING GLAGOLITIC LETTER YO..COMBINING GLAGOLITIC LETTER FITA
-	{runeRange{0x1E130, 0x1E136}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] NYIAKENG PUACHUE HMONG TONE-B..NYIAKENG PUACHUE HMONG TONE-D
-	{runeRange{0x1E14F, 0x1E14F}, propertyGeneralCategory{lbprAL, gcSo}},   //         NYIAKENG PUACHUE HMONG CIRCLED CA
-	{runeRange{0x1E2EC, 0x1E2EF}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] WANCHO TONE TUP..WANCHO TONE KOINI
-	{runeRange{0x1E4EB, 0x1E4EB}, propertyGeneralCategory{lbprAL, gcLm}},   //         NAG MUNDARI SIGN OJOD
-	{runeRange{0x1E7E8, 0x1E7EB}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ETHIOPIC SYLLABLE GURAGE HHWA..ETHIOPIC SYLLABLE HHWE
-	{runeRange{0x1E8C7, 0x1E8CF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [9] MENDE KIKAKUI DIGIT ONE..MENDE KIKAKUI DIGIT NINE
-	{runeRange{0x1E94B, 0x1E94B}, propertyGeneralCategory{lbprAL, gcLm}},   //         ADLAM NASALIZATION MARK
-	{runeRange{0x1ECAC, 0x1ECAC}, propertyGeneralCategory{lbprPO, gcSo}},   //         INDIC SIYAQ PLACEHOLDER
-	{runeRange{0x1ED01, 0x1ED2D}, propertyGeneralCategory{lbprAL, gcNo}},   //    [45] OTTOMAN SIYAQ NUMBER ONE..OTTOMAN SIYAQ NUMBER NINETY THOUSAND
-	{runeRange{0x1EE05, 0x1EE1F}, propertyGeneralCategory{lbprAL, gcLo}},   //    [27] ARABIC MATHEMATICAL WAW..ARABIC MATHEMATICAL DOTLESS QAF
-	{runeRange{0x1EE29, 0x1EE32}, propertyGeneralCategory{lbprAL, gcLo}},   //    [10] ARABIC MATHEMATICAL INITIAL YEH..ARABIC MATHEMATICAL INITIAL QAF
-	{runeRange{0x1EE42, 0x1EE42}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED JEEM
-	{runeRange{0x1EE4D, 0x1EE4F}, propertyGeneralCategory{lbprAL, gcLo}},   //     [3] ARABIC MATHEMATICAL TAILED NOON..ARABIC MATHEMATICAL TAILED AIN
-	{runeRange{0x1EE59, 0x1EE59}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED DAD
-	{runeRange{0x1EE61, 0x1EE62}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] ARABIC MATHEMATICAL STRETCHED BEH..ARABIC MATHEMATICAL STRETCHED JEEM
-	{runeRange{0x1EE74, 0x1EE77}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ARABIC MATHEMATICAL STRETCHED SHEEN..ARABIC MATHEMATICAL STRETCHED KHAH
-	{runeRange{0x1EE8B, 0x1EE9B}, propertyGeneralCategory{lbprAL, gcLo}},   //    [17] ARABIC MATHEMATICAL LOOPED LAM..ARABIC MATHEMATICAL LOOPED GHAIN
-	{runeRange{0x1EEF0, 0x1EEF1}, propertyGeneralCategory{lbprAL, gcSm}},   //     [2] ARABIC MATHEMATICAL OPERATOR MEEM WITH HAH WITH TATWEEL..ARABIC MATHEMATICAL OPERATOR HAH WITH DAL
-	{runeRange{0x1F094, 0x1F09F}, propertyGeneralCategory{lbprID, gcCn}},   //    [12] <reserved-1F094>..<reserved-1F09F>
-	{runeRange{0x1F0C0, 0x1F0C0}, propertyGeneralCategory{lbprID, gcCn}},   //         <reserved-1F0C0>
-	{runeRange{0x1F0F6, 0x1F0FF}, propertyGeneralCategory{lbprID, gcCn}},   //    [10] <reserved-1F0F6>..<reserved-1F0FF>
-	{runeRange{0x1F12E, 0x1F12F}, propertyGeneralCategory{lbprAL, gcSo}},   //     [2] CIRCLED WZ..COPYLEFT SYMBOL
-	{runeRange{0x1F170, 0x1F1AC}, propertyGeneralCategory{lbprAI, gcSo}},   //    [61] NEGATIVE SQUARED LATIN CAPITAL LETTER A..SQUARED VOD
-	{runeRange{0x1F200, 0x1F202}, propertyGeneralCategory{lbprID, gcSo}},   //     [3] SQUARE HIRAGANA HOKA..SQUARED KATAKANA SA
-	{runeRange{0x1F240, 0x1F248}, propertyGeneralCategory{lbprID, gcSo}},   //     [9] TORTOISE SHELL BRACKETED CJK UNIFIED IDEOGRAPH-672C..TORTOISE SHELL BRACKETED CJK UNIFIED IDEOGRAPH-6557
-	{runeRange{0x1F260, 0x1F265}, propertyGeneralCategory{lbprID, gcSo}},   //     [6] ROUNDED SYMBOL FOR FU..ROUNDED SYMBOL FOR CAI
-	{runeRange{0x1F386, 0x1F39B}, propertyGeneralCategory{lbprID, gcSo}},   //    [22] FIREWORKS..CONTROL KNOBS
-	{runeRange{0x1F3B7, 0x1F3BB}, propertyGeneralCategory{lbprID, gcSo}},   //     [5] SAXOPHONE..VIOLIN
-	{runeRange{0x1F3C5, 0x1F3C6}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] SPORTS MEDAL..TROPHY
-	{runeRange{0x1F3CD, 0x1F3FA}, propertyGeneralCategory{lbprID, gcSo}},   //    [46] RACING MOTORCYCLE..AMPHORA
-	{runeRange{0x1F444, 0x1F445}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] MOUTH..TONGUE
-	{runeRange{0x1F479, 0x1F47B}, propertyGeneralCategory{lbprID, gcSo}},   //     [3] JAPANESE OGRE..GHOST
-	{runeRange{0x1F484, 0x1F484}, propertyGeneralCategory{lbprID, gcSo}},   //         LIPSTICK
-	{runeRange{0x1F490, 0x1F490}, propertyGeneralCategory{lbprID, gcSo}},   //         BOUQUET
-	{runeRange{0x1F4A1, 0x1F4A1}, propertyGeneralCategory{lbprID, gcSo}},   //         ELECTRIC LIGHT BULB
-	{runeRange{0x1F4A5, 0x1F4A9}, propertyGeneralCategory{lbprID, gcSo}},   //     [5] COLLISION SYMBOL..PILE OF POO
-	{runeRange{0x1F4B0, 0x1F4B0}, propertyGeneralCategory{lbprID, gcSo}},   //         MONEY BAG
-	{runeRange{0x1F507, 0x1F516}, propertyGeneralCategory{lbprID, gcSo}},   //    [16] SPEAKER WITH CANCELLATION STROKE..BOOKMARK
-	{runeRange{0x1F54A, 0x1F573}, propertyGeneralCategory{lbprID, gcSo}},   //    [42] DOVE OF PEACE..HOLE
-	{runeRange{0x1F57B, 0x1F58F}, propertyGeneralCategory{lbprID, gcSo}},   //    [21] LEFT HAND TELEPHONE RECEIVER..TURNED OK HAND SIGN
-	{runeRange{0x1F597, 0x1F5D3}, propertyGeneralCategory{lbprID, gcSo}},   //    [61] WHITE DOWN POINTING LEFT HAND INDEX..SPIRAL CALENDAR PAD
-	{runeRange{0x1F5FA, 0x1F5FF}, propertyGeneralCategory{lbprID, gcSo}},   //     [6] WORLD MAP..MOYAI
-	{runeRange{0x1F64B, 0x1F64F}, propertyGeneralCategory{lbprEB, gcSo}},   //     [5] HAPPY PERSON RAISING ONE HAND..PERSON WITH FOLDED HANDS
-	{runeRange{0x1F67C, 0x1F67F}, propertyGeneralCategory{lbprAL, gcSo}},   //     [4] VERY HEAVY SOLIDUS..REVERSE CHECKER BOARD
-	{runeRange{0x1F6B4, 0x1F6B6}, propertyGeneralCategory{lbprEB, gcSo}},   //     [3] BICYCLIST..PEDESTRIAN
-	{runeRange{0x1F6CC, 0x1F6CC}, propertyGeneralCategory{lbprEB, gcSo}},   //         SLEEPING ACCOMMODATION
-	{runeRange{0x1F6ED, 0x1F6EF}, propertyGeneralCategory{lbprID, gcCn}},   //     [3] <reserved-1F6ED>..<reserved-1F6EF>
-	{runeRange{0x1F774, 0x1F776}, propertyGeneralCategory{lbprID, gcSo}},   //     [3] LOT OF FORTUNE..LUNAR ECLIPSE
-	{runeRange{0x1F7D5, 0x1F7D9}, propertyGeneralCategory{lbprID, gcSo}},   //     [5] CIRCLED TRIANGLE..NINE POINTED WHITE STAR
-	{runeRange{0x1F7F0, 0x1F7F0}, propertyGeneralCategory{lbprID, gcSo}},   //         HEAVY EQUALS SIGN
-	{runeRange{0x1F810, 0x1F847}, propertyGeneralCategory{lbprAL, gcSo}},   //    [56] LEFTWARDS ARROW WITH SMALL EQUILATERAL ARROWHEAD..DOWNWARDS HEAVY ARROW
-	{runeRange{0x1F860, 0x1F887}, propertyGeneralCategory{lbprAL, gcSo}},   //    [40] WIDE-HEADED LEFTWARDS LIGHT BARB ARROW..WIDE-HEADED SOUTH WEST VERY HEAVY BARB ARROW
-	{runeRange{0x1F8B0, 0x1F8B1}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] ARROW POINTING UPWARDS THEN NORTH WEST..ARROW POINTING RIGHTWARDS THEN CURVING SOUTH WEST
-	{runeRange{0x1F90D, 0x1F90E}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] WHITE HEART..BROWN HEART
-	{runeRange{0x1F920, 0x1F925}, propertyGeneralCategory{lbprID, gcSo}},   //     [6] FACE WITH COWBOY HAT..LYING FACE
-	{runeRange{0x1F93A, 0x1F93B}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] FENCER..MODERN PENTATHLON
-	{runeRange{0x1F978, 0x1F9B4}, propertyGeneralCategory{lbprID, gcSo}},   //    [61] DISGUISED FACE..BONE
-	{runeRange{0x1F9BA, 0x1F9BA}, propertyGeneralCategory{lbprID, gcSo}},   //         SAFETY VEST
-	{runeRange{0x1F9D0, 0x1F9D0}, propertyGeneralCategory{lbprID, gcSo}},   //         FACE WITH MONOCLE
-	{runeRange{0x1FA54, 0x1FA5F}, propertyGeneralCategory{lbprID, gcCn}},   //    [12] <reserved-1FA54>..<reserved-1FA5F>
-	{runeRange{0x1FA7D, 0x1FA7F}, propertyGeneralCategory{lbprID, gcCn}},   //     [3] <reserved-1FA7D>..<reserved-1FA7F>
-	{runeRange{0x1FABE, 0x1FABE}, propertyGeneralCategory{lbprID, gcCn}},   //         <reserved-1FABE>
-	{runeRange{0x1FACE, 0x1FADB}, propertyGeneralCategory{lbprID, gcSo}},   //    [14] MOOSE..PEA POD
+	{runeRange{0x16D6D, 0x16D6D}, propertyGeneralCategory{lbprAL, gcPo}},   //         KIRAT RAI SIGN YUPI
+	{runeRange{0x16E80, 0x16E96}, propertyGeneralCategory{lbprAL, gcNo}},   //    [23] MEDEFAIDRIN DIGIT ZERO..MEDEFAIDRIN DIGIT THREE ALTERNATE FORM
+	{runeRange{0x16F4F, 0x16F4F}, propertyGeneralCategory{lbprCM, gcMn}},   //         MIAO SIGN CONSONANT MODIFIER BAR
+	{runeRange{0x16F93, 0x16F9F}, propertyGeneralCategory{lbprAL, gcLm}},   //    [13] MIAO LETTER TONE-2..MIAO LETTER REFORMED TONE-8
+	{runeRange{0x16FE4, 0x16FE4}, propertyGeneralCategory{lbprGL, gcMn}},   //         KHITAN SMALL SCRIPT FILLER
+	{runeRange{0x18B00, 0x18CD5}, propertyGeneralCategory{lbprAL, gcLo}},   //   [470] KHITAN SMALL SCRIPT CHARACTER-18B00..KHITAN SMALL SCRIPT CHARACTER-18CD5
+	{runeRange{0x1AFF5, 0x1AFFB}, propertyGeneralCategory{lbprAL, gcLm}},   //     [7] KATAKANA LETTER MINNAN TONE-7..KATAKANA LETTER MINNAN NASALIZED TONE-5
+	{runeRange{0x1B132, 0x1B132}, propertyGeneralCategory{lbprCJ, gcLo}},   //         HIRAGANA LETTER SMALL KO
+	{runeRange{0x1B170, 0x1B2FB}, propertyGeneralCategory{lbprID, gcLo}},   //   [396] NUSHU CHARACTER-1B170..NUSHU CHARACTER-1B2FB
+	{runeRange{0x1BC90, 0x1BC99}, propertyGeneralCategory{lbprAL, gcLo}},   //    [10] DUPLOYAN AFFIX LOW ACUTE..DUPLOYAN AFFIX LOW ARROW
+	{runeRange{0x1BCA0, 0x1BCA3}, propertyGeneralCategory{lbprCM, gcCf}},   //     [4] SHORTHAND FORMAT LETTER OVERLAP..SHORTHAND FORMAT UP STEP
+	{runeRange{0x1CF00, 0x1CF2D}, propertyGeneralCategory{lbprCM, gcMn}},   //    [46] ZNAMENNY COMBINING MARK GORAZDO NIZKO S KRYZHEM ON LEFT..ZNAMENNY COMBINING MARK KRYZH ON LEFT
+	{runeRange{0x1D100, 0x1D126}, propertyGeneralCategory{lbprAL, gcSo}},   //    [39] MUSICAL SYMBOL SINGLE BARLINE..MUSICAL SYMBOL DRUM CLEF-2
+	{runeRange{0x1D16A, 0x1D16C}, propertyGeneralCategory{lbprAL, gcSo}},   //     [3] MUSICAL SYMBOL FINGERED TREMOLO-1..MUSICAL SYMBOL FINGERED TREMOLO-3
+	{runeRange{0x1D183, 0x1D184}, propertyGeneralCategory{lbprAL, gcSo}},   //     [2] MUSICAL SYMBOL ARPEGGIATO UP..MUSICAL SYMBOL ARPEGGIATO DOWN
+	{runeRange{0x1D1AE, 0x1D1EA}, propertyGeneralCategory{lbprAL, gcSo}},   //    [61] MUSICAL SYMBOL PEDAL MARK..MUSICAL SYMBOL KORON
+	{runeRange{0x1D2C0, 0x1D2D3}, propertyGeneralCategory{lbprAL, gcNo}},   //    [20] KAKTOVIK NUMERAL ZERO..KAKTOVIK NUMERAL NINETEEN
+	{runeRange{0x1D400, 0x1D454}, propertyGeneralCategory{lbprAL, gcLC}},   //    [85] MATHEMATICAL BOLD CAPITAL A..MATHEMATICAL ITALIC SMALL G
+	{runeRange{0x1D4A5, 0x1D4A6}, propertyGeneralCategory{lbprAL, gcLu}},   //     [2] MATHEMATICAL SCRIPT CAPITAL J..MATHEMATICAL SCRIPT CAPITAL K
+	{runeRange{0x1D4BD, 0x1D4C3}, propertyGeneralCategory{lbprAL, gcLl}},   //     [7] MATHEMATICAL SCRIPT SMALL H..MATHEMATICAL SCRIPT SMALL N
+	{runeRange{0x1D516, 0x1D51C}, propertyGeneralCategory{lbprAL, gcLu}},   //     [7] MATHEMATICAL FRAKTUR CAPITAL S..MATHEMATICAL FRAKTUR CAPITAL Y
+	{runeRange{0x1D546, 0x1D546}, propertyGeneralCategory{lbprAL, gcLu}},   //         MATHEMATICAL DOUBLE-STRUCK CAPITAL O
+	{runeRange{0x1D6C1, 0x1D6C1}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL BOLD NABLA
+	{runeRange{0x1D6FB, 0x1D6FB}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL ITALIC NABLA
+	{runeRange{0x1D735, 0x1D735}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL BOLD ITALIC NABLA
+	{runeRange{0x1D76F, 0x1D76F}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL SANS-SERIF BOLD NABLA
+	{runeRange{0x1D7A9, 0x1D7A9}, propertyGeneralCategory{lbprAL, gcSm}},   //         MATHEMATICAL SANS-SERIF BOLD ITALIC NABLA
+	{runeRange{0x1D7CE, 0x1D7FF}, propertyGeneralCategory{lbprNU, gcNd}},   //    [50] MATHEMATICAL BOLD DIGIT ZERO..MATHEMATICAL MONOSPACE DIGIT NINE
+	{runeRange{0x1DA3B, 0x1DA6C}, propertyGeneralCategory{lbprCM, gcMn}},   //    [50] SIGNWRITING MOUTH CLOSED NEUTRAL..SIGNWRITING EXCITEMENT
+	{runeRange{0x1DA84, 0x1DA84}, propertyGeneralCategory{lbprCM, gcMn}},   //         SIGNWRITING LOCATION HEAD NECK
+	{runeRange{0x1DA9B, 0x1DA9F}, propertyGeneralCategory{lbprCM, gcMn}},   //     [5] SIGNWRITING FILL MODIFIER-2..SIGNWRITING FILL MODIFIER-6
+	{runeRange{0x1DF0B, 0x1DF1E}, propertyGeneralCategory{lbprAL, gcLl}},   //    [20] LATIN SMALL LETTER ESH WITH DOUBLE BAR..LATIN SMALL LETTER S WITH CURL
+	{runeRange{0x1E01B, 0x1E021}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] COMBINING GLAGOLITIC LETTER SHTA..COMBINING GLAGOLITIC LETTER YATI
+	{runeRange{0x1E08F, 0x1E08F}, propertyGeneralCategory{lbprCM, gcMn}},   //         COMBINING CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I
+	{runeRange{0x1E140, 0x1E149}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] NYIAKENG PUACHUE HMONG DIGIT ZERO..NYIAKENG PUACHUE HMONG DIGIT NINE
+	{runeRange{0x1E2AE, 0x1E2AE}, propertyGeneralCategory{lbprCM, gcMn}},   //         TOTO SIGN RISING TONE
+	{runeRange{0x1E2FF, 0x1E2FF}, propertyGeneralCategory{lbprPR, gcSc}},   //         WANCHO NGUN SIGN
+	{runeRange{0x1E4F0, 0x1E4F9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] NAG MUNDARI DIGIT ZERO..NAG MUNDARI DIGIT NINE
+	{runeRange{0x1E5F1, 0x1E5FA}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] OL ONAL DIGIT ZERO..OL ONAL DIGIT NINE
+	{runeRange{0x1E7ED, 0x1E7EE}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] ETHIOPIC SYLLABLE GURAGE MWI..ETHIOPIC SYLLABLE GURAGE MWEE
+	{runeRange{0x1E8D0, 0x1E8D6}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] MENDE KIKAKUI COMBINING NUMBER TEENS..MENDE KIKAKUI COMBINING NUMBER MILLIONS
+	{runeRange{0x1E950, 0x1E959}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] ADLAM DIGIT ZERO..ADLAM DIGIT NINE
+	{runeRange{0x1ECAD, 0x1ECAF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [3] INDIC SIYAQ FRACTION ONE QUARTER..INDIC SIYAQ FRACTION THREE QUARTERS
+	{runeRange{0x1ED2E, 0x1ED2E}, propertyGeneralCategory{lbprAL, gcSo}},   //         OTTOMAN SIYAQ MARRATAN
+	{runeRange{0x1EE21, 0x1EE22}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] ARABIC MATHEMATICAL INITIAL BEH..ARABIC MATHEMATICAL INITIAL JEEM
+	{runeRange{0x1EE34, 0x1EE37}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ARABIC MATHEMATICAL INITIAL SHEEN..ARABIC MATHEMATICAL INITIAL KHAH
+	{runeRange{0x1EE47, 0x1EE47}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED HAH
+	{runeRange{0x1EE51, 0x1EE52}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] ARABIC MATHEMATICAL TAILED SAD..ARABIC MATHEMATICAL TAILED QAF
+	{runeRange{0x1EE5B, 0x1EE5B}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED GHAIN
+	{runeRange{0x1EE64, 0x1EE64}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL STRETCHED HEH
+	{runeRange{0x1EE79, 0x1EE7C}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ARABIC MATHEMATICAL STRETCHED DAD..ARABIC MATHEMATICAL STRETCHED DOTLESS BEH
+	{runeRange{0x1EEA1, 0x1EEA3}, propertyGeneralCategory{lbprAL, gcLo}},   //     [3] ARABIC MATHEMATICAL DOUBLE-STRUCK BEH..ARABIC MATHEMATICAL DOUBLE-STRUCK DAL
+	{runeRange{0x1F000, 0x1F02B}, propertyGeneralCategory{lbprID, gcSo}},   //    [44] MAHJONG TILE EAST WIND..MAHJONG TILE BACK
+	{runeRange{0x1F0A0, 0x1F0AE}, propertyGeneralCategory{lbprID, gcSo}},   //    [15] PLAYING CARD BACK..PLAYING CARD KING OF SPADES
+	{runeRange{0x1F0C1, 0x1F0CF}, propertyGeneralCategory{lbprID, gcSo}},   //    [15] PLAYING CARD ACE OF DIAMONDS..PLAYING CARD BLACK JOKER
+	{runeRange{0x1F100, 0x1F10C}, propertyGeneralCategory{lbprAI, gcNo}},   //    [13] DIGIT ZERO FULL STOP..DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT ZERO
+	{runeRange{0x1F130, 0x1F169}, propertyGeneralCategory{lbprAI, gcSo}},   //    [58] SQUARED LATIN CAPITAL LETTER A..NEGATIVE CIRCLED LATIN CAPITAL LETTER Z
+	{runeRange{0x1F1AE, 0x1F1E5}, propertyGeneralCategory{lbprID, gcCn}},   //    [56] <reserved-1F1AE>..<reserved-1F1E5>
+	{runeRange{0x1F210, 0x1F23B}, propertyGeneralCategory{lbprID, gcSo}},   //    [44] SQUARED CJK UNIFIED IDEOGRAPH-624B..SQUARED CJK UNIFIED IDEOGRAPH-914D
+	{runeRange{0x1F250, 0x1F251}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] CIRCLED IDEOGRAPH ADVANTAGE..CIRCLED IDEOGRAPH ACCEPT
+	{runeRange{0x1F300, 0x1F384}, propertyGeneralCategory{lbprID, gcSo}},   //   [133] CYCLONE..CHRISTMAS TREE
+	{runeRange{0x1F39E, 0x1F3B4}, propertyGeneralCategory{lbprID, gcSo}},   //    [23] FILM FRAMES..FLOWER PLAYING CARDS
+	{runeRange{0x1F3BD, 0x1F3C1}, propertyGeneralCategory{lbprID, gcSo}},   //     [5] RUNNING SHIRT WITH SASH..CHEQUERED FLAG
+	{runeRange{0x1F3C8, 0x1F3C9}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] AMERICAN FOOTBALL..RUGBY FOOTBALL
+	{runeRange{0x1F400, 0x1F441}, propertyGeneralCategory{lbprID, gcSo}},   //    [66] RAT..EYE
+	{runeRange{0x1F451, 0x1F465}, propertyGeneralCategory{lbprID, gcSo}},   //    [21] CROWN..BUSTS IN SILHOUETTE
+	{runeRange{0x1F47D, 0x1F480}, propertyGeneralCategory{lbprID, gcSo}},   //     [4] EXTRATERRESTRIAL ALIEN..SKULL
+	{runeRange{0x1F488, 0x1F48E}, propertyGeneralCategory{lbprID, gcSo}},   //     [7] BARBER POLE..GEM STONE
+	{runeRange{0x1F492, 0x1F49F}, propertyGeneralCategory{lbprID, gcSo}},   //    [14] WEDDING..HEART DECORATION
+	{runeRange{0x1F4A3, 0x1F4A3}, propertyGeneralCategory{lbprID, gcSo}},   //         BOMB
+	{runeRange{0x1F4AB, 0x1F4AE}, propertyGeneralCategory{lbprID, gcSo}},   //     [4] DIZZY SYMBOL..WHITE FLOWER
+	{runeRange{0x1F4B3, 0x1F4FF}, propertyGeneralCategory{lbprID, gcSo}},   //    [77] CREDIT CARD..PRAYER BEADS
+	{runeRange{0x1F525, 0x1F531}, propertyGeneralCategory{lbprID, gcSo}},   //    [13] FIRE..TRIDENT EMBLEM
+	{runeRange{0x1F576, 0x1F579}, propertyGeneralCategory{lbprID, gcSo}},   //     [4] DARK SUNGLASSES..JOYSTICK
+	{runeRange{0x1F591, 0x1F594}, propertyGeneralCategory{lbprID, gcSo}},   //     [4] REVERSED RAISED HAND WITH FINGERS SPLAYED..REVERSED VICTORY HAND
+	{runeRange{0x1F5DC, 0x1F5F3}, propertyGeneralCategory{lbprID, gcSo}},   //    [24] COMPRESSION..BALLOT BOX WITH BALLOT
+	{runeRange{0x1F645, 0x1F647}, propertyGeneralCategory{lbprEB, gcSo}},   //     [3] FACE WITH NO GOOD GESTURE..PERSON BOWING DEEPLY
+	{runeRange{0x1F676, 0x1F678}, propertyGeneralCategory{lbprQU, gcSo}},   //     [3] SANS-SERIF HEAVY DOUBLE TURNED COMMA QUOTATION MARK ORNAMENT..SANS-SERIF HEAVY LOW DOUBLE COMMA QUOTATION MARK ORNAMENT
+	{runeRange{0x1F6A3, 0x1F6A3}, propertyGeneralCategory{lbprEB, gcSo}},   //         ROWBOAT
+	{runeRange{0x1F6C0, 0x1F6C0}, propertyGeneralCategory{lbprEB, gcSo}},   //         BATH
+	{runeRange{0x1F6D8, 0x1F6DB}, propertyGeneralCategory{lbprID, gcCn}},   //     [4] <reserved-1F6D8>..<reserved-1F6DB>
+	{runeRange{0x1F6FD, 0x1F6FF}, propertyGeneralCategory{lbprID, gcCn}},   //     [3] <reserved-1F6FD>..<reserved-1F6FF>
+	{runeRange{0x1F77B, 0x1F77F}, propertyGeneralCategory{lbprID, gcSo}},   //     [5] HAUMEA..ORCUS
+	{runeRange{0x1F7E0, 0x1F7EB}, propertyGeneralCategory{lbprID, gcSo}},   //    [12] LARGE ORANGE CIRCLE..LARGE BROWN SQUARE
+	{runeRange{0x1F800, 0x1F80B}, propertyGeneralCategory{lbprAL, gcSo}},   //    [12] LEFTWARDS ARROW WITH SMALL TRIANGLE ARROWHEAD..DOWNWARDS ARROW WITH LARGE TRIANGLE ARROWHEAD
+	{runeRange{0x1F890, 0x1F8AD}, propertyGeneralCategory{lbprAL, gcSo}},   //    [30] LEFTWARDS TRIANGLE ARROWHEAD..WHITE ARROW SHAFT WIDTH TWO THIRDS
+	{runeRange{0x1F90C, 0x1F90C}, propertyGeneralCategory{lbprEB, gcSo}},   //         PINCHED FINGERS
+	{runeRange{0x1F918, 0x1F91F}, propertyGeneralCategory{lbprEB, gcSo}},   //     [8] SIGN OF THE HORNS..I LOVE YOU HAND SIGN
+	{runeRange{0x1F930, 0x1F939}, propertyGeneralCategory{lbprEB, gcSo}},   //    [10] PREGNANT WOMAN..JUGGLING
+	{runeRange{0x1F977, 0x1F977}, propertyGeneralCategory{lbprEB, gcSo}},   //         NINJA
+	{runeRange{0x1F9B8, 0x1F9B9}, propertyGeneralCategory{lbprEB, gcSo}},   //     [2] SUPERHERO..SUPERVILLAIN
+	{runeRange{0x1F9CD, 0x1F9CF}, propertyGeneralCategory{lbprEB, gcSo}},   //     [3] STANDING PERSON..DEAF PERSON
+	{runeRange{0x1FA00, 0x1FA53}, propertyGeneralCategory{lbprAL, gcSo}},   //    [84] NEUTRAL CHESS KING..BLACK CHESS KNIGHT-BISHOP
+	{runeRange{0x1FA70, 0x1FA7C}, propertyGeneralCategory{lbprID, gcSo}},   //    [13] BALLET SHOES..CRUTCH
+	{runeRange{0x1FA8F, 0x1FAC2}, propertyGeneralCategory{lbprID, gcSo}},   //    [52] SHOVEL..PEOPLE HUGGING
+	{runeRange{0x1FACE, 0x1FADC}, propertyGeneralCategory{lbprID, gcSo}},   //    [15] MOOSE..ROOT VEGETABLE
 	{runeRange{0x1FAF0, 0x1FAF8}, propertyGeneralCategory{lbprEB, gcSo}},   //     [9] HAND WITH INDEX FINGER AND THUMB CROSSED..RIGHTWARDS PUSHING HAND
 	{runeRange{0x1FBF0, 0x1FBF9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] SEGMENTED DIGIT ZERO..SEGMENTED DIGIT NINE
 	{runeRange{0x2A700, 0x2B739}, propertyGeneralCategory{lbprID, gcLo}},   //  [4154] CJK UNIFIED IDEOGRAPH-2A700..CJK UNIFIED IDEOGRAPH-2B739
@@ -1086,7 +1086,7 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x0825, 0x0827}, propertyGeneralCategory{lbprCM, gcMn}},     //     [3] SAMARITAN VOWEL SIGN SHORT A..SAMARITAN VOWEL SIGN U
 	{runeRange{0x0840, 0x0858}, propertyGeneralCategory{lbprAL, gcLo}},     //    [25] MANDAIC LETTER HALQA..MANDAIC LETTER AIN
 	{runeRange{0x0870, 0x0887}, propertyGeneralCategory{lbprAL, gcLo}},     //    [24] ARABIC LETTER ALEF WITH ATTACHED FATHA..ARABIC BASELINE ROUND DOT
-	{runeRange{0x0898, 0x089F}, propertyGeneralCategory{lbprCM, gcMn}},     //     [8] ARABIC SMALL HIGH WORD AL-JUZ..ARABIC HALF MADDA OVER MADDA
+	{runeRange{0x0897, 0x089F}, propertyGeneralCategory{lbprCM, gcMn}},     //     [9] ARABIC PEPET..ARABIC HALF MADDA OVER MADDA
 	{runeRange{0x08E2, 0x08E2}, propertyGeneralCategory{lbprNU, gcCf}},     //         ARABIC DISPUTED END OF AYAH
 	{runeRange{0x0904, 0x0939}, propertyGeneralCategory{lbprAL, gcLo}},     //    [54] DEVANAGARI LETTER SHORT A..DEVANAGARI LETTER HA
 	{runeRange{0x093D, 0x093D}, propertyGeneralCategory{lbprAL, gcLo}},     //         DEVANAGARI SIGN AVAGRAHA
@@ -1203,7 +1203,7 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1930, 0x1931}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] LIMBU SMALL LETTER KA..LIMBU SMALL LETTER NGA
 	{runeRange{0x1940, 0x1940}, propertyGeneralCategory{lbprAL, gcSo}},     //         LIMBU SIGN LOO
 	{runeRange{0x1970, 0x1974}, propertyGeneralCategory{lbprSA, gcLo}},     //     [5] TAI LE LETTER TONE-2..TAI LE LETTER TONE-6
-	{runeRange{0x19DA, 0x19DA}, propertyGeneralCategory{lbprSA, gcNo}},     //         NEW TAI LUE THAM DIGIT ONE
+	{runeRange{0x19DA, 0x19DA}, propertyGeneralCategory{lbprNU, gcNo}},     //         NEW TAI LUE THAM DIGIT ONE
 	{runeRange{0x1A17, 0x1A18}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] BUGINESE VOWEL SIGN I..BUGINESE VOWEL SIGN U
 	{runeRange{0x1A20, 0x1A54}, propertyGeneralCategory{lbprSA, gcLo}},     //    [53] TAI THAM LETTER HIGH KA..TAI THAM LETTER GREAT SA
 	{runeRange{0x1A58, 0x1A5E}, propertyGeneralCategory{lbprSA, gcMn}},     //     [7] TAI THAM SIGN MAI KANG LAI..TAI THAM CONSONANT SIGN SA
@@ -1214,64 +1214,63 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1B34, 0x1B34}, propertyGeneralCategory{lbprCM, gcMn}},     //         BALINESE SIGN REREKAN
 	{runeRange{0x1B3C, 0x1B3C}, propertyGeneralCategory{lbprCM, gcMn}},     //         BALINESE VOWEL SIGN LA LENGA
 	{runeRange{0x1B44, 0x1B44}, propertyGeneralCategory{lbprVI, gcMc}},     //         BALINESE ADEG ADEG
-	{runeRange{0x1B5C, 0x1B5C}, propertyGeneralCategory{lbprID, gcPo}},     //         BALINESE WINDU
-	{runeRange{0x1B74, 0x1B7C}, propertyGeneralCategory{lbprID, gcSo}},     //     [9] BALINESE MUSICAL SYMBOL RIGHT-HAND OPEN DUG..BALINESE MUSICAL SYMBOL LEFT-HAND OPEN PING
-	{runeRange{0x1B83, 0x1BA0}, propertyGeneralCategory{lbprAL, gcLo}},     //    [30] SUNDANESE LETTER A..SUNDANESE LETTER HA
-	{runeRange{0x1BA8, 0x1BA9}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] SUNDANESE VOWEL SIGN PAMEPET..SUNDANESE VOWEL SIGN PANEULEUNG
-	{runeRange{0x1BB0, 0x1BB9}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] SUNDANESE DIGIT ZERO..SUNDANESE DIGIT NINE
-	{runeRange{0x1BE7, 0x1BE7}, propertyGeneralCategory{lbprCM, gcMc}},     //         BATAK VOWEL SIGN E
-	{runeRange{0x1BEE, 0x1BEE}, propertyGeneralCategory{lbprCM, gcMc}},     //         BATAK VOWEL SIGN U
-	{runeRange{0x1C00, 0x1C23}, propertyGeneralCategory{lbprAL, gcLo}},     //    [36] LEPCHA LETTER KA..LEPCHA LETTER A
-	{runeRange{0x1C36, 0x1C37}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] LEPCHA SIGN RAN..LEPCHA SIGN NUKTA
-	{runeRange{0x1C50, 0x1C59}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] OL CHIKI DIGIT ZERO..OL CHIKI DIGIT NINE
-	{runeRange{0x1C80, 0x1C88}, propertyGeneralCategory{lbprAL, gcLl}},     //     [9] CYRILLIC SMALL LETTER ROUNDED VE..CYRILLIC SMALL LETTER UNBLENDED UK
-	{runeRange{0x1CD0, 0x1CD2}, propertyGeneralCategory{lbprCM, gcMn}},     //     [3] VEDIC TONE KARSHANA..VEDIC TONE PRENKHA
-	{runeRange{0x1CE2, 0x1CE8}, propertyGeneralCategory{lbprCM, gcMn}},     //     [7] VEDIC SIGN VISARGA SVARITA..VEDIC SIGN VISARGA ANUDATTA WITH TAIL
-	{runeRange{0x1CF4, 0x1CF4}, propertyGeneralCategory{lbprCM, gcMn}},     //         VEDIC TONE CANDRA ABOVE
-	{runeRange{0x1CFA, 0x1CFA}, propertyGeneralCategory{lbprAL, gcLo}},     //         VEDIC SIGN DOUBLE ANUSVARA ANTARGOMUKHA
-	{runeRange{0x1D78, 0x1D78}, propertyGeneralCategory{lbprAL, gcLm}},     //         MODIFIER LETTER CYRILLIC EN
-	{runeRange{0x1DC0, 0x1DCC}, propertyGeneralCategory{lbprCM, gcMn}},     //    [13] COMBINING DOTTED GRAVE ACCENT..COMBINING MACRON-BREVE
-	{runeRange{0x1DFD, 0x1DFF}, propertyGeneralCategory{lbprCM, gcMn}},     //     [3] COMBINING ALMOST EQUAL TO BELOW..COMBINING RIGHT ARROWHEAD AND DOWN ARROWHEAD BELOW
-	{runeRange{0x1F20, 0x1F45}, propertyGeneralCategory{lbprAL, gcLC}},     //    [38] GREEK SMALL LETTER ETA WITH PSILI..GREEK SMALL LETTER OMICRON WITH DASIA AND OXIA
-	{runeRange{0x1F5B, 0x1F5B}, propertyGeneralCategory{lbprAL, gcLu}},     //         GREEK CAPITAL LETTER UPSILON WITH DASIA AND VARIA
-	{runeRange{0x1FB6, 0x1FBC}, propertyGeneralCategory{lbprAL, gcLC}},     //     [7] GREEK SMALL LETTER ALPHA WITH PERISPOMENI..GREEK CAPITAL LETTER ALPHA WITH PROSGEGRAMMENI
-	{runeRange{0x1FC2, 0x1FC4}, propertyGeneralCategory{lbprAL, gcLl}},     //     [3] GREEK SMALL LETTER ETA WITH VARIA AND YPOGEGRAMMENI..GREEK SMALL LETTER ETA WITH OXIA AND YPOGEGRAMMENI
-	{runeRange{0x1FD6, 0x1FDB}, propertyGeneralCategory{lbprAL, gcLC}},     //     [6] GREEK SMALL LETTER IOTA WITH PERISPOMENI..GREEK CAPITAL LETTER IOTA WITH OXIA
-	{runeRange{0x1FF2, 0x1FF4}, propertyGeneralCategory{lbprAL, gcLl}},     //     [3] GREEK SMALL LETTER OMEGA WITH VARIA AND YPOGEGRAMMENI..GREEK SMALL LETTER OMEGA WITH OXIA AND YPOGEGRAMMENI
-	{runeRange{0x2000, 0x2006}, propertyGeneralCategory{lbprBA, gcZs}},     //     [7] EN QUAD..SIX-PER-EM SPACE
-	{runeRange{0x200C, 0x200C}, propertyGeneralCategory{lbprCM, gcCf}},     //         ZERO WIDTH NON-JOINER
-	{runeRange{0x2011, 0x2011}, propertyGeneralCategory{lbprGL, gcPd}},     //         NON-BREAKING HYPHEN
-	{runeRange{0x2016, 0x2016}, propertyGeneralCategory{lbprAI, gcPo}},     //         DOUBLE VERTICAL LINE
-	{runeRange{0x201A, 0x201A}, propertyGeneralCategory{lbprOP, gcPs}},     //         SINGLE LOW-9 QUOTATION MARK
-	{runeRange{0x201F, 0x201F}, propertyGeneralCategory{lbprQU, gcPi}},     //         DOUBLE HIGH-REVERSED-9 QUOTATION MARK
-	{runeRange{0x2027, 0x2027}, propertyGeneralCategory{lbprBA, gcPo}},     //         HYPHENATION POINT
-	{runeRange{0x202F, 0x202F}, propertyGeneralCategory{lbprGL, gcZs}},     //         NARROW NO-BREAK SPACE
-	{runeRange{0x203A, 0x203A}, propertyGeneralCategory{lbprQU, gcPf}},     //         SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
-	{runeRange{0x203F, 0x2040}, propertyGeneralCategory{lbprAL, gcPc}},     //     [2] UNDERTIE..CHARACTER TIE
-	{runeRange{0x2046, 0x2046}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT SQUARE BRACKET WITH QUILL
-	{runeRange{0x2053, 0x2053}, propertyGeneralCategory{lbprAL, gcPo}},     //         SWUNG DASH
-	{runeRange{0x2057, 0x2057}, propertyGeneralCategory{lbprPO, gcPo}},     //         QUADRUPLE PRIME
-	{runeRange{0x205F, 0x205F}, propertyGeneralCategory{lbprBA, gcZs}},     //         MEDIUM MATHEMATICAL SPACE
-	{runeRange{0x2070, 0x2070}, propertyGeneralCategory{lbprAL, gcNo}},     //         SUPERSCRIPT ZERO
-	{runeRange{0x207A, 0x207C}, propertyGeneralCategory{lbprAL, gcSm}},     //     [3] SUPERSCRIPT PLUS SIGN..SUPERSCRIPT EQUALS SIGN
-	{runeRange{0x2080, 0x2080}, propertyGeneralCategory{lbprAL, gcNo}},     //         SUBSCRIPT ZERO
-	{runeRange{0x208D, 0x208D}, propertyGeneralCategory{lbprOP, gcPs}},     //         SUBSCRIPT LEFT PARENTHESIS
-	{runeRange{0x20A7, 0x20A7}, propertyGeneralCategory{lbprPO, gcSc}},     //         PESETA SIGN
-	{runeRange{0x20BB, 0x20BB}, propertyGeneralCategory{lbprPO, gcSc}},     //         NORDIC MARK SIGN
-	{runeRange{0x20C0, 0x20C0}, propertyGeneralCategory{lbprPO, gcSc}},     //         SOM SIGN
-	{runeRange{0x20E1, 0x20E1}, propertyGeneralCategory{lbprCM, gcMn}},     //         COMBINING LEFT RIGHT ARROW ABOVE
-	{runeRange{0x2102, 0x2102}, propertyGeneralCategory{lbprAL, gcLu}},     //         DOUBLE-STRUCK CAPITAL C
-	{runeRange{0x2106, 0x2106}, propertyGeneralCategory{lbprAL, gcSo}},     //         CADA UNA
-	{runeRange{0x210A, 0x2112}, propertyGeneralCategory{lbprAL, gcLC}},     //     [9] SCRIPT SMALL G..SCRIPT CAPITAL L
-	{runeRange{0x2116, 0x2116}, propertyGeneralCategory{lbprPR, gcSo}},     //         NUMERO SIGN
-	{runeRange{0x211E, 0x2120}, propertyGeneralCategory{lbprAL, gcSo}},     //     [3] PRESCRIPTION TAKE..SERVICE MARK
-	{runeRange{0x2125, 0x2125}, propertyGeneralCategory{lbprAL, gcSo}},     //         OUNCE SIGN
-	{runeRange{0x2129, 0x2129}, propertyGeneralCategory{lbprAL, gcSo}},     //         TURNED GREEK SMALL LETTER IOTA
-	{runeRange{0x212E, 0x212E}, propertyGeneralCategory{lbprAL, gcSo}},     //         ESTIMATED SYMBOL
-	{runeRange{0x213A, 0x213B}, propertyGeneralCategory{lbprAL, gcSo}},     //     [2] ROTATED CAPITAL Q..FACSIMILE SIGN
-	{runeRange{0x214A, 0x214A}, propertyGeneralCategory{lbprAL, gcSo}},     //         PROPERTY LINE
-	{runeRange{0x214F, 0x214F}, propertyGeneralCategory{lbprAL, gcSo}},     //         SYMBOL FOR SAMARITAN SOURCE
-	{runeRange{0x215B, 0x215B}, propertyGeneralCategory{lbprAI, gcNo}},     //         VULGAR FRACTION ONE EIGHTH
+	{runeRange{0x1B5A, 0x1B5B}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] BALINESE PANTI..BALINESE PAMADA
+	{runeRange{0x1B6B, 0x1B73}, propertyGeneralCategory{lbprCM, gcMn}},     //     [9] BALINESE MUSICAL SYMBOL COMBINING TEGEH..BALINESE MUSICAL SYMBOL COMBINING GONG
+	{runeRange{0x1B82, 0x1B82}, propertyGeneralCategory{lbprCM, gcMc}},     //         SUNDANESE SIGN PANGWISAD
+	{runeRange{0x1BA6, 0x1BA7}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] SUNDANESE VOWEL SIGN PANAELAENG..SUNDANESE VOWEL SIGN PANOLONG
+	{runeRange{0x1BAE, 0x1BAF}, propertyGeneralCategory{lbprAL, gcLo}},     //     [2] SUNDANESE LETTER KHA..SUNDANESE LETTER SYA
+	{runeRange{0x1BE6, 0x1BE6}, propertyGeneralCategory{lbprCM, gcMn}},     //         BATAK SIGN TOMPI
+	{runeRange{0x1BED, 0x1BED}, propertyGeneralCategory{lbprCM, gcMn}},     //         BATAK VOWEL SIGN KARO O
+	{runeRange{0x1BFC, 0x1BFF}, propertyGeneralCategory{lbprAL, gcPo}},     //     [4] BATAK SYMBOL BINDU NA METEK..BATAK SYMBOL BINDU PANGOLAT
+	{runeRange{0x1C34, 0x1C35}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] LEPCHA CONSONANT SIGN NYIN-DO..LEPCHA CONSONANT SIGN KANG
+	{runeRange{0x1C4D, 0x1C4F}, propertyGeneralCategory{lbprAL, gcLo}},     //     [3] LEPCHA LETTER TTA..LEPCHA LETTER DDA
+	{runeRange{0x1C7E, 0x1C7F}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] OL CHIKI PUNCTUATION MUCAAD..OL CHIKI PUNCTUATION DOUBLE MUCAAD
+	{runeRange{0x1CC0, 0x1CC7}, propertyGeneralCategory{lbprAL, gcPo}},     //     [8] SUNDANESE PUNCTUATION BINDU SURYA..SUNDANESE PUNCTUATION BINDU BA SATANGA
+	{runeRange{0x1CE1, 0x1CE1}, propertyGeneralCategory{lbprCM, gcMc}},     //         VEDIC TONE ATHARVAVEDIC INDEPENDENT SVARITA
+	{runeRange{0x1CEE, 0x1CF3}, propertyGeneralCategory{lbprAL, gcLo}},     //     [6] VEDIC SIGN HEXIFORM LONG ANUSVARA..VEDIC SIGN ROTATED ARDHAVISARGA
+	{runeRange{0x1CF8, 0x1CF9}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] VEDIC TONE RING ABOVE..VEDIC TONE DOUBLE RING ABOVE
+	{runeRange{0x1D6B, 0x1D77}, propertyGeneralCategory{lbprAL, gcLl}},     //    [13] LATIN SMALL LETTER UE..LATIN SMALL LETTER TURNED G
+	{runeRange{0x1D9B, 0x1DBF}, propertyGeneralCategory{lbprAL, gcLm}},     //    [37] MODIFIER LETTER SMALL TURNED ALPHA..MODIFIER LETTER SMALL THETA
+	{runeRange{0x1DFC, 0x1DFC}, propertyGeneralCategory{lbprGL, gcMn}},     //         COMBINING DOUBLE INVERTED BREVE BELOW
+	{runeRange{0x1F18, 0x1F1D}, propertyGeneralCategory{lbprAL, gcLu}},     //     [6] GREEK CAPITAL LETTER EPSILON WITH PSILI..GREEK CAPITAL LETTER EPSILON WITH DASIA AND OXIA
+	{runeRange{0x1F59, 0x1F59}, propertyGeneralCategory{lbprAL, gcLu}},     //         GREEK CAPITAL LETTER UPSILON WITH DASIA
+	{runeRange{0x1F80, 0x1FB4}, propertyGeneralCategory{lbprAL, gcLC}},     //    [53] GREEK SMALL LETTER ALPHA WITH PSILI AND YPOGEGRAMMENI..GREEK SMALL LETTER ALPHA WITH OXIA AND YPOGEGRAMMENI
+	{runeRange{0x1FBF, 0x1FC1}, propertyGeneralCategory{lbprAL, gcSk}},     //     [3] GREEK PSILI..GREEK DIALYTIKA AND PERISPOMENI
+	{runeRange{0x1FD0, 0x1FD3}, propertyGeneralCategory{lbprAL, gcLl}},     //     [4] GREEK SMALL LETTER IOTA WITH VRACHY..GREEK SMALL LETTER IOTA WITH DIALYTIKA AND OXIA
+	{runeRange{0x1FED, 0x1FEF}, propertyGeneralCategory{lbprAL, gcSk}},     //     [3] GREEK DIALYTIKA AND VARIA..GREEK VARIA
+	{runeRange{0x1FFE, 0x1FFE}, propertyGeneralCategory{lbprAL, gcSk}},     //         GREEK DASIA
+	{runeRange{0x200B, 0x200B}, propertyGeneralCategory{lbprZW, gcCf}},     //         ZERO WIDTH SPACE
+	{runeRange{0x2010, 0x2010}, propertyGeneralCategory{lbprBA, gcPd}},     //         HYPHEN
+	{runeRange{0x2015, 0x2015}, propertyGeneralCategory{lbprAI, gcPd}},     //         HORIZONTAL BAR
+	{runeRange{0x2019, 0x2019}, propertyGeneralCategory{lbprQU, gcPf}},     //         RIGHT SINGLE QUOTATION MARK
+	{runeRange{0x201E, 0x201E}, propertyGeneralCategory{lbprOP, gcPs}},     //         DOUBLE LOW-9 QUOTATION MARK
+	{runeRange{0x2024, 0x2026}, propertyGeneralCategory{lbprIN, gcPo}},     //     [3] ONE DOT LEADER..HORIZONTAL ELLIPSIS
+	{runeRange{0x202A, 0x202E}, propertyGeneralCategory{lbprCM, gcCf}},     //     [5] LEFT-TO-RIGHT EMBEDDING..RIGHT-TO-LEFT OVERRIDE
+	{runeRange{0x2039, 0x2039}, propertyGeneralCategory{lbprQU, gcPi}},     //         SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+	{runeRange{0x203E, 0x203E}, propertyGeneralCategory{lbprAL, gcPo}},     //         OVERLINE
+	{runeRange{0x2045, 0x2045}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT SQUARE BRACKET WITH QUILL
+	{runeRange{0x2052, 0x2052}, propertyGeneralCategory{lbprAL, gcSm}},     //         COMMERCIAL MINUS SIGN
+	{runeRange{0x2056, 0x2056}, propertyGeneralCategory{lbprBA, gcPo}},     //         THREE DOT PUNCTUATION
+	{runeRange{0x205D, 0x205E}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] TRICOLON..VERTICAL FOUR DOTS
+	{runeRange{0x2066, 0x206F}, propertyGeneralCategory{lbprCM, gcCf}},     //    [10] LEFT-TO-RIGHT ISOLATE..NOMINAL DIGIT SHAPES
+	{runeRange{0x2075, 0x2079}, propertyGeneralCategory{lbprAL, gcNo}},     //     [5] SUPERSCRIPT FIVE..SUPERSCRIPT NINE
+	{runeRange{0x207F, 0x207F}, propertyGeneralCategory{lbprAI, gcLm}},     //         SUPERSCRIPT LATIN SMALL LETTER N
+	{runeRange{0x208A, 0x208C}, propertyGeneralCategory{lbprAL, gcSm}},     //     [3] SUBSCRIPT PLUS SIGN..SUBSCRIPT EQUALS SIGN
+	{runeRange{0x20A0, 0x20A6}, propertyGeneralCategory{lbprPR, gcSc}},     //     [7] EURO-CURRENCY SIGN..NAIRA SIGN
+	{runeRange{0x20B7, 0x20BA}, propertyGeneralCategory{lbprPR, gcSc}},     //     [4] SPESMILO SIGN..TURKISH LIRA SIGN
+	{runeRange{0x20BF, 0x20BF}, propertyGeneralCategory{lbprPR, gcSc}},     //         BITCOIN SIGN
+	{runeRange{0x20DD, 0x20E0}, propertyGeneralCategory{lbprCM, gcMe}},     //     [4] COMBINING ENCLOSING CIRCLE..COMBINING ENCLOSING CIRCLE BACKSLASH
+	{runeRange{0x2100, 0x2101}, propertyGeneralCategory{lbprAL, gcSo}},     //     [2] ACCOUNT OF..ADDRESSED TO THE SUBJECT
+	{runeRange{0x2105, 0x2105}, propertyGeneralCategory{lbprAI, gcSo}},     //         CARE OF
+	{runeRange{0x2109, 0x2109}, propertyGeneralCategory{lbprPO, gcSo}},     //         DEGREE FAHRENHEIT
+	{runeRange{0x2115, 0x2115}, propertyGeneralCategory{lbprAL, gcLu}},     //         DOUBLE-STRUCK CAPITAL N
+	{runeRange{0x2119, 0x211D}, propertyGeneralCategory{lbprAL, gcLu}},     //     [5] DOUBLE-STRUCK CAPITAL P..DOUBLE-STRUCK CAPITAL R
+	{runeRange{0x2124, 0x2124}, propertyGeneralCategory{lbprAL, gcLu}},     //         DOUBLE-STRUCK CAPITAL Z
+	{runeRange{0x2128, 0x2128}, propertyGeneralCategory{lbprAL, gcLu}},     //         BLACK-LETTER CAPITAL Z
+	{runeRange{0x212C, 0x212D}, propertyGeneralCategory{lbprAL, gcLu}},     //     [2] SCRIPT CAPITAL B..BLACK-LETTER CAPITAL C
+	{runeRange{0x2139, 0x2139}, propertyGeneralCategory{lbprAL, gcLl}},     //         INFORMATION SOURCE
+	{runeRange{0x2145, 0x2149}, propertyGeneralCategory{lbprAL, gcLC}},     //     [5] DOUBLE-STRUCK ITALIC CAPITAL D..DOUBLE-STRUCK ITALIC SMALL J
+	{runeRange{0x214E, 0x214E}, propertyGeneralCategory{lbprAL, gcLl}},     //         TURNED SMALL F
 	{runeRange{0x2160, 0x216B}, propertyGeneralCategory{lbprAI, gcNl}},     //    [12] ROMAN NUMERAL ONE..ROMAN NUMERAL TWELVE
 	{runeRange{0x2183, 0x2184}, propertyGeneralCategory{lbprAL, gcLC}},     //     [2] ROMAN NUMERAL REVERSED ONE HUNDRED..LATIN SMALL LETTER REVERSED C
 	{runeRange{0x2190, 0x2194}, propertyGeneralCategory{lbprAI, gcSm}},     //     [5] LEFTWARDS ARROW..LEFT RIGHT ARROW
@@ -1654,8 +1653,11 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0xFBB2, 0xFBC2}, propertyGeneralCategory{lbprAL, gcSk}},     //    [17] ARABIC SYMBOL DOT ABOVE..ARABIC SYMBOL WASLA ABOVE
 	{runeRange{0xFD40, 0xFD4F}, propertyGeneralCategory{lbprAL, gcSo}},     //    [16] ARABIC LIGATURE RAHIMAHU ALLAAH..ARABIC LIGATURE RAHIMAHUM ALLAAH
 	{runeRange{0xFDF0, 0xFDFB}, propertyGeneralCategory{lbprAL, gcLo}},     //    [12] ARABIC LIGATURE SALLA USED AS KORANIC STOP SIGN ISOLATED FORM..ARABIC LIGATURE JALLAJALALOUHOU
-	{runeRange{0xFE10, 0xFE10}, propertyGeneralCategory{lbprIS, gcPo}},     //         PRESENTATION FORM FOR VERTICAL COMMA
-	{runeRange{0xFE17, 0xFE17}, propertyGeneralCategory{lbprOP, gcPs}},     //         PRESENTATION FORM FOR VERTICAL LEFT WHITE LENTICULAR BRACKET
+	{runeRange{0xFE10, 0xFE12}, propertyGeneralCategory{lbprCL, gcPo}},     //     [3] PRESENTATION FORM FOR VERTICAL COMMA..PRESENTATION FORM FOR VERTICAL IDEOGRAPHIC FULL STOP
+	{runeRange{0xFE18, 0xFE18}, propertyGeneralCategory{lbprCL, gcPe}},     //         PRESENTATION FORM FOR VERTICAL RIGHT WHITE LENTICULAR BRAKCET
+	{runeRange{0xFE22, 0xFE22}, propertyGeneralCategory{lbprGL, gcMn}},     //         COMBINING DOUBLE TILDE LEFT HALF
+	{runeRange{0xFE26, 0xFE27}, propertyGeneralCategory{lbprGL, gcMn}},     //     [2] COMBINING CONJOINING MACRON..COMBINING LIGATURE LEFT HALF BELOW
+	{runeRange{0xFE2B, 0xFE2B}, propertyGeneralCategory{lbprGL, gcMn}},     //         COMBINING MACRON LEFT HALF BELOW
 	{runeRange{0xFE30, 0xFE30}, propertyGeneralCategory{lbprID, gcPo}},     //         PRESENTATION FORM FOR VERTICAL TWO DOT LEADER
 	{runeRange{0xFE36, 0xFE36}, propertyGeneralCategory{lbprCL, gcPe}},     //         PRESENTATION FORM FOR VERTICAL RIGHT PARENTHESIS
 	{runeRange{0xFE3A, 0xFE3A}, propertyGeneralCategory{lbprCL, gcPe}},     //         PRESENTATION FORM FOR VERTICAL RIGHT TORTOISE SHELL BRACKET
@@ -1697,26 +1699,29 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1056F, 0x1056F}, propertyGeneralCategory{lbprAL, gcPo}},   //         CAUCASIAN ALBANIAN CITATION MARK
 	{runeRange{0x10594, 0x10595}, propertyGeneralCategory{lbprAL, gcLu}},   //     [2] VITHKUQI CAPITAL LETTER Y..VITHKUQI CAPITAL LETTER ZE
 	{runeRange{0x105BB, 0x105BC}, propertyGeneralCategory{lbprAL, gcLl}},   //     [2] VITHKUQI SMALL LETTER Y..VITHKUQI SMALL LETTER ZE
-	{runeRange{0x10780, 0x10785}, propertyGeneralCategory{lbprAL, gcLm}},   //     [6] MODIFIER LETTER SMALL CAPITAL AA..MODIFIER LETTER SMALL B WITH HOOK
-	{runeRange{0x10808, 0x10808}, propertyGeneralCategory{lbprAL, gcLo}},   //         CYPRIOT SYLLABLE JO
-	{runeRange{0x1083F, 0x1083F}, propertyGeneralCategory{lbprAL, gcLo}},   //         CYPRIOT SYLLABLE ZO
-	{runeRange{0x10860, 0x10876}, propertyGeneralCategory{lbprAL, gcLo}},   //    [23] PALMYRENE LETTER ALEPH..PALMYRENE LETTER TAW
-	{runeRange{0x108A7, 0x108AF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [9] NABATAEAN NUMBER ONE..NABATAEAN NUMBER ONE HUNDRED
-	{runeRange{0x10900, 0x10915}, propertyGeneralCategory{lbprAL, gcLo}},   //    [22] PHOENICIAN LETTER ALF..PHOENICIAN LETTER TAU
-	{runeRange{0x1093F, 0x1093F}, propertyGeneralCategory{lbprAL, gcPo}},   //         LYDIAN TRIANGULAR MARK
-	{runeRange{0x109BE, 0x109BF}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] MEROITIC CURSIVE LOGOGRAM RMT..MEROITIC CURSIVE LOGOGRAM IMN
-	{runeRange{0x10A01, 0x10A03}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] KHAROSHTHI VOWEL SIGN I..KHAROSHTHI VOWEL SIGN VOCALIC R
-	{runeRange{0x10A15, 0x10A17}, propertyGeneralCategory{lbprAL, gcLo}},   //     [3] KHAROSHTHI LETTER CA..KHAROSHTHI LETTER JA
-	{runeRange{0x10A40, 0x10A48}, propertyGeneralCategory{lbprAL, gcNo}},   //     [9] KHAROSHTHI DIGIT ONE..KHAROSHTHI FRACTION ONE HALF
-	{runeRange{0x10A7D, 0x10A7E}, propertyGeneralCategory{lbprAL, gcNo}},   //     [2] OLD SOUTH ARABIAN NUMBER ONE..OLD SOUTH ARABIAN NUMBER FIFTY
-	{runeRange{0x10AC0, 0x10AC7}, propertyGeneralCategory{lbprAL, gcLo}},   //     [8] MANICHAEAN LETTER ALEPH..MANICHAEAN LETTER WAW
-	{runeRange{0x10AEB, 0x10AEF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [5] MANICHAEAN NUMBER ONE..MANICHAEAN NUMBER ONE HUNDRED
-	{runeRange{0x10B39, 0x10B3F}, propertyGeneralCategory{lbprBA, gcPo}},   //     [7] AVESTAN ABBREVIATION MARK..LARGE ONE RING OVER TWO RINGS PUNCTUATION
-	{runeRange{0x10B78, 0x10B7F}, propertyGeneralCategory{lbprAL, gcNo}},   //     [8] INSCRIPTIONAL PAHLAVI NUMBER ONE..INSCRIPTIONAL PAHLAVI NUMBER ONE THOUSAND
-	{runeRange{0x10C00, 0x10C48}, propertyGeneralCategory{lbprAL, gcLo}},   //    [73] OLD TURKIC LETTER ORKHON A..OLD TURKIC LETTER ORKHON BASH
-	{runeRange{0x10D00, 0x10D23}, propertyGeneralCategory{lbprAL, gcLo}},   //    [36] HANIFI ROHINGYA LETTER A..HANIFI ROHINGYA MARK NA KHONNA
-	{runeRange{0x10E80, 0x10EA9}, propertyGeneralCategory{lbprAL, gcLo}},   //    [42] YEZIDI LETTER ELIF..YEZIDI LETTER ET
-	{runeRange{0x10EFD, 0x10EFF}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] ARABIC SMALL LOW WORD SAKTA..ARABIC SMALL LOW WORD MADDA
+	{runeRange{0x10760, 0x10767}, propertyGeneralCategory{lbprAL, gcLo}},   //     [8] LINEAR A SIGN A800..LINEAR A SIGN A807
+	{runeRange{0x10800, 0x10805}, propertyGeneralCategory{lbprAL, gcLo}},   //     [6] CYPRIOT SYLLABLE A..CYPRIOT SYLLABLE JA
+	{runeRange{0x1083C, 0x1083C}, propertyGeneralCategory{lbprAL, gcLo}},   //         CYPRIOT SYLLABLE ZA
+	{runeRange{0x10858, 0x1085F}, propertyGeneralCategory{lbprAL, gcNo}},   //     [8] IMPERIAL ARAMAIC NUMBER ONE..IMPERIAL ARAMAIC NUMBER TEN THOUSAND
+	{runeRange{0x10880, 0x1089E}, propertyGeneralCategory{lbprAL, gcLo}},   //    [31] NABATAEAN LETTER FINAL ALEPH..NABATAEAN LETTER TAW
+	{runeRange{0x108FB, 0x108FF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [5] HATRAN NUMBER ONE..HATRAN NUMBER ONE HUNDRED
+	{runeRange{0x10920, 0x10939}, propertyGeneralCategory{lbprAL, gcLo}},   //    [26] LYDIAN LETTER A..LYDIAN LETTER C
+	{runeRange{0x109BC, 0x109BD}, propertyGeneralCategory{lbprAL, gcNo}},   //     [2] MEROITIC CURSIVE FRACTION ELEVEN TWELFTHS..MEROITIC CURSIVE FRACTION ONE HALF
+	{runeRange{0x10A00, 0x10A00}, propertyGeneralCategory{lbprAL, gcLo}},   //         KHAROSHTHI LETTER A
+	{runeRange{0x10A10, 0x10A13}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] KHAROSHTHI LETTER KA..KHAROSHTHI LETTER GHA
+	{runeRange{0x10A3F, 0x10A3F}, propertyGeneralCategory{lbprCM, gcMn}},   //         KHAROSHTHI VIRAMA
+	{runeRange{0x10A60, 0x10A7C}, propertyGeneralCategory{lbprAL, gcLo}},   //    [29] OLD SOUTH ARABIAN LETTER HE..OLD SOUTH ARABIAN LETTER THETH
+	{runeRange{0x10A9D, 0x10A9F}, propertyGeneralCategory{lbprAL, gcNo}},   //     [3] OLD NORTH ARABIAN NUMBER ONE..OLD NORTH ARABIAN NUMBER TWENTY
+	{runeRange{0x10AE5, 0x10AE6}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] MANICHAEAN ABBREVIATION MARK ABOVE..MANICHAEAN ABBREVIATION MARK BELOW
+	{runeRange{0x10B00, 0x10B35}, propertyGeneralCategory{lbprAL, gcLo}},   //    [54] AVESTAN LETTER A..AVESTAN LETTER HE
+	{runeRange{0x10B60, 0x10B72}, propertyGeneralCategory{lbprAL, gcLo}},   //    [19] INSCRIPTIONAL PAHLAVI LETTER ALEPH..INSCRIPTIONAL PAHLAVI LETTER TAW
+	{runeRange{0x10BA9, 0x10BAF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [7] PSALTER PAHLAVI NUMBER ONE..PSALTER PAHLAVI NUMBER ONE HUNDRED
+	{runeRange{0x10CFA, 0x10CFF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [6] OLD HUNGARIAN NUMBER ONE..OLD HUNGARIAN NUMBER ONE THOUSAND
+	{runeRange{0x10D40, 0x10D49}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] GARAY DIGIT ZERO..GARAY DIGIT NINE
+	{runeRange{0x10D50, 0x10D65}, propertyGeneralCategory{lbprAL, gcLu}},   //    [22] GARAY CAPITAL LETTER A..GARAY CAPITAL LETTER OLD NA
+	{runeRange{0x10D70, 0x10D85}, propertyGeneralCategory{lbprAL, gcLl}},   //    [22] GARAY SMALL LETTER A..GARAY SMALL LETTER OLD NA
+	{runeRange{0x10EAB, 0x10EAC}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] YEZIDI COMBINING HAMZA MARK..YEZIDI COMBINING MADDA MARK
+	{runeRange{0x10EFC, 0x10EFF}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] ARABIC COMBINING ALEF OVERLAY..ARABIC SMALL LOW WORD MADDA
 	{runeRange{0x10F30, 0x10F45}, propertyGeneralCategory{lbprAL, gcLo}},   //    [22] SOGDIAN LETTER ALEPH..SOGDIAN INDEPENDENT SHIN
 	{runeRange{0x10F70, 0x10F81}, propertyGeneralCategory{lbprAL, gcLo}},   //    [18] OLD UYGHUR LETTER ALEPH..OLD UYGHUR LETTER LESH
 	{runeRange{0x10FC5, 0x10FCB}, propertyGeneralCategory{lbprAL, gcNo}},   //     [7] CHORASMIAN NUMBER ONE..CHORASMIAN NUMBER ONE HUNDRED
@@ -1749,22 +1754,28 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1134D, 0x1134D}, propertyGeneralCategory{lbprVI, gcMc}},   //         GRANTHA SIGN VIRAMA
 	{runeRange{0x1135E, 0x1135F}, propertyGeneralCategory{lbprAS, gcLo}},   //     [2] GRANTHA LETTER VEDIC ANUSVARA..GRANTHA LETTER VEDIC DOUBLE ANUSVARA
 	{runeRange{0x11370, 0x11374}, propertyGeneralCategory{lbprCM, gcMn}},   //     [5] COMBINING GRANTHA LETTER A..COMBINING GRANTHA LETTER PA
-	{runeRange{0x11440, 0x11441}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] NEWA VOWEL SIGN O..NEWA VOWEL SIGN AU
-	{runeRange{0x11447, 0x1144A}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] NEWA SIGN AVAGRAHA..NEWA SIDDHI
-	{runeRange{0x1145A, 0x1145B}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] NEWA DOUBLE COMMA..NEWA PLACEHOLDER MARK
-	{runeRange{0x11480, 0x114AF}, propertyGeneralCategory{lbprAL, gcLo}},   //    [48] TIRHUTA ANJI..TIRHUTA LETTER HA
-	{runeRange{0x114BA, 0x114BA}, propertyGeneralCategory{lbprCM, gcMn}},   //         TIRHUTA VOWEL SIGN SHORT E
-	{runeRange{0x114C2, 0x114C3}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] TIRHUTA SIGN VIRAMA..TIRHUTA SIGN NUKTA
-	{runeRange{0x114D0, 0x114D9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] TIRHUTA DIGIT ZERO..TIRHUTA DIGIT NINE
-	{runeRange{0x115B8, 0x115BB}, propertyGeneralCategory{lbprCM, gcMc}},   //     [4] SIDDHAM VOWEL SIGN E..SIDDHAM VOWEL SIGN AU
-	{runeRange{0x115C1, 0x115C1}, propertyGeneralCategory{lbprBB, gcPo}},   //         SIDDHAM SIGN SIDDHAM
-	{runeRange{0x115C9, 0x115D7}, propertyGeneralCategory{lbprBA, gcPo}},   //    [15] SIDDHAM END OF TEXT MARK..SIDDHAM SECTION MARK WITH CIRCLES AND FOUR ENCLOSURES
-	{runeRange{0x11630, 0x11632}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] MODI VOWEL SIGN AA..MODI VOWEL SIGN II
-	{runeRange{0x1163E, 0x1163E}, propertyGeneralCategory{lbprCM, gcMc}},   //         MODI SIGN VISARGA
-	{runeRange{0x11644, 0x11644}, propertyGeneralCategory{lbprAL, gcLo}},   //         MODI SIGN HUVA
-	{runeRange{0x116AB, 0x116AB}, propertyGeneralCategory{lbprCM, gcMn}},   //         TAKRI SIGN ANUSVARA
-	{runeRange{0x116B0, 0x116B5}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] TAKRI VOWEL SIGN U..TAKRI VOWEL SIGN AU
-	{runeRange{0x116B9, 0x116B9}, propertyGeneralCategory{lbprAL, gcPo}},   //         TAKRI ABBREVIATION SIGN
+	{runeRange{0x11390, 0x11391}, propertyGeneralCategory{lbprAS, gcLo}},   //     [2] TULU-TIGALARI LETTER OO..TULU-TIGALARI LETTER AU
+	{runeRange{0x113BB, 0x113C0}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] TULU-TIGALARI VOWEL SIGN U..TULU-TIGALARI VOWEL SIGN VOCALIC LL
+	{runeRange{0x113CC, 0x113CD}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] TULU-TIGALARI SIGN ANUSVARA..TULU-TIGALARI SIGN VISARGA
+	{runeRange{0x113D1, 0x113D1}, propertyGeneralCategory{lbprAP, gcLo}},   //         TULU-TIGALARI REPHA
+	{runeRange{0x113D7, 0x113D8}, propertyGeneralCategory{lbprID, gcPo}},   //     [2] TULU-TIGALARI SIGN OM PUSHPIKA..TULU-TIGALARI SIGN SHRII PUSHPIKA
+	{runeRange{0x11438, 0x1143F}, propertyGeneralCategory{lbprCM, gcMn}},   //     [8] NEWA VOWEL SIGN U..NEWA VOWEL SIGN AI
+	{runeRange{0x11446, 0x11446}, propertyGeneralCategory{lbprCM, gcMn}},   //         NEWA SIGN NUKTA
+	{runeRange{0x11450, 0x11459}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] NEWA DIGIT ZERO..NEWA DIGIT NINE
+	{runeRange{0x1145F, 0x11461}, propertyGeneralCategory{lbprAL, gcLo}},   //     [3] NEWA LETTER VEDIC ANUSVARA..NEWA SIGN UPADHMANIYA
+	{runeRange{0x114B9, 0x114B9}, propertyGeneralCategory{lbprCM, gcMc}},   //         TIRHUTA VOWEL SIGN E
+	{runeRange{0x114C1, 0x114C1}, propertyGeneralCategory{lbprCM, gcMc}},   //         TIRHUTA SIGN VISARGA
+	{runeRange{0x114C7, 0x114C7}, propertyGeneralCategory{lbprAL, gcLo}},   //         TIRHUTA OM
+	{runeRange{0x115B2, 0x115B5}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] SIDDHAM VOWEL SIGN U..SIDDHAM VOWEL SIGN VOCALIC RR
+	{runeRange{0x115BF, 0x115C0}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] SIDDHAM SIGN VIRAMA..SIDDHAM SIGN NUKTA
+	{runeRange{0x115C6, 0x115C8}, propertyGeneralCategory{lbprAL, gcPo}},   //     [3] SIDDHAM REPETITION MARK-1..SIDDHAM REPETITION MARK-3
+	{runeRange{0x11600, 0x1162F}, propertyGeneralCategory{lbprAL, gcLo}},   //    [48] MODI LETTER A..MODI LETTER LLA
+	{runeRange{0x1163D, 0x1163D}, propertyGeneralCategory{lbprCM, gcMn}},   //         MODI SIGN ANUSVARA
+	{runeRange{0x11643, 0x11643}, propertyGeneralCategory{lbprAL, gcPo}},   //         MODI ABBREVIATION SIGN
+	{runeRange{0x11680, 0x116AA}, propertyGeneralCategory{lbprAL, gcLo}},   //    [43] TAKRI LETTER A..TAKRI LETTER RRA
+	{runeRange{0x116AE, 0x116AF}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] TAKRI VOWEL SIGN I..TAKRI VOWEL SIGN II
+	{runeRange{0x116B8, 0x116B8}, propertyGeneralCategory{lbprAL, gcLo}},   //         TAKRI LETTER ARCHAIC KHA
+	{runeRange{0x11700, 0x1171A}, propertyGeneralCategory{lbprSA, gcLo}},   //    [27] AHOM LETTER KA..AHOM LETTER ALTERNATE BA
 	{runeRange{0x11720, 0x11721}, propertyGeneralCategory{lbprSA, gcMc}},   //     [2] AHOM VOWEL SIGN A..AHOM VOWEL SIGN AA
 	{runeRange{0x11730, 0x11739}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] AHOM DIGIT ZERO..AHOM DIGIT NINE
 	{runeRange{0x11740, 0x11746}, propertyGeneralCategory{lbprSA, gcLo}},   //     [7] AHOM LETTER CA..AHOM LETTER LLA
@@ -1782,44 +1793,26 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x11A41, 0x11A44}, propertyGeneralCategory{lbprBA, gcPo}},   //     [4] ZANABAZAR SQUARE MARK TSHEG..ZANABAZAR SQUARE MARK LONG TSHEG
 	{runeRange{0x11A50, 0x11A50}, propertyGeneralCategory{lbprAL, gcLo}},   //         SOYOMBO LETTER A
 	{runeRange{0x11A5C, 0x11A89}, propertyGeneralCategory{lbprAL, gcLo}},   //    [46] SOYOMBO LETTER KA..SOYOMBO CLUSTER-INITIAL LETTER SA
-	{runeRange{0x11A98, 0x11A99}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] SOYOMBO GEMINATION MARK..SOYOMBO SUBJOINER
-	{runeRange{0x11A9D, 0x11A9D}, propertyGeneralCategory{lbprAL, gcLo}},   //         SOYOMBO MARK PLUTA
-	{runeRange{0x11AA1, 0x11AA2}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] SOYOMBO TERMINAL MARK-1..SOYOMBO TERMINAL MARK-2
-	{runeRange{0x11AC0, 0x11AF8}, propertyGeneralCategory{lbprAL, gcLo}},   //    [57] PAU CIN HAU LETTER PA..PAU CIN HAU GLOTTAL STOP FINAL
-	{runeRange{0x11C00, 0x11C08}, propertyGeneralCategory{lbprAL, gcLo}},   //     [9] BHAIKSUKI LETTER A..BHAIKSUKI LETTER VOCALIC L
+	{runeRange{0x11A9A, 0x11A9C}, propertyGeneralCategory{lbprBA, gcPo}},   //     [3] SOYOMBO MARK TSHEG..SOYOMBO MARK DOUBLE SHAD
+	{runeRange{0x11AB0, 0x11ABF}, propertyGeneralCategory{lbprAL, gcLo}},   //    [16] CANADIAN SYLLABICS NATTILIK HI..CANADIAN SYLLABICS SPA
+	{runeRange{0x11BE1, 0x11BE1}, propertyGeneralCategory{lbprAL, gcPo}},   //         SUNUWAR SIGN PVO
 	{runeRange{0x11C2F, 0x11C2F}, propertyGeneralCategory{lbprCM, gcMc}},   //         BHAIKSUKI VOWEL SIGN AA
-	{runeRange{0x11C38, 0x11C3D}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] BHAIKSUKI VOWEL SIGN E..BHAIKSUKI SIGN ANUSVARA
 	{runeRange{0x11C3F, 0x11C3F}, propertyGeneralCategory{lbprCM, gcMn}},   //         BHAIKSUKI SIGN VIRAMA
-	{runeRange{0x11C41, 0x11C45}, propertyGeneralCategory{lbprBA, gcPo}},   //     [5] BHAIKSUKI DANDA..BHAIKSUKI GAP FILLER-2
 	{runeRange{0x11C5A, 0x11C6C}, propertyGeneralCategory{lbprAL, gcNo}},   //    [19] BHAIKSUKI NUMBER ONE..BHAIKSUKI HUNDREDS UNIT MARK
-	{runeRange{0x11C71, 0x11C71}, propertyGeneralCategory{lbprEX, gcPo}},   //         MARCHEN MARK SHAD
 	{runeRange{0x11C92, 0x11CA7}, propertyGeneralCategory{lbprCM, gcMn}},   //    [22] MARCHEN SUBJOINED LETTER KA..MARCHEN SUBJOINED LETTER ZA
-	{runeRange{0x11CAA, 0x11CB0}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] MARCHEN SUBJOINED LETTER RA..MARCHEN VOWEL SIGN AA
 	{runeRange{0x11CB2, 0x11CB3}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] MARCHEN VOWEL SIGN U..MARCHEN VOWEL SIGN E
-	{runeRange{0x11CB5, 0x11CB6}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] MARCHEN SIGN ANUSVARA..MARCHEN SIGN CANDRABINDU
 	{runeRange{0x11D08, 0x11D09}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] MASARAM GONDI LETTER AI..MASARAM GONDI LETTER O
-	{runeRange{0x11D31, 0x11D36}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] MASARAM GONDI VOWEL SIGN AA..MASARAM GONDI VOWEL SIGN VOCALIC R
 	{runeRange{0x11D3C, 0x11D3D}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] MASARAM GONDI VOWEL SIGN AI..MASARAM GONDI VOWEL SIGN O
-	{runeRange{0x11D46, 0x11D46}, propertyGeneralCategory{lbprAL, gcLo}},   //         MASARAM GONDI REPHA
 	{runeRange{0x11D50, 0x11D59}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] MASARAM GONDI DIGIT ZERO..MASARAM GONDI DIGIT NINE
-	{runeRange{0x11D67, 0x11D68}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] GUNJALA GONDI LETTER EE..GUNJALA GONDI LETTER AI
 	{runeRange{0x11D8A, 0x11D8E}, propertyGeneralCategory{lbprCM, gcMc}},   //     [5] GUNJALA GONDI VOWEL SIGN AA..GUNJALA GONDI VOWEL SIGN UU
-	{runeRange{0x11D93, 0x11D94}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] GUNJALA GONDI VOWEL SIGN OO..GUNJALA GONDI VOWEL SIGN AU
 	{runeRange{0x11D96, 0x11D96}, propertyGeneralCategory{lbprCM, gcMc}},   //         GUNJALA GONDI SIGN VISARGA
-	{runeRange{0x11D98, 0x11D98}, propertyGeneralCategory{lbprAL, gcLo}},   //         GUNJALA GONDI OM
 	{runeRange{0x11EE0, 0x11EF1}, propertyGeneralCategory{lbprAS, gcLo}},   //    [18] MAKASAR LETTER KA..MAKASAR LETTER A
-	{runeRange{0x11EF3, 0x11EF4}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] MAKASAR VOWEL SIGN I..MAKASAR VOWEL SIGN U
 	{runeRange{0x11EF7, 0x11EF8}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] MAKASAR PASSIMBANG..MAKASAR END OF SECTION
-	{runeRange{0x11F02, 0x11F02}, propertyGeneralCategory{lbprAP, gcLo}},   //         KAWI SIGN REPHA
 	{runeRange{0x11F04, 0x11F10}, propertyGeneralCategory{lbprAK, gcLo}},   //    [13] KAWI LETTER A..KAWI LETTER O
-	{runeRange{0x11F34, 0x11F35}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] KAWI VOWEL SIGN AA..KAWI VOWEL SIGN ALTERNATE AA
 	{runeRange{0x11F3E, 0x11F3F}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] KAWI VOWEL SIGN E..KAWI VOWEL SIGN AI
-	{runeRange{0x11F41, 0x11F41}, propertyGeneralCategory{lbprCM, gcMc}},   //         KAWI SIGN KILLER
 	{runeRange{0x11F43, 0x11F44}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] KAWI DANDA..KAWI DOUBLE DANDA
-	{runeRange{0x11F50, 0x11F59}, propertyGeneralCategory{lbprAS, gcNd}},   //    [10] KAWI DIGIT ZERO..KAWI DIGIT NINE
-	{runeRange{0x11FC0, 0x11FD4}, propertyGeneralCategory{lbprAL, gcNo}},   //    [21] TAMIL FRACTION ONE THREE-HUNDRED-AND-TWENTIETH..TAMIL FRACTION DOWNSCALING FACTOR KIIZH
-	{runeRange{0x11FDD, 0x11FE0}, propertyGeneralCategory{lbprPO, gcSc}},   //     [4] TAMIL SIGN KAACU..TAMIL SIGN VARAAKAN
-	{runeRange{0x11FFF, 0x11FFF}, propertyGeneralCategory{lbprBA, gcPo}},   //         TAMIL PUNCTUATION END OF TEXT
+	{runeRange{0x11FB0, 0x11FB0}, propertyGeneralCategory{lbprAL, gcLo}},   //         LISU LETTER YHA
+	{runeRange{0x11FE1, 0x11FF1}, propertyGeneralCategory{lbprAL, gcSo}},   //    [17] TAMIL SIGN PAARAM..TAMIL SIGN VAKAIYARAA
 	{runeRange{0x12400, 0x1246E}, propertyGeneralCategory{lbprAL, gcNl}},   //   [111] CUNEIFORM NUMERIC SIGN TWO ASH..CUNEIFORM NUMERIC SIGN NINE U VARIANT FORM
 	{runeRange{0x12480, 0x12543}, propertyGeneralCategory{lbprAL, gcLo}},   //   [196] CUNEIFORM SIGN AB TIMES NUN TENU..CUNEIFORM SIGN ZU5 TIMES THREE DISH TENU
 	{runeRange{0x12FF1, 0x12FF2}, propertyGeneralCategory{lbprAL, gcPo}},   //     [2] CYPRO-MINOAN SIGN CM301..CYPRO-MINOAN SIGN CM302
@@ -1836,8 +1829,11 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1343E, 0x1343E}, propertyGeneralCategory{lbprOP, gcCf}},   //         EGYPTIAN HIEROGLYPH BEGIN WALLED ENCLOSURE
 	{runeRange{0x13440, 0x13440}, propertyGeneralCategory{lbprCM, gcMn}},   //         EGYPTIAN HIEROGLYPH MIRROR HORIZONTALLY
 	{runeRange{0x13447, 0x13455}, propertyGeneralCategory{lbprCM, gcMn}},   //    [15] EGYPTIAN HIEROGLYPH MODIFIER DAMAGED AT TOP START..EGYPTIAN HIEROGLYPH MODIFIER DAMAGED
-	{runeRange{0x145CE, 0x145CE}, propertyGeneralCategory{lbprOP, gcLo}},   //         ANATOLIAN HIEROGLYPH A410 BEGIN LOGOGRAM MARK
-	{runeRange{0x145D0, 0x14646}, propertyGeneralCategory{lbprAL, gcLo}},   //   [119] ANATOLIAN HIEROGLYPH A411..ANATOLIAN HIEROGLYPH A530
+	{runeRange{0x14400, 0x145CD}, propertyGeneralCategory{lbprAL, gcLo}},   //   [462] ANATOLIAN HIEROGLYPH A001..ANATOLIAN HIEROGLYPH A409
+	{runeRange{0x145CF, 0x145CF}, propertyGeneralCategory{lbprCL, gcLo}},   //         ANATOLIAN HIEROGLYPH A410A END LOGOGRAM MARK
+	{runeRange{0x16100, 0x1611D}, propertyGeneralCategory{lbprAS, gcLo}},   //    [30] GURUNG KHEMA LETTER A..GURUNG KHEMA LETTER SA
+	{runeRange{0x1612A, 0x1612C}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] GURUNG KHEMA CONSONANT SIGN MEDIAL YA..GURUNG KHEMA CONSONANT SIGN MEDIAL HA
+	{runeRange{0x16130, 0x16139}, propertyGeneralCategory{lbprAS, gcNd}},   //    [10] GURUNG KHEMA DIGIT ZERO..GURUNG KHEMA DIGIT NINE
 	{runeRange{0x16A40, 0x16A5E}, propertyGeneralCategory{lbprAL, gcLo}},   //    [31] MRO LETTER TA..MRO LETTER TEK
 	{runeRange{0x16A6E, 0x16A6F}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] MRO DANDA..MRO DOUBLE DANDA
 	{runeRange{0x16AC0, 0x16AC9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] TANGSA DIGIT ZERO..TANGSA DIGIT NINE
@@ -1848,6 +1844,9 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x16B44, 0x16B44}, propertyGeneralCategory{lbprBA, gcPo}},   //         PAHAWH HMONG SIGN XAUS
 	{runeRange{0x16B50, 0x16B59}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] PAHAWH HMONG DIGIT ZERO..PAHAWH HMONG DIGIT NINE
 	{runeRange{0x16B63, 0x16B77}, propertyGeneralCategory{lbprAL, gcLo}},   //    [21] PAHAWH HMONG SIGN VOS LUB..PAHAWH HMONG SIGN CIM NRES TOS
+	{runeRange{0x16D40, 0x16D42}, propertyGeneralCategory{lbprAL, gcLm}},   //     [3] KIRAT RAI SIGN ANUSVARA..KIRAT RAI SIGN VISARGA
+	{runeRange{0x16D6B, 0x16D6C}, propertyGeneralCategory{lbprAL, gcLm}},   //     [2] KIRAT RAI SIGN VIRAMA..KIRAT RAI SIGN SAAT
+	{runeRange{0x16D6E, 0x16D6F}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] KIRAT RAI DANDA..KIRAT RAI DOUBLE DANDA
 	{runeRange{0x16E40, 0x16E7F}, propertyGeneralCategory{lbprAL, gcLC}},   //    [64] MEDEFAIDRIN CAPITAL LETTER M..MEDEFAIDRIN SMALL LETTER Y
 	{runeRange{0x16E97, 0x16E98}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] MEDEFAIDRIN COMMA..MEDEFAIDRIN FULL STOP
 	{runeRange{0x16F00, 0x16F4A}, propertyGeneralCategory{lbprAL, gcLo}},   //    [75] MIAO LETTER PA..MIAO LETTER RTE
@@ -1857,16 +1856,18 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x16FE3, 0x16FE3}, propertyGeneralCategory{lbprNS, gcLm}},   //         OLD CHINESE ITERATION MARK
 	{runeRange{0x16FF0, 0x16FF1}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] VIETNAMESE ALTERNATE READING MARK CA..VIETNAMESE ALTERNATE READING MARK NHAY
 	{runeRange{0x18800, 0x18AFF}, propertyGeneralCategory{lbprID, gcLo}},   //   [768] TANGUT COMPONENT-001..TANGUT COMPONENT-768
-	{runeRange{0x18D00, 0x18D08}, propertyGeneralCategory{lbprID, gcLo}},   //     [9] TANGUT IDEOGRAPH-18D00..TANGUT IDEOGRAPH-18D08
-	{runeRange{0x1AFF5, 0x1AFFB}, propertyGeneralCategory{lbprAL, gcLm}},   //     [7] KATAKANA LETTER MINNAN TONE-7..KATAKANA LETTER MINNAN NASALIZED TONE-5
-	{runeRange{0x1B000, 0x1B0FF}, propertyGeneralCategory{lbprID, gcLo}},   //   [256] KATAKANA LETTER ARCHAIC E..HENTAIGANA LETTER RE-2
-	{runeRange{0x1B132, 0x1B132}, propertyGeneralCategory{lbprCJ, gcLo}},   //         HIRAGANA LETTER SMALL KO
-	{runeRange{0x1B155, 0x1B155}, propertyGeneralCategory{lbprCJ, gcLo}},   //         KATAKANA LETTER SMALL KO
-	{runeRange{0x1B170, 0x1B2FB}, propertyGeneralCategory{lbprID, gcLo}},   //   [396] NUSHU CHARACTER-1B170..NUSHU CHARACTER-1B2FB
-	{runeRange{0x1BC70, 0x1BC7C}, propertyGeneralCategory{lbprAL, gcLo}},   //    [13] DUPLOYAN AFFIX LEFT HORIZONTAL SECANT..DUPLOYAN AFFIX ATTACHED TANGENT HOOK
-	{runeRange{0x1BC90, 0x1BC99}, propertyGeneralCategory{lbprAL, gcLo}},   //    [10] DUPLOYAN AFFIX LOW ACUTE..DUPLOYAN AFFIX LOW ARROW
-	{runeRange{0x1BC9D, 0x1BC9E}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] DUPLOYAN THICK LETTER SELECTOR..DUPLOYAN DOUBLE MARK
-	{runeRange{0x1BCA0, 0x1BCA3}, propertyGeneralCategory{lbprCM, gcCf}},   //     [4] SHORTHAND FORMAT LETTER OVERLAP..SHORTHAND FORMAT UP STEP
+	{runeRange{0x18CFF, 0x18CFF}, propertyGeneralCategory{lbprAL, gcLo}},   //         KHITAN SMALL SCRIPT CHARACTER-18CFF
+	{runeRange{0x1AFF0, 0x1AFF3}, propertyGeneralCategory{lbprAL, gcLm}},   //     [4] KATAKANA LETTER MINNAN TONE-2..KATAKANA LETTER MINNAN TONE-5
+	{runeRange{0x1AFFD, 0x1AFFE}, propertyGeneralCategory{lbprAL, gcLm}},   //     [2] KATAKANA LETTER MINNAN NASALIZED TONE-7..KATAKANA LETTER MINNAN NASALIZED TONE-8
+	{runeRange{0x1B100, 0x1B122}, propertyGeneralCategory{lbprID, gcLo}},   //    [35] HENTAIGANA LETTER RE-3..KATAKANA LETTER ARCHAIC WU
+	{runeRange{0x1B150, 0x1B152}, propertyGeneralCategory{lbprCJ, gcLo}},   //     [3] HIRAGANA LETTER SMALL WI..HIRAGANA LETTER SMALL WO
+	{runeRange{0x1B164, 0x1B167}, propertyGeneralCategory{lbprCJ, gcLo}},   //     [4] KATAKANA LETTER SMALL WI..KATAKANA LETTER SMALL N
+	{runeRange{0x1BC00, 0x1BC6A}, propertyGeneralCategory{lbprAL, gcLo}},   //   [107] DUPLOYAN LETTER H..DUPLOYAN LETTER VOCALIC M
+	{runeRange{0x1BC80, 0x1BC88}, propertyGeneralCategory{lbprAL, gcLo}},   //     [9] DUPLOYAN AFFIX HIGH ACUTE..DUPLOYAN AFFIX HIGH VERTICAL
+	{runeRange{0x1BC9C, 0x1BC9C}, propertyGeneralCategory{lbprAL, gcSo}},   //         DUPLOYAN SIGN O WITH CROSS
+	{runeRange{0x1BC9F, 0x1BC9F}, propertyGeneralCategory{lbprBA, gcPo}},   //         DUPLOYAN PUNCTUATION CHINOOK FULL STOP
+	{runeRange{0x1CC00, 0x1CCEF}, propertyGeneralCategory{lbprAL, gcSo}},   //   [240] UP-POINTING GO-KART..OUTLINED LATIN CAPITAL LETTER Z
+	{runeRange{0x1CD00, 0x1CEB3}, propertyGeneralCategory{lbprAL, gcSo}},   //   [436] BLOCK OCTANT-3..BLACK RIGHT TRIANGLE CARET
 	{runeRange{0x1CF30, 0x1CF46}, propertyGeneralCategory{lbprCM, gcMn}},   //    [23] ZNAMENNY COMBINING TONAL RANGE MARK MRACHNO..ZNAMENNY PRIZNAK MODIFIER ROG
 	{runeRange{0x1D000, 0x1D0F5}, propertyGeneralCategory{lbprAL, gcSo}},   //   [246] BYZANTINE MUSICAL SYMBOL PSILI..BYZANTINE MUSICAL SYMBOL GORGON NEO KATO
 	{runeRange{0x1D129, 0x1D164}, propertyGeneralCategory{lbprAL, gcSo}},   //    [60] MUSICAL SYMBOL MULTIPLE MEASURE REST..MUSICAL SYMBOL ONE HUNDRED TWENTY-EIGHTH NOTE
@@ -1919,44 +1920,46 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1E2F0, 0x1E2F9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] WANCHO DIGIT ZERO..WANCHO DIGIT NINE
 	{runeRange{0x1E4D0, 0x1E4EA}, propertyGeneralCategory{lbprAL, gcLo}},   //    [27] NAG MUNDARI LETTER O..NAG MUNDARI LETTER ELL
 	{runeRange{0x1E4EC, 0x1E4EF}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] NAG MUNDARI SIGN MUHOR..NAG MUNDARI SIGN SUTUH
-	{runeRange{0x1E7E0, 0x1E7E6}, propertyGeneralCategory{lbprAL, gcLo}},   //     [7] ETHIOPIC SYLLABLE HHYA..ETHIOPIC SYLLABLE HHYO
-	{runeRange{0x1E7ED, 0x1E7EE}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] ETHIOPIC SYLLABLE GURAGE MWI..ETHIOPIC SYLLABLE GURAGE MWEE
-	{runeRange{0x1E800, 0x1E8C4}, propertyGeneralCategory{lbprAL, gcLo}},   //   [197] MENDE KIKAKUI SYLLABLE M001 KI..MENDE KIKAKUI SYLLABLE M060 NYON
-	{runeRange{0x1E8D0, 0x1E8D6}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] MENDE KIKAKUI COMBINING NUMBER TEENS..MENDE KIKAKUI COMBINING NUMBER MILLIONS
-	{runeRange{0x1E944, 0x1E94A}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] ADLAM ALIF LENGTHENER..ADLAM NUKTA
-	{runeRange{0x1E950, 0x1E959}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] ADLAM DIGIT ZERO..ADLAM DIGIT NINE
-	{runeRange{0x1EC71, 0x1ECAB}, propertyGeneralCategory{lbprAL, gcNo}},   //    [59] INDIC SIYAQ NUMBER ONE..INDIC SIYAQ NUMBER PREFIXED NINE
-	{runeRange{0x1ECAD, 0x1ECAF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [3] INDIC SIYAQ FRACTION ONE QUARTER..INDIC SIYAQ FRACTION THREE QUARTERS
-	{runeRange{0x1ECB1, 0x1ECB4}, propertyGeneralCategory{lbprAL, gcNo}},   //     [4] INDIC SIYAQ NUMBER ALTERNATE ONE..INDIC SIYAQ ALTERNATE LAKH MARK
-	{runeRange{0x1ED2E, 0x1ED2E}, propertyGeneralCategory{lbprAL, gcSo}},   //         OTTOMAN SIYAQ MARRATAN
-	{runeRange{0x1EE00, 0x1EE03}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ARABIC MATHEMATICAL ALEF..ARABIC MATHEMATICAL DAL
-	{runeRange{0x1EE21, 0x1EE22}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] ARABIC MATHEMATICAL INITIAL BEH..ARABIC MATHEMATICAL INITIAL JEEM
-	{runeRange{0x1EE27, 0x1EE27}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL INITIAL HAH
-	{runeRange{0x1EE34, 0x1EE37}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ARABIC MATHEMATICAL INITIAL SHEEN..ARABIC MATHEMATICAL INITIAL KHAH
-	{runeRange{0x1EE3B, 0x1EE3B}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL INITIAL GHAIN
-	{runeRange{0x1EE47, 0x1EE47}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED HAH
-	{runeRange{0x1EE4B, 0x1EE4B}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED LAM
-	{runeRange{0x1EE51, 0x1EE52}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] ARABIC MATHEMATICAL TAILED SAD..ARABIC MATHEMATICAL TAILED QAF
-	{runeRange{0x1EE57, 0x1EE57}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED KHAH
-	{runeRange{0x1EE5B, 0x1EE5B}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED GHAIN
-	{runeRange{0x1EE5F, 0x1EE5F}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED DOTLESS QAF
-	{runeRange{0x1EE64, 0x1EE64}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL STRETCHED HEH
-	{runeRange{0x1EE6C, 0x1EE72}, propertyGeneralCategory{lbprAL, gcLo}},   //     [7] ARABIC MATHEMATICAL STRETCHED MEEM..ARABIC MATHEMATICAL STRETCHED QAF
-	{runeRange{0x1EE79, 0x1EE7C}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ARABIC MATHEMATICAL STRETCHED DAD..ARABIC MATHEMATICAL STRETCHED DOTLESS BEH
-	{runeRange{0x1EE80, 0x1EE89}, propertyGeneralCategory{lbprAL, gcLo}},   //    [10] ARABIC MATHEMATICAL LOOPED ALEF..ARABIC MATHEMATICAL LOOPED YEH
-	{runeRange{0x1EEA1, 0x1EEA3}, propertyGeneralCategory{lbprAL, gcLo}},   //     [3] ARABIC MATHEMATICAL DOUBLE-STRUCK BEH..ARABIC MATHEMATICAL DOUBLE-STRUCK DAL
-	{runeRange{0x1EEAB, 0x1EEBB}, propertyGeneralCategory{lbprAL, gcLo}},   //    [17] ARABIC MATHEMATICAL DOUBLE-STRUCK LAM..ARABIC MATHEMATICAL DOUBLE-STRUCK GHAIN
-	{runeRange{0x1F000, 0x1F02B}, propertyGeneralCategory{lbprID, gcSo}},   //    [44] MAHJONG TILE EAST WIND..MAHJONG TILE BACK
-	{runeRange{0x1F030, 0x1F093}, propertyGeneralCategory{lbprID, gcSo}},   //   [100] DOMINO TILE HORIZONTAL BACK..DOMINO TILE VERTICAL-06-06
-	{runeRange{0x1F0A0, 0x1F0AE}, propertyGeneralCategory{lbprID, gcSo}},   //    [15] PLAYING CARD BACK..PLAYING CARD KING OF SPADES
-	{runeRange{0x1F0B1, 0x1F0BF}, propertyGeneralCategory{lbprID, gcSo}},   //    [15] PLAYING CARD ACE OF HEARTS..PLAYING CARD RED JOKER
-	{runeRange{0x1F0C1, 0x1F0CF}, propertyGeneralCategory{lbprID, gcSo}},   //    [15] PLAYING CARD ACE OF DIAMONDS..PLAYING CARD BLACK JOKER
-	{runeRange{0x1F0D1, 0x1F0F5}, propertyGeneralCategory{lbprID, gcSo}},   //    [37] PLAYING CARD ACE OF CLUBS..PLAYING CARD TRUMP-21
-	{runeRange{0x1F100, 0x1F10C}, propertyGeneralCategory{lbprAI, gcNo}},   //    [13] DIGIT ZERO FULL STOP..DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT ZERO
-	{runeRange{0x1F110, 0x1F12D}, propertyGeneralCategory{lbprAI, gcSo}},   //    [30] PARENTHESIZED LATIN CAPITAL LETTER A..CIRCLED CD
-	{runeRange{0x1F130, 0x1F169}, propertyGeneralCategory{lbprAI, gcSo}},   //    [58] SQUARED LATIN CAPITAL LETTER A..NEGATIVE CIRCLED LATIN CAPITAL LETTER Z
-	{runeRange{0x1F16D, 0x1F16F}, propertyGeneralCategory{lbprID, gcSo}},   //     [3] CIRCLED CC..CIRCLED HUMAN FIGURE
-	{runeRange{0x1F1AD, 0x1F1AD}, propertyGeneralCategory{lbprID, gcSo}},   //         MASK WORK SYMBOL
+	{runeRange{0x1E5D0, 0x1E5ED}, propertyGeneralCategory{lbprAL, gcLo}},   //    [30] OL ONAL LETTER O..OL ONAL LETTER EG
+	{runeRange{0x1E5F0, 0x1E5F0}, propertyGeneralCategory{lbprAL, gcLo}},   //         OL ONAL SIGN HODDOND
+	{runeRange{0x1E5FF, 0x1E5FF}, propertyGeneralCategory{lbprAL, gcPo}},   //         OL ONAL ABBREVIATION SIGN
+	{runeRange{0x1E7E8, 0x1E7EB}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ETHIOPIC SYLLABLE GURAGE HHWA..ETHIOPIC SYLLABLE HHWE
+	{runeRange{0x1E7F0, 0x1E7FE}, propertyGeneralCategory{lbprAL, gcLo}},   //    [15] ETHIOPIC SYLLABLE GURAGE QWI..ETHIOPIC SYLLABLE GURAGE PWEE
+	{runeRange{0x1E8C7, 0x1E8CF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [9] MENDE KIKAKUI DIGIT ONE..MENDE KIKAKUI DIGIT NINE
+	{runeRange{0x1E900, 0x1E943}, propertyGeneralCategory{lbprAL, gcLC}},   //    [68] ADLAM CAPITAL LETTER ALIF..ADLAM SMALL LETTER SHA
+	{runeRange{0x1E94B, 0x1E94B}, propertyGeneralCategory{lbprAL, gcLm}},   //         ADLAM NASALIZATION MARK
+	{runeRange{0x1E95E, 0x1E95F}, propertyGeneralCategory{lbprOP, gcPo}},   //     [2] ADLAM INITIAL EXCLAMATION MARK..ADLAM INITIAL QUESTION MARK
+	{runeRange{0x1ECAC, 0x1ECAC}, propertyGeneralCategory{lbprPO, gcSo}},   //         INDIC SIYAQ PLACEHOLDER
+	{runeRange{0x1ECB0, 0x1ECB0}, propertyGeneralCategory{lbprPO, gcSc}},   //         INDIC SIYAQ RUPEE MARK
+	{runeRange{0x1ED01, 0x1ED2D}, propertyGeneralCategory{lbprAL, gcNo}},   //    [45] OTTOMAN SIYAQ NUMBER ONE..OTTOMAN SIYAQ NUMBER NINETY THOUSAND
+	{runeRange{0x1ED2F, 0x1ED3D}, propertyGeneralCategory{lbprAL, gcNo}},   //    [15] OTTOMAN SIYAQ ALTERNATE NUMBER TWO..OTTOMAN SIYAQ FRACTION ONE SIXTH
+	{runeRange{0x1EE05, 0x1EE1F}, propertyGeneralCategory{lbprAL, gcLo}},   //    [27] ARABIC MATHEMATICAL WAW..ARABIC MATHEMATICAL DOTLESS QAF
+	{runeRange{0x1EE24, 0x1EE24}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL INITIAL HEH
+	{runeRange{0x1EE29, 0x1EE32}, propertyGeneralCategory{lbprAL, gcLo}},   //    [10] ARABIC MATHEMATICAL INITIAL YEH..ARABIC MATHEMATICAL INITIAL QAF
+	{runeRange{0x1EE39, 0x1EE39}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL INITIAL DAD
+	{runeRange{0x1EE42, 0x1EE42}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED JEEM
+	{runeRange{0x1EE49, 0x1EE49}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED YEH
+	{runeRange{0x1EE4D, 0x1EE4F}, propertyGeneralCategory{lbprAL, gcLo}},   //     [3] ARABIC MATHEMATICAL TAILED NOON..ARABIC MATHEMATICAL TAILED AIN
+	{runeRange{0x1EE54, 0x1EE54}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED SHEEN
+	{runeRange{0x1EE59, 0x1EE59}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED DAD
+	{runeRange{0x1EE5D, 0x1EE5D}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL TAILED DOTLESS NOON
+	{runeRange{0x1EE61, 0x1EE62}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] ARABIC MATHEMATICAL STRETCHED BEH..ARABIC MATHEMATICAL STRETCHED JEEM
+	{runeRange{0x1EE67, 0x1EE6A}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ARABIC MATHEMATICAL STRETCHED HAH..ARABIC MATHEMATICAL STRETCHED KAF
+	{runeRange{0x1EE74, 0x1EE77}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] ARABIC MATHEMATICAL STRETCHED SHEEN..ARABIC MATHEMATICAL STRETCHED KHAH
+	{runeRange{0x1EE7E, 0x1EE7E}, propertyGeneralCategory{lbprAL, gcLo}},   //         ARABIC MATHEMATICAL STRETCHED DOTLESS FEH
+	{runeRange{0x1EE8B, 0x1EE9B}, propertyGeneralCategory{lbprAL, gcLo}},   //    [17] ARABIC MATHEMATICAL LOOPED LAM..ARABIC MATHEMATICAL LOOPED GHAIN
+	{runeRange{0x1EEA5, 0x1EEA9}, propertyGeneralCategory{lbprAL, gcLo}},   //     [5] ARABIC MATHEMATICAL DOUBLE-STRUCK WAW..ARABIC MATHEMATICAL DOUBLE-STRUCK YEH
+	{runeRange{0x1EEF0, 0x1EEF1}, propertyGeneralCategory{lbprAL, gcSm}},   //     [2] ARABIC MATHEMATICAL OPERATOR MEEM WITH HAH WITH TATWEEL..ARABIC MATHEMATICAL OPERATOR HAH WITH DAL
+	{runeRange{0x1F02C, 0x1F02F}, propertyGeneralCategory{lbprID, gcCn}},   //     [4] <reserved-1F02C>..<reserved-1F02F>
+	{runeRange{0x1F094, 0x1F09F}, propertyGeneralCategory{lbprID, gcCn}},   //    [12] <reserved-1F094>..<reserved-1F09F>
+	{runeRange{0x1F0AF, 0x1F0B0}, propertyGeneralCategory{lbprID, gcCn}},   //     [2] <reserved-1F0AF>..<reserved-1F0B0>
+	{runeRange{0x1F0C0, 0x1F0C0}, propertyGeneralCategory{lbprID, gcCn}},   //         <reserved-1F0C0>
+	{runeRange{0x1F0D0, 0x1F0D0}, propertyGeneralCategory{lbprID, gcCn}},   //         <reserved-1F0D0>
+	{runeRange{0x1F0F6, 0x1F0FF}, propertyGeneralCategory{lbprID, gcCn}},   //    [10] <reserved-1F0F6>..<reserved-1F0FF>
+	{runeRange{0x1F10D, 0x1F10F}, propertyGeneralCategory{lbprAL, gcSo}},   //     [3] CIRCLED ZERO WITH SLASH..CIRCLED DOLLAR SIGN WITH OVERLAID BACKSLASH
+	{runeRange{0x1F12E, 0x1F12F}, propertyGeneralCategory{lbprAL, gcSo}},   //     [2] CIRCLED WZ..COPYLEFT SYMBOL
+	{runeRange{0x1F16A, 0x1F16F}, propertyGeneralCategory{lbprAL, gcSo}},   //     [6] RAISED MC SIGN..CIRCLED HUMAN FIGURE
+	{runeRange{0x1F1AD, 0x1F1AD}, propertyGeneralCategory{lbprAL, gcSo}},   //         MASK WORK SYMBOL
 	{runeRange{0x1F1E6, 0x1F1FF}, propertyGeneralCategory{lbprRI, gcSo}},   //    [26] REGIONAL INDICATOR SYMBOL LETTER A..REGIONAL INDICATOR SYMBOL LETTER Z
 	{runeRange{0x1F203, 0x1F20F}, propertyGeneralCategory{lbprID, gcCn}},   //    [13] <reserved-1F203>..<reserved-1F20F>
 	{runeRange{0x1F23C, 0x1F23F}, propertyGeneralCategory{lbprID, gcCn}},   //     [4] <reserved-1F23C>..<reserved-1F23F>
@@ -2011,35 +2014,32 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1F7DA, 0x1F7DF}, propertyGeneralCategory{lbprID, gcCn}},   //     [6] <reserved-1F7DA>..<reserved-1F7DF>
 	{runeRange{0x1F7EC, 0x1F7EF}, propertyGeneralCategory{lbprID, gcCn}},   //     [4] <reserved-1F7EC>..<reserved-1F7EF>
 	{runeRange{0x1F7F1, 0x1F7FF}, propertyGeneralCategory{lbprID, gcCn}},   //    [15] <reserved-1F7F1>..<reserved-1F7FF>
-	{runeRange{0x1F80C, 0x1F80F}, propertyGeneralCategory{lbprID, gcCn}},   //     [4] <reserved-1F80C>..<reserved-1F80F>
-	{runeRange{0x1F848, 0x1F84F}, propertyGeneralCategory{lbprID, gcCn}},   //     [8] <reserved-1F848>..<reserved-1F84F>
-	{runeRange{0x1F85A, 0x1F85F}, propertyGeneralCategory{lbprID, gcCn}},   //     [6] <reserved-1F85A>..<reserved-1F85F>
-	{runeRange{0x1F888, 0x1F88F}, propertyGeneralCategory{lbprID, gcCn}},   //     [8] <reserved-1F888>..<reserved-1F88F>
-	{runeRange{0x1F8AE, 0x1F8AF}, propertyGeneralCategory{lbprID, gcCn}},   //     [2] <reserved-1F8AE>..<reserved-1F8AF>
-	{runeRange{0x1F8B2, 0x1F8FF}, propertyGeneralCategory{lbprID, gcCn}},   //    [78] <reserved-1F8B2>..<reserved-1F8FF>
-	{runeRange{0x1F90C, 0x1F90C}, propertyGeneralCategory{lbprEB, gcSo}},   //         PINCHED FINGERS
-	{runeRange{0x1F90F, 0x1F90F}, propertyGeneralCategory{lbprEB, gcSo}},   //         PINCHING HAND
-	{runeRange{0x1F918, 0x1F91F}, propertyGeneralCategory{lbprEB, gcSo}},   //     [8] SIGN OF THE HORNS..I LOVE YOU HAND SIGN
-	{runeRange{0x1F926, 0x1F926}, propertyGeneralCategory{lbprEB, gcSo}},   //         FACE PALM
-	{runeRange{0x1F930, 0x1F939}, propertyGeneralCategory{lbprEB, gcSo}},   //    [10] PREGNANT WOMAN..JUGGLING
-	{runeRange{0x1F93C, 0x1F93E}, propertyGeneralCategory{lbprEB, gcSo}},   //     [3] WRESTLERS..HANDBALL
-	{runeRange{0x1F977, 0x1F977}, propertyGeneralCategory{lbprEB, gcSo}},   //         NINJA
-	{runeRange{0x1F9B5, 0x1F9B6}, propertyGeneralCategory{lbprEB, gcSo}},   //     [2] LEG..FOOT
-	{runeRange{0x1F9B8, 0x1F9B9}, propertyGeneralCategory{lbprEB, gcSo}},   //     [2] SUPERHERO..SUPERVILLAIN
-	{runeRange{0x1F9BB, 0x1F9BB}, propertyGeneralCategory{lbprEB, gcSo}},   //         EAR WITH HEARING AID
-	{runeRange{0x1F9CD, 0x1F9CF}, propertyGeneralCategory{lbprEB, gcSo}},   //     [3] STANDING PERSON..DEAF PERSON
-	{runeRange{0x1F9D1, 0x1F9DD}, propertyGeneralCategory{lbprEB, gcSo}},   //    [13] ADULT..ELF
-	{runeRange{0x1FA00, 0x1FA53}, propertyGeneralCategory{lbprAL, gcSo}},   //    [84] NEUTRAL CHESS KING..BLACK CHESS KNIGHT-BISHOP
-	{runeRange{0x1FA60, 0x1FA6D}, propertyGeneralCategory{lbprID, gcSo}},   //    [14] XIANGQI RED GENERAL..XIANGQI BLACK SOLDIER
-	{runeRange{0x1FA70, 0x1FA7C}, propertyGeneralCategory{lbprID, gcSo}},   //    [13] BALLET SHOES..CRUTCH
-	{runeRange{0x1FA80, 0x1FA88}, propertyGeneralCategory{lbprID, gcSo}},   //     [9] YO-YO..FLUTE
-	{runeRange{0x1FA90, 0x1FABD}, propertyGeneralCategory{lbprID, gcSo}},   //    [46] RINGED PLANET..WING
-	{runeRange{0x1FABF, 0x1FAC2}, propertyGeneralCategory{lbprID, gcSo}},   //     [4] GOOSE..PEOPLE HUGGING
-	{runeRange{0x1FAC6, 0x1FACD}, propertyGeneralCategory{lbprID, gcCn}},   //     [8] <reserved-1FAC6>..<reserved-1FACD>
-	{runeRange{0x1FADC, 0x1FADF}, propertyGeneralCategory{lbprID, gcCn}},   //     [4] <reserved-1FADC>..<reserved-1FADF>
-	{runeRange{0x1FAE9, 0x1FAEF}, propertyGeneralCategory{lbprID, gcCn}},   //     [7] <reserved-1FAE9>..<reserved-1FAEF>
+	{runeRange{0x1F810, 0x1F847}, propertyGeneralCategory{lbprAL, gcSo}},   //    [56] LEFTWARDS ARROW WITH SMALL EQUILATERAL ARROWHEAD..DOWNWARDS HEAVY ARROW
+	{runeRange{0x1F860, 0x1F887}, propertyGeneralCategory{lbprAL, gcSo}},   //    [40] WIDE-HEADED LEFTWARDS LIGHT BARB ARROW..WIDE-HEADED SOUTH WEST VERY HEAVY BARB ARROW
+	{runeRange{0x1F8B0, 0x1F8BB}, propertyGeneralCategory{lbprAL, gcSo}},   //    [12] ARROW POINTING UPWARDS THEN NORTH WEST..SOUTH WEST ARROW FROM BAR
+	{runeRange{0x1F900, 0x1F90B}, propertyGeneralCategory{lbprAL, gcSo}},   //    [12] CIRCLED CROSS FORMEE WITH FOUR DOTS..DOWNWARD FACING NOTCHED HOOK WITH DOT
+	{runeRange{0x1F90D, 0x1F90E}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] WHITE HEART..BROWN HEART
+	{runeRange{0x1F910, 0x1F917}, propertyGeneralCategory{lbprID, gcSo}},   //     [8] ZIPPER-MOUTH FACE..HUGGING FACE
+	{runeRange{0x1F920, 0x1F925}, propertyGeneralCategory{lbprID, gcSo}},   //     [6] FACE WITH COWBOY HAT..LYING FACE
+	{runeRange{0x1F927, 0x1F92F}, propertyGeneralCategory{lbprID, gcSo}},   //     [9] SNEEZING FACE..SHOCKED FACE WITH EXPLODING HEAD
+	{runeRange{0x1F93A, 0x1F93B}, propertyGeneralCategory{lbprID, gcSo}},   //     [2] FENCER..MODERN PENTATHLON
+	{runeRange{0x1F93F, 0x1F976}, propertyGeneralCategory{lbprID, gcSo}},   //    [56] DIVING MASK..FREEZING FACE
+	{runeRange{0x1F978, 0x1F9B4}, propertyGeneralCategory{lbprID, gcSo}},   //    [61] DISGUISED FACE..BONE
+	{runeRange{0x1F9B7, 0x1F9B7}, propertyGeneralCategory{lbprID, gcSo}},   //         TOOTH
+	{runeRange{0x1F9BA, 0x1F9BA}, propertyGeneralCategory{lbprID, gcSo}},   //         SAFETY VEST
+	{runeRange{0x1F9BC, 0x1F9CC}, propertyGeneralCategory{lbprID, gcSo}},   //    [17] MOTORIZED WHEELCHAIR..TROLL
+	{runeRange{0x1F9D0, 0x1F9D0}, propertyGeneralCategory{lbprID, gcSo}},   //         FACE WITH MONOCLE
+	{runeRange{0x1F9DE, 0x1F9FF}, propertyGeneralCategory{lbprID, gcSo}},   //    [34] GENIE..NAZAR AMULET
+	{runeRange{0x1FA54, 0x1FA5F}, propertyGeneralCategory{lbprID, gcCn}},   //    [12] <reserved-1FA54>..<reserved-1FA5F>
+	{runeRange{0x1FA6E, 0x1FA6F}, propertyGeneralCategory{lbprID, gcCn}},   //     [2] <reserved-1FA6E>..<reserved-1FA6F>
+	{runeRange{0x1FA7D, 0x1FA7F}, propertyGeneralCategory{lbprID, gcCn}},   //     [3] <reserved-1FA7D>..<reserved-1FA7F>
+	{runeRange{0x1FA8A, 0x1FA8E}, propertyGeneralCategory{lbprID, gcCn}},   //     [5] <reserved-1FA8A>..<reserved-1FA8E>
+	{runeRange{0x1FAC3, 0x1FAC5}, propertyGeneralCategory{lbprEB, gcSo}},   //     [3] PREGNANT MAN..PERSON WITH CROWN
+	{runeRange{0x1FAC7, 0x1FACD}, propertyGeneralCategory{lbprID, gcCn}},   //     [7] <reserved-1FAC7>..<reserved-1FACD>
+	{runeRange{0x1FADD, 0x1FADE}, propertyGeneralCategory{lbprID, gcCn}},   //     [2] <reserved-1FADD>..<reserved-1FADE>
+	{runeRange{0x1FAEA, 0x1FAEF}, propertyGeneralCategory{lbprID, gcCn}},   //     [6] <reserved-1FAEA>..<reserved-1FAEF>
 	{runeRange{0x1FAF9, 0x1FAFF}, propertyGeneralCategory{lbprID, gcCn}},   //     [7] <reserved-1FAF9>..<reserved-1FAFF>
-	{runeRange{0x1FB94, 0x1FBCA}, propertyGeneralCategory{lbprAL, gcSo}},   //    [55] LEFT HALF INVERSE MEDIUM SHADE AND RIGHT HALF BLOCK..WHITE UP-POINTING CHEVRON
+	{runeRange{0x1FB94, 0x1FBEF}, propertyGeneralCategory{lbprAL, gcSo}},   //    [92] LEFT HALF INVERSE MEDIUM SHADE AND RIGHT HALF BLOCK..TOP LEFT JUSTIFIED LOWER RIGHT QUARTER BLACK CIRCLE
 	{runeRange{0x1FC00, 0x1FFFD}, propertyGeneralCategory{lbprID, gcCn}},   //  [1022] <reserved-1FC00>..<reserved-1FFFD>
 	{runeRange{0x2A6E0, 0x2A6FF}, propertyGeneralCategory{lbprID, gcCn}},   //    [32] <reserved-2A6E0>..<reserved-2A6FF>
 	{runeRange{0x2B73A, 0x2B73F}, propertyGeneralCategory{lbprID, gcCn}},   //     [6] <reserved-2B73A>..<reserved-2B73F>
@@ -2423,122 +2423,120 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1B3D, 0x1B41}, propertyGeneralCategory{lbprCM, gcMc}},     //     [5] BALINESE VOWEL SIGN LA LENGA TEDUNG..BALINESE VOWEL SIGN TALING REPA TEDUNG
 	{runeRange{0x1B43, 0x1B43}, propertyGeneralCategory{lbprCM, gcMc}},     //         BALINESE VOWEL SIGN PEPET TEDUNG
 	{runeRange{0x1B45, 0x1B4C}, propertyGeneralCategory{lbprAK, gcLo}},     //     [8] BALINESE LETTER KAF SASAK..BALINESE LETTER ARCHAIC JNYA
-	{runeRange{0x1B5A, 0x1B5B}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] BALINESE PANTI..BALINESE PAMADA
-	{runeRange{0x1B5D, 0x1B60}, propertyGeneralCategory{lbprBA, gcPo}},     //     [4] BALINESE CARIK PAMUNGKAH..BALINESE PAMENENG
-	{runeRange{0x1B6B, 0x1B73}, propertyGeneralCategory{lbprCM, gcMn}},     //     [9] BALINESE MUSICAL SYMBOL COMBINING TEGEH..BALINESE MUSICAL SYMBOL COMBINING GONG
-	{runeRange{0x1B7D, 0x1B7E}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] BALINESE PANTI LANTANG..BALINESE PAMADA LANTANG
-	{runeRange{0x1B82, 0x1B82}, propertyGeneralCategory{lbprCM, gcMc}},     //         SUNDANESE SIGN PANGWISAD
-	{runeRange{0x1BA1, 0x1BA1}, propertyGeneralCategory{lbprCM, gcMc}},     //         SUNDANESE CONSONANT SIGN PAMINGKAL
-	{runeRange{0x1BA6, 0x1BA7}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] SUNDANESE VOWEL SIGN PANAELAENG..SUNDANESE VOWEL SIGN PANOLONG
-	{runeRange{0x1BAA, 0x1BAA}, propertyGeneralCategory{lbprCM, gcMc}},     //         SUNDANESE SIGN PAMAAEH
-	{runeRange{0x1BAE, 0x1BAF}, propertyGeneralCategory{lbprAL, gcLo}},     //     [2] SUNDANESE LETTER KHA..SUNDANESE LETTER SYA
-	{runeRange{0x1BBA, 0x1BBF}, propertyGeneralCategory{lbprAL, gcLo}},     //     [6] SUNDANESE AVAGRAHA..SUNDANESE LETTER FINAL M
-	{runeRange{0x1BE6, 0x1BE6}, propertyGeneralCategory{lbprCM, gcMn}},     //         BATAK SIGN TOMPI
-	{runeRange{0x1BE8, 0x1BE9}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] BATAK VOWEL SIGN PAKPAK E..BATAK VOWEL SIGN EE
-	{runeRange{0x1BED, 0x1BED}, propertyGeneralCategory{lbprCM, gcMn}},     //         BATAK VOWEL SIGN KARO O
-	{runeRange{0x1BEF, 0x1BF1}, propertyGeneralCategory{lbprCM, gcMn}},     //     [3] BATAK VOWEL SIGN U FOR SIMALUNGUN SA..BATAK CONSONANT SIGN H
-	{runeRange{0x1BFC, 0x1BFF}, propertyGeneralCategory{lbprAL, gcPo}},     //     [4] BATAK SYMBOL BINDU NA METEK..BATAK SYMBOL BINDU PANGOLAT
-	{runeRange{0x1C24, 0x1C2B}, propertyGeneralCategory{lbprCM, gcMc}},     //     [8] LEPCHA SUBJOINED LETTER YA..LEPCHA VOWEL SIGN UU
-	{runeRange{0x1C34, 0x1C35}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] LEPCHA CONSONANT SIGN NYIN-DO..LEPCHA CONSONANT SIGN KANG
-	{runeRange{0x1C3B, 0x1C3F}, propertyGeneralCategory{lbprBA, gcPo}},     //     [5] LEPCHA PUNCTUATION TA-ROL..LEPCHA PUNCTUATION TSHOOK
-	{runeRange{0x1C4D, 0x1C4F}, propertyGeneralCategory{lbprAL, gcLo}},     //     [3] LEPCHA LETTER TTA..LEPCHA LETTER DDA
-	{runeRange{0x1C5A, 0x1C77}, propertyGeneralCategory{lbprAL, gcLo}},     //    [30] OL CHIKI LETTER LA..OL CHIKI LETTER OH
-	{runeRange{0x1C7E, 0x1C7F}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] OL CHIKI PUNCTUATION MUCAAD..OL CHIKI PUNCTUATION DOUBLE MUCAAD
-	{runeRange{0x1C90, 0x1CBA}, propertyGeneralCategory{lbprAL, gcLu}},     //    [43] GEORGIAN MTAVRULI CAPITAL LETTER AN..GEORGIAN MTAVRULI CAPITAL LETTER AIN
-	{runeRange{0x1CC0, 0x1CC7}, propertyGeneralCategory{lbprAL, gcPo}},     //     [8] SUNDANESE PUNCTUATION BINDU SURYA..SUNDANESE PUNCTUATION BINDU BA SATANGA
-	{runeRange{0x1CD3, 0x1CD3}, propertyGeneralCategory{lbprAL, gcPo}},     //         VEDIC SIGN NIHSHVASA
-	{runeRange{0x1CE1, 0x1CE1}, propertyGeneralCategory{lbprCM, gcMc}},     //         VEDIC TONE ATHARVAVEDIC INDEPENDENT SVARITA
-	{runeRange{0x1CE9, 0x1CEC}, propertyGeneralCategory{lbprAL, gcLo}},     //     [4] VEDIC SIGN ANUSVARA ANTARGOMUKHA..VEDIC SIGN ANUSVARA VAMAGOMUKHA WITH TAIL
-	{runeRange{0x1CEE, 0x1CF3}, propertyGeneralCategory{lbprAL, gcLo}},     //     [6] VEDIC SIGN HEXIFORM LONG ANUSVARA..VEDIC SIGN ROTATED ARDHAVISARGA
-	{runeRange{0x1CF5, 0x1CF6}, propertyGeneralCategory{lbprAL, gcLo}},     //     [2] VEDIC SIGN JIHVAMULIYA..VEDIC SIGN UPADHMANIYA
-	{runeRange{0x1CF8, 0x1CF9}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] VEDIC TONE RING ABOVE..VEDIC TONE DOUBLE RING ABOVE
-	{runeRange{0x1D00, 0x1D2B}, propertyGeneralCategory{lbprAL, gcLl}},     //    [44] LATIN LETTER SMALL CAPITAL A..CYRILLIC LETTER SMALL CAPITAL EL
-	{runeRange{0x1D6B, 0x1D77}, propertyGeneralCategory{lbprAL, gcLl}},     //    [13] LATIN SMALL LETTER UE..LATIN SMALL LETTER TURNED G
-	{runeRange{0x1D79, 0x1D7F}, propertyGeneralCategory{lbprAL, gcLl}},     //     [7] LATIN SMALL LETTER INSULAR G..LATIN SMALL LETTER UPSILON WITH STROKE
-	{runeRange{0x1D9B, 0x1DBF}, propertyGeneralCategory{lbprAL, gcLm}},     //    [37] MODIFIER LETTER SMALL TURNED ALPHA..MODIFIER LETTER SMALL THETA
-	{runeRange{0x1DCD, 0x1DCD}, propertyGeneralCategory{lbprGL, gcMn}},     //         COMBINING DOUBLE CIRCUMFLEX ABOVE
-	{runeRange{0x1DFC, 0x1DFC}, propertyGeneralCategory{lbprGL, gcMn}},     //         COMBINING DOUBLE INVERTED BREVE BELOW
-	{runeRange{0x1E00, 0x1EFF}, propertyGeneralCategory{lbprAL, gcLC}},     //   [256] LATIN CAPITAL LETTER A WITH RING BELOW..LATIN SMALL LETTER Y WITH LOOP
-	{runeRange{0x1F18, 0x1F1D}, propertyGeneralCategory{lbprAL, gcLu}},     //     [6] GREEK CAPITAL LETTER EPSILON WITH PSILI..GREEK CAPITAL LETTER EPSILON WITH DASIA AND OXIA
-	{runeRange{0x1F48, 0x1F4D}, propertyGeneralCategory{lbprAL, gcLu}},     //     [6] GREEK CAPITAL LETTER OMICRON WITH PSILI..GREEK CAPITAL LETTER OMICRON WITH DASIA AND OXIA
-	{runeRange{0x1F59, 0x1F59}, propertyGeneralCategory{lbprAL, gcLu}},     //         GREEK CAPITAL LETTER UPSILON WITH DASIA
-	{runeRange{0x1F5D, 0x1F5D}, propertyGeneralCategory{lbprAL, gcLu}},     //         GREEK CAPITAL LETTER UPSILON WITH DASIA AND OXIA
-	{runeRange{0x1F80, 0x1FB4}, propertyGeneralCategory{lbprAL, gcLC}},     //    [53] GREEK SMALL LETTER ALPHA WITH PSILI AND YPOGEGRAMMENI..GREEK SMALL LETTER ALPHA WITH OXIA AND YPOGEGRAMMENI
-	{runeRange{0x1FBD, 0x1FBD}, propertyGeneralCategory{lbprAL, gcSk}},     //         GREEK KORONIS
-	{runeRange{0x1FBF, 0x1FC1}, propertyGeneralCategory{lbprAL, gcSk}},     //     [3] GREEK PSILI..GREEK DIALYTIKA AND PERISPOMENI
-	{runeRange{0x1FC6, 0x1FCC}, propertyGeneralCategory{lbprAL, gcLC}},     //     [7] GREEK SMALL LETTER ETA WITH PERISPOMENI..GREEK CAPITAL LETTER ETA WITH PROSGEGRAMMENI
-	{runeRange{0x1FD0, 0x1FD3}, propertyGeneralCategory{lbprAL, gcLl}},     //     [4] GREEK SMALL LETTER IOTA WITH VRACHY..GREEK SMALL LETTER IOTA WITH DIALYTIKA AND OXIA
-	{runeRange{0x1FDD, 0x1FDF}, propertyGeneralCategory{lbprAL, gcSk}},     //     [3] GREEK DASIA AND VARIA..GREEK DASIA AND PERISPOMENI
-	{runeRange{0x1FED, 0x1FEF}, propertyGeneralCategory{lbprAL, gcSk}},     //     [3] GREEK DIALYTIKA AND VARIA..GREEK VARIA
-	{runeRange{0x1FF6, 0x1FFC}, propertyGeneralCategory{lbprAL, gcLC}},     //     [7] GREEK SMALL LETTER OMEGA WITH PERISPOMENI..GREEK CAPITAL LETTER OMEGA WITH PROSGEGRAMMENI
-	{runeRange{0x1FFE, 0x1FFE}, propertyGeneralCategory{lbprAL, gcSk}},     //         GREEK DASIA
-	{runeRange{0x2007, 0x2007}, propertyGeneralCategory{lbprGL, gcZs}},     //         FIGURE SPACE
-	{runeRange{0x200B, 0x200B}, propertyGeneralCategory{lbprZW, gcCf}},     //         ZERO WIDTH SPACE
-	{runeRange{0x200D, 0x200D}, propertyGeneralCategory{lbprZWJ, gcCf}},    //         ZERO WIDTH JOINER
-	{runeRange{0x2010, 0x2010}, propertyGeneralCategory{lbprBA, gcPd}},     //         HYPHEN
-	{runeRange{0x2012, 0x2013}, propertyGeneralCategory{lbprBA, gcPd}},     //     [2] FIGURE DASH..EN DASH
-	{runeRange{0x2015, 0x2015}, propertyGeneralCategory{lbprAI, gcPd}},     //         HORIZONTAL BAR
-	{runeRange{0x2017, 0x2017}, propertyGeneralCategory{lbprAL, gcPo}},     //         DOUBLE LOW LINE
-	{runeRange{0x2019, 0x2019}, propertyGeneralCategory{lbprQU, gcPf}},     //         RIGHT SINGLE QUOTATION MARK
-	{runeRange{0x201B, 0x201C}, propertyGeneralCategory{lbprQU, gcPi}},     //     [2] SINGLE HIGH-REVERSED-9 QUOTATION MARK..LEFT DOUBLE QUOTATION MARK
-	{runeRange{0x201E, 0x201E}, propertyGeneralCategory{lbprOP, gcPs}},     //         DOUBLE LOW-9 QUOTATION MARK
-	{runeRange{0x2020, 0x2021}, propertyGeneralCategory{lbprAI, gcPo}},     //     [2] DAGGER..DOUBLE DAGGER
-	{runeRange{0x2024, 0x2026}, propertyGeneralCategory{lbprIN, gcPo}},     //     [3] ONE DOT LEADER..HORIZONTAL ELLIPSIS
-	{runeRange{0x2028, 0x2028}, propertyGeneralCategory{lbprBK, gcZl}},     //         LINE SEPARATOR
-	{runeRange{0x202A, 0x202E}, propertyGeneralCategory{lbprCM, gcCf}},     //     [5] LEFT-TO-RIGHT EMBEDDING..RIGHT-TO-LEFT OVERRIDE
-	{runeRange{0x2030, 0x2037}, propertyGeneralCategory{lbprPO, gcPo}},     //     [8] PER MILLE SIGN..REVERSED TRIPLE PRIME
-	{runeRange{0x2039, 0x2039}, propertyGeneralCategory{lbprQU, gcPi}},     //         SINGLE LEFT-POINTING ANGLE QUOTATION MARK
-	{runeRange{0x203B, 0x203B}, propertyGeneralCategory{lbprAI, gcPo}},     //         REFERENCE MARK
-	{runeRange{0x203E, 0x203E}, propertyGeneralCategory{lbprAL, gcPo}},     //         OVERLINE
-	{runeRange{0x2041, 0x2043}, propertyGeneralCategory{lbprAL, gcPo}},     //     [3] CARET INSERTION POINT..HYPHEN BULLET
-	{runeRange{0x2045, 0x2045}, propertyGeneralCategory{lbprOP, gcPs}},     //         LEFT SQUARE BRACKET WITH QUILL
-	{runeRange{0x2047, 0x2049}, propertyGeneralCategory{lbprNS, gcPo}},     //     [3] DOUBLE QUESTION MARK..EXCLAMATION QUESTION MARK
-	{runeRange{0x2052, 0x2052}, propertyGeneralCategory{lbprAL, gcSm}},     //         COMMERCIAL MINUS SIGN
-	{runeRange{0x2054, 0x2054}, propertyGeneralCategory{lbprAL, gcPc}},     //         INVERTED UNDERTIE
-	{runeRange{0x2056, 0x2056}, propertyGeneralCategory{lbprBA, gcPo}},     //         THREE DOT PUNCTUATION
-	{runeRange{0x2058, 0x205B}, propertyGeneralCategory{lbprBA, gcPo}},     //     [4] FOUR DOT PUNCTUATION..FOUR DOT MARK
-	{runeRange{0x205D, 0x205E}, propertyGeneralCategory{lbprBA, gcPo}},     //     [2] TRICOLON..VERTICAL FOUR DOTS
-	{runeRange{0x2060, 0x2060}, propertyGeneralCategory{lbprWJ, gcCf}},     //         WORD JOINER
-	{runeRange{0x2066, 0x206F}, propertyGeneralCategory{lbprCM, gcCf}},     //    [10] LEFT-TO-RIGHT ISOLATE..NOMINAL DIGIT SHAPES
-	{runeRange{0x2071, 0x2071}, propertyGeneralCategory{lbprAL, gcLm}},     //         SUPERSCRIPT LATIN SMALL LETTER I
-	{runeRange{0x2075, 0x2079}, propertyGeneralCategory{lbprAL, gcNo}},     //     [5] SUPERSCRIPT FIVE..SUPERSCRIPT NINE
-	{runeRange{0x207D, 0x207D}, propertyGeneralCategory{lbprOP, gcPs}},     //         SUPERSCRIPT LEFT PARENTHESIS
-	{runeRange{0x207F, 0x207F}, propertyGeneralCategory{lbprAI, gcLm}},     //         SUPERSCRIPT LATIN SMALL LETTER N
-	{runeRange{0x2081, 0x2084}, propertyGeneralCategory{lbprAI, gcNo}},     //     [4] SUBSCRIPT ONE..SUBSCRIPT FOUR
-	{runeRange{0x208A, 0x208C}, propertyGeneralCategory{lbprAL, gcSm}},     //     [3] SUBSCRIPT PLUS SIGN..SUBSCRIPT EQUALS SIGN
-	{runeRange{0x208E, 0x208E}, propertyGeneralCategory{lbprCL, gcPe}},     //         SUBSCRIPT RIGHT PARENTHESIS
-	{runeRange{0x20A0, 0x20A6}, propertyGeneralCategory{lbprPR, gcSc}},     //     [7] EURO-CURRENCY SIGN..NAIRA SIGN
-	{runeRange{0x20A8, 0x20B5}, propertyGeneralCategory{lbprPR, gcSc}},     //    [14] RUPEE SIGN..CEDI SIGN
-	{runeRange{0x20B7, 0x20BA}, propertyGeneralCategory{lbprPR, gcSc}},     //     [4] SPESMILO SIGN..TURKISH LIRA SIGN
-	{runeRange{0x20BC, 0x20BD}, propertyGeneralCategory{lbprPR, gcSc}},     //     [2] MANAT SIGN..RUBLE SIGN
-	{runeRange{0x20BF, 0x20BF}, propertyGeneralCategory{lbprPR, gcSc}},     //         BITCOIN SIGN
-	{runeRange{0x20C1, 0x20CF}, propertyGeneralCategory{lbprPR, gcCn}},     //    [15] <reserved-20C1>..<reserved-20CF>
-	{runeRange{0x20DD, 0x20E0}, propertyGeneralCategory{lbprCM, gcMe}},     //     [4] COMBINING ENCLOSING CIRCLE..COMBINING ENCLOSING CIRCLE BACKSLASH
-	{runeRange{0x20E2, 0x20E4}, propertyGeneralCategory{lbprCM, gcMe}},     //     [3] COMBINING ENCLOSING SCREEN..COMBINING ENCLOSING UPWARD POINTING TRIANGLE
-	{runeRange{0x2100, 0x2101}, propertyGeneralCategory{lbprAL, gcSo}},     //     [2] ACCOUNT OF..ADDRESSED TO THE SUBJECT
-	{runeRange{0x2103, 0x2103}, propertyGeneralCategory{lbprPO, gcSo}},     //         DEGREE CELSIUS
-	{runeRange{0x2105, 0x2105}, propertyGeneralCategory{lbprAI, gcSo}},     //         CARE OF
-	{runeRange{0x2107, 0x2107}, propertyGeneralCategory{lbprAL, gcLu}},     //         EULER CONSTANT
-	{runeRange{0x2109, 0x2109}, propertyGeneralCategory{lbprPO, gcSo}},     //         DEGREE FAHRENHEIT
-	{runeRange{0x2113, 0x2113}, propertyGeneralCategory{lbprAI, gcLl}},     //         SCRIPT SMALL L
-	{runeRange{0x2115, 0x2115}, propertyGeneralCategory{lbprAL, gcLu}},     //         DOUBLE-STRUCK CAPITAL N
-	{runeRange{0x2117, 0x2117}, propertyGeneralCategory{lbprAL, gcSo}},     //         SOUND RECORDING COPYRIGHT
-	{runeRange{0x2119, 0x211D}, propertyGeneralCategory{lbprAL, gcLu}},     //     [5] DOUBLE-STRUCK CAPITAL P..DOUBLE-STRUCK CAPITAL R
-	{runeRange{0x2121, 0x2122}, propertyGeneralCategory{lbprAI, gcSo}},     //     [2] TELEPHONE SIGN..TRADE MARK SIGN
-	{runeRange{0x2124, 0x2124}, propertyGeneralCategory{lbprAL, gcLu}},     //         DOUBLE-STRUCK CAPITAL Z
-	{runeRange{0x2126, 0x2126}, propertyGeneralCategory{lbprAL, gcLu}},     //         OHM SIGN
-	{runeRange{0x2128, 0x2128}, propertyGeneralCategory{lbprAL, gcLu}},     //         BLACK-LETTER CAPITAL Z
-	{runeRange{0x212A, 0x212A}, propertyGeneralCategory{lbprAL, gcLu}},     //         KELVIN SIGN
-	{runeRange{0x212C, 0x212D}, propertyGeneralCategory{lbprAL, gcLu}},     //     [2] SCRIPT CAPITAL B..BLACK-LETTER CAPITAL C
-	{runeRange{0x212F, 0x2134}, propertyGeneralCategory{lbprAL, gcLC}},     //     [6] SCRIPT SMALL E..SCRIPT SMALL O
-	{runeRange{0x2139, 0x2139}, propertyGeneralCategory{lbprAL, gcLl}},     //         INFORMATION SOURCE
-	{runeRange{0x213C, 0x213F}, propertyGeneralCategory{lbprAL, gcLC}},     //     [4] DOUBLE-STRUCK SMALL PI..DOUBLE-STRUCK CAPITAL PI
-	{runeRange{0x2145, 0x2149}, propertyGeneralCategory{lbprAL, gcLC}},     //     [5] DOUBLE-STRUCK ITALIC CAPITAL D..DOUBLE-STRUCK ITALIC SMALL J
-	{runeRange{0x214B, 0x214B}, propertyGeneralCategory{lbprAL, gcSm}},     //         TURNED AMPERSAND
-	{runeRange{0x214E, 0x214E}, propertyGeneralCategory{lbprAL, gcLl}},     //         TURNED SMALL F
-	{runeRange{0x2150, 0x2153}, propertyGeneralCategory{lbprAL, gcNo}},     //     [4] VULGAR FRACTION ONE SEVENTH..VULGAR FRACTION ONE THIRD
-	{runeRange{0x2156, 0x215A}, propertyGeneralCategory{lbprAL, gcNo}},     //     [5] VULGAR FRACTION TWO FIFTHS..VULGAR FRACTION FIVE SIXTHS
-	{runeRange{0x215C, 0x215D}, propertyGeneralCategory{lbprAL, gcNo}},     //     [2] VULGAR FRACTION THREE EIGHTHS..VULGAR FRACTION FIVE EIGHTHS
+	{runeRange{0x1B50, 0x1B59}, propertyGeneralCategory{lbprAS, gcNd}},     //    [10] BALINESE DIGIT ZERO..BALINESE DIGIT NINE
+	{runeRange{0x1B5C, 0x1B5C}, propertyGeneralCategory{lbprID, gcPo}},     //         BALINESE WINDU
+	{runeRange{0x1B61, 0x1B6A}, propertyGeneralCategory{lbprID, gcSo}},     //    [10] BALINESE MUSICAL SYMBOL DONG..BALINESE MUSICAL SYMBOL DANG GEDE
+	{runeRange{0x1B74, 0x1B7C}, propertyGeneralCategory{lbprID, gcSo}},     //     [9] BALINESE MUSICAL SYMBOL RIGHT-HAND OPEN DUG..BALINESE MUSICAL SYMBOL LEFT-HAND OPEN PING
+	{runeRange{0x1B80, 0x1B81}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] SUNDANESE SIGN PANYECEK..SUNDANESE SIGN PANGLAYAR
+	{runeRange{0x1B83, 0x1BA0}, propertyGeneralCategory{lbprAL, gcLo}},     //    [30] SUNDANESE LETTER A..SUNDANESE LETTER HA
+	{runeRange{0x1BA2, 0x1BA5}, propertyGeneralCategory{lbprCM, gcMn}},     //     [4] SUNDANESE CONSONANT SIGN PANYAKRA..SUNDANESE VOWEL SIGN PANYUKU
+	{runeRange{0x1BA8, 0x1BA9}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] SUNDANESE VOWEL SIGN PAMEPET..SUNDANESE VOWEL SIGN PANEULEUNG
+	{runeRange{0x1BAB, 0x1BAD}, propertyGeneralCategory{lbprCM, gcMn}},     //     [3] SUNDANESE SIGN VIRAMA..SUNDANESE CONSONANT SIGN PASANGAN WA
+	{runeRange{0x1BB0, 0x1BB9}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] SUNDANESE DIGIT ZERO..SUNDANESE DIGIT NINE
+	{runeRange{0x1BC0, 0x1BE5}, propertyGeneralCategory{lbprAS, gcLo}},     //    [38] BATAK LETTER A..BATAK LETTER U
+	{runeRange{0x1BE7, 0x1BE7}, propertyGeneralCategory{lbprCM, gcMc}},     //         BATAK VOWEL SIGN E
+	{runeRange{0x1BEA, 0x1BEC}, propertyGeneralCategory{lbprCM, gcMc}},     //     [3] BATAK VOWEL SIGN I..BATAK VOWEL SIGN O
+	{runeRange{0x1BEE, 0x1BEE}, propertyGeneralCategory{lbprCM, gcMc}},     //         BATAK VOWEL SIGN U
+	{runeRange{0x1BF2, 0x1BF3}, propertyGeneralCategory{lbprVF, gcMc}},     //     [2] BATAK PANGOLAT..BATAK PANONGONAN
+	{runeRange{0x1C00, 0x1C23}, propertyGeneralCategory{lbprAL, gcLo}},     //    [36] LEPCHA LETTER KA..LEPCHA LETTER A
+	{runeRange{0x1C2C, 0x1C33}, propertyGeneralCategory{lbprCM, gcMn}},     //     [8] LEPCHA VOWEL SIGN E..LEPCHA CONSONANT SIGN T
+	{runeRange{0x1C36, 0x1C37}, propertyGeneralCategory{lbprCM, gcMn}},     //     [2] LEPCHA SIGN RAN..LEPCHA SIGN NUKTA
+	{runeRange{0x1C40, 0x1C49}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] LEPCHA DIGIT ZERO..LEPCHA DIGIT NINE
+	{runeRange{0x1C50, 0x1C59}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] OL CHIKI DIGIT ZERO..OL CHIKI DIGIT NINE
+	{runeRange{0x1C78, 0x1C7D}, propertyGeneralCategory{lbprAL, gcLm}},     //     [6] OL CHIKI MU TTUDDAG..OL CHIKI AHAD
+	{runeRange{0x1C80, 0x1C8A}, propertyGeneralCategory{lbprAL, gcLC}},     //    [11] CYRILLIC SMALL LETTER ROUNDED VE..CYRILLIC SMALL LETTER TJE
+	{runeRange{0x1CBD, 0x1CBF}, propertyGeneralCategory{lbprAL, gcLu}},     //     [3] GEORGIAN MTAVRULI CAPITAL LETTER AEN..GEORGIAN MTAVRULI CAPITAL LETTER LABIAL SIGN
+	{runeRange{0x1CD0, 0x1CD2}, propertyGeneralCategory{lbprCM, gcMn}},     //     [3] VEDIC TONE KARSHANA..VEDIC TONE PRENKHA
+	{runeRange{0x1CD4, 0x1CE0}, propertyGeneralCategory{lbprCM, gcMn}},     //    [13] VEDIC SIGN YAJURVEDIC MIDLINE SVARITA..VEDIC TONE RIGVEDIC KASHMIRI INDEPENDENT SVARITA
+	{runeRange{0x1CE2, 0x1CE8}, propertyGeneralCategory{lbprCM, gcMn}},     //     [7] VEDIC SIGN VISARGA SVARITA..VEDIC SIGN VISARGA ANUDATTA WITH TAIL
+	{runeRange{0x1CED, 0x1CED}, propertyGeneralCategory{lbprCM, gcMn}},     //         VEDIC SIGN TIRYAK
+	{runeRange{0x1CF4, 0x1CF4}, propertyGeneralCategory{lbprCM, gcMn}},     //         VEDIC TONE CANDRA ABOVE
+	{runeRange{0x1CF7, 0x1CF7}, propertyGeneralCategory{lbprCM, gcMc}},     //         VEDIC SIGN ATIKRAMA
+	{runeRange{0x1CFA, 0x1CFA}, propertyGeneralCategory{lbprAL, gcLo}},     //         VEDIC SIGN DOUBLE ANUSVARA ANTARGOMUKHA
+	{runeRange{0x1D2C, 0x1D6A}, propertyGeneralCategory{lbprAL, gcLm}},     //    [63] MODIFIER LETTER CAPITAL A..GREEK SUBSCRIPT SMALL LETTER CHI
+	{runeRange{0x1D78, 0x1D78}, propertyGeneralCategory{lbprAL, gcLm}},     //         MODIFIER LETTER CYRILLIC EN
+	{runeRange{0x1D80, 0x1D9A}, propertyGeneralCategory{lbprAL, gcLl}},     //    [27] LATIN SMALL LETTER B WITH PALATAL HOOK..LATIN SMALL LETTER EZH WITH RETROFLEX HOOK
+	{runeRange{0x1DC0, 0x1DCC}, propertyGeneralCategory{lbprCM, gcMn}},     //    [13] COMBINING DOTTED GRAVE ACCENT..COMBINING MACRON-BREVE
+	{runeRange{0x1DCE, 0x1DFB}, propertyGeneralCategory{lbprCM, gcMn}},     //    [46] COMBINING OGONEK ABOVE..COMBINING DELETION MARK
+	{runeRange{0x1DFD, 0x1DFF}, propertyGeneralCategory{lbprCM, gcMn}},     //     [3] COMBINING ALMOST EQUAL TO BELOW..COMBINING RIGHT ARROWHEAD AND DOWN ARROWHEAD BELOW
+	{runeRange{0x1F00, 0x1F15}, propertyGeneralCategory{lbprAL, gcLC}},     //    [22] GREEK SMALL LETTER ALPHA WITH PSILI..GREEK SMALL LETTER EPSILON WITH DASIA AND OXIA
+	{runeRange{0x1F20, 0x1F45}, propertyGeneralCategory{lbprAL, gcLC}},     //    [38] GREEK SMALL LETTER ETA WITH PSILI..GREEK SMALL LETTER OMICRON WITH DASIA AND OXIA
+	{runeRange{0x1F50, 0x1F57}, propertyGeneralCategory{lbprAL, gcLl}},     //     [8] GREEK SMALL LETTER UPSILON WITH PSILI..GREEK SMALL LETTER UPSILON WITH DASIA AND PERISPOMENI
+	{runeRange{0x1F5B, 0x1F5B}, propertyGeneralCategory{lbprAL, gcLu}},     //         GREEK CAPITAL LETTER UPSILON WITH DASIA AND VARIA
+	{runeRange{0x1F5F, 0x1F7D}, propertyGeneralCategory{lbprAL, gcLC}},     //    [31] GREEK CAPITAL LETTER UPSILON WITH DASIA AND PERISPOMENI..GREEK SMALL LETTER OMEGA WITH OXIA
+	{runeRange{0x1FB6, 0x1FBC}, propertyGeneralCategory{lbprAL, gcLC}},     //     [7] GREEK SMALL LETTER ALPHA WITH PERISPOMENI..GREEK CAPITAL LETTER ALPHA WITH PROSGEGRAMMENI
+	{runeRange{0x1FBE, 0x1FBE}, propertyGeneralCategory{lbprAL, gcLl}},     //         GREEK PROSGEGRAMMENI
+	{runeRange{0x1FC2, 0x1FC4}, propertyGeneralCategory{lbprAL, gcLl}},     //     [3] GREEK SMALL LETTER ETA WITH VARIA AND YPOGEGRAMMENI..GREEK SMALL LETTER ETA WITH OXIA AND YPOGEGRAMMENI
+	{runeRange{0x1FCD, 0x1FCF}, propertyGeneralCategory{lbprAL, gcSk}},     //     [3] GREEK PSILI AND VARIA..GREEK PSILI AND PERISPOMENI
+	{runeRange{0x1FD6, 0x1FDB}, propertyGeneralCategory{lbprAL, gcLC}},     //     [6] GREEK SMALL LETTER IOTA WITH PERISPOMENI..GREEK CAPITAL LETTER IOTA WITH OXIA
+	{runeRange{0x1FE0, 0x1FEC}, propertyGeneralCategory{lbprAL, gcLC}},     //    [13] GREEK SMALL LETTER UPSILON WITH VRACHY..GREEK CAPITAL LETTER RHO WITH DASIA
+	{runeRange{0x1FF2, 0x1FF4}, propertyGeneralCategory{lbprAL, gcLl}},     //     [3] GREEK SMALL LETTER OMEGA WITH VARIA AND YPOGEGRAMMENI..GREEK SMALL LETTER OMEGA WITH OXIA AND YPOGEGRAMMENI
+	{runeRange{0x1FFD, 0x1FFD}, propertyGeneralCategory{lbprBB, gcSk}},     //         GREEK OXIA
+	{runeRange{0x2000, 0x2006}, propertyGeneralCategory{lbprBA, gcZs}},     //     [7] EN QUAD..SIX-PER-EM SPACE
+	{runeRange{0x2008, 0x200A}, propertyGeneralCategory{lbprBA, gcZs}},     //     [3] PUNCTUATION SPACE..HAIR SPACE
+	{runeRange{0x200C, 0x200C}, propertyGeneralCategory{lbprCM, gcCf}},     //         ZERO WIDTH NON-JOINER
+	{runeRange{0x200E, 0x200F}, propertyGeneralCategory{lbprCM, gcCf}},     //     [2] LEFT-TO-RIGHT MARK..RIGHT-TO-LEFT MARK
+	{runeRange{0x2011, 0x2011}, propertyGeneralCategory{lbprGL, gcPd}},     //         NON-BREAKING HYPHEN
+	{runeRange{0x2014, 0x2014}, propertyGeneralCategory{lbprB2, gcPd}},     //         EM DASH
+	{runeRange{0x2016, 0x2016}, propertyGeneralCategory{lbprAI, gcPo}},     //         DOUBLE VERTICAL LINE
+	{runeRange{0x2018, 0x2018}, propertyGeneralCategory{lbprQU, gcPi}},     //         LEFT SINGLE QUOTATION MARK
+	{runeRange{0x201A, 0x201A}, propertyGeneralCategory{lbprOP, gcPs}},     //         SINGLE LOW-9 QUOTATION MARK
+	{runeRange{0x201D, 0x201D}, propertyGeneralCategory{lbprQU, gcPf}},     //         RIGHT DOUBLE QUOTATION MARK
+	{runeRange{0x201F, 0x201F}, propertyGeneralCategory{lbprQU, gcPi}},     //         DOUBLE HIGH-REVERSED-9 QUOTATION MARK
+	{runeRange{0x2022, 0x2023}, propertyGeneralCategory{lbprAL, gcPo}},     //     [2] BULLET..TRIANGULAR BULLET
+	{runeRange{0x2027, 0x2027}, propertyGeneralCategory{lbprBA, gcPo}},     //         HYPHENATION POINT
+	{runeRange{0x2029, 0x2029}, propertyGeneralCategory{lbprBK, gcZp}},     //         PARAGRAPH SEPARATOR
+	{runeRange{0x202F, 0x202F}, propertyGeneralCategory{lbprGL, gcZs}},     //         NARROW NO-BREAK SPACE
+	{runeRange{0x2038, 0x2038}, propertyGeneralCategory{lbprAL, gcPo}},     //         CARET
+	{runeRange{0x203A, 0x203A}, propertyGeneralCategory{lbprQU, gcPf}},     //         SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+	{runeRange{0x203C, 0x203D}, propertyGeneralCategory{lbprNS, gcPo}},     //     [2] DOUBLE EXCLAMATION MARK..INTERROBANG
+	{runeRange{0x203F, 0x2040}, propertyGeneralCategory{lbprAL, gcPc}},     //     [2] UNDERTIE..CHARACTER TIE
+	{runeRange{0x2044, 0x2044}, propertyGeneralCategory{lbprIS, gcSm}},     //         FRACTION SLASH
+	{runeRange{0x2046, 0x2046}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT SQUARE BRACKET WITH QUILL
+	{runeRange{0x204A, 0x2051}, propertyGeneralCategory{lbprAL, gcPo}},     //     [8] TIRONIAN SIGN ET..TWO ASTERISKS ALIGNED VERTICALLY
+	{runeRange{0x2053, 0x2053}, propertyGeneralCategory{lbprAL, gcPo}},     //         SWUNG DASH
+	{runeRange{0x2055, 0x2055}, propertyGeneralCategory{lbprAL, gcPo}},     //         FLOWER PUNCTUATION MARK
+	{runeRange{0x2057, 0x2057}, propertyGeneralCategory{lbprPO, gcPo}},     //         QUADRUPLE PRIME
+	{runeRange{0x205C, 0x205C}, propertyGeneralCategory{lbprAL, gcPo}},     //         DOTTED CROSS
+	{runeRange{0x205F, 0x205F}, propertyGeneralCategory{lbprBA, gcZs}},     //         MEDIUM MATHEMATICAL SPACE
+	{runeRange{0x2061, 0x2064}, propertyGeneralCategory{lbprAL, gcCf}},     //     [4] FUNCTION APPLICATION..INVISIBLE PLUS
+	{runeRange{0x2070, 0x2070}, propertyGeneralCategory{lbprAL, gcNo}},     //         SUPERSCRIPT ZERO
+	{runeRange{0x2074, 0x2074}, propertyGeneralCategory{lbprAI, gcNo}},     //         SUPERSCRIPT FOUR
+	{runeRange{0x207A, 0x207C}, propertyGeneralCategory{lbprAL, gcSm}},     //     [3] SUPERSCRIPT PLUS SIGN..SUPERSCRIPT EQUALS SIGN
+	{runeRange{0x207E, 0x207E}, propertyGeneralCategory{lbprCL, gcPe}},     //         SUPERSCRIPT RIGHT PARENTHESIS
+	{runeRange{0x2080, 0x2080}, propertyGeneralCategory{lbprAL, gcNo}},     //         SUBSCRIPT ZERO
+	{runeRange{0x2085, 0x2089}, propertyGeneralCategory{lbprAL, gcNo}},     //     [5] SUBSCRIPT FIVE..SUBSCRIPT NINE
+	{runeRange{0x208D, 0x208D}, propertyGeneralCategory{lbprOP, gcPs}},     //         SUBSCRIPT LEFT PARENTHESIS
+	{runeRange{0x2090, 0x209C}, propertyGeneralCategory{lbprAL, gcLm}},     //    [13] LATIN SUBSCRIPT SMALL LETTER A..LATIN SUBSCRIPT SMALL LETTER T
+	{runeRange{0x20A7, 0x20A7}, propertyGeneralCategory{lbprPO, gcSc}},     //         PESETA SIGN
+	{runeRange{0x20B6, 0x20B6}, propertyGeneralCategory{lbprPO, gcSc}},     //         LIVRE TOURNOIS SIGN
+	{runeRange{0x20BB, 0x20BB}, propertyGeneralCategory{lbprPO, gcSc}},     //         NORDIC MARK SIGN
+	{runeRange{0x20BE, 0x20BE}, propertyGeneralCategory{lbprPO, gcSc}},     //         LARI SIGN
+	{runeRange{0x20C0, 0x20C0}, propertyGeneralCategory{lbprPO, gcSc}},     //         SOM SIGN
+	{runeRange{0x20D0, 0x20DC}, propertyGeneralCategory{lbprCM, gcMn}},     //    [13] COMBINING LEFT HARPOON ABOVE..COMBINING FOUR DOTS ABOVE
+	{runeRange{0x20E1, 0x20E1}, propertyGeneralCategory{lbprCM, gcMn}},     //         COMBINING LEFT RIGHT ARROW ABOVE
+	{runeRange{0x20E5, 0x20F0}, propertyGeneralCategory{lbprCM, gcMn}},     //    [12] COMBINING REVERSE SOLIDUS OVERLAY..COMBINING ASTERISK ABOVE
+	{runeRange{0x2102, 0x2102}, propertyGeneralCategory{lbprAL, gcLu}},     //         DOUBLE-STRUCK CAPITAL C
+	{runeRange{0x2104, 0x2104}, propertyGeneralCategory{lbprAL, gcSo}},     //         CENTRE LINE SYMBOL
+	{runeRange{0x2106, 0x2106}, propertyGeneralCategory{lbprAL, gcSo}},     //         CADA UNA
+	{runeRange{0x2108, 0x2108}, propertyGeneralCategory{lbprAL, gcSo}},     //         SCRUPLE
+	{runeRange{0x210A, 0x2112}, propertyGeneralCategory{lbprAL, gcLC}},     //     [9] SCRIPT SMALL G..SCRIPT CAPITAL L
+	{runeRange{0x2114, 0x2114}, propertyGeneralCategory{lbprAL, gcSo}},     //         L B BAR SYMBOL
+	{runeRange{0x2116, 0x2116}, propertyGeneralCategory{lbprPR, gcSo}},     //         NUMERO SIGN
+	{runeRange{0x2118, 0x2118}, propertyGeneralCategory{lbprAL, gcSm}},     //         SCRIPT CAPITAL P
+	{runeRange{0x211E, 0x2120}, propertyGeneralCategory{lbprAL, gcSo}},     //     [3] PRESCRIPTION TAKE..SERVICE MARK
+	{runeRange{0x2123, 0x2123}, propertyGeneralCategory{lbprAL, gcSo}},     //         VERSICLE
+	{runeRange{0x2125, 0x2125}, propertyGeneralCategory{lbprAL, gcSo}},     //         OUNCE SIGN
+	{runeRange{0x2127, 0x2127}, propertyGeneralCategory{lbprAL, gcSo}},     //         INVERTED OHM SIGN
+	{runeRange{0x2129, 0x2129}, propertyGeneralCategory{lbprAL, gcSo}},     //         TURNED GREEK SMALL LETTER IOTA
+	{runeRange{0x212B, 0x212B}, propertyGeneralCategory{lbprAI, gcLu}},     //         ANGSTROM SIGN
+	{runeRange{0x212E, 0x212E}, propertyGeneralCategory{lbprAL, gcSo}},     //         ESTIMATED SYMBOL
+	{runeRange{0x2135, 0x2138}, propertyGeneralCategory{lbprAL, gcLo}},     //     [4] ALEF SYMBOL..DALET SYMBOL
+	{runeRange{0x213A, 0x213B}, propertyGeneralCategory{lbprAL, gcSo}},     //     [2] ROTATED CAPITAL Q..FACSIMILE SIGN
+	{runeRange{0x2140, 0x2144}, propertyGeneralCategory{lbprAL, gcSm}},     //     [5] DOUBLE-STRUCK N-ARY SUMMATION..TURNED SANS-SERIF CAPITAL Y
+	{runeRange{0x214A, 0x214A}, propertyGeneralCategory{lbprAL, gcSo}},     //         PROPERTY LINE
+	{runeRange{0x214C, 0x214D}, propertyGeneralCategory{lbprAL, gcSo}},     //     [2] PER SIGN..AKTIESELSKAB
+	{runeRange{0x214F, 0x214F}, propertyGeneralCategory{lbprAL, gcSo}},     //         SYMBOL FOR SAMARITAN SOURCE
 	{runeRange{0x215F, 0x215F}, propertyGeneralCategory{lbprAL, gcNo}},     //         FRACTION NUMERATOR ONE
 	{runeRange{0x216C, 0x216F}, propertyGeneralCategory{lbprAL, gcNl}},     //     [4] ROMAN NUMERAL FIFTY..ROMAN NUMERAL ONE THOUSAND
 	{runeRange{0x217A, 0x2182}, propertyGeneralCategory{lbprAL, gcNl}},     //     [9] SMALL ROMAN NUMERAL ELEVEN..ROMAN NUMERAL TEN THOUSAND
@@ -2594,7 +2592,7 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x239B, 0x23B3}, propertyGeneralCategory{lbprAL, gcSm}},     //    [25] LEFT PARENTHESIS UPPER HOOK..SUMMATION BOTTOM
 	{runeRange{0x23DC, 0x23E1}, propertyGeneralCategory{lbprAL, gcSm}},     //     [6] TOP PARENTHESIS..BOTTOM TORTOISE SHELL BRACKET
 	{runeRange{0x23F0, 0x23F3}, propertyGeneralCategory{lbprID, gcSo}},     //     [4] ALARM CLOCK..HOURGLASS WITH FLOWING SAND
-	{runeRange{0x2400, 0x2426}, propertyGeneralCategory{lbprAL, gcSo}},     //    [39] SYMBOL FOR NULL..SYMBOL FOR SUBSTITUTE FORM TWO
+	{runeRange{0x2400, 0x2429}, propertyGeneralCategory{lbprAL, gcSo}},     //    [42] SYMBOL FOR NULL..SYMBOL FOR DELETE MEDIUM SHADE FORM
 	{runeRange{0x2460, 0x249B}, propertyGeneralCategory{lbprAI, gcNo}},     //    [60] CIRCLED DIGIT ONE..NUMBER TWENTY FULL STOP
 	{runeRange{0x24EA, 0x24FE}, propertyGeneralCategory{lbprAI, gcNo}},     //    [21] CIRCLED DIGIT ZERO..DOUBLE CIRCLED NUMBER TEN
 	{runeRange{0x2500, 0x254B}, propertyGeneralCategory{lbprAI, gcSo}},     //    [76] BOX DRAWINGS LIGHT HORIZONTAL..BOX DRAWINGS HEAVY VERTICAL AND HORIZONTAL
@@ -2731,10 +2729,10 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x2E4D, 0x2E4D}, propertyGeneralCategory{lbprAL, gcPo}},     //         PARAGRAPHUS MARK
 	{runeRange{0x2E50, 0x2E51}, propertyGeneralCategory{lbprAL, gcSo}},     //     [2] CROSS PATTY WITH RIGHT CROSSBAR..CROSS PATTY WITH LEFT CROSSBAR
 	{runeRange{0x2E53, 0x2E54}, propertyGeneralCategory{lbprEX, gcPo}},     //     [2] MEDIEVAL EXCLAMATION MARK..MEDIEVAL QUESTION MARK
-	{runeRange{0x2E56, 0x2E56}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT SQUARE BRACKET WITH STROKE
-	{runeRange{0x2E58, 0x2E58}, propertyGeneralCategory{lbprCL, gcPe}},     //         RIGHT SQUARE BRACKET WITH DOUBLE STROKE
-	{runeRange{0x2E5A, 0x2E5A}, propertyGeneralCategory{lbprCL, gcPe}},     //         TOP HALF RIGHT PARENTHESIS
-	{runeRange{0x2E5C, 0x2E5C}, propertyGeneralCategory{lbprCL, gcPe}},     //         BOTTOM HALF RIGHT PARENTHESIS
+	{runeRange{0x2E56, 0x2E56}, propertyGeneralCategory{lbprCP, gcPe}},     //         RIGHT SQUARE BRACKET WITH STROKE
+	{runeRange{0x2E58, 0x2E58}, propertyGeneralCategory{lbprCP, gcPe}},     //         RIGHT SQUARE BRACKET WITH DOUBLE STROKE
+	{runeRange{0x2E5A, 0x2E5A}, propertyGeneralCategory{lbprCP, gcPe}},     //         TOP HALF RIGHT PARENTHESIS
+	{runeRange{0x2E5C, 0x2E5C}, propertyGeneralCategory{lbprCP, gcPe}},     //         BOTTOM HALF RIGHT PARENTHESIS
 	{runeRange{0x2E80, 0x2E99}, propertyGeneralCategory{lbprID, gcSo}},     //    [26] CJK RADICAL REPEAT..CJK RADICAL RAP
 	{runeRange{0x2F00, 0x2FD5}, propertyGeneralCategory{lbprID, gcSo}},     //   [214] KANGXI RADICAL ONE..KANGXI RADICAL FLUTE
 	{runeRange{0x3000, 0x3000}, propertyGeneralCategory{lbprBA, gcZs}},     //         IDEOGRAPHIC SPACE
@@ -2787,7 +2785,7 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x3105, 0x312F}, propertyGeneralCategory{lbprID, gcLo}},     //    [43] BOPOMOFO LETTER B..BOPOMOFO LETTER NN
 	{runeRange{0x3190, 0x3191}, propertyGeneralCategory{lbprID, gcSo}},     //     [2] IDEOGRAPHIC ANNOTATION LINKING MARK..IDEOGRAPHIC ANNOTATION REVERSE MARK
 	{runeRange{0x3196, 0x319F}, propertyGeneralCategory{lbprID, gcSo}},     //    [10] IDEOGRAPHIC ANNOTATION TOP MARK..IDEOGRAPHIC ANNOTATION MAN MARK
-	{runeRange{0x31C0, 0x31E3}, propertyGeneralCategory{lbprID, gcSo}},     //    [36] CJK STROKE T..CJK STROKE Q
+	{runeRange{0x31C0, 0x31E5}, propertyGeneralCategory{lbprID, gcSo}},     //    [38] CJK STROKE T..CJK STROKE SZP
 	{runeRange{0x31F0, 0x31FF}, propertyGeneralCategory{lbprCJ, gcLo}},     //    [16] KATAKANA LETTER SMALL KU..KATAKANA LETTER SMALL RO
 	{runeRange{0x3220, 0x3229}, propertyGeneralCategory{lbprID, gcNo}},     //    [10] PARENTHESIZED IDEOGRAPH ONE..PARENTHESIZED IDEOGRAPH TEN
 	{runeRange{0x3248, 0x324F}, propertyGeneralCategory{lbprAI, gcNo}},     //     [8] CIRCLED NUMBER TEN ON BLACK SQUARE..CIRCLED NUMBER EIGHTY ON BLACK SQUARE
@@ -2818,7 +2816,7 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0xA789, 0xA78A}, propertyGeneralCategory{lbprAL, gcSk}},     //     [2] MODIFIER LETTER COLON..MODIFIER LETTER SHORT EQUALS SIGN
 	{runeRange{0xA78F, 0xA78F}, propertyGeneralCategory{lbprAL, gcLo}},     //         LATIN LETTER SINOLOGICAL DOT
 	{runeRange{0xA7D0, 0xA7D1}, propertyGeneralCategory{lbprAL, gcLC}},     //     [2] LATIN CAPITAL LETTER CLOSED INSULAR G..LATIN SMALL LETTER CLOSED INSULAR G
-	{runeRange{0xA7D5, 0xA7D9}, propertyGeneralCategory{lbprAL, gcLC}},     //     [5] LATIN SMALL LETTER DOUBLE WYNN..LATIN SMALL LETTER SIGMOID S
+	{runeRange{0xA7D5, 0xA7DC}, propertyGeneralCategory{lbprAL, gcLC}},     //     [8] LATIN SMALL LETTER DOUBLE WYNN..LATIN CAPITAL LETTER LAMBDA WITH STROKE
 	{runeRange{0xA7F5, 0xA7F6}, propertyGeneralCategory{lbprAL, gcLC}},     //     [2] LATIN CAPITAL LETTER REVERSED HALF H..LATIN SMALL LETTER REVERSED HALF H
 	{runeRange{0xA7F8, 0xA7F9}, propertyGeneralCategory{lbprAL, gcLm}},     //     [2] MODIFIER LETTER CAPITAL H WITH STROKE..MODIFIER LETTER SMALL LIGATURE OE
 	{runeRange{0xA7FB, 0xA7FF}, propertyGeneralCategory{lbprAL, gcLo}},     //     [5] LATIN EPIGRAPHIC LETTER REVERSED F..LATIN EPIGRAPHIC LETTER ARCHAIC M
@@ -2849,7 +2847,7 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0xA9BE, 0xA9BF}, propertyGeneralCategory{lbprCM, gcMc}},     //     [2] JAVANESE CONSONANT SIGN PENGKAL..JAVANESE CONSONANT SIGN CAKRA
 	{runeRange{0xA9C1, 0xA9C6}, propertyGeneralCategory{lbprID, gcPo}},     //     [6] JAVANESE LEFT RERENGGAN..JAVANESE PADA WINDU
 	{runeRange{0xA9CA, 0xA9CD}, propertyGeneralCategory{lbprID, gcPo}},     //     [4] JAVANESE PADA ADEG..JAVANESE TURNED PADA PISELEH
-	{runeRange{0xA9D0, 0xA9D9}, propertyGeneralCategory{lbprID, gcNd}},     //    [10] JAVANESE DIGIT ZERO..JAVANESE DIGIT NINE
+	{runeRange{0xA9D0, 0xA9D9}, propertyGeneralCategory{lbprAS, gcNd}},     //    [10] JAVANESE DIGIT ZERO..JAVANESE DIGIT NINE
 	{runeRange{0xA9E0, 0xA9E4}, propertyGeneralCategory{lbprSA, gcLo}},     //     [5] MYANMAR LETTER SHAN GHA..MYANMAR LETTER SHAN BHA
 	{runeRange{0xA9E6, 0xA9E6}, propertyGeneralCategory{lbprSA, gcLm}},     //         MYANMAR MODIFIER LETTER SHAN REDUPLICATION
 	{runeRange{0xA9F0, 0xA9F9}, propertyGeneralCategory{lbprNU, gcNd}},     //    [10] MYANMAR TAI LAING DIGIT ZERO..MYANMAR TAI LAING DIGIT NINE
@@ -3304,10 +3302,16 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0xFDCF, 0xFDCF}, propertyGeneralCategory{lbprAL, gcSo}},     //         ARABIC LIGATURE SALAAMUHU ALAYNAA
 	{runeRange{0xFDFC, 0xFDFC}, propertyGeneralCategory{lbprPO, gcSc}},     //         RIAL SIGN
 	{runeRange{0xFE00, 0xFE0F}, propertyGeneralCategory{lbprCM, gcMn}},     //    [16] VARIATION SELECTOR-1..VARIATION SELECTOR-16
-	{runeRange{0xFE11, 0xFE12}, propertyGeneralCategory{lbprCL, gcPo}},     //     [2] PRESENTATION FORM FOR VERTICAL IDEOGRAPHIC COMMA..PRESENTATION FORM FOR VERTICAL IDEOGRAPHIC FULL STOP
-	{runeRange{0xFE15, 0xFE16}, propertyGeneralCategory{lbprEX, gcPo}},     //     [2] PRESENTATION FORM FOR VERTICAL EXCLAMATION MARK..PRESENTATION FORM FOR VERTICAL QUESTION MARK
-	{runeRange{0xFE18, 0xFE18}, propertyGeneralCategory{lbprCL, gcPe}},     //         PRESENTATION FORM FOR VERTICAL RIGHT WHITE LENTICULAR BRAKCET
-	{runeRange{0xFE20, 0xFE2F}, propertyGeneralCategory{lbprCM, gcMn}},     //    [16] COMBINING LIGATURE LEFT HALF..COMBINING CYRILLIC TITLO RIGHT HALF
+	{runeRange{0xFE13, 0xFE14}, propertyGeneralCategory{lbprNS, gcPo}},     //     [2] PRESENTATION FORM FOR VERTICAL COLON..PRESENTATION FORM FOR VERTICAL SEMICOLON
+	{runeRange{0xFE17, 0xFE17}, propertyGeneralCategory{lbprOP, gcPs}},     //         PRESENTATION FORM FOR VERTICAL LEFT WHITE LENTICULAR BRACKET
+	{runeRange{0xFE19, 0xFE19}, propertyGeneralCategory{lbprIN, gcPo}},     //         PRESENTATION FORM FOR VERTICAL HORIZONTAL ELLIPSIS
+	{runeRange{0xFE21, 0xFE21}, propertyGeneralCategory{lbprCM, gcMn}},     //         COMBINING LIGATURE RIGHT HALF
+	{runeRange{0xFE23, 0xFE23}, propertyGeneralCategory{lbprCM, gcMn}},     //         COMBINING DOUBLE TILDE RIGHT HALF
+	{runeRange{0xFE25, 0xFE25}, propertyGeneralCategory{lbprCM, gcMn}},     //         COMBINING MACRON RIGHT HALF
+	{runeRange{0xFE28, 0xFE28}, propertyGeneralCategory{lbprCM, gcMn}},     //         COMBINING LIGATURE RIGHT HALF BELOW
+	{runeRange{0xFE2A, 0xFE2A}, propertyGeneralCategory{lbprCM, gcMn}},     //         COMBINING TILDE RIGHT HALF BELOW
+	{runeRange{0xFE2C, 0xFE2C}, propertyGeneralCategory{lbprCM, gcMn}},     //         COMBINING MACRON RIGHT HALF BELOW
+	{runeRange{0xFE2F, 0xFE2F}, propertyGeneralCategory{lbprCM, gcMn}},     //         COMBINING CYRILLIC TITLO RIGHT HALF
 	{runeRange{0xFE31, 0xFE32}, propertyGeneralCategory{lbprID, gcPd}},     //     [2] PRESENTATION FORM FOR VERTICAL EM DASH..PRESENTATION FORM FOR VERTICAL EN DASH
 	{runeRange{0xFE35, 0xFE35}, propertyGeneralCategory{lbprOP, gcPs}},     //         PRESENTATION FORM FOR VERTICAL LEFT PARENTHESIS
 	{runeRange{0xFE37, 0xFE37}, propertyGeneralCategory{lbprOP, gcPs}},     //         PRESENTATION FORM FOR VERTICAL LEFT CURLY BRACKET
@@ -3388,46 +3392,52 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1058C, 0x10592}, propertyGeneralCategory{lbprAL, gcLu}},   //     [7] VITHKUQI CAPITAL LETTER SE..VITHKUQI CAPITAL LETTER XE
 	{runeRange{0x10597, 0x105A1}, propertyGeneralCategory{lbprAL, gcLl}},   //    [11] VITHKUQI SMALL LETTER A..VITHKUQI SMALL LETTER GA
 	{runeRange{0x105B3, 0x105B9}, propertyGeneralCategory{lbprAL, gcLl}},   //     [7] VITHKUQI SMALL LETTER SE..VITHKUQI SMALL LETTER XE
-	{runeRange{0x10600, 0x10736}, propertyGeneralCategory{lbprAL, gcLo}},   //   [311] LINEAR A SIGN AB001..LINEAR A SIGN A664
-	{runeRange{0x10760, 0x10767}, propertyGeneralCategory{lbprAL, gcLo}},   //     [8] LINEAR A SIGN A800..LINEAR A SIGN A807
-	{runeRange{0x10787, 0x107B0}, propertyGeneralCategory{lbprAL, gcLm}},   //    [42] MODIFIER LETTER SMALL DZ DIGRAPH..MODIFIER LETTER SMALL V WITH RIGHT HOOK
-	{runeRange{0x10800, 0x10805}, propertyGeneralCategory{lbprAL, gcLo}},   //     [6] CYPRIOT SYLLABLE A..CYPRIOT SYLLABLE JA
-	{runeRange{0x1080A, 0x10835}, propertyGeneralCategory{lbprAL, gcLo}},   //    [44] CYPRIOT SYLLABLE KA..CYPRIOT SYLLABLE WO
-	{runeRange{0x1083C, 0x1083C}, propertyGeneralCategory{lbprAL, gcLo}},   //         CYPRIOT SYLLABLE ZA
-	{runeRange{0x10840, 0x10855}, propertyGeneralCategory{lbprAL, gcLo}},   //    [22] IMPERIAL ARAMAIC LETTER ALEPH..IMPERIAL ARAMAIC LETTER TAW
-	{runeRange{0x10858, 0x1085F}, propertyGeneralCategory{lbprAL, gcNo}},   //     [8] IMPERIAL ARAMAIC NUMBER ONE..IMPERIAL ARAMAIC NUMBER TEN THOUSAND
-	{runeRange{0x10877, 0x10878}, propertyGeneralCategory{lbprAL, gcSo}},   //     [2] PALMYRENE LEFT-POINTING FLEURON..PALMYRENE RIGHT-POINTING FLEURON
-	{runeRange{0x10880, 0x1089E}, propertyGeneralCategory{lbprAL, gcLo}},   //    [31] NABATAEAN LETTER FINAL ALEPH..NABATAEAN LETTER TAW
-	{runeRange{0x108E0, 0x108F2}, propertyGeneralCategory{lbprAL, gcLo}},   //    [19] HATRAN LETTER ALEPH..HATRAN LETTER QOPH
-	{runeRange{0x108FB, 0x108FF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [5] HATRAN NUMBER ONE..HATRAN NUMBER ONE HUNDRED
-	{runeRange{0x10916, 0x1091B}, propertyGeneralCategory{lbprAL, gcNo}},   //     [6] PHOENICIAN NUMBER ONE..PHOENICIAN NUMBER THREE
-	{runeRange{0x10920, 0x10939}, propertyGeneralCategory{lbprAL, gcLo}},   //    [26] LYDIAN LETTER A..LYDIAN LETTER C
-	{runeRange{0x10980, 0x1099F}, propertyGeneralCategory{lbprAL, gcLo}},   //    [32] MEROITIC HIEROGLYPHIC LETTER A..MEROITIC HIEROGLYPHIC SYMBOL VIDJ-2
-	{runeRange{0x109BC, 0x109BD}, propertyGeneralCategory{lbprAL, gcNo}},   //     [2] MEROITIC CURSIVE FRACTION ELEVEN TWELFTHS..MEROITIC CURSIVE FRACTION ONE HALF
-	{runeRange{0x109C0, 0x109CF}, propertyGeneralCategory{lbprAL, gcNo}},   //    [16] MEROITIC CURSIVE NUMBER ONE..MEROITIC CURSIVE NUMBER SEVENTY
-	{runeRange{0x10A00, 0x10A00}, propertyGeneralCategory{lbprAL, gcLo}},   //         KHAROSHTHI LETTER A
-	{runeRange{0x10A05, 0x10A06}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
-	{runeRange{0x10A10, 0x10A13}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] KHAROSHTHI LETTER KA..KHAROSHTHI LETTER GHA
-	{runeRange{0x10A19, 0x10A35}, propertyGeneralCategory{lbprAL, gcLo}},   //    [29] KHAROSHTHI LETTER NYA..KHAROSHTHI LETTER VHA
-	{runeRange{0x10A3F, 0x10A3F}, propertyGeneralCategory{lbprCM, gcMn}},   //         KHAROSHTHI VIRAMA
-	{runeRange{0x10A50, 0x10A57}, propertyGeneralCategory{lbprBA, gcPo}},   //     [8] KHAROSHTHI PUNCTUATION DOT..KHAROSHTHI PUNCTUATION DOUBLE DANDA
-	{runeRange{0x10A60, 0x10A7C}, propertyGeneralCategory{lbprAL, gcLo}},   //    [29] OLD SOUTH ARABIAN LETTER HE..OLD SOUTH ARABIAN LETTER THETH
-	{runeRange{0x10A7F, 0x10A7F}, propertyGeneralCategory{lbprAL, gcPo}},   //         OLD SOUTH ARABIAN NUMERIC INDICATOR
-	{runeRange{0x10A9D, 0x10A9F}, propertyGeneralCategory{lbprAL, gcNo}},   //     [3] OLD NORTH ARABIAN NUMBER ONE..OLD NORTH ARABIAN NUMBER TWENTY
-	{runeRange{0x10AC8, 0x10AC8}, propertyGeneralCategory{lbprAL, gcSo}},   //         MANICHAEAN SIGN UD
-	{runeRange{0x10AE5, 0x10AE6}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] MANICHAEAN ABBREVIATION MARK ABOVE..MANICHAEAN ABBREVIATION MARK BELOW
-	{runeRange{0x10AF0, 0x10AF5}, propertyGeneralCategory{lbprBA, gcPo}},   //     [6] MANICHAEAN PUNCTUATION STAR..MANICHAEAN PUNCTUATION TWO DOTS
-	{runeRange{0x10B00, 0x10B35}, propertyGeneralCategory{lbprAL, gcLo}},   //    [54] AVESTAN LETTER A..AVESTAN LETTER HE
-	{runeRange{0x10B40, 0x10B55}, propertyGeneralCategory{lbprAL, gcLo}},   //    [22] INSCRIPTIONAL PARTHIAN LETTER ALEPH..INSCRIPTIONAL PARTHIAN LETTER TAW
-	{runeRange{0x10B60, 0x10B72}, propertyGeneralCategory{lbprAL, gcLo}},   //    [19] INSCRIPTIONAL PAHLAVI LETTER ALEPH..INSCRIPTIONAL PAHLAVI LETTER TAW
-	{runeRange{0x10B80, 0x10B91}, propertyGeneralCategory{lbprAL, gcLo}},   //    [18] PSALTER PAHLAVI LETTER ALEPH..PSALTER PAHLAVI LETTER TAW
-	{runeRange{0x10BA9, 0x10BAF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [7] PSALTER PAHLAVI NUMBER ONE..PSALTER PAHLAVI NUMBER ONE HUNDRED
-	{runeRange{0x10C80, 0x10CB2}, propertyGeneralCategory{lbprAL, gcLu}},   //    [51] OLD HUNGARIAN CAPITAL LETTER A..OLD HUNGARIAN CAPITAL LETTER US
-	{runeRange{0x10CFA, 0x10CFF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [6] OLD HUNGARIAN NUMBER ONE..OLD HUNGARIAN NUMBER ONE THOUSAND
-	{runeRange{0x10D24, 0x10D27}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] HANIFI ROHINGYA SIGN HARBAHAY..HANIFI ROHINGYA SIGN TASSI
-	{runeRange{0x10E60, 0x10E7E}, propertyGeneralCategory{lbprAL, gcNo}},   //    [31] RUMI DIGIT ONE..RUMI FRACTION TWO THIRDS
-	{runeRange{0x10EAB, 0x10EAC}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] YEZIDI COMBINING HAMZA MARK..YEZIDI COMBINING MADDA MARK
-	{runeRange{0x10EB0, 0x10EB1}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] YEZIDI LETTER LAM WITH DOT ABOVE..YEZIDI LETTER YOT WITH CIRCUMFLEX ABOVE
+	{runeRange{0x105C0, 0x105F3}, propertyGeneralCategory{lbprAL, gcLo}},   //    [52] TODHRI LETTER A..TODHRI LETTER OO
+	{runeRange{0x10740, 0x10755}, propertyGeneralCategory{lbprAL, gcLo}},   //    [22] LINEAR A SIGN A701 A..LINEAR A SIGN A732 JE
+	{runeRange{0x10780, 0x10785}, propertyGeneralCategory{lbprAL, gcLm}},   //     [6] MODIFIER LETTER SMALL CAPITAL AA..MODIFIER LETTER SMALL B WITH HOOK
+	{runeRange{0x107B2, 0x107BA}, propertyGeneralCategory{lbprAL, gcLm}},   //     [9] MODIFIER LETTER SMALL CAPITAL Y..MODIFIER LETTER SMALL S WITH CURL
+	{runeRange{0x10808, 0x10808}, propertyGeneralCategory{lbprAL, gcLo}},   //         CYPRIOT SYLLABLE JO
+	{runeRange{0x10837, 0x10838}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] CYPRIOT SYLLABLE XA..CYPRIOT SYLLABLE XE
+	{runeRange{0x1083F, 0x1083F}, propertyGeneralCategory{lbprAL, gcLo}},   //         CYPRIOT SYLLABLE ZO
+	{runeRange{0x10857, 0x10857}, propertyGeneralCategory{lbprBA, gcPo}},   //         IMPERIAL ARAMAIC SECTION SIGN
+	{runeRange{0x10860, 0x10876}, propertyGeneralCategory{lbprAL, gcLo}},   //    [23] PALMYRENE LETTER ALEPH..PALMYRENE LETTER TAW
+	{runeRange{0x10879, 0x1087F}, propertyGeneralCategory{lbprAL, gcNo}},   //     [7] PALMYRENE NUMBER ONE..PALMYRENE NUMBER TWENTY
+	{runeRange{0x108A7, 0x108AF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [9] NABATAEAN NUMBER ONE..NABATAEAN NUMBER ONE HUNDRED
+	{runeRange{0x108F4, 0x108F5}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] HATRAN LETTER SHIN..HATRAN LETTER TAW
+	{runeRange{0x10900, 0x10915}, propertyGeneralCategory{lbprAL, gcLo}},   //    [22] PHOENICIAN LETTER ALF..PHOENICIAN LETTER TAU
+	{runeRange{0x1091F, 0x1091F}, propertyGeneralCategory{lbprBA, gcPo}},   //         PHOENICIAN WORD SEPARATOR
+	{runeRange{0x1093F, 0x1093F}, propertyGeneralCategory{lbprAL, gcPo}},   //         LYDIAN TRIANGULAR MARK
+	{runeRange{0x109A0, 0x109B7}, propertyGeneralCategory{lbprAL, gcLo}},   //    [24] MEROITIC CURSIVE LETTER A..MEROITIC CURSIVE LETTER DA
+	{runeRange{0x109BE, 0x109BF}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] MEROITIC CURSIVE LOGOGRAM RMT..MEROITIC CURSIVE LOGOGRAM IMN
+	{runeRange{0x109D2, 0x109FF}, propertyGeneralCategory{lbprAL, gcNo}},   //    [46] MEROITIC CURSIVE NUMBER ONE HUNDRED..MEROITIC CURSIVE FRACTION TEN TWELFTHS
+	{runeRange{0x10A01, 0x10A03}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] KHAROSHTHI VOWEL SIGN I..KHAROSHTHI VOWEL SIGN VOCALIC R
+	{runeRange{0x10A0C, 0x10A0F}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] KHAROSHTHI VOWEL LENGTH MARK..KHAROSHTHI SIGN VISARGA
+	{runeRange{0x10A15, 0x10A17}, propertyGeneralCategory{lbprAL, gcLo}},   //     [3] KHAROSHTHI LETTER CA..KHAROSHTHI LETTER JA
+	{runeRange{0x10A38, 0x10A3A}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] KHAROSHTHI SIGN BAR ABOVE..KHAROSHTHI SIGN DOT BELOW
+	{runeRange{0x10A40, 0x10A48}, propertyGeneralCategory{lbprAL, gcNo}},   //     [9] KHAROSHTHI DIGIT ONE..KHAROSHTHI FRACTION ONE HALF
+	{runeRange{0x10A58, 0x10A58}, propertyGeneralCategory{lbprAL, gcPo}},   //         KHAROSHTHI PUNCTUATION LINES
+	{runeRange{0x10A7D, 0x10A7E}, propertyGeneralCategory{lbprAL, gcNo}},   //     [2] OLD SOUTH ARABIAN NUMBER ONE..OLD SOUTH ARABIAN NUMBER FIFTY
+	{runeRange{0x10A80, 0x10A9C}, propertyGeneralCategory{lbprAL, gcLo}},   //    [29] OLD NORTH ARABIAN LETTER HEH..OLD NORTH ARABIAN LETTER ZAH
+	{runeRange{0x10AC0, 0x10AC7}, propertyGeneralCategory{lbprAL, gcLo}},   //     [8] MANICHAEAN LETTER ALEPH..MANICHAEAN LETTER WAW
+	{runeRange{0x10AC9, 0x10AE4}, propertyGeneralCategory{lbprAL, gcLo}},   //    [28] MANICHAEAN LETTER ZAYIN..MANICHAEAN LETTER TAW
+	{runeRange{0x10AEB, 0x10AEF}, propertyGeneralCategory{lbprAL, gcNo}},   //     [5] MANICHAEAN NUMBER ONE..MANICHAEAN NUMBER ONE HUNDRED
+	{runeRange{0x10AF6, 0x10AF6}, propertyGeneralCategory{lbprIN, gcPo}},   //         MANICHAEAN PUNCTUATION LINE FILLER
+	{runeRange{0x10B39, 0x10B3F}, propertyGeneralCategory{lbprBA, gcPo}},   //     [7] AVESTAN ABBREVIATION MARK..LARGE ONE RING OVER TWO RINGS PUNCTUATION
+	{runeRange{0x10B58, 0x10B5F}, propertyGeneralCategory{lbprAL, gcNo}},   //     [8] INSCRIPTIONAL PARTHIAN NUMBER ONE..INSCRIPTIONAL PARTHIAN NUMBER ONE THOUSAND
+	{runeRange{0x10B78, 0x10B7F}, propertyGeneralCategory{lbprAL, gcNo}},   //     [8] INSCRIPTIONAL PAHLAVI NUMBER ONE..INSCRIPTIONAL PAHLAVI NUMBER ONE THOUSAND
+	{runeRange{0x10B99, 0x10B9C}, propertyGeneralCategory{lbprAL, gcPo}},   //     [4] PSALTER PAHLAVI SECTION MARK..PSALTER PAHLAVI FOUR DOTS WITH DOT
+	{runeRange{0x10C00, 0x10C48}, propertyGeneralCategory{lbprAL, gcLo}},   //    [73] OLD TURKIC LETTER ORKHON A..OLD TURKIC LETTER ORKHON BASH
+	{runeRange{0x10CC0, 0x10CF2}, propertyGeneralCategory{lbprAL, gcLl}},   //    [51] OLD HUNGARIAN SMALL LETTER A..OLD HUNGARIAN SMALL LETTER US
+	{runeRange{0x10D00, 0x10D23}, propertyGeneralCategory{lbprAL, gcLo}},   //    [36] HANIFI ROHINGYA LETTER A..HANIFI ROHINGYA MARK NA KHONNA
+	{runeRange{0x10D30, 0x10D39}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] HANIFI ROHINGYA DIGIT ZERO..HANIFI ROHINGYA DIGIT NINE
+	{runeRange{0x10D4A, 0x10D4D}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] GARAY VOWEL SIGN A..GARAY VOWEL SIGN EE
+	{runeRange{0x10D4F, 0x10D4F}, propertyGeneralCategory{lbprAL, gcLo}},   //         GARAY SUKUN
+	{runeRange{0x10D69, 0x10D6D}, propertyGeneralCategory{lbprCM, gcMn}},   //     [5] GARAY VOWEL SIGN E..GARAY CONSONANT NASALIZATION MARK
+	{runeRange{0x10D6F, 0x10D6F}, propertyGeneralCategory{lbprAL, gcLm}},   //         GARAY REDUPLICATION MARK
+	{runeRange{0x10D8E, 0x10D8F}, propertyGeneralCategory{lbprAL, gcSm}},   //     [2] GARAY PLUS SIGN..GARAY MINUS SIGN
+	{runeRange{0x10E80, 0x10EA9}, propertyGeneralCategory{lbprAL, gcLo}},   //    [42] YEZIDI LETTER ELIF..YEZIDI LETTER ET
+	{runeRange{0x10EAD, 0x10EAD}, propertyGeneralCategory{lbprBA, gcPd}},   //         YEZIDI HYPHENATION MARK
+	{runeRange{0x10EC2, 0x10EC4}, propertyGeneralCategory{lbprAL, gcLo}},   //     [3] ARABIC LETTER DAL WITH TWO DOTS VERTICALLY BELOW..ARABIC LETTER KAF WITH TWO DOTS VERTICALLY BELOW
 	{runeRange{0x10F00, 0x10F1C}, propertyGeneralCategory{lbprAL, gcLo}},   //    [29] OLD SOGDIAN LETTER ALEPH..OLD SOGDIAN LETTER FINAL TAW WITH VERTICAL TAIL
 	{runeRange{0x10F27, 0x10F27}, propertyGeneralCategory{lbprAL, gcLo}},   //         OLD SOGDIAN LIGATURE AYIN-DALETH
 	{runeRange{0x10F46, 0x10F50}, propertyGeneralCategory{lbprCM, gcMn}},   //    [11] SOGDIAN COMBINING DOT BELOW..SOGDIAN COMBINING STROKE BELOW
@@ -3492,40 +3502,52 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1135D, 0x1135D}, propertyGeneralCategory{lbprBA, gcLo}},   //         GRANTHA SIGN PLUTA
 	{runeRange{0x11360, 0x11361}, propertyGeneralCategory{lbprAK, gcLo}},   //     [2] GRANTHA LETTER VOCALIC RR..GRANTHA LETTER VOCALIC LL
 	{runeRange{0x11366, 0x1136C}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] COMBINING GRANTHA DIGIT ZERO..COMBINING GRANTHA DIGIT SIX
-	{runeRange{0x11400, 0x11434}, propertyGeneralCategory{lbprAL, gcLo}},   //    [53] NEWA LETTER A..NEWA LETTER HA
-	{runeRange{0x11438, 0x1143F}, propertyGeneralCategory{lbprCM, gcMn}},   //     [8] NEWA VOWEL SIGN U..NEWA VOWEL SIGN AI
-	{runeRange{0x11442, 0x11444}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] NEWA SIGN VIRAMA..NEWA SIGN ANUSVARA
-	{runeRange{0x11446, 0x11446}, propertyGeneralCategory{lbprCM, gcMn}},   //         NEWA SIGN NUKTA
-	{runeRange{0x1144B, 0x1144E}, propertyGeneralCategory{lbprBA, gcPo}},   //     [4] NEWA DANDA..NEWA GAP FILLER
-	{runeRange{0x11450, 0x11459}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] NEWA DIGIT ZERO..NEWA DIGIT NINE
-	{runeRange{0x1145D, 0x1145D}, propertyGeneralCategory{lbprAL, gcPo}},   //         NEWA INSERTION SIGN
-	{runeRange{0x1145F, 0x11461}, propertyGeneralCategory{lbprAL, gcLo}},   //     [3] NEWA LETTER VEDIC ANUSVARA..NEWA SIGN UPADHMANIYA
-	{runeRange{0x114B0, 0x114B2}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] TIRHUTA VOWEL SIGN AA..TIRHUTA VOWEL SIGN II
-	{runeRange{0x114B9, 0x114B9}, propertyGeneralCategory{lbprCM, gcMc}},   //         TIRHUTA VOWEL SIGN E
-	{runeRange{0x114BB, 0x114BE}, propertyGeneralCategory{lbprCM, gcMc}},   //     [4] TIRHUTA VOWEL SIGN AI..TIRHUTA VOWEL SIGN AU
-	{runeRange{0x114C1, 0x114C1}, propertyGeneralCategory{lbprCM, gcMc}},   //         TIRHUTA SIGN VISARGA
-	{runeRange{0x114C4, 0x114C5}, propertyGeneralCategory{lbprAL, gcLo}},   //     [2] TIRHUTA SIGN AVAGRAHA..TIRHUTA GVANG
-	{runeRange{0x114C7, 0x114C7}, propertyGeneralCategory{lbprAL, gcLo}},   //         TIRHUTA OM
-	{runeRange{0x11580, 0x115AE}, propertyGeneralCategory{lbprAL, gcLo}},   //    [47] SIDDHAM LETTER A..SIDDHAM LETTER HA
-	{runeRange{0x115B2, 0x115B5}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] SIDDHAM VOWEL SIGN U..SIDDHAM VOWEL SIGN VOCALIC RR
-	{runeRange{0x115BC, 0x115BD}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] SIDDHAM SIGN CANDRABINDU..SIDDHAM SIGN ANUSVARA
-	{runeRange{0x115BF, 0x115C0}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] SIDDHAM SIGN VIRAMA..SIDDHAM SIGN NUKTA
-	{runeRange{0x115C2, 0x115C3}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] SIDDHAM DANDA..SIDDHAM DOUBLE DANDA
-	{runeRange{0x115C6, 0x115C8}, propertyGeneralCategory{lbprAL, gcPo}},   //     [3] SIDDHAM REPETITION MARK-1..SIDDHAM REPETITION MARK-3
-	{runeRange{0x115D8, 0x115DB}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] SIDDHAM LETTER THREE-CIRCLE ALTERNATE I..SIDDHAM LETTER ALTERNATE U
-	{runeRange{0x11600, 0x1162F}, propertyGeneralCategory{lbprAL, gcLo}},   //    [48] MODI LETTER A..MODI LETTER LLA
-	{runeRange{0x11633, 0x1163A}, propertyGeneralCategory{lbprCM, gcMn}},   //     [8] MODI VOWEL SIGN U..MODI VOWEL SIGN AI
-	{runeRange{0x1163D, 0x1163D}, propertyGeneralCategory{lbprCM, gcMn}},   //         MODI SIGN ANUSVARA
-	{runeRange{0x1163F, 0x11640}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] MODI SIGN VIRAMA..MODI SIGN ARDHACANDRA
-	{runeRange{0x11643, 0x11643}, propertyGeneralCategory{lbprAL, gcPo}},   //         MODI ABBREVIATION SIGN
-	{runeRange{0x11650, 0x11659}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] MODI DIGIT ZERO..MODI DIGIT NINE
-	{runeRange{0x11680, 0x116AA}, propertyGeneralCategory{lbprAL, gcLo}},   //    [43] TAKRI LETTER A..TAKRI LETTER RRA
-	{runeRange{0x116AC, 0x116AC}, propertyGeneralCategory{lbprCM, gcMc}},   //         TAKRI SIGN VISARGA
-	{runeRange{0x116AE, 0x116AF}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] TAKRI VOWEL SIGN I..TAKRI VOWEL SIGN II
-	{runeRange{0x116B6, 0x116B6}, propertyGeneralCategory{lbprCM, gcMc}},   //         TAKRI SIGN VIRAMA
-	{runeRange{0x116B8, 0x116B8}, propertyGeneralCategory{lbprAL, gcLo}},   //         TAKRI LETTER ARCHAIC KHA
-	{runeRange{0x116C0, 0x116C9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] TAKRI DIGIT ZERO..TAKRI DIGIT NINE
-	{runeRange{0x1171D, 0x1171F}, propertyGeneralCategory{lbprSA, gcMn}},   //     [3] AHOM CONSONANT SIGN MEDIAL LA..AHOM CONSONANT SIGN MEDIAL LIGATING RA
+	{runeRange{0x11380, 0x11389}, propertyGeneralCategory{lbprAS, gcLo}},   //    [10] TULU-TIGALARI LETTER A..TULU-TIGALARI LETTER VOCALIC LL
+	{runeRange{0x1138E, 0x1138E}, propertyGeneralCategory{lbprAS, gcLo}},   //         TULU-TIGALARI LETTER AI
+	{runeRange{0x11392, 0x113B5}, propertyGeneralCategory{lbprAK, gcLo}},   //    [36] TULU-TIGALARI LETTER KA..TULU-TIGALARI LETTER LLLA
+	{runeRange{0x113B8, 0x113BA}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] TULU-TIGALARI VOWEL SIGN AA..TULU-TIGALARI VOWEL SIGN II
+	{runeRange{0x113C2, 0x113C2}, propertyGeneralCategory{lbprCM, gcMc}},   //         TULU-TIGALARI VOWEL SIGN EE
+	{runeRange{0x113C7, 0x113CA}, propertyGeneralCategory{lbprCM, gcMc}},   //     [4] TULU-TIGALARI VOWEL SIGN OO..TULU-TIGALARI SIGN CANDRA ANUNASIKA
+	{runeRange{0x113CE, 0x113CE}, propertyGeneralCategory{lbprCM, gcMn}},   //         TULU-TIGALARI SIGN VIRAMA
+	{runeRange{0x113D0, 0x113D0}, propertyGeneralCategory{lbprVI, gcMn}},   //         TULU-TIGALARI CONJOINER
+	{runeRange{0x113D2, 0x113D2}, propertyGeneralCategory{lbprCM, gcMn}},   //         TULU-TIGALARI GEMINATION MARK
+	{runeRange{0x113D4, 0x113D5}, propertyGeneralCategory{lbprID, gcPo}},   //     [2] TULU-TIGALARI DANDA..TULU-TIGALARI DOUBLE DANDA
+	{runeRange{0x113E1, 0x113E2}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] TULU-TIGALARI VEDIC TONE SVARITA..TULU-TIGALARI VEDIC TONE ANUDATTA
+	{runeRange{0x11435, 0x11437}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] NEWA VOWEL SIGN AA..NEWA VOWEL SIGN II
+	{runeRange{0x11440, 0x11441}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] NEWA VOWEL SIGN O..NEWA VOWEL SIGN AU
+	{runeRange{0x11445, 0x11445}, propertyGeneralCategory{lbprCM, gcMc}},   //         NEWA SIGN VISARGA
+	{runeRange{0x11447, 0x1144A}, propertyGeneralCategory{lbprAL, gcLo}},   //     [4] NEWA SIGN AVAGRAHA..NEWA SIDDHI
+	{runeRange{0x1144F, 0x1144F}, propertyGeneralCategory{lbprAL, gcPo}},   //         NEWA ABBREVIATION SIGN
+	{runeRange{0x1145A, 0x1145B}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] NEWA DOUBLE COMMA..NEWA PLACEHOLDER MARK
+	{runeRange{0x1145E, 0x1145E}, propertyGeneralCategory{lbprCM, gcMn}},   //         NEWA SANDHI MARK
+	{runeRange{0x11480, 0x114AF}, propertyGeneralCategory{lbprAL, gcLo}},   //    [48] TIRHUTA ANJI..TIRHUTA LETTER HA
+	{runeRange{0x114B3, 0x114B8}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] TIRHUTA VOWEL SIGN U..TIRHUTA VOWEL SIGN VOCALIC LL
+	{runeRange{0x114BA, 0x114BA}, propertyGeneralCategory{lbprCM, gcMn}},   //         TIRHUTA VOWEL SIGN SHORT E
+	{runeRange{0x114BF, 0x114C0}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] TIRHUTA SIGN CANDRABINDU..TIRHUTA SIGN ANUSVARA
+	{runeRange{0x114C2, 0x114C3}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] TIRHUTA SIGN VIRAMA..TIRHUTA SIGN NUKTA
+	{runeRange{0x114C6, 0x114C6}, propertyGeneralCategory{lbprAL, gcPo}},   //         TIRHUTA ABBREVIATION SIGN
+	{runeRange{0x114D0, 0x114D9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] TIRHUTA DIGIT ZERO..TIRHUTA DIGIT NINE
+	{runeRange{0x115AF, 0x115B1}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] SIDDHAM VOWEL SIGN AA..SIDDHAM VOWEL SIGN II
+	{runeRange{0x115B8, 0x115BB}, propertyGeneralCategory{lbprCM, gcMc}},   //     [4] SIDDHAM VOWEL SIGN E..SIDDHAM VOWEL SIGN AU
+	{runeRange{0x115BE, 0x115BE}, propertyGeneralCategory{lbprCM, gcMc}},   //         SIDDHAM SIGN VISARGA
+	{runeRange{0x115C1, 0x115C1}, propertyGeneralCategory{lbprBB, gcPo}},   //         SIDDHAM SIGN SIDDHAM
+	{runeRange{0x115C4, 0x115C5}, propertyGeneralCategory{lbprEX, gcPo}},   //     [2] SIDDHAM SEPARATOR DOT..SIDDHAM SEPARATOR BAR
+	{runeRange{0x115C9, 0x115D7}, propertyGeneralCategory{lbprBA, gcPo}},   //    [15] SIDDHAM END OF TEXT MARK..SIDDHAM SECTION MARK WITH CIRCLES AND FOUR ENCLOSURES
+	{runeRange{0x115DC, 0x115DD}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] SIDDHAM VOWEL SIGN ALTERNATE U..SIDDHAM VOWEL SIGN ALTERNATE UU
+	{runeRange{0x11630, 0x11632}, propertyGeneralCategory{lbprCM, gcMc}},   //     [3] MODI VOWEL SIGN AA..MODI VOWEL SIGN II
+	{runeRange{0x1163B, 0x1163C}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] MODI VOWEL SIGN O..MODI VOWEL SIGN AU
+	{runeRange{0x1163E, 0x1163E}, propertyGeneralCategory{lbprCM, gcMc}},   //         MODI SIGN VISARGA
+	{runeRange{0x11641, 0x11642}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] MODI DANDA..MODI DOUBLE DANDA
+	{runeRange{0x11644, 0x11644}, propertyGeneralCategory{lbprAL, gcLo}},   //         MODI SIGN HUVA
+	{runeRange{0x11660, 0x1166C}, propertyGeneralCategory{lbprBB, gcPo}},   //    [13] MONGOLIAN BIRGA WITH ORNAMENT..MONGOLIAN TURNED SWIRL BIRGA WITH DOUBLE ORNAMENT
+	{runeRange{0x116AB, 0x116AB}, propertyGeneralCategory{lbprCM, gcMn}},   //         TAKRI SIGN ANUSVARA
+	{runeRange{0x116AD, 0x116AD}, propertyGeneralCategory{lbprCM, gcMn}},   //         TAKRI VOWEL SIGN AA
+	{runeRange{0x116B0, 0x116B5}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] TAKRI VOWEL SIGN U..TAKRI VOWEL SIGN AU
+	{runeRange{0x116B7, 0x116B7}, propertyGeneralCategory{lbprCM, gcMn}},   //         TAKRI SIGN NUKTA
+	{runeRange{0x116B9, 0x116B9}, propertyGeneralCategory{lbprAL, gcPo}},   //         TAKRI ABBREVIATION SIGN
+	{runeRange{0x116D0, 0x116E3}, propertyGeneralCategory{lbprNU, gcNd}},   //    [20] MYANMAR PAO DIGIT ZERO..MYANMAR EASTERN PWO KAREN DIGIT NINE
+	{runeRange{0x1171D, 0x1171D}, propertyGeneralCategory{lbprSA, gcMn}},   //         AHOM CONSONANT SIGN MEDIAL LA
+	{runeRange{0x1171F, 0x1171F}, propertyGeneralCategory{lbprSA, gcMn}},   //         AHOM CONSONANT SIGN MEDIAL LIGATING RA
 	{runeRange{0x11722, 0x11725}, propertyGeneralCategory{lbprSA, gcMn}},   //     [4] AHOM VOWEL SIGN I..AHOM VOWEL SIGN UU
 	{runeRange{0x11727, 0x1172B}, propertyGeneralCategory{lbprSA, gcMn}},   //     [5] AHOM VOWEL SIGN AW..AHOM SIGN KILLER
 	{runeRange{0x1173A, 0x1173B}, propertyGeneralCategory{lbprSA, gcNo}},   //     [2] AHOM NUMBER TEN..AHOM NUMBER TWENTY
@@ -3543,7 +3565,7 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x1193F, 0x1193F}, propertyGeneralCategory{lbprAP, gcLo}},   //         DIVES AKURU PREFIXED NASAL SIGN
 	{runeRange{0x11941, 0x11941}, propertyGeneralCategory{lbprAP, gcLo}},   //         DIVES AKURU INITIAL RA
 	{runeRange{0x11943, 0x11943}, propertyGeneralCategory{lbprCM, gcMn}},   //         DIVES AKURU SIGN NUKTA
-	{runeRange{0x11950, 0x11959}, propertyGeneralCategory{lbprID, gcNd}},   //    [10] DIVES AKURU DIGIT ZERO..DIVES AKURU DIGIT NINE
+	{runeRange{0x11950, 0x11959}, propertyGeneralCategory{lbprAS, gcNd}},   //    [10] DIVES AKURU DIGIT ZERO..DIVES AKURU DIGIT NINE
 	{runeRange{0x119AA, 0x119D0}, propertyGeneralCategory{lbprAL, gcLo}},   //    [39] NANDINAGARI LETTER E..NANDINAGARI LETTER RRA
 	{runeRange{0x119D4, 0x119D7}, propertyGeneralCategory{lbprCM, gcMn}},   //     [4] NANDINAGARI VOWEL SIGN U..NANDINAGARI VOWEL SIGN VOCALIC RR
 	{runeRange{0x119DC, 0x119DF}, propertyGeneralCategory{lbprCM, gcMc}},   //     [4] NANDINAGARI VOWEL SIGN O..NANDINAGARI SIGN VISARGA
@@ -3559,4 +3581,44 @@ var lineBreakCodePoints = dictionary[propertyGeneralCategory]{
 	{runeRange{0x11A51, 0x11A56}, propertyGeneralCategory{lbprCM, gcMn}},   //     [6] SOYOMBO VOWEL SIGN I..SOYOMBO VOWEL SIGN OE
 	{runeRange{0x11A59, 0x11A5B}, propertyGeneralCategory{lbprCM, gcMn}},   //     [3] SOYOMBO VOWEL SIGN VOCALIC R..SOYOMBO VOWEL LENGTH MARK
 	{runeRange{0x11A8A, 0x11A96}, propertyGeneralCategory{lbprCM, gcMn}},   //    [13] SOYOMBO FINAL CONSONANT SIGN G..SOYOMBO SIGN ANUSVARA
+	{runeRange{0x11A98, 0x11A99}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] SOYOMBO GEMINATION MARK..SOYOMBO SUBJOINER
+	{runeRange{0x11A9D, 0x11A9D}, propertyGeneralCategory{lbprAL, gcLo}},   //         SOYOMBO MARK PLUTA
+	{runeRange{0x11AA1, 0x11AA2}, propertyGeneralCategory{lbprBA, gcPo}},   //     [2] SOYOMBO TERMINAL MARK-1..SOYOMBO TERMINAL MARK-2
+	{runeRange{0x11AC0, 0x11AF8}, propertyGeneralCategory{lbprAL, gcLo}},   //    [57] PAU CIN HAU LETTER PA..PAU CIN HAU GLOTTAL STOP FINAL
+	{runeRange{0x11BC0, 0x11BE0}, propertyGeneralCategory{lbprAL, gcLo}},   //    [33] SUNUWAR LETTER DEVI..SUNUWAR LETTER KLOKO
+	{runeRange{0x11BF0, 0x11BF9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] SUNUWAR DIGIT ZERO..SUNUWAR DIGIT NINE
+	{runeRange{0x11C0A, 0x11C2E}, propertyGeneralCategory{lbprAL, gcLo}},   //    [37] BHAIKSUKI LETTER E..BHAIKSUKI LETTER HA
+	{runeRange{0x11C30, 0x11C36}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] BHAIKSUKI VOWEL SIGN I..BHAIKSUKI VOWEL SIGN VOCALIC L
+	{runeRange{0x11C3E, 0x11C3E}, propertyGeneralCategory{lbprCM, gcMc}},   //         BHAIKSUKI SIGN VISARGA
+	{runeRange{0x11C40, 0x11C40}, propertyGeneralCategory{lbprAL, gcLo}},   //         BHAIKSUKI SIGN AVAGRAHA
+	{runeRange{0x11C50, 0x11C59}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] BHAIKSUKI DIGIT ZERO..BHAIKSUKI DIGIT NINE
+	{runeRange{0x11C70, 0x11C70}, propertyGeneralCategory{lbprBB, gcPo}},   //         MARCHEN HEAD MARK
+	{runeRange{0x11C72, 0x11C8F}, propertyGeneralCategory{lbprAL, gcLo}},   //    [30] MARCHEN LETTER KA..MARCHEN LETTER A
+	{runeRange{0x11CA9, 0x11CA9}, propertyGeneralCategory{lbprCM, gcMc}},   //         MARCHEN SUBJOINED LETTER YA
+	{runeRange{0x11CB1, 0x11CB1}, propertyGeneralCategory{lbprCM, gcMc}},   //         MARCHEN VOWEL SIGN I
+	{runeRange{0x11CB4, 0x11CB4}, propertyGeneralCategory{lbprCM, gcMc}},   //         MARCHEN VOWEL SIGN O
+	{runeRange{0x11D00, 0x11D06}, propertyGeneralCategory{lbprAL, gcLo}},   //     [7] MASARAM GONDI LETTER A..MASARAM GONDI LETTER E
+	{runeRange{0x11D0B, 0x11D30}, propertyGeneralCategory{lbprAL, gcLo}},   //    [38] MASARAM GONDI LETTER AU..MASARAM GONDI LETTER TRA
+	{runeRange{0x11D3A, 0x11D3A}, propertyGeneralCategory{lbprCM, gcMn}},   //         MASARAM GONDI VOWEL SIGN E
+	{runeRange{0x11D3F, 0x11D45}, propertyGeneralCategory{lbprCM, gcMn}},   //     [7] MASARAM GONDI VOWEL SIGN AU..MASARAM GONDI VIRAMA
+	{runeRange{0x11D47, 0x11D47}, propertyGeneralCategory{lbprCM, gcMn}},   //         MASARAM GONDI RA-KARA
+	{runeRange{0x11D60, 0x11D65}, propertyGeneralCategory{lbprAL, gcLo}},   //     [6] GUNJALA GONDI LETTER A..GUNJALA GONDI LETTER UU
+	{runeRange{0x11D6A, 0x11D89}, propertyGeneralCategory{lbprAL, gcLo}},   //    [32] GUNJALA GONDI LETTER OO..GUNJALA GONDI LETTER SA
+	{runeRange{0x11D90, 0x11D91}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] GUNJALA GONDI VOWEL SIGN EE..GUNJALA GONDI VOWEL SIGN AI
+	{runeRange{0x11D95, 0x11D95}, propertyGeneralCategory{lbprCM, gcMn}},   //         GUNJALA GONDI SIGN ANUSVARA
+	{runeRange{0x11D97, 0x11D97}, propertyGeneralCategory{lbprCM, gcMn}},   //         GUNJALA GONDI VIRAMA
+	{runeRange{0x11DA0, 0x11DA9}, propertyGeneralCategory{lbprNU, gcNd}},   //    [10] GUNJALA GONDI DIGIT ZERO..GUNJALA GONDI DIGIT NINE
+	{runeRange{0x11EF2, 0x11EF2}, propertyGeneralCategory{lbprBA, gcLo}},   //         MAKASAR ANGKA
+	{runeRange{0x11EF5, 0x11EF6}, propertyGeneralCategory{lbprCM, gcMc}},   //     [2] MAKASAR VOWEL SIGN E..MAKASAR VOWEL SIGN O
+	{runeRange{0x11F00, 0x11F01}, propertyGeneralCategory{lbprCM, gcMn}},   //     [2] KAWI SIGN CANDRABINDU..KAWI SIGN ANUSVARA
+	{runeRange{0x11F03, 0x11F03}, propertyGeneralCategory{lbprCM, gcMc}},   //         KAWI SIGN VISARGA
+	{runeRange{0x11F12, 0x11F33}, propertyGeneralCategory{lbprAK, gcLo}},   //    [34] KAWI LETTER KA..KAWI LETTER JNYA
+	{runeRange{0x11F36, 0x11F3A}, propertyGeneralCategory{lbprCM, gcMn}},   //     [5] KAWI VOWEL SIGN I..KAWI VOWEL SIGN VOCALIC R
+	{runeRange{0x11F40, 0x11F40}, propertyGeneralCategory{lbprCM, gcMn}},   //         KAWI VOWEL SIGN EU
+	{runeRange{0x11F42, 0x11F42}, propertyGeneralCategory{lbprVI, gcMn}},   //         KAWI CONJOINER
+	{runeRange{0x11F45, 0x11F4F}, propertyGeneralCategory{lbprID, gcPo}},   //    [11] KAWI PUNCTUATION SECTION MARKER..KAWI PUNCTUATION CLOSING SPIRAL
+	{runeRange{0x11F5A, 0x11F5A}, propertyGeneralCategory{lbprCM, gcMn}},   //         KAWI SIGN NUKTA
+	{runeRange{0x11FC0, 0x11FD4}, propertyGeneralCategory{lbprAL, gcNo}},   //    [21] TAMIL FRACTION ONE THREE-HUNDRED-AND-TWENTIETH..TAMIL FRACTION DOWNSCALING FACTOR KIIZH
+	{runeRange{0x11FDD, 0x11FE0}, propertyGeneralCategory{lbprPO, gcSc}},   //     [4] TAMIL SIGN KAACU..TAMIL SIGN VARAAKAN
+	{runeRange{0x11FFF, 0x11FFF}, propertyGeneralCategory{lbprBA, gcPo}},   //         TAMIL PUNCTUATION END OF TEXT
 }

@@ -36,7 +36,7 @@ type sbTransitionResult struct {
 }
 
 // The sentence break parser's state transitions. It's analogous to
-// grTransitions, see comments there for details. Unicode version 15.0.0.
+// grTransitions, see comments there for details. Unicode version 16.0.0.
 var sbTransitions = [sbMax * sbprMax]sbTransitionResult{
 	// SB3.
 	int(sbAny)*sbprMax + int(sbprCR): {sbCR, false, 9990},

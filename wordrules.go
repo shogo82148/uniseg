@@ -36,7 +36,7 @@ type wbTransitionResult struct {
 }
 
 // The word break parser's state transitions. It's analogous to grTransitions,
-// see comments there for details. Unicode version 15.0.0.
+// see comments there for details. Unicode version 16.0.0.
 var wbTransitions = [wbMax * wbprMax]wbTransitionResult{
 	// WB3b.
 	int(wbAny)*wbprMax + int(wbprNewline): {wbNewline, true, 32},
