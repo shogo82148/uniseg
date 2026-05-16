@@ -62,7 +62,7 @@ type grTransitionResult struct {
 //     are equal. Stop.
 //  6. Assume grAny and grBoundary.
 //
-// Unicode version 15.1.0.
+// Unicode version 16.0.0.
 var grTransitions = [grMax * prMax]grTransitionResult{
 	// GB5
 	int(grAny)*prMax + int(prCR):      {grCR, true, 50},

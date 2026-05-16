@@ -244,7 +244,7 @@ func (s GraphemeBreakState) unpack() (grState, property) {
 // has much better performance and makes no allocations. It lends itself well to
 // large byte slices.
 //
-// [Unicode Standard Annex #29, Grapheme Cluster Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Grapheme_Cluster_Boundaries
+// [Unicode Standard Annex #29, Grapheme Cluster Boundaries]: https://www.unicode.org/reports/tr29/tr29-45.html#Grapheme_Cluster_Boundaries
 func FirstGraphemeCluster(b []byte, state GraphemeBreakState) (cluster, rest []byte, width int, newState GraphemeBreakState) {
 	return firstGraphemeCluster(DefaultParser, b, state, utf8.DecodeRune)
 }
@@ -273,7 +273,7 @@ func FirstGraphemeCluster(b []byte, state GraphemeBreakState) (cluster, rest []b
 // has much better performance and makes no allocations. It lends itself well to
 // large byte slices.
 //
-// [Unicode Standard Annex #29, Grapheme Cluster Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Grapheme_Cluster_Boundaries
+// [Unicode Standard Annex #29, Grapheme Cluster Boundaries]: https://www.unicode.org/reports/tr29/tr29-45.html#Grapheme_Cluster_Boundaries
 func (p *Parser) FirstGraphemeCluster(b []byte, state GraphemeBreakState) (cluster, rest []byte, width int, newState GraphemeBreakState) {
 	return firstGraphemeCluster(p, b, state, utf8.DecodeRune)
 }

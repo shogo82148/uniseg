@@ -18,7 +18,7 @@ import "unicode/utf8"
 //
 // Given an empty byte slice "b", the function returns nil values.
 //
-// [Unicode Standard Annex #29, Sentence Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Sentence_Boundaries
+// [Unicode Standard Annex #29, Sentence Boundaries]: https://www.unicode.org/reports/tr29/tr29-45.html#Sentence_Boundaries
 func FirstSentence(b []byte, state SentenceBreakState) (sentence, rest []byte, newState SentenceBreakState) {
 	return firstSentence(b, state, utf8.DecodeRune)
 }
@@ -39,7 +39,7 @@ func FirstSentence(b []byte, state SentenceBreakState) (sentence, rest []byte, n
 //
 // Given an empty byte slice "b", the function returns nil values.
 //
-// [Unicode Standard Annex #29, Sentence Boundaries]: https://www.unicode.org/reports/tr29/tr29-41.html#Sentence_Boundaries
+// [Unicode Standard Annex #29, Sentence Boundaries]: https://www.unicode.org/reports/tr29/tr29-45.html#Sentence_Boundaries
 func (*Parser) FirstSentence(b []byte, state SentenceBreakState) (sentence, rest []byte, newState SentenceBreakState) {
 	return firstSentence(b, state, utf8.DecodeRune)
 }

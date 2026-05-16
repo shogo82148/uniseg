@@ -125,7 +125,7 @@ const (
 // to ignore this by checking if the length of the "rest" slice is 0 and calling
 // [HasTrailingLineBreak] or [HasTrailingLineBreakInString] on the last rune.
 //
-// [UAX #14 LB3]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
+// [UAX #14 LB3]: https://www.unicode.org/reports/tr14/tr14-53.html#Algorithm
 func Step(b []byte, state State) (cluster, rest []byte, boundaries Boundaries, newState State) {
 	return step(DefaultParser, b, state, utf8.DecodeRune)
 }
@@ -162,7 +162,7 @@ func Step(b []byte, state State) (cluster, rest []byte, boundaries Boundaries, n
 // to ignore this by checking if the length of the "rest" slice is 0 and calling
 // [HasTrailingLineBreak] or [HasTrailingLineBreakInString] on the last rune.
 //
-// [UAX #14 LB3]: https://www.unicode.org/reports/tr14/tr14-49.html#Algorithm
+// [UAX #14 LB3]: https://www.unicode.org/reports/tr14/tr14-53.html#Algorithm
 func (p *Parser) Step(b []byte, state State) (cluster, rest []byte, boundaries Boundaries, newState State) {
 	return step(p, b, state, utf8.DecodeRune)
 }
