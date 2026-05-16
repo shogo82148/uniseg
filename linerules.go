@@ -344,8 +344,10 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	lbProp := lineBreakCodePoints.search(r)
 	nextProperty := lbProp.lbProperty
 	generalCategory := lbProp.generalCategory
-	if nextProperty == lbprXX && generalCategory == gcNone && unicode.Is(unicode.Cn, r) {
-		generalCategory = gcCn
+	if nextProperty == lbprXX && generalCategory == gcNone {
+		if cn := unicode.Categories["Cn"]; cn != nil && unicode.Is(cn, r) {
+			generalCategory = gcCn
+		}
 	}
 
 	// Prepare.
