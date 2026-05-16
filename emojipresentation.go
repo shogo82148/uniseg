@@ -5,73 +5,73 @@ package uniseg
 // emojiPresentation are taken from
 //
 // and
-// https://unicode.org/Public/16.0.0/ucd/emoji/emoji-data.txt
+// https://unicode.org/Public/17.0.0/ucd/emoji/emoji-data.txt
 // ("Extended_Pictographic" only)
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var emojiPresentation = dictionary[emojiProperty]{
-	{runeRange{0x1F680, 0x1F680}, prEmojiPresentation}, // E0.6   [1] (🚀)       rocket
-	{runeRange{0x1F465, 0x1F465}, prEmojiPresentation}, // E1.0   [1] (👥)       busts in silhouette
-	{runeRange{0x1F94C, 0x1F94C}, prEmojiPresentation}, // E5.0   [1] (🥌)       curling stone
+	{runeRange{0x1F68A, 0x1F68B}, prEmojiPresentation}, // E1.0   [2] (🚊..🚋)    tram..tram car
+	{runeRange{0x1F4B8, 0x1F4EB}, prEmojiPresentation}, // E0.6  [52] (💸..📫)    money with wings..closed mailbox with raised flag
+	{runeRange{0x1F972, 0x1F972}, prEmojiPresentation}, // E13.0  [1] (🥲)       smiling face with tear
 	{runeRange{0x1F34B, 0x1F34B}, prEmojiPresentation}, // E1.0   [1] (🍋)       lemon
-	{runeRange{0x1F5FB, 0x1F5FF}, prEmojiPresentation}, // E0.6   [5] (🗻..🗿)    mount fuji..moai
-	{runeRange{0x1F6BF, 0x1F6BF}, prEmojiPresentation}, // E1.0   [1] (🚿)       shower
-	{runeRange{0x1FA74, 0x1FA74}, prEmojiPresentation}, // E13.0  [1] (🩴)       thong sandal
+	{runeRange{0x1F610, 0x1F610}, prEmojiPresentation}, // E0.7   [1] (😐)       neutral face
+	{runeRange{0x1F6D6, 0x1F6D7}, prEmojiPresentation}, // E13.0  [2] (🛖..🛗)    hut..elevator
+	{runeRange{0x1FA87, 0x1FA88}, prEmojiPresentation}, // E15.0  [2] (🪇..🪈)    maracas..flute
 	{runeRange{0x2B50, 0x2B50}, prEmojiPresentation},   // E0.6   [1] (⭐)       star
-	{runeRange{0x1F3F4, 0x1F3F4}, prEmojiPresentation}, // E1.0   [1] (🏴)       black flag
-	{runeRange{0x1F4FF, 0x1F502}, prEmojiPresentation}, // E1.0   [4] (📿..🔂)    prayer beads..repeat single button
-	{runeRange{0x1F61B, 0x1F61B}, prEmojiPresentation}, // E1.0   [1] (😛)       face with tongue
-	{runeRange{0x1F696, 0x1F696}, prEmojiPresentation}, // E1.0   [1] (🚖)       oncoming taxi
-	{runeRange{0x1F7E0, 0x1F7EB}, prEmojiPresentation}, // E12.0 [12] (🟠..🟫)    orange circle..brown square
-	{runeRange{0x1F998, 0x1F9A2}, prEmojiPresentation}, // E11.0 [11] (🦘..🦢)    kangaroo..swan
-	{runeRange{0x1FABE, 0x1FABE}, prEmojiPresentation}, // E16.0  [1] (🪾)       leafless tree
+	{runeRange{0x1F413, 0x1F413}, prEmojiPresentation}, // E1.0   [1] (🐓)       rooster
+	{runeRange{0x1F516, 0x1F52B}, prEmojiPresentation}, // E0.6  [22] (🔖..🔫)    bookmark..water pistol
+	{runeRange{0x1F62D, 0x1F62D}, prEmojiPresentation}, // E0.6   [1] (😭)       loudly crying face
+	{runeRange{0x1F6A4, 0x1F6A5}, prEmojiPresentation}, // E0.6   [2] (🚤..🚥)    speedboat..horizontal traffic light
+	{runeRange{0x1F91F, 0x1F91F}, prEmojiPresentation}, // E5.0   [1] (🤟)       love-you gesture
+	{runeRange{0x1F9BA, 0x1F9BF}, prEmojiPresentation}, // E12.0  [6] (🦺..🦿)    safety vest..mechanical leg
+	{runeRange{0x1FAC6, 0x1FAC6}, prEmojiPresentation}, // E16.0  [1] (🫆)       fingerprint
 	{runeRange{0x26EA, 0x26EA}, prEmojiPresentation},   // E0.6   [1] (⛪)       church
 	{runeRange{0x1F310, 0x1F310}, prEmojiPresentation}, // E1.0   [1] (🌐)       globe with meridians
-	{runeRange{0x1F3C7, 0x1F3C7}, prEmojiPresentation}, // E1.0   [1] (🏇)       horse racing
-	{runeRange{0x1F414, 0x1F414}, prEmojiPresentation}, // E0.6   [1] (🐔)       chicken
-	{runeRange{0x1F4EC, 0x1F4ED}, prEmojiPresentation}, // E0.7   [2] (📬..📭)    open mailbox with raised flag..open mailbox with lowered flag
-	{runeRange{0x1F52C, 0x1F52D}, prEmojiPresentation}, // E1.0   [2] (🔬..🔭)    microscope..telescope
-	{runeRange{0x1F611, 0x1F611}, prEmojiPresentation}, // E1.0   [1] (😑)       expressionless face
-	{runeRange{0x1F62E, 0x1F62F}, prEmojiPresentation}, // E1.0   [2] (😮..😯)    face with open mouth..hushed face
-	{runeRange{0x1F68C, 0x1F68C}, prEmojiPresentation}, // E0.6   [1] (🚌)       bus
-	{runeRange{0x1F6A6, 0x1F6A6}, prEmojiPresentation}, // E1.0   [1] (🚦)       vertical traffic light
-	{runeRange{0x1F6DC, 0x1F6DC}, prEmojiPresentation}, // E15.0  [1] (🛜)       wireless
-	{runeRange{0x1F928, 0x1F92F}, prEmojiPresentation}, // E5.0   [8] (🤨..🤯)    face with raised eyebrow..exploding head
-	{runeRange{0x1F977, 0x1F978}, prEmojiPresentation}, // E13.0  [2] (🥷..🥸)    ninja..disguised face
-	{runeRange{0x1F9C1, 0x1F9C2}, prEmojiPresentation}, // E11.0  [2] (🧁..🧂)    cupcake..salt
-	{runeRange{0x1FA8F, 0x1FA8F}, prEmojiPresentation}, // E16.0  [1] (🪏)       shovel
-	{runeRange{0x1FADA, 0x1FADB}, prEmojiPresentation}, // E15.0  [2] (🫚..🫛)    ginger root..pea pod
+	{runeRange{0x1F3E4, 0x1F3E4}, prEmojiPresentation}, // E1.0   [1] (🏤)       post office
+	{runeRange{0x1F442, 0x1F464}, prEmojiPresentation}, // E0.6  [35] (👂..👤)    ear..bust in silhouette
+	{runeRange{0x1F4F9, 0x1F4FC}, prEmojiPresentation}, // E0.6   [4] (📹..📼)    video camera..videocassette
+	{runeRange{0x1F5A4, 0x1F5A4}, prEmojiPresentation}, // E3.0   [1] (🖤)       black heart
+	{runeRange{0x1F61A, 0x1F61A}, prEmojiPresentation}, // E0.6   [1] (😚)       kissing face with closed eyes
+	{runeRange{0x1F645, 0x1F64F}, prEmojiPresentation}, // E0.6  [11] (🙅..🙏)    person gesturing NO..folded hands
+	{runeRange{0x1F695, 0x1F695}, prEmojiPresentation}, // E0.6   [1] (🚕)       taxi
+	{runeRange{0x1F6B9, 0x1F6BE}, prEmojiPresentation}, // E0.6   [6] (🚹..🚾)    men’s room..water closet
+	{runeRange{0x1F6FA, 0x1F6FA}, prEmojiPresentation}, // E12.0  [1] (🛺)       auto rickshaw
+	{runeRange{0x1F940, 0x1F945}, prEmojiPresentation}, // E3.0   [6] (🥀..🥅)    wilted flower..goal net
+	{runeRange{0x1F985, 0x1F991}, prEmojiPresentation}, // E3.0  [13] (🦅..🦑)    eagle..squid
+	{runeRange{0x1F9E7, 0x1F9FF}, prEmojiPresentation}, // E11.0 [25] (🧧..🧿)    red envelope..nazar amulet
+	{runeRange{0x1FAAD, 0x1FAAF}, prEmojiPresentation}, // E15.0  [3] (🪭..🪯)    folding hand fan..khanda
+	{runeRange{0x1FADF, 0x1FADF}, prEmojiPresentation}, // E16.0  [1] (🫟)       splatter
 	{runeRange{0x267F, 0x267F}, prEmojiPresentation},   // E0.6   [1] (♿)       wheelchair symbol
 	{runeRange{0x274C, 0x274C}, prEmojiPresentation},   // E0.6   [1] (❌)       cross mark
 	{runeRange{0x1F21A, 0x1F21A}, prEmojiPresentation}, // E0.6   [1] (🈚)       Japanese “free of charge” button
 	{runeRange{0x1F31C, 0x1F31C}, prEmojiPresentation}, // E0.7   [1] (🌜)       last quarter moon face
-	{runeRange{0x1F380, 0x1F393}, prEmojiPresentation}, // E0.6  [20] (🎀..🎓)    ribbon..graduation cap
-	{runeRange{0x1F3CF, 0x1F3D3}, prEmojiPresentation}, // E1.0   [5] (🏏..🏓)    cricket game..ping pong
-	{runeRange{0x1F40C, 0x1F40E}, prEmojiPresentation}, // E0.6   [3] (🐌..🐎)    snail..horse
-	{runeRange{0x1F42A, 0x1F42A}, prEmojiPresentation}, // E1.0   [1] (🐪)       camel
-	{runeRange{0x1F4AD, 0x1F4AD}, prEmojiPresentation}, // E1.0   [1] (💭)       thought balloon
-	{runeRange{0x1F4F5, 0x1F4F5}, prEmojiPresentation}, // E1.0   [1] (📵)       no mobile phones
-	{runeRange{0x1F509, 0x1F509}, prEmojiPresentation}, // E1.0   [1] (🔉)       speaker medium volume
-	{runeRange{0x1F55C, 0x1F567}, prEmojiPresentation}, // E0.7  [12] (🕜..🕧)    one-thirty..twelve-thirty
-	{runeRange{0x1F609, 0x1F60D}, prEmojiPresentation}, // E0.6   [5] (😉..😍)    winking face..smiling face with heart-eyes
-	{runeRange{0x1F617, 0x1F617}, prEmojiPresentation}, // E1.0   [1] (😗)       kissing face
-	{runeRange{0x1F626, 0x1F627}, prEmojiPresentation}, // E1.0   [2] (😦..😧)    frowning face with open mouth..anguished face
-	{runeRange{0x1F636, 0x1F636}, prEmojiPresentation}, // E1.0   [1] (😶)       face without mouth
-	{runeRange{0x1F687, 0x1F687}, prEmojiPresentation}, // E0.6   [1] (🚇)       metro
-	{runeRange{0x1F690, 0x1F690}, prEmojiPresentation}, // E1.0   [1] (🚐)       minibus
-	{runeRange{0x1F69B, 0x1F6A1}, prEmojiPresentation}, // E1.0   [7] (🚛..🚡)    articulated lorry..aerial tramway
-	{runeRange{0x1F6B3, 0x1F6B5}, prEmojiPresentation}, // E1.0   [3] (🚳..🚵)    no bicycles..person mountain biking
-	{runeRange{0x1F6D0, 0x1F6D0}, prEmojiPresentation}, // E1.0   [1] (🛐)       place of worship
-	{runeRange{0x1F6F7, 0x1F6F8}, prEmojiPresentation}, // E5.0   [2] (🛷..🛸)    sled..flying saucer
-	{runeRange{0x1F910, 0x1F918}, prEmojiPresentation}, // E1.0   [9] (🤐..🤘)    zipper-mouth face..sign of the horns
-	{runeRange{0x1F93C, 0x1F93E}, prEmojiPresentation}, // E3.0   [3] (🤼..🤾)    people wrestling..person playing handball
-	{runeRange{0x1F96C, 0x1F970}, prEmojiPresentation}, // E11.0  [5] (🥬..🥰)    leafy green..smiling face with hearts
-	{runeRange{0x1F97C, 0x1F97F}, prEmojiPresentation}, // E11.0  [4] (🥼..🥿)    lab coat..flat shoe
-	{runeRange{0x1F9AE, 0x1F9AF}, prEmojiPresentation}, // E12.0  [2] (🦮..🦯)    guide dog..white cane
-	{runeRange{0x1F9CD, 0x1F9CF}, prEmojiPresentation}, // E12.0  [3] (🧍..🧏)    person standing..deaf person
-	{runeRange{0x1FA80, 0x1FA82}, prEmojiPresentation}, // E12.0  [3] (🪀..🪂)    yo-yo..parachute
-	{runeRange{0x1FAAD, 0x1FAAF}, prEmojiPresentation}, // E15.0  [3] (🪭..🪯)    folding hand fan..khanda
-	{runeRange{0x1FAC6, 0x1FAC6}, prEmojiPresentation}, // E16.0  [1] (🫆)       fingerprint
-	{runeRange{0x1FAE8, 0x1FAE8}, prEmojiPresentation}, // E15.0  [1] (🫨)       shaking face
+	{runeRange{0x1F3C5, 0x1F3C5}, prEmojiPresentation}, // E1.0   [1] (🏅)       sports medal
+	{runeRange{0x1F409, 0x1F40B}, prEmojiPresentation}, // E1.0   [3] (🐉..🐋)    dragon..whale
+	{runeRange{0x1F417, 0x1F429}, prEmojiPresentation}, // E0.6  [19] (🐗..🐩)    boar..poodle
+	{runeRange{0x1F46E, 0x1F4AC}, prEmojiPresentation}, // E0.6  [63] (👮..💬)    police officer..speech balloon
+	{runeRange{0x1F4F0, 0x1F4F4}, prEmojiPresentation}, // E0.6   [5] (📰..📴)    newspaper..mobile phone off
+	{runeRange{0x1F508, 0x1F508}, prEmojiPresentation}, // E0.7   [1] (🔈)       speaker low volume
+	{runeRange{0x1F550, 0x1F55B}, prEmojiPresentation}, // E0.6  [12] (🕐..🕛)    one o’clock..twelve o’clock
+	{runeRange{0x1F607, 0x1F608}, prEmojiPresentation}, // E1.0   [2] (😇..😈)    smiling face with halo..smiling face with horns
+	{runeRange{0x1F616, 0x1F616}, prEmojiPresentation}, // E0.6   [1] (😖)       confounded face
+	{runeRange{0x1F620, 0x1F625}, prEmojiPresentation}, // E0.6   [6] (😠..😥)    angry face..sad but relieved face
+	{runeRange{0x1F635, 0x1F635}, prEmojiPresentation}, // E0.6   [1] (😵)       face with crossed-out eyes
+	{runeRange{0x1F686, 0x1F686}, prEmojiPresentation}, // E1.0   [1] (🚆)       train
+	{runeRange{0x1F68F, 0x1F68F}, prEmojiPresentation}, // E0.6   [1] (🚏)       bus stop
+	{runeRange{0x1F699, 0x1F69A}, prEmojiPresentation}, // E0.6   [2] (🚙..🚚)    sport utility vehicle..delivery truck
+	{runeRange{0x1F6B2, 0x1F6B2}, prEmojiPresentation}, // E0.6   [1] (🚲)       bicycle
+	{runeRange{0x1F6CC, 0x1F6CC}, prEmojiPresentation}, // E1.0   [1] (🛌)       person in bed
+	{runeRange{0x1F6EB, 0x1F6EC}, prEmojiPresentation}, // E1.0   [2] (🛫..🛬)    airplane departure..airplane arrival
+	{runeRange{0x1F90C, 0x1F90C}, prEmojiPresentation}, // E13.0  [1] (🤌)       pinched fingers
+	{runeRange{0x1F931, 0x1F932}, prEmojiPresentation}, // E5.0   [2] (🤱..🤲)    breast-feeding..palms up together
+	{runeRange{0x1F950, 0x1F95E}, prEmojiPresentation}, // E3.0  [15] (🥐..🥞)    croissant..pancakes
+	{runeRange{0x1F97A, 0x1F97A}, prEmojiPresentation}, // E11.0  [1] (🥺)       pleading face
+	{runeRange{0x1F9A5, 0x1F9AA}, prEmojiPresentation}, // E12.0  [6] (🦥..🦪)    sloth..oyster
+	{runeRange{0x1F9CB, 0x1F9CB}, prEmojiPresentation}, // E13.0  [1] (🧋)       bubble tea
+	{runeRange{0x1FA78, 0x1FA7A}, prEmojiPresentation}, // E12.0  [3] (🩸..🩺)    drop of blood..stethoscope
+	{runeRange{0x1FA8F, 0x1FA8F}, prEmojiPresentation}, // E16.0  [1] (🪏)       shovel
+	{runeRange{0x1FABE, 0x1FABE}, prEmojiPresentation}, // E16.0  [1] (🪾)       leafless tree
+	{runeRange{0x1FAD0, 0x1FAD6}, prEmojiPresentation}, // E13.0  [7] (🫐..🫖)    blueberries..teapot
+	{runeRange{0x1FAEA, 0x1FAEA}, prEmojiPresentation}, // E17.0  [1] (🫪)       distorted face
 	{runeRange{0x23F3, 0x23F3}, prEmojiPresentation},   // E0.6   [1] (⏳)       hourglass not done
 	{runeRange{0x26BD, 0x26BE}, prEmojiPresentation},   // E0.6   [2] (⚽..⚾)    soccer ball..baseball
 	{runeRange{0x26FD, 0x26FD}, prEmojiPresentation},   // E0.6   [1] (⛽)       fuel pump
@@ -81,60 +81,60 @@ var emojiPresentation = dictionary[emojiProperty]{
 	{runeRange{0x1F316, 0x1F318}, prEmojiPresentation}, // E1.0   [3] (🌖..🌘)    waning gibbous moon..waning crescent moon
 	{runeRange{0x1F330, 0x1F331}, prEmojiPresentation}, // E0.6   [2] (🌰..🌱)    chestnut..seedling
 	{runeRange{0x1F37C, 0x1F37C}, prEmojiPresentation}, // E1.0   [1] (🍼)       baby bottle
-	{runeRange{0x1F3C5, 0x1F3C5}, prEmojiPresentation}, // E1.0   [1] (🏅)       sports medal
 	{runeRange{0x1F3C9, 0x1F3C9}, prEmojiPresentation}, // E1.0   [1] (🏉)       rugby football
-	{runeRange{0x1F3E4, 0x1F3E4}, prEmojiPresentation}, // E1.0   [1] (🏤)       post office
-	{runeRange{0x1F408, 0x1F408}, prEmojiPresentation}, // E0.7   [1] (🐈)       cat
-	{runeRange{0x1F411, 0x1F412}, prEmojiPresentation}, // E0.6   [2] (🐑..🐒)    ewe..monkey
-	{runeRange{0x1F416, 0x1F416}, prEmojiPresentation}, // E1.0   [1] (🐖)       pig
-	{runeRange{0x1F440, 0x1F440}, prEmojiPresentation}, // E0.6   [1] (👀)       eyes
-	{runeRange{0x1F46C, 0x1F46D}, prEmojiPresentation}, // E1.0   [2] (👬..👭)    men holding hands..women holding hands
-	{runeRange{0x1F4B6, 0x1F4B7}, prEmojiPresentation}, // E1.0   [2] (💶..💷)    euro banknote..pound banknote
-	{runeRange{0x1F4EF, 0x1F4EF}, prEmojiPresentation}, // E1.0   [1] (📯)       postal horn
-	{runeRange{0x1F4F8, 0x1F4F8}, prEmojiPresentation}, // E1.0   [1] (📸)       camera with flash
-	{runeRange{0x1F504, 0x1F507}, prEmojiPresentation}, // E1.0   [4] (🔄..🔇)    counterclockwise arrows button..muted speaker
-	{runeRange{0x1F515, 0x1F515}, prEmojiPresentation}, // E1.0   [1] (🔕)       bell with slash
-	{runeRange{0x1F54B, 0x1F54E}, prEmojiPresentation}, // E1.0   [4] (🕋..🕎)    kaaba..menorah
-	{runeRange{0x1F595, 0x1F596}, prEmojiPresentation}, // E1.0   [2] (🖕..🖖)    middle finger..vulcan salute
-	{runeRange{0x1F601, 0x1F606}, prEmojiPresentation}, // E0.6   [6] (😁..😆)    beaming face with smiling eyes..grinning squinting face
-	{runeRange{0x1F60F, 0x1F60F}, prEmojiPresentation}, // E0.6   [1] (😏)       smirking face
-	{runeRange{0x1F615, 0x1F615}, prEmojiPresentation}, // E1.0   [1] (😕)       confused face
-	{runeRange{0x1F619, 0x1F619}, prEmojiPresentation}, // E1.0   [1] (😙)       kissing face with smiling eyes
-	{runeRange{0x1F61F, 0x1F61F}, prEmojiPresentation}, // E1.0   [1] (😟)       worried face
-	{runeRange{0x1F62C, 0x1F62C}, prEmojiPresentation}, // E1.0   [1] (😬)       grimacing face
-	{runeRange{0x1F634, 0x1F634}, prEmojiPresentation}, // E1.0   [1] (😴)       sleeping face
-	{runeRange{0x1F641, 0x1F644}, prEmojiPresentation}, // E1.0   [4] (🙁..🙄)    slightly frowning face..face with rolling eyes
-	{runeRange{0x1F683, 0x1F685}, prEmojiPresentation}, // E0.6   [3] (🚃..🚅)    railway car..bullet train
-	{runeRange{0x1F689, 0x1F689}, prEmojiPresentation}, // E0.6   [1] (🚉)       station
-	{runeRange{0x1F68E, 0x1F68E}, prEmojiPresentation}, // E1.0   [1] (🚎)       trolleybus
-	{runeRange{0x1F694, 0x1F694}, prEmojiPresentation}, // E0.7   [1] (🚔)       oncoming police car
-	{runeRange{0x1F698, 0x1F698}, prEmojiPresentation}, // E0.7   [1] (🚘)       oncoming automobile
-	{runeRange{0x1F6A3, 0x1F6A3}, prEmojiPresentation}, // E1.0   [1] (🚣)       person rowing boat
-	{runeRange{0x1F6AE, 0x1F6B1}, prEmojiPresentation}, // E1.0   [4] (🚮..🚱)    litter in bin sign..non-potable water
-	{runeRange{0x1F6B7, 0x1F6B8}, prEmojiPresentation}, // E1.0   [2] (🚷..🚸)    no pedestrians..children crossing
-	{runeRange{0x1F6C1, 0x1F6C5}, prEmojiPresentation}, // E1.0   [5] (🛁..🛅)    bathtub..left luggage
-	{runeRange{0x1F6D5, 0x1F6D5}, prEmojiPresentation}, // E12.0  [1] (🛕)       hindu temple
-	{runeRange{0x1F6EB, 0x1F6EC}, prEmojiPresentation}, // E1.0   [2] (🛫..🛬)    airplane departure..airplane arrival
-	{runeRange{0x1F6FA, 0x1F6FA}, prEmojiPresentation}, // E12.0  [1] (🛺)       auto rickshaw
-	{runeRange{0x1F90C, 0x1F90C}, prEmojiPresentation}, // E13.0  [1] (🤌)       pinched fingers
-	{runeRange{0x1F91F, 0x1F91F}, prEmojiPresentation}, // E5.0   [1] (🤟)       love-you gesture
-	{runeRange{0x1F931, 0x1F932}, prEmojiPresentation}, // E5.0   [2] (🤱..🤲)    breast-feeding..palms up together
-	{runeRange{0x1F940, 0x1F945}, prEmojiPresentation}, // E3.0   [6] (🥀..🥅)    wilted flower..goal net
-	{runeRange{0x1F950, 0x1F95E}, prEmojiPresentation}, // E3.0  [15] (🥐..🥞)    croissant..pancakes
-	{runeRange{0x1F972, 0x1F972}, prEmojiPresentation}, // E13.0  [1] (🥲)       smiling face with tear
-	{runeRange{0x1F97A, 0x1F97A}, prEmojiPresentation}, // E11.0  [1] (🥺)       pleading face
-	{runeRange{0x1F985, 0x1F991}, prEmojiPresentation}, // E3.0  [13] (🦅..🦑)    eagle..squid
-	{runeRange{0x1F9A5, 0x1F9AA}, prEmojiPresentation}, // E12.0  [6] (🦥..🦪)    sloth..oyster
-	{runeRange{0x1F9BA, 0x1F9BF}, prEmojiPresentation}, // E12.0  [6] (🦺..🦿)    safety vest..mechanical leg
-	{runeRange{0x1F9CB, 0x1F9CB}, prEmojiPresentation}, // E13.0  [1] (🧋)       bubble tea
-	{runeRange{0x1F9E7, 0x1F9FF}, prEmojiPresentation}, // E11.0 [25] (🧧..🧿)    red envelope..nazar amulet
-	{runeRange{0x1FA78, 0x1FA7A}, prEmojiPresentation}, // E12.0  [3] (🩸..🩺)    drop of blood..stethoscope
-	{runeRange{0x1FA87, 0x1FA88}, prEmojiPresentation}, // E15.0  [2] (🪇..🪈)    maracas..flute
+	{runeRange{0x1F3F8, 0x1F407}, prEmojiPresentation}, // E1.0  [16] (🏸..🐇)    badminton..rabbit
+	{runeRange{0x1F40F, 0x1F410}, prEmojiPresentation}, // E1.0   [2] (🐏..🐐)    ram..goat
+	{runeRange{0x1F415, 0x1F415}, prEmojiPresentation}, // E0.7   [1] (🐕)       dog
+	{runeRange{0x1F42B, 0x1F43E}, prEmojiPresentation}, // E0.6  [20] (🐫..🐾)    two-hump camel..paw prints
+	{runeRange{0x1F466, 0x1F46B}, prEmojiPresentation}, // E0.6   [6] (👦..👫)    boy..woman and man holding hands
+	{runeRange{0x1F4AE, 0x1F4B5}, prEmojiPresentation}, // E0.6   [8] (💮..💵)    white flower..dollar banknote
+	{runeRange{0x1F4EE, 0x1F4EE}, prEmojiPresentation}, // E0.6   [1] (📮)       postbox
+	{runeRange{0x1F4F6, 0x1F4F7}, prEmojiPresentation}, // E0.6   [2] (📶..📷)    antenna bars..camera
+	{runeRange{0x1F503, 0x1F503}, prEmojiPresentation}, // E0.6   [1] (🔃)       clockwise vertical arrows
+	{runeRange{0x1F50A, 0x1F514}, prEmojiPresentation}, // E0.6  [11] (🔊..🔔)    speaker high volume..bell
+	{runeRange{0x1F52E, 0x1F53D}, prEmojiPresentation}, // E0.6  [16] (🔮..🔽)    crystal ball..downwards button
+	{runeRange{0x1F57A, 0x1F57A}, prEmojiPresentation}, // E3.0   [1] (🕺)       man dancing
+	{runeRange{0x1F600, 0x1F600}, prEmojiPresentation}, // E1.0   [1] (😀)       grinning face
+	{runeRange{0x1F60E, 0x1F60E}, prEmojiPresentation}, // E1.0   [1] (😎)       smiling face with sunglasses
+	{runeRange{0x1F612, 0x1F614}, prEmojiPresentation}, // E0.6   [3] (😒..😔)    unamused face..pensive face
+	{runeRange{0x1F618, 0x1F618}, prEmojiPresentation}, // E0.6   [1] (😘)       face blowing a kiss
+	{runeRange{0x1F61C, 0x1F61E}, prEmojiPresentation}, // E0.6   [3] (😜..😞)    winking face with tongue..disappointed face
+	{runeRange{0x1F628, 0x1F62B}, prEmojiPresentation}, // E0.6   [4] (😨..😫)    fearful face..tired face
+	{runeRange{0x1F630, 0x1F633}, prEmojiPresentation}, // E0.6   [4] (😰..😳)    anxious face with sweat..flushed face
+	{runeRange{0x1F637, 0x1F640}, prEmojiPresentation}, // E0.6  [10] (😷..🙀)    face with medical mask..weary cat
+	{runeRange{0x1F681, 0x1F682}, prEmojiPresentation}, // E1.0   [2] (🚁..🚂)    helicopter..locomotive
+	{runeRange{0x1F688, 0x1F688}, prEmojiPresentation}, // E1.0   [1] (🚈)       light rail
+	{runeRange{0x1F68D, 0x1F68D}, prEmojiPresentation}, // E0.7   [1] (🚍)       oncoming bus
+	{runeRange{0x1F691, 0x1F693}, prEmojiPresentation}, // E0.6   [3] (🚑..🚓)    ambulance..police car
+	{runeRange{0x1F697, 0x1F697}, prEmojiPresentation}, // E0.6   [1] (🚗)       automobile
+	{runeRange{0x1F6A2, 0x1F6A2}, prEmojiPresentation}, // E0.6   [1] (🚢)       ship
+	{runeRange{0x1F6A7, 0x1F6AD}, prEmojiPresentation}, // E0.6   [7] (🚧..🚭)    construction..no smoking
+	{runeRange{0x1F6B6, 0x1F6B6}, prEmojiPresentation}, // E0.6   [1] (🚶)       person walking
+	{runeRange{0x1F6C0, 0x1F6C0}, prEmojiPresentation}, // E0.6   [1] (🛀)       person taking bath
+	{runeRange{0x1F6D1, 0x1F6D2}, prEmojiPresentation}, // E3.0   [2] (🛑..🛒)    stop sign..shopping cart
+	{runeRange{0x1F6DC, 0x1F6DC}, prEmojiPresentation}, // E15.0  [1] (🛜)       wireless
+	{runeRange{0x1F6F7, 0x1F6F8}, prEmojiPresentation}, // E5.0   [2] (🛷..🛸)    sled..flying saucer
+	{runeRange{0x1F7E0, 0x1F7EB}, prEmojiPresentation}, // E12.0 [12] (🟠..🟫)    orange circle..brown square
+	{runeRange{0x1F910, 0x1F918}, prEmojiPresentation}, // E1.0   [9] (🤐..🤘)    zipper-mouth face..sign of the horns
+	{runeRange{0x1F928, 0x1F92F}, prEmojiPresentation}, // E5.0   [8] (🤨..🤯)    face with raised eyebrow..exploding head
+	{runeRange{0x1F93C, 0x1F93E}, prEmojiPresentation}, // E3.0   [3] (🤼..🤾)    people wrestling..person playing handball
+	{runeRange{0x1F94C, 0x1F94C}, prEmojiPresentation}, // E5.0   [1] (🥌)       curling stone
+	{runeRange{0x1F96C, 0x1F970}, prEmojiPresentation}, // E11.0  [5] (🥬..🥰)    leafy green..smiling face with hearts
+	{runeRange{0x1F977, 0x1F978}, prEmojiPresentation}, // E13.0  [2] (🥷..🥸)    ninja..disguised face
+	{runeRange{0x1F97C, 0x1F97F}, prEmojiPresentation}, // E11.0  [4] (🥼..🥿)    lab coat..flat shoe
+	{runeRange{0x1F998, 0x1F9A2}, prEmojiPresentation}, // E11.0 [11] (🦘..🦢)    kangaroo..swan
+	{runeRange{0x1F9AE, 0x1F9AF}, prEmojiPresentation}, // E12.0  [2] (🦮..🦯)    guide dog..white cane
+	{runeRange{0x1F9C1, 0x1F9C2}, prEmojiPresentation}, // E11.0  [2] (🧁..🧂)    cupcake..salt
+	{runeRange{0x1F9CD, 0x1F9CF}, prEmojiPresentation}, // E12.0  [3] (🧍..🧏)    person standing..deaf person
+	{runeRange{0x1FA74, 0x1FA74}, prEmojiPresentation}, // E13.0  [1] (🩴)       thong sandal
+	{runeRange{0x1FA80, 0x1FA82}, prEmojiPresentation}, // E12.0  [3] (🪀..🪂)    yo-yo..parachute
+	{runeRange{0x1FA8A, 0x1FA8A}, prEmojiPresentation}, // E17.0  [1] (🪊)       trombone
 	{runeRange{0x1FA96, 0x1FAA8}, prEmojiPresentation}, // E13.0 [19] (🪖..🪨)    military helmet..rock
 	{runeRange{0x1FAB7, 0x1FABA}, prEmojiPresentation}, // E14.0  [4] (🪷..🪺)    lotus..nest with eggs
 	{runeRange{0x1FAC0, 0x1FAC2}, prEmojiPresentation}, // E13.0  [3] (🫀..🫂)    anatomical heart..people hugging
-	{runeRange{0x1FAD0, 0x1FAD6}, prEmojiPresentation}, // E13.0  [7] (🫐..🫖)    blueberries..teapot
-	{runeRange{0x1FADF, 0x1FADF}, prEmojiPresentation}, // E16.0  [1] (🫟)       splatter
+	{runeRange{0x1FACD, 0x1FACD}, prEmojiPresentation}, // E17.0  [1] (🫍)       orca
+	{runeRange{0x1FADA, 0x1FADB}, prEmojiPresentation}, // E15.0  [2] (🫚..🫛)    ginger root..pea pod
+	{runeRange{0x1FAE8, 0x1FAE8}, prEmojiPresentation}, // E15.0  [1] (🫨)       shaking face
 	{runeRange{0x1FAF0, 0x1FAF6}, prEmojiPresentation}, // E14.0  [7] (🫰..🫶)    hand with index finger and thumb crossed..heart hands
 	{runeRange{0x23E9, 0x23EC}, prEmojiPresentation},   // E0.6   [4] (⏩..⏬)    fast-forward button..fast down button
 	{runeRange{0x2614, 0x2615}, prEmojiPresentation},   // E0.6   [2] (☔..☕)    umbrella with rain drops..hot beverage
@@ -153,73 +153,70 @@ var emojiPresentation = dictionary[emojiProperty]{
 	{runeRange{0x1F31F, 0x1F320}, prEmojiPresentation}, // E0.6   [2] (🌟..🌠)    glowing star..shooting star
 	{runeRange{0x1F334, 0x1F335}, prEmojiPresentation}, // E0.6   [2] (🌴..🌵)    palm tree..cactus
 	{runeRange{0x1F350, 0x1F350}, prEmojiPresentation}, // E1.0   [1] (🍐)       pear
-	{runeRange{0x1F37E, 0x1F37F}, prEmojiPresentation}, // E1.0   [2] (🍾..🍿)    bottle with popping cork..popcorn
-	{runeRange{0x1F3A0, 0x1F3C4}, prEmojiPresentation}, // E0.6  [37] (🎠..🏄)    carousel horse..person surfing
-	{runeRange{0x1F3C6, 0x1F3C6}, prEmojiPresentation}, // E0.6   [1] (🏆)       trophy
-	{runeRange{0x1F3C8, 0x1F3C8}, prEmojiPresentation}, // E0.6   [1] (🏈)       american football
-	{runeRange{0x1F3CA, 0x1F3CA}, prEmojiPresentation}, // E0.6   [1] (🏊)       person swimming
-	{runeRange{0x1F3E0, 0x1F3E3}, prEmojiPresentation}, // E0.6   [4] (🏠..🏣)    house..Japanese post office
-	{runeRange{0x1F3E5, 0x1F3F0}, prEmojiPresentation}, // E0.6  [12] (🏥..🏰)    hospital..castle
-	{runeRange{0x1F3F8, 0x1F407}, prEmojiPresentation}, // E1.0  [16] (🏸..🐇)    badminton..rabbit
-	{runeRange{0x1F409, 0x1F40B}, prEmojiPresentation}, // E1.0   [3] (🐉..🐋)    dragon..whale
-	{runeRange{0x1F40F, 0x1F410}, prEmojiPresentation}, // E1.0   [2] (🐏..🐐)    ram..goat
-	{runeRange{0x1F413, 0x1F413}, prEmojiPresentation}, // E1.0   [1] (🐓)       rooster
-	{runeRange{0x1F415, 0x1F415}, prEmojiPresentation}, // E0.7   [1] (🐕)       dog
-	{runeRange{0x1F417, 0x1F429}, prEmojiPresentation}, // E0.6  [19] (🐗..🐩)    boar..poodle
-	{runeRange{0x1F42B, 0x1F43E}, prEmojiPresentation}, // E0.6  [20] (🐫..🐾)    two-hump camel..paw prints
-	{runeRange{0x1F442, 0x1F464}, prEmojiPresentation}, // E0.6  [35] (👂..👤)    ear..bust in silhouette
-	{runeRange{0x1F466, 0x1F46B}, prEmojiPresentation}, // E0.6   [6] (👦..👫)    boy..woman and man holding hands
-	{runeRange{0x1F46E, 0x1F4AC}, prEmojiPresentation}, // E0.6  [63] (👮..💬)    police officer..speech balloon
-	{runeRange{0x1F4AE, 0x1F4B5}, prEmojiPresentation}, // E0.6   [8] (💮..💵)    white flower..dollar banknote
-	{runeRange{0x1F4B8, 0x1F4EB}, prEmojiPresentation}, // E0.6  [52] (💸..📫)    money with wings..closed mailbox with raised flag
-	{runeRange{0x1F4EE, 0x1F4EE}, prEmojiPresentation}, // E0.6   [1] (📮)       postbox
-	{runeRange{0x1F4F0, 0x1F4F4}, prEmojiPresentation}, // E0.6   [5] (📰..📴)    newspaper..mobile phone off
-	{runeRange{0x1F4F6, 0x1F4F7}, prEmojiPresentation}, // E0.6   [2] (📶..📷)    antenna bars..camera
-	{runeRange{0x1F4F9, 0x1F4FC}, prEmojiPresentation}, // E0.6   [4] (📹..📼)    video camera..videocassette
-	{runeRange{0x1F503, 0x1F503}, prEmojiPresentation}, // E0.6   [1] (🔃)       clockwise vertical arrows
-	{runeRange{0x1F508, 0x1F508}, prEmojiPresentation}, // E0.7   [1] (🔈)       speaker low volume
-	{runeRange{0x1F50A, 0x1F514}, prEmojiPresentation}, // E0.6  [11] (🔊..🔔)    speaker high volume..bell
-	{runeRange{0x1F516, 0x1F52B}, prEmojiPresentation}, // E0.6  [22] (🔖..🔫)    bookmark..water pistol
-	{runeRange{0x1F52E, 0x1F53D}, prEmojiPresentation}, // E0.6  [16] (🔮..🔽)    crystal ball..downwards button
-	{runeRange{0x1F550, 0x1F55B}, prEmojiPresentation}, // E0.6  [12] (🕐..🕛)    one o’clock..twelve o’clock
-	{runeRange{0x1F57A, 0x1F57A}, prEmojiPresentation}, // E3.0   [1] (🕺)       man dancing
-	{runeRange{0x1F5A4, 0x1F5A4}, prEmojiPresentation}, // E3.0   [1] (🖤)       black heart
-	{runeRange{0x1F600, 0x1F600}, prEmojiPresentation}, // E1.0   [1] (😀)       grinning face
-	{runeRange{0x1F607, 0x1F608}, prEmojiPresentation}, // E1.0   [2] (😇..😈)    smiling face with halo..smiling face with horns
-	{runeRange{0x1F60E, 0x1F60E}, prEmojiPresentation}, // E1.0   [1] (😎)       smiling face with sunglasses
-	{runeRange{0x1F610, 0x1F610}, prEmojiPresentation}, // E0.7   [1] (😐)       neutral face
-	{runeRange{0x1F612, 0x1F614}, prEmojiPresentation}, // E0.6   [3] (😒..😔)    unamused face..pensive face
-	{runeRange{0x1F616, 0x1F616}, prEmojiPresentation}, // E0.6   [1] (😖)       confounded face
-	{runeRange{0x1F618, 0x1F618}, prEmojiPresentation}, // E0.6   [1] (😘)       face blowing a kiss
-	{runeRange{0x1F61A, 0x1F61A}, prEmojiPresentation}, // E0.6   [1] (😚)       kissing face with closed eyes
-	{runeRange{0x1F61C, 0x1F61E}, prEmojiPresentation}, // E0.6   [3] (😜..😞)    winking face with tongue..disappointed face
-	{runeRange{0x1F620, 0x1F625}, prEmojiPresentation}, // E0.6   [6] (😠..😥)    angry face..sad but relieved face
-	{runeRange{0x1F628, 0x1F62B}, prEmojiPresentation}, // E0.6   [4] (😨..😫)    fearful face..tired face
-	{runeRange{0x1F62D, 0x1F62D}, prEmojiPresentation}, // E0.6   [1] (😭)       loudly crying face
-	{runeRange{0x1F630, 0x1F633}, prEmojiPresentation}, // E0.6   [4] (😰..😳)    anxious face with sweat..flushed face
-	{runeRange{0x1F635, 0x1F635}, prEmojiPresentation}, // E0.6   [1] (😵)       face with crossed-out eyes
-	{runeRange{0x1F637, 0x1F640}, prEmojiPresentation}, // E0.6  [10] (😷..🙀)    face with medical mask..weary cat
-	{runeRange{0x1F645, 0x1F64F}, prEmojiPresentation}, // E0.6  [11] (🙅..🙏)    person gesturing NO..folded hands
-	{runeRange{0x1F681, 0x1F682}, prEmojiPresentation}, // E1.0   [2] (🚁..🚂)    helicopter..locomotive
-	{runeRange{0x1F686, 0x1F686}, prEmojiPresentation}, // E1.0   [1] (🚆)       train
-	{runeRange{0x1F688, 0x1F688}, prEmojiPresentation}, // E1.0   [1] (🚈)       light rail
-	{runeRange{0x1F68A, 0x1F68B}, prEmojiPresentation}, // E1.0   [2] (🚊..🚋)    tram..tram car
-	{runeRange{0x1F68D, 0x1F68D}, prEmojiPresentation}, // E0.7   [1] (🚍)       oncoming bus
-	{runeRange{0x1F68F, 0x1F68F}, prEmojiPresentation}, // E0.6   [1] (🚏)       bus stop
-	{runeRange{0x1F691, 0x1F693}, prEmojiPresentation}, // E0.6   [3] (🚑..🚓)    ambulance..police car
-	{runeRange{0x1F695, 0x1F695}, prEmojiPresentation}, // E0.6   [1] (🚕)       taxi
-	{runeRange{0x1F697, 0x1F697}, prEmojiPresentation}, // E0.6   [1] (🚗)       automobile
-	{runeRange{0x1F699, 0x1F69A}, prEmojiPresentation}, // E0.6   [2] (🚙..🚚)    sport utility vehicle..delivery truck
-	{runeRange{0x1F6A2, 0x1F6A2}, prEmojiPresentation}, // E0.6   [1] (🚢)       ship
-	{runeRange{0x1F6A4, 0x1F6A5}, prEmojiPresentation}, // E0.6   [2] (🚤..🚥)    speedboat..horizontal traffic light
-	{runeRange{0x1F6A7, 0x1F6AD}, prEmojiPresentation}, // E0.6   [7] (🚧..🚭)    construction..no smoking
-	{runeRange{0x1F6B2, 0x1F6B2}, prEmojiPresentation}, // E0.6   [1] (🚲)       bicycle
-	{runeRange{0x1F6B6, 0x1F6B6}, prEmojiPresentation}, // E0.6   [1] (🚶)       person walking
-	{runeRange{0x1F6B9, 0x1F6BE}, prEmojiPresentation}, // E0.6   [6] (🚹..🚾)    men’s room..water closet
-	{runeRange{0x1F6C0, 0x1F6C0}, prEmojiPresentation}, // E0.6   [1] (🛀)       person taking bath
-	{runeRange{0x1F6CC, 0x1F6CC}, prEmojiPresentation}, // E1.0   [1] (🛌)       person in bed
-	{runeRange{0x1F6D1, 0x1F6D2}, prEmojiPresentation}, // E3.0   [2] (🛑..🛒)    stop sign..shopping cart
-	{runeRange{0x1F6D6, 0x1F6D7}, prEmojiPresentation}, // E13.0  [2] (🛖..🛗)    hut..elevator
+	{runeRange{0x1F380, 0x1F393}, prEmojiPresentation}, // E0.6  [20] (🎀..🎓)    ribbon..graduation cap
+	{runeRange{0x1F3C7, 0x1F3C7}, prEmojiPresentation}, // E1.0   [1] (🏇)       horse racing
+	{runeRange{0x1F3CF, 0x1F3D3}, prEmojiPresentation}, // E1.0   [5] (🏏..🏓)    cricket game..ping pong
+	{runeRange{0x1F3F4, 0x1F3F4}, prEmojiPresentation}, // E1.0   [1] (🏴)       black flag
+	{runeRange{0x1F408, 0x1F408}, prEmojiPresentation}, // E0.7   [1] (🐈)       cat
+	{runeRange{0x1F40C, 0x1F40E}, prEmojiPresentation}, // E0.6   [3] (🐌..🐎)    snail..horse
+	{runeRange{0x1F411, 0x1F412}, prEmojiPresentation}, // E0.6   [2] (🐑..🐒)    ewe..monkey
+	{runeRange{0x1F414, 0x1F414}, prEmojiPresentation}, // E0.6   [1] (🐔)       chicken
+	{runeRange{0x1F416, 0x1F416}, prEmojiPresentation}, // E1.0   [1] (🐖)       pig
+	{runeRange{0x1F42A, 0x1F42A}, prEmojiPresentation}, // E1.0   [1] (🐪)       camel
+	{runeRange{0x1F440, 0x1F440}, prEmojiPresentation}, // E0.6   [1] (👀)       eyes
+	{runeRange{0x1F465, 0x1F465}, prEmojiPresentation}, // E1.0   [1] (👥)       busts in silhouette
+	{runeRange{0x1F46C, 0x1F46D}, prEmojiPresentation}, // E1.0   [2] (👬..👭)    men holding hands..women holding hands
+	{runeRange{0x1F4AD, 0x1F4AD}, prEmojiPresentation}, // E1.0   [1] (💭)       thought balloon
+	{runeRange{0x1F4B6, 0x1F4B7}, prEmojiPresentation}, // E1.0   [2] (💶..💷)    euro banknote..pound banknote
+	{runeRange{0x1F4EC, 0x1F4ED}, prEmojiPresentation}, // E0.7   [2] (📬..📭)    open mailbox with raised flag..open mailbox with lowered flag
+	{runeRange{0x1F4EF, 0x1F4EF}, prEmojiPresentation}, // E1.0   [1] (📯)       postal horn
+	{runeRange{0x1F4F5, 0x1F4F5}, prEmojiPresentation}, // E1.0   [1] (📵)       no mobile phones
+	{runeRange{0x1F4F8, 0x1F4F8}, prEmojiPresentation}, // E1.0   [1] (📸)       camera with flash
+	{runeRange{0x1F4FF, 0x1F502}, prEmojiPresentation}, // E1.0   [4] (📿..🔂)    prayer beads..repeat single button
+	{runeRange{0x1F504, 0x1F507}, prEmojiPresentation}, // E1.0   [4] (🔄..🔇)    counterclockwise arrows button..muted speaker
+	{runeRange{0x1F509, 0x1F509}, prEmojiPresentation}, // E1.0   [1] (🔉)       speaker medium volume
+	{runeRange{0x1F515, 0x1F515}, prEmojiPresentation}, // E1.0   [1] (🔕)       bell with slash
+	{runeRange{0x1F52C, 0x1F52D}, prEmojiPresentation}, // E1.0   [2] (🔬..🔭)    microscope..telescope
+	{runeRange{0x1F54B, 0x1F54E}, prEmojiPresentation}, // E1.0   [4] (🕋..🕎)    kaaba..menorah
+	{runeRange{0x1F55C, 0x1F567}, prEmojiPresentation}, // E0.7  [12] (🕜..🕧)    one-thirty..twelve-thirty
+	{runeRange{0x1F595, 0x1F596}, prEmojiPresentation}, // E1.0   [2] (🖕..🖖)    middle finger..vulcan salute
+	{runeRange{0x1F5FB, 0x1F5FF}, prEmojiPresentation}, // E0.6   [5] (🗻..🗿)    mount fuji..moai
+	{runeRange{0x1F601, 0x1F606}, prEmojiPresentation}, // E0.6   [6] (😁..😆)    beaming face with smiling eyes..grinning squinting face
+	{runeRange{0x1F609, 0x1F60D}, prEmojiPresentation}, // E0.6   [5] (😉..😍)    winking face..smiling face with heart-eyes
+	{runeRange{0x1F60F, 0x1F60F}, prEmojiPresentation}, // E0.6   [1] (😏)       smirking face
+	{runeRange{0x1F611, 0x1F611}, prEmojiPresentation}, // E1.0   [1] (😑)       expressionless face
+	{runeRange{0x1F615, 0x1F615}, prEmojiPresentation}, // E1.0   [1] (😕)       confused face
+	{runeRange{0x1F617, 0x1F617}, prEmojiPresentation}, // E1.0   [1] (😗)       kissing face
+	{runeRange{0x1F619, 0x1F619}, prEmojiPresentation}, // E1.0   [1] (😙)       kissing face with smiling eyes
+	{runeRange{0x1F61B, 0x1F61B}, prEmojiPresentation}, // E1.0   [1] (😛)       face with tongue
+	{runeRange{0x1F61F, 0x1F61F}, prEmojiPresentation}, // E1.0   [1] (😟)       worried face
+	{runeRange{0x1F626, 0x1F627}, prEmojiPresentation}, // E1.0   [2] (😦..😧)    frowning face with open mouth..anguished face
+	{runeRange{0x1F62C, 0x1F62C}, prEmojiPresentation}, // E1.0   [1] (😬)       grimacing face
+	{runeRange{0x1F62E, 0x1F62F}, prEmojiPresentation}, // E1.0   [2] (😮..😯)    face with open mouth..hushed face
+	{runeRange{0x1F634, 0x1F634}, prEmojiPresentation}, // E1.0   [1] (😴)       sleeping face
+	{runeRange{0x1F636, 0x1F636}, prEmojiPresentation}, // E1.0   [1] (😶)       face without mouth
+	{runeRange{0x1F641, 0x1F644}, prEmojiPresentation}, // E1.0   [4] (🙁..🙄)    slightly frowning face..face with rolling eyes
+	{runeRange{0x1F680, 0x1F680}, prEmojiPresentation}, // E0.6   [1] (🚀)       rocket
+	{runeRange{0x1F683, 0x1F685}, prEmojiPresentation}, // E0.6   [3] (🚃..🚅)    railway car..bullet train
+	{runeRange{0x1F687, 0x1F687}, prEmojiPresentation}, // E0.6   [1] (🚇)       metro
+	{runeRange{0x1F689, 0x1F689}, prEmojiPresentation}, // E0.6   [1] (🚉)       station
+	{runeRange{0x1F68C, 0x1F68C}, prEmojiPresentation}, // E0.6   [1] (🚌)       bus
+	{runeRange{0x1F68E, 0x1F68E}, prEmojiPresentation}, // E1.0   [1] (🚎)       trolleybus
+	{runeRange{0x1F690, 0x1F690}, prEmojiPresentation}, // E1.0   [1] (🚐)       minibus
+	{runeRange{0x1F694, 0x1F694}, prEmojiPresentation}, // E0.7   [1] (🚔)       oncoming police car
+	{runeRange{0x1F696, 0x1F696}, prEmojiPresentation}, // E1.0   [1] (🚖)       oncoming taxi
+	{runeRange{0x1F698, 0x1F698}, prEmojiPresentation}, // E0.7   [1] (🚘)       oncoming automobile
+	{runeRange{0x1F69B, 0x1F6A1}, prEmojiPresentation}, // E1.0   [7] (🚛..🚡)    articulated lorry..aerial tramway
+	{runeRange{0x1F6A3, 0x1F6A3}, prEmojiPresentation}, // E1.0   [1] (🚣)       person rowing boat
+	{runeRange{0x1F6A6, 0x1F6A6}, prEmojiPresentation}, // E1.0   [1] (🚦)       vertical traffic light
+	{runeRange{0x1F6AE, 0x1F6B1}, prEmojiPresentation}, // E1.0   [4] (🚮..🚱)    litter in bin sign..non-potable water
+	{runeRange{0x1F6B3, 0x1F6B5}, prEmojiPresentation}, // E1.0   [3] (🚳..🚵)    no bicycles..person mountain biking
+	{runeRange{0x1F6B7, 0x1F6B8}, prEmojiPresentation}, // E1.0   [2] (🚷..🚸)    no pedestrians..children crossing
+	{runeRange{0x1F6BF, 0x1F6BF}, prEmojiPresentation}, // E1.0   [1] (🚿)       shower
+	{runeRange{0x1F6C1, 0x1F6C5}, prEmojiPresentation}, // E1.0   [5] (🛁..🛅)    bathtub..left luggage
+	{runeRange{0x1F6D0, 0x1F6D0}, prEmojiPresentation}, // E1.0   [1] (🛐)       place of worship
+	{runeRange{0x1F6D5, 0x1F6D5}, prEmojiPresentation}, // E12.0  [1] (🛕)       hindu temple
+	{runeRange{0x1F6D8, 0x1F6D8}, prEmojiPresentation}, // E17.0  [1] (🛘)       landslide
 	{runeRange{0x1F6DD, 0x1F6DF}, prEmojiPresentation}, // E14.0  [3] (🛝..🛟)    playground slide..ring buoy
 	{runeRange{0x1F6F4, 0x1F6F6}, prEmojiPresentation}, // E3.0   [3] (🛴..🛶)    kick scooter..canoe
 	{runeRange{0x1F6F9, 0x1F6F9}, prEmojiPresentation}, // E11.0  [1] (🛹)       skateboard
@@ -252,17 +249,20 @@ var emojiPresentation = dictionary[emojiProperty]{
 	{runeRange{0x1FA7B, 0x1FA7C}, prEmojiPresentation}, // E14.0  [2] (🩻..🩼)    x-ray..crutch
 	{runeRange{0x1FA83, 0x1FA86}, prEmojiPresentation}, // E13.0  [4] (🪃..🪆)    boomerang..nesting dolls
 	{runeRange{0x1FA89, 0x1FA89}, prEmojiPresentation}, // E16.0  [1] (🪉)       harp
+	{runeRange{0x1FA8E, 0x1FA8E}, prEmojiPresentation}, // E17.0  [1] (🪎)       treasure chest
 	{runeRange{0x1FA90, 0x1FA95}, prEmojiPresentation}, // E12.0  [6] (🪐..🪕)    ringed planet..banjo
 	{runeRange{0x1FAA9, 0x1FAAC}, prEmojiPresentation}, // E14.0  [4] (🪩..🪬)    mirror ball..hamsa
 	{runeRange{0x1FAB0, 0x1FAB6}, prEmojiPresentation}, // E13.0  [7] (🪰..🪶)    fly..feather
 	{runeRange{0x1FABB, 0x1FABD}, prEmojiPresentation}, // E15.0  [3] (🪻..🪽)    hyacinth..wing
 	{runeRange{0x1FABF, 0x1FABF}, prEmojiPresentation}, // E15.0  [1] (🪿)       goose
 	{runeRange{0x1FAC3, 0x1FAC5}, prEmojiPresentation}, // E14.0  [3] (🫃..🫅)    pregnant man..person with crown
+	{runeRange{0x1FAC8, 0x1FAC8}, prEmojiPresentation}, // E17.0  [1] (🫈)       hairy creature
 	{runeRange{0x1FACE, 0x1FACF}, prEmojiPresentation}, // E15.0  [2] (🫎..🫏)    moose..donkey
 	{runeRange{0x1FAD7, 0x1FAD9}, prEmojiPresentation}, // E14.0  [3] (🫗..🫙)    pouring liquid..jar
 	{runeRange{0x1FADC, 0x1FADC}, prEmojiPresentation}, // E16.0  [1] (🫜)       root vegetable
 	{runeRange{0x1FAE0, 0x1FAE7}, prEmojiPresentation}, // E14.0  [8] (🫠..🫧)    melting face..bubbles
 	{runeRange{0x1FAE9, 0x1FAE9}, prEmojiPresentation}, // E16.0  [1] (🫩)       face with bags under eyes
+	{runeRange{0x1FAEF, 0x1FAEF}, prEmojiPresentation}, // E17.0  [1] (🫯)       fight cloud
 	{runeRange{0x1FAF7, 0x1FAF8}, prEmojiPresentation}, // E15.0  [2] (🫷..🫸)    leftwards pushing hand..rightwards pushing hand
 	{runeRange{0x231A, 0x231B}, prEmojiPresentation},   // E0.6   [2] (⌚..⌛)    watch..hourglass done
 	{runeRange{0x23F0, 0x23F0}, prEmojiPresentation},   // E0.6   [1] (⏰)       alarm clock
@@ -298,4 +298,11 @@ var emojiPresentation = dictionary[emojiProperty]{
 	{runeRange{0x1F337, 0x1F34A}, prEmojiPresentation}, // E0.6  [20] (🌷..🍊)    tulip..tangerine
 	{runeRange{0x1F34C, 0x1F34F}, prEmojiPresentation}, // E0.6   [4] (🍌..🍏)    banana..green apple
 	{runeRange{0x1F351, 0x1F37B}, prEmojiPresentation}, // E0.6  [43] (🍑..🍻)    peach..clinking beer mugs
+	{runeRange{0x1F37E, 0x1F37F}, prEmojiPresentation}, // E1.0   [2] (🍾..🍿)    bottle with popping cork..popcorn
+	{runeRange{0x1F3A0, 0x1F3C4}, prEmojiPresentation}, // E0.6  [37] (🎠..🏄)    carousel horse..person surfing
+	{runeRange{0x1F3C6, 0x1F3C6}, prEmojiPresentation}, // E0.6   [1] (🏆)       trophy
+	{runeRange{0x1F3C8, 0x1F3C8}, prEmojiPresentation}, // E0.6   [1] (🏈)       american football
+	{runeRange{0x1F3CA, 0x1F3CA}, prEmojiPresentation}, // E0.6   [1] (🏊)       person swimming
+	{runeRange{0x1F3E0, 0x1F3E3}, prEmojiPresentation}, // E0.6   [4] (🏠..🏣)    house..Japanese post office
+	{runeRange{0x1F3E5, 0x1F3F0}, prEmojiPresentation}, // E0.6  [12] (🏥..🏰)    hospital..castle
 }
