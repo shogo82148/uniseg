@@ -71,6 +71,9 @@ const (
 	lbDottedCircleBit LineBreakState = 256
 	lb15Bit           LineBreakState = 512
 	lbQUPfBit         LineBreakState = 1024
+	lbLB20aBit        LineBreakState = 2048
+	lbPrevLB20aBit    LineBreakState = 4096
+	lbHLHyphenBit     LineBreakState = 8192
 )
 
 // LineBreak defines whether a given text may be broken into the next line.
@@ -337,7 +340,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	generalCategory := lbProp.generalCategory
 
 	// Prepare.
-	var forceNoBreak, isCPeaFWH, isLB15, isDottedCircle, wasQUPf bool
+	var forceNoBreak, isCPeaFWH, isLB15, isDottedCircle, wasQUPf, isLB20a, isPrevLB20a, isHLHyphen bool
 	if state > 0 && state&lbCPeaFWHBit != 0 {
 		isCPeaFWH = true // LB30: CP but ea is not F, W, or H.
 		state = state &^ lbCPeaFWHBit
@@ -357,6 +360,18 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	if state > 0 && state&lbQUPfBit != 0 {
 		state = state &^ lbQUPfBit
 		wasQUPf = true
+	}
+	if state > 0 && state&lbLB20aBit != 0 {
+		state = state &^ lbLB20aBit
+		isLB20a = true
+	}
+	if state > 0 && state&lbPrevLB20aBit != 0 {
+		state = state &^ lbPrevLB20aBit
+		isPrevLB20a = true
+	}
+	if state > 0 && state&lbHLHyphenBit != 0 {
+		state = state &^ lbHLHyphenBit
+		isHLHyphen = true
 	}
 
 	defer func() {
@@ -386,6 +401,19 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 			newState |= lbDottedCircleBit
 		}
 
+		if newState == lbHY || newState == lbBAHyphen {
+			if state == lbHL {
+				newState |= lbHLHyphenBit
+			}
+			if state <= 0 || isPrevLB20a {
+				newState |= lbLB20aBit
+			}
+		}
+
+		if nextProperty == lbprBK || nextProperty == lbprCR || nextProperty == lbprLF || nextProperty == lbprNL || nextProperty == lbprSP || nextProperty == lbprZW || nextProperty == lbprCB || nextProperty == lbprGL {
+			newState |= lbPrevLB20aBit
+		}
+
 		// Override break.
 		if forceNoBreak {
 			lineBreak = LineDontBreak
@@ -410,6 +438,9 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		var bit LineBreakState
 		if nextProperty == lbprZWJ {
 			bit = lbZWJBit
+		}
+		if isLB20a {
+			bit |= lbLB20aBit
 		}
 		if isDottedCircle {
 			bit |= lbDottedCircleBit
@@ -532,7 +563,15 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	if rule == 190 && state == lbQU && wasQUPf && nextProperty == lbprID && unicode.Is(unicode.Han, r) {
 		return lbIDEM, LineCanBreak
 	}
-	if rule == 201 && state == lbHY && nextProperty == lbprAL {
+	if rule == 201 && (state == lbHY || state == lbBAHyphen) && nextProperty == lbprAL {
+		if !isLB20a && !isHLHyphen {
+			return newState, LineCanBreak
+		}
+
+		if state != lbHY {
+			return newState, lineBreak
+		}
+
 		t := str
 		for i := 0; i < 128 && len(t) > 0; i++ {
 			r2, size := decoder(t)

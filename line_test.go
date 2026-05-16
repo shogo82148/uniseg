@@ -165,6 +165,92 @@ func TestHasTrailingLineBreakInString(t *testing.T) {
 	}
 }
 
+func collectLineSegmentsInString(input string) []string {
+	var (
+		segments []string
+		state    LineBreakState
+	)
+	for len(input) > 0 {
+		var segment string
+		segment, input, _, state = FirstLineSegmentInString(input, state)
+		segments = append(segments, segment)
+	}
+	return segments
+}
+
+func collectLineSegmentsInBytes(input []byte) []string {
+	var (
+		segments []string
+		state    LineBreakState
+	)
+	for len(input) > 0 {
+		var segment []byte
+		segment, input, _, state = FirstLineSegment(input, state)
+		segments = append(segments, string(segment))
+	}
+	return segments
+}
+
+func TestLB20aWordInitialHyphenContext(t *testing.T) {
+	tests := []struct {
+		name     string
+		input    string
+		expected []string
+	}{
+		{
+			name:     "AL HY AL allows break",
+			input:    "foo-bar",
+			expected: []string{"foo-", "bar"},
+		},
+		{
+			name:     "AL BAHyphen AL allows break",
+			input:    "foo\u2010bar",
+			expected: []string{"foo\u2010", "bar"},
+		},
+		{
+			name:     "sot HY AL stays unbroken",
+			input:    "-bar",
+			expected: []string{"-bar"},
+		},
+		{
+			name:     "SP HY AL stays unbroken",
+			input:    " -bar",
+			expected: []string{" ", "-bar"},
+		},
+		{
+			name:     "SP BAHyphen AL stays unbroken",
+			input:    " \u2010bar",
+			expected: []string{" ", "\u2010bar"},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name+"/string", func(t *testing.T) {
+			got := collectLineSegmentsInString(tt.input)
+			if len(got) != len(tt.expected) {
+				t.Fatalf("collectLineSegmentsInString(%q) returned %d segments, want %d (%q)", tt.input, len(got), len(tt.expected), got)
+			}
+			for i := range got {
+				if got[i] != tt.expected[i] {
+					t.Fatalf("collectLineSegmentsInString(%q)[%d] = %q, want %q", tt.input, i, got[i], tt.expected[i])
+				}
+			}
+		})
+
+		t.Run(tt.name+"/bytes", func(t *testing.T) {
+			got := collectLineSegmentsInBytes([]byte(tt.input))
+			if len(got) != len(tt.expected) {
+				t.Fatalf("collectLineSegmentsInBytes(%q) returned %d segments, want %d (%q)", tt.input, len(got), len(tt.expected), got)
+			}
+			for i := range got {
+				if got[i] != tt.expected[i] {
+					t.Fatalf("collectLineSegmentsInBytes(%q)[%d] = %q, want %q", tt.input, i, got[i], tt.expected[i])
+				}
+			}
+		})
+	}
+}
+
 // Benchmark the use of the line break function for byte slices.
 func BenchmarkLineFunctionBytes(b *testing.B) {
 	input := []byte(benchmarkStr)
