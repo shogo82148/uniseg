@@ -113,6 +113,7 @@ const (
 	lbprBA // Break After
 	lbprBB // Break Before
 	lbprHY // Hyphen
+	lbprHH // Hyphen and Hebrew hyphen
 	lbprCB // Contingent Break Opportunity
 
 	// Characters Prohibiting Certain Breaks

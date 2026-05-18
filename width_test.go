@@ -486,7 +486,7 @@ func TestRunesWidth(t *testing.T) {
 		{"Halfwidth 3", "ｲ", 1, 1, 1},
 		{"ambiguous 1", "☆", 1, 2, 2},
 		{"emoji 4", "☺", 1, 1, 2},
-		{"emoji 5", "☻", 1, 1, 2},
+		{"emoji 5", "☻", 1, 1, 1},
 		{"emoji 6", "♥", 1, 2, 2},
 		{"emoji 7", "♦", 1, 1, 2},
 		{"emoji 8", "♣", 1, 2, 2},

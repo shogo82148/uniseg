@@ -115,6 +115,7 @@ var wbTransitions = [wbMax * wbprMax]wbTransitionResult{
 func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, decoder runeDecoder[T]) (newState WordBreakState, wordBreak bool) {
 	// Determine the property of the next character.
 	nextProperty := workBreakCodePoints.search(r)
+	isExtendedPictographic := graphemeCodePoints.search(r) == prExtendedPictographic
 
 	// "Replacing Ignore Rules".
 	switch nextProperty {
@@ -139,11 +140,10 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 			return wbAny, false
 		}
 		return state, false
-	case wbprExtendedPictographic:
-		if state >= 0 && state&wbZWJBit != 0 {
-			// WB3c.
-			return wbAny, false
-		}
+	}
+	if isExtendedPictographic && state >= 0 && state&wbZWJBit != 0 {
+		// WB3c.
+		return wbAny, false
 	}
 	if state > 0 {
 		state = state &^ wbZWJBit

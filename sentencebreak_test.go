@@ -3,176 +3,16 @@
 package uniseg
 
 // sentenceBreakTestCases are Grapheme testcases taken from
-// https://www.unicode.org/Public/16.0.0/ucd/auxiliary/SentenceBreakTest.txt
+// https://www.unicode.org/Public/17.0.0/ucd/auxiliary/SentenceBreakTest.txt
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var sentenceBreakTestCases = []testCase{
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0001\u0001",
-		expected: [][]rune{{0x0001, 0x0001}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0001\u0308\u0001",
-		expected: [][]rune{{0x0001, 0x0308, 0x0001}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
-		original: "\u0001\u000D",
-		expected: [][]rune{{0x0001, 0x000D}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
-		original: "\u0001\u0308\u000D",
-		expected: [][]rune{{0x0001, 0x0308, 0x000D}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
-		original: "\u0001\u000A",
-		expected: [][]rune{{0x0001, 0x000A}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
-		original: "\u0001\u0308\u000A",
-		expected: [][]rune{{0x0001, 0x0308, 0x000A}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
-		original: "\u0001\u0085",
-		expected: [][]rune{{0x0001, 0x0085}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
-		original: "\u0001\u0308\u0085",
-		expected: [][]rune{{0x0001, 0x0308, 0x0085}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
-		original: "\u0001\u0009",
-		expected: [][]rune{{0x0001, 0x0009}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
-		original: "\u0001\u0308\u0009",
-		expected: [][]rune{{0x0001, 0x0308, 0x0009}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
-		original: "\u0001\u0061",
-		expected: [][]rune{{0x0001, 0x0061}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
-		original: "\u0001\u0308\u0061",
-		expected: [][]rune{{0x0001, 0x0308, 0x0061}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
-		original: "\u0001\u0041",
-		expected: [][]rune{{0x0001, 0x0041}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
-		original: "\u0001\u0308\u0041",
-		expected: [][]rune{{0x0001, 0x0308, 0x0041}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
-		original: "\u0001\u01BB",
-		expected: [][]rune{{0x0001, 0x01BB}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
-		original: "\u0001\u0308\u01BB",
-		expected: [][]rune{{0x0001, 0x0308, 0x01BB}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
-		original: "\u0001\u0030",
-		expected: [][]rune{{0x0001, 0x0030}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
-		original: "\u0001\u0308\u0030",
-		expected: [][]rune{{0x0001, 0x0308, 0x0030}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
-		original: "\u0001\u002E",
-		expected: [][]rune{{0x0001, 0x002E}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
-		original: "\u0001\u0308\u002E",
-		expected: [][]rune{{0x0001, 0x0308, 0x002E}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
-		original: "\u0001\u0021",
-		expected: [][]rune{{0x0001, 0x0021}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
-		original: "\u0001\u0308\u0021",
-		expected: [][]rune{{0x0001, 0x0308, 0x0021}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
-		original: "\u0001\u0022",
-		expected: [][]rune{{0x0001, 0x0022}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
-		original: "\u0001\u0308\u0022",
-		expected: [][]rune{{0x0001, 0x0308, 0x0022}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [998.0] COMMA (SContinue) ÷ [0.3]",
-		original: "\u0001\u002C",
-		expected: [][]rune{{0x0001, 0x002C}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
-		original: "\u0001\u0308\u002C",
-		expected: [][]rune{{0x0001, 0x0308, 0x002C}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0001\u00AD",
-		expected: [][]rune{{0x0001, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0001\u0308\u00AD",
-		expected: [][]rune{{0x0001, 0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0001\u0300",
-		expected: [][]rune{{0x0001, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] <START OF HEADING> (Other) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0001\u0308\u0300",
-		expected: [][]rune{{0x0001, 0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u000D\u0001",
-		expected: [][]rune{{0x000D}, {0x0001}},
-	},
-	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u000D\u0308\u0001",
-		expected: [][]rune{{0x000D}, {0x0308, 0x0001}},
-	},
 	{
 		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u000D\u000D",
 		expected: [][]rune{{0x000D}, {0x000D}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u000D\u0308\u000D",
 		expected: [][]rune{{0x000D}, {0x0308, 0x000D}},
 	},
@@ -182,9 +22,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u000D\u0308\u000A",
 		expected: [][]rune{{0x000D}, {0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u000D\u0300",
+		expected: [][]rune{{0x000D}, {0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u000D\u0308\u0300",
+		expected: [][]rune{{0x000D}, {0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u000D\u00AD",
+		expected: [][]rune{{0x000D}, {0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u000D\u0308\u00AD",
+		expected: [][]rune{{0x000D}, {0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -192,7 +52,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x0085}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u000D\u0308\u0085",
 		expected: [][]rune{{0x000D}, {0x0308, 0x0085}},
 	},
@@ -202,7 +62,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x0009}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u000D\u0308\u0009",
 		expected: [][]rune{{0x000D}, {0x0308, 0x0009}},
 	},
@@ -212,7 +72,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x0061}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u000D\u0308\u0061",
 		expected: [][]rune{{0x000D}, {0x0308, 0x0061}},
 	},
@@ -222,7 +82,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x0041}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u000D\u0308\u0041",
 		expected: [][]rune{{0x000D}, {0x0308, 0x0041}},
 	},
@@ -232,7 +92,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u000D\u0308\u01BB",
 		expected: [][]rune{{0x000D}, {0x0308, 0x01BB}},
 	},
@@ -242,7 +102,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x0030}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u000D\u0308\u0030",
 		expected: [][]rune{{0x000D}, {0x0308, 0x0030}},
 	},
@@ -252,7 +112,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x002E}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u000D\u0308\u002E",
 		expected: [][]rune{{0x000D}, {0x0308, 0x002E}},
 	},
@@ -262,7 +122,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x0021}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u000D\u0308\u0021",
 		expected: [][]rune{{0x000D}, {0x0308, 0x0021}},
 	},
@@ -272,7 +132,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x0022}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u000D\u0308\u0022",
 		expected: [][]rune{{0x000D}, {0x0308, 0x0022}},
 	},
@@ -282,39 +142,19 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000D}, {0x002C}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
 		original: "\u000D\u0308\u002C",
 		expected: [][]rune{{0x000D}, {0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u000D\u00AD",
-		expected: [][]rune{{0x000D}, {0x00AD}},
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u000D\u0000",
+		expected: [][]rune{{0x000D}, {0x0000}},
 	},
 	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u000D\u0308\u00AD",
-		expected: [][]rune{{0x000D}, {0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u000D\u0300",
-		expected: [][]rune{{0x000D}, {0x0300}},
-	},
-	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u000D\u0308\u0300",
-		expected: [][]rune{{0x000D}, {0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u000A\u0001",
-		expected: [][]rune{{0x000A}, {0x0001}},
-	},
-	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u000A\u0308\u0001",
-		expected: [][]rune{{0x000A}, {0x0308, 0x0001}},
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u000D\u0308\u0000",
+		expected: [][]rune{{0x000D}, {0x0308, 0x0000}},
 	},
 	{
 		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
@@ -322,7 +162,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x000D}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u000A\u0308\u000D",
 		expected: [][]rune{{0x000A}, {0x0308, 0x000D}},
 	},
@@ -332,9 +172,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x000A}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u000A\u0308\u000A",
 		expected: [][]rune{{0x000A}, {0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u000A\u0300",
+		expected: [][]rune{{0x000A}, {0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u000A\u0308\u0300",
+		expected: [][]rune{{0x000A}, {0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u000A\u00AD",
+		expected: [][]rune{{0x000A}, {0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u000A\u0308\u00AD",
+		expected: [][]rune{{0x000A}, {0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -342,7 +202,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x0085}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u000A\u0308\u0085",
 		expected: [][]rune{{0x000A}, {0x0308, 0x0085}},
 	},
@@ -352,7 +212,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x0009}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u000A\u0308\u0009",
 		expected: [][]rune{{0x000A}, {0x0308, 0x0009}},
 	},
@@ -362,7 +222,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x0061}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u000A\u0308\u0061",
 		expected: [][]rune{{0x000A}, {0x0308, 0x0061}},
 	},
@@ -372,7 +232,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x0041}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u000A\u0308\u0041",
 		expected: [][]rune{{0x000A}, {0x0308, 0x0041}},
 	},
@@ -382,7 +242,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u000A\u0308\u01BB",
 		expected: [][]rune{{0x000A}, {0x0308, 0x01BB}},
 	},
@@ -392,7 +252,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x0030}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u000A\u0308\u0030",
 		expected: [][]rune{{0x000A}, {0x0308, 0x0030}},
 	},
@@ -402,7 +262,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x002E}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u000A\u0308\u002E",
 		expected: [][]rune{{0x000A}, {0x0308, 0x002E}},
 	},
@@ -412,7 +272,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x0021}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u000A\u0308\u0021",
 		expected: [][]rune{{0x000A}, {0x0308, 0x0021}},
 	},
@@ -422,7 +282,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x0022}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u000A\u0308\u0022",
 		expected: [][]rune{{0x000A}, {0x0308, 0x0022}},
 	},
@@ -432,39 +292,319 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x000A}, {0x002C}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
 		original: "\u000A\u0308\u002C",
 		expected: [][]rune{{0x000A}, {0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u000A\u00AD",
-		expected: [][]rune{{0x000A}, {0x00AD}},
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u000A\u0000",
+		expected: [][]rune{{0x000A}, {0x0000}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u000A\u0308\u00AD",
-		expected: [][]rune{{0x000A}, {0x0308, 0x00AD}},
+		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u000A\u0308\u0000",
+		expected: [][]rune{{0x000A}, {0x0308, 0x0000}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u000A\u0300",
-		expected: [][]rune{{0x000A}, {0x0300}},
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0300\u000D",
+		expected: [][]rune{{0x0300, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u000A\u0308\u0300",
-		expected: [][]rune{{0x000A}, {0x0308, 0x0300}},
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0300\u0308\u000D",
+		expected: [][]rune{{0x0300, 0x0308, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0085\u0001",
-		expected: [][]rune{{0x0085}, {0x0001}},
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0300\u000A",
+		expected: [][]rune{{0x0300, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0085\u0308\u0001",
-		expected: [][]rune{{0x0085}, {0x0308, 0x0001}},
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0300\u0308\u000A",
+		expected: [][]rune{{0x0300, 0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0300\u0300",
+		expected: [][]rune{{0x0300, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0300\u0308\u0300",
+		expected: [][]rune{{0x0300, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0300\u00AD",
+		expected: [][]rune{{0x0300, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0300\u0308\u00AD",
+		expected: [][]rune{{0x0300, 0x0308, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		original: "\u0300\u0085",
+		expected: [][]rune{{0x0300, 0x0085}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		original: "\u0300\u0308\u0085",
+		expected: [][]rune{{0x0300, 0x0308, 0x0085}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		original: "\u0300\u0009",
+		expected: [][]rune{{0x0300, 0x0009}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		original: "\u0300\u0308\u0009",
+		expected: [][]rune{{0x0300, 0x0308, 0x0009}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		original: "\u0300\u0061",
+		expected: [][]rune{{0x0300, 0x0061}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		original: "\u0300\u0308\u0061",
+		expected: [][]rune{{0x0300, 0x0308, 0x0061}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		original: "\u0300\u0041",
+		expected: [][]rune{{0x0300, 0x0041}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		original: "\u0300\u0308\u0041",
+		expected: [][]rune{{0x0300, 0x0308, 0x0041}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		original: "\u0300\u01BB",
+		expected: [][]rune{{0x0300, 0x01BB}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		original: "\u0300\u0308\u01BB",
+		expected: [][]rune{{0x0300, 0x0308, 0x01BB}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		original: "\u0300\u0030",
+		expected: [][]rune{{0x0300, 0x0030}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		original: "\u0300\u0308\u0030",
+		expected: [][]rune{{0x0300, 0x0308, 0x0030}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		original: "\u0300\u002E",
+		expected: [][]rune{{0x0300, 0x002E}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		original: "\u0300\u0308\u002E",
+		expected: [][]rune{{0x0300, 0x0308, 0x002E}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		original: "\u0300\u0021",
+		expected: [][]rune{{0x0300, 0x0021}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		original: "\u0300\u0308\u0021",
+		expected: [][]rune{{0x0300, 0x0308, 0x0021}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		original: "\u0300\u0022",
+		expected: [][]rune{{0x0300, 0x0022}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		original: "\u0300\u0308\u0022",
+		expected: [][]rune{{0x0300, 0x0308, 0x0022}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		original: "\u0300\u002C",
+		expected: [][]rune{{0x0300, 0x002C}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		original: "\u0300\u0308\u002C",
+		expected: [][]rune{{0x0300, 0x0308, 0x002C}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0300\u0000",
+		expected: [][]rune{{0x0300, 0x0000}},
+	},
+	{
+		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0300\u0308\u0000",
+		expected: [][]rune{{0x0300, 0x0308, 0x0000}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u00AD\u000D",
+		expected: [][]rune{{0x00AD, 0x000D}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u00AD\u0308\u000D",
+		expected: [][]rune{{0x00AD, 0x0308, 0x000D}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u00AD\u000A",
+		expected: [][]rune{{0x00AD, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u00AD\u0308\u000A",
+		expected: [][]rune{{0x00AD, 0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u00AD\u0300",
+		expected: [][]rune{{0x00AD, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u00AD\u0308\u0300",
+		expected: [][]rune{{0x00AD, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u00AD\u00AD",
+		expected: [][]rune{{0x00AD, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u00AD\u0308\u00AD",
+		expected: [][]rune{{0x00AD, 0x0308, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		original: "\u00AD\u0085",
+		expected: [][]rune{{0x00AD, 0x0085}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		original: "\u00AD\u0308\u0085",
+		expected: [][]rune{{0x00AD, 0x0308, 0x0085}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		original: "\u00AD\u0009",
+		expected: [][]rune{{0x00AD, 0x0009}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		original: "\u00AD\u0308\u0009",
+		expected: [][]rune{{0x00AD, 0x0308, 0x0009}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		original: "\u00AD\u0061",
+		expected: [][]rune{{0x00AD, 0x0061}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		original: "\u00AD\u0308\u0061",
+		expected: [][]rune{{0x00AD, 0x0308, 0x0061}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		original: "\u00AD\u0041",
+		expected: [][]rune{{0x00AD, 0x0041}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		original: "\u00AD\u0308\u0041",
+		expected: [][]rune{{0x00AD, 0x0308, 0x0041}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		original: "\u00AD\u01BB",
+		expected: [][]rune{{0x00AD, 0x01BB}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		original: "\u00AD\u0308\u01BB",
+		expected: [][]rune{{0x00AD, 0x0308, 0x01BB}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		original: "\u00AD\u0030",
+		expected: [][]rune{{0x00AD, 0x0030}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		original: "\u00AD\u0308\u0030",
+		expected: [][]rune{{0x00AD, 0x0308, 0x0030}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		original: "\u00AD\u002E",
+		expected: [][]rune{{0x00AD, 0x002E}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		original: "\u00AD\u0308\u002E",
+		expected: [][]rune{{0x00AD, 0x0308, 0x002E}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		original: "\u00AD\u0021",
+		expected: [][]rune{{0x00AD, 0x0021}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		original: "\u00AD\u0308\u0021",
+		expected: [][]rune{{0x00AD, 0x0308, 0x0021}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		original: "\u00AD\u0022",
+		expected: [][]rune{{0x00AD, 0x0022}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		original: "\u00AD\u0308\u0022",
+		expected: [][]rune{{0x00AD, 0x0308, 0x0022}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		original: "\u00AD\u002C",
+		expected: [][]rune{{0x00AD, 0x002C}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		original: "\u00AD\u0308\u002C",
+		expected: [][]rune{{0x00AD, 0x0308, 0x002C}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u00AD\u0000",
+		expected: [][]rune{{0x00AD, 0x0000}},
+	},
+	{
+		name:     "÷ [0.2] SOFT HYPHEN (Format) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u00AD\u0308\u0000",
+		expected: [][]rune{{0x00AD, 0x0308, 0x0000}},
 	},
 	{
 		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
@@ -472,7 +612,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x000D}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u0085\u0308\u000D",
 		expected: [][]rune{{0x0085}, {0x0308, 0x000D}},
 	},
@@ -482,9 +622,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x000A}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u0085\u0308\u000A",
 		expected: [][]rune{{0x0085}, {0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0085\u0300",
+		expected: [][]rune{{0x0085}, {0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0085\u0308\u0300",
+		expected: [][]rune{{0x0085}, {0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0085\u00AD",
+		expected: [][]rune{{0x0085}, {0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0085\u0308\u00AD",
+		expected: [][]rune{{0x0085}, {0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -492,7 +652,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x0085}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u0085\u0308\u0085",
 		expected: [][]rune{{0x0085}, {0x0308, 0x0085}},
 	},
@@ -502,7 +662,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x0009}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u0085\u0308\u0009",
 		expected: [][]rune{{0x0085}, {0x0308, 0x0009}},
 	},
@@ -512,7 +672,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x0061}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u0085\u0308\u0061",
 		expected: [][]rune{{0x0085}, {0x0308, 0x0061}},
 	},
@@ -522,7 +682,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x0041}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u0085\u0308\u0041",
 		expected: [][]rune{{0x0085}, {0x0308, 0x0041}},
 	},
@@ -532,7 +692,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u0085\u0308\u01BB",
 		expected: [][]rune{{0x0085}, {0x0308, 0x01BB}},
 	},
@@ -542,7 +702,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x0030}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u0085\u0308\u0030",
 		expected: [][]rune{{0x0085}, {0x0308, 0x0030}},
 	},
@@ -552,7 +712,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x002E}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u0085\u0308\u002E",
 		expected: [][]rune{{0x0085}, {0x0308, 0x002E}},
 	},
@@ -562,7 +722,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x0021}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u0085\u0308\u0021",
 		expected: [][]rune{{0x0085}, {0x0308, 0x0021}},
 	},
@@ -572,7 +732,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x0022}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u0085\u0308\u0022",
 		expected: [][]rune{{0x0085}, {0x0308, 0x0022}},
 	},
@@ -582,39 +742,19 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0085}, {0x002C}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
 		original: "\u0085\u0308\u002C",
 		expected: [][]rune{{0x0085}, {0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0085\u00AD",
-		expected: [][]rune{{0x0085}, {0x00AD}},
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0085\u0000",
+		expected: [][]rune{{0x0085}, {0x0000}},
 	},
 	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0085\u0308\u00AD",
-		expected: [][]rune{{0x0085}, {0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0085\u0300",
-		expected: [][]rune{{0x0085}, {0x0300}},
-	},
-	{
-		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0085\u0308\u0300",
-		expected: [][]rune{{0x0085}, {0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0009\u0001",
-		expected: [][]rune{{0x0009, 0x0001}},
-	},
-	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0009\u0308\u0001",
-		expected: [][]rune{{0x0009, 0x0308, 0x0001}},
+		name:     "÷ [0.2] <NEXT LINE (NEL)> (Sep) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0085\u0308\u0000",
+		expected: [][]rune{{0x0085}, {0x0308, 0x0000}},
 	},
 	{
 		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
@@ -622,7 +762,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u0009\u0308\u000D",
 		expected: [][]rune{{0x0009, 0x0308, 0x000D}},
 	},
@@ -632,9 +772,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u0009\u0308\u000A",
 		expected: [][]rune{{0x0009, 0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0009\u0300",
+		expected: [][]rune{{0x0009, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0009\u0308\u0300",
+		expected: [][]rune{{0x0009, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0009\u00AD",
+		expected: [][]rune{{0x0009, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0009\u0308\u00AD",
+		expected: [][]rune{{0x0009, 0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -642,7 +802,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x0085}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u0009\u0308\u0085",
 		expected: [][]rune{{0x0009, 0x0308, 0x0085}},
 	},
@@ -652,7 +812,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x0009}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u0009\u0308\u0009",
 		expected: [][]rune{{0x0009, 0x0308, 0x0009}},
 	},
@@ -662,7 +822,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x0061}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u0009\u0308\u0061",
 		expected: [][]rune{{0x0009, 0x0308, 0x0061}},
 	},
@@ -672,7 +832,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x0041}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u0009\u0308\u0041",
 		expected: [][]rune{{0x0009, 0x0308, 0x0041}},
 	},
@@ -682,7 +842,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u0009\u0308\u01BB",
 		expected: [][]rune{{0x0009, 0x0308, 0x01BB}},
 	},
@@ -692,7 +852,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x0030}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u0009\u0308\u0030",
 		expected: [][]rune{{0x0009, 0x0308, 0x0030}},
 	},
@@ -702,7 +862,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x002E}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u0009\u0308\u002E",
 		expected: [][]rune{{0x0009, 0x0308, 0x002E}},
 	},
@@ -712,7 +872,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x0021}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u0009\u0308\u0021",
 		expected: [][]rune{{0x0009, 0x0308, 0x0021}},
 	},
@@ -722,7 +882,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x0022}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u0009\u0308\u0022",
 		expected: [][]rune{{0x0009, 0x0308, 0x0022}},
 	},
@@ -732,39 +892,19 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0009, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
 		original: "\u0009\u0308\u002C",
 		expected: [][]rune{{0x0009, 0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0009\u00AD",
-		expected: [][]rune{{0x0009, 0x00AD}},
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0009\u0000",
+		expected: [][]rune{{0x0009, 0x0000}},
 	},
 	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0009\u0308\u00AD",
-		expected: [][]rune{{0x0009, 0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0009\u0300",
-		expected: [][]rune{{0x0009, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0009\u0308\u0300",
-		expected: [][]rune{{0x0009, 0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0061\u0001",
-		expected: [][]rune{{0x0061, 0x0001}},
-	},
-	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0061\u0308\u0001",
-		expected: [][]rune{{0x0061, 0x0308, 0x0001}},
+		name:     "÷ [0.2] <CHARACTER TABULATION> (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0009\u0308\u0000",
+		expected: [][]rune{{0x0009, 0x0308, 0x0000}},
 	},
 	{
 		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
@@ -772,7 +912,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u0061\u0308\u000D",
 		expected: [][]rune{{0x0061, 0x0308, 0x000D}},
 	},
@@ -782,9 +922,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u0061\u0308\u000A",
 		expected: [][]rune{{0x0061, 0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0061\u0300",
+		expected: [][]rune{{0x0061, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0061\u0308\u0300",
+		expected: [][]rune{{0x0061, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0061\u00AD",
+		expected: [][]rune{{0x0061, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0061\u0308\u00AD",
+		expected: [][]rune{{0x0061, 0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -792,7 +952,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x0085}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u0061\u0308\u0085",
 		expected: [][]rune{{0x0061, 0x0308, 0x0085}},
 	},
@@ -802,7 +962,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x0009}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u0061\u0308\u0009",
 		expected: [][]rune{{0x0061, 0x0308, 0x0009}},
 	},
@@ -812,7 +972,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x0061}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u0061\u0308\u0061",
 		expected: [][]rune{{0x0061, 0x0308, 0x0061}},
 	},
@@ -822,7 +982,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x0041}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u0061\u0308\u0041",
 		expected: [][]rune{{0x0061, 0x0308, 0x0041}},
 	},
@@ -832,7 +992,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u0061\u0308\u01BB",
 		expected: [][]rune{{0x0061, 0x0308, 0x01BB}},
 	},
@@ -842,7 +1002,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x0030}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u0061\u0308\u0030",
 		expected: [][]rune{{0x0061, 0x0308, 0x0030}},
 	},
@@ -852,7 +1012,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x002E}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u0061\u0308\u002E",
 		expected: [][]rune{{0x0061, 0x0308, 0x002E}},
 	},
@@ -862,7 +1022,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x0021}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u0061\u0308\u0021",
 		expected: [][]rune{{0x0061, 0x0308, 0x0021}},
 	},
@@ -872,7 +1032,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x0022}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u0061\u0308\u0022",
 		expected: [][]rune{{0x0061, 0x0308, 0x0022}},
 	},
@@ -882,39 +1042,19 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0061, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
 		original: "\u0061\u0308\u002C",
 		expected: [][]rune{{0x0061, 0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0061\u00AD",
-		expected: [][]rune{{0x0061, 0x00AD}},
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0061\u0000",
+		expected: [][]rune{{0x0061, 0x0000}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0061\u0308\u00AD",
-		expected: [][]rune{{0x0061, 0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0061\u0300",
-		expected: [][]rune{{0x0061, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0061\u0308\u0300",
-		expected: [][]rune{{0x0061, 0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0041\u0001",
-		expected: [][]rune{{0x0041, 0x0001}},
-	},
-	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0041\u0308\u0001",
-		expected: [][]rune{{0x0041, 0x0308, 0x0001}},
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0061\u0308\u0000",
+		expected: [][]rune{{0x0061, 0x0308, 0x0000}},
 	},
 	{
 		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
@@ -922,7 +1062,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u0041\u0308\u000D",
 		expected: [][]rune{{0x0041, 0x0308, 0x000D}},
 	},
@@ -932,9 +1072,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u0041\u0308\u000A",
 		expected: [][]rune{{0x0041, 0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0041\u0300",
+		expected: [][]rune{{0x0041, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0041\u0308\u0300",
+		expected: [][]rune{{0x0041, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0041\u00AD",
+		expected: [][]rune{{0x0041, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0041\u0308\u00AD",
+		expected: [][]rune{{0x0041, 0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -942,7 +1102,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x0085}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u0041\u0308\u0085",
 		expected: [][]rune{{0x0041, 0x0308, 0x0085}},
 	},
@@ -952,7 +1112,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x0009}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u0041\u0308\u0009",
 		expected: [][]rune{{0x0041, 0x0308, 0x0009}},
 	},
@@ -962,7 +1122,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x0061}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u0041\u0308\u0061",
 		expected: [][]rune{{0x0041, 0x0308, 0x0061}},
 	},
@@ -972,7 +1132,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x0041}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u0041\u0308\u0041",
 		expected: [][]rune{{0x0041, 0x0308, 0x0041}},
 	},
@@ -982,7 +1142,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u0041\u0308\u01BB",
 		expected: [][]rune{{0x0041, 0x0308, 0x01BB}},
 	},
@@ -992,7 +1152,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x0030}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u0041\u0308\u0030",
 		expected: [][]rune{{0x0041, 0x0308, 0x0030}},
 	},
@@ -1002,7 +1162,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x002E}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u0041\u0308\u002E",
 		expected: [][]rune{{0x0041, 0x0308, 0x002E}},
 	},
@@ -1012,7 +1172,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x0021}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u0041\u0308\u0021",
 		expected: [][]rune{{0x0041, 0x0308, 0x0021}},
 	},
@@ -1022,7 +1182,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x0022}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u0041\u0308\u0022",
 		expected: [][]rune{{0x0041, 0x0308, 0x0022}},
 	},
@@ -1032,39 +1192,19 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
 		original: "\u0041\u0308\u002C",
 		expected: [][]rune{{0x0041, 0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0041\u00AD",
-		expected: [][]rune{{0x0041, 0x00AD}},
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0041\u0000",
+		expected: [][]rune{{0x0041, 0x0000}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0041\u0308\u00AD",
-		expected: [][]rune{{0x0041, 0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0041\u0300",
-		expected: [][]rune{{0x0041, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0041\u0308\u0300",
-		expected: [][]rune{{0x0041, 0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u01BB\u0001",
-		expected: [][]rune{{0x01BB, 0x0001}},
-	},
-	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u01BB\u0308\u0001",
-		expected: [][]rune{{0x01BB, 0x0308, 0x0001}},
+		name:     "÷ [0.2] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0041\u0308\u0000",
+		expected: [][]rune{{0x0041, 0x0308, 0x0000}},
 	},
 	{
 		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
@@ -1072,7 +1212,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u01BB\u0308\u000D",
 		expected: [][]rune{{0x01BB, 0x0308, 0x000D}},
 	},
@@ -1082,9 +1222,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u01BB\u0308\u000A",
 		expected: [][]rune{{0x01BB, 0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u01BB\u0300",
+		expected: [][]rune{{0x01BB, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u01BB\u0308\u0300",
+		expected: [][]rune{{0x01BB, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u01BB\u00AD",
+		expected: [][]rune{{0x01BB, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u01BB\u0308\u00AD",
+		expected: [][]rune{{0x01BB, 0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -1092,7 +1252,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x0085}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u01BB\u0308\u0085",
 		expected: [][]rune{{0x01BB, 0x0308, 0x0085}},
 	},
@@ -1102,7 +1262,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x0009}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u01BB\u0308\u0009",
 		expected: [][]rune{{0x01BB, 0x0308, 0x0009}},
 	},
@@ -1112,7 +1272,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x0061}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u01BB\u0308\u0061",
 		expected: [][]rune{{0x01BB, 0x0308, 0x0061}},
 	},
@@ -1122,7 +1282,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x0041}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u01BB\u0308\u0041",
 		expected: [][]rune{{0x01BB, 0x0308, 0x0041}},
 	},
@@ -1132,7 +1292,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u01BB\u0308\u01BB",
 		expected: [][]rune{{0x01BB, 0x0308, 0x01BB}},
 	},
@@ -1142,7 +1302,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x0030}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u01BB\u0308\u0030",
 		expected: [][]rune{{0x01BB, 0x0308, 0x0030}},
 	},
@@ -1152,7 +1312,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x002E}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u01BB\u0308\u002E",
 		expected: [][]rune{{0x01BB, 0x0308, 0x002E}},
 	},
@@ -1162,7 +1322,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x0021}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u01BB\u0308\u0021",
 		expected: [][]rune{{0x01BB, 0x0308, 0x0021}},
 	},
@@ -1172,7 +1332,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x0022}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u01BB\u0308\u0022",
 		expected: [][]rune{{0x01BB, 0x0308, 0x0022}},
 	},
@@ -1182,39 +1342,19 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x01BB, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
 		original: "\u01BB\u0308\u002C",
 		expected: [][]rune{{0x01BB, 0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u01BB\u00AD",
-		expected: [][]rune{{0x01BB, 0x00AD}},
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u01BB\u0000",
+		expected: [][]rune{{0x01BB, 0x0000}},
 	},
 	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u01BB\u0308\u00AD",
-		expected: [][]rune{{0x01BB, 0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u01BB\u0300",
-		expected: [][]rune{{0x01BB, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u01BB\u0308\u0300",
-		expected: [][]rune{{0x01BB, 0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0030\u0001",
-		expected: [][]rune{{0x0030, 0x0001}},
-	},
-	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0030\u0308\u0001",
-		expected: [][]rune{{0x0030, 0x0308, 0x0001}},
+		name:     "÷ [0.2] LATIN LETTER TWO WITH STROKE (OLetter) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u01BB\u0308\u0000",
+		expected: [][]rune{{0x01BB, 0x0308, 0x0000}},
 	},
 	{
 		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
@@ -1222,7 +1362,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u0030\u0308\u000D",
 		expected: [][]rune{{0x0030, 0x0308, 0x000D}},
 	},
@@ -1232,9 +1372,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u0030\u0308\u000A",
 		expected: [][]rune{{0x0030, 0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0030\u0300",
+		expected: [][]rune{{0x0030, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0030\u0308\u0300",
+		expected: [][]rune{{0x0030, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0030\u00AD",
+		expected: [][]rune{{0x0030, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0030\u0308\u00AD",
+		expected: [][]rune{{0x0030, 0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -1242,7 +1402,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x0085}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u0030\u0308\u0085",
 		expected: [][]rune{{0x0030, 0x0308, 0x0085}},
 	},
@@ -1252,7 +1412,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x0009}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u0030\u0308\u0009",
 		expected: [][]rune{{0x0030, 0x0308, 0x0009}},
 	},
@@ -1262,7 +1422,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x0061}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u0030\u0308\u0061",
 		expected: [][]rune{{0x0030, 0x0308, 0x0061}},
 	},
@@ -1272,7 +1432,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x0041}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u0030\u0308\u0041",
 		expected: [][]rune{{0x0030, 0x0308, 0x0041}},
 	},
@@ -1282,7 +1442,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u0030\u0308\u01BB",
 		expected: [][]rune{{0x0030, 0x0308, 0x01BB}},
 	},
@@ -1292,7 +1452,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x0030}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u0030\u0308\u0030",
 		expected: [][]rune{{0x0030, 0x0308, 0x0030}},
 	},
@@ -1302,7 +1462,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x002E}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u0030\u0308\u002E",
 		expected: [][]rune{{0x0030, 0x0308, 0x002E}},
 	},
@@ -1312,7 +1472,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x0021}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u0030\u0308\u0021",
 		expected: [][]rune{{0x0030, 0x0308, 0x0021}},
 	},
@@ -1322,7 +1482,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x0022}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u0030\u0308\u0022",
 		expected: [][]rune{{0x0030, 0x0308, 0x0022}},
 	},
@@ -1332,39 +1492,19 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0030, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
 		original: "\u0030\u0308\u002C",
 		expected: [][]rune{{0x0030, 0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0030\u00AD",
-		expected: [][]rune{{0x0030, 0x00AD}},
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0030\u0000",
+		expected: [][]rune{{0x0030, 0x0000}},
 	},
 	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0030\u0308\u00AD",
-		expected: [][]rune{{0x0030, 0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0030\u0300",
-		expected: [][]rune{{0x0030, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0030\u0308\u0300",
-		expected: [][]rune{{0x0030, 0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] FULL STOP (ATerm) ÷ [11.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u002E\u0001",
-		expected: [][]rune{{0x002E}, {0x0001}},
-	},
-	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u002E\u0308\u0001",
-		expected: [][]rune{{0x002E, 0x0308}, {0x0001}},
+		name:     "÷ [0.2] DIGIT ZERO (Numeric) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0030\u0308\u0000",
+		expected: [][]rune{{0x0030, 0x0308, 0x0000}},
 	},
 	{
 		name:     "÷ [0.2] FULL STOP (ATerm) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
@@ -1372,7 +1512,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u002E\u0308\u000D",
 		expected: [][]rune{{0x002E, 0x0308, 0x000D}},
 	},
@@ -1382,9 +1522,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [9.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [9.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u002E\u0308\u000A",
 		expected: [][]rune{{0x002E, 0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u002E\u0300",
+		expected: [][]rune{{0x002E, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u002E\u0308\u0300",
+		expected: [][]rune{{0x002E, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u002E\u00AD",
+		expected: [][]rune{{0x002E, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u002E\u0308\u00AD",
+		expected: [][]rune{{0x002E, 0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] FULL STOP (ATerm) × [9.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -1392,7 +1552,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E, 0x0085}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [9.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [9.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u002E\u0308\u0085",
 		expected: [][]rune{{0x002E, 0x0308, 0x0085}},
 	},
@@ -1402,7 +1562,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E, 0x0009}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [9.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [9.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u002E\u0308\u0009",
 		expected: [][]rune{{0x002E, 0x0308, 0x0009}},
 	},
@@ -1412,7 +1572,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E, 0x0061}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [8.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [8.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u002E\u0308\u0061",
 		expected: [][]rune{{0x002E, 0x0308, 0x0061}},
 	},
@@ -1422,7 +1582,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E}, {0x0041}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u002E\u0308\u0041",
 		expected: [][]rune{{0x002E, 0x0308}, {0x0041}},
 	},
@@ -1432,7 +1592,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E}, {0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u002E\u0308\u01BB",
 		expected: [][]rune{{0x002E, 0x0308}, {0x01BB}},
 	},
@@ -1442,7 +1602,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E, 0x0030}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [6.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [6.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u002E\u0308\u0030",
 		expected: [][]rune{{0x002E, 0x0308, 0x0030}},
 	},
@@ -1452,7 +1612,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E, 0x002E}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [8.1] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [8.1] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u002E\u0308\u002E",
 		expected: [][]rune{{0x002E, 0x0308, 0x002E}},
 	},
@@ -1462,7 +1622,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E, 0x0021}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [8.1] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [8.1] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u002E\u0308\u0021",
 		expected: [][]rune{{0x002E, 0x0308, 0x0021}},
 	},
@@ -1472,7 +1632,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E, 0x0022}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [9.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [9.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u002E\u0308\u0022",
 		expected: [][]rune{{0x002E, 0x0308, 0x0022}},
 	},
@@ -1482,39 +1642,19 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002E, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [8.1] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) × [8.1] COMMA (SContinue) ÷ [0.3]",
 		original: "\u002E\u0308\u002C",
 		expected: [][]rune{{0x002E, 0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u002E\u00AD",
-		expected: [][]rune{{0x002E, 0x00AD}},
+		name:     "÷ [0.2] FULL STOP (ATerm) ÷ [11.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u002E\u0000",
+		expected: [][]rune{{0x002E}, {0x0000}},
 	},
 	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u002E\u0308\u00AD",
-		expected: [][]rune{{0x002E, 0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u002E\u0300",
-		expected: [][]rune{{0x002E, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u002E\u0308\u0300",
-		expected: [][]rune{{0x002E, 0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) ÷ [11.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0021\u0001",
-		expected: [][]rune{{0x0021}, {0x0001}},
-	},
-	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0021\u0308\u0001",
-		expected: [][]rune{{0x0021, 0x0308}, {0x0001}},
+		name:     "÷ [0.2] FULL STOP (ATerm) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u002E\u0308\u0000",
+		expected: [][]rune{{0x002E, 0x0308}, {0x0000}},
 	},
 	{
 		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
@@ -1522,7 +1662,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u0021\u0308\u000D",
 		expected: [][]rune{{0x0021, 0x0308, 0x000D}},
 	},
@@ -1532,9 +1672,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [9.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) × [9.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u0021\u0308\u000A",
 		expected: [][]rune{{0x0021, 0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0021\u0300",
+		expected: [][]rune{{0x0021, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0021\u0308\u0300",
+		expected: [][]rune{{0x0021, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0021\u00AD",
+		expected: [][]rune{{0x0021, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0021\u0308\u00AD",
+		expected: [][]rune{{0x0021, 0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [9.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -1542,7 +1702,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021, 0x0085}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [9.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) × [9.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u0021\u0308\u0085",
 		expected: [][]rune{{0x0021, 0x0308, 0x0085}},
 	},
@@ -1552,7 +1712,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021, 0x0009}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [9.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) × [9.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u0021\u0308\u0009",
 		expected: [][]rune{{0x0021, 0x0308, 0x0009}},
 	},
@@ -1562,7 +1722,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021}, {0x0061}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u0021\u0308\u0061",
 		expected: [][]rune{{0x0021, 0x0308}, {0x0061}},
 	},
@@ -1572,7 +1732,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021}, {0x0041}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u0021\u0308\u0041",
 		expected: [][]rune{{0x0021, 0x0308}, {0x0041}},
 	},
@@ -1582,7 +1742,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021}, {0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u0021\u0308\u01BB",
 		expected: [][]rune{{0x0021, 0x0308}, {0x01BB}},
 	},
@@ -1592,7 +1752,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021}, {0x0030}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u0021\u0308\u0030",
 		expected: [][]rune{{0x0021, 0x0308}, {0x0030}},
 	},
@@ -1602,7 +1762,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021, 0x002E}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [8.1] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) × [8.1] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u0021\u0308\u002E",
 		expected: [][]rune{{0x0021, 0x0308, 0x002E}},
 	},
@@ -1612,7 +1772,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021, 0x0021}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [8.1] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) × [8.1] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u0021\u0308\u0021",
 		expected: [][]rune{{0x0021, 0x0308, 0x0021}},
 	},
@@ -1622,7 +1782,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021, 0x0022}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [9.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) × [9.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u0021\u0308\u0022",
 		expected: [][]rune{{0x0021, 0x0308, 0x0022}},
 	},
@@ -1632,39 +1792,19 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0021, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [8.1] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) × [8.1] COMMA (SContinue) ÷ [0.3]",
 		original: "\u0021\u0308\u002C",
 		expected: [][]rune{{0x0021, 0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0021\u00AD",
-		expected: [][]rune{{0x0021, 0x00AD}},
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) ÷ [11.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0021\u0000",
+		expected: [][]rune{{0x0021}, {0x0000}},
 	},
 	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0021\u0308\u00AD",
-		expected: [][]rune{{0x0021, 0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0021\u0300",
-		expected: [][]rune{{0x0021, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0021\u0308\u0300",
-		expected: [][]rune{{0x0021, 0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0022\u0001",
-		expected: [][]rune{{0x0022, 0x0001}},
-	},
-	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0022\u0308\u0001",
-		expected: [][]rune{{0x0022, 0x0308, 0x0001}},
+		name:     "÷ [0.2] EXCLAMATION MARK (STerm) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0021\u0308\u0000",
+		expected: [][]rune{{0x0021, 0x0308}, {0x0000}},
 	},
 	{
 		name:     "÷ [0.2] QUOTATION MARK (Close) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
@@ -1672,7 +1812,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u0022\u0308\u000D",
 		expected: [][]rune{{0x0022, 0x0308, 0x000D}},
 	},
@@ -1682,9 +1822,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u0022\u0308\u000A",
 		expected: [][]rune{{0x0022, 0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0022\u0300",
+		expected: [][]rune{{0x0022, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0022\u0308\u0300",
+		expected: [][]rune{{0x0022, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0022\u00AD",
+		expected: [][]rune{{0x0022, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0022\u0308\u00AD",
+		expected: [][]rune{{0x0022, 0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] QUOTATION MARK (Close) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -1692,7 +1852,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x0085}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u0022\u0308\u0085",
 		expected: [][]rune{{0x0022, 0x0308, 0x0085}},
 	},
@@ -1702,7 +1862,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x0009}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u0022\u0308\u0009",
 		expected: [][]rune{{0x0022, 0x0308, 0x0009}},
 	},
@@ -1712,7 +1872,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x0061}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u0022\u0308\u0061",
 		expected: [][]rune{{0x0022, 0x0308, 0x0061}},
 	},
@@ -1722,7 +1882,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x0041}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u0022\u0308\u0041",
 		expected: [][]rune{{0x0022, 0x0308, 0x0041}},
 	},
@@ -1732,7 +1892,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u0022\u0308\u01BB",
 		expected: [][]rune{{0x0022, 0x0308, 0x01BB}},
 	},
@@ -1742,7 +1902,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x0030}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u0022\u0308\u0030",
 		expected: [][]rune{{0x0022, 0x0308, 0x0030}},
 	},
@@ -1752,7 +1912,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x002E}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u0022\u0308\u002E",
 		expected: [][]rune{{0x0022, 0x0308, 0x002E}},
 	},
@@ -1762,7 +1922,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x0021}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u0022\u0308\u0021",
 		expected: [][]rune{{0x0022, 0x0308, 0x0021}},
 	},
@@ -1772,7 +1932,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x0022}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u0022\u0308\u0022",
 		expected: [][]rune{{0x0022, 0x0308, 0x0022}},
 	},
@@ -1782,39 +1942,19 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0022, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
 		original: "\u0022\u0308\u002C",
 		expected: [][]rune{{0x0022, 0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0022\u00AD",
-		expected: [][]rune{{0x0022, 0x00AD}},
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0022\u0000",
+		expected: [][]rune{{0x0022, 0x0000}},
 	},
 	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0022\u0308\u00AD",
-		expected: [][]rune{{0x0022, 0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0022\u0300",
-		expected: [][]rune{{0x0022, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0022\u0308\u0300",
-		expected: [][]rune{{0x0022, 0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] COMMA (SContinue) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u002C\u0001",
-		expected: [][]rune{{0x002C, 0x0001}},
-	},
-	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u002C\u0308\u0001",
-		expected: [][]rune{{0x002C, 0x0308, 0x0001}},
+		name:     "÷ [0.2] QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0022\u0308\u0000",
+		expected: [][]rune{{0x0022, 0x0308, 0x0000}},
 	},
 	{
 		name:     "÷ [0.2] COMMA (SContinue) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
@@ -1822,7 +1962,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
 		original: "\u002C\u0308\u000D",
 		expected: [][]rune{{0x002C, 0x0308, 0x000D}},
 	},
@@ -1832,9 +1972,29 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
 		original: "\u002C\u0308\u000A",
 		expected: [][]rune{{0x002C, 0x0308, 0x000A}},
+	},
+	{
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u002C\u0300",
+		expected: [][]rune{{0x002C, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u002C\u0308\u0300",
+		expected: [][]rune{{0x002C, 0x0308, 0x0300}},
+	},
+	{
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u002C\u00AD",
+		expected: [][]rune{{0x002C, 0x00AD}},
+	},
+	{
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u002C\u0308\u00AD",
+		expected: [][]rune{{0x002C, 0x0308, 0x00AD}},
 	},
 	{
 		name:     "÷ [0.2] COMMA (SContinue) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
@@ -1842,7 +2002,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x0085}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
 		original: "\u002C\u0308\u0085",
 		expected: [][]rune{{0x002C, 0x0308, 0x0085}},
 	},
@@ -1852,7 +2012,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x0009}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
 		original: "\u002C\u0308\u0009",
 		expected: [][]rune{{0x002C, 0x0308, 0x0009}},
 	},
@@ -1862,7 +2022,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x0061}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
 		original: "\u002C\u0308\u0061",
 		expected: [][]rune{{0x002C, 0x0308, 0x0061}},
 	},
@@ -1872,7 +2032,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x0041}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
 		original: "\u002C\u0308\u0041",
 		expected: [][]rune{{0x002C, 0x0308, 0x0041}},
 	},
@@ -1882,7 +2042,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
 		original: "\u002C\u0308\u01BB",
 		expected: [][]rune{{0x002C, 0x0308, 0x01BB}},
 	},
@@ -1892,7 +2052,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x0030}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
 		original: "\u002C\u0308\u0030",
 		expected: [][]rune{{0x002C, 0x0308, 0x0030}},
 	},
@@ -1902,7 +2062,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x002E}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u002C\u0308\u002E",
 		expected: [][]rune{{0x002C, 0x0308, 0x002E}},
 	},
@@ -1912,7 +2072,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x0021}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
 		original: "\u002C\u0308\u0021",
 		expected: [][]rune{{0x002C, 0x0308, 0x0021}},
 	},
@@ -1922,7 +2082,7 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x0022}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
 		original: "\u002C\u0308\u0022",
 		expected: [][]rune{{0x002C, 0x0308, 0x0022}},
 	},
@@ -1932,347 +2092,187 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x002C, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
 		original: "\u002C\u0308\u002C",
 		expected: [][]rune{{0x002C, 0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u002C\u00AD",
-		expected: [][]rune{{0x002C, 0x00AD}},
+		name:     "÷ [0.2] COMMA (SContinue) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u002C\u0000",
+		expected: [][]rune{{0x002C, 0x0000}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u002C\u0308\u00AD",
-		expected: [][]rune{{0x002C, 0x0308, 0x00AD}},
+		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u002C\u0308\u0000",
+		expected: [][]rune{{0x002C, 0x0308, 0x0000}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u002C\u0300",
-		expected: [][]rune{{0x002C, 0x0300}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0000\u000D",
+		expected: [][]rune{{0x0000, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] COMMA (SContinue) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u002C\u0308\u0300",
-		expected: [][]rune{{0x002C, 0x0308, 0x0300}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
+		original: "\u0000\u0308\u000D",
+		expected: [][]rune{{0x0000, 0x0308, 0x000D}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u00AD\u0001",
-		expected: [][]rune{{0x00AD, 0x0001}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0000\u000A",
+		expected: [][]rune{{0x0000, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u00AD\u0308\u0001",
-		expected: [][]rune{{0x00AD, 0x0308, 0x0001}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
+		original: "\u0000\u0308\u000A",
+		expected: [][]rune{{0x0000, 0x0308, 0x000A}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
-		original: "\u00AD\u000D",
-		expected: [][]rune{{0x00AD, 0x000D}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0000\u0300",
+		expected: [][]rune{{0x0000, 0x0300}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
-		original: "\u00AD\u0308\u000D",
-		expected: [][]rune{{0x00AD, 0x0308, 0x000D}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] COMBINING GRAVE ACCENT (Extend) ÷ [0.3]",
+		original: "\u0000\u0308\u0300",
+		expected: [][]rune{{0x0000, 0x0308, 0x0300}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
-		original: "\u00AD\u000A",
-		expected: [][]rune{{0x00AD, 0x000A}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0000\u00AD",
+		expected: [][]rune{{0x0000, 0x00AD}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
-		original: "\u00AD\u0308\u000A",
-		expected: [][]rune{{0x00AD, 0x0308, 0x000A}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] SOFT HYPHEN (Format) ÷ [0.3]",
+		original: "\u0000\u0308\u00AD",
+		expected: [][]rune{{0x0000, 0x0308, 0x00AD}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
-		original: "\u00AD\u0085",
-		expected: [][]rune{{0x00AD, 0x0085}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		original: "\u0000\u0085",
+		expected: [][]rune{{0x0000, 0x0085}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
-		original: "\u00AD\u0308\u0085",
-		expected: [][]rune{{0x00AD, 0x0308, 0x0085}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
+		original: "\u0000\u0308\u0085",
+		expected: [][]rune{{0x0000, 0x0308, 0x0085}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
-		original: "\u00AD\u0009",
-		expected: [][]rune{{0x00AD, 0x0009}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		original: "\u0000\u0009",
+		expected: [][]rune{{0x0000, 0x0009}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
-		original: "\u00AD\u0308\u0009",
-		expected: [][]rune{{0x00AD, 0x0308, 0x0009}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
+		original: "\u0000\u0308\u0009",
+		expected: [][]rune{{0x0000, 0x0308, 0x0009}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
-		original: "\u00AD\u0061",
-		expected: [][]rune{{0x00AD, 0x0061}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		original: "\u0000\u0061",
+		expected: [][]rune{{0x0000, 0x0061}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
-		original: "\u00AD\u0308\u0061",
-		expected: [][]rune{{0x00AD, 0x0308, 0x0061}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
+		original: "\u0000\u0308\u0061",
+		expected: [][]rune{{0x0000, 0x0308, 0x0061}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
-		original: "\u00AD\u0041",
-		expected: [][]rune{{0x00AD, 0x0041}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		original: "\u0000\u0041",
+		expected: [][]rune{{0x0000, 0x0041}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
-		original: "\u00AD\u0308\u0041",
-		expected: [][]rune{{0x00AD, 0x0308, 0x0041}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
+		original: "\u0000\u0308\u0041",
+		expected: [][]rune{{0x0000, 0x0308, 0x0041}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
-		original: "\u00AD\u01BB",
-		expected: [][]rune{{0x00AD, 0x01BB}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		original: "\u0000\u01BB",
+		expected: [][]rune{{0x0000, 0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
-		original: "\u00AD\u0308\u01BB",
-		expected: [][]rune{{0x00AD, 0x0308, 0x01BB}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
+		original: "\u0000\u0308\u01BB",
+		expected: [][]rune{{0x0000, 0x0308, 0x01BB}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
-		original: "\u00AD\u0030",
-		expected: [][]rune{{0x00AD, 0x0030}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		original: "\u0000\u0030",
+		expected: [][]rune{{0x0000, 0x0030}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
-		original: "\u00AD\u0308\u0030",
-		expected: [][]rune{{0x00AD, 0x0308, 0x0030}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
+		original: "\u0000\u0308\u0030",
+		expected: [][]rune{{0x0000, 0x0308, 0x0030}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
-		original: "\u00AD\u002E",
-		expected: [][]rune{{0x00AD, 0x002E}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		original: "\u0000\u002E",
+		expected: [][]rune{{0x0000, 0x002E}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
-		original: "\u00AD\u0308\u002E",
-		expected: [][]rune{{0x00AD, 0x0308, 0x002E}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		original: "\u0000\u0308\u002E",
+		expected: [][]rune{{0x0000, 0x0308, 0x002E}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
-		original: "\u00AD\u0021",
-		expected: [][]rune{{0x00AD, 0x0021}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		original: "\u0000\u0021",
+		expected: [][]rune{{0x0000, 0x0021}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
-		original: "\u00AD\u0308\u0021",
-		expected: [][]rune{{0x00AD, 0x0308, 0x0021}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
+		original: "\u0000\u0308\u0021",
+		expected: [][]rune{{0x0000, 0x0308, 0x0021}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
-		original: "\u00AD\u0022",
-		expected: [][]rune{{0x00AD, 0x0022}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		original: "\u0000\u0022",
+		expected: [][]rune{{0x0000, 0x0022}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
-		original: "\u00AD\u0308\u0022",
-		expected: [][]rune{{0x00AD, 0x0308, 0x0022}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
+		original: "\u0000\u0308\u0022",
+		expected: [][]rune{{0x0000, 0x0308, 0x0022}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
-		original: "\u00AD\u002C",
-		expected: [][]rune{{0x00AD, 0x002C}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		original: "\u0000\u002C",
+		expected: [][]rune{{0x0000, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
-		original: "\u00AD\u0308\u002C",
-		expected: [][]rune{{0x00AD, 0x0308, 0x002C}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] COMMA (SContinue) ÷ [0.3]",
+		original: "\u0000\u0308\u002C",
+		expected: [][]rune{{0x0000, 0x0308, 0x002C}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u00AD\u00AD",
-		expected: [][]rune{{0x00AD, 0x00AD}},
+		name:     "÷ [0.2] <NULL> (XX) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0000\u0000",
+		expected: [][]rune{{0x0000, 0x0000}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u00AD\u0308\u00AD",
-		expected: [][]rune{{0x00AD, 0x0308, 0x00AD}},
+		name:     "÷ [0.2] <NULL> (XX) × [5.0] COMBINING DIAERESIS (Extend) × [998.0] <NULL> (XX) ÷ [0.3]",
+		original: "\u0000\u0308\u0000",
+		expected: [][]rune{{0x0000, 0x0308, 0x0000}},
 	},
 	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u00AD\u0300",
-		expected: [][]rune{{0x00AD, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] SOFT HYPHEN (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u00AD\u0308\u0300",
-		expected: [][]rune{{0x00AD, 0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0300\u0001",
-		expected: [][]rune{{0x0300, 0x0001}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <START OF HEADING> (Other) ÷ [0.3]",
-		original: "\u0300\u0308\u0001",
-		expected: [][]rune{{0x0300, 0x0308, 0x0001}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
-		original: "\u0300\u000D",
-		expected: [][]rune{{0x0300, 0x000D}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CARRIAGE RETURN (CR)> (CR) ÷ [0.3]",
-		original: "\u0300\u0308\u000D",
-		expected: [][]rune{{0x0300, 0x0308, 0x000D}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
-		original: "\u0300\u000A",
-		expected: [][]rune{{0x0300, 0x000A}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [0.3]",
-		original: "\u0300\u0308\u000A",
-		expected: [][]rune{{0x0300, 0x0308, 0x000A}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
-		original: "\u0300\u0085",
-		expected: [][]rune{{0x0300, 0x0085}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <NEXT LINE (NEL)> (Sep) ÷ [0.3]",
-		original: "\u0300\u0308\u0085",
-		expected: [][]rune{{0x0300, 0x0308, 0x0085}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
-		original: "\u0300\u0009",
-		expected: [][]rune{{0x0300, 0x0009}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] <CHARACTER TABULATION> (Sp) ÷ [0.3]",
-		original: "\u0300\u0308\u0009",
-		expected: [][]rune{{0x0300, 0x0308, 0x0009}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
-		original: "\u0300\u0061",
-		expected: [][]rune{{0x0300, 0x0061}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN SMALL LETTER A (Lower) ÷ [0.3]",
-		original: "\u0300\u0308\u0061",
-		expected: [][]rune{{0x0300, 0x0308, 0x0061}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
-		original: "\u0300\u0041",
-		expected: [][]rune{{0x0300, 0x0041}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) ÷ [0.3]",
-		original: "\u0300\u0308\u0041",
-		expected: [][]rune{{0x0300, 0x0308, 0x0041}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
-		original: "\u0300\u01BB",
-		expected: [][]rune{{0x0300, 0x01BB}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN LETTER TWO WITH STROKE (OLetter) ÷ [0.3]",
-		original: "\u0300\u0308\u01BB",
-		expected: [][]rune{{0x0300, 0x0308, 0x01BB}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
-		original: "\u0300\u0030",
-		expected: [][]rune{{0x0300, 0x0030}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] DIGIT ZERO (Numeric) ÷ [0.3]",
-		original: "\u0300\u0308\u0030",
-		expected: [][]rune{{0x0300, 0x0308, 0x0030}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
-		original: "\u0300\u002E",
-		expected: [][]rune{{0x0300, 0x002E}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
-		original: "\u0300\u0308\u002E",
-		expected: [][]rune{{0x0300, 0x0308, 0x002E}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
-		original: "\u0300\u0021",
-		expected: [][]rune{{0x0300, 0x0021}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] EXCLAMATION MARK (STerm) ÷ [0.3]",
-		original: "\u0300\u0308\u0021",
-		expected: [][]rune{{0x0300, 0x0308, 0x0021}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
-		original: "\u0300\u0022",
-		expected: [][]rune{{0x0300, 0x0022}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] QUOTATION MARK (Close) ÷ [0.3]",
-		original: "\u0300\u0308\u0022",
-		expected: [][]rune{{0x0300, 0x0308, 0x0022}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
-		original: "\u0300\u002C",
-		expected: [][]rune{{0x0300, 0x002C}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [998.0] COMMA (SContinue) ÷ [0.3]",
-		original: "\u0300\u0308\u002C",
-		expected: [][]rune{{0x0300, 0x0308, 0x002C}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0300\u00AD",
-		expected: [][]rune{{0x0300, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] SOFT HYPHEN (Format_FE) ÷ [0.3]",
-		original: "\u0300\u0308\u00AD",
-		expected: [][]rune{{0x0300, 0x0308, 0x00AD}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0300\u0300",
-		expected: [][]rune{{0x0300, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] COMBINING GRAVE ACCENT (Extend_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) ÷ [0.3]",
-		original: "\u0300\u0308\u0300",
-		expected: [][]rune{{0x0300, 0x0308, 0x0300}},
-	},
-	{
-		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) × [3.0] <LINE FEED (LF)> (LF) ÷ [4.0] LATIN SMALL LETTER A (Lower) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) ÷ [0.3]",
+		name:     "÷ [0.2] <CARRIAGE RETURN (CR)> (CR) × [3.0] <LINE FEED (LF)> (LF) ÷ [4.0] LATIN SMALL LETTER A (Lower) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) ÷ [0.3]",
 		original: "\u000D\u000A\u0061\u000A\u0308",
 		expected: [][]rune{{0x000D, 0x000A}, {0x0061, 0x000A}, {0x0308}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER A (Lower) × [5.0] COMBINING DIAERESIS (Extend) ÷ [0.3]",
 		original: "\u0061\u0308",
 		expected: [][]rune{{0x0061, 0x0308}},
 	},
 	{
-		name:     "÷ [0.2] SPACE (Sp) × [5.0] ZERO WIDTH JOINER (Extend_FE) × [998.0] ARABIC LETTER NOON (OLetter) ÷ [0.3]",
+		name:     "÷ [0.2] SPACE (Sp) × [5.0] ZERO WIDTH JOINER (Extend) × [998.0] ARABIC LETTER NOON (OLetter) ÷ [0.3]",
 		original: "\u0020\u200D\u0646",
 		expected: [][]rune{{0x0020, 0x200D, 0x0646}},
 	},
 	{
-		name:     "÷ [0.2] ARABIC LETTER NOON (OLetter) × [5.0] ZERO WIDTH JOINER (Extend_FE) × [998.0] SPACE (Sp) ÷ [0.3]",
+		name:     "÷ [0.2] ARABIC LETTER NOON (OLetter) × [5.0] ZERO WIDTH JOINER (Extend) × [998.0] SPACE (Sp) ÷ [0.3]",
 		original: "\u0646\u200D\u0020",
 		expected: [][]rune{{0x0646, 0x200D, 0x0020}},
 	},
@@ -2287,17 +2287,17 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0028, 0x201C, 0x0047, 0x006F, 0x003F, 0x201D, 0x0029, 0x0020}, {0x0028, 0x0048, 0x0065, 0x0020, 0x0064, 0x0069, 0x0064, 0x002E, 0x0029}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER U (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER S (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] FULL STOP (ATerm) × [8.0] SPACE (Sp) × [8.0] LATIN SMALL LETTER I (Lower) × [998.0] LATIN SMALL LETTER S (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER U (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER S (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING GRAVE ACCENT (Extend) × [998.0] FULL STOP (ATerm) × [8.0] SPACE (Sp) × [8.0] LATIN SMALL LETTER I (Lower) × [998.0] LATIN SMALL LETTER S (Lower) ÷ [0.3]",
 		original: "\u0055\u002E\u0053\u002E\u0041\u0300\u002E\u0020\u0069\u0073",
 		expected: [][]rune{{0x0055, 0x002E, 0x0053, 0x002E, 0x0041, 0x0300, 0x002E, 0x0020, 0x0069, 0x0073}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER U (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER S (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] QUESTION MARK (STerm) × [9.0] SPACE (Sp) ÷ [11.0] LATIN CAPITAL LETTER H (Upper) × [998.0] LATIN SMALL LETTER E (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER U (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER S (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING GRAVE ACCENT (Extend) × [998.0] QUESTION MARK (STerm) × [9.0] SPACE (Sp) ÷ [11.0] LATIN CAPITAL LETTER H (Upper) × [998.0] LATIN SMALL LETTER E (Lower) ÷ [0.3]",
 		original: "\u0055\u002E\u0053\u002E\u0041\u0300\u003F\u0020\u0048\u0065",
 		expected: [][]rune{{0x0055, 0x002E, 0x0053, 0x002E, 0x0041, 0x0300, 0x003F, 0x0020}, {0x0048, 0x0065}},
 	},
 	{
-		name:     "÷ [0.2] LATIN CAPITAL LETTER U (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER S (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN CAPITAL LETTER U (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER S (Upper) × [998.0] FULL STOP (ATerm) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] COMBINING GRAVE ACCENT (Extend) × [998.0] FULL STOP (ATerm) ÷ [0.3]",
 		original: "\u0055\u002E\u0053\u002E\u0041\u0300\u002E",
 		expected: [][]rune{{0x0055, 0x002E, 0x0053, 0x002E, 0x0041, 0x0300, 0x002E}},
 	},
@@ -2347,22 +2347,22 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0065, 0x0074, 0x0063, 0x002E, 0x0029, 0x2019, 0x00A0}, {0x2018, 0x0028, 0x0054, 0x0068, 0x0065}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER E (Lower) × [998.0] LATIN SMALL LETTER T (Lower) × [998.0] LATIN SMALL LETTER C (Lower) × [998.0] FULL STOP (ATerm) × [8.0] RIGHT PARENTHESIS (Close) × [8.0] RIGHT SINGLE QUOTATION MARK (Close) × [8.0] NO-BREAK SPACE (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) × [8.0] LATIN SMALL LETTER T (Lower) × [998.0] LATIN SMALL LETTER H (Lower) × [998.0] LATIN SMALL LETTER E (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER E (Lower) × [998.0] LATIN SMALL LETTER T (Lower) × [998.0] LATIN SMALL LETTER C (Lower) × [998.0] FULL STOP (ATerm) × [8.0] RIGHT PARENTHESIS (Close) × [8.0] RIGHT SINGLE QUOTATION MARK (Close) × [8.0] NO-BREAK SPACE (Sp) × [5.0] COMBINING DIAERESIS (Extend) × [8.0] LATIN SMALL LETTER T (Lower) × [998.0] LATIN SMALL LETTER H (Lower) × [998.0] LATIN SMALL LETTER E (Lower) ÷ [0.3]",
 		original: "\u0065\u0074\u0063\u002E\u0029\u2019\u00A0\u0308\u0074\u0068\u0065",
 		expected: [][]rune{{0x0065, 0x0074, 0x0063, 0x002E, 0x0029, 0x2019, 0x00A0, 0x0308, 0x0074, 0x0068, 0x0065}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER E (Lower) × [998.0] LATIN SMALL LETTER T (Lower) × [998.0] LATIN SMALL LETTER C (Lower) × [998.0] FULL STOP (ATerm) × [9.0] RIGHT PARENTHESIS (Close) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [9.0] NO-BREAK SPACE (Sp) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] LATIN CAPITAL LETTER T (Upper) × [998.0] LATIN SMALL LETTER H (Lower) × [998.0] LATIN SMALL LETTER E (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER E (Lower) × [998.0] LATIN SMALL LETTER T (Lower) × [998.0] LATIN SMALL LETTER C (Lower) × [998.0] FULL STOP (ATerm) × [9.0] RIGHT PARENTHESIS (Close) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [9.0] NO-BREAK SPACE (Sp) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] LATIN CAPITAL LETTER T (Upper) × [998.0] LATIN SMALL LETTER H (Lower) × [998.0] LATIN SMALL LETTER E (Lower) ÷ [0.3]",
 		original: "\u0065\u0074\u0063\u002E\u0029\u2019\u00A0\u0308\u0054\u0068\u0065",
 		expected: [][]rune{{0x0065, 0x0074, 0x0063, 0x002E, 0x0029, 0x2019, 0x00A0, 0x0308}, {0x0054, 0x0068, 0x0065}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER E (Lower) × [998.0] LATIN SMALL LETTER T (Lower) × [998.0] LATIN SMALL LETTER C (Lower) × [998.0] FULL STOP (ATerm) × [9.0] RIGHT PARENTHESIS (Close) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] LATIN CAPITAL LETTER T (Upper) × [998.0] LATIN SMALL LETTER H (Lower) × [998.0] LATIN SMALL LETTER E (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER E (Lower) × [998.0] LATIN SMALL LETTER T (Lower) × [998.0] LATIN SMALL LETTER C (Lower) × [998.0] FULL STOP (ATerm) × [9.0] RIGHT PARENTHESIS (Close) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] LATIN CAPITAL LETTER T (Upper) × [998.0] LATIN SMALL LETTER H (Lower) × [998.0] LATIN SMALL LETTER E (Lower) ÷ [0.3]",
 		original: "\u0065\u0074\u0063\u002E\u0029\u2019\u0308\u0054\u0068\u0065",
 		expected: [][]rune{{0x0065, 0x0074, 0x0063, 0x002E, 0x0029, 0x2019, 0x0308}, {0x0054, 0x0068, 0x0065}},
 	},
 	{
-		name:     "÷ [0.2] LATIN SMALL LETTER E (Lower) × [998.0] LATIN SMALL LETTER T (Lower) × [998.0] LATIN SMALL LETTER C (Lower) × [998.0] FULL STOP (ATerm) × [9.0] RIGHT PARENTHESIS (Close) × [9.0] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend_FE) × [998.0] LATIN CAPITAL LETTER T (Upper) × [998.0] LATIN SMALL LETTER H (Lower) × [998.0] LATIN SMALL LETTER E (Lower) ÷ [0.3]",
+		name:     "÷ [0.2] LATIN SMALL LETTER E (Lower) × [998.0] LATIN SMALL LETTER T (Lower) × [998.0] LATIN SMALL LETTER C (Lower) × [998.0] FULL STOP (ATerm) × [9.0] RIGHT PARENTHESIS (Close) × [9.0] <LINE FEED (LF)> (LF) ÷ [4.0] COMBINING DIAERESIS (Extend) × [998.0] LATIN CAPITAL LETTER T (Upper) × [998.0] LATIN SMALL LETTER H (Lower) × [998.0] LATIN SMALL LETTER E (Lower) ÷ [0.3]",
 		original: "\u0065\u0074\u0063\u002E\u0029\u000A\u0308\u0054\u0068\u0065",
 		expected: [][]rune{{0x0065, 0x0074, 0x0063, 0x002E, 0x0029, 0x000A}, {0x0308, 0x0054, 0x0068, 0x0065}},
 	},
@@ -2422,147 +2422,147 @@ var sentenceBreakTestCases = []testCase{
 		expected: [][]rune{{0x0041, 0x002E, 0x000D, 0x000A}, {0x0041}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER G (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER O (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) ÷ [11.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER H (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER I (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [998.0] QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER G (Upper) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER O (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [9.0] SPACE (Sp) × [5.0] WORD JOINER (Format) ÷ [11.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER H (Upper) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] SPACE (Sp) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER I (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0028\u2060\u0022\u2060\u0047\u2060\u006F\u2060\u002E\u2060\u0022\u2060\u0029\u2060\u0020\u2060\u0028\u2060\u0048\u2060\u0065\u2060\u0020\u2060\u0064\u2060\u0069\u2060\u0064\u2060\u002E\u2060\u0029\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0028, 0x2060, 0x0022, 0x2060, 0x0047, 0x2060, 0x006F, 0x2060, 0x002E, 0x2060, 0x0022, 0x2060, 0x0029, 0x2060, 0x0020, 0x2060}, {0x0028, 0x2060, 0x0048, 0x2060, 0x0065, 0x2060, 0x0020, 0x2060, 0x0064, 0x2060, 0x0069, 0x2060, 0x0064, 0x2060, 0x002E, 0x2060, 0x0029, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] LEFT DOUBLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER G (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER O (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] QUESTION MARK (STerm) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT DOUBLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) ÷ [11.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER H (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER I (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [998.0] LEFT DOUBLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER G (Upper) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER O (Lower) × [5.0] WORD JOINER (Format) × [998.0] QUESTION MARK (STerm) × [5.0] WORD JOINER (Format) × [9.0] RIGHT DOUBLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [9.0] SPACE (Sp) × [5.0] WORD JOINER (Format) ÷ [11.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER H (Upper) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] SPACE (Sp) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER I (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0028\u2060\u201C\u2060\u0047\u2060\u006F\u2060\u003F\u2060\u201D\u2060\u0029\u2060\u0020\u2060\u0028\u2060\u0048\u2060\u0065\u2060\u0020\u2060\u0064\u2060\u0069\u2060\u0064\u2060\u002E\u2060\u0029\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0028, 0x2060, 0x201C, 0x2060, 0x0047, 0x2060, 0x006F, 0x2060, 0x003F, 0x2060, 0x201D, 0x2060, 0x0029, 0x2060, 0x0020, 0x2060}, {0x0028, 0x2060, 0x0048, 0x2060, 0x0065, 0x2060, 0x0020, 0x2060, 0x0064, 0x2060, 0x0069, 0x2060, 0x0064, 0x2060, 0x002E, 0x2060, 0x0029, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER U (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [7.0] LATIN CAPITAL LETTER S (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [8.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [8.0] LATIN SMALL LETTER I (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER S (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER U (Upper) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [7.0] LATIN CAPITAL LETTER S (Upper) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format) × [5.0] COMBINING GRAVE ACCENT (Extend) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [8.0] SPACE (Sp) × [5.0] WORD JOINER (Format) × [8.0] LATIN SMALL LETTER I (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER S (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0055\u2060\u002E\u2060\u0053\u2060\u002E\u2060\u0041\u2060\u0300\u002E\u2060\u0020\u2060\u0069\u2060\u0073\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0055, 0x2060, 0x002E, 0x2060, 0x0053, 0x2060, 0x002E, 0x2060, 0x0041, 0x2060, 0x0300, 0x002E, 0x2060, 0x0020, 0x2060, 0x0069, 0x2060, 0x0073, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER U (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [7.0] LATIN CAPITAL LETTER S (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] QUESTION MARK (STerm) × [5.0] WORD JOINER (Format_FE) × [9.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) ÷ [11.0] LATIN CAPITAL LETTER H (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER U (Upper) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [7.0] LATIN CAPITAL LETTER S (Upper) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format) × [5.0] COMBINING GRAVE ACCENT (Extend) × [998.0] QUESTION MARK (STerm) × [5.0] WORD JOINER (Format) × [9.0] SPACE (Sp) × [5.0] WORD JOINER (Format) ÷ [11.0] LATIN CAPITAL LETTER H (Upper) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0055\u2060\u002E\u2060\u0053\u2060\u002E\u2060\u0041\u2060\u0300\u003F\u2060\u0020\u2060\u0048\u2060\u0065\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0055, 0x2060, 0x002E, 0x2060, 0x0053, 0x2060, 0x002E, 0x2060, 0x0041, 0x2060, 0x0300, 0x003F, 0x2060, 0x0020, 0x2060}, {0x0048, 0x2060, 0x0065, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER U (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [7.0] LATIN CAPITAL LETTER S (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format_FE) × [5.0] COMBINING GRAVE ACCENT (Extend_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER U (Upper) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [7.0] LATIN CAPITAL LETTER S (Upper) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [7.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format) × [5.0] COMBINING GRAVE ACCENT (Extend) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0055\u2060\u002E\u2060\u0053\u2060\u002E\u2060\u0041\u2060\u0300\u002E\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0055, 0x2060, 0x002E, 0x2060, 0x0053, 0x2060, 0x002E, 0x2060, 0x0041, 0x2060, 0x0300, 0x002E, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] DIGIT THREE (Numeric) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [6.0] DIGIT FOUR (Numeric) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] DIGIT THREE (Numeric) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [6.0] DIGIT FOUR (Numeric) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0033\u2060\u002E\u2060\u0034\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0033, 0x2060, 0x002E, 0x2060, 0x0034, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [8.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [8.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0063\u2060\u002E\u2060\u0064\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0063, 0x2060, 0x002E, 0x2060, 0x0064, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER C (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [8.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER C (Upper) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [8.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0043\u2060\u002E\u2060\u0064\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0043, 0x2060, 0x002E, 0x2060, 0x0064, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [7.0] LATIN CAPITAL LETTER D (Upper) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [7.0] LATIN CAPITAL LETTER D (Upper) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0063\u2060\u002E\u2060\u0044\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0063, 0x2060, 0x002E, 0x2060, 0x0044, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER C (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [7.0] LATIN CAPITAL LETTER D (Upper) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER C (Upper) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [7.0] LATIN CAPITAL LETTER D (Upper) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0043\u2060\u002E\u2060\u0044\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0043, 0x2060, 0x002E, 0x2060, 0x0044, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [8.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [8.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [8.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [8.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [8.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [8.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [8.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format) × [8.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0065\u2060\u0074\u2060\u0063\u2060\u002E\u2060\u0029\u2060\u2019\u2060\u00A0\u2060\u0074\u2060\u0068\u2060\u0065\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0065, 0x2060, 0x0074, 0x2060, 0x0063, 0x2060, 0x002E, 0x2060, 0x0029, 0x2060, 0x2019, 0x2060, 0x00A0, 0x2060, 0x0074, 0x2060, 0x0068, 0x2060, 0x0065, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format_FE) ÷ [11.0] LATIN CAPITAL LETTER T (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [9.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format) ÷ [11.0] LATIN CAPITAL LETTER T (Upper) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0065\u2060\u0074\u2060\u0063\u2060\u002E\u2060\u0029\u2060\u2019\u2060\u00A0\u2060\u0054\u2060\u0068\u2060\u0065\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0065, 0x2060, 0x0074, 0x2060, 0x0063, 0x2060, 0x002E, 0x2060, 0x0029, 0x2060, 0x2019, 0x2060, 0x00A0, 0x2060}, {0x0054, 0x2060, 0x0068, 0x2060, 0x0065, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [8.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [8.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [8.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [8.0] LEFT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [8.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [8.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [8.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format) × [8.0] LEFT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [998.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0065\u2060\u0074\u2060\u0063\u2060\u002E\u2060\u0029\u2060\u2019\u2060\u00A0\u2060\u2018\u2060\u0028\u2060\u0074\u2060\u0068\u2060\u0065\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0065, 0x2060, 0x0074, 0x2060, 0x0063, 0x2060, 0x002E, 0x2060, 0x0029, 0x2060, 0x2019, 0x2060, 0x00A0, 0x2060, 0x2018, 0x2060, 0x0028, 0x2060, 0x0074, 0x2060, 0x0068, 0x2060, 0x0065, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format_FE) ÷ [11.0] LEFT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER T (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [9.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format) ÷ [11.0] LEFT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [998.0] LEFT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER T (Upper) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0065\u2060\u0074\u2060\u0063\u2060\u002E\u2060\u0029\u2060\u2019\u2060\u00A0\u2060\u2018\u2060\u0028\u2060\u0054\u2060\u0068\u2060\u0065\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0065, 0x2060, 0x0074, 0x2060, 0x0063, 0x2060, 0x002E, 0x2060, 0x0029, 0x2060, 0x2019, 0x2060, 0x00A0, 0x2060}, {0x2018, 0x2060, 0x0028, 0x2060, 0x0054, 0x2060, 0x0068, 0x2060, 0x0065, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [8.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [8.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [8.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [8.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [8.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [8.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [8.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format) × [5.0] COMBINING DIAERESIS (Extend) × [8.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0065\u2060\u0074\u2060\u0063\u2060\u002E\u2060\u0029\u2060\u2019\u2060\u00A0\u2060\u0308\u0074\u2060\u0068\u2060\u0065\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0065, 0x2060, 0x0074, 0x2060, 0x0063, 0x2060, 0x002E, 0x2060, 0x0029, 0x2060, 0x2019, 0x2060, 0x00A0, 0x2060, 0x0308, 0x0074, 0x2060, 0x0068, 0x2060, 0x0065, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] LATIN CAPITAL LETTER T (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [9.0] NO-BREAK SPACE (Sp) × [5.0] WORD JOINER (Format) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] LATIN CAPITAL LETTER T (Upper) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0065\u2060\u0074\u2060\u0063\u2060\u002E\u2060\u0029\u2060\u2019\u2060\u00A0\u2060\u0308\u0054\u2060\u0068\u2060\u0065\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0065, 0x2060, 0x0074, 0x2060, 0x0063, 0x2060, 0x002E, 0x2060, 0x0029, 0x2060, 0x2019, 0x2060, 0x00A0, 0x2060, 0x0308}, {0x0054, 0x2060, 0x0068, 0x2060, 0x0065, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) ÷ [11.0] LATIN CAPITAL LETTER T (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [9.0] RIGHT SINGLE QUOTATION MARK (Close) × [5.0] WORD JOINER (Format) × [5.0] COMBINING DIAERESIS (Extend) ÷ [11.0] LATIN CAPITAL LETTER T (Upper) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0065\u2060\u0074\u2060\u0063\u2060\u002E\u2060\u0029\u2060\u2019\u2060\u0308\u0054\u2060\u0068\u2060\u0065\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0065, 0x2060, 0x0074, 0x2060, 0x0063, 0x2060, 0x002E, 0x2060, 0x0029, 0x2060, 0x2019, 0x2060, 0x0308}, {0x0054, 0x2060, 0x0068, 0x2060, 0x0065, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format_FE) × [9.0] <LINE FEED (LF)> (LF) ÷ [4.0] WORD JOINER (Format_FE) × [5.0] COMBINING DIAERESIS (Extend_FE) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER T (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] RIGHT PARENTHESIS (Close) × [5.0] WORD JOINER (Format) × [9.0] <LINE FEED (LF)> (LF) ÷ [4.0] WORD JOINER (Format) × [5.0] COMBINING DIAERESIS (Extend) × [5.0] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER T (Upper) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0065\u2060\u0074\u2060\u0063\u2060\u002E\u2060\u0029\u2060\u000A\u2060\u0308\u2060\u0054\u2060\u0068\u2060\u0065\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0065, 0x2060, 0x0074, 0x2060, 0x0063, 0x2060, 0x002E, 0x2060, 0x0029, 0x2060, 0x000A}, {0x2060, 0x0308, 0x2060, 0x0054, 0x2060, 0x0068, 0x2060, 0x0065, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER R (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER S (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER P (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [8.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [8.0] LATIN SMALL LETTER L (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER R (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER S (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER R (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER H (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] SPACE (Sp) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER R (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER S (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER P (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [8.0] SPACE (Sp) × [5.0] WORD JOINER (Format) × [8.0] LATIN SMALL LETTER L (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER D (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER R (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER S (Lower) × [5.0] WORD JOINER (Format) × [998.0] SPACE (Sp) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER R (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0074\u2060\u0068\u2060\u0065\u2060\u0020\u2060\u0072\u2060\u0065\u2060\u0073\u2060\u0070\u2060\u002E\u2060\u0020\u2060\u006C\u2060\u0065\u2060\u0061\u2060\u0064\u2060\u0065\u2060\u0072\u2060\u0073\u2060\u0020\u2060\u0061\u2060\u0072\u2060\u0065\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0074, 0x2060, 0x0068, 0x2060, 0x0065, 0x2060, 0x0020, 0x2060, 0x0072, 0x2060, 0x0065, 0x2060, 0x0073, 0x2060, 0x0070, 0x2060, 0x002E, 0x2060, 0x0020, 0x2060, 0x006C, 0x2060, 0x0065, 0x2060, 0x0061, 0x2060, 0x0064, 0x2060, 0x0065, 0x2060, 0x0072, 0x2060, 0x0073, 0x2060, 0x0020, 0x2060, 0x0061, 0x2060, 0x0072, 0x2060, 0x0065, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] CJK UNIFIED IDEOGRAPH-5B57 (OLetter) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) ÷ [11.0] CJK UNIFIED IDEOGRAPH-5B57 (OLetter) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] CJK UNIFIED IDEOGRAPH-5B57 (OLetter) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) ÷ [11.0] CJK UNIFIED IDEOGRAPH-5B57 (OLetter) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u5B57\u2060\u002E\u2060\u5B57\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x5B57, 0x2060, 0x002E, 0x2060}, {0x5B57, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) ÷ [11.0] CJK UNIFIED IDEOGRAPH-5B83 (OLetter) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) ÷ [11.0] CJK UNIFIED IDEOGRAPH-5B83 (OLetter) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0065\u2060\u0074\u2060\u0063\u2060\u002E\u2060\u5B83\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0065, 0x2060, 0x0074, 0x2060, 0x0063, 0x2060, 0x002E, 0x2060}, {0x5B83, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [8.1] IDEOGRAPHIC FULL STOP (STerm) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER E (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER T (Lower) × [5.0] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER C (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [8.1] IDEOGRAPHIC FULL STOP (STerm) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0065\u2060\u0074\u2060\u0063\u2060\u002E\u2060\u3002\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0065, 0x2060, 0x0074, 0x2060, 0x0063, 0x2060, 0x002E, 0x2060, 0x3002, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] CJK UNIFIED IDEOGRAPH-5B57 (OLetter) × [5.0] WORD JOINER (Format_FE) × [998.0] IDEOGRAPHIC FULL STOP (STerm) × [5.0] WORD JOINER (Format_FE) ÷ [11.0] CJK UNIFIED IDEOGRAPH-5B83 (OLetter) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] CJK UNIFIED IDEOGRAPH-5B57 (OLetter) × [5.0] WORD JOINER (Format) × [998.0] IDEOGRAPHIC FULL STOP (STerm) × [5.0] WORD JOINER (Format) ÷ [11.0] CJK UNIFIED IDEOGRAPH-5B83 (OLetter) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u5B57\u2060\u3002\u2060\u5B83\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x5B57, 0x2060, 0x3002, 0x2060}, {0x5B83, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] EXCLAMATION MARK (STerm) × [5.0] WORD JOINER (Format_FE) × [9.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [10.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] EXCLAMATION MARK (STerm) × [5.0] WORD JOINER (Format) × [9.0] SPACE (Sp) × [5.0] WORD JOINER (Format) × [10.0] SPACE (Sp) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0021\u2060\u0020\u2060\u0020\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0021, 0x2060, 0x0020, 0x2060, 0x0020, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0061\u2060\u002E\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0061, 0x2060, 0x002E, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0061\u2060\u002E\u2060\u000D\u2060\u000A\u2060",
 		expected: [][]rune{{0x2060, 0x0061, 0x2060, 0x002E, 0x2060, 0x000D}, {0x2060, 0x000A}, {0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] SPACE (Sp) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] SPACE (Sp) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0061\u2060\u002E\u2060\u000D\u2060\u000A\u0020\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0061, 0x2060, 0x002E, 0x2060, 0x000D}, {0x2060, 0x000A}, {0x0020, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] LATIN SMALL LETTER A (Lower) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0061\u2060\u002E\u2060\u000D\u2060\u000A\u0061\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0061, 0x2060, 0x002E, 0x2060, 0x000D}, {0x2060, 0x000A}, {0x0061, 0x2060, 0x2060}},
 	},
 	{
-		name:     "÷ [0.2] WORD JOINER (Format_FE) × [998.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format_FE) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format_FE) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format_FE) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format_FE) × [5.0] WORD JOINER (Format_FE) ÷ [0.3]",
+		name:     "÷ [0.2] WORD JOINER (Format) × [998.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format) × [998.0] FULL STOP (ATerm) × [5.0] WORD JOINER (Format) × [9.0] <CARRIAGE RETURN (CR)> (CR) ÷ [4.0] WORD JOINER (Format) × [998.0] <LINE FEED (LF)> (LF) ÷ [4.0] LATIN CAPITAL LETTER A (Upper) × [5.0] WORD JOINER (Format) × [5.0] WORD JOINER (Format) ÷ [0.3]",
 		original: "\u2060\u0041\u2060\u002E\u2060\u000D\u2060\u000A\u0041\u2060\u2060",
 		expected: [][]rune{{0x2060, 0x0041, 0x2060, 0x002E, 0x2060, 0x000D}, {0x2060, 0x000A}, {0x0041, 0x2060, 0x2060}},
 	},
