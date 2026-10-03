@@ -107,9 +107,10 @@ func (g *Graphemes) Bytes() []byte {
 // the original string "str". If [Graphemes.Next] has not yet been called, both
 // values are 0. If the iterator is already past the end, both values are 1.
 func (g *Graphemes) Positions() (int, int) {
-	if g.state == -1 {
+	switch g.state {
+	case -1:
 		return 0, 0
-	} else if g.state == -2 {
+	case -2:
 		return 1, 1
 	}
 	return g.offset, g.offset + len(g.cluster)
@@ -335,9 +336,10 @@ func firstGraphemeCluster[T bytes](p *Parser, str T, state GraphemeBreakState, d
 		}
 
 		if firstProp == prExtendedPictographic {
-			if r == vs15 {
+			switch r {
+			case vs15:
 				width = 1
-			} else if r == vs16 {
+			case vs16:
 				width = 2
 			}
 		} else if firstProp != prRegionalIndicator && firstProp != prL {

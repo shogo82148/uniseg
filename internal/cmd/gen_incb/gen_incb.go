@@ -54,7 +54,7 @@ func parse() (string, error) {
 	if err != nil {
 		return "", err
 	}
-	defer res.Body.Close()
+	defer res.Body.Close() //nolint:errcheck // cleanup
 
 	// Temporary buffer to hold properties.
 	var properties [][4]string

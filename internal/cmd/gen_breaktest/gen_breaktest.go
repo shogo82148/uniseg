@@ -64,7 +64,7 @@ func parse(url string) ([]byte, error) {
 		return nil, err
 	}
 	body := res.Body
-	defer body.Close()
+	defer body.Close() //nolint:errcheck // cleanup
 
 	buf := new(bytes.Buffer)
 	buf.Grow(120 << 10)
