@@ -362,6 +362,24 @@ func BenchmarkSentenceFunctionString(b *testing.B) {
 	}
 }
 
+// Benchmark the use of the sentence break function for non-ASCII strings.
+func BenchmarkSentenceFunctionMultilingual(b *testing.B) {
+	input := benchmarkMultilingualStr
+	for b.Loop() {
+		var c string
+		var state SentenceBreakState
+		str := input
+		for len(str) > 0 {
+			c, str, state = FirstSentenceInString(str, state)
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(state)
+		}
+	}
+}
+
 func FuzzFirstSentenceInString(f *testing.F) {
 	for _, test := range wordBreakTestCases {
 		f.Add(test.original)

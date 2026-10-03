@@ -9,6 +9,11 @@ import (
 
 const benchmarkStr = "This is 🏳️\u200d🌈, a test string ツ for grapheme cluster testing. 🏋🏽\u200d♀️🙂🙂 It's only relevant for benchmark tests."
 
+// benchmarkMultilingualStr is a benchmark string that consists mostly of
+// non-ASCII characters: Japanese, Hindi (Devanagari conjuncts), Russian, and
+// emoji sequences.
+const benchmarkMultilingualStr = "吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。नमस्ते दुनिया, क्षत्रिय। Привет, мир! 👨\u200d👩\u200d👧\u200d👦🇯🇵"
+
 type testCase = struct {
 	name     string
 	original string
@@ -719,6 +724,26 @@ func BenchmarkGraphemesFunctionBytes(b *testing.B) {
 // Benchmark the use of the Graphemes function for strings.
 func BenchmarkGraphemesFunctionString(b *testing.B) {
 	input := benchmarkStr
+	for b.Loop() {
+		var c string
+		var width int
+		var state GraphemeBreakState
+		str := input
+		for len(str) > 0 {
+			c, str, _, state = FirstGraphemeClusterInString(str, state)
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(width)
+			runtime.KeepAlive(state)
+		}
+	}
+}
+
+// Benchmark the use of the Graphemes function for non-ASCII strings.
+func BenchmarkGraphemesFunctionMultilingual(b *testing.B) {
+	input := benchmarkMultilingualStr
 	for b.Loop() {
 		var c string
 		var width int
