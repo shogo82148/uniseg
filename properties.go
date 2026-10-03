@@ -1,5 +1,7 @@
 package uniseg
 
+import "unicode/utf8"
+
 // property is the Unicode property type.
 type property int
 
@@ -256,3 +258,40 @@ func (d dictionary[T]) search(r rune) T {
 	var zero T
 	return zero
 }
+
+// lookupTable wraps a [dictionary] with a precomputed table for ASCII code
+// points, which are by far the most common ones in typical text. This avoids
+// the tree search for them.
+type lookupTable[T any] struct {
+	ascii [utf8.RuneSelf]T
+	dict  dictionary[T]
+}
+
+// newLookupTable returns a lookup table for the given dictionary.
+func newLookupTable[T any](d dictionary[T]) *lookupTable[T] {
+	t := &lookupTable[T]{dict: d}
+	for r := range rune(utf8.RuneSelf) {
+		t.ascii[r] = d.search(r)
+	}
+	return t
+}
+
+// search returns the value associated with the given rune.
+func (t *lookupTable[T]) search(r rune) T {
+	if uint32(r) < utf8.RuneSelf {
+		return t.ascii[r]
+	}
+	return t.dict.search(r)
+}
+
+// Lookup tables used by the parsers.
+var (
+	graphemeLookup          = newLookupTable(graphemeCodePoints)
+	incbLookup              = newLookupTable(incb)
+	wordBreakLookup         = newLookupTable(workBreakCodePoints)
+	sentenceBreakLookup     = newLookupTable(sentenceBreakCodePoints)
+	lineBreakLookup         = newLookupTable(lineBreakCodePoints)
+	eastAsianWidthLookup    = newLookupTable(eastAsianWidth)
+	emojiLookup             = newLookupTable(emoji)
+	emojiPresentationLookup = newLookupTable(emojiPresentation)
+)

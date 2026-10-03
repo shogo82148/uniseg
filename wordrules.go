@@ -114,8 +114,8 @@ var wbTransitions = [wbMax * wbprMax]wbTransitionResult{
 // can be used (whichever is not nil or empty) for further lookups.
 func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, decoder runeDecoder[T]) (newState WordBreakState, wordBreak bool) {
 	// Determine the property of the next character.
-	nextProperty := workBreakCodePoints.search(r)
-	isExtendedPictographic := graphemeCodePoints.search(r) == prExtendedPictographic
+	nextProperty := wordBreakLookup.search(r)
+	isExtendedPictographic := graphemeLookup.search(r) == prExtendedPictographic
 
 	// "Replacing Ignore Rules".
 	switch nextProperty {
@@ -197,7 +197,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 			if r == utf8.RuneError {
 				break
 			}
-			prop := workBreakCodePoints.search(r)
+			prop := wordBreakLookup.search(r)
 			if prop == wbprExtend || prop == wbprFormat || prop == wbprZWJ {
 				continue
 			}

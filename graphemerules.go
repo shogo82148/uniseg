@@ -120,8 +120,8 @@ var grTransitions = [grMax * prMax]grTransitionResult{
 // table) and whether a cluster boundary was detected.
 func transitionGraphemeState(state grState, r rune) (newState grState, prop property, boundary bool) {
 	// Determine the property of the next character.
-	prop = graphemeCodePoints.search(r)
-	incbProp := incb.search(r)
+	prop = graphemeLookup.search(r)
+	incbProp := incbLookup.search(r)
 
 	// Find the applicable transition.
 	gb9cState := state & grGB9cStateMask
