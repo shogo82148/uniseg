@@ -110,38 +110,18 @@ var grTransitions = [grMax * prMax]grTransitionResult{
 	int(grRIEven)*prMax + int(prRegionalIndicator): {grRIOdd, true, 120},
 }
 
-// incbLinkerGraphemeProperties is the set of grapheme properties (as a bit
-// mask) that code points with \p{InCB=Linker} have.
-var incbLinkerGraphemeProperties = func() uint32 {
-	var mask uint32
-	for _, entry := range incb {
-		if entry.value != incbLinker {
-			continue
-		}
-		for r := entry.runeRange.Lo; r <= entry.runeRange.Hi; r++ {
-			mask |= 1 << graphemeCodePoints.search(r)
-		}
-	}
-	return mask
-}()
-
 // transitionGraphemeState determines the new state of the grapheme cluster
 // parser given the current state and the next code point. It also returns the
 // code point's grapheme property (the value mapped by the [graphemeCodePoints]
 // table) and whether a cluster boundary was detected.
 func transitionGraphemeState(state grState, r rune) (newState grState, prop property, boundary bool) {
 	// Determine the property of the next character.
-	prop = graphemeLookup.search(r)
-
-	// Determine the Indic_Conjunct_Break property only if it can affect the
-	// result. Outside of a GB9c sequence, only \p{InCB=Linker} matters.
-	gb9cState := state & grGB9cStateMask
-	var incbProp incbProperty
-	if gb9cState != 0 || incbLinkerGraphemeProperties&(1<<prop) != 0 {
-		incbProp = incbLookup.search(r)
-	}
+	props := graphemeLookup.search(r)
+	prop = props.property
+	incbProp := props.incb
 
 	// Find the applicable transition.
+	gb9cState := state & grGB9cStateMask
 	state &= grStateMask
 	transition := grTransitions[int(state)*prMax+int(prop)]
 	ruleNumber := transition.ruleNumber
