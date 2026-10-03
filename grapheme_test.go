@@ -44,7 +44,7 @@ var testCases = []testCase{
 
 // Run all lists of test cases using the Graphemes class.
 func TestGraphemesClass(t *testing.T) {
-	allCases := append(testCases, graphemeBreakTestCases...)
+	allCases := slices.Concat(testCases, graphemeBreakTestCases)
 	for testNum, testCase := range allCases {
 		/*t.Logf(`Test case %d %q: Expecting %x, getting %x, code points %x"`,
 		testNum,
@@ -366,7 +366,7 @@ func TestReverseString(t *testing.T) {
 
 // Run all lists of test cases using the Graphemes function for byte slices.
 func TestGraphemesFunctionBytes(t *testing.T) {
-	allCases := append(testCases, graphemeBreakTestCases...)
+	allCases := slices.Concat(testCases, graphemeBreakTestCases)
 	for testNum, testCase := range allCases {
 		/*t.Logf(`Test case %d %q: Expecting %x, getting %x, code points %x"`,
 		testNum,
@@ -430,7 +430,7 @@ func TestGraphemesFunctionBytes(t *testing.T) {
 
 // Run all lists of test cases using the Graphemes function for strings.
 func TestGraphemesFunctionString(t *testing.T) {
-	allCases := append(testCases, graphemeBreakTestCases...)
+	allCases := slices.Concat(testCases, graphemeBreakTestCases)
 	for testNum, testCase := range allCases {
 		/*t.Logf(`Test case %d %q: Expecting %x, getting %x, code points %x"`,
 		testNum,
@@ -494,7 +494,7 @@ func TestGraphemesFunctionString(t *testing.T) {
 
 // Run all lists of test cases using the GraphemeClusters iterator.
 func TestGraphemeClusters(t *testing.T) {
-	allCases := append(testCases, graphemeBreakTestCases...)
+	allCases := slices.Concat(testCases, graphemeBreakTestCases)
 	for testNum, testCase := range allCases {
 		b := []byte(testCase.original)
 		index := 0
@@ -540,7 +540,7 @@ func TestGraphemeClusters(t *testing.T) {
 
 // Run all lists of test cases using the GraphemeClustersInString iterator.
 func TestGraphemeClustersInString(t *testing.T) {
-	allCases := append(testCases, graphemeBreakTestCases...)
+	allCases := slices.Concat(testCases, graphemeBreakTestCases)
 	for testNum, testCase := range allCases {
 		index := 0
 		offset := 0
@@ -657,7 +657,7 @@ func TestParserGraphemeClusters(t *testing.T) {
 		{EastAsianWidth: true},
 		{EastAsianWidth: true, WideEmoji: true},
 	}
-	allCases := append(testCases, graphemeBreakTestCases...)
+	allCases := slices.Concat(testCases, graphemeBreakTestCases)
 	for _, p := range parsers {
 		for testNum, testCase := range allCases {
 			var expected []string
