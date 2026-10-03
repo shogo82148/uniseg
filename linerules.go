@@ -90,11 +90,7 @@ const (
 	LineMustBreak                  // You must break the line here.
 )
 
-type lbTransitionResult struct {
-	LineBreakState
-	boundary   LineBreak
-	ruleNumber int
-}
+type lbTransitionResult = transitionResult[LineBreakState, LineBreak]
 
 // The line break parser's state transitions. It's analogous to grTransitions,
 // see comments there for details. Unicode version 16.0.0.
@@ -488,36 +484,8 @@ func transitionLineBreakRules[T bytes](state LineBreakState, r rune, nextPropert
 	}
 
 	// Find the applicable transition in the table.
-	var rule int
 	transition := lbTransitions[int(state)*lbprMax+int(nextProperty)]
-	if transition.ruleNumber > 0 {
-		// We have a specific transition. We'll use it.
-		newState, lineBreak, rule = transition.LineBreakState, transition.boundary, transition.ruleNumber
-	} else {
-		// No specific transition found. Try the less specific ones.
-		transAnyProp := lbTransitions[int(state)*lbprMax+int(lbprXX)]
-		transAnyState := lbTransitions[int(lbAny)*lbprMax+int(nextProperty)]
-		if transAnyProp.ruleNumber > 0 && transAnyState.ruleNumber > 0 {
-			// Both apply. We'll use a mix (see comments for grTransitions).
-			newState, lineBreak, rule = transAnyState.LineBreakState, transAnyState.boundary, transAnyState.ruleNumber
-			if transAnyProp.ruleNumber < transAnyState.ruleNumber {
-				lineBreak, rule = transAnyProp.boundary, transAnyProp.ruleNumber
-			}
-		} else if transAnyProp.ruleNumber > 0 {
-			// We only have a specific state.
-			newState, lineBreak, rule = transAnyProp.LineBreakState, transAnyProp.boundary, transAnyProp.ruleNumber
-			// This branch will probably never be reached because okAnyState will
-			// always be true given the current transition map. But we keep it here
-			// for future modifications to the transition map where this may not be
-			// true anymore.
-		} else if transAnyState.ruleNumber > 0 {
-			// We only have a specific property.
-			newState, lineBreak, rule = transAnyState.LineBreakState, transAnyState.boundary, transAnyState.ruleNumber
-		} else {
-			// No known transition. LB31: ALL ÷ ALL.
-			newState, lineBreak, rule = lbAny, LineCanBreak, 310
-		}
-	}
+	newState, lineBreak, rule := transition.state, transition.boundary, transition.ruleNumber
 
 	// LB12a.
 	if rule > 121 &&
@@ -712,11 +680,15 @@ func transitionLineBreakRules[T bytes](state LineBreakState, r rune, nextPropert
 				return lbAny, LineDontBreak
 			}
 		}
-		graphemeProperty := graphemeLookup.search(r)
-		if graphemeProperty == prExtendedPictographic && generalCategory == gcCn {
+		if generalCategory == gcCn && graphemeLookup.search(r) == prExtendedPictographic {
 			newState |= lbExtPicCnBit
 		}
 	}
 
 	return
+}
+
+func init() {
+	// LB31: ALL ÷ ALL.
+	resolveTransitions(lbTransitions[:], lbprMax, int(lbAny), int(lbprXX), lbTransitionResult{lbAny, LineCanBreak, 310})
 }

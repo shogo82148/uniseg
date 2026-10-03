@@ -358,6 +358,24 @@ func BenchmarkWordFunctionString(b *testing.B) {
 	}
 }
 
+// Benchmark the use of the word break function for non-ASCII strings.
+func BenchmarkWordFunctionMultilingual(b *testing.B) {
+	input := benchmarkMultilingualStr
+	for b.Loop() {
+		var c string
+		var state WordBreakState
+		str := input
+		for len(str) > 0 {
+			c, str, state = FirstWordInString(str, state)
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(state)
+		}
+	}
+}
+
 func FuzzFirstWordInString(f *testing.F) {
 	for _, test := range wordBreakTestCases {
 		f.Add(test.original)

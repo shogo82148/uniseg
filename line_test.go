@@ -291,6 +291,26 @@ func BenchmarkLineFunctionString(b *testing.B) {
 	}
 }
 
+// Benchmark the use of the line break function for non-ASCII strings.
+func BenchmarkLineFunctionMultilingual(b *testing.B) {
+	input := benchmarkMultilingualStr
+	for b.Loop() {
+		var c string
+		var boundaries bool
+		var state LineBreakState
+		str := input
+		for len(str) > 0 {
+			c, str, boundaries, state = FirstLineSegmentInString(str, state)
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(boundaries)
+			runtime.KeepAlive(state)
+		}
+	}
+}
+
 func FuzzFirstLineInString(f *testing.F) {
 	for _, test := range wordBreakTestCases {
 		f.Add(test.original)

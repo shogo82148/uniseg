@@ -29,11 +29,7 @@ const (
 	sbSB3       SentenceBreakState = 0x10
 )
 
-type sbTransitionResult struct {
-	SentenceBreakState
-	boundary   bool
-	ruleNumber int
-}
+type sbTransitionResult = transitionResult[SentenceBreakState, bool]
 
 // The sentence break parser's state transitions. It's analogous to
 // grTransitions, see comments there for details. Unicode version 16.0.0.
@@ -154,36 +150,8 @@ func transitionSentenceBreakState[T bytes](state SentenceBreakState, r rune, str
 	}
 
 	// Find the applicable transition in the table.
-	var rule int
 	transition := sbTransitions[int(state)*sbprMax+int(nextProperty)]
-	if transition.ruleNumber > 0 {
-		// We have a specific transition. We'll use it.
-		newState, sentenceBreak, rule = transition.SentenceBreakState, transition.boundary, transition.ruleNumber
-	} else {
-		// No specific transition found. Try the less specific ones.
-		transAnyProp := sbTransitions[int(state)*sbprMax+int(sbprAny)]
-		transAnyState := sbTransitions[int(sbAny)*sbprMax+int(nextProperty)]
-		if transAnyProp.ruleNumber > 0 && transAnyState.ruleNumber > 0 {
-			// Both apply. We'll use a mix (see comments for grTransitions).
-			newState, sentenceBreak, rule = transAnyState.SentenceBreakState, transAnyState.boundary, transAnyState.ruleNumber
-			if transAnyProp.ruleNumber < transAnyState.ruleNumber {
-				sentenceBreak, rule = transAnyProp.boundary, transAnyProp.ruleNumber
-			}
-		} else if transAnyProp.ruleNumber > 0 {
-			// We only have a specific state.
-			newState, sentenceBreak, rule = transAnyProp.SentenceBreakState, transAnyProp.boundary, transAnyProp.ruleNumber
-			// This branch will probably never be reached because okAnyState will
-			// always be true given the current transition map. But we keep it here
-			// for future modifications to the transition map where this may not be
-			// true anymore.
-		} else if transAnyState.ruleNumber > 0 {
-			// We only have a specific property.
-			newState, sentenceBreak, rule = transAnyState.SentenceBreakState, transAnyState.boundary, transAnyState.ruleNumber
-		} else {
-			// No known transition. SB999: Any × Any.
-			newState, sentenceBreak, rule = sbAny, false, 9990
-		}
-	}
+	newState, sentenceBreak, rule := transition.state, transition.boundary, transition.ruleNumber
 
 	// SB3.
 	if rule > 30 && sb3state != 0 && nextProperty == sbprLF {
@@ -220,4 +188,9 @@ func transitionSentenceBreakState[T bytes](state SentenceBreakState, r rune, str
 	}
 
 	return
+}
+
+func init() {
+	// SB999: Any × Any.
+	resolveTransitions(sbTransitions[:], sbprMax, int(sbAny), int(sbprAny), sbTransitionResult{sbAny, false, 9990})
 }

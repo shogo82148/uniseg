@@ -487,6 +487,26 @@ func BenchmarkStepString(b *testing.B) {
 	}
 }
 
+// Benchmark the use of the StepString() function for non-ASCII strings.
+func BenchmarkStepMultilingual(b *testing.B) {
+	input := benchmarkMultilingualStr
+	for b.Loop() {
+		var c string
+		var boundaries Boundaries
+		var state State
+		str := input
+		for len(str) > 0 {
+			c, str, boundaries, state = StepString(str, state)
+
+			// to avoid the compiler optimizing out the benchmark
+			runtime.KeepAlive(c)
+			runtime.KeepAlive(str)
+			runtime.KeepAlive(boundaries)
+			runtime.KeepAlive(state)
+		}
+	}
+}
+
 // Fuzz the StepString function.
 func FuzzStepString(f *testing.F) {
 	for _, test := range wordBreakTestCases {
