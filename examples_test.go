@@ -42,6 +42,28 @@ func ExampleFirstGraphemeClusterInString() {
 	// ! 1
 }
 
+func ExampleGraphemeClusters() {
+	b := []byte("🇩🇪🏳️\u200d🌈!")
+	for i, c := range uniseg.GraphemeClusters(b) {
+		fmt.Println(i, string(c))
+	}
+	// Output:
+	// 0 🇩🇪
+	// 8 🏳️‍🌈
+	// 22 !
+}
+
+func ExampleGraphemeClustersInString() {
+	str := "🇩🇪🏳️\u200d🌈!"
+	for i, c := range uniseg.GraphemeClustersInString(str) {
+		fmt.Println(i, c)
+	}
+	// Output:
+	// 0 🇩🇪
+	// 8 🏳️‍🌈
+	// 22 !
+}
+
 func ExampleFirstWord() {
 	b := []byte("Hello, world!")
 	var state uniseg.WordBreakState
@@ -74,6 +96,32 @@ func ExampleFirstWordInString() {
 	// (!)
 }
 
+func ExampleWords() {
+	b := []byte("Hello, world!")
+	for i, w := range uniseg.Words(b) {
+		fmt.Printf("%d (%s)\n", i, string(w))
+	}
+	// Output:
+	// 0 (Hello)
+	// 5 (,)
+	// 6 ( )
+	// 7 (world)
+	// 12 (!)
+}
+
+func ExampleWordsInString() {
+	str := "Hello, world!"
+	for i, w := range uniseg.WordsInString(str) {
+		fmt.Printf("%d (%s)\n", i, w)
+	}
+	// Output:
+	// 0 (Hello)
+	// 5 (,)
+	// 6 ( )
+	// 7 (world)
+	// 12 (!)
+}
+
 func ExampleFirstSentence() {
 	b := []byte("This is sentence 1.0. And this is sentence two.")
 	var state uniseg.SentenceBreakState
@@ -98,6 +146,26 @@ func ExampleFirstSentenceInString() {
 	// Output:
 	// (This is sentence 1.0. )
 	// (And this is sentence two.)
+}
+
+func ExampleSentences() {
+	b := []byte("This is sentence 1.0. And this is sentence two.")
+	for i, s := range uniseg.Sentences(b) {
+		fmt.Printf("%d (%s)\n", i, string(s))
+	}
+	// Output:
+	// 0 (This is sentence 1.0. )
+	// 22 (And this is sentence two.)
+}
+
+func ExampleSentencesInString() {
+	str := "This is sentence 1.0. And this is sentence two."
+	for i, s := range uniseg.SentencesInString(str) {
+		fmt.Printf("%d (%s)\n", i, s)
+	}
+	// Output:
+	// 0 (This is sentence 1.0. )
+	// 22 (And this is sentence two.)
 }
 
 func ExampleFirstLineSegment() {

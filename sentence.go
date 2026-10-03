@@ -1,6 +1,61 @@
 package uniseg
 
-import "unicode/utf8"
+import (
+	"iter"
+	"unicode/utf8"
+)
+
+// Sentences returns a sequence of sentences found in the given byte slice
+// according to the rules of [Unicode Standard Annex #29, Sentence Boundaries].
+// The sequence yields the starting index and the sentence as a byte slice.
+//
+// [Unicode Standard Annex #29, Sentence Boundaries]: https://www.unicode.org/reports/tr29/tr29-45.html#Sentence_Boundaries
+func Sentences(b []byte) iter.Seq2[int, []byte] {
+	return DefaultParser.Sentences(b)
+}
+
+// Sentences returns a sequence of sentences found in the given byte slice
+// according to the rules of [Unicode Standard Annex #29, Sentence Boundaries].
+// The sequence yields the starting index and the sentence as a byte slice.
+//
+// [Unicode Standard Annex #29, Sentence Boundaries]: https://www.unicode.org/reports/tr29/tr29-45.html#Sentence_Boundaries
+func (p *Parser) Sentences(b []byte) iter.Seq2[int, []byte] {
+	return func(yield func(idx int, sentence []byte) bool) {
+		var state SentenceBreakState
+		var index int
+		rest := b
+		for len(rest) > 0 {
+			var sentence []byte
+			sentence, rest, state = p.FirstSentence(rest, state)
+			if !yield(index, sentence) {
+				break
+			}
+			index += len(sentence)
+		}
+	}
+}
+
+// SentencesInString is like [Sentences] but its input and outputs are strings.
+func SentencesInString(str string) iter.Seq2[int, string] {
+	return DefaultParser.SentencesInString(str)
+}
+
+// SentencesInString is like [*Parser.Sentences] but its input and outputs are strings.
+func (p *Parser) SentencesInString(str string) iter.Seq2[int, string] {
+	return func(yield func(idx int, sentence string) bool) {
+		var state SentenceBreakState
+		var index int
+		rest := str
+		for len(rest) > 0 {
+			var sentence string
+			sentence, rest, state = p.FirstSentenceInString(rest, state)
+			if !yield(index, sentence) {
+				break
+			}
+			index += len(sentence)
+		}
+	}
+}
 
 // FirstSentence returns the first sentence found in the given byte slice
 // according to the rules of [Unicode Standard Annex #29, Sentence Boundaries].

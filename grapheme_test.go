@@ -2,6 +2,7 @@ package uniseg
 
 import (
 	"runtime"
+	"slices"
 	"testing"
 	"unicode/utf8"
 )
@@ -487,6 +488,200 @@ func TestGraphemesFunctionString(t *testing.T) {
 				testCase.original,
 				index,
 				len(testCase.expected))
+		}
+	}
+}
+
+// Run all lists of test cases using the GraphemeClusters iterator.
+func TestGraphemeClusters(t *testing.T) {
+	allCases := append(testCases, graphemeBreakTestCases...)
+	for testNum, testCase := range allCases {
+		b := []byte(testCase.original)
+		index := 0
+		offset := 0
+		for i, c := range GraphemeClusters(b) {
+			if i != offset {
+				t.Errorf(`Test case %d %q failed: Grapheme cluster at index %d starts at %d, expected %d`,
+					testNum,
+					testCase.original,
+					index,
+					i,
+					offset)
+				break
+			}
+			if index >= len(testCase.expected) {
+				t.Errorf(`Test case %d %q failed: More grapheme clusters returned than expected %d`,
+					testNum,
+					testCase.original,
+					len(testCase.expected))
+				break
+			}
+			if cluster := string(c); cluster != string(testCase.expected[index]) {
+				t.Errorf(`Test case %d %q failed: Grapheme cluster at index %d is %x, expected %x`,
+					testNum,
+					testCase.original,
+					index,
+					[]rune(cluster),
+					testCase.expected[index])
+				break
+			}
+			offset += len(c)
+			index++
+		}
+		if index < len(testCase.expected) {
+			t.Errorf(`Test case %d %q failed: Fewer grapheme clusters returned (%d) than expected (%d)`,
+				testNum,
+				testCase.original,
+				index,
+				len(testCase.expected))
+		}
+	}
+}
+
+// Run all lists of test cases using the GraphemeClustersInString iterator.
+func TestGraphemeClustersInString(t *testing.T) {
+	allCases := append(testCases, graphemeBreakTestCases...)
+	for testNum, testCase := range allCases {
+		index := 0
+		offset := 0
+		for i, c := range GraphemeClustersInString(testCase.original) {
+			if i != offset {
+				t.Errorf(`Test case %d %q failed: Grapheme cluster at index %d starts at %d, expected %d`,
+					testNum,
+					testCase.original,
+					index,
+					i,
+					offset)
+				break
+			}
+			if index >= len(testCase.expected) {
+				t.Errorf(`Test case %d %q failed: More grapheme clusters returned than expected %d`,
+					testNum,
+					testCase.original,
+					len(testCase.expected))
+				break
+			}
+			if c != string(testCase.expected[index]) {
+				t.Errorf(`Test case %d %q failed: Grapheme cluster at index %d is %x, expected %x`,
+					testNum,
+					testCase.original,
+					index,
+					[]rune(c),
+					testCase.expected[index])
+				break
+			}
+			offset += len(c)
+			index++
+		}
+		if index < len(testCase.expected) {
+			t.Errorf(`Test case %d %q failed: Fewer grapheme clusters returned (%d) than expected (%d)`,
+				testNum,
+				testCase.original,
+				index,
+				len(testCase.expected))
+		}
+	}
+}
+
+// Test that the GraphemeClusters iterators stop when the loop body breaks.
+func TestGraphemeClustersEarlyBreak(t *testing.T) {
+	const input = "a🇩🇪b\r\nc"
+
+	var gotBytes []string
+	for _, c := range GraphemeClusters([]byte(input)) {
+		gotBytes = append(gotBytes, string(c))
+		if len(gotBytes) == 2 {
+			break
+		}
+	}
+	if len(gotBytes) != 2 || gotBytes[0] != "a" || gotBytes[1] != "🇩🇪" {
+		t.Errorf("GraphemeClusters: got %q, expected %q", gotBytes, []string{"a", "🇩🇪"})
+	}
+
+	var gotString []string
+	for _, c := range GraphemeClustersInString(input) {
+		gotString = append(gotString, c)
+		if len(gotString) == 2 {
+			break
+		}
+	}
+	if len(gotString) != 2 || gotString[0] != "a" || gotString[1] != "🇩🇪" {
+		t.Errorf("GraphemeClustersInString: got %q, expected %q", gotString, []string{"a", "🇩🇪"})
+	}
+}
+
+// Test that the GraphemeClusters iterators can be used more than once,
+// even after an earlier iteration completed or stopped early.
+func TestGraphemeClustersReuse(t *testing.T) {
+	const input = "a🇩🇪b\r\nc"
+	expected := []string{"a", "🇩🇪", "b", "\r\n", "c"}
+	expectedIdx := []int{0, 1, 9, 10, 12}
+
+	seqBytes := GraphemeClusters([]byte(input))
+	seqString := GraphemeClustersInString(input)
+
+	// Stop early once, then run the iterators to completion twice.
+	for range seqBytes {
+		break
+	}
+	for range seqString {
+		break
+	}
+	for range 2 {
+		var gotBytes []string
+		var gotBytesIdx []int
+		for i, c := range seqBytes {
+			gotBytes = append(gotBytes, string(c))
+			gotBytesIdx = append(gotBytesIdx, i)
+		}
+		if !slices.Equal(gotBytes, expected) || !slices.Equal(gotBytesIdx, expectedIdx) {
+			t.Errorf("GraphemeClusters: got %q at %v, expected %q at %v", gotBytes, gotBytesIdx, expected, expectedIdx)
+		}
+
+		var gotString []string
+		var gotStringIdx []int
+		for i, c := range seqString {
+			gotString = append(gotString, c)
+			gotStringIdx = append(gotStringIdx, i)
+		}
+		if !slices.Equal(gotString, expected) || !slices.Equal(gotStringIdx, expectedIdx) {
+			t.Errorf("GraphemeClustersInString: got %q at %v, expected %q at %v", gotString, gotStringIdx, expected, expectedIdx)
+		}
+	}
+}
+
+// Test that the Parser methods produce the same results as the package-level functions.
+func TestParserGraphemeClusters(t *testing.T) {
+	parsers := []*Parser{
+		{},
+		{EastAsianWidth: true},
+		{EastAsianWidth: true, WideEmoji: true},
+	}
+	allCases := append(testCases, graphemeBreakTestCases...)
+	for _, p := range parsers {
+		for testNum, testCase := range allCases {
+			var expected []string
+			for _, c := range GraphemeClustersInString(testCase.original) {
+				expected = append(expected, c)
+			}
+
+			var gotBytes []string
+			for _, c := range p.GraphemeClusters([]byte(testCase.original)) {
+				gotBytes = append(gotBytes, string(c))
+			}
+			if !slices.Equal(gotBytes, expected) {
+				t.Errorf(`Test case %d %q failed with parser %+v: GraphemeClusters returned %q, expected %q`,
+					testNum, testCase.original, *p, gotBytes, expected)
+			}
+
+			var gotString []string
+			for _, c := range p.GraphemeClustersInString(testCase.original) {
+				gotString = append(gotString, c)
+			}
+			if !slices.Equal(gotString, expected) {
+				t.Errorf(`Test case %d %q failed with parser %+v: GraphemeClustersInString returned %q, expected %q`,
+					testNum, testCase.original, *p, gotString, expected)
+			}
 		}
 	}
 }
