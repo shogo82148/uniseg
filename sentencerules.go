@@ -137,7 +137,7 @@ var sbTransitions = [sbMax * sbprMax]sbTransitionResult{
 // lookups.
 func transitionSentenceBreakState[T bytes](state SentenceBreakState, r rune, str T, decoder runeDecoder[T]) (newState SentenceBreakState, sentenceBreak bool) {
 	// Determine the property of the next character.
-	nextProperty := sentenceBreakCodePoints.search(r)
+	nextProperty := sentenceBreakLookup.search(r)
 
 	sb3state := state & sbSB3Mask
 	state &= sbStateMask
@@ -212,7 +212,7 @@ func transitionSentenceBreakState[T bytes](state SentenceBreakState, r rune, str
 			if r == utf8.RuneError {
 				break
 			}
-			nextProperty = sentenceBreakCodePoints.search(r)
+			nextProperty = sentenceBreakLookup.search(r)
 		}
 		if nextProperty == sbprLower {
 			return sbLower, false

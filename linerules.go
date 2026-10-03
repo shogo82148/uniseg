@@ -339,7 +339,7 @@ var lbTransitions = [lbMax * lbprMax]lbTransitionResult{
 // further lookups.
 func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, decoder runeDecoder[T]) (newState LineBreakState, lineBreak LineBreak) {
 	// Determine the property of the next character.
-	lbProp := lineBreakCodePoints.search(r)
+	lbProp := lineBreakLookup.search(r)
 	nextProperty := lbProp.lbProperty
 	generalCategory := lbProp.generalCategory
 	if nextProperty == lbprXX && generalCategory == gcNone && unicode.Is(unicode.Cn, r) {
@@ -385,52 +385,6 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		isExtPicCn = true
 	}
 
-	defer func() {
-		if newState == lbQU && generalCategory == gcPf && (state == lbIDEM || state == lbNS || state == lbCL || state == lbCP || state == lbEX) {
-			newState |= lbQUPfBit
-		}
-
-		// Transition into LB30.
-		if newState == lbCP || newState == lbNUCP {
-			ea := eastAsianWidth.search(r)
-			if ea != eawprF && ea != eawprW && ea != eawprH {
-				newState |= lbCPeaFWHBit
-			}
-		}
-
-		// Transition into LB15a.
-		// (sot | BK | CR | LF | NL | OP | QU | GL | SP | ZW) [\p{Pi}&QU]
-		if (state <= 0 || state == lbBK || state == lbCR || state == lbLF || state == lbNL || state == lbOP || state == lbQU || state == lbGL || state == lbSP || state == lbZW) && generalCategory == gcPi && nextProperty == lbprQU {
-			newState |= lb15Bit
-		}
-		if isLB15 && nextProperty == lbprSP {
-			newState |= lb15Bit
-		}
-
-		// Transition into LB28a.
-		if r == '\u25CC' {
-			newState |= lbDottedCircleBit
-		}
-
-		if newState == lbHY || newState == lbHH {
-			if state == lbHL {
-				newState |= lbHLHyphenBit
-			}
-			if state <= 0 || isPrevLB20a {
-				newState |= lbLB20aBit
-			}
-		}
-
-		if nextProperty == lbprBK || nextProperty == lbprCR || nextProperty == lbprLF || nextProperty == lbprNL || nextProperty == lbprSP || nextProperty == lbprZW || nextProperty == lbprCB || nextProperty == lbprGL {
-			newState |= lbPrevLB20aBit
-		}
-
-		// Override break.
-		if forceNoBreak {
-			lineBreak = LineDontBreak
-		}
-	}()
-
 	// LB1.
 	switch nextProperty {
 	case lbprAI, lbprSG, lbprXX:
@@ -445,6 +399,61 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		nextProperty = lbprNS
 	}
 
+	newState, lineBreak = transitionLineBreakRules(state, r, nextProperty, generalCategory, str, decoder,
+		isCPeaFWH, isLB15, isDottedCircle, wasQUPf, isLB20a, isHLHyphen, isExtPicCn)
+
+	if newState == lbQU && generalCategory == gcPf && (state == lbIDEM || state == lbNS || state == lbCL || state == lbCP || state == lbEX) {
+		newState |= lbQUPfBit
+	}
+
+	// Transition into LB30.
+	if newState == lbCP || newState == lbNUCP {
+		ea := eastAsianWidthLookup.search(r)
+		if ea != eawprF && ea != eawprW && ea != eawprH {
+			newState |= lbCPeaFWHBit
+		}
+	}
+
+	// Transition into LB15a.
+	// (sot | BK | CR | LF | NL | OP | QU | GL | SP | ZW) [\p{Pi}&QU]
+	if (state <= 0 || state == lbBK || state == lbCR || state == lbLF || state == lbNL || state == lbOP || state == lbQU || state == lbGL || state == lbSP || state == lbZW) && generalCategory == gcPi && nextProperty == lbprQU {
+		newState |= lb15Bit
+	}
+	if isLB15 && nextProperty == lbprSP {
+		newState |= lb15Bit
+	}
+
+	// Transition into LB28a.
+	if r == '\u25CC' {
+		newState |= lbDottedCircleBit
+	}
+
+	if newState == lbHY || newState == lbHH {
+		if state == lbHL {
+			newState |= lbHLHyphenBit
+		}
+		if state <= 0 || isPrevLB20a {
+			newState |= lbLB20aBit
+		}
+	}
+
+	if nextProperty == lbprBK || nextProperty == lbprCR || nextProperty == lbprLF || nextProperty == lbprNL || nextProperty == lbprSP || nextProperty == lbprZW || nextProperty == lbprCB || nextProperty == lbprGL {
+		newState |= lbPrevLB20aBit
+	}
+
+	// Override break.
+	if forceNoBreak {
+		lineBreak = LineDontBreak
+	}
+
+	return
+}
+
+// transitionLineBreakRules applies the line breaking rules for
+// [transitionLineBreakState]. The state must have its flag bits extracted and
+// nextProperty must already be resolved according to LB1.
+func transitionLineBreakRules[T bytes](state LineBreakState, r rune, nextProperty lbProperty, generalCategory generalCategory, str T, decoder runeDecoder[T],
+	isCPeaFWH, isLB15, isDottedCircle, wasQUPf, isLB20a, isHLHyphen, isExtPicCn bool) (newState LineBreakState, lineBreak LineBreak) {
 	// Combining marks.
 	if nextProperty == lbprZWJ || nextProperty == lbprCM {
 		var bit LineBreakState
@@ -521,7 +530,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	if rule > 130 && state != lbNU && state != lbNUNU && state != lbNUSY && state != lbNUIS {
 		if state == lbSP && nextProperty == lbprIS && (r == '.' || r == ',') {
 			r2, _ := decoder(str)
-			if r2 != utf8.RuneError && lineBreakCodePoints.search(r2).lbProperty == lbprNU {
+			if r2 != utf8.RuneError && lineBreakLookup.search(r2).lbProperty == lbprNU {
 				return lbIS, LineCanBreak
 			}
 		}
@@ -551,7 +560,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		}
 		r, _ = decoder(str)
 		if r != utf8.RuneError {
-			pr := lineBreakCodePoints.search(r).lbProperty
+			pr := lineBreakLookup.search(r).lbProperty
 			if pr == lbprSP || pr == lbprGL || pr == lbprWJ || pr == lbprCL ||
 				pr == lbprQU || pr == lbprCP || pr == lbprEX || pr == lbprIS ||
 				pr == lbprSY || pr == lbprBK || pr == lbprCR || pr == lbprLF ||
@@ -565,7 +574,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	if rule == 190 && nextProperty == lbprQU && generalCategory == gcPi && (r == '“' || r == '‘') && (state == lbNS || state == lbIDEM) {
 		r2, _ := decoder(str)
 		if r2 != utf8.RuneError {
-			p2 := lineBreakCodePoints.search(r2).lbProperty
+			p2 := lineBreakLookup.search(r2).lbProperty
 			if (p2 == lbprID && unicode.Is(unicode.Han, r2)) || p2 == lbprOP {
 				return lbQU, LineCanBreak
 			}
@@ -612,7 +621,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		var r rune
 		r, _ = decoder(str)
 		if r != utf8.RuneError {
-			pr := lineBreakCodePoints.search(r).lbProperty
+			pr := lineBreakLookup.search(r).lbProperty
 			if pr == lbprNU {
 				return lbNU, LineDontBreak
 			}
@@ -649,7 +658,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 			var r rune
 			r, _ = decoder(str)
 			if r != utf8.RuneError {
-				pr := lineBreakCodePoints.search(r).lbProperty
+				pr := lineBreakLookup.search(r).lbProperty
 				if pr == lbprVF {
 					switch nextProperty {
 					case lbprAK:
@@ -667,7 +676,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	// LB30 (part one).
 	if rule > 300 {
 		if (state == lbAL || state == lbHL || state == lbNU || state == lbNUNU) && nextProperty == lbprOP {
-			ea := eastAsianWidth.search(r)
+			ea := eastAsianWidthLookup.search(r)
 			if ea != eawprF && ea != eawprW && ea != eawprH {
 				return lbOP, LineDontBreak
 			}
@@ -703,7 +712,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 				return lbAny, LineDontBreak
 			}
 		}
-		graphemeProperty := graphemeCodePoints.search(r)
+		graphemeProperty := graphemeLookup.search(r)
 		if graphemeProperty == prExtendedPictographic && generalCategory == gcCn {
 			newState |= lbExtPicCnBit
 		}

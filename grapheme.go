@@ -351,7 +351,7 @@ func firstGraphemeCluster[T bytes](p *Parser, str T, state GraphemeBreakState, d
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
 		var prop property
 		if state <= 0 {
-			prop = graphemeCodePoints.search(r)
+			prop = graphemeLookup.search(r)
 		} else {
 			_, prop = state.unpack()
 		}

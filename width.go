@@ -13,7 +13,7 @@ func runeWidth(p *Parser, r rune, graphemeProperty property) int {
 		// If the property is a regional indicator, return a width of 2.
 		return 2
 	case prExtendedPictographic:
-		if emojiPresentation.search(r) == prEmojiPresentation {
+		if emojiPresentationLookup.search(r) == prEmojiPresentation {
 			// If only the WideEmoji setting is true and the rune has an emoji presentation property, return a width of 2.
 			return 2
 		}
@@ -40,13 +40,13 @@ func (p *Parser) runeWidthAE(r rune, graphemeProperty property) int {
 		if graphemeProperty == prExtendedPictographic {
 			return 2
 		}
-		if emoji.search(r) == prEmoji {
+		if emojiLookup.search(r) == prEmoji {
 			return 2
 		}
 	}
 
 	// Check the East Asian Width property of the rune.
-	switch eastAsianWidth.search(r) {
+	switch eastAsianWidthLookup.search(r) {
 	case eawprW, eawprF:
 		// If the property is Wide or Fullwidth, return a width of 2.
 		return 2
