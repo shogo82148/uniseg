@@ -21,7 +21,6 @@ const (
 	lbWJ
 	lbGL
 	lbBA
-	lbBAHyphen
 	lbHY
 	lbHH
 	lbHYAfterClose
@@ -244,7 +243,6 @@ var lbTransitions = [lbMax * lbprMax]lbTransitionResult{
 	int(lbHYAfterClose)*lbprMax + int(lbprHL): {lbHL, LineCanBreak, 310},
 	int(lbHYAfterClose)*lbprMax + int(lbprNU): {lbNU, LineDontBreak, 250},
 	int(lbIS)*lbprMax + int(lbprNU):           {lbNUNU, LineDontBreak, 250},
-	int(lbBAHyphen)*lbprMax + int(lbprAL):     {lbAL, LineDontBreak, 201},
 	int(lbHYAfterClose)*lbprMax + int(lbprAL): {lbAL, LineCanBreak, 310},
 	int(lbNU)*lbprMax + int(lbprNU):           {lbNUNU, LineDontBreak, 250},
 	int(lbNU)*lbprMax + int(lbprSY):           {lbNUSY, LineDontBreak, 250},
@@ -414,7 +412,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 			newState |= lbDottedCircleBit
 		}
 
-		if newState == lbHY || newState == lbHH || newState == lbBAHyphen {
+		if newState == lbHY || newState == lbHH {
 			if state == lbHL {
 				newState |= lbHLHyphenBit
 			}
@@ -511,14 +509,10 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 		}
 	}
 
-	if newState == lbBA && r == '\u2010' {
-		newState = lbBAHyphen
-	}
-
 	// LB12a.
 	if rule > 121 &&
 		nextProperty == lbprGL &&
-		(state != lbSP && state != lbBA && state != lbBAHyphen && state != lbHY && state != lbHH && state != lbLB21a && state != lbQUSP && state != lbCLCPSP && state != lbB2SP) {
+		(state != lbSP && state != lbBA && state != lbHY && state != lbHH && state != lbLB21a && state != lbQUSP && state != lbCLCPSP && state != lbB2SP) {
 		return lbGL, LineDontBreak
 	}
 
@@ -579,7 +573,7 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	if rule == 190 && state == lbQU && wasQUPf && nextProperty == lbprID && unicode.Is(unicode.Han, r) {
 		return lbIDEM, LineCanBreak
 	}
-	if rule == 201 && (state == lbHY || state == lbHH || state == lbBAHyphen) && (nextProperty == lbprAL || nextProperty == lbprHL) {
+	if rule == 201 && (state == lbHY || state == lbHH) && (nextProperty == lbprAL || nextProperty == lbprHL) {
 		if nextProperty == lbprHL {
 			if !isLB20a {
 				return newState, LineCanBreak
