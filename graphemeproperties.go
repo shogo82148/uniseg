@@ -3,75 +3,75 @@
 package uniseg
 
 // graphemeCodePoints are taken from
-// https://www.unicode.org/Public/17.0.0/ucd/auxiliary/GraphemeBreakProperty.txt
+// https://www.unicode.org/Public/18.0.0/ucd/auxiliary/GraphemeBreakProperty.txt
 // and
-// https://unicode.org/Public/17.0.0/ucd/emoji/emoji-data.txt
+// https://unicode.org/Public/18.0.0/ucd/emoji/emoji-data.txt
 // ("Extended_Pictographic" only)
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var graphemeCodePoints = dictionary[property]{
-	{runeRange{0xCA4C, 0xCA4C}, prLV},                     // Lo       HANGUL SYLLABLE JJEO
-	{runeRange{0xAE4C, 0xAE4C}, prLV},                     // Lo       HANGUL SYLLABLE GGA
-	{runeRange{0x1F0C0, 0x1F0C0}, prExtendedPictographic}, // E0.0   [1] (🃀)       <reserved-1F0C0>
-	{runeRange{0x1BA2, 0x1BA5}, prExtend},                 // Mn   [4] SUNDANESE CONSONANT SIGN PANYAKRA..SUNDANESE VOWEL SIGN PANYUKU
-	{runeRange{0xBC4C, 0xBC4C}, prLV},                     // Lo       HANGUL SYLLABLE BYA
-	{runeRange{0x10A01, 0x10A03}, prExtend},               // Mn   [3] KHAROSHTHI VOWEL SIGN I..KHAROSHTHI VOWEL SIGN VOCALIC R
-	{runeRange{0x1F6DC, 0x1F6DC}, prExtendedPictographic}, // E15.0  [1] (🛜)       wireless
+	{runeRange{0xCA4D, 0xCA67}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJEOG..HANGUL SYLLABLE JJEOH
+	{runeRange{0xAE4D, 0xAE67}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGAG..HANGUL SYLLABLE GGAH
+	{runeRange{0x1E8D0, 0x1E8D6}, prExtend},               // Mn   [7] MENDE KIKAKUI COMBINING NUMBER TEENS..MENDE KIKAKUI COMBINING NUMBER MILLIONS
+	{runeRange{0x1BA6, 0x1BA7}, prSpacingMark},            // Mc   [2] SUNDANESE VOWEL SIGN PANAELAENG..SUNDANESE VOWEL SIGN PANOLONG
+	{runeRange{0xBC4D, 0xBC67}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYAG..HANGUL SYLLABLE BYAH
+	{runeRange{0x10A05, 0x10A06}, prExtend},               // Mn   [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
+	{runeRange{0x1F6E9, 0x1F6E9}, prExtendedPictographic}, // E0.7   [1] (🛩️)       small airplane
 	{runeRange{0x0CC3, 0x0CC4}, prSpacingMark},            // Mc   [2] KANNADA VOWEL SIGN VOCALIC R..KANNADA VOWEL SIGN VOCALIC RR
-	{runeRange{0x2733, 0x2734}, prExtendedPictographic},   // E0.6   [2] (✳️..✴️)    eight-spoked asterisk..eight-pointed star
-	{runeRange{0xB54C, 0xB54C}, prLV},                     // Lo       HANGUL SYLLABLE DDAE
-	{runeRange{0xC34C, 0xC34C}, prLV},                     // Lo       HANGUL SYLLABLE SSYAE
-	{runeRange{0xD14C, 0xD14C}, prLV},                     // Lo       HANGUL SYLLABLE TE
+	{runeRange{0x2744, 0x2744}, prExtendedPictographic},   // E0.6   [1] (❄️)       snowflake
+	{runeRange{0xB54D, 0xB567}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDAEG..HANGUL SYLLABLE DDAEH
+	{runeRange{0xC34D, 0xC367}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYAEG..HANGUL SYLLABLE SSYAEH
+	{runeRange{0xD14D, 0xD167}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TEG..HANGUL SYLLABLE TEH
 	{runeRange{0x1182F, 0x11837}, prExtend},               // Mn   [9] DOGRA VOWEL SIGN U..DOGRA SIGN ANUSVARA
-	{runeRange{0x1F5A5, 0x1F5A5}, prExtendedPictographic}, // E0.7   [1] (🖥️)       desktop computer
-	{runeRange{0x1F9C0, 0x1F9C0}, prExtendedPictographic}, // E1.0   [1] (🧀)       cheese wedge
+	{runeRange{0x1F57A, 0x1F57A}, prExtendedPictographic}, // E3.0   [1] (🕺)       man dancing
+	{runeRange{0x1F9CC, 0x1F9CC}, prExtendedPictographic}, // E14.0  [1] (🧌)       troll
 	{runeRange{0x09D7, 0x09D7}, prExtend},                 // Mc       BENGALI AU LENGTH MARK
 	{runeRange{0x109D, 0x109D}, prExtend},                 // Mn       MYANMAR VOWEL SIGN AITON AI
-	{runeRange{0x2604, 0x2604}, prExtendedPictographic},   // E1.0   [1] (☄️)       comet
-	{runeRange{0xAA35, 0xAA36}, prExtend},                 // Mn   [2] CHAM CONSONANT SIGN LA..CHAM CONSONANT SIGN WA
-	{runeRange{0xB1CC, 0xB1CC}, prLV},                     // Lo       HANGUL SYLLABLE NOE
-	{runeRange{0xB8CC, 0xB8CC}, prLV},                     // Lo       HANGUL SYLLABLE RYO
-	{runeRange{0xBFCC, 0xBFCC}, prLV},                     // Lo       HANGUL SYLLABLE BBU
-	{runeRange{0xC6CC, 0xC6CC}, prLV},                     // Lo       HANGUL SYLLABLE WEO
-	{runeRange{0xCDCC, 0xCDCC}, prLV},                     // Lo       HANGUL SYLLABLE CWE
-	{runeRange{0xD4CC, 0xD4CC}, prLV},                     // Lo       HANGUL SYLLABLE PWI
+	{runeRange{0x260E, 0x260E}, prExtendedPictographic},   // E0.6   [1] (☎️)       telephone
+	{runeRange{0xAA43, 0xAA43}, prExtend},                 // Mn       CHAM CONSONANT SIGN FINAL NG
+	{runeRange{0xB1CD, 0xB1E7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NOEG..HANGUL SYLLABLE NOEH
+	{runeRange{0xB8CD, 0xB8E7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYOG..HANGUL SYLLABLE RYOH
+	{runeRange{0xBFCD, 0xBFE7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBUG..HANGUL SYLLABLE BBUH
+	{runeRange{0xC6CD, 0xC6E7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE WEOG..HANGUL SYLLABLE WEOH
+	{runeRange{0xCDCD, 0xCDE7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CWEG..HANGUL SYLLABLE CWEH
+	{runeRange{0xD4CD, 0xD4E7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PWIG..HANGUL SYLLABLE PWIH
 	{runeRange{0x11357, 0x11357}, prExtend},               // Mc       GRANTHA AU LENGTH MARK
-	{runeRange{0x11F00, 0x11F01}, prExtend},               // Mn   [2] KAWI SIGN CANDRABINDU..KAWI SIGN ANUSVARA
-	{runeRange{0x1F3E4, 0x1F3E4}, prExtendedPictographic}, // E1.0   [1] (🏤)       post office
-	{runeRange{0x1F690, 0x1F690}, prExtendedPictographic}, // E1.0   [1] (🚐)       minibus
-	{runeRange{0x1F920, 0x1F927}, prExtendedPictographic}, // E3.0   [8] (🤠..🤧)    cowboy hat face..sneezing face
-	{runeRange{0x1FABF, 0x1FABF}, prExtendedPictographic}, // E15.0  [1] (🪿)       goose
+	{runeRange{0x11EF5, 0x11EF6}, prSpacingMark},          // Mc   [2] MAKASAR VOWEL SIGN E..MAKASAR VOWEL SIGN O
+	{runeRange{0x1F3C9, 0x1F3C9}, prExtendedPictographic}, // E1.0   [1] (🏉)       rugby football
+	{runeRange{0x1F691, 0x1F693}, prExtendedPictographic}, // E0.6   [3] (🚑..🚓)    ambulance..police car
+	{runeRange{0x1F933, 0x1F93A}, prExtendedPictographic}, // E3.0   [8] (🤳..🤺)    selfie..person fencing
+	{runeRange{0x1FAC7, 0x1FAC7}, prExtendedPictographic}, // E0.0   [1] (🫇)       <reserved-1FAC7>
 	{runeRange{0x07EB, 0x07F3}, prExtend},                 // Mn   [9] NKO COMBINING SHORT HIGH TONE..NKO COMBINING DOUBLE DOT ABOVE
 	{runeRange{0x0B4B, 0x0B4C}, prSpacingMark},            // Mc   [2] ORIYA VOWEL SIGN O..ORIYA VOWEL SIGN AU
 	{runeRange{0x0E34, 0x0E3A}, prExtend},                 // Mn   [7] THAI CHARACTER SARA I..THAI CHARACTER PHINTHU
 	{runeRange{0x1A17, 0x1A18}, prExtend},                 // Mn   [2] BUGINESE VOWEL SIGN I..BUGINESE VOWEL SIGN U
-	{runeRange{0x202A, 0x202E}, prControl},                // Cf   [5] LEFT-TO-RIGHT EMBEDDING..RIGHT-TO-LEFT OVERRIDE
-	{runeRange{0x26A0, 0x26A1}, prExtendedPictographic},   // E0.6   [2] (⚠️..⚡)    warning..high voltage
-	{runeRange{0xA6F0, 0xA6F1}, prExtend},                 // Mn   [2] BAMUM COMBINING MARK KOQNDON..BAMUM COMBINING MARK TUKWENTIS
-	{runeRange{0xAC8C, 0xAC8C}, prLV},                     // Lo       HANGUL SYLLABLE GE
-	{runeRange{0xB00C, 0xB00C}, prLV},                     // Lo       HANGUL SYLLABLE GGWI
-	{runeRange{0xB38C, 0xB38C}, prLV},                     // Lo       HANGUL SYLLABLE DYEO
-	{runeRange{0xB70C, 0xB70C}, prLV},                     // Lo       HANGUL SYLLABLE DDYU
-	{runeRange{0xBA8C, 0xBA8C}, prLV},                     // Lo       HANGUL SYLLABLE MYE
-	{runeRange{0xBE0C, 0xBE0C}, prLV},                     // Lo       HANGUL SYLLABLE BEU
-	{runeRange{0xC18C, 0xC18C}, prLV},                     // Lo       HANGUL SYLLABLE SO
-	{runeRange{0xC50C, 0xC50C}, prLV},                     // Lo       HANGUL SYLLABLE SSYI
-	{runeRange{0xC88C, 0xC88C}, prLV},                     // Lo       HANGUL SYLLABLE JWA
-	{runeRange{0xCC0C, 0xCC0C}, prLV},                     // Lo       HANGUL SYLLABLE JJI
-	{runeRange{0xCF8C, 0xCF8C}, prLV},                     // Lo       HANGUL SYLLABLE KWAE
-	{runeRange{0xD30C, 0xD30C}, prLV},                     // Lo       HANGUL SYLLABLE PA
-	{runeRange{0xD68C, 0xD68C}, prLV},                     // Lo       HANGUL SYLLABLE HOE
+	{runeRange{0x203C, 0x203C}, prExtendedPictographic},   // E0.6   [1] (‼️)       double exclamation mark
+	{runeRange{0x26A7, 0x26A7}, prExtendedPictographic},   // E13.0  [1] (⚧️)       transgender symbol
+	{runeRange{0xA802, 0xA802}, prExtend},                 // Mn       SYLOTI NAGRI SIGN DVISVARA
+	{runeRange{0xAC8D, 0xACA7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GEG..HANGUL SYLLABLE GEH
+	{runeRange{0xB00D, 0xB027}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGWIG..HANGUL SYLLABLE GGWIH
+	{runeRange{0xB38D, 0xB3A7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYEOG..HANGUL SYLLABLE DYEOH
+	{runeRange{0xB70D, 0xB727}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYUG..HANGUL SYLLABLE DDYUH
+	{runeRange{0xBA8D, 0xBAA7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYEG..HANGUL SYLLABLE MYEH
+	{runeRange{0xBE0D, 0xBE27}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BEUG..HANGUL SYLLABLE BEUH
+	{runeRange{0xC18D, 0xC1A7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SOG..HANGUL SYLLABLE SOH
+	{runeRange{0xC50D, 0xC527}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYIG..HANGUL SYLLABLE SSYIH
+	{runeRange{0xC88D, 0xC8A7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JWAG..HANGUL SYLLABLE JWAH
+	{runeRange{0xCC0D, 0xCC27}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJIG..HANGUL SYLLABLE JJIH
+	{runeRange{0xCF8D, 0xCFA7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KWAEG..HANGUL SYLLABLE KWAEH
+	{runeRange{0xD30D, 0xD327}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PAG..HANGUL SYLLABLE PAH
+	{runeRange{0xD68D, 0xD6A7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HOEG..HANGUL SYLLABLE HOEH
 	{runeRange{0x11173, 0x11173}, prExtend},               // Mn       MAHAJANI SIGN NUKTA
 	{runeRange{0x114BE, 0x114BE}, prSpacingMark},          // Mc       TIRHUTA VOWEL SIGN AU
 	{runeRange{0x11B60, 0x11B60}, prExtend},               // Mn       SHARADA VOWEL SIGN OE
-	{runeRange{0x1D173, 0x1D17A}, prControl},              // Cf   [8] MUSICAL SYMBOL BEGIN BEAM..MUSICAL SYMBOL END PHRASE
-	{runeRange{0x1F31D, 0x1F31E}, prExtendedPictographic}, // E1.0   [2] (🌝..🌞)    full moon face..sun with face
-	{runeRange{0x1F4B8, 0x1F4EB}, prExtendedPictographic}, // E0.6  [52] (💸..📫)    money with wings..closed mailbox with raised flag
-	{runeRange{0x1F620, 0x1F625}, prExtendedPictographic}, // E0.6   [6] (😠..😥)    angry face..sad but relieved face
-	{runeRange{0x1F6B3, 0x1F6B5}, prExtendedPictographic}, // E1.0   [3] (🚳..🚵)    no bicycles..person mountain biking
-	{runeRange{0x1F7EC, 0x1F7EF}, prExtendedPictographic}, // E0.0   [4] (🟬..🟯)    <reserved-1F7EC>..<reserved-1F7EF>
-	{runeRange{0x1F973, 0x1F976}, prExtendedPictographic}, // E11.0  [4] (🥳..🥶)    partying face..cold face
-	{runeRange{0x1FA80, 0x1FA82}, prExtendedPictographic}, // E12.0  [3] (🪀..🪂)    yo-yo..parachute
-	{runeRange{0x1FAE8, 0x1FAE8}, prExtendedPictographic}, // E15.0  [1] (🫨)       shaking face
+	{runeRange{0x1D167, 0x1D169}, prExtend},               // Mn   [3] MUSICAL SYMBOL COMBINING TREMOLO-1..MUSICAL SYMBOL COMBINING TREMOLO-3
+	{runeRange{0x1F313, 0x1F315}, prExtendedPictographic}, // E0.6   [3] (🌓..🌕)    first quarter moon..full moon
+	{runeRange{0x1F466, 0x1F46B}, prExtendedPictographic}, // E0.6   [6] (👦..👫)    boy..woman and man holding hands
+	{runeRange{0x1F618, 0x1F618}, prExtendedPictographic}, // E0.6   [1] (😘)       face blowing a kiss
+	{runeRange{0x1F6BF, 0x1F6BF}, prExtendedPictographic}, // E1.0   [1] (🚿)       shower
+	{runeRange{0x1F848, 0x1F84F}, prExtendedPictographic}, // E0.0   [8] (🡈..🡏)    <reserved-1F848>..<reserved-1F84F>
+	{runeRange{0x1F97B, 0x1F97B}, prExtendedPictographic}, // E12.0  [1] (🥻)       sari
+	{runeRange{0x1FA8A, 0x1FA8A}, prExtendedPictographic}, // E17.0  [1] (🪊)       trombone
+	{runeRange{0x1FAEA, 0x1FAEA}, prExtendedPictographic}, // E17.0  [1] (🫪)       distorted face
 	{runeRange{0x05C4, 0x05C5}, prExtend},                 // Mn   [2] HEBREW MARK UPPER DOT..HEBREW MARK LOWER DOT
 	{runeRange{0x093E, 0x0940}, prSpacingMark},            // Mc   [3] DEVANAGARI VOWEL SIGN AA..DEVANAGARI VOWEL SIGN II
 	{runeRange{0x0ABE, 0x0AC0}, prSpacingMark},            // Mc   [3] GUJARATI VOWEL SIGN AA..GUJARATI VOWEL SIGN II
@@ -79,62 +79,62 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x0D4D, 0x0D4D}, prExtend},                 // Mn       MALAYALAM SIGN VIRAMA
 	{runeRange{0x0F99, 0x0FBC}, prExtend},                 // Mn  [36] TIBETAN SUBJOINED LETTER NYA..TIBETAN SUBJOINED LETTER FIXED-FORM RA
 	{runeRange{0x17C7, 0x17C8}, prSpacingMark},            // Mc   [2] KHMER SIGN REAHMUK..KHMER SIGN YUUKALEAPINTU
-	{runeRange{0x1AE0, 0x1AEB}, prExtend},                 // Mn  [12] COMBINING LEFT TACK ABOVE..COMBINING DOUBLE RIGHTWARDS ARROW ABOVE
-	{runeRange{0x1C36, 0x1C37}, prExtend},                 // Mn   [2] LEPCHA SIGN RAN..LEPCHA SIGN NUKTA
-	{runeRange{0x2328, 0x2328}, prExtendedPictographic},   // E1.0   [1] (⌨️)       keyboard
-	{runeRange{0x2648, 0x2653}, prExtendedPictographic},   // E0.6  [12] (♈..♓)    Aries..Pisces
-	{runeRange{0x26F4, 0x26F4}, prExtendedPictographic},   // E0.7   [1] (⛴️)       ferry
-	{runeRange{0x2B50, 0x2B50}, prExtendedPictographic},   // E0.6   [1] (⭐)       star
-	{runeRange{0xA953, 0xA953}, prExtend},                 // Mc       REJANG VIRAMA
-	{runeRange{0xABE5, 0xABE5}, prExtend},                 // Mn       MEETEI MAYEK VOWEL SIGN ANAP
-	{runeRange{0xAD6C, 0xAD6C}, prLV},                     // Lo       HANGUL SYLLABLE GU
-	{runeRange{0xAF2C, 0xAF2C}, prLV},                     // Lo       HANGUL SYLLABLE GGO
-	{runeRange{0xB0EC, 0xB0EC}, prLV},                     // Lo       HANGUL SYLLABLE NYAE
-	{runeRange{0xB2AC, 0xB2AC}, prLV},                     // Lo       HANGUL SYLLABLE NYI
-	{runeRange{0xB46C, 0xB46C}, prLV},                     // Lo       HANGUL SYLLABLE DWEO
-	{runeRange{0xB62C, 0xB62C}, prLV},                     // Lo       HANGUL SYLLABLE DDWA
-	{runeRange{0xB7EC, 0xB7EC}, prLV},                     // Lo       HANGUL SYLLABLE REO
-	{runeRange{0xB9AC, 0xB9AC}, prLV},                     // Lo       HANGUL SYLLABLE RI
-	{runeRange{0xBB6C, 0xBB6C}, prLV},                     // Lo       HANGUL SYLLABLE MWE
-	{runeRange{0xBD2C, 0xBD2C}, prLV},                     // Lo       HANGUL SYLLABLE BWAE
-	{runeRange{0xBEEC, 0xBEEC}, prLV},                     // Lo       HANGUL SYLLABLE BBE
-	{runeRange{0xC0AC, 0xC0AC}, prLV},                     // Lo       HANGUL SYLLABLE SA
-	{runeRange{0xC26C, 0xC26C}, prLV},                     // Lo       HANGUL SYLLABLE SWI
-	{runeRange{0xC42C, 0xC42C}, prLV},                     // Lo       HANGUL SYLLABLE SSOE
-	{runeRange{0xC5EC, 0xC5EC}, prLV},                     // Lo       HANGUL SYLLABLE YEO
-	{runeRange{0xC7AC, 0xC7AC}, prLV},                     // Lo       HANGUL SYLLABLE JAE
-	{runeRange{0xC96C, 0xC96C}, prLV},                     // Lo       HANGUL SYLLABLE JYU
-	{runeRange{0xCB2C, 0xCB2C}, prLV},                     // Lo       HANGUL SYLLABLE JJYO
-	{runeRange{0xCCEC, 0xCCEC}, prLV},                     // Lo       HANGUL SYLLABLE CYE
-	{runeRange{0xCEAC, 0xCEAC}, prLV},                     // Lo       HANGUL SYLLABLE KYA
-	{runeRange{0xD06C, 0xD06C}, prLV},                     // Lo       HANGUL SYLLABLE KEU
-	{runeRange{0xD22C, 0xD22C}, prLV},                     // Lo       HANGUL SYLLABLE TU
-	{runeRange{0xD3EC, 0xD3EC}, prLV},                     // Lo       HANGUL SYLLABLE PO
-	{runeRange{0xD5AC, 0xD5AC}, prLV},                     // Lo       HANGUL SYLLABLE HYAE
-	{runeRange{0xD76C, 0xD76C}, prLV},                     // Lo       HANGUL SYLLABLE HYI
+	{runeRange{0x1B00, 0x1B03}, prExtend},                 // Mn   [4] BALINESE SIGN ULU RICEM..BALINESE SIGN SURANG
+	{runeRange{0x1CD0, 0x1CD2}, prExtend},                 // Mn   [3] VEDIC TONE KARSHANA..VEDIC TONE PRENKHA
+	{runeRange{0x23CF, 0x23CF}, prExtendedPictographic},   // E1.0   [1] (⏏️)       eject button
+	{runeRange{0x265F, 0x265F}, prExtendedPictographic},   // E11.0  [1] (♟️)       chess pawn
+	{runeRange{0x26F5, 0x26F5}, prExtendedPictographic},   // E0.6   [1] (⛵)       sailboat
+	{runeRange{0x2B55, 0x2B55}, prExtendedPictographic},   // E0.6   [1] (⭕)       hollow red circle
+	{runeRange{0xA960, 0xA97C}, prL},                      // Lo  [29] HANGUL CHOSEONG TIKEUT-MIEUM..HANGUL CHOSEONG SSANGYEORINHIEUH
+	{runeRange{0xABE6, 0xABE7}, prSpacingMark},            // Mc   [2] MEETEI MAYEK VOWEL SIGN YENAP..MEETEI MAYEK VOWEL SIGN SOUNAP
+	{runeRange{0xAD6D, 0xAD87}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GUG..HANGUL SYLLABLE GUH
+	{runeRange{0xAF2D, 0xAF47}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGOG..HANGUL SYLLABLE GGOH
+	{runeRange{0xB0ED, 0xB107}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYAEG..HANGUL SYLLABLE NYAEH
+	{runeRange{0xB2AD, 0xB2C7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYIG..HANGUL SYLLABLE NYIH
+	{runeRange{0xB46D, 0xB487}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DWEOG..HANGUL SYLLABLE DWEOH
+	{runeRange{0xB62D, 0xB647}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDWAG..HANGUL SYLLABLE DDWAH
+	{runeRange{0xB7ED, 0xB807}, prLVT},                    // Lo  [27] HANGUL SYLLABLE REOG..HANGUL SYLLABLE REOH
+	{runeRange{0xB9AD, 0xB9C7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RIG..HANGUL SYLLABLE RIH
+	{runeRange{0xBB6D, 0xBB87}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MWEG..HANGUL SYLLABLE MWEH
+	{runeRange{0xBD2D, 0xBD47}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BWAEG..HANGUL SYLLABLE BWAEH
+	{runeRange{0xBEED, 0xBF07}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBEG..HANGUL SYLLABLE BBEH
+	{runeRange{0xC0AD, 0xC0C7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SAG..HANGUL SYLLABLE SAH
+	{runeRange{0xC26D, 0xC287}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SWIG..HANGUL SYLLABLE SWIH
+	{runeRange{0xC42D, 0xC447}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSOEG..HANGUL SYLLABLE SSOEH
+	{runeRange{0xC5ED, 0xC607}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YEOG..HANGUL SYLLABLE YEOH
+	{runeRange{0xC7AD, 0xC7C7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JAEG..HANGUL SYLLABLE JAEH
+	{runeRange{0xC96D, 0xC987}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYUG..HANGUL SYLLABLE JYUH
+	{runeRange{0xCB2D, 0xCB47}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYOG..HANGUL SYLLABLE JJYOH
+	{runeRange{0xCCED, 0xCD07}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYEG..HANGUL SYLLABLE CYEH
+	{runeRange{0xCEAD, 0xCEC7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYAG..HANGUL SYLLABLE KYAH
+	{runeRange{0xD06D, 0xD087}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KEUG..HANGUL SYLLABLE KEUH
+	{runeRange{0xD22D, 0xD247}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TUG..HANGUL SYLLABLE TUH
+	{runeRange{0xD3ED, 0xD407}, prLVT},                    // Lo  [27] HANGUL SYLLABLE POG..HANGUL SYLLABLE POH
+	{runeRange{0xD5AD, 0xD5C7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYAEG..HANGUL SYLLABLE HYAEH
+	{runeRange{0xD76D, 0xD787}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYIG..HANGUL SYLLABLE HYIH
 	{runeRange{0x11070, 0x11070}, prExtend},               // Mn       BRAHMI SIGN OLD TAMIL VIRAMA
 	{runeRange{0x11236, 0x11237}, prExtend},               // Mn   [2] KHOJKI SIGN NUKTA..KHOJKI SIGN SHADDA
 	{runeRange{0x113D2, 0x113D2}, prExtend},               // Mn       TULU-TIGALARI GEMINATION MARK
 	{runeRange{0x1163E, 0x1163E}, prSpacingMark},          // Mc       MODI SIGN VISARGA
 	{runeRange{0x119DA, 0x119DB}, prExtend},               // Mn   [2] NANDINAGARI VOWEL SIGN E..NANDINAGARI VOWEL SIGN AI
 	{runeRange{0x11CB4, 0x11CB4}, prSpacingMark},          // Mc       MARCHEN VOWEL SIGN O
-	{runeRange{0x16AF0, 0x16AF4}, prExtend},               // Mn   [5] BASSA VAH COMBINING HIGH TONE..BASSA VAH COMBINING HIGH-LOW TONE
-	{runeRange{0x1E08F, 0x1E08F}, prExtend},               // Mn       COMBINING CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I
-	{runeRange{0x1F249, 0x1F24F}, prExtendedPictographic}, // E0.0   [7] (🉉..🉏)    <reserved-1F249>..<reserved-1F24F>
-	{runeRange{0x1F37E, 0x1F37F}, prExtendedPictographic}, // E1.0   [2] (🍾..🍿)    bottle with popping cork..popcorn
-	{runeRange{0x1F415, 0x1F415}, prExtendedPictographic}, // E0.7   [1] (🐕)       dog
-	{runeRange{0x1F515, 0x1F515}, prExtendedPictographic}, // E1.0   [1] (🔕)       bell with slash
-	{runeRange{0x1F607, 0x1F608}, prExtendedPictographic}, // E1.0   [2] (😇..😈)    smiling face with halo..smiling face with horns
-	{runeRange{0x1F686, 0x1F686}, prExtendedPictographic}, // E1.0   [1] (🚆)       train
-	{runeRange{0x1F69B, 0x1F6A1}, prExtendedPictographic}, // E1.0   [7] (🚛..🚡)    articulated lorry..aerial tramway
-	{runeRange{0x1F6CC, 0x1F6CC}, prExtendedPictographic}, // E1.0   [1] (🛌)       person in bed
-	{runeRange{0x1F6F4, 0x1F6F6}, prExtendedPictographic}, // E3.0   [3] (🛴..🛶)    kick scooter..canoe
-	{runeRange{0x1F8BC, 0x1F8BF}, prExtendedPictographic}, // E0.0   [4] (🢼..🢿)    <reserved-1F8BC>..<reserved-1F8BF>
-	{runeRange{0x1F947, 0x1F94B}, prExtendedPictographic}, // E3.0   [5] (🥇..🥋)    1st place medal..martial arts uniform
-	{runeRange{0x1F992, 0x1F997}, prExtendedPictographic}, // E5.0   [6] (🦒..🦗)    giraffe..cricket
-	{runeRange{0x1FA58, 0x1FA5F}, prExtendedPictographic}, // E0.0   [8] (🩘..🩟)    <reserved-1FA58>..<reserved-1FA5F>
-	{runeRange{0x1FA90, 0x1FA95}, prExtendedPictographic}, // E12.0  [6] (🪐..🪕)    ringed planet..banjo
-	{runeRange{0x1FACE, 0x1FACF}, prExtendedPictographic}, // E15.0  [2] (🫎..🫏)    moose..donkey
+	{runeRange{0x1612D, 0x1612F}, prExtend},               // Mn   [3] GURUNG KHEMA SIGN ANUSVARA..GURUNG KHEMA SIGN THOLHOMA
+	{runeRange{0x1DAA1, 0x1DAAF}, prExtend},               // Mn  [15] SIGNWRITING ROTATION MODIFIER-2..SIGNWRITING ROTATION MODIFIER-16
+	{runeRange{0x1F201, 0x1F202}, prExtendedPictographic}, // E0.6   [2] (🈁..🈂️)    Japanese “here” button..Japanese “service charge” button
+	{runeRange{0x1F34B, 0x1F34B}, prExtendedPictographic}, // E1.0   [1] (🍋)       lemon
+	{runeRange{0x1F409, 0x1F40B}, prExtendedPictographic}, // E1.0   [3] (🐉..🐋)    dragon..whale
+	{runeRange{0x1F4FF, 0x1F502}, prExtendedPictographic}, // E1.0   [4] (📿..🔂)    prayer beads..repeat single button
+	{runeRange{0x1F5EF, 0x1F5EF}, prExtendedPictographic}, // E0.7   [1] (🗯️)       right anger bubble
+	{runeRange{0x1F637, 0x1F640}, prExtendedPictographic}, // E0.6  [10] (😷..🙀)    face with medical mask..weary cat
+	{runeRange{0x1F6A6, 0x1F6A6}, prExtendedPictographic}, // E1.0   [1] (🚦)       vertical traffic light
+	{runeRange{0x1F6D5, 0x1F6D5}, prExtendedPictographic}, // E12.0  [1] (🛕)       hindu temple
+	{runeRange{0x1F6FA, 0x1F6FA}, prExtendedPictographic}, // E12.0  [1] (🛺)       auto rickshaw
+	{runeRange{0x1F90D, 0x1F90F}, prExtendedPictographic}, // E12.0  [3] (🤍..🤏)    white heart..pinching hand
+	{runeRange{0x1F95F, 0x1F96B}, prExtendedPictographic}, // E5.0  [13] (🥟..🥫)    dumpling..canned food
+	{runeRange{0x1F9AB, 0x1F9AD}, prExtendedPictographic}, // E13.0  [3] (🦫..🦭)    beaver..seal
+	{runeRange{0x1FA75, 0x1FA77}, prExtendedPictographic}, // E15.0  [3] (🩵..🩷)    light blue heart..pink heart
+	{runeRange{0x1FAB0, 0x1FAB6}, prExtendedPictographic}, // E13.0  [7] (🪰..🪶)    fly..feather
+	{runeRange{0x1FADA, 0x1FADB}, prExtendedPictographic}, // E15.0  [2] (🫚..🫛)    ginger root..pea pod
 	{runeRange{0x1FC00, 0x1FFFD}, prExtendedPictographic}, // E0.0[1022] (🰀..🿽)    <reserved-1FC00>..<reserved-1FFFD>
 	{runeRange{0x00AD, 0x00AD}, prControl},                // Cf       SOFT HYPHEN
 	{runeRange{0x06DD, 0x06DD}, prPrepend},                // Cf       ARABIC END OF AYAH
@@ -151,72 +151,72 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x1734, 0x1734}, prExtend},                 // Mc       HANUNOO SIGN PAMUDPOD
 	{runeRange{0x1920, 0x1922}, prExtend},                 // Mn   [3] LIMBU VOWEL SIGN A..LIMBU VOWEL SIGN U
 	{runeRange{0x1A62, 0x1A62}, prExtend},                 // Mn       TAI THAM VOWEL SIGN MAI SAT
-	{runeRange{0x1B3D, 0x1B3D}, prExtend},                 // Mc       BALINESE VOWEL SIGN LA LENGA TEDUNG
-	{runeRange{0x1BEA, 0x1BEC}, prSpacingMark},            // Mc   [3] BATAK VOWEL SIGN I..BATAK VOWEL SIGN O
-	{runeRange{0x1CF8, 0x1CF9}, prExtend},                 // Mn   [2] VEDIC TONE RING ABOVE..VEDIC TONE DOUBLE RING ABOVE
-	{runeRange{0x20E1, 0x20E1}, prExtend},                 // Mn       COMBINING LEFT RIGHT ARROW ABOVE
-	{runeRange{0x23F8, 0x23FA}, prExtendedPictographic},   // E0.7   [3] (⏸️..⏺️)    pause button..record button
-	{runeRange{0x2626, 0x2626}, prExtendedPictographic},   // E1.0   [1] (☦️)       orthodox cross
-	{runeRange{0x267F, 0x267F}, prExtendedPictographic},   // E0.6   [1] (♿)       wheelchair symbol
-	{runeRange{0x26CF, 0x26CF}, prExtendedPictographic},   // E0.7   [1] (⛏️)       pick
-	{runeRange{0x270D, 0x270D}, prExtendedPictographic},   // E0.7   [1] (✍️)       writing hand
-	{runeRange{0x2764, 0x2764}, prExtendedPictographic},   // E0.6   [1] (❤️)       red heart
-	{runeRange{0x303D, 0x303D}, prExtendedPictographic},   // E0.6   [1] (〽️)       part alternation mark
-	{runeRange{0xA880, 0xA881}, prSpacingMark},            // Mc   [2] SAURASHTRA SIGN ANUSVARA..SAURASHTRA SIGN VISARGA
-	{runeRange{0xA9BC, 0xA9BD}, prExtend},                 // Mn   [2] JAVANESE VOWEL SIGN PEPET..JAVANESE CONSONANT SIGN KERET
-	{runeRange{0xAABE, 0xAABF}, prExtend},                 // Mn   [2] TAI VIET VOWEL AM..TAI VIET TONE MAI EK
-	{runeRange{0xAC1C, 0xAC1C}, prLV},                     // Lo       HANGUL SYLLABLE GAE
-	{runeRange{0xACFC, 0xACFC}, prLV},                     // Lo       HANGUL SYLLABLE GWA
-	{runeRange{0xADDC, 0xADDC}, prLV},                     // Lo       HANGUL SYLLABLE GYU
-	{runeRange{0xAEBC, 0xAEBC}, prLV},                     // Lo       HANGUL SYLLABLE GGEO
-	{runeRange{0xAF9C, 0xAF9C}, prLV},                     // Lo       HANGUL SYLLABLE GGYO
-	{runeRange{0xB07C, 0xB07C}, prLV},                     // Lo       HANGUL SYLLABLE GGI
-	{runeRange{0xB15C, 0xB15C}, prLV},                     // Lo       HANGUL SYLLABLE NYE
-	{runeRange{0xB23C, 0xB23C}, prLV},                     // Lo       HANGUL SYLLABLE NWE
-	{runeRange{0xB31C, 0xB31C}, prLV},                     // Lo       HANGUL SYLLABLE DYA
-	{runeRange{0xB3FC, 0xB3FC}, prLV},                     // Lo       HANGUL SYLLABLE DWAE
-	{runeRange{0xB4DC, 0xB4DC}, prLV},                     // Lo       HANGUL SYLLABLE DEU
-	{runeRange{0xB5BC, 0xB5BC}, prLV},                     // Lo       HANGUL SYLLABLE DDE
-	{runeRange{0xB69C, 0xB69C}, prLV},                     // Lo       HANGUL SYLLABLE DDU
-	{runeRange{0xB77C, 0xB77C}, prLV},                     // Lo       HANGUL SYLLABLE RA
-	{runeRange{0xB85C, 0xB85C}, prLV},                     // Lo       HANGUL SYLLABLE RO
-	{runeRange{0xB93C, 0xB93C}, prLV},                     // Lo       HANGUL SYLLABLE RWI
-	{runeRange{0xBA1C, 0xBA1C}, prLV},                     // Lo       HANGUL SYLLABLE MYAE
-	{runeRange{0xBAFC, 0xBAFC}, prLV},                     // Lo       HANGUL SYLLABLE MOE
-	{runeRange{0xBBDC, 0xBBDC}, prLV},                     // Lo       HANGUL SYLLABLE MYI
-	{runeRange{0xBCBC, 0xBCBC}, prLV},                     // Lo       HANGUL SYLLABLE BYEO
-	{runeRange{0xBD9C, 0xBD9C}, prLV},                     // Lo       HANGUL SYLLABLE BWEO
-	{runeRange{0xBE7C, 0xBE7C}, prLV},                     // Lo       HANGUL SYLLABLE BBAE
-	{runeRange{0xBF5C, 0xBF5C}, prLV},                     // Lo       HANGUL SYLLABLE BBWA
-	{runeRange{0xC03C, 0xC03C}, prLV},                     // Lo       HANGUL SYLLABLE BBYU
-	{runeRange{0xC11C, 0xC11C}, prLV},                     // Lo       HANGUL SYLLABLE SEO
-	{runeRange{0xC1FC, 0xC1FC}, prLV},                     // Lo       HANGUL SYLLABLE SYO
-	{runeRange{0xC2DC, 0xC2DC}, prLV},                     // Lo       HANGUL SYLLABLE SI
-	{runeRange{0xC3BC, 0xC3BC}, prLV},                     // Lo       HANGUL SYLLABLE SSYE
-	{runeRange{0xC49C, 0xC49C}, prLV},                     // Lo       HANGUL SYLLABLE SSWE
-	{runeRange{0xC57C, 0xC57C}, prLV},                     // Lo       HANGUL SYLLABLE YA
-	{runeRange{0xC65C, 0xC65C}, prLV},                     // Lo       HANGUL SYLLABLE WAE
-	{runeRange{0xC73C, 0xC73C}, prLV},                     // Lo       HANGUL SYLLABLE EU
-	{runeRange{0xC81C, 0xC81C}, prLV},                     // Lo       HANGUL SYLLABLE JE
-	{runeRange{0xC8FC, 0xC8FC}, prLV},                     // Lo       HANGUL SYLLABLE JU
-	{runeRange{0xC9DC, 0xC9DC}, prLV},                     // Lo       HANGUL SYLLABLE JJA
-	{runeRange{0xCABC, 0xCABC}, prLV},                     // Lo       HANGUL SYLLABLE JJO
-	{runeRange{0xCB9C, 0xCB9C}, prLV},                     // Lo       HANGUL SYLLABLE JJWI
-	{runeRange{0xCC7C, 0xCC7C}, prLV},                     // Lo       HANGUL SYLLABLE CYAE
-	{runeRange{0xCD5C, 0xCD5C}, prLV},                     // Lo       HANGUL SYLLABLE COE
-	{runeRange{0xCE3C, 0xCE3C}, prLV},                     // Lo       HANGUL SYLLABLE CYI
-	{runeRange{0xCF1C, 0xCF1C}, prLV},                     // Lo       HANGUL SYLLABLE KYEO
-	{runeRange{0xCFFC, 0xCFFC}, prLV},                     // Lo       HANGUL SYLLABLE KWEO
-	{runeRange{0xD0DC, 0xD0DC}, prLV},                     // Lo       HANGUL SYLLABLE TAE
-	{runeRange{0xD1BC, 0xD1BC}, prLV},                     // Lo       HANGUL SYLLABLE TWA
-	{runeRange{0xD29C, 0xD29C}, prLV},                     // Lo       HANGUL SYLLABLE TYU
-	{runeRange{0xD37C, 0xD37C}, prLV},                     // Lo       HANGUL SYLLABLE PEO
-	{runeRange{0xD45C, 0xD45C}, prLV},                     // Lo       HANGUL SYLLABLE PYO
-	{runeRange{0xD53C, 0xD53C}, prLV},                     // Lo       HANGUL SYLLABLE PI
-	{runeRange{0xD61C, 0xD61C}, prLV},                     // Lo       HANGUL SYLLABLE HYE
-	{runeRange{0xD6FC, 0xD6FC}, prLV},                     // Lo       HANGUL SYLLABLE HWE
-	{runeRange{0xFE20, 0xFE2F}, prExtend},                 // Mn  [16] COMBINING LIGATURE LEFT HALF..COMBINING CYRILLIC TITLO RIGHT HALF
-	{runeRange{0x10EAB, 0x10EAC}, prExtend},               // Mn   [2] YEZIDI COMBINING HAMZA MARK..YEZIDI COMBINING MADDA MARK
+	{runeRange{0x1B3E, 0x1B41}, prSpacingMark},            // Mc   [4] BALINESE VOWEL SIGN TALING..BALINESE VOWEL SIGN TALING REPA TEDUNG
+	{runeRange{0x1BED, 0x1BED}, prExtend},                 // Mn       BATAK VOWEL SIGN KARO O
+	{runeRange{0x1DC0, 0x1DFF}, prExtend},                 // Mn  [64] COMBINING DOTTED GRAVE ACCENT..COMBINING RIGHT ARROWHEAD AND DOWN ARROWHEAD BELOW
+	{runeRange{0x20E2, 0x20E4}, prExtend},                 // Me   [3] COMBINING ENCLOSING SCREEN..COMBINING ENCLOSING UPWARD POINTING TRIANGLE
+	{runeRange{0x24C2, 0x24C2}, prExtendedPictographic},   // E0.6   [1] (Ⓜ️)       circled M
+	{runeRange{0x262A, 0x262A}, prExtendedPictographic},   // E0.7   [1] (☪️)       star and crescent
+	{runeRange{0x2692, 0x2692}, prExtendedPictographic},   // E1.0   [1] (⚒️)       hammer and pick
+	{runeRange{0x26D1, 0x26D1}, prExtendedPictographic},   // E0.7   [1] (⛑️)       rescue worker’s helmet
+	{runeRange{0x270F, 0x270F}, prExtendedPictographic},   // E0.6   [1] (✏️)       pencil
+	{runeRange{0x2795, 0x2797}, prExtendedPictographic},   // E0.6   [3] (➕..➗)    plus..divide
+	{runeRange{0x3099, 0x309A}, prExtend},                 // Mn   [2] COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK..COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
+	{runeRange{0xA8B4, 0xA8C3}, prSpacingMark},            // Mc  [16] SAURASHTRA CONSONANT SIGN HAARU..SAURASHTRA VOWEL SIGN AU
+	{runeRange{0xA9BE, 0xA9BF}, prSpacingMark},            // Mc   [2] JAVANESE CONSONANT SIGN PENGKAL..JAVANESE CONSONANT SIGN CAKRA
+	{runeRange{0xAAC1, 0xAAC1}, prExtend},                 // Mn       TAI VIET TONE MAI THO
+	{runeRange{0xAC1D, 0xAC37}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GAEG..HANGUL SYLLABLE GAEH
+	{runeRange{0xACFD, 0xAD17}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GWAG..HANGUL SYLLABLE GWAH
+	{runeRange{0xADDD, 0xADF7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYUG..HANGUL SYLLABLE GYUH
+	{runeRange{0xAEBD, 0xAED7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGEOG..HANGUL SYLLABLE GGEOH
+	{runeRange{0xAF9D, 0xAFB7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYOG..HANGUL SYLLABLE GGYOH
+	{runeRange{0xB07D, 0xB097}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGIG..HANGUL SYLLABLE GGIH
+	{runeRange{0xB15D, 0xB177}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYEG..HANGUL SYLLABLE NYEH
+	{runeRange{0xB23D, 0xB257}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NWEG..HANGUL SYLLABLE NWEH
+	{runeRange{0xB31D, 0xB337}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYAG..HANGUL SYLLABLE DYAH
+	{runeRange{0xB3FD, 0xB417}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DWAEG..HANGUL SYLLABLE DWAEH
+	{runeRange{0xB4DD, 0xB4F7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DEUG..HANGUL SYLLABLE DEUH
+	{runeRange{0xB5BD, 0xB5D7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDEG..HANGUL SYLLABLE DDEH
+	{runeRange{0xB69D, 0xB6B7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDUG..HANGUL SYLLABLE DDUH
+	{runeRange{0xB77D, 0xB797}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RAG..HANGUL SYLLABLE RAH
+	{runeRange{0xB85D, 0xB877}, prLVT},                    // Lo  [27] HANGUL SYLLABLE ROG..HANGUL SYLLABLE ROH
+	{runeRange{0xB93D, 0xB957}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RWIG..HANGUL SYLLABLE RWIH
+	{runeRange{0xBA1D, 0xBA37}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYAEG..HANGUL SYLLABLE MYAEH
+	{runeRange{0xBAFD, 0xBB17}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MOEG..HANGUL SYLLABLE MOEH
+	{runeRange{0xBBDD, 0xBBF7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYIG..HANGUL SYLLABLE MYIH
+	{runeRange{0xBCBD, 0xBCD7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYEOG..HANGUL SYLLABLE BYEOH
+	{runeRange{0xBD9D, 0xBDB7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BWEOG..HANGUL SYLLABLE BWEOH
+	{runeRange{0xBE7D, 0xBE97}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBAEG..HANGUL SYLLABLE BBAEH
+	{runeRange{0xBF5D, 0xBF77}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBWAG..HANGUL SYLLABLE BBWAH
+	{runeRange{0xC03D, 0xC057}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYUG..HANGUL SYLLABLE BBYUH
+	{runeRange{0xC11D, 0xC137}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SEOG..HANGUL SYLLABLE SEOH
+	{runeRange{0xC1FD, 0xC217}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYOG..HANGUL SYLLABLE SYOH
+	{runeRange{0xC2DD, 0xC2F7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SIG..HANGUL SYLLABLE SIH
+	{runeRange{0xC3BD, 0xC3D7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYEG..HANGUL SYLLABLE SSYEH
+	{runeRange{0xC49D, 0xC4B7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSWEG..HANGUL SYLLABLE SSWEH
+	{runeRange{0xC57D, 0xC597}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YAG..HANGUL SYLLABLE YAH
+	{runeRange{0xC65D, 0xC677}, prLVT},                    // Lo  [27] HANGUL SYLLABLE WAEG..HANGUL SYLLABLE WAEH
+	{runeRange{0xC73D, 0xC757}, prLVT},                    // Lo  [27] HANGUL SYLLABLE EUG..HANGUL SYLLABLE EUH
+	{runeRange{0xC81D, 0xC837}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JEG..HANGUL SYLLABLE JEH
+	{runeRange{0xC8FD, 0xC917}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JUG..HANGUL SYLLABLE JUH
+	{runeRange{0xC9DD, 0xC9F7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJAG..HANGUL SYLLABLE JJAH
+	{runeRange{0xCABD, 0xCAD7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJOG..HANGUL SYLLABLE JJOH
+	{runeRange{0xCB9D, 0xCBB7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJWIG..HANGUL SYLLABLE JJWIH
+	{runeRange{0xCC7D, 0xCC97}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYAEG..HANGUL SYLLABLE CYAEH
+	{runeRange{0xCD5D, 0xCD77}, prLVT},                    // Lo  [27] HANGUL SYLLABLE COEG..HANGUL SYLLABLE COEH
+	{runeRange{0xCE3D, 0xCE57}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYIG..HANGUL SYLLABLE CYIH
+	{runeRange{0xCF1D, 0xCF37}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYEOG..HANGUL SYLLABLE KYEOH
+	{runeRange{0xCFFD, 0xD017}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KWEOG..HANGUL SYLLABLE KWEOH
+	{runeRange{0xD0DD, 0xD0F7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TAEG..HANGUL SYLLABLE TAEH
+	{runeRange{0xD1BD, 0xD1D7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TWAG..HANGUL SYLLABLE TWAH
+	{runeRange{0xD29D, 0xD2B7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYUG..HANGUL SYLLABLE TYUH
+	{runeRange{0xD37D, 0xD397}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PEOG..HANGUL SYLLABLE PEOH
+	{runeRange{0xD45D, 0xD477}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYOG..HANGUL SYLLABLE PYOH
+	{runeRange{0xD53D, 0xD557}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PIG..HANGUL SYLLABLE PIH
+	{runeRange{0xD61D, 0xD637}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYEG..HANGUL SYLLABLE HYEH
+	{runeRange{0xD6FD, 0xD717}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HWEG..HANGUL SYLLABLE HWEH
+	{runeRange{0xFEFF, 0xFEFF}, prControl},                // Cf       ZERO WIDTH NO-BREAK SPACE
+	{runeRange{0x10ECB, 0x10ECF}, prExtend},               // Mn   [5] ARABIC NORTHEAST POINTING ARROWHEAD ABOVE..ARABIC LARGE CIRCLE ABOVE
 	{runeRange{0x110BD, 0x110BD}, prPrepend},              // Cf       KAITHI NUMBER SIGN
 	{runeRange{0x111C9, 0x111CC}, prExtend},               // Mn   [4] SHARADA SANDHI MARK..SHARADA EXTRA SHORT VOWEL MARK
 	{runeRange{0x1133B, 0x1133C}, prExtend},               // Mn   [2] COMBINING BINDU BELOW..GRANTHA SIGN NUKTA
@@ -228,41 +228,41 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x11A47, 0x11A47}, prExtend},               // Mn       ZANABAZAR SQUARE SUBJOINER
 	{runeRange{0x11C38, 0x11C3D}, prExtend},               // Mn   [6] BHAIKSUKI VOWEL SIGN E..BHAIKSUKI SIGN ANUSVARA
 	{runeRange{0x11D8A, 0x11D8E}, prSpacingMark},          // Mc   [5] GUNJALA GONDI VOWEL SIGN AA..GUNJALA GONDI VOWEL SIGN UU
-	{runeRange{0x11F42, 0x11F42}, prExtend},               // Mn       KAWI CONJOINER
-	{runeRange{0x16FF0, 0x16FF1}, prExtend},               // Mc   [2] VIETNAMESE ALTERNATE READING MARK CA..VIETNAMESE ALTERNATE READING MARK NHAY
-	{runeRange{0x1DA84, 0x1DA84}, prExtend},               // Mn       SIGNWRITING LOCATION HEAD NECK
-	{runeRange{0x1E6EE, 0x1E6EF}, prExtend},               // Mn   [2] TAI YO SIGN AY..TAI YO SIGN ANG
-	{runeRange{0x1F1AE, 0x1F1E5}, prExtendedPictographic}, // E0.0  [56] (🆮..🇥)    <reserved-1F1AE>..<reserved-1F1E5>
-	{runeRange{0x1F311, 0x1F311}, prExtendedPictographic}, // E0.6   [1] (🌑)       new moon
-	{runeRange{0x1F336, 0x1F336}, prExtendedPictographic}, // E0.7   [1] (🌶️)       hot pepper
-	{runeRange{0x1F3C7, 0x1F3C7}, prExtendedPictographic}, // E1.0   [1] (🏇)       horse racing
-	{runeRange{0x1F400, 0x1F407}, prExtendedPictographic}, // E1.0   [8] (🐀..🐇)    rat..rabbit
-	{runeRange{0x1F442, 0x1F464}, prExtendedPictographic}, // E0.6  [35] (👂..👤)    ear..bust in silhouette
-	{runeRange{0x1F4F9, 0x1F4FC}, prExtendedPictographic}, // E0.6   [4] (📹..📼)    video camera..videocassette
-	{runeRange{0x1F56F, 0x1F570}, prExtendedPictographic}, // E0.7   [2] (🕯️..🕰️)    candle..mantelpiece clock
-	{runeRange{0x1F5E3, 0x1F5E3}, prExtendedPictographic}, // E0.7   [1] (🗣️)       speaking head
-	{runeRange{0x1F616, 0x1F616}, prExtendedPictographic}, // E0.6   [1] (😖)       confounded face
-	{runeRange{0x1F635, 0x1F635}, prExtendedPictographic}, // E0.6   [1] (😵)       face with crossed-out eyes
-	{runeRange{0x1F68C, 0x1F68C}, prExtendedPictographic}, // E0.6   [1] (🚌)       bus
-	{runeRange{0x1F696, 0x1F696}, prExtendedPictographic}, // E1.0   [1] (🚖)       oncoming taxi
-	{runeRange{0x1F6A6, 0x1F6A6}, prExtendedPictographic}, // E1.0   [1] (🚦)       vertical traffic light
-	{runeRange{0x1F6BF, 0x1F6BF}, prExtendedPictographic}, // E1.0   [1] (🚿)       shower
-	{runeRange{0x1F6D5, 0x1F6D5}, prExtendedPictographic}, // E12.0  [1] (🛕)       hindu temple
-	{runeRange{0x1F6EB, 0x1F6EC}, prExtendedPictographic}, // E1.0   [2] (🛫..🛬)    airplane departure..airplane arrival
-	{runeRange{0x1F6FB, 0x1F6FC}, prExtendedPictographic}, // E13.0  [2] (🛻..🛼)    pickup truck..roller skate
-	{runeRange{0x1F848, 0x1F84F}, prExtendedPictographic}, // E0.0   [8] (🡈..🡏)    <reserved-1F848>..<reserved-1F84F>
-	{runeRange{0x1F90D, 0x1F90F}, prExtendedPictographic}, // E12.0  [3] (🤍..🤏)    white heart..pinching hand
-	{runeRange{0x1F933, 0x1F93A}, prExtendedPictographic}, // E3.0   [8] (🤳..🤺)    selfie..person fencing
-	{runeRange{0x1F95F, 0x1F96B}, prExtendedPictographic}, // E5.0  [13] (🥟..🥫)    dumpling..canned food
-	{runeRange{0x1F97B, 0x1F97B}, prExtendedPictographic}, // E12.0  [1] (🥻)       sari
-	{runeRange{0x1F9AB, 0x1F9AD}, prExtendedPictographic}, // E13.0  [3] (🦫..🦭)    beaver..seal
-	{runeRange{0x1F9CC, 0x1F9CC}, prExtendedPictographic}, // E14.0  [1] (🧌)       troll
-	{runeRange{0x1FA75, 0x1FA77}, prExtendedPictographic}, // E15.0  [3] (🩵..🩷)    light blue heart..pink heart
-	{runeRange{0x1FA8A, 0x1FA8A}, prExtendedPictographic}, // E17.0  [1] (🪊)       trombone
-	{runeRange{0x1FAB0, 0x1FAB6}, prExtendedPictographic}, // E13.0  [7] (🪰..🪶)    fly..feather
-	{runeRange{0x1FAC7, 0x1FAC7}, prExtendedPictographic}, // E0.0   [1] (🫇)       <reserved-1FAC7>
-	{runeRange{0x1FADC, 0x1FADC}, prExtendedPictographic}, // E16.0  [1] (🫜)       root vegetable
-	{runeRange{0x1FAEF, 0x1FAEF}, prExtendedPictographic}, // E17.0  [1] (🫯)       fight cloud
+	{runeRange{0x11F41, 0x11F41}, prExtend},               // Mc       KAWI SIGN KILLER
+	{runeRange{0x16FE4, 0x16FE4}, prExtend},               // Mn       KHITAN SMALL SCRIPT FILLER
+	{runeRange{0x1D25B, 0x1D25C}, prExtend},               // Mn   [2] MUSICAL SYMBOL COMBINING TREMOLO-4..MUSICAL SYMBOL COMBINING TREMOLO-5
+	{runeRange{0x1E2AE, 0x1E2AE}, prExtend},               // Mn       TOTO SIGN RISING TONE
+	{runeRange{0x1F0D0, 0x1F0D0}, prExtendedPictographic}, // E0.0   [1] (🃐)       <reserved-1F0D0>
+	{runeRange{0x1F252, 0x1F25F}, prExtendedPictographic}, // E0.0  [14] (🉒..🉟)    <reserved-1F252>..<reserved-1F25F>
+	{runeRange{0x1F321, 0x1F321}, prExtendedPictographic}, // E0.7   [1] (🌡️)       thermometer
+	{runeRange{0x1F396, 0x1F397}, prExtendedPictographic}, // E0.7   [2] (🎖️..🎗️)    military medal..reminder ribbon
+	{runeRange{0x1F3F3, 0x1F3F3}, prExtendedPictographic}, // E0.7   [1] (🏳️)       white flag
+	{runeRange{0x1F417, 0x1F429}, prExtendedPictographic}, // E0.6  [19] (🐗..🐩)    boar..poodle
+	{runeRange{0x1F4EE, 0x1F4EE}, prExtendedPictographic}, // E0.6   [1] (📮)       postbox
+	{runeRange{0x1F52C, 0x1F52D}, prExtendedPictographic}, // E1.0   [2] (🔬..🔭)    microscope..telescope
+	{runeRange{0x1F5B1, 0x1F5B2}, prExtendedPictographic}, // E0.7   [2] (🖱️..🖲️)    computer mouse..trackball
+	{runeRange{0x1F60E, 0x1F60E}, prExtendedPictographic}, // E1.0   [1] (😎)       smiling face with sunglasses
+	{runeRange{0x1F628, 0x1F62B}, prExtendedPictographic}, // E0.6   [4] (😨..😫)    fearful face..tired face
+	{runeRange{0x1F688, 0x1F688}, prExtendedPictographic}, // E1.0   [1] (🚈)       light rail
+	{runeRange{0x1F69B, 0x1F6A1}, prExtendedPictographic}, // E1.0   [7] (🚛..🚡)    articulated lorry..aerial tramway
+	{runeRange{0x1F6B3, 0x1F6B5}, prExtendedPictographic}, // E1.0   [3] (🚳..🚵)    no bicycles..person mountain biking
+	{runeRange{0x1F6CC, 0x1F6CC}, prExtendedPictographic}, // E1.0   [1] (🛌)       person in bed
+	{runeRange{0x1F6DA, 0x1F6DB}, prExtendedPictographic}, // E0.0   [2] (🛚..🛛)    <reserved-1F6DA>..<reserved-1F6DB>
+	{runeRange{0x1F6F3, 0x1F6F3}, prExtendedPictographic}, // E0.7   [1] (🛳️)       passenger ship
+	{runeRange{0x1F7E0, 0x1F7EB}, prExtendedPictographic}, // E12.0 [12] (🟠..🟫)    orange circle..brown square
+	{runeRange{0x1F8BC, 0x1F8BF}, prExtendedPictographic}, // E0.0   [4] (🢼..🢿)    <reserved-1F8BC>..<reserved-1F8BF>
+	{runeRange{0x1F920, 0x1F927}, prExtendedPictographic}, // E3.0   [8] (🤠..🤧)    cowboy hat face..sneezing face
+	{runeRange{0x1F947, 0x1F94B}, prExtendedPictographic}, // E3.0   [5] (🥇..🥋)    1st place medal..martial arts uniform
+	{runeRange{0x1F973, 0x1F976}, prExtendedPictographic}, // E11.0  [4] (🥳..🥶)    partying face..cold face
+	{runeRange{0x1F992, 0x1F997}, prExtendedPictographic}, // E5.0   [6] (🦒..🦗)    giraffe..cricket
+	{runeRange{0x1F9C0, 0x1F9C0}, prExtendedPictographic}, // E1.0   [1] (🧀)       cheese wedge
+	{runeRange{0x1FA58, 0x1FA5F}, prExtendedPictographic}, // E0.0   [8] (🩘..🩟)    <reserved-1FA58>..<reserved-1FA5F>
+	{runeRange{0x1FA80, 0x1FA82}, prExtendedPictographic}, // E12.0  [3] (🪀..🪂)    yo-yo..parachute
+	{runeRange{0x1FA90, 0x1FA95}, prExtendedPictographic}, // E12.0  [6] (🪐..🪕)    ringed planet..banjo
+	{runeRange{0x1FABF, 0x1FABF}, prExtendedPictographic}, // E15.0  [1] (🪿)       goose
+	{runeRange{0x1FACD, 0x1FACD}, prExtendedPictographic}, // E17.0  [1] (🫍)       orca
+	{runeRange{0x1FADF, 0x1FADF}, prExtendedPictographic}, // E16.0  [1] (🫟)       splatter
+	{runeRange{0x1FAF0, 0x1FAF6}, prExtendedPictographic}, // E14.0  [7] (🫰..🫶)    hand with index finger and thumb crossed..heart hands
 	{runeRange{0xE0020, 0xE007F}, prExtend},               // Cf  [96] TAG SPACE..CANCEL TAG
 	{runeRange{0x000D, 0x000D}, prCR},                     // Cc       <control-000D>
 	{runeRange{0x0488, 0x0489}, prExtend},                 // Me   [2] COMBINING CYRILLIC HUNDRED THOUSANDS SIGN..COMBINING CYRILLIC MILLIONS SIGN
@@ -294,137 +294,137 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x1930, 0x1931}, prSpacingMark},            // Mc   [2] LIMBU SMALL LETTER KA..LIMBU SMALL LETTER NGA
 	{runeRange{0x1A56, 0x1A56}, prExtend},                 // Mn       TAI THAM CONSONANT SIGN MEDIAL LA
 	{runeRange{0x1A7F, 0x1A7F}, prExtend},                 // Mn       TAI THAM COMBINING CRYPTOGRAMMIC DOT
-	{runeRange{0x1B35, 0x1B35}, prExtend},                 // Mc       BALINESE VOWEL SIGN TEDUNG
-	{runeRange{0x1B6B, 0x1B73}, prExtend},                 // Mn   [9] BALINESE MUSICAL SYMBOL COMBINING TEGEH..BALINESE MUSICAL SYMBOL COMBINING GONG
-	{runeRange{0x1BAB, 0x1BAD}, prExtend},                 // Mn   [3] SUNDANESE SIGN VIRAMA..SUNDANESE CONSONANT SIGN PASANGAN WA
-	{runeRange{0x1BF2, 0x1BF3}, prExtend},                 // Mc   [2] BATAK PANGOLAT..BATAK PANONGONAN
-	{runeRange{0x1CE2, 0x1CE8}, prExtend},                 // Mn   [7] VEDIC SIGN VISARGA SVARITA..VEDIC SIGN VISARGA ANUDATTA WITH TAIL
-	{runeRange{0x200D, 0x200D}, prZWJ},                    // Cf       ZERO WIDTH JOINER
-	{runeRange{0x2065, 0x2065}, prControl},                // Cn       <reserved-2065>
-	{runeRange{0x2139, 0x2139}, prExtendedPictographic},   // E0.6   [1] (ℹ️)       information
-	{runeRange{0x23EF, 0x23EF}, prExtendedPictographic},   // E1.0   [1] (⏯️)       play or pause button
-	{runeRange{0x25C0, 0x25C0}, prExtendedPictographic},   // E0.6   [1] (◀️)       reverse button
-	{runeRange{0x2618, 0x2618}, prExtendedPictographic},   // E1.0   [1] (☘️)       shamrock
-	{runeRange{0x2638, 0x2639}, prExtendedPictographic},   // E0.7   [2] (☸️..☹️)    wheel of dharma..frowning face
-	{runeRange{0x2665, 0x2666}, prExtendedPictographic},   // E0.6   [2] (♥️..♦️)    heart suit..diamond suit
-	{runeRange{0x2695, 0x2695}, prExtendedPictographic},   // E4.0   [1] (⚕️)       medical symbol
-	{runeRange{0x26BD, 0x26BE}, prExtendedPictographic},   // E0.6   [2] (⚽..⚾)    soccer ball..baseball
-	{runeRange{0x26E9, 0x26E9}, prExtendedPictographic},   // E0.7   [1] (⛩️)       shinto shrine
-	{runeRange{0x26FD, 0x26FD}, prExtendedPictographic},   // E0.6   [1] (⛽)       fuel pump
-	{runeRange{0x2716, 0x2716}, prExtendedPictographic},   // E0.6   [1] (✖️)       multiply
-	{runeRange{0x274E, 0x274E}, prExtendedPictographic},   // E0.6   [1] (❎)       cross mark button
-	{runeRange{0x27BF, 0x27BF}, prExtendedPictographic},   // E1.0   [1] (➿)       double curly loop
-	{runeRange{0x2DE0, 0x2DFF}, prExtend},                 // Mn  [32] COMBINING CYRILLIC LETTER BE..COMBINING CYRILLIC LETTER IOTIFIED BIG YUS
-	{runeRange{0xA66F, 0xA66F}, prExtend},                 // Mn       COMBINING CYRILLIC VZMET
-	{runeRange{0xA823, 0xA824}, prSpacingMark},            // Mc   [2] SYLOTI NAGRI VOWEL SIGN A..SYLOTI NAGRI VOWEL SIGN I
-	{runeRange{0xA8FF, 0xA8FF}, prExtend},                 // Mn       DEVANAGARI VOWEL SIGN AY
-	{runeRange{0xA9B3, 0xA9B3}, prExtend},                 // Mn       JAVANESE SIGN CECAK TELU
-	{runeRange{0xAA29, 0xAA2E}, prExtend},                 // Mn   [6] CHAM VOWEL SIGN AA..CHAM VOWEL SIGN OE
-	{runeRange{0xAA7C, 0xAA7C}, prExtend},                 // Mn       MYANMAR SIGN TAI LAING TONE-2
-	{runeRange{0xAAEE, 0xAAEF}, prSpacingMark},            // Mc   [2] MEETEI MAYEK VOWEL SIGN AU..MEETEI MAYEK VOWEL SIGN AAU
-	{runeRange{0xABEC, 0xABEC}, prSpacingMark},            // Mc       MEETEI MAYEK LUM IYEK
-	{runeRange{0xAC54, 0xAC54}, prLV},                     // Lo       HANGUL SYLLABLE GYAE
-	{runeRange{0xACC4, 0xACC4}, prLV},                     // Lo       HANGUL SYLLABLE GYE
-	{runeRange{0xAD34, 0xAD34}, prLV},                     // Lo       HANGUL SYLLABLE GOE
-	{runeRange{0xADA4, 0xADA4}, prLV},                     // Lo       HANGUL SYLLABLE GWE
-	{runeRange{0xAE14, 0xAE14}, prLV},                     // Lo       HANGUL SYLLABLE GYI
-	{runeRange{0xAE84, 0xAE84}, prLV},                     // Lo       HANGUL SYLLABLE GGYA
-	{runeRange{0xAEF4, 0xAEF4}, prLV},                     // Lo       HANGUL SYLLABLE GGYEO
-	{runeRange{0xAF64, 0xAF64}, prLV},                     // Lo       HANGUL SYLLABLE GGWAE
-	{runeRange{0xAFD4, 0xAFD4}, prLV},                     // Lo       HANGUL SYLLABLE GGWEO
-	{runeRange{0xB044, 0xB044}, prLV},                     // Lo       HANGUL SYLLABLE GGEU
-	{runeRange{0xB0B4, 0xB0B4}, prLV},                     // Lo       HANGUL SYLLABLE NAE
-	{runeRange{0xB124, 0xB124}, prLV},                     // Lo       HANGUL SYLLABLE NE
-	{runeRange{0xB194, 0xB194}, prLV},                     // Lo       HANGUL SYLLABLE NWA
-	{runeRange{0xB204, 0xB204}, prLV},                     // Lo       HANGUL SYLLABLE NU
-	{runeRange{0xB274, 0xB274}, prLV},                     // Lo       HANGUL SYLLABLE NYU
-	{runeRange{0xB2E4, 0xB2E4}, prLV},                     // Lo       HANGUL SYLLABLE DA
-	{runeRange{0xB354, 0xB354}, prLV},                     // Lo       HANGUL SYLLABLE DEO
-	{runeRange{0xB3C4, 0xB3C4}, prLV},                     // Lo       HANGUL SYLLABLE DO
-	{runeRange{0xB434, 0xB434}, prLV},                     // Lo       HANGUL SYLLABLE DYO
-	{runeRange{0xB4A4, 0xB4A4}, prLV},                     // Lo       HANGUL SYLLABLE DWI
-	{runeRange{0xB514, 0xB514}, prLV},                     // Lo       HANGUL SYLLABLE DI
-	{runeRange{0xB584, 0xB584}, prLV},                     // Lo       HANGUL SYLLABLE DDYAE
-	{runeRange{0xB5F4, 0xB5F4}, prLV},                     // Lo       HANGUL SYLLABLE DDYE
-	{runeRange{0xB664, 0xB664}, prLV},                     // Lo       HANGUL SYLLABLE DDOE
-	{runeRange{0xB6D4, 0xB6D4}, prLV},                     // Lo       HANGUL SYLLABLE DDWE
-	{runeRange{0xB744, 0xB744}, prLV},                     // Lo       HANGUL SYLLABLE DDYI
-	{runeRange{0xB7B4, 0xB7B4}, prLV},                     // Lo       HANGUL SYLLABLE RYA
-	{runeRange{0xB824, 0xB824}, prLV},                     // Lo       HANGUL SYLLABLE RYEO
-	{runeRange{0xB894, 0xB894}, prLV},                     // Lo       HANGUL SYLLABLE RWAE
-	{runeRange{0xB904, 0xB904}, prLV},                     // Lo       HANGUL SYLLABLE RWEO
-	{runeRange{0xB974, 0xB974}, prLV},                     // Lo       HANGUL SYLLABLE REU
-	{runeRange{0xB9E4, 0xB9E4}, prLV},                     // Lo       HANGUL SYLLABLE MAE
-	{runeRange{0xBA54, 0xBA54}, prLV},                     // Lo       HANGUL SYLLABLE ME
-	{runeRange{0xBAC4, 0xBAC4}, prLV},                     // Lo       HANGUL SYLLABLE MWA
-	{runeRange{0xBB34, 0xBB34}, prLV},                     // Lo       HANGUL SYLLABLE MU
-	{runeRange{0xBBA4, 0xBBA4}, prLV},                     // Lo       HANGUL SYLLABLE MYU
-	{runeRange{0xBC14, 0xBC14}, prLV},                     // Lo       HANGUL SYLLABLE BA
-	{runeRange{0xBC84, 0xBC84}, prLV},                     // Lo       HANGUL SYLLABLE BEO
-	{runeRange{0xBCF4, 0xBCF4}, prLV},                     // Lo       HANGUL SYLLABLE BO
-	{runeRange{0xBD64, 0xBD64}, prLV},                     // Lo       HANGUL SYLLABLE BYO
-	{runeRange{0xBDD4, 0xBDD4}, prLV},                     // Lo       HANGUL SYLLABLE BWI
-	{runeRange{0xBE44, 0xBE44}, prLV},                     // Lo       HANGUL SYLLABLE BI
-	{runeRange{0xBEB4, 0xBEB4}, prLV},                     // Lo       HANGUL SYLLABLE BBYAE
-	{runeRange{0xBF24, 0xBF24}, prLV},                     // Lo       HANGUL SYLLABLE BBYE
-	{runeRange{0xBF94, 0xBF94}, prLV},                     // Lo       HANGUL SYLLABLE BBOE
-	{runeRange{0xC004, 0xC004}, prLV},                     // Lo       HANGUL SYLLABLE BBWE
-	{runeRange{0xC074, 0xC074}, prLV},                     // Lo       HANGUL SYLLABLE BBYI
-	{runeRange{0xC0E4, 0xC0E4}, prLV},                     // Lo       HANGUL SYLLABLE SYA
-	{runeRange{0xC154, 0xC154}, prLV},                     // Lo       HANGUL SYLLABLE SYEO
-	{runeRange{0xC1C4, 0xC1C4}, prLV},                     // Lo       HANGUL SYLLABLE SWAE
-	{runeRange{0xC234, 0xC234}, prLV},                     // Lo       HANGUL SYLLABLE SWEO
-	{runeRange{0xC2A4, 0xC2A4}, prLV},                     // Lo       HANGUL SYLLABLE SEU
-	{runeRange{0xC314, 0xC314}, prLV},                     // Lo       HANGUL SYLLABLE SSAE
-	{runeRange{0xC384, 0xC384}, prLV},                     // Lo       HANGUL SYLLABLE SSE
-	{runeRange{0xC3F4, 0xC3F4}, prLV},                     // Lo       HANGUL SYLLABLE SSWA
-	{runeRange{0xC464, 0xC464}, prLV},                     // Lo       HANGUL SYLLABLE SSU
-	{runeRange{0xC4D4, 0xC4D4}, prLV},                     // Lo       HANGUL SYLLABLE SSYU
-	{runeRange{0xC544, 0xC544}, prLV},                     // Lo       HANGUL SYLLABLE A
-	{runeRange{0xC5B4, 0xC5B4}, prLV},                     // Lo       HANGUL SYLLABLE EO
-	{runeRange{0xC624, 0xC624}, prLV},                     // Lo       HANGUL SYLLABLE O
-	{runeRange{0xC694, 0xC694}, prLV},                     // Lo       HANGUL SYLLABLE YO
-	{runeRange{0xC704, 0xC704}, prLV},                     // Lo       HANGUL SYLLABLE WI
-	{runeRange{0xC774, 0xC774}, prLV},                     // Lo       HANGUL SYLLABLE I
-	{runeRange{0xC7E4, 0xC7E4}, prLV},                     // Lo       HANGUL SYLLABLE JYAE
-	{runeRange{0xC854, 0xC854}, prLV},                     // Lo       HANGUL SYLLABLE JYE
-	{runeRange{0xC8C4, 0xC8C4}, prLV},                     // Lo       HANGUL SYLLABLE JOE
-	{runeRange{0xC934, 0xC934}, prLV},                     // Lo       HANGUL SYLLABLE JWE
-	{runeRange{0xC9A4, 0xC9A4}, prLV},                     // Lo       HANGUL SYLLABLE JYI
-	{runeRange{0xCA14, 0xCA14}, prLV},                     // Lo       HANGUL SYLLABLE JJYA
-	{runeRange{0xCA84, 0xCA84}, prLV},                     // Lo       HANGUL SYLLABLE JJYEO
-	{runeRange{0xCAF4, 0xCAF4}, prLV},                     // Lo       HANGUL SYLLABLE JJWAE
-	{runeRange{0xCB64, 0xCB64}, prLV},                     // Lo       HANGUL SYLLABLE JJWEO
-	{runeRange{0xCBD4, 0xCBD4}, prLV},                     // Lo       HANGUL SYLLABLE JJEU
-	{runeRange{0xCC44, 0xCC44}, prLV},                     // Lo       HANGUL SYLLABLE CAE
-	{runeRange{0xCCB4, 0xCCB4}, prLV},                     // Lo       HANGUL SYLLABLE CE
-	{runeRange{0xCD24, 0xCD24}, prLV},                     // Lo       HANGUL SYLLABLE CWA
-	{runeRange{0xCD94, 0xCD94}, prLV},                     // Lo       HANGUL SYLLABLE CU
-	{runeRange{0xCE04, 0xCE04}, prLV},                     // Lo       HANGUL SYLLABLE CYU
-	{runeRange{0xCE74, 0xCE74}, prLV},                     // Lo       HANGUL SYLLABLE KA
-	{runeRange{0xCEE4, 0xCEE4}, prLV},                     // Lo       HANGUL SYLLABLE KEO
-	{runeRange{0xCF54, 0xCF54}, prLV},                     // Lo       HANGUL SYLLABLE KO
-	{runeRange{0xCFC4, 0xCFC4}, prLV},                     // Lo       HANGUL SYLLABLE KYO
-	{runeRange{0xD034, 0xD034}, prLV},                     // Lo       HANGUL SYLLABLE KWI
-	{runeRange{0xD0A4, 0xD0A4}, prLV},                     // Lo       HANGUL SYLLABLE KI
-	{runeRange{0xD114, 0xD114}, prLV},                     // Lo       HANGUL SYLLABLE TYAE
-	{runeRange{0xD184, 0xD184}, prLV},                     // Lo       HANGUL SYLLABLE TYE
-	{runeRange{0xD1F4, 0xD1F4}, prLV},                     // Lo       HANGUL SYLLABLE TOE
-	{runeRange{0xD264, 0xD264}, prLV},                     // Lo       HANGUL SYLLABLE TWE
-	{runeRange{0xD2D4, 0xD2D4}, prLV},                     // Lo       HANGUL SYLLABLE TYI
-	{runeRange{0xD344, 0xD344}, prLV},                     // Lo       HANGUL SYLLABLE PYA
-	{runeRange{0xD3B4, 0xD3B4}, prLV},                     // Lo       HANGUL SYLLABLE PYEO
-	{runeRange{0xD424, 0xD424}, prLV},                     // Lo       HANGUL SYLLABLE PWAE
-	{runeRange{0xD494, 0xD494}, prLV},                     // Lo       HANGUL SYLLABLE PWEO
-	{runeRange{0xD504, 0xD504}, prLV},                     // Lo       HANGUL SYLLABLE PEU
-	{runeRange{0xD574, 0xD574}, prLV},                     // Lo       HANGUL SYLLABLE HAE
-	{runeRange{0xD5E4, 0xD5E4}, prLV},                     // Lo       HANGUL SYLLABLE HE
-	{runeRange{0xD654, 0xD654}, prLV},                     // Lo       HANGUL SYLLABLE HWA
-	{runeRange{0xD6C4, 0xD6C4}, prLV},                     // Lo       HANGUL SYLLABLE HU
-	{runeRange{0xD734, 0xD734}, prLV},                     // Lo       HANGUL SYLLABLE HYU
-	{runeRange{0xD7B0, 0xD7C6}, prV},                      // Lo  [23] HANGUL JUNGSEONG O-YEO..HANGUL JUNGSEONG ARAEA-E
-	{runeRange{0xFFF9, 0xFFFB}, prControl},                // Cf   [3] INTERLINEAR ANNOTATION ANCHOR..INTERLINEAR ANNOTATION TERMINATOR
-	{runeRange{0x10A3F, 0x10A3F}, prExtend},               // Mn       KHAROSHTHI VIRAMA
+	{runeRange{0x1B36, 0x1B3A}, prExtend},                 // Mn   [5] BALINESE VOWEL SIGN ULU..BALINESE VOWEL SIGN RA REPA
+	{runeRange{0x1B80, 0x1B81}, prExtend},                 // Mn   [2] SUNDANESE SIGN PANYECEK..SUNDANESE SIGN PANGLAYAR
+	{runeRange{0x1BE6, 0x1BE6}, prExtend},                 // Mn       BATAK SIGN TOMPI
+	{runeRange{0x1C24, 0x1C2B}, prSpacingMark},            // Mc   [8] LEPCHA SUBJOINED LETTER YA..LEPCHA VOWEL SIGN UU
+	{runeRange{0x1CED, 0x1CED}, prExtend},                 // Mn       VEDIC SIGN TIRYAK
+	{runeRange{0x200E, 0x200F}, prControl},                // Cf   [2] LEFT-TO-RIGHT MARK..RIGHT-TO-LEFT MARK
+	{runeRange{0x2066, 0x206F}, prControl},                // Cf  [10] LEFT-TO-RIGHT ISOLATE..NOMINAL DIGIT SHAPES
+	{runeRange{0x2194, 0x2199}, prExtendedPictographic},   // E0.6   [6] (↔️..↙️)    left-right arrow..down-left arrow
+	{runeRange{0x23F0, 0x23F0}, prExtendedPictographic},   // E0.6   [1] (⏰)       alarm clock
+	{runeRange{0x25FB, 0x25FE}, prExtendedPictographic},   // E0.6   [4] (◻️..◾)    white medium square..black medium-small square
+	{runeRange{0x261D, 0x261D}, prExtendedPictographic},   // E0.6   [1] (☝️)       index pointing up
+	{runeRange{0x263A, 0x263A}, prExtendedPictographic},   // E0.6   [1] (☺️)       smiling face
+	{runeRange{0x2668, 0x2668}, prExtendedPictographic},   // E0.6   [1] (♨️)       hot springs
+	{runeRange{0x2696, 0x2697}, prExtendedPictographic},   // E1.0   [2] (⚖️..⚗️)    balance scale..alembic
+	{runeRange{0x26C4, 0x26C5}, prExtendedPictographic},   // E0.6   [2] (⛄..⛅)    snowman without snow..sun behind cloud
+	{runeRange{0x26EA, 0x26EA}, prExtendedPictographic},   // E0.6   [1] (⛪)       church
+	{runeRange{0x2702, 0x2702}, prExtendedPictographic},   // E0.6   [1] (✂️)       scissors
+	{runeRange{0x271D, 0x271D}, prExtendedPictographic},   // E0.7   [1] (✝️)       latin cross
+	{runeRange{0x2753, 0x2755}, prExtendedPictographic},   // E0.6   [3] (❓..❕)    red question mark..white exclamation mark
+	{runeRange{0x2934, 0x2935}, prExtendedPictographic},   // E0.6   [2] (⤴️..⤵️)    right arrow curving up..right arrow curving down
+	{runeRange{0x302A, 0x302D}, prExtend},                 // Mn   [4] IDEOGRAPHIC LEVEL TONE MARK..IDEOGRAPHIC ENTERING TONE MARK
+	{runeRange{0xA670, 0xA672}, prExtend},                 // Me   [3] COMBINING CYRILLIC TEN MILLIONS SIGN..COMBINING CYRILLIC THOUSAND MILLIONS SIGN
+	{runeRange{0xA825, 0xA826}, prExtend},                 // Mn   [2] SYLOTI NAGRI VOWEL SIGN U..SYLOTI NAGRI VOWEL SIGN E
+	{runeRange{0xA926, 0xA92D}, prExtend},                 // Mn   [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
+	{runeRange{0xA9B4, 0xA9B5}, prSpacingMark},            // Mc   [2] JAVANESE VOWEL SIGN TARUNG..JAVANESE VOWEL SIGN TOLONG
+	{runeRange{0xAA2F, 0xAA30}, prSpacingMark},            // Mc   [2] CHAM VOWEL SIGN O..CHAM VOWEL SIGN AI
+	{runeRange{0xAAB0, 0xAAB0}, prExtend},                 // Mn       TAI VIET MAI KANG
+	{runeRange{0xAAF5, 0xAAF5}, prSpacingMark},            // Mc       MEETEI MAYEK VOWEL SIGN VISARGA
+	{runeRange{0xABED, 0xABED}, prExtend},                 // Mn       MEETEI MAYEK APUN IYEK
+	{runeRange{0xAC55, 0xAC6F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYAEG..HANGUL SYLLABLE GYAEH
+	{runeRange{0xACC5, 0xACDF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYEG..HANGUL SYLLABLE GYEH
+	{runeRange{0xAD35, 0xAD4F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GOEG..HANGUL SYLLABLE GOEH
+	{runeRange{0xADA5, 0xADBF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GWEG..HANGUL SYLLABLE GWEH
+	{runeRange{0xAE15, 0xAE2F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYIG..HANGUL SYLLABLE GYIH
+	{runeRange{0xAE85, 0xAE9F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYAG..HANGUL SYLLABLE GGYAH
+	{runeRange{0xAEF5, 0xAF0F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYEOG..HANGUL SYLLABLE GGYEOH
+	{runeRange{0xAF65, 0xAF7F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGWAEG..HANGUL SYLLABLE GGWAEH
+	{runeRange{0xAFD5, 0xAFEF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGWEOG..HANGUL SYLLABLE GGWEOH
+	{runeRange{0xB045, 0xB05F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGEUG..HANGUL SYLLABLE GGEUH
+	{runeRange{0xB0B5, 0xB0CF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NAEG..HANGUL SYLLABLE NAEH
+	{runeRange{0xB125, 0xB13F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NEG..HANGUL SYLLABLE NEH
+	{runeRange{0xB195, 0xB1AF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NWAG..HANGUL SYLLABLE NWAH
+	{runeRange{0xB205, 0xB21F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NUG..HANGUL SYLLABLE NUH
+	{runeRange{0xB275, 0xB28F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYUG..HANGUL SYLLABLE NYUH
+	{runeRange{0xB2E5, 0xB2FF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DAG..HANGUL SYLLABLE DAH
+	{runeRange{0xB355, 0xB36F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DEOG..HANGUL SYLLABLE DEOH
+	{runeRange{0xB3C5, 0xB3DF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DOG..HANGUL SYLLABLE DOH
+	{runeRange{0xB435, 0xB44F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYOG..HANGUL SYLLABLE DYOH
+	{runeRange{0xB4A5, 0xB4BF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DWIG..HANGUL SYLLABLE DWIH
+	{runeRange{0xB515, 0xB52F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DIG..HANGUL SYLLABLE DIH
+	{runeRange{0xB585, 0xB59F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYAEG..HANGUL SYLLABLE DDYAEH
+	{runeRange{0xB5F5, 0xB60F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYEG..HANGUL SYLLABLE DDYEH
+	{runeRange{0xB665, 0xB67F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDOEG..HANGUL SYLLABLE DDOEH
+	{runeRange{0xB6D5, 0xB6EF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDWEG..HANGUL SYLLABLE DDWEH
+	{runeRange{0xB745, 0xB75F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYIG..HANGUL SYLLABLE DDYIH
+	{runeRange{0xB7B5, 0xB7CF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYAG..HANGUL SYLLABLE RYAH
+	{runeRange{0xB825, 0xB83F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYEOG..HANGUL SYLLABLE RYEOH
+	{runeRange{0xB895, 0xB8AF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RWAEG..HANGUL SYLLABLE RWAEH
+	{runeRange{0xB905, 0xB91F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RWEOG..HANGUL SYLLABLE RWEOH
+	{runeRange{0xB975, 0xB98F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE REUG..HANGUL SYLLABLE REUH
+	{runeRange{0xB9E5, 0xB9FF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MAEG..HANGUL SYLLABLE MAEH
+	{runeRange{0xBA55, 0xBA6F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MEG..HANGUL SYLLABLE MEH
+	{runeRange{0xBAC5, 0xBADF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MWAG..HANGUL SYLLABLE MWAH
+	{runeRange{0xBB35, 0xBB4F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MUG..HANGUL SYLLABLE MUH
+	{runeRange{0xBBA5, 0xBBBF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYUG..HANGUL SYLLABLE MYUH
+	{runeRange{0xBC15, 0xBC2F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BAG..HANGUL SYLLABLE BAH
+	{runeRange{0xBC85, 0xBC9F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BEOG..HANGUL SYLLABLE BEOH
+	{runeRange{0xBCF5, 0xBD0F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BOG..HANGUL SYLLABLE BOH
+	{runeRange{0xBD65, 0xBD7F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYOG..HANGUL SYLLABLE BYOH
+	{runeRange{0xBDD5, 0xBDEF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BWIG..HANGUL SYLLABLE BWIH
+	{runeRange{0xBE45, 0xBE5F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BIG..HANGUL SYLLABLE BIH
+	{runeRange{0xBEB5, 0xBECF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYAEG..HANGUL SYLLABLE BBYAEH
+	{runeRange{0xBF25, 0xBF3F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYEG..HANGUL SYLLABLE BBYEH
+	{runeRange{0xBF95, 0xBFAF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBOEG..HANGUL SYLLABLE BBOEH
+	{runeRange{0xC005, 0xC01F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBWEG..HANGUL SYLLABLE BBWEH
+	{runeRange{0xC075, 0xC08F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYIG..HANGUL SYLLABLE BBYIH
+	{runeRange{0xC0E5, 0xC0FF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYAG..HANGUL SYLLABLE SYAH
+	{runeRange{0xC155, 0xC16F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYEOG..HANGUL SYLLABLE SYEOH
+	{runeRange{0xC1C5, 0xC1DF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SWAEG..HANGUL SYLLABLE SWAEH
+	{runeRange{0xC235, 0xC24F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SWEOG..HANGUL SYLLABLE SWEOH
+	{runeRange{0xC2A5, 0xC2BF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SEUG..HANGUL SYLLABLE SEUH
+	{runeRange{0xC315, 0xC32F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSAEG..HANGUL SYLLABLE SSAEH
+	{runeRange{0xC385, 0xC39F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSEG..HANGUL SYLLABLE SSEH
+	{runeRange{0xC3F5, 0xC40F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSWAG..HANGUL SYLLABLE SSWAH
+	{runeRange{0xC465, 0xC47F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSUG..HANGUL SYLLABLE SSUH
+	{runeRange{0xC4D5, 0xC4EF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYUG..HANGUL SYLLABLE SSYUH
+	{runeRange{0xC545, 0xC55F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE AG..HANGUL SYLLABLE AH
+	{runeRange{0xC5B5, 0xC5CF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE EOG..HANGUL SYLLABLE EOH
+	{runeRange{0xC625, 0xC63F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE OG..HANGUL SYLLABLE OH
+	{runeRange{0xC695, 0xC6AF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YOG..HANGUL SYLLABLE YOH
+	{runeRange{0xC705, 0xC71F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE WIG..HANGUL SYLLABLE WIH
+	{runeRange{0xC775, 0xC78F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE IG..HANGUL SYLLABLE IH
+	{runeRange{0xC7E5, 0xC7FF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYAEG..HANGUL SYLLABLE JYAEH
+	{runeRange{0xC855, 0xC86F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYEG..HANGUL SYLLABLE JYEH
+	{runeRange{0xC8C5, 0xC8DF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JOEG..HANGUL SYLLABLE JOEH
+	{runeRange{0xC935, 0xC94F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JWEG..HANGUL SYLLABLE JWEH
+	{runeRange{0xC9A5, 0xC9BF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYIG..HANGUL SYLLABLE JYIH
+	{runeRange{0xCA15, 0xCA2F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYAG..HANGUL SYLLABLE JJYAH
+	{runeRange{0xCA85, 0xCA9F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYEOG..HANGUL SYLLABLE JJYEOH
+	{runeRange{0xCAF5, 0xCB0F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJWAEG..HANGUL SYLLABLE JJWAEH
+	{runeRange{0xCB65, 0xCB7F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJWEOG..HANGUL SYLLABLE JJWEOH
+	{runeRange{0xCBD5, 0xCBEF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJEUG..HANGUL SYLLABLE JJEUH
+	{runeRange{0xCC45, 0xCC5F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CAEG..HANGUL SYLLABLE CAEH
+	{runeRange{0xCCB5, 0xCCCF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CEG..HANGUL SYLLABLE CEH
+	{runeRange{0xCD25, 0xCD3F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CWAG..HANGUL SYLLABLE CWAH
+	{runeRange{0xCD95, 0xCDAF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CUG..HANGUL SYLLABLE CUH
+	{runeRange{0xCE05, 0xCE1F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYUG..HANGUL SYLLABLE CYUH
+	{runeRange{0xCE75, 0xCE8F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KAG..HANGUL SYLLABLE KAH
+	{runeRange{0xCEE5, 0xCEFF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KEOG..HANGUL SYLLABLE KEOH
+	{runeRange{0xCF55, 0xCF6F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KOG..HANGUL SYLLABLE KOH
+	{runeRange{0xCFC5, 0xCFDF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYOG..HANGUL SYLLABLE KYOH
+	{runeRange{0xD035, 0xD04F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KWIG..HANGUL SYLLABLE KWIH
+	{runeRange{0xD0A5, 0xD0BF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KIG..HANGUL SYLLABLE KIH
+	{runeRange{0xD115, 0xD12F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYAEG..HANGUL SYLLABLE TYAEH
+	{runeRange{0xD185, 0xD19F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYEG..HANGUL SYLLABLE TYEH
+	{runeRange{0xD1F5, 0xD20F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TOEG..HANGUL SYLLABLE TOEH
+	{runeRange{0xD265, 0xD27F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TWEG..HANGUL SYLLABLE TWEH
+	{runeRange{0xD2D5, 0xD2EF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYIG..HANGUL SYLLABLE TYIH
+	{runeRange{0xD345, 0xD35F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYAG..HANGUL SYLLABLE PYAH
+	{runeRange{0xD3B5, 0xD3CF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYEOG..HANGUL SYLLABLE PYEOH
+	{runeRange{0xD425, 0xD43F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PWAEG..HANGUL SYLLABLE PWAEH
+	{runeRange{0xD495, 0xD4AF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PWEOG..HANGUL SYLLABLE PWEOH
+	{runeRange{0xD505, 0xD51F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PEUG..HANGUL SYLLABLE PEUH
+	{runeRange{0xD575, 0xD58F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HAEG..HANGUL SYLLABLE HAEH
+	{runeRange{0xD5E5, 0xD5FF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HEG..HANGUL SYLLABLE HEH
+	{runeRange{0xD655, 0xD66F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HWAG..HANGUL SYLLABLE HWAH
+	{runeRange{0xD6C5, 0xD6DF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HUG..HANGUL SYLLABLE HUH
+	{runeRange{0xD735, 0xD74F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYUG..HANGUL SYLLABLE HYUH
+	{runeRange{0xD7CB, 0xD7FB}, prT},                      // Lo  [49] HANGUL JONGSEONG NIEUN-RIEUL..HANGUL JONGSEONG PHIEUPH-THIEUTH
+	{runeRange{0x101FD, 0x101FD}, prExtend},               // Mn       PHAISTOS DISC SIGN COMBINING OBLIQUE STROKE
+	{runeRange{0x10AE5, 0x10AE6}, prExtend},               // Mn   [2] MANICHAEAN ABBREVIATION MARK ABOVE..MANICHAEAN ABBREVIATION MARK BELOW
 	{runeRange{0x11000, 0x11000}, prSpacingMark},          // Mc       BRAHMI SIGN CANDRABINDU
 	{runeRange{0x110B0, 0x110B2}, prSpacingMark},          // Mc   [3] KAITHI VOWEL SIGN AA..KAITHI VOWEL SIGN II
 	{runeRange{0x11127, 0x1112B}, prExtend},               // Mn   [5] CHAKMA VOWEL SIGN A..CHAKMA VOWEL SIGN UU
@@ -448,51 +448,50 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x11CA9, 0x11CA9}, prSpacingMark},          // Mc       MARCHEN SUBJOINED LETTER YA
 	{runeRange{0x11D3C, 0x11D3D}, prExtend},               // Mn   [2] MASARAM GONDI VOWEL SIGN AI..MASARAM GONDI VOWEL SIGN O
 	{runeRange{0x11D96, 0x11D96}, prSpacingMark},          // Mc       GUNJALA GONDI SIGN VISARGA
-	{runeRange{0x11F36, 0x11F3A}, prExtend},               // Mn   [5] KAWI VOWEL SIGN I..KAWI VOWEL SIGN VOCALIC R
-	{runeRange{0x13447, 0x13455}, prExtend},               // Mn  [15] EGYPTIAN HIEROGLYPH MODIFIER DAMAGED AT TOP START..EGYPTIAN HIEROGLYPH MODIFIER DAMAGED
-	{runeRange{0x16F4F, 0x16F4F}, prExtend},               // Mn       MIAO SIGN CONSONANT MODIFIER BAR
-	{runeRange{0x1CF30, 0x1CF46}, prExtend},               // Mn  [23] ZNAMENNY COMBINING TONAL RANGE MARK MRACHNO..ZNAMENNY PRIZNAK MODIFIER ROG
-	{runeRange{0x1D242, 0x1D244}, prExtend},               // Mn   [3] COMBINING GREEK MUSICAL TRISEME..COMBINING GREEK MUSICAL PENTASEME
-	{runeRange{0x1E008, 0x1E018}, prExtend},               // Mn  [17] COMBINING GLAGOLITIC LETTER ZEMLJA..COMBINING GLAGOLITIC LETTER HERU
-	{runeRange{0x1E4EC, 0x1E4EF}, prExtend},               // Mn   [4] NAG MUNDARI SIGN MUHOR..NAG MUNDARI SIGN SUTUH
-	{runeRange{0x1F004, 0x1F004}, prExtendedPictographic}, // E0.6   [1] (🀄)       mahjong red dragon
-	{runeRange{0x1F170, 0x1F171}, prExtendedPictographic}, // E0.6   [2] (🅰️..🅱️)    A button (blood type)..B button (blood type)
-	{runeRange{0x1F21A, 0x1F21A}, prExtendedPictographic}, // E0.6   [1] (🈚)       Japanese “free of charge” button
-	{runeRange{0x1F300, 0x1F30C}, prExtendedPictographic}, // E0.6  [13] (🌀..🌌)    cyclone..milky way
-	{runeRange{0x1F319, 0x1F319}, prExtendedPictographic}, // E0.6   [1] (🌙)       crescent moon
-	{runeRange{0x1F32D, 0x1F32F}, prExtendedPictographic}, // E1.0   [3] (🌭..🌯)    hot dog..burrito
-	{runeRange{0x1F350, 0x1F350}, prExtendedPictographic}, // E1.0   [1] (🍐)       pear
-	{runeRange{0x1F39E, 0x1F39F}, prExtendedPictographic}, // E0.7   [2] (🎞️..🎟️)    film frames..admission tickets
-	{runeRange{0x1F3CB, 0x1F3CE}, prExtendedPictographic}, // E0.7   [4] (🏋️..🏎️)    person lifting weights..racing car
-	{runeRange{0x1F3F5, 0x1F3F5}, prExtendedPictographic}, // E0.7   [1] (🏵️)       rosette
-	{runeRange{0x1F40F, 0x1F410}, prExtendedPictographic}, // E1.0   [2] (🐏..🐐)    ram..goat
-	{runeRange{0x1F42B, 0x1F43E}, prExtendedPictographic}, // E0.6  [20] (🐫..🐾)    two-hump camel..paw prints
-	{runeRange{0x1F46E, 0x1F4AC}, prExtendedPictographic}, // E0.6  [63] (👮..💬)    police officer..speech balloon
-	{runeRange{0x1F4F0, 0x1F4F4}, prExtendedPictographic}, // E0.6   [5] (📰..📴)    newspaper..mobile phone off
-	{runeRange{0x1F504, 0x1F507}, prExtendedPictographic}, // E1.0   [4] (🔄..🔇)    counterclockwise arrows button..muted speaker
-	{runeRange{0x1F549, 0x1F54A}, prExtendedPictographic}, // E0.7   [2] (🕉️..🕊️)    om..dove
-	{runeRange{0x1F58A, 0x1F58D}, prExtendedPictographic}, // E0.7   [4] (🖊️..🖍️)    pen..crayon
-	{runeRange{0x1F5C2, 0x1F5C4}, prExtendedPictographic}, // E0.7   [3] (🗂️..🗄️)    card index dividers..file cabinet
-	{runeRange{0x1F5FA, 0x1F5FA}, prExtendedPictographic}, // E0.7   [1] (🗺️)       world map
-	{runeRange{0x1F610, 0x1F610}, prExtendedPictographic}, // E0.7   [1] (😐)       neutral face
-	{runeRange{0x1F61A, 0x1F61A}, prExtendedPictographic}, // E0.6   [1] (😚)       kissing face with closed eyes
-	{runeRange{0x1F62D, 0x1F62D}, prExtendedPictographic}, // E0.6   [1] (😭)       loudly crying face
-	{runeRange{0x1F645, 0x1F64F}, prExtendedPictographic}, // E0.6  [11] (🙅..🙏)    person gesturing NO..folded hands
-	{runeRange{0x1F689, 0x1F689}, prExtendedPictographic}, // E0.6   [1] (🚉)       station
-	{runeRange{0x1F68E, 0x1F68E}, prExtendedPictographic}, // E1.0   [1] (🚎)       trolleybus
-	{runeRange{0x1F694, 0x1F694}, prExtendedPictographic}, // E0.7   [1] (🚔)       oncoming police car
-	{runeRange{0x1F698, 0x1F698}, prExtendedPictographic}, // E0.7   [1] (🚘)       oncoming automobile
+	{runeRange{0x11F34, 0x11F35}, prSpacingMark},          // Mc   [2] KAWI VOWEL SIGN AA..KAWI VOWEL SIGN ALTERNATE AA
+	{runeRange{0x13440, 0x13440}, prExtend},               // Mn       EGYPTIAN HIEROGLYPH MIRROR HORIZONTALLY
+	{runeRange{0x16D67, 0x16D6A}, prV},                    // Lo   [4] KIRAT RAI VOWEL SIGN E..KIRAT RAI VOWEL SIGN AU
+	{runeRange{0x1CF00, 0x1CF2D}, prExtend},               // Mn  [46] ZNAMENNY COMBINING MARK GORAZDO NIZKO S KRYZHEM ON LEFT..ZNAMENNY COMBINING MARK KRYZH ON LEFT
+	{runeRange{0x1D185, 0x1D18B}, prExtend},               // Mn   [7] MUSICAL SYMBOL COMBINING DOIT..MUSICAL SYMBOL COMBINING TRIPLE TONGUE
+	{runeRange{0x1DA3B, 0x1DA6C}, prExtend},               // Mn  [50] SIGNWRITING MOUTH CLOSED NEUTRAL..SIGNWRITING EXCITEMENT
+	{runeRange{0x1E023, 0x1E024}, prExtend},               // Mn   [2] COMBINING GLAGOLITIC LETTER YU..COMBINING GLAGOLITIC LETTER SMALL YUS
+	{runeRange{0x1E6E3, 0x1E6E3}, prExtend},               // Mn       TAI YO SIGN UE
+	{runeRange{0x1F094, 0x1F09F}, prExtendedPictographic}, // E0.0  [12] (🂔..🂟)    <reserved-1F094>..<reserved-1F09F>
+	{runeRange{0x1F18E, 0x1F18E}, prExtendedPictographic}, // E0.6   [1] (🆎)       AB button (blood type)
+	{runeRange{0x1F232, 0x1F23A}, prExtendedPictographic}, // E0.6   [9] (🈲..🈺)    Japanese “prohibited” button..Japanese “open for business” button
+	{runeRange{0x1F30F, 0x1F30F}, prExtendedPictographic}, // E0.6   [1] (🌏)       globe showing Asia-Australia
+	{runeRange{0x1F31B, 0x1F31B}, prExtendedPictographic}, // E0.6   [1] (🌛)       first quarter moon face
+	{runeRange{0x1F332, 0x1F333}, prExtendedPictographic}, // E1.0   [2] (🌲..🌳)    evergreen tree..deciduous tree
+	{runeRange{0x1F37C, 0x1F37C}, prExtendedPictographic}, // E1.0   [1] (🍼)       baby bottle
+	{runeRange{0x1F3C5, 0x1F3C5}, prExtendedPictographic}, // E1.0   [1] (🏅)       sports medal
+	{runeRange{0x1F3D4, 0x1F3DF}, prExtendedPictographic}, // E0.7  [12] (🏔️..🏟️)    snow-capped mountain..stadium
+	{runeRange{0x1F3F8, 0x1F3FA}, prExtendedPictographic}, // E1.0   [3] (🏸..🏺)    badminton..amphora
+	{runeRange{0x1F413, 0x1F413}, prExtendedPictographic}, // E1.0   [1] (🐓)       rooster
+	{runeRange{0x1F440, 0x1F440}, prExtendedPictographic}, // E0.6   [1] (👀)       eyes
+	{runeRange{0x1F4AE, 0x1F4B5}, prExtendedPictographic}, // E0.6   [8] (💮..💵)    white flower..dollar banknote
+	{runeRange{0x1F4F6, 0x1F4F7}, prExtendedPictographic}, // E0.6   [2] (📶..📷)    antenna bars..camera
+	{runeRange{0x1F509, 0x1F509}, prExtendedPictographic}, // E1.0   [1] (🔉)       speaker medium volume
+	{runeRange{0x1F550, 0x1F55B}, prExtendedPictographic}, // E0.6  [12] (🕐..🕛)    one o’clock..twelve o’clock
+	{runeRange{0x1F595, 0x1F596}, prExtendedPictographic}, // E1.0   [2] (🖕..🖖)    middle finger..vulcan salute
+	{runeRange{0x1F5DC, 0x1F5DE}, prExtendedPictographic}, // E0.7   [3] (🗜️..🗞️)    clamp..rolled-up newspaper
+	{runeRange{0x1F600, 0x1F600}, prExtendedPictographic}, // E1.0   [1] (😀)       grinning face
+	{runeRange{0x1F612, 0x1F614}, prExtendedPictographic}, // E0.6   [3] (😒..😔)    unamused face..pensive face
+	{runeRange{0x1F61C, 0x1F61E}, prExtendedPictographic}, // E0.6   [3] (😜..😞)    winking face with tongue..disappointed face
+	{runeRange{0x1F630, 0x1F633}, prExtendedPictographic}, // E0.6   [4] (😰..😳)    anxious face with sweat..flushed face
+	{runeRange{0x1F681, 0x1F682}, prExtendedPictographic}, // E1.0   [2] (🚁..🚂)    helicopter..locomotive
+	{runeRange{0x1F68D, 0x1F68D}, prExtendedPictographic}, // E0.7   [1] (🚍)       oncoming bus
+	{runeRange{0x1F697, 0x1F697}, prExtendedPictographic}, // E0.6   [1] (🚗)       automobile
 	{runeRange{0x1F6A3, 0x1F6A3}, prExtendedPictographic}, // E1.0   [1] (🚣)       person rowing boat
 	{runeRange{0x1F6AE, 0x1F6B1}, prExtendedPictographic}, // E1.0   [4] (🚮..🚱)    litter in bin sign..non-potable water
 	{runeRange{0x1F6B7, 0x1F6B8}, prExtendedPictographic}, // E1.0   [2] (🚷..🚸)    no pedestrians..children crossing
 	{runeRange{0x1F6C1, 0x1F6C5}, prExtendedPictographic}, // E1.0   [5] (🛁..🛅)    bathtub..left luggage
 	{runeRange{0x1F6D0, 0x1F6D0}, prExtendedPictographic}, // E1.0   [1] (🛐)       place of worship
 	{runeRange{0x1F6D8, 0x1F6D8}, prExtendedPictographic}, // E17.0  [1] (🛘)       landslide
-	{runeRange{0x1F6E0, 0x1F6E5}, prExtendedPictographic}, // E0.7   [6] (🛠️..🛥️)    hammer and wrench..motor boat
-	{runeRange{0x1F6F0, 0x1F6F0}, prExtendedPictographic}, // E0.7   [1] (🛰️)       satellite
-	{runeRange{0x1F6F9, 0x1F6F9}, prExtendedPictographic}, // E11.0  [1] (🛹)       skateboard
-	{runeRange{0x1F7DA, 0x1F7DF}, prExtendedPictographic}, // E0.0   [6] (🟚..🟟)    <reserved-1F7DA>..<reserved-1F7DF>
-	{runeRange{0x1F7F1, 0x1F7FF}, prExtendedPictographic}, // E0.0  [15] (🟱..🟿)    <reserved-1F7F1>..<reserved-1F7FF>
+	{runeRange{0x1F6DD, 0x1F6DF}, prExtendedPictographic}, // E14.0  [3] (🛝..🛟)    playground slide..ring buoy
+	{runeRange{0x1F6ED, 0x1F6EF}, prExtendedPictographic}, // E0.0   [3] (🛭..🛯)    <reserved-1F6ED>..<reserved-1F6EF>
+	{runeRange{0x1F6F7, 0x1F6F8}, prExtendedPictographic}, // E5.0   [2] (🛷..🛸)    sled..flying saucer
+	{runeRange{0x1F6FD, 0x1F6FF}, prExtendedPictographic}, // E0.0   [3] (🛽..🛿)    <reserved-1F6FD>..<reserved-1F6FF>
+	{runeRange{0x1F7F0, 0x1F7F0}, prExtendedPictographic}, // E14.0  [1] (🟰)       heavy equals sign
 	{runeRange{0x1F888, 0x1F88F}, prExtendedPictographic}, // E0.0   [8] (🢈..🢏)    <reserved-1F888>..<reserved-1F88F>
 	{runeRange{0x1F8D9, 0x1F8FF}, prExtendedPictographic}, // E0.0  [39] (🣙..🣿)    <reserved-1F8D9>..<reserved-1F8FF>
 	{runeRange{0x1F919, 0x1F91E}, prExtendedPictographic}, // E3.0   [6] (🤙..🤞)    call me hand..crossed fingers
@@ -513,11 +512,12 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x1FAA9, 0x1FAAC}, prExtendedPictographic}, // E14.0  [4] (🪩..🪬)    mirror ball..hamsa
 	{runeRange{0x1FABB, 0x1FABD}, prExtendedPictographic}, // E15.0  [3] (🪻..🪽)    hyacinth..wing
 	{runeRange{0x1FAC3, 0x1FAC5}, prExtendedPictographic}, // E14.0  [3] (🫃..🫅)    pregnant man..person with crown
-	{runeRange{0x1FAC9, 0x1FACC}, prExtendedPictographic}, // E0.0   [4] (🫉..🫌)    <reserved-1FAC9>..<reserved-1FACC>
-	{runeRange{0x1FAD7, 0x1FAD9}, prExtendedPictographic}, // E14.0  [3] (🫗..🫙)    pouring liquid..jar
-	{runeRange{0x1FADF, 0x1FADF}, prExtendedPictographic}, // E16.0  [1] (🫟)       splatter
-	{runeRange{0x1FAEA, 0x1FAEA}, prExtendedPictographic}, // E17.0  [1] (🫪)       distorted face
-	{runeRange{0x1FAF7, 0x1FAF8}, prExtendedPictographic}, // E15.0  [2] (🫷..🫸)    leftwards pushing hand..rightwards pushing hand
+	{runeRange{0x1FAC9, 0x1FACB}, prExtendedPictographic}, // E0.0   [3] (🫉..🫋)    <reserved-1FAC9>..<reserved-1FACB>
+	{runeRange{0x1FAD0, 0x1FAD6}, prExtendedPictographic}, // E13.0  [7] (🫐..🫖)    blueberries..teapot
+	{runeRange{0x1FADD, 0x1FADD}, prExtendedPictographic}, // E18.0  [1] (🫝)       pickle
+	{runeRange{0x1FAE8, 0x1FAE8}, prExtendedPictographic}, // E15.0  [1] (🫨)       shaking face
+	{runeRange{0x1FAEC, 0x1FAEE}, prExtendedPictographic}, // E0.0   [3] (🫬..🫮)    <reserved-1FAEC>..<reserved-1FAEE>
+	{runeRange{0x1FAF9, 0x1FAFA}, prExtendedPictographic}, // E18.0  [2] (🫹..🫺)    leftwards thumb sign..rightwards thumb sign
 	{runeRange{0xE0001, 0xE0001}, prControl},              // Cf       LANGUAGE TAG
 	{runeRange{0xE0100, 0xE01EF}, prExtend},               // Mn [240] VARIATION SELECTOR-17..VARIATION SELECTOR-256
 	{runeRange{0x000A, 0x000A}, prLF},                     // Cc       <control-000A>
@@ -544,7 +544,7 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x0AE2, 0x0AE3}, prExtend},                 // Mn   [2] GUJARATI VOWEL SIGN VOCALIC L..GUJARATI VOWEL SIGN VOCALIC LL
 	{runeRange{0x0B3C, 0x0B3C}, prExtend},                 // Mn       ORIYA SIGN NUKTA
 	{runeRange{0x0B41, 0x0B44}, prExtend},                 // Mn   [4] ORIYA VOWEL SIGN U..ORIYA VOWEL SIGN VOCALIC RR
-	{runeRange{0x0B55, 0x0B56}, prExtend},                 // Mn   [2] ORIYA SIGN OVERLINE..ORIYA AI LENGTH MARK
+	{runeRange{0x0B53, 0x0B56}, prExtend},                 // Mn   [4] ORIYA SIGN DOT ABOVE..ORIYA AI LENGTH MARK
 	{runeRange{0x0BBE, 0x0BBE}, prExtend},                 // Mc       TAMIL VOWEL SIGN AA
 	{runeRange{0x0BC6, 0x0BC8}, prSpacingMark},            // Mc   [3] TAMIL VOWEL SIGN E..TAMIL VOWEL SIGN AI
 	{runeRange{0x0C00, 0x0C00}, prExtend},                 // Mn       TELUGU SIGN COMBINING CANDRABINDU ABOVE
@@ -580,268 +580,268 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x1A58, 0x1A5E}, prExtend},                 // Mn   [7] TAI THAM SIGN MAI KANG LAI..TAI THAM CONSONANT SIGN SA
 	{runeRange{0x1A6D, 0x1A72}, prSpacingMark},            // Mc   [6] TAI THAM VOWEL SIGN OY..TAI THAM VOWEL SIGN THAM AI
 	{runeRange{0x1ABE, 0x1ABE}, prExtend},                 // Me       COMBINING PARENTHESES OVERLAY
-	{runeRange{0x1B04, 0x1B04}, prSpacingMark},            // Mc       BALINESE SIGN BISAH
-	{runeRange{0x1B3B, 0x1B3B}, prExtend},                 // Mc       BALINESE VOWEL SIGN RA REPA TEDUNG
-	{runeRange{0x1B42, 0x1B42}, prExtend},                 // Mn       BALINESE VOWEL SIGN PEPET
-	{runeRange{0x1B82, 0x1B82}, prSpacingMark},            // Mc       SUNDANESE SIGN PANGWISAD
-	{runeRange{0x1BA8, 0x1BA9}, prExtend},                 // Mn   [2] SUNDANESE VOWEL SIGN PAMEPET..SUNDANESE VOWEL SIGN PANEULEUNG
-	{runeRange{0x1BE7, 0x1BE7}, prSpacingMark},            // Mc       BATAK VOWEL SIGN E
-	{runeRange{0x1BEE, 0x1BEE}, prSpacingMark},            // Mc       BATAK VOWEL SIGN U
-	{runeRange{0x1C2C, 0x1C33}, prExtend},                 // Mn   [8] LEPCHA VOWEL SIGN E..LEPCHA CONSONANT SIGN T
-	{runeRange{0x1CD4, 0x1CE0}, prExtend},                 // Mn  [13] VEDIC SIGN YAJURVEDIC MIDLINE SVARITA..VEDIC TONE RIGVEDIC KASHMIRI INDEPENDENT SVARITA
-	{runeRange{0x1CF4, 0x1CF4}, prExtend},                 // Mn       VEDIC TONE CANDRA ABOVE
-	{runeRange{0x200B, 0x200B}, prControl},                // Cf       ZERO WIDTH SPACE
-	{runeRange{0x2028, 0x2028}, prControl},                // Zl       LINE SEPARATOR
-	{runeRange{0x2049, 0x2049}, prExtendedPictographic},   // E0.6   [1] (⁉️)       exclamation question mark
-	{runeRange{0x20D0, 0x20DC}, prExtend},                 // Mn  [13] COMBINING LEFT HARPOON ABOVE..COMBINING FOUR DOTS ABOVE
-	{runeRange{0x20E5, 0x20F0}, prExtend},                 // Mn  [12] COMBINING REVERSE SOLIDUS OVERLAY..COMBINING ASTERISK ABOVE
-	{runeRange{0x21A9, 0x21AA}, prExtendedPictographic},   // E0.6   [2] (↩️..↪️)    right arrow curving left..left arrow curving right
-	{runeRange{0x23E9, 0x23EC}, prExtendedPictographic},   // E0.6   [4] (⏩..⏬)    fast-forward button..fast down button
-	{runeRange{0x23F1, 0x23F2}, prExtendedPictographic},   // E1.0   [2] (⏱️..⏲️)    stopwatch..timer clock
-	{runeRange{0x25AA, 0x25AB}, prExtendedPictographic},   // E0.6   [2] (▪️..▫️)    black small square..white small square
-	{runeRange{0x2600, 0x2601}, prExtendedPictographic},   // E0.6   [2] (☀️..☁️)    sun..cloud
-	{runeRange{0x2611, 0x2611}, prExtendedPictographic},   // E0.6   [1] (☑️)       check box with check
-	{runeRange{0x2620, 0x2620}, prExtendedPictographic},   // E1.0   [1] (☠️)       skull and crossbones
-	{runeRange{0x262E, 0x262E}, prExtendedPictographic},   // E1.0   [1] (☮️)       peace symbol
-	{runeRange{0x2640, 0x2640}, prExtendedPictographic},   // E4.0   [1] (♀️)       female sign
-	{runeRange{0x2660, 0x2660}, prExtendedPictographic},   // E0.6   [1] (♠️)       spade suit
-	{runeRange{0x267B, 0x267B}, prExtendedPictographic},   // E0.6   [1] (♻️)       recycling symbol
-	{runeRange{0x2693, 0x2693}, prExtendedPictographic},   // E0.6   [1] (⚓)       anchor
-	{runeRange{0x2699, 0x2699}, prExtendedPictographic},   // E1.0   [1] (⚙️)       gear
-	{runeRange{0x26AA, 0x26AB}, prExtendedPictographic},   // E0.6   [2] (⚪..⚫)    white circle..black circle
-	{runeRange{0x26C8, 0x26C8}, prExtendedPictographic},   // E0.7   [1] (⛈️)       cloud with lightning and rain
-	{runeRange{0x26D3, 0x26D3}, prExtendedPictographic},   // E0.7   [1] (⛓️)       chains
-	{runeRange{0x26F0, 0x26F1}, prExtendedPictographic},   // E0.7   [2] (⛰️..⛱️)    mountain..umbrella on ground
-	{runeRange{0x26F7, 0x26F9}, prExtendedPictographic},   // E0.7   [3] (⛷️..⛹️)    skier..person bouncing ball
-	{runeRange{0x2705, 0x2705}, prExtendedPictographic},   // E0.6   [1] (✅)       check mark button
-	{runeRange{0x2712, 0x2712}, prExtendedPictographic},   // E0.6   [1] (✒️)       black nib
-	{runeRange{0x2721, 0x2721}, prExtendedPictographic},   // E0.7   [1] (✡️)       star of David
-	{runeRange{0x2747, 0x2747}, prExtendedPictographic},   // E0.6   [1] (❇️)       sparkle
-	{runeRange{0x2757, 0x2757}, prExtendedPictographic},   // E0.6   [1] (❗)       red exclamation mark
-	{runeRange{0x27A1, 0x27A1}, prExtendedPictographic},   // E0.6   [1] (➡️)       right arrow
-	{runeRange{0x2B05, 0x2B07}, prExtendedPictographic},   // E0.6   [3] (⬅️..⬇️)    left arrow..down arrow
-	{runeRange{0x2CEF, 0x2CF1}, prExtend},                 // Mn   [3] COPTIC COMBINING NI ABOVE..COPTIC COMBINING SPIRITUS LENIS
-	{runeRange{0x302E, 0x302F}, prExtend},                 // Mc   [2] HANGUL SINGLE DOT TONE MARK..HANGUL DOUBLE DOT TONE MARK
-	{runeRange{0x3297, 0x3297}, prExtendedPictographic},   // E0.6   [1] (㊗️)       Japanese “congratulations” button
-	{runeRange{0xA674, 0xA67D}, prExtend},                 // Mn  [10] COMBINING CYRILLIC LETTER UKRAINIAN IE..COMBINING CYRILLIC PAYEROK
-	{runeRange{0xA806, 0xA806}, prExtend},                 // Mn       SYLOTI NAGRI SIGN HASANTA
-	{runeRange{0xA827, 0xA827}, prSpacingMark},            // Mc       SYLOTI NAGRI VOWEL SIGN OO
-	{runeRange{0xA8C4, 0xA8C5}, prExtend},                 // Mn   [2] SAURASHTRA SIGN VIRAMA..SAURASHTRA SIGN CANDRABINDU
-	{runeRange{0xA947, 0xA951}, prExtend},                 // Mn  [11] REJANG VOWEL SIGN I..REJANG CONSONANT SIGN R
-	{runeRange{0xA980, 0xA982}, prExtend},                 // Mn   [3] JAVANESE SIGN PANYANGGA..JAVANESE SIGN LAYAR
-	{runeRange{0xA9B6, 0xA9B9}, prExtend},                 // Mn   [4] JAVANESE VOWEL SIGN WULU..JAVANESE VOWEL SIGN SUKU MENDUT
-	{runeRange{0xA9C0, 0xA9C0}, prExtend},                 // Mc       JAVANESE PANGKON
-	{runeRange{0xAA31, 0xAA32}, prExtend},                 // Mn   [2] CHAM VOWEL SIGN AU..CHAM VOWEL SIGN UE
-	{runeRange{0xAA4C, 0xAA4C}, prExtend},                 // Mn       CHAM CONSONANT SIGN FINAL M
-	{runeRange{0xAAB2, 0xAAB4}, prExtend},                 // Mn   [3] TAI VIET VOWEL I..TAI VIET VOWEL U
-	{runeRange{0xAAEB, 0xAAEB}, prSpacingMark},            // Mc       MEETEI MAYEK VOWEL SIGN II
-	{runeRange{0xAAF6, 0xAAF6}, prExtend},                 // Mn       MEETEI MAYEK VIRAMA
-	{runeRange{0xABE8, 0xABE8}, prExtend},                 // Mn       MEETEI MAYEK VOWEL SIGN UNAP
-	{runeRange{0xAC00, 0xAC00}, prLV},                     // Lo       HANGUL SYLLABLE GA
-	{runeRange{0xAC38, 0xAC38}, prLV},                     // Lo       HANGUL SYLLABLE GYA
-	{runeRange{0xAC70, 0xAC70}, prLV},                     // Lo       HANGUL SYLLABLE GEO
-	{runeRange{0xACA8, 0xACA8}, prLV},                     // Lo       HANGUL SYLLABLE GYEO
-	{runeRange{0xACE0, 0xACE0}, prLV},                     // Lo       HANGUL SYLLABLE GO
-	{runeRange{0xAD18, 0xAD18}, prLV},                     // Lo       HANGUL SYLLABLE GWAE
-	{runeRange{0xAD50, 0xAD50}, prLV},                     // Lo       HANGUL SYLLABLE GYO
-	{runeRange{0xAD88, 0xAD88}, prLV},                     // Lo       HANGUL SYLLABLE GWEO
-	{runeRange{0xADC0, 0xADC0}, prLV},                     // Lo       HANGUL SYLLABLE GWI
-	{runeRange{0xADF8, 0xADF8}, prLV},                     // Lo       HANGUL SYLLABLE GEU
-	{runeRange{0xAE30, 0xAE30}, prLV},                     // Lo       HANGUL SYLLABLE GI
-	{runeRange{0xAE68, 0xAE68}, prLV},                     // Lo       HANGUL SYLLABLE GGAE
-	{runeRange{0xAEA0, 0xAEA0}, prLV},                     // Lo       HANGUL SYLLABLE GGYAE
-	{runeRange{0xAED8, 0xAED8}, prLV},                     // Lo       HANGUL SYLLABLE GGE
-	{runeRange{0xAF10, 0xAF10}, prLV},                     // Lo       HANGUL SYLLABLE GGYE
-	{runeRange{0xAF48, 0xAF48}, prLV},                     // Lo       HANGUL SYLLABLE GGWA
-	{runeRange{0xAF80, 0xAF80}, prLV},                     // Lo       HANGUL SYLLABLE GGOE
-	{runeRange{0xAFB8, 0xAFB8}, prLV},                     // Lo       HANGUL SYLLABLE GGU
-	{runeRange{0xAFF0, 0xAFF0}, prLV},                     // Lo       HANGUL SYLLABLE GGWE
-	{runeRange{0xB028, 0xB028}, prLV},                     // Lo       HANGUL SYLLABLE GGYU
-	{runeRange{0xB060, 0xB060}, prLV},                     // Lo       HANGUL SYLLABLE GGYI
-	{runeRange{0xB098, 0xB098}, prLV},                     // Lo       HANGUL SYLLABLE NA
-	{runeRange{0xB0D0, 0xB0D0}, prLV},                     // Lo       HANGUL SYLLABLE NYA
-	{runeRange{0xB108, 0xB108}, prLV},                     // Lo       HANGUL SYLLABLE NEO
-	{runeRange{0xB140, 0xB140}, prLV},                     // Lo       HANGUL SYLLABLE NYEO
-	{runeRange{0xB178, 0xB178}, prLV},                     // Lo       HANGUL SYLLABLE NO
-	{runeRange{0xB1B0, 0xB1B0}, prLV},                     // Lo       HANGUL SYLLABLE NWAE
-	{runeRange{0xB1E8, 0xB1E8}, prLV},                     // Lo       HANGUL SYLLABLE NYO
-	{runeRange{0xB220, 0xB220}, prLV},                     // Lo       HANGUL SYLLABLE NWEO
-	{runeRange{0xB258, 0xB258}, prLV},                     // Lo       HANGUL SYLLABLE NWI
-	{runeRange{0xB290, 0xB290}, prLV},                     // Lo       HANGUL SYLLABLE NEU
-	{runeRange{0xB2C8, 0xB2C8}, prLV},                     // Lo       HANGUL SYLLABLE NI
-	{runeRange{0xB300, 0xB300}, prLV},                     // Lo       HANGUL SYLLABLE DAE
-	{runeRange{0xB338, 0xB338}, prLV},                     // Lo       HANGUL SYLLABLE DYAE
-	{runeRange{0xB370, 0xB370}, prLV},                     // Lo       HANGUL SYLLABLE DE
-	{runeRange{0xB3A8, 0xB3A8}, prLV},                     // Lo       HANGUL SYLLABLE DYE
-	{runeRange{0xB3E0, 0xB3E0}, prLV},                     // Lo       HANGUL SYLLABLE DWA
-	{runeRange{0xB418, 0xB418}, prLV},                     // Lo       HANGUL SYLLABLE DOE
-	{runeRange{0xB450, 0xB450}, prLV},                     // Lo       HANGUL SYLLABLE DU
-	{runeRange{0xB488, 0xB488}, prLV},                     // Lo       HANGUL SYLLABLE DWE
-	{runeRange{0xB4C0, 0xB4C0}, prLV},                     // Lo       HANGUL SYLLABLE DYU
-	{runeRange{0xB4F8, 0xB4F8}, prLV},                     // Lo       HANGUL SYLLABLE DYI
-	{runeRange{0xB530, 0xB530}, prLV},                     // Lo       HANGUL SYLLABLE DDA
-	{runeRange{0xB568, 0xB568}, prLV},                     // Lo       HANGUL SYLLABLE DDYA
-	{runeRange{0xB5A0, 0xB5A0}, prLV},                     // Lo       HANGUL SYLLABLE DDEO
-	{runeRange{0xB5D8, 0xB5D8}, prLV},                     // Lo       HANGUL SYLLABLE DDYEO
-	{runeRange{0xB610, 0xB610}, prLV},                     // Lo       HANGUL SYLLABLE DDO
-	{runeRange{0xB648, 0xB648}, prLV},                     // Lo       HANGUL SYLLABLE DDWAE
-	{runeRange{0xB680, 0xB680}, prLV},                     // Lo       HANGUL SYLLABLE DDYO
-	{runeRange{0xB6B8, 0xB6B8}, prLV},                     // Lo       HANGUL SYLLABLE DDWEO
-	{runeRange{0xB6F0, 0xB6F0}, prLV},                     // Lo       HANGUL SYLLABLE DDWI
-	{runeRange{0xB728, 0xB728}, prLV},                     // Lo       HANGUL SYLLABLE DDEU
-	{runeRange{0xB760, 0xB760}, prLV},                     // Lo       HANGUL SYLLABLE DDI
-	{runeRange{0xB798, 0xB798}, prLV},                     // Lo       HANGUL SYLLABLE RAE
-	{runeRange{0xB7D0, 0xB7D0}, prLV},                     // Lo       HANGUL SYLLABLE RYAE
-	{runeRange{0xB808, 0xB808}, prLV},                     // Lo       HANGUL SYLLABLE RE
-	{runeRange{0xB840, 0xB840}, prLV},                     // Lo       HANGUL SYLLABLE RYE
-	{runeRange{0xB878, 0xB878}, prLV},                     // Lo       HANGUL SYLLABLE RWA
-	{runeRange{0xB8B0, 0xB8B0}, prLV},                     // Lo       HANGUL SYLLABLE ROE
-	{runeRange{0xB8E8, 0xB8E8}, prLV},                     // Lo       HANGUL SYLLABLE RU
-	{runeRange{0xB920, 0xB920}, prLV},                     // Lo       HANGUL SYLLABLE RWE
-	{runeRange{0xB958, 0xB958}, prLV},                     // Lo       HANGUL SYLLABLE RYU
-	{runeRange{0xB990, 0xB990}, prLV},                     // Lo       HANGUL SYLLABLE RYI
-	{runeRange{0xB9C8, 0xB9C8}, prLV},                     // Lo       HANGUL SYLLABLE MA
-	{runeRange{0xBA00, 0xBA00}, prLV},                     // Lo       HANGUL SYLLABLE MYA
-	{runeRange{0xBA38, 0xBA38}, prLV},                     // Lo       HANGUL SYLLABLE MEO
-	{runeRange{0xBA70, 0xBA70}, prLV},                     // Lo       HANGUL SYLLABLE MYEO
-	{runeRange{0xBAA8, 0xBAA8}, prLV},                     // Lo       HANGUL SYLLABLE MO
-	{runeRange{0xBAE0, 0xBAE0}, prLV},                     // Lo       HANGUL SYLLABLE MWAE
-	{runeRange{0xBB18, 0xBB18}, prLV},                     // Lo       HANGUL SYLLABLE MYO
-	{runeRange{0xBB50, 0xBB50}, prLV},                     // Lo       HANGUL SYLLABLE MWEO
-	{runeRange{0xBB88, 0xBB88}, prLV},                     // Lo       HANGUL SYLLABLE MWI
-	{runeRange{0xBBC0, 0xBBC0}, prLV},                     // Lo       HANGUL SYLLABLE MEU
-	{runeRange{0xBBF8, 0xBBF8}, prLV},                     // Lo       HANGUL SYLLABLE MI
-	{runeRange{0xBC30, 0xBC30}, prLV},                     // Lo       HANGUL SYLLABLE BAE
-	{runeRange{0xBC68, 0xBC68}, prLV},                     // Lo       HANGUL SYLLABLE BYAE
-	{runeRange{0xBCA0, 0xBCA0}, prLV},                     // Lo       HANGUL SYLLABLE BE
-	{runeRange{0xBCD8, 0xBCD8}, prLV},                     // Lo       HANGUL SYLLABLE BYE
-	{runeRange{0xBD10, 0xBD10}, prLV},                     // Lo       HANGUL SYLLABLE BWA
-	{runeRange{0xBD48, 0xBD48}, prLV},                     // Lo       HANGUL SYLLABLE BOE
-	{runeRange{0xBD80, 0xBD80}, prLV},                     // Lo       HANGUL SYLLABLE BU
-	{runeRange{0xBDB8, 0xBDB8}, prLV},                     // Lo       HANGUL SYLLABLE BWE
-	{runeRange{0xBDF0, 0xBDF0}, prLV},                     // Lo       HANGUL SYLLABLE BYU
-	{runeRange{0xBE28, 0xBE28}, prLV},                     // Lo       HANGUL SYLLABLE BYI
-	{runeRange{0xBE60, 0xBE60}, prLV},                     // Lo       HANGUL SYLLABLE BBA
-	{runeRange{0xBE98, 0xBE98}, prLV},                     // Lo       HANGUL SYLLABLE BBYA
-	{runeRange{0xBED0, 0xBED0}, prLV},                     // Lo       HANGUL SYLLABLE BBEO
-	{runeRange{0xBF08, 0xBF08}, prLV},                     // Lo       HANGUL SYLLABLE BBYEO
-	{runeRange{0xBF40, 0xBF40}, prLV},                     // Lo       HANGUL SYLLABLE BBO
-	{runeRange{0xBF78, 0xBF78}, prLV},                     // Lo       HANGUL SYLLABLE BBWAE
-	{runeRange{0xBFB0, 0xBFB0}, prLV},                     // Lo       HANGUL SYLLABLE BBYO
-	{runeRange{0xBFE8, 0xBFE8}, prLV},                     // Lo       HANGUL SYLLABLE BBWEO
-	{runeRange{0xC020, 0xC020}, prLV},                     // Lo       HANGUL SYLLABLE BBWI
-	{runeRange{0xC058, 0xC058}, prLV},                     // Lo       HANGUL SYLLABLE BBEU
-	{runeRange{0xC090, 0xC090}, prLV},                     // Lo       HANGUL SYLLABLE BBI
-	{runeRange{0xC0C8, 0xC0C8}, prLV},                     // Lo       HANGUL SYLLABLE SAE
-	{runeRange{0xC100, 0xC100}, prLV},                     // Lo       HANGUL SYLLABLE SYAE
-	{runeRange{0xC138, 0xC138}, prLV},                     // Lo       HANGUL SYLLABLE SE
-	{runeRange{0xC170, 0xC170}, prLV},                     // Lo       HANGUL SYLLABLE SYE
-	{runeRange{0xC1A8, 0xC1A8}, prLV},                     // Lo       HANGUL SYLLABLE SWA
-	{runeRange{0xC1E0, 0xC1E0}, prLV},                     // Lo       HANGUL SYLLABLE SOE
-	{runeRange{0xC218, 0xC218}, prLV},                     // Lo       HANGUL SYLLABLE SU
-	{runeRange{0xC250, 0xC250}, prLV},                     // Lo       HANGUL SYLLABLE SWE
-	{runeRange{0xC288, 0xC288}, prLV},                     // Lo       HANGUL SYLLABLE SYU
-	{runeRange{0xC2C0, 0xC2C0}, prLV},                     // Lo       HANGUL SYLLABLE SYI
-	{runeRange{0xC2F8, 0xC2F8}, prLV},                     // Lo       HANGUL SYLLABLE SSA
-	{runeRange{0xC330, 0xC330}, prLV},                     // Lo       HANGUL SYLLABLE SSYA
-	{runeRange{0xC368, 0xC368}, prLV},                     // Lo       HANGUL SYLLABLE SSEO
-	{runeRange{0xC3A0, 0xC3A0}, prLV},                     // Lo       HANGUL SYLLABLE SSYEO
-	{runeRange{0xC3D8, 0xC3D8}, prLV},                     // Lo       HANGUL SYLLABLE SSO
-	{runeRange{0xC410, 0xC410}, prLV},                     // Lo       HANGUL SYLLABLE SSWAE
-	{runeRange{0xC448, 0xC448}, prLV},                     // Lo       HANGUL SYLLABLE SSYO
-	{runeRange{0xC480, 0xC480}, prLV},                     // Lo       HANGUL SYLLABLE SSWEO
-	{runeRange{0xC4B8, 0xC4B8}, prLV},                     // Lo       HANGUL SYLLABLE SSWI
-	{runeRange{0xC4F0, 0xC4F0}, prLV},                     // Lo       HANGUL SYLLABLE SSEU
-	{runeRange{0xC528, 0xC528}, prLV},                     // Lo       HANGUL SYLLABLE SSI
-	{runeRange{0xC560, 0xC560}, prLV},                     // Lo       HANGUL SYLLABLE AE
-	{runeRange{0xC598, 0xC598}, prLV},                     // Lo       HANGUL SYLLABLE YAE
-	{runeRange{0xC5D0, 0xC5D0}, prLV},                     // Lo       HANGUL SYLLABLE E
-	{runeRange{0xC608, 0xC608}, prLV},                     // Lo       HANGUL SYLLABLE YE
-	{runeRange{0xC640, 0xC640}, prLV},                     // Lo       HANGUL SYLLABLE WA
-	{runeRange{0xC678, 0xC678}, prLV},                     // Lo       HANGUL SYLLABLE OE
-	{runeRange{0xC6B0, 0xC6B0}, prLV},                     // Lo       HANGUL SYLLABLE U
-	{runeRange{0xC6E8, 0xC6E8}, prLV},                     // Lo       HANGUL SYLLABLE WE
-	{runeRange{0xC720, 0xC720}, prLV},                     // Lo       HANGUL SYLLABLE YU
-	{runeRange{0xC758, 0xC758}, prLV},                     // Lo       HANGUL SYLLABLE YI
-	{runeRange{0xC790, 0xC790}, prLV},                     // Lo       HANGUL SYLLABLE JA
-	{runeRange{0xC7C8, 0xC7C8}, prLV},                     // Lo       HANGUL SYLLABLE JYA
-	{runeRange{0xC800, 0xC800}, prLV},                     // Lo       HANGUL SYLLABLE JEO
-	{runeRange{0xC838, 0xC838}, prLV},                     // Lo       HANGUL SYLLABLE JYEO
-	{runeRange{0xC870, 0xC870}, prLV},                     // Lo       HANGUL SYLLABLE JO
-	{runeRange{0xC8A8, 0xC8A8}, prLV},                     // Lo       HANGUL SYLLABLE JWAE
-	{runeRange{0xC8E0, 0xC8E0}, prLV},                     // Lo       HANGUL SYLLABLE JYO
-	{runeRange{0xC918, 0xC918}, prLV},                     // Lo       HANGUL SYLLABLE JWEO
-	{runeRange{0xC950, 0xC950}, prLV},                     // Lo       HANGUL SYLLABLE JWI
-	{runeRange{0xC988, 0xC988}, prLV},                     // Lo       HANGUL SYLLABLE JEU
-	{runeRange{0xC9C0, 0xC9C0}, prLV},                     // Lo       HANGUL SYLLABLE JI
-	{runeRange{0xC9F8, 0xC9F8}, prLV},                     // Lo       HANGUL SYLLABLE JJAE
-	{runeRange{0xCA30, 0xCA30}, prLV},                     // Lo       HANGUL SYLLABLE JJYAE
-	{runeRange{0xCA68, 0xCA68}, prLV},                     // Lo       HANGUL SYLLABLE JJE
-	{runeRange{0xCAA0, 0xCAA0}, prLV},                     // Lo       HANGUL SYLLABLE JJYE
-	{runeRange{0xCAD8, 0xCAD8}, prLV},                     // Lo       HANGUL SYLLABLE JJWA
-	{runeRange{0xCB10, 0xCB10}, prLV},                     // Lo       HANGUL SYLLABLE JJOE
-	{runeRange{0xCB48, 0xCB48}, prLV},                     // Lo       HANGUL SYLLABLE JJU
-	{runeRange{0xCB80, 0xCB80}, prLV},                     // Lo       HANGUL SYLLABLE JJWE
-	{runeRange{0xCBB8, 0xCBB8}, prLV},                     // Lo       HANGUL SYLLABLE JJYU
-	{runeRange{0xCBF0, 0xCBF0}, prLV},                     // Lo       HANGUL SYLLABLE JJYI
-	{runeRange{0xCC28, 0xCC28}, prLV},                     // Lo       HANGUL SYLLABLE CA
-	{runeRange{0xCC60, 0xCC60}, prLV},                     // Lo       HANGUL SYLLABLE CYA
-	{runeRange{0xCC98, 0xCC98}, prLV},                     // Lo       HANGUL SYLLABLE CEO
-	{runeRange{0xCCD0, 0xCCD0}, prLV},                     // Lo       HANGUL SYLLABLE CYEO
-	{runeRange{0xCD08, 0xCD08}, prLV},                     // Lo       HANGUL SYLLABLE CO
-	{runeRange{0xCD40, 0xCD40}, prLV},                     // Lo       HANGUL SYLLABLE CWAE
-	{runeRange{0xCD78, 0xCD78}, prLV},                     // Lo       HANGUL SYLLABLE CYO
-	{runeRange{0xCDB0, 0xCDB0}, prLV},                     // Lo       HANGUL SYLLABLE CWEO
-	{runeRange{0xCDE8, 0xCDE8}, prLV},                     // Lo       HANGUL SYLLABLE CWI
-	{runeRange{0xCE20, 0xCE20}, prLV},                     // Lo       HANGUL SYLLABLE CEU
-	{runeRange{0xCE58, 0xCE58}, prLV},                     // Lo       HANGUL SYLLABLE CI
-	{runeRange{0xCE90, 0xCE90}, prLV},                     // Lo       HANGUL SYLLABLE KAE
-	{runeRange{0xCEC8, 0xCEC8}, prLV},                     // Lo       HANGUL SYLLABLE KYAE
-	{runeRange{0xCF00, 0xCF00}, prLV},                     // Lo       HANGUL SYLLABLE KE
-	{runeRange{0xCF38, 0xCF38}, prLV},                     // Lo       HANGUL SYLLABLE KYE
-	{runeRange{0xCF70, 0xCF70}, prLV},                     // Lo       HANGUL SYLLABLE KWA
-	{runeRange{0xCFA8, 0xCFA8}, prLV},                     // Lo       HANGUL SYLLABLE KOE
-	{runeRange{0xCFE0, 0xCFE0}, prLV},                     // Lo       HANGUL SYLLABLE KU
-	{runeRange{0xD018, 0xD018}, prLV},                     // Lo       HANGUL SYLLABLE KWE
-	{runeRange{0xD050, 0xD050}, prLV},                     // Lo       HANGUL SYLLABLE KYU
-	{runeRange{0xD088, 0xD088}, prLV},                     // Lo       HANGUL SYLLABLE KYI
-	{runeRange{0xD0C0, 0xD0C0}, prLV},                     // Lo       HANGUL SYLLABLE TA
-	{runeRange{0xD0F8, 0xD0F8}, prLV},                     // Lo       HANGUL SYLLABLE TYA
-	{runeRange{0xD130, 0xD130}, prLV},                     // Lo       HANGUL SYLLABLE TEO
-	{runeRange{0xD168, 0xD168}, prLV},                     // Lo       HANGUL SYLLABLE TYEO
-	{runeRange{0xD1A0, 0xD1A0}, prLV},                     // Lo       HANGUL SYLLABLE TO
-	{runeRange{0xD1D8, 0xD1D8}, prLV},                     // Lo       HANGUL SYLLABLE TWAE
-	{runeRange{0xD210, 0xD210}, prLV},                     // Lo       HANGUL SYLLABLE TYO
-	{runeRange{0xD248, 0xD248}, prLV},                     // Lo       HANGUL SYLLABLE TWEO
-	{runeRange{0xD280, 0xD280}, prLV},                     // Lo       HANGUL SYLLABLE TWI
-	{runeRange{0xD2B8, 0xD2B8}, prLV},                     // Lo       HANGUL SYLLABLE TEU
-	{runeRange{0xD2F0, 0xD2F0}, prLV},                     // Lo       HANGUL SYLLABLE TI
-	{runeRange{0xD328, 0xD328}, prLV},                     // Lo       HANGUL SYLLABLE PAE
-	{runeRange{0xD360, 0xD360}, prLV},                     // Lo       HANGUL SYLLABLE PYAE
-	{runeRange{0xD398, 0xD398}, prLV},                     // Lo       HANGUL SYLLABLE PE
-	{runeRange{0xD3D0, 0xD3D0}, prLV},                     // Lo       HANGUL SYLLABLE PYE
-	{runeRange{0xD408, 0xD408}, prLV},                     // Lo       HANGUL SYLLABLE PWA
-	{runeRange{0xD440, 0xD440}, prLV},                     // Lo       HANGUL SYLLABLE POE
-	{runeRange{0xD478, 0xD478}, prLV},                     // Lo       HANGUL SYLLABLE PU
-	{runeRange{0xD4B0, 0xD4B0}, prLV},                     // Lo       HANGUL SYLLABLE PWE
-	{runeRange{0xD4E8, 0xD4E8}, prLV},                     // Lo       HANGUL SYLLABLE PYU
-	{runeRange{0xD520, 0xD520}, prLV},                     // Lo       HANGUL SYLLABLE PYI
-	{runeRange{0xD558, 0xD558}, prLV},                     // Lo       HANGUL SYLLABLE HA
-	{runeRange{0xD590, 0xD590}, prLV},                     // Lo       HANGUL SYLLABLE HYA
-	{runeRange{0xD5C8, 0xD5C8}, prLV},                     // Lo       HANGUL SYLLABLE HEO
-	{runeRange{0xD600, 0xD600}, prLV},                     // Lo       HANGUL SYLLABLE HYEO
-	{runeRange{0xD638, 0xD638}, prLV},                     // Lo       HANGUL SYLLABLE HO
-	{runeRange{0xD670, 0xD670}, prLV},                     // Lo       HANGUL SYLLABLE HWAE
-	{runeRange{0xD6A8, 0xD6A8}, prLV},                     // Lo       HANGUL SYLLABLE HYO
-	{runeRange{0xD6E0, 0xD6E0}, prLV},                     // Lo       HANGUL SYLLABLE HWEO
-	{runeRange{0xD718, 0xD718}, prLV},                     // Lo       HANGUL SYLLABLE HWI
-	{runeRange{0xD750, 0xD750}, prLV},                     // Lo       HANGUL SYLLABLE HEU
-	{runeRange{0xD788, 0xD788}, prLV},                     // Lo       HANGUL SYLLABLE HI
-	{runeRange{0xFB1E, 0xFB1E}, prExtend},                 // Mn       HEBREW POINT JUDEO-SPANISH VARIKA
-	{runeRange{0xFF9E, 0xFF9F}, prExtend},                 // Lm   [2] HALFWIDTH KATAKANA VOICED SOUND MARK..HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK
-	{runeRange{0x102E0, 0x102E0}, prExtend},               // Mn       COPTIC EPACT THOUSANDS MARK
-	{runeRange{0x10A0C, 0x10A0F}, prExtend},               // Mn   [4] KHAROSHTHI VOWEL LENGTH MARK..KHAROSHTHI SIGN VISARGA
-	{runeRange{0x10D24, 0x10D27}, prExtend},               // Mn   [4] HANIFI ROHINGYA SIGN HARBAHAY..HANIFI ROHINGYA SIGN TASSI
+	{runeRange{0x1B34, 0x1B34}, prExtend},                 // Mn       BALINESE SIGN REREKAN
+	{runeRange{0x1B3C, 0x1B3C}, prExtend},                 // Mn       BALINESE VOWEL SIGN LA LENGA
+	{runeRange{0x1B43, 0x1B44}, prExtend},                 // Mc   [2] BALINESE VOWEL SIGN PEPET TEDUNG..BALINESE ADEG ADEG
+	{runeRange{0x1BA1, 0x1BA1}, prSpacingMark},            // Mc       SUNDANESE CONSONANT SIGN PAMINGKAL
+	{runeRange{0x1BAA, 0x1BAA}, prExtend},                 // Mc       SUNDANESE SIGN PAMAAEH
+	{runeRange{0x1BE8, 0x1BE9}, prExtend},                 // Mn   [2] BATAK VOWEL SIGN PAKPAK E..BATAK VOWEL SIGN EE
+	{runeRange{0x1BEF, 0x1BF1}, prExtend},                 // Mn   [3] BATAK VOWEL SIGN U FOR SIMALUNGUN SA..BATAK CONSONANT SIGN H
+	{runeRange{0x1C34, 0x1C35}, prSpacingMark},            // Mc   [2] LEPCHA CONSONANT SIGN NYIN-DO..LEPCHA CONSONANT SIGN KANG
+	{runeRange{0x1CE1, 0x1CE1}, prSpacingMark},            // Mc       VEDIC TONE ATHARVAVEDIC INDEPENDENT SVARITA
+	{runeRange{0x1CF7, 0x1CF7}, prSpacingMark},            // Mc       VEDIC SIGN ATIKRAMA
+	{runeRange{0x200C, 0x200C}, prExtend},                 // Cf       ZERO WIDTH NON-JOINER
+	{runeRange{0x2029, 0x2029}, prControl},                // Zp       PARAGRAPH SEPARATOR
+	{runeRange{0x2060, 0x2064}, prControl},                // Cf   [5] WORD JOINER..INVISIBLE PLUS
+	{runeRange{0x20DD, 0x20E0}, prExtend},                 // Me   [4] COMBINING ENCLOSING CIRCLE..COMBINING ENCLOSING CIRCLE BACKSLASH
+	{runeRange{0x2122, 0x2122}, prExtendedPictographic},   // E0.6   [1] (™️)       trade mark
+	{runeRange{0x231A, 0x231B}, prExtendedPictographic},   // E0.6   [2] (⌚..⌛)    watch..hourglass done
+	{runeRange{0x23ED, 0x23EE}, prExtendedPictographic},   // E0.7   [2] (⏭️..⏮️)    next track button..last track button
+	{runeRange{0x23F3, 0x23F3}, prExtendedPictographic},   // E0.6   [1] (⏳)       hourglass not done
+	{runeRange{0x25B6, 0x25B6}, prExtendedPictographic},   // E0.6   [1] (▶️)       play button
+	{runeRange{0x2602, 0x2603}, prExtendedPictographic},   // E0.7   [2] (☂️..☃️)    umbrella..snowman
+	{runeRange{0x2614, 0x2615}, prExtendedPictographic},   // E0.6   [2] (☔..☕)    umbrella with rain drops..hot beverage
+	{runeRange{0x2622, 0x2623}, prExtendedPictographic},   // E1.0   [2] (☢️..☣️)    radioactive..biohazard
+	{runeRange{0x262F, 0x262F}, prExtendedPictographic},   // E0.7   [1] (☯️)       yin yang
+	{runeRange{0x2642, 0x2642}, prExtendedPictographic},   // E4.0   [1] (♂️)       male sign
+	{runeRange{0x2663, 0x2663}, prExtendedPictographic},   // E0.6   [1] (♣️)       club suit
+	{runeRange{0x267E, 0x267E}, prExtendedPictographic},   // E11.0  [1] (♾️)       infinity
+	{runeRange{0x2694, 0x2694}, prExtendedPictographic},   // E1.0   [1] (⚔️)       crossed swords
+	{runeRange{0x269B, 0x269C}, prExtendedPictographic},   // E1.0   [2] (⚛️..⚜️)    atom symbol..fleur-de-lis
+	{runeRange{0x26B0, 0x26B1}, prExtendedPictographic},   // E1.0   [2] (⚰️..⚱️)    coffin..funeral urn
+	{runeRange{0x26CE, 0x26CE}, prExtendedPictographic},   // E0.6   [1] (⛎)       Ophiuchus
+	{runeRange{0x26D4, 0x26D4}, prExtendedPictographic},   // E0.6   [1] (⛔)       no entry
+	{runeRange{0x26F2, 0x26F3}, prExtendedPictographic},   // E0.6   [2] (⛲..⛳)    fountain..flag in hole
+	{runeRange{0x26FA, 0x26FA}, prExtendedPictographic},   // E0.6   [1] (⛺)       tent
+	{runeRange{0x2708, 0x270C}, prExtendedPictographic},   // E0.6   [5] (✈️..✌️)    airplane..victory hand
+	{runeRange{0x2714, 0x2714}, prExtendedPictographic},   // E0.6   [1] (✔️)       check mark
+	{runeRange{0x2728, 0x2728}, prExtendedPictographic},   // E0.6   [1] (✨)       sparkles
+	{runeRange{0x274C, 0x274C}, prExtendedPictographic},   // E0.6   [1] (❌)       cross mark
+	{runeRange{0x2763, 0x2763}, prExtendedPictographic},   // E1.0   [1] (❣️)       heart exclamation
+	{runeRange{0x27B0, 0x27B0}, prExtendedPictographic},   // E0.6   [1] (➰)       curly loop
+	{runeRange{0x2B1B, 0x2B1C}, prExtendedPictographic},   // E0.6   [2] (⬛..⬜)    black large square..white large square
+	{runeRange{0x2D7F, 0x2D7F}, prExtend},                 // Mn       TIFINAGH CONSONANT JOINER
+	{runeRange{0x3030, 0x3030}, prExtendedPictographic},   // E0.6   [1] (〰️)       wavy dash
+	{runeRange{0x3299, 0x3299}, prExtendedPictographic},   // E0.6   [1] (㊙️)       Japanese “secret” button
+	{runeRange{0xA69E, 0xA69F}, prExtend},                 // Mn   [2] COMBINING CYRILLIC LETTER EF..COMBINING CYRILLIC LETTER IOTIFIED E
+	{runeRange{0xA80B, 0xA80B}, prExtend},                 // Mn       SYLOTI NAGRI SIGN ANUSVARA
+	{runeRange{0xA82C, 0xA82C}, prExtend},                 // Mn       SYLOTI NAGRI SIGN ALTERNATE HASANTA
+	{runeRange{0xA8E0, 0xA8F1}, prExtend},                 // Mn  [18] COMBINING DEVANAGARI DIGIT ZERO..COMBINING DEVANAGARI SIGN AVAGRAHA
+	{runeRange{0xA952, 0xA952}, prSpacingMark},            // Mc       REJANG CONSONANT SIGN H
+	{runeRange{0xA983, 0xA983}, prSpacingMark},            // Mc       JAVANESE SIGN WIGNYAN
+	{runeRange{0xA9BA, 0xA9BB}, prSpacingMark},            // Mc   [2] JAVANESE VOWEL SIGN TALING..JAVANESE VOWEL SIGN DIRGA MURE
+	{runeRange{0xA9E5, 0xA9E5}, prExtend},                 // Mn       MYANMAR SIGN SHAN SAW
+	{runeRange{0xAA33, 0xAA34}, prSpacingMark},            // Mc   [2] CHAM CONSONANT SIGN YA..CHAM CONSONANT SIGN RA
+	{runeRange{0xAA4D, 0xAA4D}, prSpacingMark},            // Mc       CHAM CONSONANT SIGN FINAL H
+	{runeRange{0xAAB7, 0xAAB8}, prExtend},                 // Mn   [2] TAI VIET MAI KHIT..TAI VIET VOWEL IA
+	{runeRange{0xAAEC, 0xAAED}, prExtend},                 // Mn   [2] MEETEI MAYEK VOWEL SIGN UU..MEETEI MAYEK VOWEL SIGN AAI
+	{runeRange{0xABE3, 0xABE4}, prSpacingMark},            // Mc   [2] MEETEI MAYEK VOWEL SIGN ONAP..MEETEI MAYEK VOWEL SIGN INAP
+	{runeRange{0xABE9, 0xABEA}, prSpacingMark},            // Mc   [2] MEETEI MAYEK VOWEL SIGN CHEINAP..MEETEI MAYEK VOWEL SIGN NUNG
+	{runeRange{0xAC01, 0xAC1B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GAG..HANGUL SYLLABLE GAH
+	{runeRange{0xAC39, 0xAC53}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYAG..HANGUL SYLLABLE GYAH
+	{runeRange{0xAC71, 0xAC8B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GEOG..HANGUL SYLLABLE GEOH
+	{runeRange{0xACA9, 0xACC3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYEOG..HANGUL SYLLABLE GYEOH
+	{runeRange{0xACE1, 0xACFB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GOG..HANGUL SYLLABLE GOH
+	{runeRange{0xAD19, 0xAD33}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GWAEG..HANGUL SYLLABLE GWAEH
+	{runeRange{0xAD51, 0xAD6B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYOG..HANGUL SYLLABLE GYOH
+	{runeRange{0xAD89, 0xADA3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GWEOG..HANGUL SYLLABLE GWEOH
+	{runeRange{0xADC1, 0xADDB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GWIG..HANGUL SYLLABLE GWIH
+	{runeRange{0xADF9, 0xAE13}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GEUG..HANGUL SYLLABLE GEUH
+	{runeRange{0xAE31, 0xAE4B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GIG..HANGUL SYLLABLE GIH
+	{runeRange{0xAE69, 0xAE83}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGAEG..HANGUL SYLLABLE GGAEH
+	{runeRange{0xAEA1, 0xAEBB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYAEG..HANGUL SYLLABLE GGYAEH
+	{runeRange{0xAED9, 0xAEF3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGEG..HANGUL SYLLABLE GGEH
+	{runeRange{0xAF11, 0xAF2B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYEG..HANGUL SYLLABLE GGYEH
+	{runeRange{0xAF49, 0xAF63}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGWAG..HANGUL SYLLABLE GGWAH
+	{runeRange{0xAF81, 0xAF9B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGOEG..HANGUL SYLLABLE GGOEH
+	{runeRange{0xAFB9, 0xAFD3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGUG..HANGUL SYLLABLE GGUH
+	{runeRange{0xAFF1, 0xB00B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGWEG..HANGUL SYLLABLE GGWEH
+	{runeRange{0xB029, 0xB043}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYUG..HANGUL SYLLABLE GGYUH
+	{runeRange{0xB061, 0xB07B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYIG..HANGUL SYLLABLE GGYIH
+	{runeRange{0xB099, 0xB0B3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NAG..HANGUL SYLLABLE NAH
+	{runeRange{0xB0D1, 0xB0EB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYAG..HANGUL SYLLABLE NYAH
+	{runeRange{0xB109, 0xB123}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NEOG..HANGUL SYLLABLE NEOH
+	{runeRange{0xB141, 0xB15B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYEOG..HANGUL SYLLABLE NYEOH
+	{runeRange{0xB179, 0xB193}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NOG..HANGUL SYLLABLE NOH
+	{runeRange{0xB1B1, 0xB1CB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NWAEG..HANGUL SYLLABLE NWAEH
+	{runeRange{0xB1E9, 0xB203}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYOG..HANGUL SYLLABLE NYOH
+	{runeRange{0xB221, 0xB23B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NWEOG..HANGUL SYLLABLE NWEOH
+	{runeRange{0xB259, 0xB273}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NWIG..HANGUL SYLLABLE NWIH
+	{runeRange{0xB291, 0xB2AB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NEUG..HANGUL SYLLABLE NEUH
+	{runeRange{0xB2C9, 0xB2E3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NIG..HANGUL SYLLABLE NIH
+	{runeRange{0xB301, 0xB31B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DAEG..HANGUL SYLLABLE DAEH
+	{runeRange{0xB339, 0xB353}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYAEG..HANGUL SYLLABLE DYAEH
+	{runeRange{0xB371, 0xB38B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DEG..HANGUL SYLLABLE DEH
+	{runeRange{0xB3A9, 0xB3C3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYEG..HANGUL SYLLABLE DYEH
+	{runeRange{0xB3E1, 0xB3FB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DWAG..HANGUL SYLLABLE DWAH
+	{runeRange{0xB419, 0xB433}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DOEG..HANGUL SYLLABLE DOEH
+	{runeRange{0xB451, 0xB46B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DUG..HANGUL SYLLABLE DUH
+	{runeRange{0xB489, 0xB4A3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DWEG..HANGUL SYLLABLE DWEH
+	{runeRange{0xB4C1, 0xB4DB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYUG..HANGUL SYLLABLE DYUH
+	{runeRange{0xB4F9, 0xB513}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYIG..HANGUL SYLLABLE DYIH
+	{runeRange{0xB531, 0xB54B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDAG..HANGUL SYLLABLE DDAH
+	{runeRange{0xB569, 0xB583}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYAG..HANGUL SYLLABLE DDYAH
+	{runeRange{0xB5A1, 0xB5BB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDEOG..HANGUL SYLLABLE DDEOH
+	{runeRange{0xB5D9, 0xB5F3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYEOG..HANGUL SYLLABLE DDYEOH
+	{runeRange{0xB611, 0xB62B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDOG..HANGUL SYLLABLE DDOH
+	{runeRange{0xB649, 0xB663}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDWAEG..HANGUL SYLLABLE DDWAEH
+	{runeRange{0xB681, 0xB69B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYOG..HANGUL SYLLABLE DDYOH
+	{runeRange{0xB6B9, 0xB6D3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDWEOG..HANGUL SYLLABLE DDWEOH
+	{runeRange{0xB6F1, 0xB70B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDWIG..HANGUL SYLLABLE DDWIH
+	{runeRange{0xB729, 0xB743}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDEUG..HANGUL SYLLABLE DDEUH
+	{runeRange{0xB761, 0xB77B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDIG..HANGUL SYLLABLE DDIH
+	{runeRange{0xB799, 0xB7B3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RAEG..HANGUL SYLLABLE RAEH
+	{runeRange{0xB7D1, 0xB7EB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYAEG..HANGUL SYLLABLE RYAEH
+	{runeRange{0xB809, 0xB823}, prLVT},                    // Lo  [27] HANGUL SYLLABLE REG..HANGUL SYLLABLE REH
+	{runeRange{0xB841, 0xB85B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYEG..HANGUL SYLLABLE RYEH
+	{runeRange{0xB879, 0xB893}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RWAG..HANGUL SYLLABLE RWAH
+	{runeRange{0xB8B1, 0xB8CB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE ROEG..HANGUL SYLLABLE ROEH
+	{runeRange{0xB8E9, 0xB903}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RUG..HANGUL SYLLABLE RUH
+	{runeRange{0xB921, 0xB93B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RWEG..HANGUL SYLLABLE RWEH
+	{runeRange{0xB959, 0xB973}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYUG..HANGUL SYLLABLE RYUH
+	{runeRange{0xB991, 0xB9AB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYIG..HANGUL SYLLABLE RYIH
+	{runeRange{0xB9C9, 0xB9E3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MAG..HANGUL SYLLABLE MAH
+	{runeRange{0xBA01, 0xBA1B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYAG..HANGUL SYLLABLE MYAH
+	{runeRange{0xBA39, 0xBA53}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MEOG..HANGUL SYLLABLE MEOH
+	{runeRange{0xBA71, 0xBA8B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYEOG..HANGUL SYLLABLE MYEOH
+	{runeRange{0xBAA9, 0xBAC3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MOG..HANGUL SYLLABLE MOH
+	{runeRange{0xBAE1, 0xBAFB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MWAEG..HANGUL SYLLABLE MWAEH
+	{runeRange{0xBB19, 0xBB33}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYOG..HANGUL SYLLABLE MYOH
+	{runeRange{0xBB51, 0xBB6B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MWEOG..HANGUL SYLLABLE MWEOH
+	{runeRange{0xBB89, 0xBBA3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MWIG..HANGUL SYLLABLE MWIH
+	{runeRange{0xBBC1, 0xBBDB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MEUG..HANGUL SYLLABLE MEUH
+	{runeRange{0xBBF9, 0xBC13}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MIG..HANGUL SYLLABLE MIH
+	{runeRange{0xBC31, 0xBC4B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BAEG..HANGUL SYLLABLE BAEH
+	{runeRange{0xBC69, 0xBC83}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYAEG..HANGUL SYLLABLE BYAEH
+	{runeRange{0xBCA1, 0xBCBB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BEG..HANGUL SYLLABLE BEH
+	{runeRange{0xBCD9, 0xBCF3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYEG..HANGUL SYLLABLE BYEH
+	{runeRange{0xBD11, 0xBD2B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BWAG..HANGUL SYLLABLE BWAH
+	{runeRange{0xBD49, 0xBD63}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BOEG..HANGUL SYLLABLE BOEH
+	{runeRange{0xBD81, 0xBD9B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BUG..HANGUL SYLLABLE BUH
+	{runeRange{0xBDB9, 0xBDD3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BWEG..HANGUL SYLLABLE BWEH
+	{runeRange{0xBDF1, 0xBE0B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYUG..HANGUL SYLLABLE BYUH
+	{runeRange{0xBE29, 0xBE43}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYIG..HANGUL SYLLABLE BYIH
+	{runeRange{0xBE61, 0xBE7B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBAG..HANGUL SYLLABLE BBAH
+	{runeRange{0xBE99, 0xBEB3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYAG..HANGUL SYLLABLE BBYAH
+	{runeRange{0xBED1, 0xBEEB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBEOG..HANGUL SYLLABLE BBEOH
+	{runeRange{0xBF09, 0xBF23}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYEOG..HANGUL SYLLABLE BBYEOH
+	{runeRange{0xBF41, 0xBF5B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBOG..HANGUL SYLLABLE BBOH
+	{runeRange{0xBF79, 0xBF93}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBWAEG..HANGUL SYLLABLE BBWAEH
+	{runeRange{0xBFB1, 0xBFCB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYOG..HANGUL SYLLABLE BBYOH
+	{runeRange{0xBFE9, 0xC003}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBWEOG..HANGUL SYLLABLE BBWEOH
+	{runeRange{0xC021, 0xC03B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBWIG..HANGUL SYLLABLE BBWIH
+	{runeRange{0xC059, 0xC073}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBEUG..HANGUL SYLLABLE BBEUH
+	{runeRange{0xC091, 0xC0AB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBIG..HANGUL SYLLABLE BBIH
+	{runeRange{0xC0C9, 0xC0E3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SAEG..HANGUL SYLLABLE SAEH
+	{runeRange{0xC101, 0xC11B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYAEG..HANGUL SYLLABLE SYAEH
+	{runeRange{0xC139, 0xC153}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SEG..HANGUL SYLLABLE SEH
+	{runeRange{0xC171, 0xC18B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYEG..HANGUL SYLLABLE SYEH
+	{runeRange{0xC1A9, 0xC1C3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SWAG..HANGUL SYLLABLE SWAH
+	{runeRange{0xC1E1, 0xC1FB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SOEG..HANGUL SYLLABLE SOEH
+	{runeRange{0xC219, 0xC233}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SUG..HANGUL SYLLABLE SUH
+	{runeRange{0xC251, 0xC26B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SWEG..HANGUL SYLLABLE SWEH
+	{runeRange{0xC289, 0xC2A3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYUG..HANGUL SYLLABLE SYUH
+	{runeRange{0xC2C1, 0xC2DB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYIG..HANGUL SYLLABLE SYIH
+	{runeRange{0xC2F9, 0xC313}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSAG..HANGUL SYLLABLE SSAH
+	{runeRange{0xC331, 0xC34B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYAG..HANGUL SYLLABLE SSYAH
+	{runeRange{0xC369, 0xC383}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSEOG..HANGUL SYLLABLE SSEOH
+	{runeRange{0xC3A1, 0xC3BB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYEOG..HANGUL SYLLABLE SSYEOH
+	{runeRange{0xC3D9, 0xC3F3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSOG..HANGUL SYLLABLE SSOH
+	{runeRange{0xC411, 0xC42B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSWAEG..HANGUL SYLLABLE SSWAEH
+	{runeRange{0xC449, 0xC463}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYOG..HANGUL SYLLABLE SSYOH
+	{runeRange{0xC481, 0xC49B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSWEOG..HANGUL SYLLABLE SSWEOH
+	{runeRange{0xC4B9, 0xC4D3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSWIG..HANGUL SYLLABLE SSWIH
+	{runeRange{0xC4F1, 0xC50B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSEUG..HANGUL SYLLABLE SSEUH
+	{runeRange{0xC529, 0xC543}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSIG..HANGUL SYLLABLE SSIH
+	{runeRange{0xC561, 0xC57B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE AEG..HANGUL SYLLABLE AEH
+	{runeRange{0xC599, 0xC5B3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YAEG..HANGUL SYLLABLE YAEH
+	{runeRange{0xC5D1, 0xC5EB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE EG..HANGUL SYLLABLE EH
+	{runeRange{0xC609, 0xC623}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YEG..HANGUL SYLLABLE YEH
+	{runeRange{0xC641, 0xC65B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE WAG..HANGUL SYLLABLE WAH
+	{runeRange{0xC679, 0xC693}, prLVT},                    // Lo  [27] HANGUL SYLLABLE OEG..HANGUL SYLLABLE OEH
+	{runeRange{0xC6B1, 0xC6CB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE UG..HANGUL SYLLABLE UH
+	{runeRange{0xC6E9, 0xC703}, prLVT},                    // Lo  [27] HANGUL SYLLABLE WEG..HANGUL SYLLABLE WEH
+	{runeRange{0xC721, 0xC73B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YUG..HANGUL SYLLABLE YUH
+	{runeRange{0xC759, 0xC773}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YIG..HANGUL SYLLABLE YIH
+	{runeRange{0xC791, 0xC7AB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JAG..HANGUL SYLLABLE JAH
+	{runeRange{0xC7C9, 0xC7E3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYAG..HANGUL SYLLABLE JYAH
+	{runeRange{0xC801, 0xC81B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JEOG..HANGUL SYLLABLE JEOH
+	{runeRange{0xC839, 0xC853}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYEOG..HANGUL SYLLABLE JYEOH
+	{runeRange{0xC871, 0xC88B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JOG..HANGUL SYLLABLE JOH
+	{runeRange{0xC8A9, 0xC8C3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JWAEG..HANGUL SYLLABLE JWAEH
+	{runeRange{0xC8E1, 0xC8FB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYOG..HANGUL SYLLABLE JYOH
+	{runeRange{0xC919, 0xC933}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JWEOG..HANGUL SYLLABLE JWEOH
+	{runeRange{0xC951, 0xC96B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JWIG..HANGUL SYLLABLE JWIH
+	{runeRange{0xC989, 0xC9A3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JEUG..HANGUL SYLLABLE JEUH
+	{runeRange{0xC9C1, 0xC9DB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JIG..HANGUL SYLLABLE JIH
+	{runeRange{0xC9F9, 0xCA13}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJAEG..HANGUL SYLLABLE JJAEH
+	{runeRange{0xCA31, 0xCA4B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYAEG..HANGUL SYLLABLE JJYAEH
+	{runeRange{0xCA69, 0xCA83}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJEG..HANGUL SYLLABLE JJEH
+	{runeRange{0xCAA1, 0xCABB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYEG..HANGUL SYLLABLE JJYEH
+	{runeRange{0xCAD9, 0xCAF3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJWAG..HANGUL SYLLABLE JJWAH
+	{runeRange{0xCB11, 0xCB2B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJOEG..HANGUL SYLLABLE JJOEH
+	{runeRange{0xCB49, 0xCB63}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJUG..HANGUL SYLLABLE JJUH
+	{runeRange{0xCB81, 0xCB9B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJWEG..HANGUL SYLLABLE JJWEH
+	{runeRange{0xCBB9, 0xCBD3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYUG..HANGUL SYLLABLE JJYUH
+	{runeRange{0xCBF1, 0xCC0B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYIG..HANGUL SYLLABLE JJYIH
+	{runeRange{0xCC29, 0xCC43}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CAG..HANGUL SYLLABLE CAH
+	{runeRange{0xCC61, 0xCC7B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYAG..HANGUL SYLLABLE CYAH
+	{runeRange{0xCC99, 0xCCB3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CEOG..HANGUL SYLLABLE CEOH
+	{runeRange{0xCCD1, 0xCCEB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYEOG..HANGUL SYLLABLE CYEOH
+	{runeRange{0xCD09, 0xCD23}, prLVT},                    // Lo  [27] HANGUL SYLLABLE COG..HANGUL SYLLABLE COH
+	{runeRange{0xCD41, 0xCD5B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CWAEG..HANGUL SYLLABLE CWAEH
+	{runeRange{0xCD79, 0xCD93}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYOG..HANGUL SYLLABLE CYOH
+	{runeRange{0xCDB1, 0xCDCB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CWEOG..HANGUL SYLLABLE CWEOH
+	{runeRange{0xCDE9, 0xCE03}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CWIG..HANGUL SYLLABLE CWIH
+	{runeRange{0xCE21, 0xCE3B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CEUG..HANGUL SYLLABLE CEUH
+	{runeRange{0xCE59, 0xCE73}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CIG..HANGUL SYLLABLE CIH
+	{runeRange{0xCE91, 0xCEAB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KAEG..HANGUL SYLLABLE KAEH
+	{runeRange{0xCEC9, 0xCEE3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYAEG..HANGUL SYLLABLE KYAEH
+	{runeRange{0xCF01, 0xCF1B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KEG..HANGUL SYLLABLE KEH
+	{runeRange{0xCF39, 0xCF53}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYEG..HANGUL SYLLABLE KYEH
+	{runeRange{0xCF71, 0xCF8B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KWAG..HANGUL SYLLABLE KWAH
+	{runeRange{0xCFA9, 0xCFC3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KOEG..HANGUL SYLLABLE KOEH
+	{runeRange{0xCFE1, 0xCFFB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KUG..HANGUL SYLLABLE KUH
+	{runeRange{0xD019, 0xD033}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KWEG..HANGUL SYLLABLE KWEH
+	{runeRange{0xD051, 0xD06B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYUG..HANGUL SYLLABLE KYUH
+	{runeRange{0xD089, 0xD0A3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYIG..HANGUL SYLLABLE KYIH
+	{runeRange{0xD0C1, 0xD0DB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TAG..HANGUL SYLLABLE TAH
+	{runeRange{0xD0F9, 0xD113}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYAG..HANGUL SYLLABLE TYAH
+	{runeRange{0xD131, 0xD14B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TEOG..HANGUL SYLLABLE TEOH
+	{runeRange{0xD169, 0xD183}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYEOG..HANGUL SYLLABLE TYEOH
+	{runeRange{0xD1A1, 0xD1BB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TOG..HANGUL SYLLABLE TOH
+	{runeRange{0xD1D9, 0xD1F3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TWAEG..HANGUL SYLLABLE TWAEH
+	{runeRange{0xD211, 0xD22B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYOG..HANGUL SYLLABLE TYOH
+	{runeRange{0xD249, 0xD263}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TWEOG..HANGUL SYLLABLE TWEOH
+	{runeRange{0xD281, 0xD29B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TWIG..HANGUL SYLLABLE TWIH
+	{runeRange{0xD2B9, 0xD2D3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TEUG..HANGUL SYLLABLE TEUH
+	{runeRange{0xD2F1, 0xD30B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TIG..HANGUL SYLLABLE TIH
+	{runeRange{0xD329, 0xD343}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PAEG..HANGUL SYLLABLE PAEH
+	{runeRange{0xD361, 0xD37B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYAEG..HANGUL SYLLABLE PYAEH
+	{runeRange{0xD399, 0xD3B3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PEG..HANGUL SYLLABLE PEH
+	{runeRange{0xD3D1, 0xD3EB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYEG..HANGUL SYLLABLE PYEH
+	{runeRange{0xD409, 0xD423}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PWAG..HANGUL SYLLABLE PWAH
+	{runeRange{0xD441, 0xD45B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE POEG..HANGUL SYLLABLE POEH
+	{runeRange{0xD479, 0xD493}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PUG..HANGUL SYLLABLE PUH
+	{runeRange{0xD4B1, 0xD4CB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PWEG..HANGUL SYLLABLE PWEH
+	{runeRange{0xD4E9, 0xD503}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYUG..HANGUL SYLLABLE PYUH
+	{runeRange{0xD521, 0xD53B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYIG..HANGUL SYLLABLE PYIH
+	{runeRange{0xD559, 0xD573}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HAG..HANGUL SYLLABLE HAH
+	{runeRange{0xD591, 0xD5AB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYAG..HANGUL SYLLABLE HYAH
+	{runeRange{0xD5C9, 0xD5E3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HEOG..HANGUL SYLLABLE HEOH
+	{runeRange{0xD601, 0xD61B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYEOG..HANGUL SYLLABLE HYEOH
+	{runeRange{0xD639, 0xD653}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HOG..HANGUL SYLLABLE HOH
+	{runeRange{0xD671, 0xD68B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HWAEG..HANGUL SYLLABLE HWAEH
+	{runeRange{0xD6A9, 0xD6C3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYOG..HANGUL SYLLABLE HYOH
+	{runeRange{0xD6E1, 0xD6FB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HWEOG..HANGUL SYLLABLE HWEOH
+	{runeRange{0xD719, 0xD733}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HWIG..HANGUL SYLLABLE HWIH
+	{runeRange{0xD751, 0xD76B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HEUG..HANGUL SYLLABLE HEUH
+	{runeRange{0xD789, 0xD7A3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HIG..HANGUL SYLLABLE HIH
+	{runeRange{0xFE00, 0xFE0F}, prExtend},                 // Mn  [16] VARIATION SELECTOR-1..VARIATION SELECTOR-16
+	{runeRange{0xFFF0, 0xFFF8}, prControl},                // Cn   [9] <reserved-FFF0>..<reserved-FFF8>
+	{runeRange{0x10376, 0x1037A}, prExtend},               // Mn   [5] COMBINING OLD PERMIC LETTER AN..COMBINING OLD PERMIC LETTER SII
+	{runeRange{0x10A38, 0x10A3A}, prExtend},               // Mn   [3] KHAROSHTHI SIGN BAR ABOVE..KHAROSHTHI SIGN DOT BELOW
+	{runeRange{0x10D69, 0x10D6D}, prExtend},               // Mn   [5] GARAY VOWEL SIGN E..GARAY CONSONANT NASALIZATION MARK
 	{runeRange{0x10F46, 0x10F50}, prExtend},               // Mn  [11] SOGDIAN COMBINING DOT BELOW..SOGDIAN COMBINING STROKE BELOW
 	{runeRange{0x11002, 0x11002}, prSpacingMark},          // Mc       BRAHMI SIGN VISARGA
 	{runeRange{0x1107F, 0x11081}, prExtend},               // Mn   [3] BRAHMI NUMBER JOINER..KAITHI SIGN ANUSVARA
@@ -887,74 +887,72 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x11D31, 0x11D36}, prExtend},               // Mn   [6] MASARAM GONDI VOWEL SIGN AA..MASARAM GONDI VOWEL SIGN VOCALIC R
 	{runeRange{0x11D46, 0x11D46}, prPrepend},              // Lo       MASARAM GONDI REPHA
 	{runeRange{0x11D93, 0x11D94}, prSpacingMark},          // Mc   [2] GUNJALA GONDI VOWEL SIGN OO..GUNJALA GONDI VOWEL SIGN AU
-	{runeRange{0x11EF3, 0x11EF4}, prExtend},               // Mn   [2] MAKASAR VOWEL SIGN I..MAKASAR VOWEL SIGN U
-	{runeRange{0x11F03, 0x11F03}, prSpacingMark},          // Mc       KAWI SIGN VISARGA
-	{runeRange{0x11F40, 0x11F40}, prExtend},               // Mn       KAWI VOWEL SIGN EU
-	{runeRange{0x13430, 0x1343F}, prControl},              // Cf  [16] EGYPTIAN HIEROGLYPH VERTICAL JOINER..EGYPTIAN HIEROGLYPH END WALLED ENCLOSURE
-	{runeRange{0x1612A, 0x1612C}, prSpacingMark},          // Mc   [3] GURUNG KHEMA CONSONANT SIGN MEDIAL YA..GURUNG KHEMA CONSONANT SIGN MEDIAL HA
-	{runeRange{0x16D63, 0x16D63}, prV},                    // Lo       KIRAT RAI VOWEL SIGN AA
-	{runeRange{0x16F8F, 0x16F92}, prExtend},               // Mn   [4] MIAO TONE RIGHT..MIAO TONE BELOW
-	{runeRange{0x1BCA0, 0x1BCA3}, prControl},              // Cf   [4] SHORTHAND FORMAT LETTER OVERLAP..SHORTHAND FORMAT UP STEP
-	{runeRange{0x1D167, 0x1D169}, prExtend},               // Mn   [3] MUSICAL SYMBOL COMBINING TREMOLO-1..MUSICAL SYMBOL COMBINING TREMOLO-3
-	{runeRange{0x1D185, 0x1D18B}, prExtend},               // Mn   [7] MUSICAL SYMBOL COMBINING DOIT..MUSICAL SYMBOL COMBINING TRIPLE TONGUE
-	{runeRange{0x1DA3B, 0x1DA6C}, prExtend},               // Mn  [50] SIGNWRITING MOUTH CLOSED NEUTRAL..SIGNWRITING EXCITEMENT
-	{runeRange{0x1DAA1, 0x1DAAF}, prExtend},               // Mn  [15] SIGNWRITING ROTATION MODIFIER-2..SIGNWRITING ROTATION MODIFIER-16
-	{runeRange{0x1E023, 0x1E024}, prExtend},               // Mn   [2] COMBINING GLAGOLITIC LETTER YU..COMBINING GLAGOLITIC LETTER SMALL YUS
-	{runeRange{0x1E2AE, 0x1E2AE}, prExtend},               // Mn       TOTO SIGN RISING TONE
-	{runeRange{0x1E6E3, 0x1E6E3}, prExtend},               // Mn       TAI YO SIGN UE
-	{runeRange{0x1E8D0, 0x1E8D6}, prExtend},               // Mn   [7] MENDE KIKAKUI COMBINING NUMBER TEENS..MENDE KIKAKUI COMBINING NUMBER MILLIONS
-	{runeRange{0x1F094, 0x1F09F}, prExtendedPictographic}, // E0.0  [12] (🂔..🂟)    <reserved-1F094>..<reserved-1F09F>
-	{runeRange{0x1F0D0, 0x1F0D0}, prExtendedPictographic}, // E0.0   [1] (🃐)       <reserved-1F0D0>
-	{runeRange{0x1F18E, 0x1F18E}, prExtendedPictographic}, // E0.6   [1] (🆎)       AB button (blood type)
-	{runeRange{0x1F201, 0x1F202}, prExtendedPictographic}, // E0.6   [2] (🈁..🈂️)    Japanese “here” button..Japanese “service charge” button
-	{runeRange{0x1F232, 0x1F23A}, prExtendedPictographic}, // E0.6   [9] (🈲..🈺)    Japanese “prohibited” button..Japanese “open for business” button
-	{runeRange{0x1F252, 0x1F25F}, prExtendedPictographic}, // E0.0  [14] (🉒..🉟)    <reserved-1F252>..<reserved-1F25F>
-	{runeRange{0x1F30F, 0x1F30F}, prExtendedPictographic}, // E0.6   [1] (🌏)       globe showing Asia-Australia
-	{runeRange{0x1F313, 0x1F315}, prExtendedPictographic}, // E0.6   [3] (🌓..🌕)    first quarter moon..full moon
-	{runeRange{0x1F31B, 0x1F31B}, prExtendedPictographic}, // E0.6   [1] (🌛)       first quarter moon face
-	{runeRange{0x1F321, 0x1F321}, prExtendedPictographic}, // E0.7   [1] (🌡️)       thermometer
-	{runeRange{0x1F332, 0x1F333}, prExtendedPictographic}, // E1.0   [2] (🌲..🌳)    evergreen tree..deciduous tree
-	{runeRange{0x1F34B, 0x1F34B}, prExtendedPictographic}, // E1.0   [1] (🍋)       lemon
-	{runeRange{0x1F37C, 0x1F37C}, prExtendedPictographic}, // E1.0   [1] (🍼)       baby bottle
-	{runeRange{0x1F396, 0x1F397}, prExtendedPictographic}, // E0.7   [2] (🎖️..🎗️)    military medal..reminder ribbon
-	{runeRange{0x1F3C5, 0x1F3C5}, prExtendedPictographic}, // E1.0   [1] (🏅)       sports medal
-	{runeRange{0x1F3C9, 0x1F3C9}, prExtendedPictographic}, // E1.0   [1] (🏉)       rugby football
-	{runeRange{0x1F3D4, 0x1F3DF}, prExtendedPictographic}, // E0.7  [12] (🏔️..🏟️)    snow-capped mountain..stadium
-	{runeRange{0x1F3F3, 0x1F3F3}, prExtendedPictographic}, // E0.7   [1] (🏳️)       white flag
-	{runeRange{0x1F3F8, 0x1F3FA}, prExtendedPictographic}, // E1.0   [3] (🏸..🏺)    badminton..amphora
-	{runeRange{0x1F409, 0x1F40B}, prExtendedPictographic}, // E1.0   [3] (🐉..🐋)    dragon..whale
-	{runeRange{0x1F413, 0x1F413}, prExtendedPictographic}, // E1.0   [1] (🐓)       rooster
-	{runeRange{0x1F417, 0x1F429}, prExtendedPictographic}, // E0.6  [19] (🐗..🐩)    boar..poodle
-	{runeRange{0x1F440, 0x1F440}, prExtendedPictographic}, // E0.6   [1] (👀)       eyes
-	{runeRange{0x1F466, 0x1F46B}, prExtendedPictographic}, // E0.6   [6] (👦..👫)    boy..woman and man holding hands
-	{runeRange{0x1F4AE, 0x1F4B5}, prExtendedPictographic}, // E0.6   [8] (💮..💵)    white flower..dollar banknote
-	{runeRange{0x1F4EE, 0x1F4EE}, prExtendedPictographic}, // E0.6   [1] (📮)       postbox
-	{runeRange{0x1F4F6, 0x1F4F7}, prExtendedPictographic}, // E0.6   [2] (📶..📷)    antenna bars..camera
-	{runeRange{0x1F4FF, 0x1F502}, prExtendedPictographic}, // E1.0   [4] (📿..🔂)    prayer beads..repeat single button
-	{runeRange{0x1F509, 0x1F509}, prExtendedPictographic}, // E1.0   [1] (🔉)       speaker medium volume
-	{runeRange{0x1F52C, 0x1F52D}, prExtendedPictographic}, // E1.0   [2] (🔬..🔭)    microscope..telescope
-	{runeRange{0x1F550, 0x1F55B}, prExtendedPictographic}, // E0.6  [12] (🕐..🕛)    one o’clock..twelve o’clock
-	{runeRange{0x1F57A, 0x1F57A}, prExtendedPictographic}, // E3.0   [1] (🕺)       man dancing
-	{runeRange{0x1F595, 0x1F596}, prExtendedPictographic}, // E1.0   [2] (🖕..🖖)    middle finger..vulcan salute
-	{runeRange{0x1F5B1, 0x1F5B2}, prExtendedPictographic}, // E0.7   [2] (🖱️..🖲️)    computer mouse..trackball
-	{runeRange{0x1F5DC, 0x1F5DE}, prExtendedPictographic}, // E0.7   [3] (🗜️..🗞️)    clamp..rolled-up newspaper
-	{runeRange{0x1F5EF, 0x1F5EF}, prExtendedPictographic}, // E0.7   [1] (🗯️)       right anger bubble
-	{runeRange{0x1F600, 0x1F600}, prExtendedPictographic}, // E1.0   [1] (😀)       grinning face
-	{runeRange{0x1F60E, 0x1F60E}, prExtendedPictographic}, // E1.0   [1] (😎)       smiling face with sunglasses
-	{runeRange{0x1F612, 0x1F614}, prExtendedPictographic}, // E0.6   [3] (😒..😔)    unamused face..pensive face
-	{runeRange{0x1F618, 0x1F618}, prExtendedPictographic}, // E0.6   [1] (😘)       face blowing a kiss
-	{runeRange{0x1F61C, 0x1F61E}, prExtendedPictographic}, // E0.6   [3] (😜..😞)    winking face with tongue..disappointed face
-	{runeRange{0x1F628, 0x1F62B}, prExtendedPictographic}, // E0.6   [4] (😨..😫)    fearful face..tired face
-	{runeRange{0x1F630, 0x1F633}, prExtendedPictographic}, // E0.6   [4] (😰..😳)    anxious face with sweat..flushed face
-	{runeRange{0x1F637, 0x1F640}, prExtendedPictographic}, // E0.6  [10] (😷..🙀)    face with medical mask..weary cat
-	{runeRange{0x1F681, 0x1F682}, prExtendedPictographic}, // E1.0   [2] (🚁..🚂)    helicopter..locomotive
-	{runeRange{0x1F688, 0x1F688}, prExtendedPictographic}, // E1.0   [1] (🚈)       light rail
+	{runeRange{0x11DF0, 0x11DF0}, prExtend},               // Mn       BENGALI SIGN COMBINING ANUSVARA ABOVE
+	{runeRange{0x11F02, 0x11F02}, prPrepend},              // Lo       KAWI SIGN REPHA
+	{runeRange{0x11F3E, 0x11F3F}, prSpacingMark},          // Mc   [2] KAWI VOWEL SIGN E..KAWI VOWEL SIGN AI
+	{runeRange{0x11F5A, 0x11F5A}, prExtend},               // Mn       KAWI SIGN NUKTA
+	{runeRange{0x1611E, 0x16129}, prExtend},               // Mn  [12] GURUNG KHEMA VOWEL SIGN AA..GURUNG KHEMA VOWEL LENGTH MARK
+	{runeRange{0x16B30, 0x16B36}, prExtend},               // Mn   [7] PAHAWH HMONG MARK CIM TUB..PAHAWH HMONG MARK CIM TAUM
+	{runeRange{0x16F51, 0x16F87}, prSpacingMark},          // Mc  [55] MIAO SIGN ASPIRATION..MIAO VOWEL SIGN UI
+	{runeRange{0x1BC9D, 0x1BC9E}, prExtend},               // Mn   [2] DUPLOYAN THICK LETTER SELECTOR..DUPLOYAN DOUBLE MARK
+	{runeRange{0x1D127, 0x1D128}, prExtend},               // Mn   [2] MUSICAL SYMBOL COMBINING STRESS..MUSICAL SYMBOL COMBINING UNSTRESS
+	{runeRange{0x1D173, 0x1D17A}, prControl},              // Cf   [8] MUSICAL SYMBOL BEGIN BEAM..MUSICAL SYMBOL END PHRASE
+	{runeRange{0x1D242, 0x1D244}, prExtend},               // Mn   [3] COMBINING GREEK MUSICAL TRISEME..COMBINING GREEK MUSICAL PENTASEME
+	{runeRange{0x1D280, 0x1D281}, prExtend},               // Mc   [2] MUSICAL SYMBOL COMBINING STEM BOW BEHIND BRIDGE..MUSICAL SYMBOL COMBINING STEM BOW ON TOP OF BRIDGE
+	{runeRange{0x1DA84, 0x1DA84}, prExtend},               // Mn       SIGNWRITING LOCATION HEAD NECK
+	{runeRange{0x1E008, 0x1E018}, prExtend},               // Mn  [17] COMBINING GLAGOLITIC LETTER ZEMLJA..COMBINING GLAGOLITIC LETTER HERU
+	{runeRange{0x1E08F, 0x1E08F}, prExtend},               // Mn       COMBINING CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I
+	{runeRange{0x1E4EC, 0x1E4EF}, prExtend},               // Mn   [4] NAG MUNDARI SIGN MUHOR..NAG MUNDARI SIGN SUTUH
+	{runeRange{0x1E6EE, 0x1E6EF}, prExtend},               // Mn   [2] TAI YO SIGN AY..TAI YO SIGN ANG
+	{runeRange{0x1F004, 0x1F004}, prExtendedPictographic}, // E0.6   [1] (🀄)       mahjong red dragon
+	{runeRange{0x1F0C0, 0x1F0C0}, prExtendedPictographic}, // E0.0   [1] (🃀)       <reserved-1F0C0>
+	{runeRange{0x1F170, 0x1F171}, prExtendedPictographic}, // E0.6   [2] (🅰️..🅱️)    A button (blood type)..B button (blood type)
+	{runeRange{0x1F1AF, 0x1F1E5}, prExtendedPictographic}, // E0.0  [55] (🆯..🇥)    <reserved-1F1AF>..<reserved-1F1E5>
+	{runeRange{0x1F21A, 0x1F21A}, prExtendedPictographic}, // E0.6   [1] (🈚)       Japanese “free of charge” button
+	{runeRange{0x1F249, 0x1F24F}, prExtendedPictographic}, // E0.0   [7] (🉉..🉏)    <reserved-1F249>..<reserved-1F24F>
+	{runeRange{0x1F300, 0x1F30C}, prExtendedPictographic}, // E0.6  [13] (🌀..🌌)    cyclone..milky way
+	{runeRange{0x1F311, 0x1F311}, prExtendedPictographic}, // E0.6   [1] (🌑)       new moon
+	{runeRange{0x1F319, 0x1F319}, prExtendedPictographic}, // E0.6   [1] (🌙)       crescent moon
+	{runeRange{0x1F31D, 0x1F31E}, prExtendedPictographic}, // E1.0   [2] (🌝..🌞)    full moon face..sun with face
+	{runeRange{0x1F32D, 0x1F32F}, prExtendedPictographic}, // E1.0   [3] (🌭..🌯)    hot dog..burrito
+	{runeRange{0x1F336, 0x1F336}, prExtendedPictographic}, // E0.7   [1] (🌶️)       hot pepper
+	{runeRange{0x1F350, 0x1F350}, prExtendedPictographic}, // E1.0   [1] (🍐)       pear
+	{runeRange{0x1F37E, 0x1F37F}, prExtendedPictographic}, // E1.0   [2] (🍾..🍿)    bottle with popping cork..popcorn
+	{runeRange{0x1F39E, 0x1F39F}, prExtendedPictographic}, // E0.7   [2] (🎞️..🎟️)    film frames..admission tickets
+	{runeRange{0x1F3C7, 0x1F3C7}, prExtendedPictographic}, // E1.0   [1] (🏇)       horse racing
+	{runeRange{0x1F3CB, 0x1F3CE}, prExtendedPictographic}, // E0.7   [4] (🏋️..🏎️)    person lifting weights..racing car
+	{runeRange{0x1F3E4, 0x1F3E4}, prExtendedPictographic}, // E1.0   [1] (🏤)       post office
+	{runeRange{0x1F3F5, 0x1F3F5}, prExtendedPictographic}, // E0.7   [1] (🏵️)       rosette
+	{runeRange{0x1F400, 0x1F407}, prExtendedPictographic}, // E1.0   [8] (🐀..🐇)    rat..rabbit
+	{runeRange{0x1F40F, 0x1F410}, prExtendedPictographic}, // E1.0   [2] (🐏..🐐)    ram..goat
+	{runeRange{0x1F415, 0x1F415}, prExtendedPictographic}, // E0.7   [1] (🐕)       dog
+	{runeRange{0x1F42B, 0x1F43E}, prExtendedPictographic}, // E0.6  [20] (🐫..🐾)    two-hump camel..paw prints
+	{runeRange{0x1F442, 0x1F464}, prExtendedPictographic}, // E0.6  [35] (👂..👤)    ear..bust in silhouette
+	{runeRange{0x1F46E, 0x1F4AC}, prExtendedPictographic}, // E0.6  [63] (👮..💬)    police officer..speech balloon
+	{runeRange{0x1F4B8, 0x1F4EB}, prExtendedPictographic}, // E0.6  [52] (💸..📫)    money with wings..closed mailbox with raised flag
+	{runeRange{0x1F4F0, 0x1F4F4}, prExtendedPictographic}, // E0.6   [5] (📰..📴)    newspaper..mobile phone off
+	{runeRange{0x1F4F9, 0x1F4FC}, prExtendedPictographic}, // E0.6   [4] (📹..📼)    video camera..videocassette
+	{runeRange{0x1F504, 0x1F507}, prExtendedPictographic}, // E1.0   [4] (🔄..🔇)    counterclockwise arrows button..muted speaker
+	{runeRange{0x1F515, 0x1F515}, prExtendedPictographic}, // E1.0   [1] (🔕)       bell with slash
+	{runeRange{0x1F549, 0x1F54A}, prExtendedPictographic}, // E0.7   [2] (🕉️..🕊️)    om..dove
+	{runeRange{0x1F56F, 0x1F570}, prExtendedPictographic}, // E0.7   [2] (🕯️..🕰️)    candle..mantelpiece clock
+	{runeRange{0x1F58A, 0x1F58D}, prExtendedPictographic}, // E0.7   [4] (🖊️..🖍️)    pen..crayon
+	{runeRange{0x1F5A5, 0x1F5A5}, prExtendedPictographic}, // E0.7   [1] (🖥️)       desktop computer
+	{runeRange{0x1F5C2, 0x1F5C4}, prExtendedPictographic}, // E0.7   [3] (🗂️..🗄️)    card index dividers..file cabinet
+	{runeRange{0x1F5E3, 0x1F5E3}, prExtendedPictographic}, // E0.7   [1] (🗣️)       speaking head
+	{runeRange{0x1F5FA, 0x1F5FA}, prExtendedPictographic}, // E0.7   [1] (🗺️)       world map
+	{runeRange{0x1F607, 0x1F608}, prExtendedPictographic}, // E1.0   [2] (😇..😈)    smiling face with halo..smiling face with horns
+	{runeRange{0x1F610, 0x1F610}, prExtendedPictographic}, // E0.7   [1] (😐)       neutral face
+	{runeRange{0x1F616, 0x1F616}, prExtendedPictographic}, // E0.6   [1] (😖)       confounded face
+	{runeRange{0x1F61A, 0x1F61A}, prExtendedPictographic}, // E0.6   [1] (😚)       kissing face with closed eyes
+	{runeRange{0x1F620, 0x1F625}, prExtendedPictographic}, // E0.6   [6] (😠..😥)    angry face..sad but relieved face
+	{runeRange{0x1F62D, 0x1F62D}, prExtendedPictographic}, // E0.6   [1] (😭)       loudly crying face
+	{runeRange{0x1F635, 0x1F635}, prExtendedPictographic}, // E0.6   [1] (😵)       face with crossed-out eyes
+	{runeRange{0x1F645, 0x1F64F}, prExtendedPictographic}, // E0.6  [11] (🙅..🙏)    person gesturing NO..folded hands
+	{runeRange{0x1F686, 0x1F686}, prExtendedPictographic}, // E1.0   [1] (🚆)       train
 	{runeRange{0x1F68A, 0x1F68B}, prExtendedPictographic}, // E1.0   [2] (🚊..🚋)    tram..tram car
-	{runeRange{0x1F68D, 0x1F68D}, prExtendedPictographic}, // E0.7   [1] (🚍)       oncoming bus
 	{runeRange{0x1F68F, 0x1F68F}, prExtendedPictographic}, // E0.6   [1] (🚏)       bus stop
-	{runeRange{0x1F691, 0x1F693}, prExtendedPictographic}, // E0.6   [3] (🚑..🚓)    ambulance..police car
 	{runeRange{0x1F695, 0x1F695}, prExtendedPictographic}, // E0.6   [1] (🚕)       taxi
-	{runeRange{0x1F697, 0x1F697}, prExtendedPictographic}, // E0.6   [1] (🚗)       automobile
 	{runeRange{0x1F699, 0x1F69A}, prExtendedPictographic}, // E0.6   [2] (🚙..🚚)    sport utility vehicle..delivery truck
 	{runeRange{0x1F6A2, 0x1F6A2}, prExtendedPictographic}, // E0.6   [1] (🚢)       ship
 	{runeRange{0x1F6A4, 0x1F6A5}, prExtendedPictographic}, // E0.6   [2] (🚤..🚥)    speedboat..horizontal traffic light
@@ -967,16 +965,16 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x1F6CD, 0x1F6CF}, prExtendedPictographic}, // E0.7   [3] (🛍️..🛏️)    shopping bags..bed
 	{runeRange{0x1F6D1, 0x1F6D2}, prExtendedPictographic}, // E3.0   [2] (🛑..🛒)    stop sign..shopping cart
 	{runeRange{0x1F6D6, 0x1F6D7}, prExtendedPictographic}, // E13.0  [2] (🛖..🛗)    hut..elevator
-	{runeRange{0x1F6D9, 0x1F6DB}, prExtendedPictographic}, // E0.0   [3] (🛙..🛛)    <reserved-1F6D9>..<reserved-1F6DB>
-	{runeRange{0x1F6DD, 0x1F6DF}, prExtendedPictographic}, // E14.0  [3] (🛝..🛟)    playground slide..ring buoy
-	{runeRange{0x1F6E9, 0x1F6E9}, prExtendedPictographic}, // E0.7   [1] (🛩️)       small airplane
-	{runeRange{0x1F6ED, 0x1F6EF}, prExtendedPictographic}, // E0.0   [3] (🛭..🛯)    <reserved-1F6ED>..<reserved-1F6EF>
-	{runeRange{0x1F6F3, 0x1F6F3}, prExtendedPictographic}, // E0.7   [1] (🛳️)       passenger ship
-	{runeRange{0x1F6F7, 0x1F6F8}, prExtendedPictographic}, // E5.0   [2] (🛷..🛸)    sled..flying saucer
-	{runeRange{0x1F6FA, 0x1F6FA}, prExtendedPictographic}, // E12.0  [1] (🛺)       auto rickshaw
-	{runeRange{0x1F6FD, 0x1F6FF}, prExtendedPictographic}, // E0.0   [3] (🛽..🛿)    <reserved-1F6FD>..<reserved-1F6FF>
-	{runeRange{0x1F7E0, 0x1F7EB}, prExtendedPictographic}, // E12.0 [12] (🟠..🟫)    orange circle..brown square
-	{runeRange{0x1F7F0, 0x1F7F0}, prExtendedPictographic}, // E14.0  [1] (🟰)       heavy equals sign
+	{runeRange{0x1F6D9, 0x1F6D9}, prExtendedPictographic}, // E18.0  [1] (🛙)       lighthouse
+	{runeRange{0x1F6DC, 0x1F6DC}, prExtendedPictographic}, // E15.0  [1] (🛜)       wireless
+	{runeRange{0x1F6E0, 0x1F6E5}, prExtendedPictographic}, // E0.7   [6] (🛠️..🛥️)    hammer and wrench..motor boat
+	{runeRange{0x1F6EB, 0x1F6EC}, prExtendedPictographic}, // E1.0   [2] (🛫..🛬)    airplane departure..airplane arrival
+	{runeRange{0x1F6F0, 0x1F6F0}, prExtendedPictographic}, // E0.7   [1] (🛰️)       satellite
+	{runeRange{0x1F6F4, 0x1F6F6}, prExtendedPictographic}, // E3.0   [3] (🛴..🛶)    kick scooter..canoe
+	{runeRange{0x1F6F9, 0x1F6F9}, prExtendedPictographic}, // E11.0  [1] (🛹)       skateboard
+	{runeRange{0x1F6FB, 0x1F6FC}, prExtendedPictographic}, // E13.0  [2] (🛻..🛼)    pickup truck..roller skate
+	{runeRange{0x1F7DC, 0x1F7DF}, prExtendedPictographic}, // E0.0   [4] (🟜..🟟)    <reserved-1F7DC>..<reserved-1F7DF>
+	{runeRange{0x1F7EC, 0x1F7EF}, prExtendedPictographic}, // E0.0   [4] (🟬..🟯)    <reserved-1F7EC>..<reserved-1F7EF>
 	{runeRange{0x1F80C, 0x1F80F}, prExtendedPictographic}, // E0.0   [4] (🠌..🠏)    <reserved-1F80C>..<reserved-1F80F>
 	{runeRange{0x1F85A, 0x1F85F}, prExtendedPictographic}, // E0.0   [6] (🡚..🡟)    <reserved-1F85A>..<reserved-1F85F>
 	{runeRange{0x1F8AE, 0x1F8AF}, prExtendedPictographic}, // E0.0   [2] (🢮..🢯)    <reserved-1F8AE>..<reserved-1F8AF>
@@ -1010,7 +1008,7 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x1FA7D, 0x1FA7F}, prExtendedPictographic}, // E0.0   [3] (🩽..🩿)    <reserved-1FA7D>..<reserved-1FA7F>
 	{runeRange{0x1FA83, 0x1FA86}, prExtendedPictographic}, // E13.0  [4] (🪃..🪆)    boomerang..nesting dolls
 	{runeRange{0x1FA89, 0x1FA89}, prExtendedPictographic}, // E16.0  [1] (🪉)       harp
-	{runeRange{0x1FA8B, 0x1FA8D}, prExtendedPictographic}, // E0.0   [3] (🪋..🪍)    <reserved-1FA8B>..<reserved-1FA8D>
+	{runeRange{0x1FA8B, 0x1FA8D}, prExtendedPictographic}, // E18.0  [3] (🪋..🪍)    meteor..net with handle
 	{runeRange{0x1FA8F, 0x1FA8F}, prExtendedPictographic}, // E16.0  [1] (🪏)       shovel
 	{runeRange{0x1FA96, 0x1FAA8}, prExtendedPictographic}, // E13.0 [19] (🪖..🪨)    military helmet..rock
 	{runeRange{0x1FAAD, 0x1FAAF}, prExtendedPictographic}, // E15.0  [3] (🪭..🪯)    folding hand fan..khanda
@@ -1019,15 +1017,17 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x1FAC0, 0x1FAC2}, prExtendedPictographic}, // E13.0  [3] (🫀..🫂)    anatomical heart..people hugging
 	{runeRange{0x1FAC6, 0x1FAC6}, prExtendedPictographic}, // E16.0  [1] (🫆)       fingerprint
 	{runeRange{0x1FAC8, 0x1FAC8}, prExtendedPictographic}, // E17.0  [1] (🫈)       hairy creature
-	{runeRange{0x1FACD, 0x1FACD}, prExtendedPictographic}, // E17.0  [1] (🫍)       orca
-	{runeRange{0x1FAD0, 0x1FAD6}, prExtendedPictographic}, // E13.0  [7] (🫐..🫖)    blueberries..teapot
-	{runeRange{0x1FADA, 0x1FADB}, prExtendedPictographic}, // E15.0  [2] (🫚..🫛)    ginger root..pea pod
-	{runeRange{0x1FADD, 0x1FADE}, prExtendedPictographic}, // E0.0   [2] (🫝..🫞)    <reserved-1FADD>..<reserved-1FADE>
+	{runeRange{0x1FACC, 0x1FACC}, prExtendedPictographic}, // E18.0  [1] (🫌)       monarch butterfly
+	{runeRange{0x1FACE, 0x1FACF}, prExtendedPictographic}, // E15.0  [2] (🫎..🫏)    moose..donkey
+	{runeRange{0x1FAD7, 0x1FAD9}, prExtendedPictographic}, // E14.0  [3] (🫗..🫙)    pouring liquid..jar
+	{runeRange{0x1FADC, 0x1FADC}, prExtendedPictographic}, // E16.0  [1] (🫜)       root vegetable
+	{runeRange{0x1FADE, 0x1FADE}, prExtendedPictographic}, // E0.0   [1] (🫞)       <reserved-1FADE>
 	{runeRange{0x1FAE0, 0x1FAE7}, prExtendedPictographic}, // E14.0  [8] (🫠..🫧)    melting face..bubbles
 	{runeRange{0x1FAE9, 0x1FAE9}, prExtendedPictographic}, // E16.0  [1] (🫩)       face with bags under eyes
-	{runeRange{0x1FAEB, 0x1FAEE}, prExtendedPictographic}, // E0.0   [4] (🫫..🫮)    <reserved-1FAEB>..<reserved-1FAEE>
-	{runeRange{0x1FAF0, 0x1FAF6}, prExtendedPictographic}, // E14.0  [7] (🫰..🫶)    hand with index finger and thumb crossed..heart hands
-	{runeRange{0x1FAF9, 0x1FAFF}, prExtendedPictographic}, // E0.0   [7] (🫹..🫿)    <reserved-1FAF9>..<reserved-1FAFF>
+	{runeRange{0x1FAEB, 0x1FAEB}, prExtendedPictographic}, // E18.0  [1] (🫫)       cracking face
+	{runeRange{0x1FAEF, 0x1FAEF}, prExtendedPictographic}, // E17.0  [1] (🫯)       fight cloud
+	{runeRange{0x1FAF7, 0x1FAF8}, prExtendedPictographic}, // E15.0  [2] (🫷..🫸)    leftwards pushing hand..rightwards pushing hand
+	{runeRange{0x1FAFB, 0x1FAFF}, prExtendedPictographic}, // E0.0   [5] (🫻..🫿)    <reserved-1FAFB>..<reserved-1FAFF>
 	{runeRange{0xE0000, 0xE0000}, prControl},              // Cn       <reserved-E0000>
 	{runeRange{0xE0002, 0xE001F}, prControl},              // Cn  [30] <reserved-E0002>..<reserved-E001F>
 	{runeRange{0xE0080, 0xE00FF}, prControl},              // Cn [128] <reserved-E0080>..<reserved-E00FF>
@@ -1040,7 +1040,7 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x0483, 0x0487}, prExtend},                 // Mn   [5] COMBINING CYRILLIC TITLO..COMBINING CYRILLIC POKRYTIE
 	{runeRange{0x0591, 0x05BD}, prExtend},                 // Mn  [45] HEBREW ACCENT ETNAHTA..HEBREW POINT METEG
 	{runeRange{0x05C1, 0x05C2}, prExtend},                 // Mn   [2] HEBREW POINT SHIN DOT..HEBREW POINT SIN DOT
-	{runeRange{0x05C7, 0x05C7}, prExtend},                 // Mn       HEBREW POINT QAMATS QATAN
+	{runeRange{0x05C7, 0x05C9}, prExtend},                 // Mn   [3] HEBREW POINT QAMATS QATAN..HEBREW POINT DAGESH HAZAQ MUDGASH
 	{runeRange{0x0610, 0x061A}, prExtend},                 // Mn  [11] ARABIC SIGN SALLALLAHOU ALAYHE WASSALLAM..ARABIC SMALL KASRA
 	{runeRange{0x064B, 0x065F}, prExtend},                 // Mn  [21] ARABIC FATHATAN..ARABIC WAVY HAMZA BELOW
 	{runeRange{0x06D6, 0x06DC}, prExtend},                 // Mn   [7] ARABIC SMALL HIGH LIGATURE SAD WITH LAM WITH ALEF MAKSURA..ARABIC SMALL HIGH SEEN
@@ -1151,532 +1151,532 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x1A65, 0x1A6C}, prExtend},                 // Mn   [8] TAI THAM VOWEL SIGN I..TAI THAM VOWEL SIGN OA BELOW
 	{runeRange{0x1A73, 0x1A7C}, prExtend},                 // Mn  [10] TAI THAM VOWEL SIGN OA ABOVE..TAI THAM SIGN KHUEN-LUE KARAN
 	{runeRange{0x1AB0, 0x1ABD}, prExtend},                 // Mn  [14] COMBINING DOUBLED CIRCUMFLEX ACCENT..COMBINING PARENTHESES BELOW
-	{runeRange{0x1ABF, 0x1ADD}, prExtend},                 // Mn  [31] COMBINING LATIN SMALL LETTER W BELOW..COMBINING DOT-AND-RING BELOW
-	{runeRange{0x1B00, 0x1B03}, prExtend},                 // Mn   [4] BALINESE SIGN ULU RICEM..BALINESE SIGN SURANG
-	{runeRange{0x1B34, 0x1B34}, prExtend},                 // Mn       BALINESE SIGN REREKAN
-	{runeRange{0x1B36, 0x1B3A}, prExtend},                 // Mn   [5] BALINESE VOWEL SIGN ULU..BALINESE VOWEL SIGN RA REPA
-	{runeRange{0x1B3C, 0x1B3C}, prExtend},                 // Mn       BALINESE VOWEL SIGN LA LENGA
-	{runeRange{0x1B3E, 0x1B41}, prSpacingMark},            // Mc   [4] BALINESE VOWEL SIGN TALING..BALINESE VOWEL SIGN TALING REPA TEDUNG
-	{runeRange{0x1B43, 0x1B44}, prExtend},                 // Mc   [2] BALINESE VOWEL SIGN PEPET TEDUNG..BALINESE ADEG ADEG
-	{runeRange{0x1B80, 0x1B81}, prExtend},                 // Mn   [2] SUNDANESE SIGN PANYECEK..SUNDANESE SIGN PANGLAYAR
-	{runeRange{0x1BA1, 0x1BA1}, prSpacingMark},            // Mc       SUNDANESE CONSONANT SIGN PAMINGKAL
-	{runeRange{0x1BA6, 0x1BA7}, prSpacingMark},            // Mc   [2] SUNDANESE VOWEL SIGN PANAELAENG..SUNDANESE VOWEL SIGN PANOLONG
-	{runeRange{0x1BAA, 0x1BAA}, prExtend},                 // Mc       SUNDANESE SIGN PAMAAEH
-	{runeRange{0x1BE6, 0x1BE6}, prExtend},                 // Mn       BATAK SIGN TOMPI
-	{runeRange{0x1BE8, 0x1BE9}, prExtend},                 // Mn   [2] BATAK VOWEL SIGN PAKPAK E..BATAK VOWEL SIGN EE
-	{runeRange{0x1BED, 0x1BED}, prExtend},                 // Mn       BATAK VOWEL SIGN KARO O
-	{runeRange{0x1BEF, 0x1BF1}, prExtend},                 // Mn   [3] BATAK VOWEL SIGN U FOR SIMALUNGUN SA..BATAK CONSONANT SIGN H
-	{runeRange{0x1C24, 0x1C2B}, prSpacingMark},            // Mc   [8] LEPCHA SUBJOINED LETTER YA..LEPCHA VOWEL SIGN UU
-	{runeRange{0x1C34, 0x1C35}, prSpacingMark},            // Mc   [2] LEPCHA CONSONANT SIGN NYIN-DO..LEPCHA CONSONANT SIGN KANG
-	{runeRange{0x1CD0, 0x1CD2}, prExtend},                 // Mn   [3] VEDIC TONE KARSHANA..VEDIC TONE PRENKHA
-	{runeRange{0x1CE1, 0x1CE1}, prSpacingMark},            // Mc       VEDIC TONE ATHARVAVEDIC INDEPENDENT SVARITA
-	{runeRange{0x1CED, 0x1CED}, prExtend},                 // Mn       VEDIC SIGN TIRYAK
-	{runeRange{0x1CF7, 0x1CF7}, prSpacingMark},            // Mc       VEDIC SIGN ATIKRAMA
-	{runeRange{0x1DC0, 0x1DFF}, prExtend},                 // Mn  [64] COMBINING DOTTED GRAVE ACCENT..COMBINING RIGHT ARROWHEAD AND DOWN ARROWHEAD BELOW
-	{runeRange{0x200C, 0x200C}, prExtend},                 // Cf       ZERO WIDTH NON-JOINER
-	{runeRange{0x200E, 0x200F}, prControl},                // Cf   [2] LEFT-TO-RIGHT MARK..RIGHT-TO-LEFT MARK
-	{runeRange{0x2029, 0x2029}, prControl},                // Zp       PARAGRAPH SEPARATOR
-	{runeRange{0x203C, 0x203C}, prExtendedPictographic},   // E0.6   [1] (‼️)       double exclamation mark
-	{runeRange{0x2060, 0x2064}, prControl},                // Cf   [5] WORD JOINER..INVISIBLE PLUS
-	{runeRange{0x2066, 0x206F}, prControl},                // Cf  [10] LEFT-TO-RIGHT ISOLATE..NOMINAL DIGIT SHAPES
-	{runeRange{0x20DD, 0x20E0}, prExtend},                 // Me   [4] COMBINING ENCLOSING CIRCLE..COMBINING ENCLOSING CIRCLE BACKSLASH
-	{runeRange{0x20E2, 0x20E4}, prExtend},                 // Me   [3] COMBINING ENCLOSING SCREEN..COMBINING ENCLOSING UPWARD POINTING TRIANGLE
-	{runeRange{0x2122, 0x2122}, prExtendedPictographic},   // E0.6   [1] (™️)       trade mark
-	{runeRange{0x2194, 0x2199}, prExtendedPictographic},   // E0.6   [6] (↔️..↙️)    left-right arrow..down-left arrow
-	{runeRange{0x231A, 0x231B}, prExtendedPictographic},   // E0.6   [2] (⌚..⌛)    watch..hourglass done
-	{runeRange{0x23CF, 0x23CF}, prExtendedPictographic},   // E1.0   [1] (⏏️)       eject button
-	{runeRange{0x23ED, 0x23EE}, prExtendedPictographic},   // E0.7   [2] (⏭️..⏮️)    next track button..last track button
-	{runeRange{0x23F0, 0x23F0}, prExtendedPictographic},   // E0.6   [1] (⏰)       alarm clock
-	{runeRange{0x23F3, 0x23F3}, prExtendedPictographic},   // E0.6   [1] (⏳)       hourglass not done
-	{runeRange{0x24C2, 0x24C2}, prExtendedPictographic},   // E0.6   [1] (Ⓜ️)       circled M
-	{runeRange{0x25B6, 0x25B6}, prExtendedPictographic},   // E0.6   [1] (▶️)       play button
-	{runeRange{0x25FB, 0x25FE}, prExtendedPictographic},   // E0.6   [4] (◻️..◾)    white medium square..black medium-small square
-	{runeRange{0x2602, 0x2603}, prExtendedPictographic},   // E0.7   [2] (☂️..☃️)    umbrella..snowman
-	{runeRange{0x260E, 0x260E}, prExtendedPictographic},   // E0.6   [1] (☎️)       telephone
-	{runeRange{0x2614, 0x2615}, prExtendedPictographic},   // E0.6   [2] (☔..☕)    umbrella with rain drops..hot beverage
-	{runeRange{0x261D, 0x261D}, prExtendedPictographic},   // E0.6   [1] (☝️)       index pointing up
-	{runeRange{0x2622, 0x2623}, prExtendedPictographic},   // E1.0   [2] (☢️..☣️)    radioactive..biohazard
-	{runeRange{0x262A, 0x262A}, prExtendedPictographic},   // E0.7   [1] (☪️)       star and crescent
-	{runeRange{0x262F, 0x262F}, prExtendedPictographic},   // E0.7   [1] (☯️)       yin yang
-	{runeRange{0x263A, 0x263A}, prExtendedPictographic},   // E0.6   [1] (☺️)       smiling face
-	{runeRange{0x2642, 0x2642}, prExtendedPictographic},   // E4.0   [1] (♂️)       male sign
-	{runeRange{0x265F, 0x265F}, prExtendedPictographic},   // E11.0  [1] (♟️)       chess pawn
-	{runeRange{0x2663, 0x2663}, prExtendedPictographic},   // E0.6   [1] (♣️)       club suit
-	{runeRange{0x2668, 0x2668}, prExtendedPictographic},   // E0.6   [1] (♨️)       hot springs
-	{runeRange{0x267E, 0x267E}, prExtendedPictographic},   // E11.0  [1] (♾️)       infinity
-	{runeRange{0x2692, 0x2692}, prExtendedPictographic},   // E1.0   [1] (⚒️)       hammer and pick
-	{runeRange{0x2694, 0x2694}, prExtendedPictographic},   // E1.0   [1] (⚔️)       crossed swords
-	{runeRange{0x2696, 0x2697}, prExtendedPictographic},   // E1.0   [2] (⚖️..⚗️)    balance scale..alembic
-	{runeRange{0x269B, 0x269C}, prExtendedPictographic},   // E1.0   [2] (⚛️..⚜️)    atom symbol..fleur-de-lis
-	{runeRange{0x26A7, 0x26A7}, prExtendedPictographic},   // E13.0  [1] (⚧️)       transgender symbol
-	{runeRange{0x26B0, 0x26B1}, prExtendedPictographic},   // E1.0   [2] (⚰️..⚱️)    coffin..funeral urn
-	{runeRange{0x26C4, 0x26C5}, prExtendedPictographic},   // E0.6   [2] (⛄..⛅)    snowman without snow..sun behind cloud
-	{runeRange{0x26CE, 0x26CE}, prExtendedPictographic},   // E0.6   [1] (⛎)       Ophiuchus
-	{runeRange{0x26D1, 0x26D1}, prExtendedPictographic},   // E0.7   [1] (⛑️)       rescue worker’s helmet
-	{runeRange{0x26D4, 0x26D4}, prExtendedPictographic},   // E0.6   [1] (⛔)       no entry
-	{runeRange{0x26EA, 0x26EA}, prExtendedPictographic},   // E0.6   [1] (⛪)       church
-	{runeRange{0x26F2, 0x26F3}, prExtendedPictographic},   // E0.6   [2] (⛲..⛳)    fountain..flag in hole
-	{runeRange{0x26F5, 0x26F5}, prExtendedPictographic},   // E0.6   [1] (⛵)       sailboat
-	{runeRange{0x26FA, 0x26FA}, prExtendedPictographic},   // E0.6   [1] (⛺)       tent
-	{runeRange{0x2702, 0x2702}, prExtendedPictographic},   // E0.6   [1] (✂️)       scissors
-	{runeRange{0x2708, 0x270C}, prExtendedPictographic},   // E0.6   [5] (✈️..✌️)    airplane..victory hand
-	{runeRange{0x270F, 0x270F}, prExtendedPictographic},   // E0.6   [1] (✏️)       pencil
-	{runeRange{0x2714, 0x2714}, prExtendedPictographic},   // E0.6   [1] (✔️)       check mark
-	{runeRange{0x271D, 0x271D}, prExtendedPictographic},   // E0.7   [1] (✝️)       latin cross
-	{runeRange{0x2728, 0x2728}, prExtendedPictographic},   // E0.6   [1] (✨)       sparkles
-	{runeRange{0x2744, 0x2744}, prExtendedPictographic},   // E0.6   [1] (❄️)       snowflake
-	{runeRange{0x274C, 0x274C}, prExtendedPictographic},   // E0.6   [1] (❌)       cross mark
-	{runeRange{0x2753, 0x2755}, prExtendedPictographic},   // E0.6   [3] (❓..❕)    red question mark..white exclamation mark
-	{runeRange{0x2763, 0x2763}, prExtendedPictographic},   // E1.0   [1] (❣️)       heart exclamation
-	{runeRange{0x2795, 0x2797}, prExtendedPictographic},   // E0.6   [3] (➕..➗)    plus..divide
-	{runeRange{0x27B0, 0x27B0}, prExtendedPictographic},   // E0.6   [1] (➰)       curly loop
-	{runeRange{0x2934, 0x2935}, prExtendedPictographic},   // E0.6   [2] (⤴️..⤵️)    right arrow curving up..right arrow curving down
-	{runeRange{0x2B1B, 0x2B1C}, prExtendedPictographic},   // E0.6   [2] (⬛..⬜)    black large square..white large square
-	{runeRange{0x2B55, 0x2B55}, prExtendedPictographic},   // E0.6   [1] (⭕)       hollow red circle
-	{runeRange{0x2D7F, 0x2D7F}, prExtend},                 // Mn       TIFINAGH CONSONANT JOINER
-	{runeRange{0x302A, 0x302D}, prExtend},                 // Mn   [4] IDEOGRAPHIC LEVEL TONE MARK..IDEOGRAPHIC ENTERING TONE MARK
-	{runeRange{0x3030, 0x3030}, prExtendedPictographic},   // E0.6   [1] (〰️)       wavy dash
-	{runeRange{0x3099, 0x309A}, prExtend},                 // Mn   [2] COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK..COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK
-	{runeRange{0x3299, 0x3299}, prExtendedPictographic},   // E0.6   [1] (㊙️)       Japanese “secret” button
-	{runeRange{0xA670, 0xA672}, prExtend},                 // Me   [3] COMBINING CYRILLIC TEN MILLIONS SIGN..COMBINING CYRILLIC THOUSAND MILLIONS SIGN
-	{runeRange{0xA69E, 0xA69F}, prExtend},                 // Mn   [2] COMBINING CYRILLIC LETTER EF..COMBINING CYRILLIC LETTER IOTIFIED E
-	{runeRange{0xA802, 0xA802}, prExtend},                 // Mn       SYLOTI NAGRI SIGN DVISVARA
-	{runeRange{0xA80B, 0xA80B}, prExtend},                 // Mn       SYLOTI NAGRI SIGN ANUSVARA
-	{runeRange{0xA825, 0xA826}, prExtend},                 // Mn   [2] SYLOTI NAGRI VOWEL SIGN U..SYLOTI NAGRI VOWEL SIGN E
-	{runeRange{0xA82C, 0xA82C}, prExtend},                 // Mn       SYLOTI NAGRI SIGN ALTERNATE HASANTA
-	{runeRange{0xA8B4, 0xA8C3}, prSpacingMark},            // Mc  [16] SAURASHTRA CONSONANT SIGN HAARU..SAURASHTRA VOWEL SIGN AU
-	{runeRange{0xA8E0, 0xA8F1}, prExtend},                 // Mn  [18] COMBINING DEVANAGARI DIGIT ZERO..COMBINING DEVANAGARI SIGN AVAGRAHA
-	{runeRange{0xA926, 0xA92D}, prExtend},                 // Mn   [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
-	{runeRange{0xA952, 0xA952}, prSpacingMark},            // Mc       REJANG CONSONANT SIGN H
-	{runeRange{0xA960, 0xA97C}, prL},                      // Lo  [29] HANGUL CHOSEONG TIKEUT-MIEUM..HANGUL CHOSEONG SSANGYEORINHIEUH
-	{runeRange{0xA983, 0xA983}, prSpacingMark},            // Mc       JAVANESE SIGN WIGNYAN
-	{runeRange{0xA9B4, 0xA9B5}, prSpacingMark},            // Mc   [2] JAVANESE VOWEL SIGN TARUNG..JAVANESE VOWEL SIGN TOLONG
-	{runeRange{0xA9BA, 0xA9BB}, prSpacingMark},            // Mc   [2] JAVANESE VOWEL SIGN TALING..JAVANESE VOWEL SIGN DIRGA MURE
-	{runeRange{0xA9BE, 0xA9BF}, prSpacingMark},            // Mc   [2] JAVANESE CONSONANT SIGN PENGKAL..JAVANESE CONSONANT SIGN CAKRA
-	{runeRange{0xA9E5, 0xA9E5}, prExtend},                 // Mn       MYANMAR SIGN SHAN SAW
-	{runeRange{0xAA2F, 0xAA30}, prSpacingMark},            // Mc   [2] CHAM VOWEL SIGN O..CHAM VOWEL SIGN AI
-	{runeRange{0xAA33, 0xAA34}, prSpacingMark},            // Mc   [2] CHAM CONSONANT SIGN YA..CHAM CONSONANT SIGN RA
-	{runeRange{0xAA43, 0xAA43}, prExtend},                 // Mn       CHAM CONSONANT SIGN FINAL NG
-	{runeRange{0xAA4D, 0xAA4D}, prSpacingMark},            // Mc       CHAM CONSONANT SIGN FINAL H
-	{runeRange{0xAAB0, 0xAAB0}, prExtend},                 // Mn       TAI VIET MAI KANG
-	{runeRange{0xAAB7, 0xAAB8}, prExtend},                 // Mn   [2] TAI VIET MAI KHIT..TAI VIET VOWEL IA
-	{runeRange{0xAAC1, 0xAAC1}, prExtend},                 // Mn       TAI VIET TONE MAI THO
-	{runeRange{0xAAEC, 0xAAED}, prExtend},                 // Mn   [2] MEETEI MAYEK VOWEL SIGN UU..MEETEI MAYEK VOWEL SIGN AAI
-	{runeRange{0xAAF5, 0xAAF5}, prSpacingMark},            // Mc       MEETEI MAYEK VOWEL SIGN VISARGA
-	{runeRange{0xABE3, 0xABE4}, prSpacingMark},            // Mc   [2] MEETEI MAYEK VOWEL SIGN ONAP..MEETEI MAYEK VOWEL SIGN INAP
-	{runeRange{0xABE6, 0xABE7}, prSpacingMark},            // Mc   [2] MEETEI MAYEK VOWEL SIGN YENAP..MEETEI MAYEK VOWEL SIGN SOUNAP
-	{runeRange{0xABE9, 0xABEA}, prSpacingMark},            // Mc   [2] MEETEI MAYEK VOWEL SIGN CHEINAP..MEETEI MAYEK VOWEL SIGN NUNG
-	{runeRange{0xABED, 0xABED}, prExtend},                 // Mn       MEETEI MAYEK APUN IYEK
-	{runeRange{0xAC01, 0xAC1B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GAG..HANGUL SYLLABLE GAH
-	{runeRange{0xAC1D, 0xAC37}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GAEG..HANGUL SYLLABLE GAEH
-	{runeRange{0xAC39, 0xAC53}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYAG..HANGUL SYLLABLE GYAH
-	{runeRange{0xAC55, 0xAC6F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYAEG..HANGUL SYLLABLE GYAEH
-	{runeRange{0xAC71, 0xAC8B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GEOG..HANGUL SYLLABLE GEOH
-	{runeRange{0xAC8D, 0xACA7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GEG..HANGUL SYLLABLE GEH
-	{runeRange{0xACA9, 0xACC3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYEOG..HANGUL SYLLABLE GYEOH
-	{runeRange{0xACC5, 0xACDF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYEG..HANGUL SYLLABLE GYEH
-	{runeRange{0xACE1, 0xACFB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GOG..HANGUL SYLLABLE GOH
-	{runeRange{0xACFD, 0xAD17}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GWAG..HANGUL SYLLABLE GWAH
-	{runeRange{0xAD19, 0xAD33}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GWAEG..HANGUL SYLLABLE GWAEH
-	{runeRange{0xAD35, 0xAD4F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GOEG..HANGUL SYLLABLE GOEH
-	{runeRange{0xAD51, 0xAD6B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYOG..HANGUL SYLLABLE GYOH
-	{runeRange{0xAD6D, 0xAD87}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GUG..HANGUL SYLLABLE GUH
-	{runeRange{0xAD89, 0xADA3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GWEOG..HANGUL SYLLABLE GWEOH
-	{runeRange{0xADA5, 0xADBF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GWEG..HANGUL SYLLABLE GWEH
-	{runeRange{0xADC1, 0xADDB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GWIG..HANGUL SYLLABLE GWIH
-	{runeRange{0xADDD, 0xADF7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYUG..HANGUL SYLLABLE GYUH
-	{runeRange{0xADF9, 0xAE13}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GEUG..HANGUL SYLLABLE GEUH
-	{runeRange{0xAE15, 0xAE2F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GYIG..HANGUL SYLLABLE GYIH
-	{runeRange{0xAE31, 0xAE4B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GIG..HANGUL SYLLABLE GIH
-	{runeRange{0xAE4D, 0xAE67}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGAG..HANGUL SYLLABLE GGAH
-	{runeRange{0xAE69, 0xAE83}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGAEG..HANGUL SYLLABLE GGAEH
-	{runeRange{0xAE85, 0xAE9F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYAG..HANGUL SYLLABLE GGYAH
-	{runeRange{0xAEA1, 0xAEBB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYAEG..HANGUL SYLLABLE GGYAEH
-	{runeRange{0xAEBD, 0xAED7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGEOG..HANGUL SYLLABLE GGEOH
-	{runeRange{0xAED9, 0xAEF3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGEG..HANGUL SYLLABLE GGEH
-	{runeRange{0xAEF5, 0xAF0F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYEOG..HANGUL SYLLABLE GGYEOH
-	{runeRange{0xAF11, 0xAF2B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYEG..HANGUL SYLLABLE GGYEH
-	{runeRange{0xAF2D, 0xAF47}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGOG..HANGUL SYLLABLE GGOH
-	{runeRange{0xAF49, 0xAF63}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGWAG..HANGUL SYLLABLE GGWAH
-	{runeRange{0xAF65, 0xAF7F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGWAEG..HANGUL SYLLABLE GGWAEH
-	{runeRange{0xAF81, 0xAF9B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGOEG..HANGUL SYLLABLE GGOEH
-	{runeRange{0xAF9D, 0xAFB7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYOG..HANGUL SYLLABLE GGYOH
-	{runeRange{0xAFB9, 0xAFD3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGUG..HANGUL SYLLABLE GGUH
-	{runeRange{0xAFD5, 0xAFEF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGWEOG..HANGUL SYLLABLE GGWEOH
-	{runeRange{0xAFF1, 0xB00B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGWEG..HANGUL SYLLABLE GGWEH
-	{runeRange{0xB00D, 0xB027}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGWIG..HANGUL SYLLABLE GGWIH
-	{runeRange{0xB029, 0xB043}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYUG..HANGUL SYLLABLE GGYUH
-	{runeRange{0xB045, 0xB05F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGEUG..HANGUL SYLLABLE GGEUH
-	{runeRange{0xB061, 0xB07B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGYIG..HANGUL SYLLABLE GGYIH
-	{runeRange{0xB07D, 0xB097}, prLVT},                    // Lo  [27] HANGUL SYLLABLE GGIG..HANGUL SYLLABLE GGIH
-	{runeRange{0xB099, 0xB0B3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NAG..HANGUL SYLLABLE NAH
-	{runeRange{0xB0B5, 0xB0CF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NAEG..HANGUL SYLLABLE NAEH
-	{runeRange{0xB0D1, 0xB0EB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYAG..HANGUL SYLLABLE NYAH
-	{runeRange{0xB0ED, 0xB107}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYAEG..HANGUL SYLLABLE NYAEH
-	{runeRange{0xB109, 0xB123}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NEOG..HANGUL SYLLABLE NEOH
-	{runeRange{0xB125, 0xB13F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NEG..HANGUL SYLLABLE NEH
-	{runeRange{0xB141, 0xB15B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYEOG..HANGUL SYLLABLE NYEOH
-	{runeRange{0xB15D, 0xB177}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYEG..HANGUL SYLLABLE NYEH
-	{runeRange{0xB179, 0xB193}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NOG..HANGUL SYLLABLE NOH
-	{runeRange{0xB195, 0xB1AF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NWAG..HANGUL SYLLABLE NWAH
-	{runeRange{0xB1B1, 0xB1CB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NWAEG..HANGUL SYLLABLE NWAEH
-	{runeRange{0xB1CD, 0xB1E7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NOEG..HANGUL SYLLABLE NOEH
-	{runeRange{0xB1E9, 0xB203}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYOG..HANGUL SYLLABLE NYOH
-	{runeRange{0xB205, 0xB21F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NUG..HANGUL SYLLABLE NUH
-	{runeRange{0xB221, 0xB23B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NWEOG..HANGUL SYLLABLE NWEOH
-	{runeRange{0xB23D, 0xB257}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NWEG..HANGUL SYLLABLE NWEH
-	{runeRange{0xB259, 0xB273}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NWIG..HANGUL SYLLABLE NWIH
-	{runeRange{0xB275, 0xB28F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYUG..HANGUL SYLLABLE NYUH
-	{runeRange{0xB291, 0xB2AB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NEUG..HANGUL SYLLABLE NEUH
-	{runeRange{0xB2AD, 0xB2C7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NYIG..HANGUL SYLLABLE NYIH
-	{runeRange{0xB2C9, 0xB2E3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE NIG..HANGUL SYLLABLE NIH
-	{runeRange{0xB2E5, 0xB2FF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DAG..HANGUL SYLLABLE DAH
-	{runeRange{0xB301, 0xB31B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DAEG..HANGUL SYLLABLE DAEH
-	{runeRange{0xB31D, 0xB337}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYAG..HANGUL SYLLABLE DYAH
-	{runeRange{0xB339, 0xB353}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYAEG..HANGUL SYLLABLE DYAEH
-	{runeRange{0xB355, 0xB36F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DEOG..HANGUL SYLLABLE DEOH
-	{runeRange{0xB371, 0xB38B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DEG..HANGUL SYLLABLE DEH
-	{runeRange{0xB38D, 0xB3A7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYEOG..HANGUL SYLLABLE DYEOH
-	{runeRange{0xB3A9, 0xB3C3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYEG..HANGUL SYLLABLE DYEH
-	{runeRange{0xB3C5, 0xB3DF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DOG..HANGUL SYLLABLE DOH
-	{runeRange{0xB3E1, 0xB3FB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DWAG..HANGUL SYLLABLE DWAH
-	{runeRange{0xB3FD, 0xB417}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DWAEG..HANGUL SYLLABLE DWAEH
-	{runeRange{0xB419, 0xB433}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DOEG..HANGUL SYLLABLE DOEH
-	{runeRange{0xB435, 0xB44F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYOG..HANGUL SYLLABLE DYOH
-	{runeRange{0xB451, 0xB46B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DUG..HANGUL SYLLABLE DUH
-	{runeRange{0xB46D, 0xB487}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DWEOG..HANGUL SYLLABLE DWEOH
-	{runeRange{0xB489, 0xB4A3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DWEG..HANGUL SYLLABLE DWEH
-	{runeRange{0xB4A5, 0xB4BF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DWIG..HANGUL SYLLABLE DWIH
-	{runeRange{0xB4C1, 0xB4DB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYUG..HANGUL SYLLABLE DYUH
-	{runeRange{0xB4DD, 0xB4F7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DEUG..HANGUL SYLLABLE DEUH
-	{runeRange{0xB4F9, 0xB513}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DYIG..HANGUL SYLLABLE DYIH
-	{runeRange{0xB515, 0xB52F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DIG..HANGUL SYLLABLE DIH
-	{runeRange{0xB531, 0xB54B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDAG..HANGUL SYLLABLE DDAH
-	{runeRange{0xB54D, 0xB567}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDAEG..HANGUL SYLLABLE DDAEH
-	{runeRange{0xB569, 0xB583}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYAG..HANGUL SYLLABLE DDYAH
-	{runeRange{0xB585, 0xB59F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYAEG..HANGUL SYLLABLE DDYAEH
-	{runeRange{0xB5A1, 0xB5BB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDEOG..HANGUL SYLLABLE DDEOH
-	{runeRange{0xB5BD, 0xB5D7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDEG..HANGUL SYLLABLE DDEH
-	{runeRange{0xB5D9, 0xB5F3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYEOG..HANGUL SYLLABLE DDYEOH
-	{runeRange{0xB5F5, 0xB60F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYEG..HANGUL SYLLABLE DDYEH
-	{runeRange{0xB611, 0xB62B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDOG..HANGUL SYLLABLE DDOH
-	{runeRange{0xB62D, 0xB647}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDWAG..HANGUL SYLLABLE DDWAH
-	{runeRange{0xB649, 0xB663}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDWAEG..HANGUL SYLLABLE DDWAEH
-	{runeRange{0xB665, 0xB67F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDOEG..HANGUL SYLLABLE DDOEH
-	{runeRange{0xB681, 0xB69B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYOG..HANGUL SYLLABLE DDYOH
-	{runeRange{0xB69D, 0xB6B7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDUG..HANGUL SYLLABLE DDUH
-	{runeRange{0xB6B9, 0xB6D3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDWEOG..HANGUL SYLLABLE DDWEOH
-	{runeRange{0xB6D5, 0xB6EF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDWEG..HANGUL SYLLABLE DDWEH
-	{runeRange{0xB6F1, 0xB70B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDWIG..HANGUL SYLLABLE DDWIH
-	{runeRange{0xB70D, 0xB727}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYUG..HANGUL SYLLABLE DDYUH
-	{runeRange{0xB729, 0xB743}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDEUG..HANGUL SYLLABLE DDEUH
-	{runeRange{0xB745, 0xB75F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDYIG..HANGUL SYLLABLE DDYIH
-	{runeRange{0xB761, 0xB77B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE DDIG..HANGUL SYLLABLE DDIH
-	{runeRange{0xB77D, 0xB797}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RAG..HANGUL SYLLABLE RAH
-	{runeRange{0xB799, 0xB7B3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RAEG..HANGUL SYLLABLE RAEH
-	{runeRange{0xB7B5, 0xB7CF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYAG..HANGUL SYLLABLE RYAH
-	{runeRange{0xB7D1, 0xB7EB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYAEG..HANGUL SYLLABLE RYAEH
-	{runeRange{0xB7ED, 0xB807}, prLVT},                    // Lo  [27] HANGUL SYLLABLE REOG..HANGUL SYLLABLE REOH
-	{runeRange{0xB809, 0xB823}, prLVT},                    // Lo  [27] HANGUL SYLLABLE REG..HANGUL SYLLABLE REH
-	{runeRange{0xB825, 0xB83F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYEOG..HANGUL SYLLABLE RYEOH
-	{runeRange{0xB841, 0xB85B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYEG..HANGUL SYLLABLE RYEH
-	{runeRange{0xB85D, 0xB877}, prLVT},                    // Lo  [27] HANGUL SYLLABLE ROG..HANGUL SYLLABLE ROH
-	{runeRange{0xB879, 0xB893}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RWAG..HANGUL SYLLABLE RWAH
-	{runeRange{0xB895, 0xB8AF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RWAEG..HANGUL SYLLABLE RWAEH
-	{runeRange{0xB8B1, 0xB8CB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE ROEG..HANGUL SYLLABLE ROEH
-	{runeRange{0xB8CD, 0xB8E7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYOG..HANGUL SYLLABLE RYOH
-	{runeRange{0xB8E9, 0xB903}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RUG..HANGUL SYLLABLE RUH
-	{runeRange{0xB905, 0xB91F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RWEOG..HANGUL SYLLABLE RWEOH
-	{runeRange{0xB921, 0xB93B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RWEG..HANGUL SYLLABLE RWEH
-	{runeRange{0xB93D, 0xB957}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RWIG..HANGUL SYLLABLE RWIH
-	{runeRange{0xB959, 0xB973}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYUG..HANGUL SYLLABLE RYUH
-	{runeRange{0xB975, 0xB98F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE REUG..HANGUL SYLLABLE REUH
-	{runeRange{0xB991, 0xB9AB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RYIG..HANGUL SYLLABLE RYIH
-	{runeRange{0xB9AD, 0xB9C7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE RIG..HANGUL SYLLABLE RIH
-	{runeRange{0xB9C9, 0xB9E3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MAG..HANGUL SYLLABLE MAH
-	{runeRange{0xB9E5, 0xB9FF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MAEG..HANGUL SYLLABLE MAEH
-	{runeRange{0xBA01, 0xBA1B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYAG..HANGUL SYLLABLE MYAH
-	{runeRange{0xBA1D, 0xBA37}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYAEG..HANGUL SYLLABLE MYAEH
-	{runeRange{0xBA39, 0xBA53}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MEOG..HANGUL SYLLABLE MEOH
-	{runeRange{0xBA55, 0xBA6F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MEG..HANGUL SYLLABLE MEH
-	{runeRange{0xBA71, 0xBA8B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYEOG..HANGUL SYLLABLE MYEOH
-	{runeRange{0xBA8D, 0xBAA7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYEG..HANGUL SYLLABLE MYEH
-	{runeRange{0xBAA9, 0xBAC3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MOG..HANGUL SYLLABLE MOH
-	{runeRange{0xBAC5, 0xBADF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MWAG..HANGUL SYLLABLE MWAH
-	{runeRange{0xBAE1, 0xBAFB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MWAEG..HANGUL SYLLABLE MWAEH
-	{runeRange{0xBAFD, 0xBB17}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MOEG..HANGUL SYLLABLE MOEH
-	{runeRange{0xBB19, 0xBB33}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYOG..HANGUL SYLLABLE MYOH
-	{runeRange{0xBB35, 0xBB4F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MUG..HANGUL SYLLABLE MUH
-	{runeRange{0xBB51, 0xBB6B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MWEOG..HANGUL SYLLABLE MWEOH
-	{runeRange{0xBB6D, 0xBB87}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MWEG..HANGUL SYLLABLE MWEH
-	{runeRange{0xBB89, 0xBBA3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MWIG..HANGUL SYLLABLE MWIH
-	{runeRange{0xBBA5, 0xBBBF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYUG..HANGUL SYLLABLE MYUH
-	{runeRange{0xBBC1, 0xBBDB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MEUG..HANGUL SYLLABLE MEUH
-	{runeRange{0xBBDD, 0xBBF7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MYIG..HANGUL SYLLABLE MYIH
-	{runeRange{0xBBF9, 0xBC13}, prLVT},                    // Lo  [27] HANGUL SYLLABLE MIG..HANGUL SYLLABLE MIH
-	{runeRange{0xBC15, 0xBC2F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BAG..HANGUL SYLLABLE BAH
-	{runeRange{0xBC31, 0xBC4B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BAEG..HANGUL SYLLABLE BAEH
-	{runeRange{0xBC4D, 0xBC67}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYAG..HANGUL SYLLABLE BYAH
-	{runeRange{0xBC69, 0xBC83}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYAEG..HANGUL SYLLABLE BYAEH
-	{runeRange{0xBC85, 0xBC9F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BEOG..HANGUL SYLLABLE BEOH
-	{runeRange{0xBCA1, 0xBCBB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BEG..HANGUL SYLLABLE BEH
-	{runeRange{0xBCBD, 0xBCD7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYEOG..HANGUL SYLLABLE BYEOH
-	{runeRange{0xBCD9, 0xBCF3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYEG..HANGUL SYLLABLE BYEH
-	{runeRange{0xBCF5, 0xBD0F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BOG..HANGUL SYLLABLE BOH
-	{runeRange{0xBD11, 0xBD2B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BWAG..HANGUL SYLLABLE BWAH
-	{runeRange{0xBD2D, 0xBD47}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BWAEG..HANGUL SYLLABLE BWAEH
-	{runeRange{0xBD49, 0xBD63}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BOEG..HANGUL SYLLABLE BOEH
-	{runeRange{0xBD65, 0xBD7F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYOG..HANGUL SYLLABLE BYOH
-	{runeRange{0xBD81, 0xBD9B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BUG..HANGUL SYLLABLE BUH
-	{runeRange{0xBD9D, 0xBDB7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BWEOG..HANGUL SYLLABLE BWEOH
-	{runeRange{0xBDB9, 0xBDD3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BWEG..HANGUL SYLLABLE BWEH
-	{runeRange{0xBDD5, 0xBDEF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BWIG..HANGUL SYLLABLE BWIH
-	{runeRange{0xBDF1, 0xBE0B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYUG..HANGUL SYLLABLE BYUH
-	{runeRange{0xBE0D, 0xBE27}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BEUG..HANGUL SYLLABLE BEUH
-	{runeRange{0xBE29, 0xBE43}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BYIG..HANGUL SYLLABLE BYIH
-	{runeRange{0xBE45, 0xBE5F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BIG..HANGUL SYLLABLE BIH
-	{runeRange{0xBE61, 0xBE7B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBAG..HANGUL SYLLABLE BBAH
-	{runeRange{0xBE7D, 0xBE97}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBAEG..HANGUL SYLLABLE BBAEH
-	{runeRange{0xBE99, 0xBEB3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYAG..HANGUL SYLLABLE BBYAH
-	{runeRange{0xBEB5, 0xBECF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYAEG..HANGUL SYLLABLE BBYAEH
-	{runeRange{0xBED1, 0xBEEB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBEOG..HANGUL SYLLABLE BBEOH
-	{runeRange{0xBEED, 0xBF07}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBEG..HANGUL SYLLABLE BBEH
-	{runeRange{0xBF09, 0xBF23}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYEOG..HANGUL SYLLABLE BBYEOH
-	{runeRange{0xBF25, 0xBF3F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYEG..HANGUL SYLLABLE BBYEH
-	{runeRange{0xBF41, 0xBF5B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBOG..HANGUL SYLLABLE BBOH
-	{runeRange{0xBF5D, 0xBF77}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBWAG..HANGUL SYLLABLE BBWAH
-	{runeRange{0xBF79, 0xBF93}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBWAEG..HANGUL SYLLABLE BBWAEH
-	{runeRange{0xBF95, 0xBFAF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBOEG..HANGUL SYLLABLE BBOEH
-	{runeRange{0xBFB1, 0xBFCB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYOG..HANGUL SYLLABLE BBYOH
-	{runeRange{0xBFCD, 0xBFE7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBUG..HANGUL SYLLABLE BBUH
-	{runeRange{0xBFE9, 0xC003}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBWEOG..HANGUL SYLLABLE BBWEOH
-	{runeRange{0xC005, 0xC01F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBWEG..HANGUL SYLLABLE BBWEH
-	{runeRange{0xC021, 0xC03B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBWIG..HANGUL SYLLABLE BBWIH
-	{runeRange{0xC03D, 0xC057}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYUG..HANGUL SYLLABLE BBYUH
-	{runeRange{0xC059, 0xC073}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBEUG..HANGUL SYLLABLE BBEUH
-	{runeRange{0xC075, 0xC08F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBYIG..HANGUL SYLLABLE BBYIH
-	{runeRange{0xC091, 0xC0AB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE BBIG..HANGUL SYLLABLE BBIH
-	{runeRange{0xC0AD, 0xC0C7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SAG..HANGUL SYLLABLE SAH
-	{runeRange{0xC0C9, 0xC0E3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SAEG..HANGUL SYLLABLE SAEH
-	{runeRange{0xC0E5, 0xC0FF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYAG..HANGUL SYLLABLE SYAH
-	{runeRange{0xC101, 0xC11B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYAEG..HANGUL SYLLABLE SYAEH
-	{runeRange{0xC11D, 0xC137}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SEOG..HANGUL SYLLABLE SEOH
-	{runeRange{0xC139, 0xC153}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SEG..HANGUL SYLLABLE SEH
-	{runeRange{0xC155, 0xC16F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYEOG..HANGUL SYLLABLE SYEOH
-	{runeRange{0xC171, 0xC18B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYEG..HANGUL SYLLABLE SYEH
-	{runeRange{0xC18D, 0xC1A7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SOG..HANGUL SYLLABLE SOH
-	{runeRange{0xC1A9, 0xC1C3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SWAG..HANGUL SYLLABLE SWAH
-	{runeRange{0xC1C5, 0xC1DF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SWAEG..HANGUL SYLLABLE SWAEH
-	{runeRange{0xC1E1, 0xC1FB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SOEG..HANGUL SYLLABLE SOEH
-	{runeRange{0xC1FD, 0xC217}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYOG..HANGUL SYLLABLE SYOH
-	{runeRange{0xC219, 0xC233}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SUG..HANGUL SYLLABLE SUH
-	{runeRange{0xC235, 0xC24F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SWEOG..HANGUL SYLLABLE SWEOH
-	{runeRange{0xC251, 0xC26B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SWEG..HANGUL SYLLABLE SWEH
-	{runeRange{0xC26D, 0xC287}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SWIG..HANGUL SYLLABLE SWIH
-	{runeRange{0xC289, 0xC2A3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYUG..HANGUL SYLLABLE SYUH
-	{runeRange{0xC2A5, 0xC2BF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SEUG..HANGUL SYLLABLE SEUH
-	{runeRange{0xC2C1, 0xC2DB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SYIG..HANGUL SYLLABLE SYIH
-	{runeRange{0xC2DD, 0xC2F7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SIG..HANGUL SYLLABLE SIH
-	{runeRange{0xC2F9, 0xC313}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSAG..HANGUL SYLLABLE SSAH
-	{runeRange{0xC315, 0xC32F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSAEG..HANGUL SYLLABLE SSAEH
-	{runeRange{0xC331, 0xC34B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYAG..HANGUL SYLLABLE SSYAH
-	{runeRange{0xC34D, 0xC367}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYAEG..HANGUL SYLLABLE SSYAEH
-	{runeRange{0xC369, 0xC383}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSEOG..HANGUL SYLLABLE SSEOH
-	{runeRange{0xC385, 0xC39F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSEG..HANGUL SYLLABLE SSEH
-	{runeRange{0xC3A1, 0xC3BB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYEOG..HANGUL SYLLABLE SSYEOH
-	{runeRange{0xC3BD, 0xC3D7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYEG..HANGUL SYLLABLE SSYEH
-	{runeRange{0xC3D9, 0xC3F3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSOG..HANGUL SYLLABLE SSOH
-	{runeRange{0xC3F5, 0xC40F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSWAG..HANGUL SYLLABLE SSWAH
-	{runeRange{0xC411, 0xC42B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSWAEG..HANGUL SYLLABLE SSWAEH
-	{runeRange{0xC42D, 0xC447}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSOEG..HANGUL SYLLABLE SSOEH
-	{runeRange{0xC449, 0xC463}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYOG..HANGUL SYLLABLE SSYOH
-	{runeRange{0xC465, 0xC47F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSUG..HANGUL SYLLABLE SSUH
-	{runeRange{0xC481, 0xC49B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSWEOG..HANGUL SYLLABLE SSWEOH
-	{runeRange{0xC49D, 0xC4B7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSWEG..HANGUL SYLLABLE SSWEH
-	{runeRange{0xC4B9, 0xC4D3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSWIG..HANGUL SYLLABLE SSWIH
-	{runeRange{0xC4D5, 0xC4EF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYUG..HANGUL SYLLABLE SSYUH
-	{runeRange{0xC4F1, 0xC50B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSEUG..HANGUL SYLLABLE SSEUH
-	{runeRange{0xC50D, 0xC527}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSYIG..HANGUL SYLLABLE SSYIH
-	{runeRange{0xC529, 0xC543}, prLVT},                    // Lo  [27] HANGUL SYLLABLE SSIG..HANGUL SYLLABLE SSIH
-	{runeRange{0xC545, 0xC55F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE AG..HANGUL SYLLABLE AH
-	{runeRange{0xC561, 0xC57B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE AEG..HANGUL SYLLABLE AEH
-	{runeRange{0xC57D, 0xC597}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YAG..HANGUL SYLLABLE YAH
-	{runeRange{0xC599, 0xC5B3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YAEG..HANGUL SYLLABLE YAEH
-	{runeRange{0xC5B5, 0xC5CF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE EOG..HANGUL SYLLABLE EOH
-	{runeRange{0xC5D1, 0xC5EB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE EG..HANGUL SYLLABLE EH
-	{runeRange{0xC5ED, 0xC607}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YEOG..HANGUL SYLLABLE YEOH
-	{runeRange{0xC609, 0xC623}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YEG..HANGUL SYLLABLE YEH
-	{runeRange{0xC625, 0xC63F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE OG..HANGUL SYLLABLE OH
-	{runeRange{0xC641, 0xC65B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE WAG..HANGUL SYLLABLE WAH
-	{runeRange{0xC65D, 0xC677}, prLVT},                    // Lo  [27] HANGUL SYLLABLE WAEG..HANGUL SYLLABLE WAEH
-	{runeRange{0xC679, 0xC693}, prLVT},                    // Lo  [27] HANGUL SYLLABLE OEG..HANGUL SYLLABLE OEH
-	{runeRange{0xC695, 0xC6AF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YOG..HANGUL SYLLABLE YOH
-	{runeRange{0xC6B1, 0xC6CB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE UG..HANGUL SYLLABLE UH
-	{runeRange{0xC6CD, 0xC6E7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE WEOG..HANGUL SYLLABLE WEOH
-	{runeRange{0xC6E9, 0xC703}, prLVT},                    // Lo  [27] HANGUL SYLLABLE WEG..HANGUL SYLLABLE WEH
-	{runeRange{0xC705, 0xC71F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE WIG..HANGUL SYLLABLE WIH
-	{runeRange{0xC721, 0xC73B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YUG..HANGUL SYLLABLE YUH
-	{runeRange{0xC73D, 0xC757}, prLVT},                    // Lo  [27] HANGUL SYLLABLE EUG..HANGUL SYLLABLE EUH
-	{runeRange{0xC759, 0xC773}, prLVT},                    // Lo  [27] HANGUL SYLLABLE YIG..HANGUL SYLLABLE YIH
-	{runeRange{0xC775, 0xC78F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE IG..HANGUL SYLLABLE IH
-	{runeRange{0xC791, 0xC7AB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JAG..HANGUL SYLLABLE JAH
-	{runeRange{0xC7AD, 0xC7C7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JAEG..HANGUL SYLLABLE JAEH
-	{runeRange{0xC7C9, 0xC7E3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYAG..HANGUL SYLLABLE JYAH
-	{runeRange{0xC7E5, 0xC7FF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYAEG..HANGUL SYLLABLE JYAEH
-	{runeRange{0xC801, 0xC81B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JEOG..HANGUL SYLLABLE JEOH
-	{runeRange{0xC81D, 0xC837}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JEG..HANGUL SYLLABLE JEH
-	{runeRange{0xC839, 0xC853}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYEOG..HANGUL SYLLABLE JYEOH
-	{runeRange{0xC855, 0xC86F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYEG..HANGUL SYLLABLE JYEH
-	{runeRange{0xC871, 0xC88B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JOG..HANGUL SYLLABLE JOH
-	{runeRange{0xC88D, 0xC8A7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JWAG..HANGUL SYLLABLE JWAH
-	{runeRange{0xC8A9, 0xC8C3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JWAEG..HANGUL SYLLABLE JWAEH
-	{runeRange{0xC8C5, 0xC8DF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JOEG..HANGUL SYLLABLE JOEH
-	{runeRange{0xC8E1, 0xC8FB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYOG..HANGUL SYLLABLE JYOH
-	{runeRange{0xC8FD, 0xC917}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JUG..HANGUL SYLLABLE JUH
-	{runeRange{0xC919, 0xC933}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JWEOG..HANGUL SYLLABLE JWEOH
-	{runeRange{0xC935, 0xC94F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JWEG..HANGUL SYLLABLE JWEH
-	{runeRange{0xC951, 0xC96B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JWIG..HANGUL SYLLABLE JWIH
-	{runeRange{0xC96D, 0xC987}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYUG..HANGUL SYLLABLE JYUH
-	{runeRange{0xC989, 0xC9A3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JEUG..HANGUL SYLLABLE JEUH
-	{runeRange{0xC9A5, 0xC9BF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JYIG..HANGUL SYLLABLE JYIH
-	{runeRange{0xC9C1, 0xC9DB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JIG..HANGUL SYLLABLE JIH
-	{runeRange{0xC9DD, 0xC9F7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJAG..HANGUL SYLLABLE JJAH
-	{runeRange{0xC9F9, 0xCA13}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJAEG..HANGUL SYLLABLE JJAEH
-	{runeRange{0xCA15, 0xCA2F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYAG..HANGUL SYLLABLE JJYAH
-	{runeRange{0xCA31, 0xCA4B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYAEG..HANGUL SYLLABLE JJYAEH
-	{runeRange{0xCA4D, 0xCA67}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJEOG..HANGUL SYLLABLE JJEOH
-	{runeRange{0xCA69, 0xCA83}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJEG..HANGUL SYLLABLE JJEH
-	{runeRange{0xCA85, 0xCA9F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYEOG..HANGUL SYLLABLE JJYEOH
-	{runeRange{0xCAA1, 0xCABB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYEG..HANGUL SYLLABLE JJYEH
-	{runeRange{0xCABD, 0xCAD7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJOG..HANGUL SYLLABLE JJOH
-	{runeRange{0xCAD9, 0xCAF3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJWAG..HANGUL SYLLABLE JJWAH
-	{runeRange{0xCAF5, 0xCB0F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJWAEG..HANGUL SYLLABLE JJWAEH
-	{runeRange{0xCB11, 0xCB2B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJOEG..HANGUL SYLLABLE JJOEH
-	{runeRange{0xCB2D, 0xCB47}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYOG..HANGUL SYLLABLE JJYOH
-	{runeRange{0xCB49, 0xCB63}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJUG..HANGUL SYLLABLE JJUH
-	{runeRange{0xCB65, 0xCB7F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJWEOG..HANGUL SYLLABLE JJWEOH
-	{runeRange{0xCB81, 0xCB9B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJWEG..HANGUL SYLLABLE JJWEH
-	{runeRange{0xCB9D, 0xCBB7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJWIG..HANGUL SYLLABLE JJWIH
-	{runeRange{0xCBB9, 0xCBD3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYUG..HANGUL SYLLABLE JJYUH
-	{runeRange{0xCBD5, 0xCBEF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJEUG..HANGUL SYLLABLE JJEUH
-	{runeRange{0xCBF1, 0xCC0B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJYIG..HANGUL SYLLABLE JJYIH
-	{runeRange{0xCC0D, 0xCC27}, prLVT},                    // Lo  [27] HANGUL SYLLABLE JJIG..HANGUL SYLLABLE JJIH
-	{runeRange{0xCC29, 0xCC43}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CAG..HANGUL SYLLABLE CAH
-	{runeRange{0xCC45, 0xCC5F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CAEG..HANGUL SYLLABLE CAEH
-	{runeRange{0xCC61, 0xCC7B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYAG..HANGUL SYLLABLE CYAH
-	{runeRange{0xCC7D, 0xCC97}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYAEG..HANGUL SYLLABLE CYAEH
-	{runeRange{0xCC99, 0xCCB3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CEOG..HANGUL SYLLABLE CEOH
-	{runeRange{0xCCB5, 0xCCCF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CEG..HANGUL SYLLABLE CEH
-	{runeRange{0xCCD1, 0xCCEB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYEOG..HANGUL SYLLABLE CYEOH
-	{runeRange{0xCCED, 0xCD07}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYEG..HANGUL SYLLABLE CYEH
-	{runeRange{0xCD09, 0xCD23}, prLVT},                    // Lo  [27] HANGUL SYLLABLE COG..HANGUL SYLLABLE COH
-	{runeRange{0xCD25, 0xCD3F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CWAG..HANGUL SYLLABLE CWAH
-	{runeRange{0xCD41, 0xCD5B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CWAEG..HANGUL SYLLABLE CWAEH
-	{runeRange{0xCD5D, 0xCD77}, prLVT},                    // Lo  [27] HANGUL SYLLABLE COEG..HANGUL SYLLABLE COEH
-	{runeRange{0xCD79, 0xCD93}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYOG..HANGUL SYLLABLE CYOH
-	{runeRange{0xCD95, 0xCDAF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CUG..HANGUL SYLLABLE CUH
-	{runeRange{0xCDB1, 0xCDCB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CWEOG..HANGUL SYLLABLE CWEOH
-	{runeRange{0xCDCD, 0xCDE7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CWEG..HANGUL SYLLABLE CWEH
-	{runeRange{0xCDE9, 0xCE03}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CWIG..HANGUL SYLLABLE CWIH
-	{runeRange{0xCE05, 0xCE1F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYUG..HANGUL SYLLABLE CYUH
-	{runeRange{0xCE21, 0xCE3B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CEUG..HANGUL SYLLABLE CEUH
-	{runeRange{0xCE3D, 0xCE57}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CYIG..HANGUL SYLLABLE CYIH
-	{runeRange{0xCE59, 0xCE73}, prLVT},                    // Lo  [27] HANGUL SYLLABLE CIG..HANGUL SYLLABLE CIH
-	{runeRange{0xCE75, 0xCE8F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KAG..HANGUL SYLLABLE KAH
-	{runeRange{0xCE91, 0xCEAB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KAEG..HANGUL SYLLABLE KAEH
-	{runeRange{0xCEAD, 0xCEC7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYAG..HANGUL SYLLABLE KYAH
-	{runeRange{0xCEC9, 0xCEE3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYAEG..HANGUL SYLLABLE KYAEH
-	{runeRange{0xCEE5, 0xCEFF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KEOG..HANGUL SYLLABLE KEOH
-	{runeRange{0xCF01, 0xCF1B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KEG..HANGUL SYLLABLE KEH
-	{runeRange{0xCF1D, 0xCF37}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYEOG..HANGUL SYLLABLE KYEOH
-	{runeRange{0xCF39, 0xCF53}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYEG..HANGUL SYLLABLE KYEH
-	{runeRange{0xCF55, 0xCF6F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KOG..HANGUL SYLLABLE KOH
-	{runeRange{0xCF71, 0xCF8B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KWAG..HANGUL SYLLABLE KWAH
-	{runeRange{0xCF8D, 0xCFA7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KWAEG..HANGUL SYLLABLE KWAEH
-	{runeRange{0xCFA9, 0xCFC3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KOEG..HANGUL SYLLABLE KOEH
-	{runeRange{0xCFC5, 0xCFDF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYOG..HANGUL SYLLABLE KYOH
-	{runeRange{0xCFE1, 0xCFFB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KUG..HANGUL SYLLABLE KUH
-	{runeRange{0xCFFD, 0xD017}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KWEOG..HANGUL SYLLABLE KWEOH
-	{runeRange{0xD019, 0xD033}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KWEG..HANGUL SYLLABLE KWEH
-	{runeRange{0xD035, 0xD04F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KWIG..HANGUL SYLLABLE KWIH
-	{runeRange{0xD051, 0xD06B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYUG..HANGUL SYLLABLE KYUH
-	{runeRange{0xD06D, 0xD087}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KEUG..HANGUL SYLLABLE KEUH
-	{runeRange{0xD089, 0xD0A3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KYIG..HANGUL SYLLABLE KYIH
-	{runeRange{0xD0A5, 0xD0BF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE KIG..HANGUL SYLLABLE KIH
-	{runeRange{0xD0C1, 0xD0DB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TAG..HANGUL SYLLABLE TAH
-	{runeRange{0xD0DD, 0xD0F7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TAEG..HANGUL SYLLABLE TAEH
-	{runeRange{0xD0F9, 0xD113}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYAG..HANGUL SYLLABLE TYAH
-	{runeRange{0xD115, 0xD12F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYAEG..HANGUL SYLLABLE TYAEH
-	{runeRange{0xD131, 0xD14B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TEOG..HANGUL SYLLABLE TEOH
-	{runeRange{0xD14D, 0xD167}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TEG..HANGUL SYLLABLE TEH
-	{runeRange{0xD169, 0xD183}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYEOG..HANGUL SYLLABLE TYEOH
-	{runeRange{0xD185, 0xD19F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYEG..HANGUL SYLLABLE TYEH
-	{runeRange{0xD1A1, 0xD1BB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TOG..HANGUL SYLLABLE TOH
-	{runeRange{0xD1BD, 0xD1D7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TWAG..HANGUL SYLLABLE TWAH
-	{runeRange{0xD1D9, 0xD1F3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TWAEG..HANGUL SYLLABLE TWAEH
-	{runeRange{0xD1F5, 0xD20F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TOEG..HANGUL SYLLABLE TOEH
-	{runeRange{0xD211, 0xD22B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYOG..HANGUL SYLLABLE TYOH
-	{runeRange{0xD22D, 0xD247}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TUG..HANGUL SYLLABLE TUH
-	{runeRange{0xD249, 0xD263}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TWEOG..HANGUL SYLLABLE TWEOH
-	{runeRange{0xD265, 0xD27F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TWEG..HANGUL SYLLABLE TWEH
-	{runeRange{0xD281, 0xD29B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TWIG..HANGUL SYLLABLE TWIH
-	{runeRange{0xD29D, 0xD2B7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYUG..HANGUL SYLLABLE TYUH
-	{runeRange{0xD2B9, 0xD2D3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TEUG..HANGUL SYLLABLE TEUH
-	{runeRange{0xD2D5, 0xD2EF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TYIG..HANGUL SYLLABLE TYIH
-	{runeRange{0xD2F1, 0xD30B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE TIG..HANGUL SYLLABLE TIH
-	{runeRange{0xD30D, 0xD327}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PAG..HANGUL SYLLABLE PAH
-	{runeRange{0xD329, 0xD343}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PAEG..HANGUL SYLLABLE PAEH
-	{runeRange{0xD345, 0xD35F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYAG..HANGUL SYLLABLE PYAH
-	{runeRange{0xD361, 0xD37B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYAEG..HANGUL SYLLABLE PYAEH
-	{runeRange{0xD37D, 0xD397}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PEOG..HANGUL SYLLABLE PEOH
-	{runeRange{0xD399, 0xD3B3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PEG..HANGUL SYLLABLE PEH
-	{runeRange{0xD3B5, 0xD3CF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYEOG..HANGUL SYLLABLE PYEOH
-	{runeRange{0xD3D1, 0xD3EB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYEG..HANGUL SYLLABLE PYEH
-	{runeRange{0xD3ED, 0xD407}, prLVT},                    // Lo  [27] HANGUL SYLLABLE POG..HANGUL SYLLABLE POH
-	{runeRange{0xD409, 0xD423}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PWAG..HANGUL SYLLABLE PWAH
-	{runeRange{0xD425, 0xD43F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PWAEG..HANGUL SYLLABLE PWAEH
-	{runeRange{0xD441, 0xD45B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE POEG..HANGUL SYLLABLE POEH
-	{runeRange{0xD45D, 0xD477}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYOG..HANGUL SYLLABLE PYOH
-	{runeRange{0xD479, 0xD493}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PUG..HANGUL SYLLABLE PUH
-	{runeRange{0xD495, 0xD4AF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PWEOG..HANGUL SYLLABLE PWEOH
-	{runeRange{0xD4B1, 0xD4CB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PWEG..HANGUL SYLLABLE PWEH
-	{runeRange{0xD4CD, 0xD4E7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PWIG..HANGUL SYLLABLE PWIH
-	{runeRange{0xD4E9, 0xD503}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYUG..HANGUL SYLLABLE PYUH
-	{runeRange{0xD505, 0xD51F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PEUG..HANGUL SYLLABLE PEUH
-	{runeRange{0xD521, 0xD53B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PYIG..HANGUL SYLLABLE PYIH
-	{runeRange{0xD53D, 0xD557}, prLVT},                    // Lo  [27] HANGUL SYLLABLE PIG..HANGUL SYLLABLE PIH
-	{runeRange{0xD559, 0xD573}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HAG..HANGUL SYLLABLE HAH
-	{runeRange{0xD575, 0xD58F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HAEG..HANGUL SYLLABLE HAEH
-	{runeRange{0xD591, 0xD5AB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYAG..HANGUL SYLLABLE HYAH
-	{runeRange{0xD5AD, 0xD5C7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYAEG..HANGUL SYLLABLE HYAEH
-	{runeRange{0xD5C9, 0xD5E3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HEOG..HANGUL SYLLABLE HEOH
-	{runeRange{0xD5E5, 0xD5FF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HEG..HANGUL SYLLABLE HEH
-	{runeRange{0xD601, 0xD61B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYEOG..HANGUL SYLLABLE HYEOH
-	{runeRange{0xD61D, 0xD637}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYEG..HANGUL SYLLABLE HYEH
-	{runeRange{0xD639, 0xD653}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HOG..HANGUL SYLLABLE HOH
-	{runeRange{0xD655, 0xD66F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HWAG..HANGUL SYLLABLE HWAH
-	{runeRange{0xD671, 0xD68B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HWAEG..HANGUL SYLLABLE HWAEH
-	{runeRange{0xD68D, 0xD6A7}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HOEG..HANGUL SYLLABLE HOEH
-	{runeRange{0xD6A9, 0xD6C3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYOG..HANGUL SYLLABLE HYOH
-	{runeRange{0xD6C5, 0xD6DF}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HUG..HANGUL SYLLABLE HUH
-	{runeRange{0xD6E1, 0xD6FB}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HWEOG..HANGUL SYLLABLE HWEOH
-	{runeRange{0xD6FD, 0xD717}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HWEG..HANGUL SYLLABLE HWEH
-	{runeRange{0xD719, 0xD733}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HWIG..HANGUL SYLLABLE HWIH
-	{runeRange{0xD735, 0xD74F}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYUG..HANGUL SYLLABLE HYUH
-	{runeRange{0xD751, 0xD76B}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HEUG..HANGUL SYLLABLE HEUH
-	{runeRange{0xD76D, 0xD787}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HYIG..HANGUL SYLLABLE HYIH
-	{runeRange{0xD789, 0xD7A3}, prLVT},                    // Lo  [27] HANGUL SYLLABLE HIG..HANGUL SYLLABLE HIH
-	{runeRange{0xD7CB, 0xD7FB}, prT},                      // Lo  [49] HANGUL JONGSEONG NIEUN-RIEUL..HANGUL JONGSEONG PHIEUPH-THIEUTH
-	{runeRange{0xFE00, 0xFE0F}, prExtend},                 // Mn  [16] VARIATION SELECTOR-1..VARIATION SELECTOR-16
-	{runeRange{0xFEFF, 0xFEFF}, prControl},                // Cf       ZERO WIDTH NO-BREAK SPACE
-	{runeRange{0xFFF0, 0xFFF8}, prControl},                // Cn   [9] <reserved-FFF0>..<reserved-FFF8>
-	{runeRange{0x101FD, 0x101FD}, prExtend},               // Mn       PHAISTOS DISC SIGN COMBINING OBLIQUE STROKE
-	{runeRange{0x10376, 0x1037A}, prExtend},               // Mn   [5] COMBINING OLD PERMIC LETTER AN..COMBINING OLD PERMIC LETTER SII
-	{runeRange{0x10A05, 0x10A06}, prExtend},               // Mn   [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
-	{runeRange{0x10A38, 0x10A3A}, prExtend},               // Mn   [3] KHAROSHTHI SIGN BAR ABOVE..KHAROSHTHI SIGN DOT BELOW
-	{runeRange{0x10AE5, 0x10AE6}, prExtend},               // Mn   [2] MANICHAEAN ABBREVIATION MARK ABOVE..MANICHAEAN ABBREVIATION MARK BELOW
-	{runeRange{0x10D69, 0x10D6D}, prExtend},               // Mn   [5] GARAY VOWEL SIGN E..GARAY CONSONANT NASALIZATION MARK
-	{runeRange{0x10EFA, 0x10EFF}, prExtend},               // Mn   [6] ARABIC DOUBLE VERTICAL BAR BELOW..ARABIC SMALL LOW WORD MADDA
+	{runeRange{0x1ABF, 0x1AF0}, prExtend},                 // Mn  [50] COMBINING LATIN SMALL LETTER W BELOW..COMBINING DOUBLE COMMA ABOVE
+	{runeRange{0x1B04, 0x1B04}, prSpacingMark},            // Mc       BALINESE SIGN BISAH
+	{runeRange{0x1B35, 0x1B35}, prExtend},                 // Mc       BALINESE VOWEL SIGN TEDUNG
+	{runeRange{0x1B3B, 0x1B3B}, prExtend},                 // Mc       BALINESE VOWEL SIGN RA REPA TEDUNG
+	{runeRange{0x1B3D, 0x1B3D}, prExtend},                 // Mc       BALINESE VOWEL SIGN LA LENGA TEDUNG
+	{runeRange{0x1B42, 0x1B42}, prExtend},                 // Mn       BALINESE VOWEL SIGN PEPET
+	{runeRange{0x1B6B, 0x1B73}, prExtend},                 // Mn   [9] BALINESE MUSICAL SYMBOL COMBINING TEGEH..BALINESE MUSICAL SYMBOL COMBINING GONG
+	{runeRange{0x1B82, 0x1B82}, prSpacingMark},            // Mc       SUNDANESE SIGN PANGWISAD
+	{runeRange{0x1BA2, 0x1BA5}, prExtend},                 // Mn   [4] SUNDANESE CONSONANT SIGN PANYAKRA..SUNDANESE VOWEL SIGN PANYUKU
+	{runeRange{0x1BA8, 0x1BA9}, prExtend},                 // Mn   [2] SUNDANESE VOWEL SIGN PAMEPET..SUNDANESE VOWEL SIGN PANEULEUNG
+	{runeRange{0x1BAB, 0x1BAD}, prExtend},                 // Mn   [3] SUNDANESE SIGN VIRAMA..SUNDANESE CONSONANT SIGN PASANGAN WA
+	{runeRange{0x1BE7, 0x1BE7}, prSpacingMark},            // Mc       BATAK VOWEL SIGN E
+	{runeRange{0x1BEA, 0x1BEC}, prSpacingMark},            // Mc   [3] BATAK VOWEL SIGN I..BATAK VOWEL SIGN O
+	{runeRange{0x1BEE, 0x1BEE}, prSpacingMark},            // Mc       BATAK VOWEL SIGN U
+	{runeRange{0x1BF2, 0x1BF3}, prExtend},                 // Mc   [2] BATAK PANGOLAT..BATAK PANONGONAN
+	{runeRange{0x1C2C, 0x1C33}, prExtend},                 // Mn   [8] LEPCHA VOWEL SIGN E..LEPCHA CONSONANT SIGN T
+	{runeRange{0x1C36, 0x1C37}, prExtend},                 // Mn   [2] LEPCHA SIGN RAN..LEPCHA SIGN NUKTA
+	{runeRange{0x1CD4, 0x1CE0}, prExtend},                 // Mn  [13] VEDIC SIGN YAJURVEDIC MIDLINE SVARITA..VEDIC TONE RIGVEDIC KASHMIRI INDEPENDENT SVARITA
+	{runeRange{0x1CE2, 0x1CE8}, prExtend},                 // Mn   [7] VEDIC SIGN VISARGA SVARITA..VEDIC SIGN VISARGA ANUDATTA WITH TAIL
+	{runeRange{0x1CF4, 0x1CF4}, prExtend},                 // Mn       VEDIC TONE CANDRA ABOVE
+	{runeRange{0x1CF8, 0x1CF9}, prExtend},                 // Mn   [2] VEDIC TONE RING ABOVE..VEDIC TONE DOUBLE RING ABOVE
+	{runeRange{0x200B, 0x200B}, prControl},                // Cf       ZERO WIDTH SPACE
+	{runeRange{0x200D, 0x200D}, prZWJ},                    // Cf       ZERO WIDTH JOINER
+	{runeRange{0x2028, 0x2028}, prControl},                // Zl       LINE SEPARATOR
+	{runeRange{0x202A, 0x202E}, prControl},                // Cf   [5] LEFT-TO-RIGHT EMBEDDING..RIGHT-TO-LEFT OVERRIDE
+	{runeRange{0x2049, 0x2049}, prExtendedPictographic},   // E0.6   [1] (⁉️)       exclamation question mark
+	{runeRange{0x2065, 0x2065}, prControl},                // Cn       <reserved-2065>
+	{runeRange{0x20D0, 0x20DC}, prExtend},                 // Mn  [13] COMBINING LEFT HARPOON ABOVE..COMBINING FOUR DOTS ABOVE
+	{runeRange{0x20E1, 0x20E1}, prExtend},                 // Mn       COMBINING LEFT RIGHT ARROW ABOVE
+	{runeRange{0x20E5, 0x20F0}, prExtend},                 // Mn  [12] COMBINING REVERSE SOLIDUS OVERLAY..COMBINING ASTERISK ABOVE
+	{runeRange{0x2139, 0x2139}, prExtendedPictographic},   // E0.6   [1] (ℹ️)       information
+	{runeRange{0x21A9, 0x21AA}, prExtendedPictographic},   // E0.6   [2] (↩️..↪️)    right arrow curving left..left arrow curving right
+	{runeRange{0x2328, 0x2328}, prExtendedPictographic},   // E1.0   [1] (⌨️)       keyboard
+	{runeRange{0x23E9, 0x23EC}, prExtendedPictographic},   // E0.6   [4] (⏩..⏬)    fast-forward button..fast down button
+	{runeRange{0x23EF, 0x23EF}, prExtendedPictographic},   // E1.0   [1] (⏯️)       play or pause button
+	{runeRange{0x23F1, 0x23F2}, prExtendedPictographic},   // E1.0   [2] (⏱️..⏲️)    stopwatch..timer clock
+	{runeRange{0x23F8, 0x23FA}, prExtendedPictographic},   // E0.7   [3] (⏸️..⏺️)    pause button..record button
+	{runeRange{0x25AA, 0x25AB}, prExtendedPictographic},   // E0.6   [2] (▪️..▫️)    black small square..white small square
+	{runeRange{0x25C0, 0x25C0}, prExtendedPictographic},   // E0.6   [1] (◀️)       reverse button
+	{runeRange{0x2600, 0x2601}, prExtendedPictographic},   // E0.6   [2] (☀️..☁️)    sun..cloud
+	{runeRange{0x2604, 0x2604}, prExtendedPictographic},   // E1.0   [1] (☄️)       comet
+	{runeRange{0x2611, 0x2611}, prExtendedPictographic},   // E0.6   [1] (☑️)       check box with check
+	{runeRange{0x2618, 0x2618}, prExtendedPictographic},   // E1.0   [1] (☘️)       shamrock
+	{runeRange{0x2620, 0x2620}, prExtendedPictographic},   // E1.0   [1] (☠️)       skull and crossbones
+	{runeRange{0x2626, 0x2626}, prExtendedPictographic},   // E1.0   [1] (☦️)       orthodox cross
+	{runeRange{0x262E, 0x262E}, prExtendedPictographic},   // E1.0   [1] (☮️)       peace symbol
+	{runeRange{0x2638, 0x2639}, prExtendedPictographic},   // E0.7   [2] (☸️..☹️)    wheel of dharma..frowning face
+	{runeRange{0x2640, 0x2640}, prExtendedPictographic},   // E4.0   [1] (♀️)       female sign
+	{runeRange{0x2648, 0x2653}, prExtendedPictographic},   // E0.6  [12] (♈..♓)    Aries..Pisces
+	{runeRange{0x2660, 0x2660}, prExtendedPictographic},   // E0.6   [1] (♠️)       spade suit
+	{runeRange{0x2665, 0x2666}, prExtendedPictographic},   // E0.6   [2] (♥️..♦️)    heart suit..diamond suit
+	{runeRange{0x267B, 0x267B}, prExtendedPictographic},   // E0.6   [1] (♻️)       recycling symbol
+	{runeRange{0x267F, 0x267F}, prExtendedPictographic},   // E0.6   [1] (♿)       wheelchair symbol
+	{runeRange{0x2693, 0x2693}, prExtendedPictographic},   // E0.6   [1] (⚓)       anchor
+	{runeRange{0x2695, 0x2695}, prExtendedPictographic},   // E4.0   [1] (⚕️)       medical symbol
+	{runeRange{0x2699, 0x2699}, prExtendedPictographic},   // E1.0   [1] (⚙️)       gear
+	{runeRange{0x26A0, 0x26A1}, prExtendedPictographic},   // E0.6   [2] (⚠️..⚡)    warning..high voltage
+	{runeRange{0x26AA, 0x26AB}, prExtendedPictographic},   // E0.6   [2] (⚪..⚫)    white circle..black circle
+	{runeRange{0x26BD, 0x26BE}, prExtendedPictographic},   // E0.6   [2] (⚽..⚾)    soccer ball..baseball
+	{runeRange{0x26C8, 0x26C8}, prExtendedPictographic},   // E0.7   [1] (⛈️)       cloud with lightning and rain
+	{runeRange{0x26CF, 0x26CF}, prExtendedPictographic},   // E0.7   [1] (⛏️)       pick
+	{runeRange{0x26D3, 0x26D3}, prExtendedPictographic},   // E0.7   [1] (⛓️)       chains
+	{runeRange{0x26E9, 0x26E9}, prExtendedPictographic},   // E0.7   [1] (⛩️)       shinto shrine
+	{runeRange{0x26F0, 0x26F1}, prExtendedPictographic},   // E0.7   [2] (⛰️..⛱️)    mountain..umbrella on ground
+	{runeRange{0x26F4, 0x26F4}, prExtendedPictographic},   // E0.7   [1] (⛴️)       ferry
+	{runeRange{0x26F7, 0x26F9}, prExtendedPictographic},   // E0.7   [3] (⛷️..⛹️)    skier..person bouncing ball
+	{runeRange{0x26FD, 0x26FD}, prExtendedPictographic},   // E0.6   [1] (⛽)       fuel pump
+	{runeRange{0x2705, 0x2705}, prExtendedPictographic},   // E0.6   [1] (✅)       check mark button
+	{runeRange{0x270D, 0x270D}, prExtendedPictographic},   // E0.7   [1] (✍️)       writing hand
+	{runeRange{0x2712, 0x2712}, prExtendedPictographic},   // E0.6   [1] (✒️)       black nib
+	{runeRange{0x2716, 0x2716}, prExtendedPictographic},   // E0.6   [1] (✖️)       multiply
+	{runeRange{0x2721, 0x2721}, prExtendedPictographic},   // E0.7   [1] (✡️)       star of David
+	{runeRange{0x2733, 0x2734}, prExtendedPictographic},   // E0.6   [2] (✳️..✴️)    eight-spoked asterisk..eight-pointed star
+	{runeRange{0x2747, 0x2747}, prExtendedPictographic},   // E0.6   [1] (❇️)       sparkle
+	{runeRange{0x274E, 0x274E}, prExtendedPictographic},   // E0.6   [1] (❎)       cross mark button
+	{runeRange{0x2757, 0x2757}, prExtendedPictographic},   // E0.6   [1] (❗)       red exclamation mark
+	{runeRange{0x2764, 0x2764}, prExtendedPictographic},   // E0.6   [1] (❤️)       red heart
+	{runeRange{0x27A1, 0x27A1}, prExtendedPictographic},   // E0.6   [1] (➡️)       right arrow
+	{runeRange{0x27BF, 0x27BF}, prExtendedPictographic},   // E1.0   [1] (➿)       double curly loop
+	{runeRange{0x2B05, 0x2B07}, prExtendedPictographic},   // E0.6   [3] (⬅️..⬇️)    left arrow..down arrow
+	{runeRange{0x2B50, 0x2B50}, prExtendedPictographic},   // E0.6   [1] (⭐)       star
+	{runeRange{0x2CEF, 0x2CF1}, prExtend},                 // Mn   [3] COPTIC COMBINING NI ABOVE..COPTIC COMBINING SPIRITUS LENIS
+	{runeRange{0x2DE0, 0x2DFF}, prExtend},                 // Mn  [32] COMBINING CYRILLIC LETTER BE..COMBINING CYRILLIC LETTER IOTIFIED BIG YUS
+	{runeRange{0x302E, 0x302F}, prExtend},                 // Mc   [2] HANGUL SINGLE DOT TONE MARK..HANGUL DOUBLE DOT TONE MARK
+	{runeRange{0x303D, 0x303D}, prExtendedPictographic},   // E0.6   [1] (〽️)       part alternation mark
+	{runeRange{0x3297, 0x3297}, prExtendedPictographic},   // E0.6   [1] (㊗️)       Japanese “congratulations” button
+	{runeRange{0xA66F, 0xA66F}, prExtend},                 // Mn       COMBINING CYRILLIC VZMET
+	{runeRange{0xA674, 0xA67D}, prExtend},                 // Mn  [10] COMBINING CYRILLIC LETTER UKRAINIAN IE..COMBINING CYRILLIC PAYEROK
+	{runeRange{0xA6F0, 0xA6F1}, prExtend},                 // Mn   [2] BAMUM COMBINING MARK KOQNDON..BAMUM COMBINING MARK TUKWENTIS
+	{runeRange{0xA806, 0xA806}, prExtend},                 // Mn       SYLOTI NAGRI SIGN HASANTA
+	{runeRange{0xA823, 0xA824}, prSpacingMark},            // Mc   [2] SYLOTI NAGRI VOWEL SIGN A..SYLOTI NAGRI VOWEL SIGN I
+	{runeRange{0xA827, 0xA827}, prSpacingMark},            // Mc       SYLOTI NAGRI VOWEL SIGN OO
+	{runeRange{0xA880, 0xA881}, prSpacingMark},            // Mc   [2] SAURASHTRA SIGN ANUSVARA..SAURASHTRA SIGN VISARGA
+	{runeRange{0xA8C4, 0xA8C5}, prExtend},                 // Mn   [2] SAURASHTRA SIGN VIRAMA..SAURASHTRA SIGN CANDRABINDU
+	{runeRange{0xA8FF, 0xA8FF}, prExtend},                 // Mn       DEVANAGARI VOWEL SIGN AY
+	{runeRange{0xA947, 0xA951}, prExtend},                 // Mn  [11] REJANG VOWEL SIGN I..REJANG CONSONANT SIGN R
+	{runeRange{0xA953, 0xA953}, prExtend},                 // Mc       REJANG VIRAMA
+	{runeRange{0xA980, 0xA982}, prExtend},                 // Mn   [3] JAVANESE SIGN PANYANGGA..JAVANESE SIGN LAYAR
+	{runeRange{0xA9B3, 0xA9B3}, prExtend},                 // Mn       JAVANESE SIGN CECAK TELU
+	{runeRange{0xA9B6, 0xA9B9}, prExtend},                 // Mn   [4] JAVANESE VOWEL SIGN WULU..JAVANESE VOWEL SIGN SUKU MENDUT
+	{runeRange{0xA9BC, 0xA9BD}, prExtend},                 // Mn   [2] JAVANESE VOWEL SIGN PEPET..JAVANESE CONSONANT SIGN KERET
+	{runeRange{0xA9C0, 0xA9C0}, prExtend},                 // Mc       JAVANESE PANGKON
+	{runeRange{0xAA29, 0xAA2E}, prExtend},                 // Mn   [6] CHAM VOWEL SIGN AA..CHAM VOWEL SIGN OE
+	{runeRange{0xAA31, 0xAA32}, prExtend},                 // Mn   [2] CHAM VOWEL SIGN AU..CHAM VOWEL SIGN UE
+	{runeRange{0xAA35, 0xAA36}, prExtend},                 // Mn   [2] CHAM CONSONANT SIGN LA..CHAM CONSONANT SIGN WA
+	{runeRange{0xAA4C, 0xAA4C}, prExtend},                 // Mn       CHAM CONSONANT SIGN FINAL M
+	{runeRange{0xAA7C, 0xAA7C}, prExtend},                 // Mn       MYANMAR SIGN TAI LAING TONE-2
+	{runeRange{0xAAB2, 0xAAB4}, prExtend},                 // Mn   [3] TAI VIET VOWEL I..TAI VIET VOWEL U
+	{runeRange{0xAABE, 0xAABF}, prExtend},                 // Mn   [2] TAI VIET VOWEL AM..TAI VIET TONE MAI EK
+	{runeRange{0xAAEB, 0xAAEB}, prSpacingMark},            // Mc       MEETEI MAYEK VOWEL SIGN II
+	{runeRange{0xAAEE, 0xAAEF}, prSpacingMark},            // Mc   [2] MEETEI MAYEK VOWEL SIGN AU..MEETEI MAYEK VOWEL SIGN AAU
+	{runeRange{0xAAF6, 0xAAF6}, prExtend},                 // Mn       MEETEI MAYEK VIRAMA
+	{runeRange{0xABE5, 0xABE5}, prExtend},                 // Mn       MEETEI MAYEK VOWEL SIGN ANAP
+	{runeRange{0xABE8, 0xABE8}, prExtend},                 // Mn       MEETEI MAYEK VOWEL SIGN UNAP
+	{runeRange{0xABEC, 0xABEC}, prSpacingMark},            // Mc       MEETEI MAYEK LUM IYEK
+	{runeRange{0xAC00, 0xAC00}, prLV},                     // Lo       HANGUL SYLLABLE GA
+	{runeRange{0xAC1C, 0xAC1C}, prLV},                     // Lo       HANGUL SYLLABLE GAE
+	{runeRange{0xAC38, 0xAC38}, prLV},                     // Lo       HANGUL SYLLABLE GYA
+	{runeRange{0xAC54, 0xAC54}, prLV},                     // Lo       HANGUL SYLLABLE GYAE
+	{runeRange{0xAC70, 0xAC70}, prLV},                     // Lo       HANGUL SYLLABLE GEO
+	{runeRange{0xAC8C, 0xAC8C}, prLV},                     // Lo       HANGUL SYLLABLE GE
+	{runeRange{0xACA8, 0xACA8}, prLV},                     // Lo       HANGUL SYLLABLE GYEO
+	{runeRange{0xACC4, 0xACC4}, prLV},                     // Lo       HANGUL SYLLABLE GYE
+	{runeRange{0xACE0, 0xACE0}, prLV},                     // Lo       HANGUL SYLLABLE GO
+	{runeRange{0xACFC, 0xACFC}, prLV},                     // Lo       HANGUL SYLLABLE GWA
+	{runeRange{0xAD18, 0xAD18}, prLV},                     // Lo       HANGUL SYLLABLE GWAE
+	{runeRange{0xAD34, 0xAD34}, prLV},                     // Lo       HANGUL SYLLABLE GOE
+	{runeRange{0xAD50, 0xAD50}, prLV},                     // Lo       HANGUL SYLLABLE GYO
+	{runeRange{0xAD6C, 0xAD6C}, prLV},                     // Lo       HANGUL SYLLABLE GU
+	{runeRange{0xAD88, 0xAD88}, prLV},                     // Lo       HANGUL SYLLABLE GWEO
+	{runeRange{0xADA4, 0xADA4}, prLV},                     // Lo       HANGUL SYLLABLE GWE
+	{runeRange{0xADC0, 0xADC0}, prLV},                     // Lo       HANGUL SYLLABLE GWI
+	{runeRange{0xADDC, 0xADDC}, prLV},                     // Lo       HANGUL SYLLABLE GYU
+	{runeRange{0xADF8, 0xADF8}, prLV},                     // Lo       HANGUL SYLLABLE GEU
+	{runeRange{0xAE14, 0xAE14}, prLV},                     // Lo       HANGUL SYLLABLE GYI
+	{runeRange{0xAE30, 0xAE30}, prLV},                     // Lo       HANGUL SYLLABLE GI
+	{runeRange{0xAE4C, 0xAE4C}, prLV},                     // Lo       HANGUL SYLLABLE GGA
+	{runeRange{0xAE68, 0xAE68}, prLV},                     // Lo       HANGUL SYLLABLE GGAE
+	{runeRange{0xAE84, 0xAE84}, prLV},                     // Lo       HANGUL SYLLABLE GGYA
+	{runeRange{0xAEA0, 0xAEA0}, prLV},                     // Lo       HANGUL SYLLABLE GGYAE
+	{runeRange{0xAEBC, 0xAEBC}, prLV},                     // Lo       HANGUL SYLLABLE GGEO
+	{runeRange{0xAED8, 0xAED8}, prLV},                     // Lo       HANGUL SYLLABLE GGE
+	{runeRange{0xAEF4, 0xAEF4}, prLV},                     // Lo       HANGUL SYLLABLE GGYEO
+	{runeRange{0xAF10, 0xAF10}, prLV},                     // Lo       HANGUL SYLLABLE GGYE
+	{runeRange{0xAF2C, 0xAF2C}, prLV},                     // Lo       HANGUL SYLLABLE GGO
+	{runeRange{0xAF48, 0xAF48}, prLV},                     // Lo       HANGUL SYLLABLE GGWA
+	{runeRange{0xAF64, 0xAF64}, prLV},                     // Lo       HANGUL SYLLABLE GGWAE
+	{runeRange{0xAF80, 0xAF80}, prLV},                     // Lo       HANGUL SYLLABLE GGOE
+	{runeRange{0xAF9C, 0xAF9C}, prLV},                     // Lo       HANGUL SYLLABLE GGYO
+	{runeRange{0xAFB8, 0xAFB8}, prLV},                     // Lo       HANGUL SYLLABLE GGU
+	{runeRange{0xAFD4, 0xAFD4}, prLV},                     // Lo       HANGUL SYLLABLE GGWEO
+	{runeRange{0xAFF0, 0xAFF0}, prLV},                     // Lo       HANGUL SYLLABLE GGWE
+	{runeRange{0xB00C, 0xB00C}, prLV},                     // Lo       HANGUL SYLLABLE GGWI
+	{runeRange{0xB028, 0xB028}, prLV},                     // Lo       HANGUL SYLLABLE GGYU
+	{runeRange{0xB044, 0xB044}, prLV},                     // Lo       HANGUL SYLLABLE GGEU
+	{runeRange{0xB060, 0xB060}, prLV},                     // Lo       HANGUL SYLLABLE GGYI
+	{runeRange{0xB07C, 0xB07C}, prLV},                     // Lo       HANGUL SYLLABLE GGI
+	{runeRange{0xB098, 0xB098}, prLV},                     // Lo       HANGUL SYLLABLE NA
+	{runeRange{0xB0B4, 0xB0B4}, prLV},                     // Lo       HANGUL SYLLABLE NAE
+	{runeRange{0xB0D0, 0xB0D0}, prLV},                     // Lo       HANGUL SYLLABLE NYA
+	{runeRange{0xB0EC, 0xB0EC}, prLV},                     // Lo       HANGUL SYLLABLE NYAE
+	{runeRange{0xB108, 0xB108}, prLV},                     // Lo       HANGUL SYLLABLE NEO
+	{runeRange{0xB124, 0xB124}, prLV},                     // Lo       HANGUL SYLLABLE NE
+	{runeRange{0xB140, 0xB140}, prLV},                     // Lo       HANGUL SYLLABLE NYEO
+	{runeRange{0xB15C, 0xB15C}, prLV},                     // Lo       HANGUL SYLLABLE NYE
+	{runeRange{0xB178, 0xB178}, prLV},                     // Lo       HANGUL SYLLABLE NO
+	{runeRange{0xB194, 0xB194}, prLV},                     // Lo       HANGUL SYLLABLE NWA
+	{runeRange{0xB1B0, 0xB1B0}, prLV},                     // Lo       HANGUL SYLLABLE NWAE
+	{runeRange{0xB1CC, 0xB1CC}, prLV},                     // Lo       HANGUL SYLLABLE NOE
+	{runeRange{0xB1E8, 0xB1E8}, prLV},                     // Lo       HANGUL SYLLABLE NYO
+	{runeRange{0xB204, 0xB204}, prLV},                     // Lo       HANGUL SYLLABLE NU
+	{runeRange{0xB220, 0xB220}, prLV},                     // Lo       HANGUL SYLLABLE NWEO
+	{runeRange{0xB23C, 0xB23C}, prLV},                     // Lo       HANGUL SYLLABLE NWE
+	{runeRange{0xB258, 0xB258}, prLV},                     // Lo       HANGUL SYLLABLE NWI
+	{runeRange{0xB274, 0xB274}, prLV},                     // Lo       HANGUL SYLLABLE NYU
+	{runeRange{0xB290, 0xB290}, prLV},                     // Lo       HANGUL SYLLABLE NEU
+	{runeRange{0xB2AC, 0xB2AC}, prLV},                     // Lo       HANGUL SYLLABLE NYI
+	{runeRange{0xB2C8, 0xB2C8}, prLV},                     // Lo       HANGUL SYLLABLE NI
+	{runeRange{0xB2E4, 0xB2E4}, prLV},                     // Lo       HANGUL SYLLABLE DA
+	{runeRange{0xB300, 0xB300}, prLV},                     // Lo       HANGUL SYLLABLE DAE
+	{runeRange{0xB31C, 0xB31C}, prLV},                     // Lo       HANGUL SYLLABLE DYA
+	{runeRange{0xB338, 0xB338}, prLV},                     // Lo       HANGUL SYLLABLE DYAE
+	{runeRange{0xB354, 0xB354}, prLV},                     // Lo       HANGUL SYLLABLE DEO
+	{runeRange{0xB370, 0xB370}, prLV},                     // Lo       HANGUL SYLLABLE DE
+	{runeRange{0xB38C, 0xB38C}, prLV},                     // Lo       HANGUL SYLLABLE DYEO
+	{runeRange{0xB3A8, 0xB3A8}, prLV},                     // Lo       HANGUL SYLLABLE DYE
+	{runeRange{0xB3C4, 0xB3C4}, prLV},                     // Lo       HANGUL SYLLABLE DO
+	{runeRange{0xB3E0, 0xB3E0}, prLV},                     // Lo       HANGUL SYLLABLE DWA
+	{runeRange{0xB3FC, 0xB3FC}, prLV},                     // Lo       HANGUL SYLLABLE DWAE
+	{runeRange{0xB418, 0xB418}, prLV},                     // Lo       HANGUL SYLLABLE DOE
+	{runeRange{0xB434, 0xB434}, prLV},                     // Lo       HANGUL SYLLABLE DYO
+	{runeRange{0xB450, 0xB450}, prLV},                     // Lo       HANGUL SYLLABLE DU
+	{runeRange{0xB46C, 0xB46C}, prLV},                     // Lo       HANGUL SYLLABLE DWEO
+	{runeRange{0xB488, 0xB488}, prLV},                     // Lo       HANGUL SYLLABLE DWE
+	{runeRange{0xB4A4, 0xB4A4}, prLV},                     // Lo       HANGUL SYLLABLE DWI
+	{runeRange{0xB4C0, 0xB4C0}, prLV},                     // Lo       HANGUL SYLLABLE DYU
+	{runeRange{0xB4DC, 0xB4DC}, prLV},                     // Lo       HANGUL SYLLABLE DEU
+	{runeRange{0xB4F8, 0xB4F8}, prLV},                     // Lo       HANGUL SYLLABLE DYI
+	{runeRange{0xB514, 0xB514}, prLV},                     // Lo       HANGUL SYLLABLE DI
+	{runeRange{0xB530, 0xB530}, prLV},                     // Lo       HANGUL SYLLABLE DDA
+	{runeRange{0xB54C, 0xB54C}, prLV},                     // Lo       HANGUL SYLLABLE DDAE
+	{runeRange{0xB568, 0xB568}, prLV},                     // Lo       HANGUL SYLLABLE DDYA
+	{runeRange{0xB584, 0xB584}, prLV},                     // Lo       HANGUL SYLLABLE DDYAE
+	{runeRange{0xB5A0, 0xB5A0}, prLV},                     // Lo       HANGUL SYLLABLE DDEO
+	{runeRange{0xB5BC, 0xB5BC}, prLV},                     // Lo       HANGUL SYLLABLE DDE
+	{runeRange{0xB5D8, 0xB5D8}, prLV},                     // Lo       HANGUL SYLLABLE DDYEO
+	{runeRange{0xB5F4, 0xB5F4}, prLV},                     // Lo       HANGUL SYLLABLE DDYE
+	{runeRange{0xB610, 0xB610}, prLV},                     // Lo       HANGUL SYLLABLE DDO
+	{runeRange{0xB62C, 0xB62C}, prLV},                     // Lo       HANGUL SYLLABLE DDWA
+	{runeRange{0xB648, 0xB648}, prLV},                     // Lo       HANGUL SYLLABLE DDWAE
+	{runeRange{0xB664, 0xB664}, prLV},                     // Lo       HANGUL SYLLABLE DDOE
+	{runeRange{0xB680, 0xB680}, prLV},                     // Lo       HANGUL SYLLABLE DDYO
+	{runeRange{0xB69C, 0xB69C}, prLV},                     // Lo       HANGUL SYLLABLE DDU
+	{runeRange{0xB6B8, 0xB6B8}, prLV},                     // Lo       HANGUL SYLLABLE DDWEO
+	{runeRange{0xB6D4, 0xB6D4}, prLV},                     // Lo       HANGUL SYLLABLE DDWE
+	{runeRange{0xB6F0, 0xB6F0}, prLV},                     // Lo       HANGUL SYLLABLE DDWI
+	{runeRange{0xB70C, 0xB70C}, prLV},                     // Lo       HANGUL SYLLABLE DDYU
+	{runeRange{0xB728, 0xB728}, prLV},                     // Lo       HANGUL SYLLABLE DDEU
+	{runeRange{0xB744, 0xB744}, prLV},                     // Lo       HANGUL SYLLABLE DDYI
+	{runeRange{0xB760, 0xB760}, prLV},                     // Lo       HANGUL SYLLABLE DDI
+	{runeRange{0xB77C, 0xB77C}, prLV},                     // Lo       HANGUL SYLLABLE RA
+	{runeRange{0xB798, 0xB798}, prLV},                     // Lo       HANGUL SYLLABLE RAE
+	{runeRange{0xB7B4, 0xB7B4}, prLV},                     // Lo       HANGUL SYLLABLE RYA
+	{runeRange{0xB7D0, 0xB7D0}, prLV},                     // Lo       HANGUL SYLLABLE RYAE
+	{runeRange{0xB7EC, 0xB7EC}, prLV},                     // Lo       HANGUL SYLLABLE REO
+	{runeRange{0xB808, 0xB808}, prLV},                     // Lo       HANGUL SYLLABLE RE
+	{runeRange{0xB824, 0xB824}, prLV},                     // Lo       HANGUL SYLLABLE RYEO
+	{runeRange{0xB840, 0xB840}, prLV},                     // Lo       HANGUL SYLLABLE RYE
+	{runeRange{0xB85C, 0xB85C}, prLV},                     // Lo       HANGUL SYLLABLE RO
+	{runeRange{0xB878, 0xB878}, prLV},                     // Lo       HANGUL SYLLABLE RWA
+	{runeRange{0xB894, 0xB894}, prLV},                     // Lo       HANGUL SYLLABLE RWAE
+	{runeRange{0xB8B0, 0xB8B0}, prLV},                     // Lo       HANGUL SYLLABLE ROE
+	{runeRange{0xB8CC, 0xB8CC}, prLV},                     // Lo       HANGUL SYLLABLE RYO
+	{runeRange{0xB8E8, 0xB8E8}, prLV},                     // Lo       HANGUL SYLLABLE RU
+	{runeRange{0xB904, 0xB904}, prLV},                     // Lo       HANGUL SYLLABLE RWEO
+	{runeRange{0xB920, 0xB920}, prLV},                     // Lo       HANGUL SYLLABLE RWE
+	{runeRange{0xB93C, 0xB93C}, prLV},                     // Lo       HANGUL SYLLABLE RWI
+	{runeRange{0xB958, 0xB958}, prLV},                     // Lo       HANGUL SYLLABLE RYU
+	{runeRange{0xB974, 0xB974}, prLV},                     // Lo       HANGUL SYLLABLE REU
+	{runeRange{0xB990, 0xB990}, prLV},                     // Lo       HANGUL SYLLABLE RYI
+	{runeRange{0xB9AC, 0xB9AC}, prLV},                     // Lo       HANGUL SYLLABLE RI
+	{runeRange{0xB9C8, 0xB9C8}, prLV},                     // Lo       HANGUL SYLLABLE MA
+	{runeRange{0xB9E4, 0xB9E4}, prLV},                     // Lo       HANGUL SYLLABLE MAE
+	{runeRange{0xBA00, 0xBA00}, prLV},                     // Lo       HANGUL SYLLABLE MYA
+	{runeRange{0xBA1C, 0xBA1C}, prLV},                     // Lo       HANGUL SYLLABLE MYAE
+	{runeRange{0xBA38, 0xBA38}, prLV},                     // Lo       HANGUL SYLLABLE MEO
+	{runeRange{0xBA54, 0xBA54}, prLV},                     // Lo       HANGUL SYLLABLE ME
+	{runeRange{0xBA70, 0xBA70}, prLV},                     // Lo       HANGUL SYLLABLE MYEO
+	{runeRange{0xBA8C, 0xBA8C}, prLV},                     // Lo       HANGUL SYLLABLE MYE
+	{runeRange{0xBAA8, 0xBAA8}, prLV},                     // Lo       HANGUL SYLLABLE MO
+	{runeRange{0xBAC4, 0xBAC4}, prLV},                     // Lo       HANGUL SYLLABLE MWA
+	{runeRange{0xBAE0, 0xBAE0}, prLV},                     // Lo       HANGUL SYLLABLE MWAE
+	{runeRange{0xBAFC, 0xBAFC}, prLV},                     // Lo       HANGUL SYLLABLE MOE
+	{runeRange{0xBB18, 0xBB18}, prLV},                     // Lo       HANGUL SYLLABLE MYO
+	{runeRange{0xBB34, 0xBB34}, prLV},                     // Lo       HANGUL SYLLABLE MU
+	{runeRange{0xBB50, 0xBB50}, prLV},                     // Lo       HANGUL SYLLABLE MWEO
+	{runeRange{0xBB6C, 0xBB6C}, prLV},                     // Lo       HANGUL SYLLABLE MWE
+	{runeRange{0xBB88, 0xBB88}, prLV},                     // Lo       HANGUL SYLLABLE MWI
+	{runeRange{0xBBA4, 0xBBA4}, prLV},                     // Lo       HANGUL SYLLABLE MYU
+	{runeRange{0xBBC0, 0xBBC0}, prLV},                     // Lo       HANGUL SYLLABLE MEU
+	{runeRange{0xBBDC, 0xBBDC}, prLV},                     // Lo       HANGUL SYLLABLE MYI
+	{runeRange{0xBBF8, 0xBBF8}, prLV},                     // Lo       HANGUL SYLLABLE MI
+	{runeRange{0xBC14, 0xBC14}, prLV},                     // Lo       HANGUL SYLLABLE BA
+	{runeRange{0xBC30, 0xBC30}, prLV},                     // Lo       HANGUL SYLLABLE BAE
+	{runeRange{0xBC4C, 0xBC4C}, prLV},                     // Lo       HANGUL SYLLABLE BYA
+	{runeRange{0xBC68, 0xBC68}, prLV},                     // Lo       HANGUL SYLLABLE BYAE
+	{runeRange{0xBC84, 0xBC84}, prLV},                     // Lo       HANGUL SYLLABLE BEO
+	{runeRange{0xBCA0, 0xBCA0}, prLV},                     // Lo       HANGUL SYLLABLE BE
+	{runeRange{0xBCBC, 0xBCBC}, prLV},                     // Lo       HANGUL SYLLABLE BYEO
+	{runeRange{0xBCD8, 0xBCD8}, prLV},                     // Lo       HANGUL SYLLABLE BYE
+	{runeRange{0xBCF4, 0xBCF4}, prLV},                     // Lo       HANGUL SYLLABLE BO
+	{runeRange{0xBD10, 0xBD10}, prLV},                     // Lo       HANGUL SYLLABLE BWA
+	{runeRange{0xBD2C, 0xBD2C}, prLV},                     // Lo       HANGUL SYLLABLE BWAE
+	{runeRange{0xBD48, 0xBD48}, prLV},                     // Lo       HANGUL SYLLABLE BOE
+	{runeRange{0xBD64, 0xBD64}, prLV},                     // Lo       HANGUL SYLLABLE BYO
+	{runeRange{0xBD80, 0xBD80}, prLV},                     // Lo       HANGUL SYLLABLE BU
+	{runeRange{0xBD9C, 0xBD9C}, prLV},                     // Lo       HANGUL SYLLABLE BWEO
+	{runeRange{0xBDB8, 0xBDB8}, prLV},                     // Lo       HANGUL SYLLABLE BWE
+	{runeRange{0xBDD4, 0xBDD4}, prLV},                     // Lo       HANGUL SYLLABLE BWI
+	{runeRange{0xBDF0, 0xBDF0}, prLV},                     // Lo       HANGUL SYLLABLE BYU
+	{runeRange{0xBE0C, 0xBE0C}, prLV},                     // Lo       HANGUL SYLLABLE BEU
+	{runeRange{0xBE28, 0xBE28}, prLV},                     // Lo       HANGUL SYLLABLE BYI
+	{runeRange{0xBE44, 0xBE44}, prLV},                     // Lo       HANGUL SYLLABLE BI
+	{runeRange{0xBE60, 0xBE60}, prLV},                     // Lo       HANGUL SYLLABLE BBA
+	{runeRange{0xBE7C, 0xBE7C}, prLV},                     // Lo       HANGUL SYLLABLE BBAE
+	{runeRange{0xBE98, 0xBE98}, prLV},                     // Lo       HANGUL SYLLABLE BBYA
+	{runeRange{0xBEB4, 0xBEB4}, prLV},                     // Lo       HANGUL SYLLABLE BBYAE
+	{runeRange{0xBED0, 0xBED0}, prLV},                     // Lo       HANGUL SYLLABLE BBEO
+	{runeRange{0xBEEC, 0xBEEC}, prLV},                     // Lo       HANGUL SYLLABLE BBE
+	{runeRange{0xBF08, 0xBF08}, prLV},                     // Lo       HANGUL SYLLABLE BBYEO
+	{runeRange{0xBF24, 0xBF24}, prLV},                     // Lo       HANGUL SYLLABLE BBYE
+	{runeRange{0xBF40, 0xBF40}, prLV},                     // Lo       HANGUL SYLLABLE BBO
+	{runeRange{0xBF5C, 0xBF5C}, prLV},                     // Lo       HANGUL SYLLABLE BBWA
+	{runeRange{0xBF78, 0xBF78}, prLV},                     // Lo       HANGUL SYLLABLE BBWAE
+	{runeRange{0xBF94, 0xBF94}, prLV},                     // Lo       HANGUL SYLLABLE BBOE
+	{runeRange{0xBFB0, 0xBFB0}, prLV},                     // Lo       HANGUL SYLLABLE BBYO
+	{runeRange{0xBFCC, 0xBFCC}, prLV},                     // Lo       HANGUL SYLLABLE BBU
+	{runeRange{0xBFE8, 0xBFE8}, prLV},                     // Lo       HANGUL SYLLABLE BBWEO
+	{runeRange{0xC004, 0xC004}, prLV},                     // Lo       HANGUL SYLLABLE BBWE
+	{runeRange{0xC020, 0xC020}, prLV},                     // Lo       HANGUL SYLLABLE BBWI
+	{runeRange{0xC03C, 0xC03C}, prLV},                     // Lo       HANGUL SYLLABLE BBYU
+	{runeRange{0xC058, 0xC058}, prLV},                     // Lo       HANGUL SYLLABLE BBEU
+	{runeRange{0xC074, 0xC074}, prLV},                     // Lo       HANGUL SYLLABLE BBYI
+	{runeRange{0xC090, 0xC090}, prLV},                     // Lo       HANGUL SYLLABLE BBI
+	{runeRange{0xC0AC, 0xC0AC}, prLV},                     // Lo       HANGUL SYLLABLE SA
+	{runeRange{0xC0C8, 0xC0C8}, prLV},                     // Lo       HANGUL SYLLABLE SAE
+	{runeRange{0xC0E4, 0xC0E4}, prLV},                     // Lo       HANGUL SYLLABLE SYA
+	{runeRange{0xC100, 0xC100}, prLV},                     // Lo       HANGUL SYLLABLE SYAE
+	{runeRange{0xC11C, 0xC11C}, prLV},                     // Lo       HANGUL SYLLABLE SEO
+	{runeRange{0xC138, 0xC138}, prLV},                     // Lo       HANGUL SYLLABLE SE
+	{runeRange{0xC154, 0xC154}, prLV},                     // Lo       HANGUL SYLLABLE SYEO
+	{runeRange{0xC170, 0xC170}, prLV},                     // Lo       HANGUL SYLLABLE SYE
+	{runeRange{0xC18C, 0xC18C}, prLV},                     // Lo       HANGUL SYLLABLE SO
+	{runeRange{0xC1A8, 0xC1A8}, prLV},                     // Lo       HANGUL SYLLABLE SWA
+	{runeRange{0xC1C4, 0xC1C4}, prLV},                     // Lo       HANGUL SYLLABLE SWAE
+	{runeRange{0xC1E0, 0xC1E0}, prLV},                     // Lo       HANGUL SYLLABLE SOE
+	{runeRange{0xC1FC, 0xC1FC}, prLV},                     // Lo       HANGUL SYLLABLE SYO
+	{runeRange{0xC218, 0xC218}, prLV},                     // Lo       HANGUL SYLLABLE SU
+	{runeRange{0xC234, 0xC234}, prLV},                     // Lo       HANGUL SYLLABLE SWEO
+	{runeRange{0xC250, 0xC250}, prLV},                     // Lo       HANGUL SYLLABLE SWE
+	{runeRange{0xC26C, 0xC26C}, prLV},                     // Lo       HANGUL SYLLABLE SWI
+	{runeRange{0xC288, 0xC288}, prLV},                     // Lo       HANGUL SYLLABLE SYU
+	{runeRange{0xC2A4, 0xC2A4}, prLV},                     // Lo       HANGUL SYLLABLE SEU
+	{runeRange{0xC2C0, 0xC2C0}, prLV},                     // Lo       HANGUL SYLLABLE SYI
+	{runeRange{0xC2DC, 0xC2DC}, prLV},                     // Lo       HANGUL SYLLABLE SI
+	{runeRange{0xC2F8, 0xC2F8}, prLV},                     // Lo       HANGUL SYLLABLE SSA
+	{runeRange{0xC314, 0xC314}, prLV},                     // Lo       HANGUL SYLLABLE SSAE
+	{runeRange{0xC330, 0xC330}, prLV},                     // Lo       HANGUL SYLLABLE SSYA
+	{runeRange{0xC34C, 0xC34C}, prLV},                     // Lo       HANGUL SYLLABLE SSYAE
+	{runeRange{0xC368, 0xC368}, prLV},                     // Lo       HANGUL SYLLABLE SSEO
+	{runeRange{0xC384, 0xC384}, prLV},                     // Lo       HANGUL SYLLABLE SSE
+	{runeRange{0xC3A0, 0xC3A0}, prLV},                     // Lo       HANGUL SYLLABLE SSYEO
+	{runeRange{0xC3BC, 0xC3BC}, prLV},                     // Lo       HANGUL SYLLABLE SSYE
+	{runeRange{0xC3D8, 0xC3D8}, prLV},                     // Lo       HANGUL SYLLABLE SSO
+	{runeRange{0xC3F4, 0xC3F4}, prLV},                     // Lo       HANGUL SYLLABLE SSWA
+	{runeRange{0xC410, 0xC410}, prLV},                     // Lo       HANGUL SYLLABLE SSWAE
+	{runeRange{0xC42C, 0xC42C}, prLV},                     // Lo       HANGUL SYLLABLE SSOE
+	{runeRange{0xC448, 0xC448}, prLV},                     // Lo       HANGUL SYLLABLE SSYO
+	{runeRange{0xC464, 0xC464}, prLV},                     // Lo       HANGUL SYLLABLE SSU
+	{runeRange{0xC480, 0xC480}, prLV},                     // Lo       HANGUL SYLLABLE SSWEO
+	{runeRange{0xC49C, 0xC49C}, prLV},                     // Lo       HANGUL SYLLABLE SSWE
+	{runeRange{0xC4B8, 0xC4B8}, prLV},                     // Lo       HANGUL SYLLABLE SSWI
+	{runeRange{0xC4D4, 0xC4D4}, prLV},                     // Lo       HANGUL SYLLABLE SSYU
+	{runeRange{0xC4F0, 0xC4F0}, prLV},                     // Lo       HANGUL SYLLABLE SSEU
+	{runeRange{0xC50C, 0xC50C}, prLV},                     // Lo       HANGUL SYLLABLE SSYI
+	{runeRange{0xC528, 0xC528}, prLV},                     // Lo       HANGUL SYLLABLE SSI
+	{runeRange{0xC544, 0xC544}, prLV},                     // Lo       HANGUL SYLLABLE A
+	{runeRange{0xC560, 0xC560}, prLV},                     // Lo       HANGUL SYLLABLE AE
+	{runeRange{0xC57C, 0xC57C}, prLV},                     // Lo       HANGUL SYLLABLE YA
+	{runeRange{0xC598, 0xC598}, prLV},                     // Lo       HANGUL SYLLABLE YAE
+	{runeRange{0xC5B4, 0xC5B4}, prLV},                     // Lo       HANGUL SYLLABLE EO
+	{runeRange{0xC5D0, 0xC5D0}, prLV},                     // Lo       HANGUL SYLLABLE E
+	{runeRange{0xC5EC, 0xC5EC}, prLV},                     // Lo       HANGUL SYLLABLE YEO
+	{runeRange{0xC608, 0xC608}, prLV},                     // Lo       HANGUL SYLLABLE YE
+	{runeRange{0xC624, 0xC624}, prLV},                     // Lo       HANGUL SYLLABLE O
+	{runeRange{0xC640, 0xC640}, prLV},                     // Lo       HANGUL SYLLABLE WA
+	{runeRange{0xC65C, 0xC65C}, prLV},                     // Lo       HANGUL SYLLABLE WAE
+	{runeRange{0xC678, 0xC678}, prLV},                     // Lo       HANGUL SYLLABLE OE
+	{runeRange{0xC694, 0xC694}, prLV},                     // Lo       HANGUL SYLLABLE YO
+	{runeRange{0xC6B0, 0xC6B0}, prLV},                     // Lo       HANGUL SYLLABLE U
+	{runeRange{0xC6CC, 0xC6CC}, prLV},                     // Lo       HANGUL SYLLABLE WEO
+	{runeRange{0xC6E8, 0xC6E8}, prLV},                     // Lo       HANGUL SYLLABLE WE
+	{runeRange{0xC704, 0xC704}, prLV},                     // Lo       HANGUL SYLLABLE WI
+	{runeRange{0xC720, 0xC720}, prLV},                     // Lo       HANGUL SYLLABLE YU
+	{runeRange{0xC73C, 0xC73C}, prLV},                     // Lo       HANGUL SYLLABLE EU
+	{runeRange{0xC758, 0xC758}, prLV},                     // Lo       HANGUL SYLLABLE YI
+	{runeRange{0xC774, 0xC774}, prLV},                     // Lo       HANGUL SYLLABLE I
+	{runeRange{0xC790, 0xC790}, prLV},                     // Lo       HANGUL SYLLABLE JA
+	{runeRange{0xC7AC, 0xC7AC}, prLV},                     // Lo       HANGUL SYLLABLE JAE
+	{runeRange{0xC7C8, 0xC7C8}, prLV},                     // Lo       HANGUL SYLLABLE JYA
+	{runeRange{0xC7E4, 0xC7E4}, prLV},                     // Lo       HANGUL SYLLABLE JYAE
+	{runeRange{0xC800, 0xC800}, prLV},                     // Lo       HANGUL SYLLABLE JEO
+	{runeRange{0xC81C, 0xC81C}, prLV},                     // Lo       HANGUL SYLLABLE JE
+	{runeRange{0xC838, 0xC838}, prLV},                     // Lo       HANGUL SYLLABLE JYEO
+	{runeRange{0xC854, 0xC854}, prLV},                     // Lo       HANGUL SYLLABLE JYE
+	{runeRange{0xC870, 0xC870}, prLV},                     // Lo       HANGUL SYLLABLE JO
+	{runeRange{0xC88C, 0xC88C}, prLV},                     // Lo       HANGUL SYLLABLE JWA
+	{runeRange{0xC8A8, 0xC8A8}, prLV},                     // Lo       HANGUL SYLLABLE JWAE
+	{runeRange{0xC8C4, 0xC8C4}, prLV},                     // Lo       HANGUL SYLLABLE JOE
+	{runeRange{0xC8E0, 0xC8E0}, prLV},                     // Lo       HANGUL SYLLABLE JYO
+	{runeRange{0xC8FC, 0xC8FC}, prLV},                     // Lo       HANGUL SYLLABLE JU
+	{runeRange{0xC918, 0xC918}, prLV},                     // Lo       HANGUL SYLLABLE JWEO
+	{runeRange{0xC934, 0xC934}, prLV},                     // Lo       HANGUL SYLLABLE JWE
+	{runeRange{0xC950, 0xC950}, prLV},                     // Lo       HANGUL SYLLABLE JWI
+	{runeRange{0xC96C, 0xC96C}, prLV},                     // Lo       HANGUL SYLLABLE JYU
+	{runeRange{0xC988, 0xC988}, prLV},                     // Lo       HANGUL SYLLABLE JEU
+	{runeRange{0xC9A4, 0xC9A4}, prLV},                     // Lo       HANGUL SYLLABLE JYI
+	{runeRange{0xC9C0, 0xC9C0}, prLV},                     // Lo       HANGUL SYLLABLE JI
+	{runeRange{0xC9DC, 0xC9DC}, prLV},                     // Lo       HANGUL SYLLABLE JJA
+	{runeRange{0xC9F8, 0xC9F8}, prLV},                     // Lo       HANGUL SYLLABLE JJAE
+	{runeRange{0xCA14, 0xCA14}, prLV},                     // Lo       HANGUL SYLLABLE JJYA
+	{runeRange{0xCA30, 0xCA30}, prLV},                     // Lo       HANGUL SYLLABLE JJYAE
+	{runeRange{0xCA4C, 0xCA4C}, prLV},                     // Lo       HANGUL SYLLABLE JJEO
+	{runeRange{0xCA68, 0xCA68}, prLV},                     // Lo       HANGUL SYLLABLE JJE
+	{runeRange{0xCA84, 0xCA84}, prLV},                     // Lo       HANGUL SYLLABLE JJYEO
+	{runeRange{0xCAA0, 0xCAA0}, prLV},                     // Lo       HANGUL SYLLABLE JJYE
+	{runeRange{0xCABC, 0xCABC}, prLV},                     // Lo       HANGUL SYLLABLE JJO
+	{runeRange{0xCAD8, 0xCAD8}, prLV},                     // Lo       HANGUL SYLLABLE JJWA
+	{runeRange{0xCAF4, 0xCAF4}, prLV},                     // Lo       HANGUL SYLLABLE JJWAE
+	{runeRange{0xCB10, 0xCB10}, prLV},                     // Lo       HANGUL SYLLABLE JJOE
+	{runeRange{0xCB2C, 0xCB2C}, prLV},                     // Lo       HANGUL SYLLABLE JJYO
+	{runeRange{0xCB48, 0xCB48}, prLV},                     // Lo       HANGUL SYLLABLE JJU
+	{runeRange{0xCB64, 0xCB64}, prLV},                     // Lo       HANGUL SYLLABLE JJWEO
+	{runeRange{0xCB80, 0xCB80}, prLV},                     // Lo       HANGUL SYLLABLE JJWE
+	{runeRange{0xCB9C, 0xCB9C}, prLV},                     // Lo       HANGUL SYLLABLE JJWI
+	{runeRange{0xCBB8, 0xCBB8}, prLV},                     // Lo       HANGUL SYLLABLE JJYU
+	{runeRange{0xCBD4, 0xCBD4}, prLV},                     // Lo       HANGUL SYLLABLE JJEU
+	{runeRange{0xCBF0, 0xCBF0}, prLV},                     // Lo       HANGUL SYLLABLE JJYI
+	{runeRange{0xCC0C, 0xCC0C}, prLV},                     // Lo       HANGUL SYLLABLE JJI
+	{runeRange{0xCC28, 0xCC28}, prLV},                     // Lo       HANGUL SYLLABLE CA
+	{runeRange{0xCC44, 0xCC44}, prLV},                     // Lo       HANGUL SYLLABLE CAE
+	{runeRange{0xCC60, 0xCC60}, prLV},                     // Lo       HANGUL SYLLABLE CYA
+	{runeRange{0xCC7C, 0xCC7C}, prLV},                     // Lo       HANGUL SYLLABLE CYAE
+	{runeRange{0xCC98, 0xCC98}, prLV},                     // Lo       HANGUL SYLLABLE CEO
+	{runeRange{0xCCB4, 0xCCB4}, prLV},                     // Lo       HANGUL SYLLABLE CE
+	{runeRange{0xCCD0, 0xCCD0}, prLV},                     // Lo       HANGUL SYLLABLE CYEO
+	{runeRange{0xCCEC, 0xCCEC}, prLV},                     // Lo       HANGUL SYLLABLE CYE
+	{runeRange{0xCD08, 0xCD08}, prLV},                     // Lo       HANGUL SYLLABLE CO
+	{runeRange{0xCD24, 0xCD24}, prLV},                     // Lo       HANGUL SYLLABLE CWA
+	{runeRange{0xCD40, 0xCD40}, prLV},                     // Lo       HANGUL SYLLABLE CWAE
+	{runeRange{0xCD5C, 0xCD5C}, prLV},                     // Lo       HANGUL SYLLABLE COE
+	{runeRange{0xCD78, 0xCD78}, prLV},                     // Lo       HANGUL SYLLABLE CYO
+	{runeRange{0xCD94, 0xCD94}, prLV},                     // Lo       HANGUL SYLLABLE CU
+	{runeRange{0xCDB0, 0xCDB0}, prLV},                     // Lo       HANGUL SYLLABLE CWEO
+	{runeRange{0xCDCC, 0xCDCC}, prLV},                     // Lo       HANGUL SYLLABLE CWE
+	{runeRange{0xCDE8, 0xCDE8}, prLV},                     // Lo       HANGUL SYLLABLE CWI
+	{runeRange{0xCE04, 0xCE04}, prLV},                     // Lo       HANGUL SYLLABLE CYU
+	{runeRange{0xCE20, 0xCE20}, prLV},                     // Lo       HANGUL SYLLABLE CEU
+	{runeRange{0xCE3C, 0xCE3C}, prLV},                     // Lo       HANGUL SYLLABLE CYI
+	{runeRange{0xCE58, 0xCE58}, prLV},                     // Lo       HANGUL SYLLABLE CI
+	{runeRange{0xCE74, 0xCE74}, prLV},                     // Lo       HANGUL SYLLABLE KA
+	{runeRange{0xCE90, 0xCE90}, prLV},                     // Lo       HANGUL SYLLABLE KAE
+	{runeRange{0xCEAC, 0xCEAC}, prLV},                     // Lo       HANGUL SYLLABLE KYA
+	{runeRange{0xCEC8, 0xCEC8}, prLV},                     // Lo       HANGUL SYLLABLE KYAE
+	{runeRange{0xCEE4, 0xCEE4}, prLV},                     // Lo       HANGUL SYLLABLE KEO
+	{runeRange{0xCF00, 0xCF00}, prLV},                     // Lo       HANGUL SYLLABLE KE
+	{runeRange{0xCF1C, 0xCF1C}, prLV},                     // Lo       HANGUL SYLLABLE KYEO
+	{runeRange{0xCF38, 0xCF38}, prLV},                     // Lo       HANGUL SYLLABLE KYE
+	{runeRange{0xCF54, 0xCF54}, prLV},                     // Lo       HANGUL SYLLABLE KO
+	{runeRange{0xCF70, 0xCF70}, prLV},                     // Lo       HANGUL SYLLABLE KWA
+	{runeRange{0xCF8C, 0xCF8C}, prLV},                     // Lo       HANGUL SYLLABLE KWAE
+	{runeRange{0xCFA8, 0xCFA8}, prLV},                     // Lo       HANGUL SYLLABLE KOE
+	{runeRange{0xCFC4, 0xCFC4}, prLV},                     // Lo       HANGUL SYLLABLE KYO
+	{runeRange{0xCFE0, 0xCFE0}, prLV},                     // Lo       HANGUL SYLLABLE KU
+	{runeRange{0xCFFC, 0xCFFC}, prLV},                     // Lo       HANGUL SYLLABLE KWEO
+	{runeRange{0xD018, 0xD018}, prLV},                     // Lo       HANGUL SYLLABLE KWE
+	{runeRange{0xD034, 0xD034}, prLV},                     // Lo       HANGUL SYLLABLE KWI
+	{runeRange{0xD050, 0xD050}, prLV},                     // Lo       HANGUL SYLLABLE KYU
+	{runeRange{0xD06C, 0xD06C}, prLV},                     // Lo       HANGUL SYLLABLE KEU
+	{runeRange{0xD088, 0xD088}, prLV},                     // Lo       HANGUL SYLLABLE KYI
+	{runeRange{0xD0A4, 0xD0A4}, prLV},                     // Lo       HANGUL SYLLABLE KI
+	{runeRange{0xD0C0, 0xD0C0}, prLV},                     // Lo       HANGUL SYLLABLE TA
+	{runeRange{0xD0DC, 0xD0DC}, prLV},                     // Lo       HANGUL SYLLABLE TAE
+	{runeRange{0xD0F8, 0xD0F8}, prLV},                     // Lo       HANGUL SYLLABLE TYA
+	{runeRange{0xD114, 0xD114}, prLV},                     // Lo       HANGUL SYLLABLE TYAE
+	{runeRange{0xD130, 0xD130}, prLV},                     // Lo       HANGUL SYLLABLE TEO
+	{runeRange{0xD14C, 0xD14C}, prLV},                     // Lo       HANGUL SYLLABLE TE
+	{runeRange{0xD168, 0xD168}, prLV},                     // Lo       HANGUL SYLLABLE TYEO
+	{runeRange{0xD184, 0xD184}, prLV},                     // Lo       HANGUL SYLLABLE TYE
+	{runeRange{0xD1A0, 0xD1A0}, prLV},                     // Lo       HANGUL SYLLABLE TO
+	{runeRange{0xD1BC, 0xD1BC}, prLV},                     // Lo       HANGUL SYLLABLE TWA
+	{runeRange{0xD1D8, 0xD1D8}, prLV},                     // Lo       HANGUL SYLLABLE TWAE
+	{runeRange{0xD1F4, 0xD1F4}, prLV},                     // Lo       HANGUL SYLLABLE TOE
+	{runeRange{0xD210, 0xD210}, prLV},                     // Lo       HANGUL SYLLABLE TYO
+	{runeRange{0xD22C, 0xD22C}, prLV},                     // Lo       HANGUL SYLLABLE TU
+	{runeRange{0xD248, 0xD248}, prLV},                     // Lo       HANGUL SYLLABLE TWEO
+	{runeRange{0xD264, 0xD264}, prLV},                     // Lo       HANGUL SYLLABLE TWE
+	{runeRange{0xD280, 0xD280}, prLV},                     // Lo       HANGUL SYLLABLE TWI
+	{runeRange{0xD29C, 0xD29C}, prLV},                     // Lo       HANGUL SYLLABLE TYU
+	{runeRange{0xD2B8, 0xD2B8}, prLV},                     // Lo       HANGUL SYLLABLE TEU
+	{runeRange{0xD2D4, 0xD2D4}, prLV},                     // Lo       HANGUL SYLLABLE TYI
+	{runeRange{0xD2F0, 0xD2F0}, prLV},                     // Lo       HANGUL SYLLABLE TI
+	{runeRange{0xD30C, 0xD30C}, prLV},                     // Lo       HANGUL SYLLABLE PA
+	{runeRange{0xD328, 0xD328}, prLV},                     // Lo       HANGUL SYLLABLE PAE
+	{runeRange{0xD344, 0xD344}, prLV},                     // Lo       HANGUL SYLLABLE PYA
+	{runeRange{0xD360, 0xD360}, prLV},                     // Lo       HANGUL SYLLABLE PYAE
+	{runeRange{0xD37C, 0xD37C}, prLV},                     // Lo       HANGUL SYLLABLE PEO
+	{runeRange{0xD398, 0xD398}, prLV},                     // Lo       HANGUL SYLLABLE PE
+	{runeRange{0xD3B4, 0xD3B4}, prLV},                     // Lo       HANGUL SYLLABLE PYEO
+	{runeRange{0xD3D0, 0xD3D0}, prLV},                     // Lo       HANGUL SYLLABLE PYE
+	{runeRange{0xD3EC, 0xD3EC}, prLV},                     // Lo       HANGUL SYLLABLE PO
+	{runeRange{0xD408, 0xD408}, prLV},                     // Lo       HANGUL SYLLABLE PWA
+	{runeRange{0xD424, 0xD424}, prLV},                     // Lo       HANGUL SYLLABLE PWAE
+	{runeRange{0xD440, 0xD440}, prLV},                     // Lo       HANGUL SYLLABLE POE
+	{runeRange{0xD45C, 0xD45C}, prLV},                     // Lo       HANGUL SYLLABLE PYO
+	{runeRange{0xD478, 0xD478}, prLV},                     // Lo       HANGUL SYLLABLE PU
+	{runeRange{0xD494, 0xD494}, prLV},                     // Lo       HANGUL SYLLABLE PWEO
+	{runeRange{0xD4B0, 0xD4B0}, prLV},                     // Lo       HANGUL SYLLABLE PWE
+	{runeRange{0xD4CC, 0xD4CC}, prLV},                     // Lo       HANGUL SYLLABLE PWI
+	{runeRange{0xD4E8, 0xD4E8}, prLV},                     // Lo       HANGUL SYLLABLE PYU
+	{runeRange{0xD504, 0xD504}, prLV},                     // Lo       HANGUL SYLLABLE PEU
+	{runeRange{0xD520, 0xD520}, prLV},                     // Lo       HANGUL SYLLABLE PYI
+	{runeRange{0xD53C, 0xD53C}, prLV},                     // Lo       HANGUL SYLLABLE PI
+	{runeRange{0xD558, 0xD558}, prLV},                     // Lo       HANGUL SYLLABLE HA
+	{runeRange{0xD574, 0xD574}, prLV},                     // Lo       HANGUL SYLLABLE HAE
+	{runeRange{0xD590, 0xD590}, prLV},                     // Lo       HANGUL SYLLABLE HYA
+	{runeRange{0xD5AC, 0xD5AC}, prLV},                     // Lo       HANGUL SYLLABLE HYAE
+	{runeRange{0xD5C8, 0xD5C8}, prLV},                     // Lo       HANGUL SYLLABLE HEO
+	{runeRange{0xD5E4, 0xD5E4}, prLV},                     // Lo       HANGUL SYLLABLE HE
+	{runeRange{0xD600, 0xD600}, prLV},                     // Lo       HANGUL SYLLABLE HYEO
+	{runeRange{0xD61C, 0xD61C}, prLV},                     // Lo       HANGUL SYLLABLE HYE
+	{runeRange{0xD638, 0xD638}, prLV},                     // Lo       HANGUL SYLLABLE HO
+	{runeRange{0xD654, 0xD654}, prLV},                     // Lo       HANGUL SYLLABLE HWA
+	{runeRange{0xD670, 0xD670}, prLV},                     // Lo       HANGUL SYLLABLE HWAE
+	{runeRange{0xD68C, 0xD68C}, prLV},                     // Lo       HANGUL SYLLABLE HOE
+	{runeRange{0xD6A8, 0xD6A8}, prLV},                     // Lo       HANGUL SYLLABLE HYO
+	{runeRange{0xD6C4, 0xD6C4}, prLV},                     // Lo       HANGUL SYLLABLE HU
+	{runeRange{0xD6E0, 0xD6E0}, prLV},                     // Lo       HANGUL SYLLABLE HWEO
+	{runeRange{0xD6FC, 0xD6FC}, prLV},                     // Lo       HANGUL SYLLABLE HWE
+	{runeRange{0xD718, 0xD718}, prLV},                     // Lo       HANGUL SYLLABLE HWI
+	{runeRange{0xD734, 0xD734}, prLV},                     // Lo       HANGUL SYLLABLE HYU
+	{runeRange{0xD750, 0xD750}, prLV},                     // Lo       HANGUL SYLLABLE HEU
+	{runeRange{0xD76C, 0xD76C}, prLV},                     // Lo       HANGUL SYLLABLE HYI
+	{runeRange{0xD788, 0xD788}, prLV},                     // Lo       HANGUL SYLLABLE HI
+	{runeRange{0xD7B0, 0xD7C6}, prV},                      // Lo  [23] HANGUL JUNGSEONG O-YEO..HANGUL JUNGSEONG ARAEA-E
+	{runeRange{0xFB1E, 0xFB1E}, prExtend},                 // Mn       HEBREW POINT JUDEO-SPANISH VARIKA
+	{runeRange{0xFE20, 0xFE2F}, prExtend},                 // Mn  [16] COMBINING LIGATURE LEFT HALF..COMBINING CYRILLIC TITLO RIGHT HALF
+	{runeRange{0xFF9E, 0xFF9F}, prExtend},                 // Lm   [2] HALFWIDTH KATAKANA VOICED SOUND MARK..HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK
+	{runeRange{0xFFF9, 0xFFFB}, prControl},                // Cf   [3] INTERLINEAR ANNOTATION ANCHOR..INTERLINEAR ANNOTATION TERMINATOR
+	{runeRange{0x102E0, 0x102E0}, prExtend},               // Mn       COPTIC EPACT THOUSANDS MARK
+	{runeRange{0x10A01, 0x10A03}, prExtend},               // Mn   [3] KHAROSHTHI VOWEL SIGN I..KHAROSHTHI VOWEL SIGN VOCALIC R
+	{runeRange{0x10A0C, 0x10A0F}, prExtend},               // Mn   [4] KHAROSHTHI VOWEL LENGTH MARK..KHAROSHTHI SIGN VISARGA
+	{runeRange{0x10A3F, 0x10A3F}, prExtend},               // Mn       KHAROSHTHI VIRAMA
+	{runeRange{0x10D24, 0x10D27}, prExtend},               // Mn   [4] HANIFI ROHINGYA SIGN HARBAHAY..HANIFI ROHINGYA SIGN TASSI
+	{runeRange{0x10EAB, 0x10EAC}, prExtend},               // Mn   [2] YEZIDI COMBINING HAMZA MARK..YEZIDI COMBINING MADDA MARK
+	{runeRange{0x10EF0, 0x10EFF}, prExtend},               // Mn  [16] ARABIC SMALL LOW UPRIGHT RECTANGULAR ZERO..ARABIC SMALL LOW WORD MADDA
 	{runeRange{0x10F82, 0x10F85}, prExtend},               // Mn   [4] OLD UYGHUR COMBINING DOT ABOVE..OLD UYGHUR COMBINING TWO DOTS BELOW
 	{runeRange{0x11001, 0x11001}, prExtend},               // Mn       BRAHMI SIGN ANUSVARA
 	{runeRange{0x11038, 0x11046}, prExtend},               // Mn  [15] BRAHMI VOWEL SIGN AA..BRAHMI VIRAMA
@@ -1767,25 +1767,28 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x11D90, 0x11D91}, prExtend},               // Mn   [2] GUNJALA GONDI VOWEL SIGN EE..GUNJALA GONDI VOWEL SIGN AI
 	{runeRange{0x11D95, 0x11D95}, prExtend},               // Mn       GUNJALA GONDI SIGN ANUSVARA
 	{runeRange{0x11D97, 0x11D97}, prExtend},               // Mn       GUNJALA GONDI VIRAMA
-	{runeRange{0x11EF5, 0x11EF6}, prSpacingMark},          // Mc   [2] MAKASAR VOWEL SIGN E..MAKASAR VOWEL SIGN O
-	{runeRange{0x11F02, 0x11F02}, prPrepend},              // Lo       KAWI SIGN REPHA
-	{runeRange{0x11F34, 0x11F35}, prSpacingMark},          // Mc   [2] KAWI VOWEL SIGN AA..KAWI VOWEL SIGN ALTERNATE AA
-	{runeRange{0x11F3E, 0x11F3F}, prSpacingMark},          // Mc   [2] KAWI VOWEL SIGN E..KAWI VOWEL SIGN AI
-	{runeRange{0x11F41, 0x11F41}, prExtend},               // Mc       KAWI SIGN KILLER
-	{runeRange{0x11F5A, 0x11F5A}, prExtend},               // Mn       KAWI SIGN NUKTA
-	{runeRange{0x13440, 0x13440}, prExtend},               // Mn       EGYPTIAN HIEROGLYPH MIRROR HORIZONTALLY
-	{runeRange{0x1611E, 0x16129}, prExtend},               // Mn  [12] GURUNG KHEMA VOWEL SIGN AA..GURUNG KHEMA VOWEL LENGTH MARK
-	{runeRange{0x1612D, 0x1612F}, prExtend},               // Mn   [3] GURUNG KHEMA SIGN ANUSVARA..GURUNG KHEMA SIGN THOLHOMA
-	{runeRange{0x16B30, 0x16B36}, prExtend},               // Mn   [7] PAHAWH HMONG MARK CIM TUB..PAHAWH HMONG MARK CIM TAUM
-	{runeRange{0x16D67, 0x16D6A}, prV},                    // Lo   [4] KIRAT RAI VOWEL SIGN E..KIRAT RAI VOWEL SIGN AU
-	{runeRange{0x16F51, 0x16F87}, prSpacingMark},          // Mc  [55] MIAO SIGN ASPIRATION..MIAO VOWEL SIGN UI
-	{runeRange{0x16FE4, 0x16FE4}, prExtend},               // Mn       KHITAN SMALL SCRIPT FILLER
-	{runeRange{0x1BC9D, 0x1BC9E}, prExtend},               // Mn   [2] DUPLOYAN THICK LETTER SELECTOR..DUPLOYAN DOUBLE MARK
-	{runeRange{0x1CF00, 0x1CF2D}, prExtend},               // Mn  [46] ZNAMENNY COMBINING MARK GORAZDO NIZKO S KRYZHEM ON LEFT..ZNAMENNY COMBINING MARK KRYZH ON LEFT
+	{runeRange{0x11EF3, 0x11EF4}, prExtend},               // Mn   [2] MAKASAR VOWEL SIGN I..MAKASAR VOWEL SIGN U
+	{runeRange{0x11F00, 0x11F01}, prExtend},               // Mn   [2] KAWI SIGN CANDRABINDU..KAWI SIGN ANUSVARA
+	{runeRange{0x11F03, 0x11F03}, prSpacingMark},          // Mc       KAWI SIGN VISARGA
+	{runeRange{0x11F36, 0x11F3A}, prExtend},               // Mn   [5] KAWI VOWEL SIGN I..KAWI VOWEL SIGN VOCALIC R
+	{runeRange{0x11F40, 0x11F40}, prExtend},               // Mn       KAWI VOWEL SIGN EU
+	{runeRange{0x11F42, 0x11F42}, prExtend},               // Mn       KAWI CONJOINER
+	{runeRange{0x13430, 0x1343F}, prControl},              // Cf  [16] EGYPTIAN HIEROGLYPH VERTICAL JOINER..EGYPTIAN HIEROGLYPH END WALLED ENCLOSURE
+	{runeRange{0x13447, 0x13455}, prExtend},               // Mn  [15] EGYPTIAN HIEROGLYPH MODIFIER DAMAGED AT TOP START..EGYPTIAN HIEROGLYPH MODIFIER DAMAGED
+	{runeRange{0x1612A, 0x1612C}, prSpacingMark},          // Mc   [3] GURUNG KHEMA CONSONANT SIGN MEDIAL YA..GURUNG KHEMA CONSONANT SIGN MEDIAL HA
+	{runeRange{0x16AF0, 0x16AF4}, prExtend},               // Mn   [5] BASSA VAH COMBINING HIGH TONE..BASSA VAH COMBINING HIGH-LOW TONE
+	{runeRange{0x16D63, 0x16D63}, prV},                    // Lo       KIRAT RAI VOWEL SIGN AA
+	{runeRange{0x16F4F, 0x16F4F}, prExtend},               // Mn       MIAO SIGN CONSONANT MODIFIER BAR
+	{runeRange{0x16F8F, 0x16F92}, prExtend},               // Mn   [4] MIAO TONE RIGHT..MIAO TONE BELOW
+	{runeRange{0x16FF0, 0x16FF1}, prExtend},               // Mc   [2] VIETNAMESE ALTERNATE READING MARK CA..VIETNAMESE ALTERNATE READING MARK NHAY
+	{runeRange{0x1BCA0, 0x1BCA3}, prControl},              // Cf   [4] SHORTHAND FORMAT LETTER OVERLAP..SHORTHAND FORMAT UP STEP
+	{runeRange{0x1CF30, 0x1CF46}, prExtend},               // Mn  [23] ZNAMENNY COMBINING TONAL RANGE MARK MRACHNO..ZNAMENNY PRIZNAK MODIFIER ROG
 	{runeRange{0x1D165, 0x1D166}, prExtend},               // Mc   [2] MUSICAL SYMBOL COMBINING STEM..MUSICAL SYMBOL COMBINING SPRECHGESANG STEM
 	{runeRange{0x1D16D, 0x1D172}, prExtend},               // Mc   [6] MUSICAL SYMBOL COMBINING AUGMENTATION DOT..MUSICAL SYMBOL COMBINING FLAG-5
 	{runeRange{0x1D17B, 0x1D182}, prExtend},               // Mn   [8] MUSICAL SYMBOL COMBINING ACCENT..MUSICAL SYMBOL COMBINING LOURE
 	{runeRange{0x1D1AA, 0x1D1AD}, prExtend},               // Mn   [4] MUSICAL SYMBOL COMBINING DOWN BOW..MUSICAL SYMBOL COMBINING SNAP PIZZICATO
+	{runeRange{0x1D250, 0x1D252}, prExtend},               // Mc   [3] MUSICAL SYMBOL COMBINING FLAG-6..MUSICAL SYMBOL COMBINING FLAG-8
+	{runeRange{0x1D25F, 0x1D25F}, prExtend},               // Mc       MUSICAL SYMBOL COMBINING BUZZ ROLL STEM
 	{runeRange{0x1DA00, 0x1DA36}, prExtend},               // Mn  [55] SIGNWRITING HEAD RIM..SIGNWRITING AIR SUCKING IN
 	{runeRange{0x1DA75, 0x1DA75}, prExtend},               // Mn       SIGNWRITING UPPER BODY TILTING FROM HIP JOINTS
 	{runeRange{0x1DA9B, 0x1DA9F}, prExtend},               // Mn   [5] SIGNWRITING FILL MODIFIER-2..SIGNWRITING FILL MODIFIER-6
@@ -1889,4 +1892,11 @@ var graphemeCodePoints = dictionary[property]{
 	{runeRange{0x1F680, 0x1F680}, prExtendedPictographic}, // E0.6   [1] (🚀)       rocket
 	{runeRange{0x1F683, 0x1F685}, prExtendedPictographic}, // E0.6   [3] (🚃..🚅)    railway car..bullet train
 	{runeRange{0x1F687, 0x1F687}, prExtendedPictographic}, // E0.6   [1] (🚇)       metro
+	{runeRange{0x1F689, 0x1F689}, prExtendedPictographic}, // E0.6   [1] (🚉)       station
+	{runeRange{0x1F68C, 0x1F68C}, prExtendedPictographic}, // E0.6   [1] (🚌)       bus
+	{runeRange{0x1F68E, 0x1F68E}, prExtendedPictographic}, // E1.0   [1] (🚎)       trolleybus
+	{runeRange{0x1F690, 0x1F690}, prExtendedPictographic}, // E1.0   [1] (🚐)       minibus
+	{runeRange{0x1F694, 0x1F694}, prExtendedPictographic}, // E0.7   [1] (🚔)       oncoming police car
+	{runeRange{0x1F696, 0x1F696}, prExtendedPictographic}, // E1.0   [1] (🚖)       oncoming taxi
+	{runeRange{0x1F698, 0x1F698}, prExtendedPictographic}, // E0.7   [1] (🚘)       oncoming automobile
 }

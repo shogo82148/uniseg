@@ -25,20 +25,17 @@ const (
 	grGB9cStateMask grState = 0xf0
 
 	// GB9c states.
-	// It matches \p{InCB=Consonant} [ \p{InCB=Extend} \p{InCB=Linker} ]* \p{InCB=Linker} [ \p{InCB=Extend} \p{InCB=Linker} ]*
+	// It matches \p{InCB=Linker} \p{InCB=Extend}*
 	//
 	// State diagram:
 	//
 	// ```mermaid
 	// graph LR
-	//     start--Consonant-->A((1))
-	//     A--Linker-->B((2))
-	//     A--Extended-->A
-	//     B--Extended-->B
-	//     B--Linker-->B
+	//     start--Linker-->A((1))
+	//     A--Extend-->A
+	//     A--Linker-->A
 	// ```
-	grGB9c1 grState = 0x10 // seen \p{InCB=Consonant}
-	grGB9c2 grState = 0x20 // seen \p{InCB=Linker}
+	grGB9cLinker grState = 0x10 // seen \p{InCB=Linker}
 )
 
 type grTransitionResult struct {
@@ -165,9 +162,9 @@ func transitionGraphemeState(state grState, r rune) (newState grState, prop prop
 		}
 	}
 
-	// GB9c: \p{InCB=Consonant} [ \p{InCB=Extend} \p{InCB=Linker} ]* \p{InCB=Linker} [ \p{InCB=Extend} \p{InCB=Linker} ]* 	× 	\p{InCB=Consonant}
+	// GB9c: \p{InCB=Linker} \p{InCB=Extend}* 	× 	\p{InCB=Consonant}
 	if ruleNumber >= 93 {
-		if gb9cState == grGB9c2 && incbProp == incbConsonant {
+		if gb9cState == grGB9cLinker && incbProp == incbConsonant {
 			boundary = false
 		}
 	}
@@ -175,22 +172,11 @@ func transitionGraphemeState(state grState, r rune) (newState grState, prop prop
 	var newGBcState grState
 
 	// GB9c: state transition
-	switch gb9cState {
-	case grGB9c1:
-		switch incbProp {
-		case incbLinker:
-			newGBcState = grGB9c2
-		case incbExtend:
-			newGBcState = grGB9c1
-		}
-	case grGB9c2:
-		switch incbProp {
-		case incbLinker, incbExtend:
-			newGBcState = grGB9c2
-		}
-	}
-	if incbProp == incbConsonant {
-		newGBcState = grGB9c1
+	switch incbProp {
+	case incbLinker:
+		newGBcState = grGB9cLinker
+	case incbExtend:
+		newGBcState = gb9cState
 	}
 
 	newState |= newGBcState
