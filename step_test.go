@@ -444,7 +444,7 @@ func TestStepStringSentence(t *testing.T) {
 // Benchmark the use of the [Step] function.
 func BenchmarkStepBytes(b *testing.B) {
 	input := []byte(benchmarkStr)
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		var c []byte
 		var boundaries Boundaries
 		var state State
@@ -464,7 +464,7 @@ func BenchmarkStepBytes(b *testing.B) {
 // Benchmark the use of the StepString() function.
 func BenchmarkStepString(b *testing.B) {
 	input := benchmarkStr
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		var c string
 		var boundaries Boundaries
 		var state State
@@ -504,7 +504,7 @@ func FuzzStepString(f *testing.F) {
 			b          []byte
 			boundaries Boundaries
 			state      State
-			str        string = orig
+			str        = orig
 		)
 		for len(str) > 0 {
 			c, str, boundaries, state = StepString(str, state)

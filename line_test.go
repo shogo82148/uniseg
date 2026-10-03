@@ -254,7 +254,7 @@ func TestLB20aWordInitialHyphenContext(t *testing.T) {
 // Benchmark the use of the line break function for byte slices.
 func BenchmarkLineFunctionBytes(b *testing.B) {
 	input := []byte(benchmarkStr)
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		var c []byte
 		var boundaries bool
 		var state LineBreakState
@@ -274,7 +274,7 @@ func BenchmarkLineFunctionBytes(b *testing.B) {
 // Benchmark the use of the line break function for strings.
 func BenchmarkLineFunctionString(b *testing.B) {
 	input := benchmarkStr
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		var c string
 		var boundaries bool
 		var state LineBreakState

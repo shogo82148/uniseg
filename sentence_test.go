@@ -134,7 +134,7 @@ func TestSentenceCasesString(t *testing.T) {
 // Benchmark the use of the sentence break function for byte slices.
 func BenchmarkSentenceFunctionBytes(b *testing.B) {
 	input := []byte(benchmarkStr)
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		var c []byte
 		var state SentenceBreakState
 		str := input
@@ -152,7 +152,7 @@ func BenchmarkSentenceFunctionBytes(b *testing.B) {
 // Benchmark the use of the sentence break function for strings.
 func BenchmarkSentenceFunctionString(b *testing.B) {
 	input := benchmarkStr
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		var c string
 		var state SentenceBreakState
 		str := input
