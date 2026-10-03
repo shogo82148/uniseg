@@ -136,7 +136,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 		}
 		return state, false
 	}
-	if state >= 0 && state&wbZWJBit != 0 && graphemeLookup.search(r) == prExtendedPictographic {
+	if state >= 0 && state&wbZWJBit != 0 && graphemeLookup.search(r).property == prExtendedPictographic {
 		// WB3c.
 		return wbAny, false
 	}

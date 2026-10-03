@@ -680,7 +680,7 @@ func transitionLineBreakRules[T bytes](state LineBreakState, r rune, nextPropert
 				return lbAny, LineDontBreak
 			}
 		}
-		if generalCategory == gcCn && graphemeLookup.search(r) == prExtendedPictographic {
+		if generalCategory == gcCn && graphemeLookup.search(r).property == prExtendedPictographic {
 			newState |= lbExtPicCnBit
 		}
 	}

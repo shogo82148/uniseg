@@ -16,6 +16,9 @@ import "os"
 //go:generate go run ./internal/cmd/gen_properties -logprefix=emoji -emojis=Emoji -type=emojiProperty emoji.go emoji
 //go:generate go run ./internal/cmd/gen_incb/gen_incb.go
 
+// tries.go must be generated after the property dictionaries above.
+//go:generate go test -run ^TestGenerateTries$ -args -generate-tries
+
 // Parser is a parser for Unicode text.
 type Parser struct {
 	// EastAsianWidth controls the width of characters
