@@ -518,12 +518,12 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	// LB12a.
 	if rule > 121 &&
 		nextProperty == lbprGL &&
-		(state != lbSP && state != lbBA && state != lbBAHyphen && state != lbHY && state != lbHH && state != lbLB21a && state != lbQUSP && state != lbCLCPSP && state != lbB2SP) {
+		(state != lbSP && state != lbHY && state != lbHH && state != lbLB21a && state != lbQUSP && state != lbCLCPSP && state != lbB2SP) {
 		return lbGL, LineDontBreak
 	}
 
 	// LB13.
-	if rule > 130 && state != lbNU && state != lbNUNU {
+	if rule > 130 && state != lbNU && state != lbNUNU && state != lbNUSY && state != lbNUIS {
 		if state == lbSP && nextProperty == lbprIS && (r == '.' || r == ',') {
 			r2, _ := decoder(str)
 			if r2 != utf8.RuneError && lineBreakCodePoints.search(r2).lbProperty == lbprNU {
