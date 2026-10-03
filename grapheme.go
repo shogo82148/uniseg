@@ -1,6 +1,7 @@
 package uniseg
 
 import (
+	"iter"
 	"unicode/utf8"
 )
 
@@ -204,6 +205,50 @@ func ReverseString(s string) string {
 		}
 	}
 	return string(reversed)
+}
+
+// GraphemeClusters returns an iterator over the grapheme clusters of the given byte slice.
+// The iterator yields the starting index and the byte slice of each grapheme cluster.
+func GraphemeClusters(s []byte) iter.Seq2[int, []byte] {
+	return DefaultParser.GraphemeClusters(s)
+}
+
+// GraphemeClusters returns an iterator over the grapheme clusters of the given byte slice.
+// The iterator yields the starting index and the byte slice of each grapheme cluster.
+func (p *Parser) GraphemeClusters(s []byte) iter.Seq2[int, []byte] {
+	return func(yield func(idx int, cluster []byte) bool) {
+		var state GraphemeBreakState
+		index := 0
+		for len(s) > 0 {
+			var cluster []byte
+			cluster, s, _, state = FirstGraphemeCluster(s, state)
+			if !yield(index, cluster) {
+				break
+			}
+			index += len(cluster)
+		}
+	}
+}
+
+// GraphemeClustersInString is like [GraphemeClusters] but for strings instead of byte slices.
+func GraphemeClustersInString(s string) iter.Seq2[int, string] {
+	return DefaultParser.GraphemeClustersInString(s)
+}
+
+// GraphemeClustersInString is like [*Parser.GraphemeClusters] but for strings instead of byte slices.
+func (p *Parser) GraphemeClustersInString(s string) iter.Seq2[int, string] {
+	return func(yield func(idx int, cluster string) bool) {
+		var state GraphemeBreakState
+		index := 0
+		for len(s) > 0 {
+			var cluster string
+			cluster, s, _, state = FirstGraphemeClusterInString(s, state)
+			if !yield(index, cluster) {
+				break
+			}
+			index += len(cluster)
+		}
+	}
 }
 
 // GraphemeBreakState the type of the grapheme cluster parser's states.
