@@ -504,7 +504,7 @@ func FuzzStepString(f *testing.F) {
 			b          []byte
 			boundaries Boundaries
 			state      State
-			str        string = orig
+			str        = orig
 		)
 		for len(str) > 0 {
 			c, str, boundaries, state = StepString(str, state)

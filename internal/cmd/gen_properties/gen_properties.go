@@ -120,7 +120,7 @@ func parse(opts *Options) (string, error) {
 			return "", err
 		}
 		in1 := res.Body
-		defer in1.Close()
+		defer in1.Close() //nolint:errcheck // cleanup
 
 		// Parse it.
 		scanner := bufio.NewScanner(in1)
@@ -155,7 +155,7 @@ func parse(opts *Options) (string, error) {
 			return "", err
 		}
 		in2 := res.Body
-		defer in2.Close()
+		defer in2.Close() //nolint:errcheck // cleanup
 
 		// Parse it.
 		scanner := bufio.NewScanner(in2)

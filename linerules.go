@@ -432,15 +432,16 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 	}()
 
 	// LB1.
-	if nextProperty == lbprAI || nextProperty == lbprSG || nextProperty == lbprXX {
+	switch nextProperty {
+	case lbprAI, lbprSG, lbprXX:
 		nextProperty = lbprAL
-	} else if nextProperty == lbprSA {
+	case lbprSA:
 		if generalCategory == gcMn || generalCategory == gcMc {
 			nextProperty = lbprCM
 		} else {
 			nextProperty = lbprAL
 		}
-	} else if nextProperty == lbprCJ {
+	case lbprCJ:
 		nextProperty = lbprNS
 	}
 
@@ -650,11 +651,12 @@ func transitionLineBreakState[T bytes](state LineBreakState, r rune, str T, deco
 			if r != utf8.RuneError {
 				pr := lineBreakCodePoints.search(r).lbProperty
 				if pr == lbprVF {
-					if nextProperty == lbprAK {
+					switch nextProperty {
+					case lbprAK:
 						return lbAK, LineDontBreak
-					} else if nextProperty == lbprAS {
+					case lbprAS:
 						return lbAS, LineDontBreak
-					} else {
+					default:
 						return lbAL, LineDontBreak
 					}
 				}
