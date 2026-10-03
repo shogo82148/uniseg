@@ -29,11 +29,7 @@ const (
 	wbZWJBit WordBreakState = 16
 )
 
-type wbTransitionResult struct {
-	WordBreakState
-	boundary   bool
-	ruleNumber int
-}
+type wbTransitionResult = transitionResult[WordBreakState, bool]
 
 // The word break parser's state transitions. It's analogous to grTransitions,
 // see comments there for details. Unicode version 16.0.0.
@@ -115,7 +111,6 @@ var wbTransitions = [wbMax * wbprMax]wbTransitionResult{
 func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, decoder runeDecoder[T]) (newState WordBreakState, wordBreak bool) {
 	// Determine the property of the next character.
 	nextProperty := wordBreakLookup.search(r)
-	isExtendedPictographic := graphemeLookup.search(r) == prExtendedPictographic
 
 	// "Replacing Ignore Rules".
 	switch nextProperty {
@@ -141,7 +136,7 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 		}
 		return state, false
 	}
-	if isExtendedPictographic && state >= 0 && state&wbZWJBit != 0 {
+	if state >= 0 && state&wbZWJBit != 0 && graphemeLookup.search(r) == prExtendedPictographic {
 		// WB3c.
 		return wbAny, false
 	}
@@ -150,36 +145,8 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 	}
 
 	// Find the applicable transition in the table.
-	var rule int
 	transition := wbTransitions[int(state)*wbprMax+int(nextProperty)]
-	if transition.ruleNumber > 0 {
-		// We have a specific transition. We'll use it.
-		newState, wordBreak, rule = transition.WordBreakState, transition.boundary, transition.ruleNumber
-	} else {
-		// No specific transition found. Try the less specific ones.
-		transAnyProp := wbTransitions[int(state)*wbprMax+int(wbprAny)]
-		transAnyState := wbTransitions[int(wbAny)*wbprMax+int(nextProperty)]
-		if transAnyProp.ruleNumber > 0 && transAnyState.ruleNumber > 0 {
-			// Both apply. We'll use a mix (see comments for grTransitions).
-			newState, wordBreak, rule = transAnyState.WordBreakState, transAnyState.boundary, transAnyState.ruleNumber
-			if transAnyProp.ruleNumber < transAnyState.ruleNumber {
-				wordBreak, rule = transAnyProp.boundary, transAnyProp.ruleNumber
-			}
-		} else if transAnyProp.ruleNumber > 0 {
-			// We only have a specific state.
-			newState, wordBreak, rule = transAnyProp.WordBreakState, transAnyProp.boundary, transAnyProp.ruleNumber
-			// This branch will probably never be reached because okAnyState will
-			// always be true given the current transition map. But we keep it here
-			// for future modifications to the transition map where this may not be
-			// true anymore.
-		} else if transAnyState.ruleNumber > 0 {
-			// We only have a specific property.
-			newState, wordBreak, rule = transAnyState.WordBreakState, transAnyState.boundary, transAnyState.ruleNumber
-		} else {
-			// No known transition. WB999: Any ÷ Any.
-			newState, wordBreak, rule = wbAny, true, 9990
-		}
-	}
+	newState, wordBreak, rule := transition.state, transition.boundary, transition.ruleNumber
 
 	// For those rules that need to look up runes further in the string, we
 	// determine the property after nextProperty, skipping over Format, Extend,
@@ -244,4 +211,9 @@ func transitionWordBreakState[T bytes](state WordBreakState, r rune, str T, deco
 	}
 
 	return
+}
+
+func init() {
+	// WB999: Any ÷ Any.
+	resolveTransitions(wbTransitions[:], wbprMax, int(wbAny), int(wbprAny), wbTransitionResult{wbAny, true, 9990})
 }

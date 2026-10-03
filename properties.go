@@ -1,6 +1,9 @@
 package uniseg
 
-import "unicode/utf8"
+import (
+	"slices"
+	"unicode/utf8"
+)
 
 // property is the Unicode property type.
 type property int
@@ -295,3 +298,50 @@ var (
 	emojiLookup             = newLookupTable(emoji)
 	emojiPresentationLookup = newLookupTable(emojiPresentation)
 )
+
+// transitionResult is an entry of the state transition tables of the parsers.
+// It holds the new state, the breaking instruction, and the rule number.
+// A rule number of 0 means that no transition is defined.
+type transitionResult[S, B any] struct {
+	state      S
+	boundary   B
+	ruleNumber int
+}
+
+// resolveTransitions fills the undefined entries of the transition table with
+// the less specific transitions, so that the parsers can find the applicable
+// transition with a single lookup. The table is queried as follows:
+//
+//  1. Find specific state + specific property. Stop if found.
+//  2. Find specific state + any property.
+//  3. Find any state + specific property.
+//  4. If only (2) or (3) (but not both) was found, stop.
+//  5. If both (2) and (3) were found, use state from (3) and breaking instruction
+//     from the transition with the lower rule number, prefer (3) if rule numbers
+//     are equal. Stop.
+//  6. Use the default transition.
+func resolveTransitions[S, B any](table []transitionResult[S, B], numProps, anyState, anyProp int, def transitionResult[S, B]) {
+	original := slices.Clone(table)
+	for i := range table {
+		if original[i].ruleNumber > 0 {
+			continue
+		}
+		state, prop := i/numProps, i%numProps
+		transAnyProp := original[state*numProps+anyProp]
+		transAnyState := original[anyState*numProps+prop]
+		switch {
+		case transAnyProp.ruleNumber > 0 && transAnyState.ruleNumber > 0:
+			table[i] = transAnyState
+			if transAnyProp.ruleNumber < transAnyState.ruleNumber {
+				table[i].boundary = transAnyProp.boundary
+				table[i].ruleNumber = transAnyProp.ruleNumber
+			}
+		case transAnyProp.ruleNumber > 0:
+			table[i] = transAnyProp
+		case transAnyState.ruleNumber > 0:
+			table[i] = transAnyState
+		default:
+			table[i] = def
+		}
+	}
+}

@@ -38,11 +38,7 @@ const (
 	grGB9cLinker grState = 0x10 // seen \p{InCB=Linker}
 )
 
-type grTransitionResult struct {
-	grState
-	boundary   bool
-	ruleNumber int
-}
+type grTransitionResult = transitionResult[grState, bool]
 
 // The grapheme cluster parser's state transitions. Maps (state, property) to
 // (new state, breaking instruction, rule number). The breaking instruction
@@ -114,6 +110,21 @@ var grTransitions = [grMax * prMax]grTransitionResult{
 	int(grRIEven)*prMax + int(prRegionalIndicator): {grRIOdd, true, 120},
 }
 
+// incbLinkerGraphemeProperties is the set of grapheme properties (as a bit
+// mask) that code points with \p{InCB=Linker} have.
+var incbLinkerGraphemeProperties = func() uint32 {
+	var mask uint32
+	for _, entry := range incb {
+		if entry.value != incbLinker {
+			continue
+		}
+		for r := entry.runeRange.Lo; r <= entry.runeRange.Hi; r++ {
+			mask |= 1 << graphemeCodePoints.search(r)
+		}
+	}
+	return mask
+}()
+
 // transitionGraphemeState determines the new state of the grapheme cluster
 // parser given the current state and the next code point. It also returns the
 // code point's grapheme property (the value mapped by the [graphemeCodePoints]
@@ -121,46 +132,21 @@ var grTransitions = [grMax * prMax]grTransitionResult{
 func transitionGraphemeState(state grState, r rune) (newState grState, prop property, boundary bool) {
 	// Determine the property of the next character.
 	prop = graphemeLookup.search(r)
-	incbProp := incbLookup.search(r)
+
+	// Determine the Indic_Conjunct_Break property only if it can affect the
+	// result. Outside of a GB9c sequence, only \p{InCB=Linker} matters.
+	gb9cState := state & grGB9cStateMask
+	var incbProp incbProperty
+	if gb9cState != 0 || incbLinkerGraphemeProperties&(1<<prop) != 0 {
+		incbProp = incbLookup.search(r)
+	}
 
 	// Find the applicable transition.
-	gb9cState := state & grGB9cStateMask
 	state &= grStateMask
 	transition := grTransitions[int(state)*prMax+int(prop)]
-	ruleNumber := 0
-	if transition.ruleNumber > 0 {
-		// We have a specific transition.
-		ruleNumber = transition.ruleNumber
-		newState = transition.grState
-		boundary = transition.boundary
-	} else {
-		// No specific transition found. Try the less specific ones.
-		transAnyProp := grTransitions[int(state)*prMax+int(prAny)]
-		transAnyState := grTransitions[int(grAny)*prMax+int(prop)]
-		if transAnyProp.ruleNumber > 0 && transAnyState.ruleNumber > 0 {
-			// Both apply. We'll use a mix (see comments for grTransitions).
-			ruleNumber = transAnyState.ruleNumber
-			newState = transAnyState.grState
-			boundary = transAnyState.boundary
-			if transAnyProp.ruleNumber < transAnyState.ruleNumber {
-				ruleNumber = transAnyProp.ruleNumber
-				boundary = transAnyProp.boundary
-			}
-		} else if transAnyProp.ruleNumber > 0 {
-			ruleNumber = transAnyProp.ruleNumber
-			newState = transAnyProp.grState
-			boundary = transAnyProp.boundary
-		} else if transAnyState.ruleNumber > 0 {
-			ruleNumber = transAnyState.ruleNumber
-			newState = transAnyState.grState
-			boundary = transAnyState.boundary
-		} else {
-			// No known transition. GB999: Any ÷ Any.
-			ruleNumber = 9990
-			newState = grAny
-			boundary = true
-		}
-	}
+	ruleNumber := transition.ruleNumber
+	newState = transition.state
+	boundary = transition.boundary
 
 	// GB9c: \p{InCB=Linker} \p{InCB=Extend}* 	× 	\p{InCB=Consonant}
 	if ruleNumber >= 93 {
@@ -182,4 +168,9 @@ func transitionGraphemeState(state grState, r rune) (newState grState, prop prop
 	newState |= newGBcState
 
 	return
+}
+
+func init() {
+	// GB999: Any ÷ Any.
+	resolveTransitions(grTransitions[:], prMax, int(grAny), int(prAny), grTransitionResult{grAny, true, 9990})
 }
