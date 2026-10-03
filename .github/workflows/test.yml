@@ -18,6 +18,12 @@ jobs:
           - "1.27"
           - "1.26"
           - "1.25"
+        arch:
+          - ""
+        include:
+          - os: ubuntu-latest
+            go: "1.27"
+            arch: "386"
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -29,6 +35,8 @@ jobs:
       - name: test
         run: |
           go test ./... -v -cover -coverprofile coverage.out
+        env:
+          GOARCH: ${{ matrix.arch }}
 
       - uses: shogo82148/actions-goveralls@daabb2902148216a0b13c82107a6e67ed97f796e # v1.11.3
         with:
