@@ -2,6 +2,7 @@ package uniseg
 
 import (
 	"runtime"
+	"slices"
 	"testing"
 )
 
@@ -123,6 +124,160 @@ func TestWordCasesString(t *testing.T) {
 				testCase.original,
 				index,
 				len(testCase.expected))
+		}
+	}
+}
+
+// Test all official Unicode test cases for word boundaries using the Words
+// iterator.
+func TestWords(t *testing.T) {
+	for testNum, testCase := range wordBreakTestCases {
+		index := 0
+		offset := 0
+		for i, w := range Words([]byte(testCase.original)) {
+			if i != offset {
+				t.Errorf(`Test case %d %q failed: Word at index %d starts at %d, expected %d`,
+					testNum,
+					testCase.original,
+					index,
+					i,
+					offset)
+				break
+			}
+			if index >= len(testCase.expected) {
+				t.Errorf(`Test case %d %q failed: More words returned than expected %d`,
+					testNum,
+					testCase.original,
+					len(testCase.expected))
+				break
+			}
+			if word := string(w); word != string(testCase.expected[index]) {
+				t.Errorf(`Test case %d %q failed: Word at index %d is %x, expected %x`,
+					testNum,
+					testCase.original,
+					index,
+					[]rune(word),
+					testCase.expected[index])
+				break
+			}
+			offset += len(w)
+			index++
+		}
+		if index < len(testCase.expected) {
+			t.Errorf(`Test case %d %q failed: Fewer words returned (%d) than expected (%d)`,
+				testNum,
+				testCase.original,
+				index,
+				len(testCase.expected))
+		}
+	}
+}
+
+// Test all official Unicode test cases for word boundaries using the
+// WordsInString iterator.
+func TestWordsInString(t *testing.T) {
+	for testNum, testCase := range wordBreakTestCases {
+		index := 0
+		offset := 0
+		for i, w := range WordsInString(testCase.original) {
+			if i != offset {
+				t.Errorf(`Test case %d %q failed: Word at index %d starts at %d, expected %d`,
+					testNum,
+					testCase.original,
+					index,
+					i,
+					offset)
+				break
+			}
+			if index >= len(testCase.expected) {
+				t.Errorf(`Test case %d %q failed: More words returned than expected %d`,
+					testNum,
+					testCase.original,
+					len(testCase.expected))
+				break
+			}
+			if w != string(testCase.expected[index]) {
+				t.Errorf(`Test case %d %q failed: Word at index %d is %x, expected %x`,
+					testNum,
+					testCase.original,
+					index,
+					[]rune(w),
+					testCase.expected[index])
+				break
+			}
+			offset += len(w)
+			index++
+		}
+		if index < len(testCase.expected) {
+			t.Errorf(`Test case %d %q failed: Fewer words returned (%d) than expected (%d)`,
+				testNum,
+				testCase.original,
+				index,
+				len(testCase.expected))
+		}
+	}
+}
+
+// Test that the Words iterators stop when the loop body breaks.
+func TestWordsEarlyBreak(t *testing.T) {
+	const input = "Hello, world! 🇩🇪"
+	expected := []string{"Hello", ","}
+
+	var gotBytes []string
+	for _, w := range Words([]byte(input)) {
+		gotBytes = append(gotBytes, string(w))
+		if len(gotBytes) == 2 {
+			break
+		}
+	}
+	if !slices.Equal(gotBytes, expected) {
+		t.Errorf("Words: got %q, expected %q", gotBytes, expected)
+	}
+
+	var gotString []string
+	for _, w := range WordsInString(input) {
+		gotString = append(gotString, w)
+		if len(gotString) == 2 {
+			break
+		}
+	}
+	if !slices.Equal(gotString, expected) {
+		t.Errorf("WordsInString: got %q, expected %q", gotString, expected)
+	}
+}
+
+// Test that the Parser methods produce the same results as the package-level
+// functions.
+func TestParserWords(t *testing.T) {
+	parsers := []*Parser{
+		{},
+		{EastAsianWidth: true},
+		{EastAsianWidth: true, WideEmoji: true},
+	}
+	for _, p := range parsers {
+		for testNum, testCase := range wordBreakTestCases {
+			var expected []string
+			for _, w := range WordsInString(testCase.original) {
+				expected = append(expected, w)
+			}
+
+			var gotBytes []string
+			for _, w := range p.Words([]byte(testCase.original)) {
+				gotBytes = append(gotBytes, string(w))
+			}
+			if !slices.Equal(gotBytes, expected) {
+				t.Errorf(`Test case %d %q failed with parser %+v: Words returned %q, expected %q`,
+					testNum, testCase.original, *p, gotBytes, expected)
+			}
+
+			var gotString []string
+			for _, w := range p.WordsInString(testCase.original) {
+				gotString = append(gotString, w)
+			}
+			if !slices.Equal(gotString, expected) {
+				t.Errorf(`Test case %d %q failed with parser %+v: WordsInString returned %q, expected %q`,
+					testNum, testCase.original, *p, gotString, expected)
+			}
 		}
 	}
 }

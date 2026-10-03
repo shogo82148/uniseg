@@ -1,6 +1,55 @@
 package uniseg
 
-import "unicode/utf8"
+import (
+	"iter"
+	"unicode/utf8"
+)
+
+// Words returns a sequence of words found in the given byte slice according to
+// the rules of [Unicode Standard Annex #29, Word Boundaries]. The sequence yields
+// the starting index and the word as a byte slice.
+func Words(b []byte) iter.Seq2[int, []byte] {
+	return DefaultParser.Words(b)
+}
+
+// Words returns a sequence of words found in the given byte slice according to
+// the rules of [Unicode Standard Annex #29, Word Boundaries]. The sequence yields
+// the starting index and the word as a byte slice.
+func (p *Parser) Words(b []byte) iter.Seq2[int, []byte] {
+	return func(yield func(idx int, word []byte) bool) {
+		var state WordBreakState
+		var index int
+		for len(b) > 0 {
+			var word []byte
+			word, b, state = p.FirstWord(b, state)
+			if !yield(index, word) {
+				break
+			}
+			index += len(word)
+		}
+	}
+}
+
+// WordsInString is like [Words] but its input and outputs are strings.
+func WordsInString(str string) iter.Seq2[int, string] {
+	return DefaultParser.WordsInString(str)
+}
+
+// WordsInString is like [*Parser.Words] but its input and outputs are strings.
+func (p *Parser) WordsInString(str string) iter.Seq2[int, string] {
+	return func(yield func(idx int, word string) bool) {
+		var state WordBreakState
+		var index int
+		for len(str) > 0 {
+			var word string
+			word, str, state = p.FirstWordInString(str, state)
+			if !yield(index, word) {
+				break
+			}
+			index += len(word)
+		}
+	}
+}
 
 // FirstWord returns the first word found in the given byte slice according to
 // the rules of [Unicode Standard Annex #29, Word Boundaries]. This function can
