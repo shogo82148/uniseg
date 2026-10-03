@@ -2,7 +2,7 @@
 
 package uniseg
 
-// incb are token from
+// incb are taken from
 // https://www.unicode.org/Public/18.0.0/ucd/DerivedCoreProperties.txt
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var incb = dictionary[incbProperty]{
