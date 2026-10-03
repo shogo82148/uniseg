@@ -104,10 +104,13 @@ func TestGraphemesClass(t *testing.T) {
 // class.
 func TestGraphemesClassWord(t *testing.T) {
 	for testNum, testCase := range wordBreakTestCases {
-		if testNum == 1703 || testNum == 1821 {
+		if testCase.original == "a\U0001F1E6\u200d\U0001F1E7\U0001F1E8b" {
 			// This test case reveals an inconsistency in the Unicode rule set,
 			// namely the handling of ZWJ within two RI graphemes. (Grapheme
 			// rules will restart the RI count, word rules will ignore the ZWJ.)
+			// The expected word boundary falls inside the grapheme cluster
+			// [U+1F1E7 U+1F1E8], which the Graphemes class cannot report
+			// because it always advances by whole grapheme clusters.
 			// An error has been reported.
 			continue
 		}
