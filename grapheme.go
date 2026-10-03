@@ -218,10 +218,11 @@ func GraphemeClusters(s []byte) iter.Seq2[int, []byte] {
 func (p *Parser) GraphemeClusters(s []byte) iter.Seq2[int, []byte] {
 	return func(yield func(idx int, cluster []byte) bool) {
 		var state GraphemeBreakState
+		rest := s
 		index := 0
-		for len(s) > 0 {
+		for len(rest) > 0 {
 			var cluster []byte
-			cluster, s, _, state = FirstGraphemeCluster(s, state)
+			cluster, rest, _, state = FirstGraphemeCluster(rest, state)
 			if !yield(index, cluster) {
 				break
 			}
@@ -239,10 +240,11 @@ func GraphemeClustersInString(s string) iter.Seq2[int, string] {
 func (p *Parser) GraphemeClustersInString(s string) iter.Seq2[int, string] {
 	return func(yield func(idx int, cluster string) bool) {
 		var state GraphemeBreakState
+		rest := s
 		index := 0
-		for len(s) > 0 {
+		for len(rest) > 0 {
 			var cluster string
-			cluster, s, _, state = FirstGraphemeClusterInString(s, state)
+			cluster, rest, _, state = FirstGraphemeClusterInString(rest, state)
 			if !yield(index, cluster) {
 				break
 			}

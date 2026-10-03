@@ -19,9 +19,10 @@ func (p *Parser) Words(b []byte) iter.Seq2[int, []byte] {
 	return func(yield func(idx int, word []byte) bool) {
 		var state WordBreakState
 		var index int
-		for len(b) > 0 {
+		rest := b
+		for len(rest) > 0 {
 			var word []byte
-			word, b, state = p.FirstWord(b, state)
+			word, rest, state = p.FirstWord(rest, state)
 			if !yield(index, word) {
 				break
 			}
@@ -40,9 +41,10 @@ func (p *Parser) WordsInString(str string) iter.Seq2[int, string] {
 	return func(yield func(idx int, word string) bool) {
 		var state WordBreakState
 		var index int
-		for len(str) > 0 {
+		rest := str
+		for len(rest) > 0 {
 			var word string
-			word, str, state = p.FirstWordInString(str, state)
+			word, rest, state = p.FirstWordInString(rest, state)
 			if !yield(index, word) {
 				break
 			}

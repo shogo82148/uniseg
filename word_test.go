@@ -246,6 +246,46 @@ func TestWordsEarlyBreak(t *testing.T) {
 	}
 }
 
+// Test that the Words iterators can be used more than once, even after an
+// earlier iteration completed or stopped early.
+func TestWordsReuse(t *testing.T) {
+	const input = "Hello, world!"
+	expected := []string{"Hello", ",", " ", "world", "!"}
+	expectedIdx := []int{0, 5, 6, 7, 12}
+
+	seqBytes := Words([]byte(input))
+	seqString := WordsInString(input)
+
+	// Stop early once, then run the iterators to completion twice.
+	for range seqBytes {
+		break
+	}
+	for range seqString {
+		break
+	}
+	for range 2 {
+		var gotBytes []string
+		var gotBytesIdx []int
+		for i, w := range seqBytes {
+			gotBytes = append(gotBytes, string(w))
+			gotBytesIdx = append(gotBytesIdx, i)
+		}
+		if !slices.Equal(gotBytes, expected) || !slices.Equal(gotBytesIdx, expectedIdx) {
+			t.Errorf("Words: got %q at %v, expected %q at %v", gotBytes, gotBytesIdx, expected, expectedIdx)
+		}
+
+		var gotString []string
+		var gotStringIdx []int
+		for i, w := range seqString {
+			gotString = append(gotString, w)
+			gotStringIdx = append(gotStringIdx, i)
+		}
+		if !slices.Equal(gotString, expected) || !slices.Equal(gotStringIdx, expectedIdx) {
+			t.Errorf("WordsInString: got %q at %v, expected %q at %v", gotString, gotStringIdx, expected, expectedIdx)
+		}
+	}
+}
+
 // Test that the Parser methods produce the same results as the package-level
 // functions.
 func TestParserWords(t *testing.T) {
