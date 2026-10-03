@@ -3,87 +3,87 @@
 package uniseg
 
 // workBreakCodePoints are taken from
-// https://www.unicode.org/Public/17.0.0/ucd/auxiliary/WordBreakProperty.txt
+// https://www.unicode.org/Public/18.0.0/ucd/auxiliary/WordBreakProperty.txt
 // See https://www.unicode.org/license.html for the Unicode license agreement.
 var workBreakCodePoints = dictionary[wbProperty]{
-	{runeRange{0x10C80, 0x10CB2}, wbprALetter},           // L&  [51] OLD HUNGARIAN CAPITAL LETTER A..OLD HUNGARIAN CAPITAL LETTER US
+	{runeRange{0x10EB0, 0x10EB1}, wbprALetter},           // Lo   [2] YEZIDI LETTER LAM WITH DOT ABOVE..YEZIDI LETTER YOT WITH CIRCUMFLEX ABOVE
 	{runeRange{0x1BAA, 0x1BAA}, wbprExtend},              // Mc       SUNDANESE SIGN PAMAAEH
-	{runeRange{0x11C2F, 0x11C2F}, wbprExtend},            // Mc       BHAIKSUKI VOWEL SIGN AA
-	{runeRange{0x0BAE, 0x0BB9}, wbprALetter},             // Lo  [12] TAMIL LETTER MA..TAMIL LETTER HA
-	{runeRange{0xAAF2, 0xAAF2}, wbprALetter},             // Lo       MEETEI MAYEK ANJI
-	{runeRange{0x113CE, 0x113CE}, wbprExtend},            // Mn       TULU-TIGALARI SIGN VIRAMA
-	{runeRange{0x1D456, 0x1D49C}, wbprALetter},           // L&  [71] MATHEMATICAL ITALIC SMALL I..MATHEMATICAL SCRIPT CAPITAL A
-	{runeRange{0x0870, 0x0887}, wbprALetter},             // Lo  [24] ARABIC LETTER ALEF WITH ATTACHED FATHA..ARABIC BASELINE ROUND DOT
-	{runeRange{0x1085, 0x1086}, wbprExtend},              // Mn   [2] MYANMAR VOWEL SIGN SHAN E ABOVE..MYANMAR VOWEL SIGN SHAN FINAL Y
+	{runeRange{0x11CB2, 0x11CB3}, wbprExtend},            // Mn   [2] MARCHEN VOWEL SIGN U..MARCHEN VOWEL SIGN E
+	{runeRange{0x0BA8, 0x0BAA}, wbprALetter},             // Lo   [3] TAMIL LETTER NA..TAMIL LETTER PA
+	{runeRange{0xAAEE, 0xAAEF}, wbprExtend},              // Mc   [2] MEETEI MAYEK VOWEL SIGN AU..MEETEI MAYEK VOWEL SIGN AAU
+	{runeRange{0x11446, 0x11446}, wbprExtend},            // Mn       NEWA SIGN NUKTA
+	{runeRange{0x1D4A2, 0x1D4A2}, wbprALetter},           // L&       MATHEMATICAL SCRIPT CAPITAL G
+	{runeRange{0x0860, 0x086A}, wbprALetter},             // Lo  [11] SYRIAC LETTER MALAYALAM NGA..SYRIAC LETTER MALAYALAM SSA
+	{runeRange{0x1083, 0x1084}, wbprExtend},              // Mc   [2] MYANMAR VOWEL SIGN SHAN AA..MYANMAR VOWEL SIGN SHAN E
 	{runeRange{0x2DC8, 0x2DCE}, wbprALetter},             // Lo   [7] ETHIOPIC SYLLABLE KYA..ETHIOPIC SYLLABLE KYO
-	{runeRange{0x10342, 0x10349}, wbprALetter},           // Lo   [8] GOTHIC LETTER RAIDA..GOTHIC LETTER OTHAL
-	{runeRange{0x11183, 0x111B2}, wbprALetter},           // Lo  [48] SHARADA LETTER A..SHARADA LETTER HA
-	{runeRange{0x11726, 0x11726}, wbprExtend},            // Mc       AHOM VOWEL SIGN E
-	{runeRange{0x13441, 0x13446}, wbprALetter},           // Lo   [6] EGYPTIAN HIEROGLYPH FULL BLANK..EGYPTIAN HIEROGLYPH WIDE LOST SIGN
+	{runeRange{0x10570, 0x1057A}, wbprALetter},           // L&  [11] VITHKUQI CAPITAL LETTER A..VITHKUQI CAPITAL LETTER GA
+	{runeRange{0x1122C, 0x1122E}, wbprExtend},            // Mc   [3] KHOJKI VOWEL SIGN AA..KHOJKI VOWEL SIGN II
+	{runeRange{0x11915, 0x11916}, wbprALetter},           // Lo   [2] DIVES AKURU LETTER NYA..DIVES AKURU LETTER TTA
+	{runeRange{0x16130, 0x16139}, wbprNumeric},           // Nd  [10] GURUNG KHEMA DIGIT ZERO..GURUNG KHEMA DIGIT NINE
 	{runeRange{0x1E5F1, 0x1E5FA}, wbprNumeric},           // Nd  [10] OL ONAL DIGIT ZERO..OL ONAL DIGIT NINE
 	{runeRange{0x055F, 0x055F}, wbprMidLetter},           // Po       ARMENIAN ABBREVIATION MARK
-	{runeRange{0x0A4B, 0x0A4D}, wbprExtend},              // Mn   [3] GURMUKHI VOWEL SIGN OO..GURMUKHI SIGN VIRAMA
-	{runeRange{0x0D4D, 0x0D4D}, wbprExtend},              // Mn       MALAYALAM SIGN VIRAMA
-	{runeRange{0x1820, 0x1842}, wbprALetter},             // Lo  [35] MONGOLIAN LETTER A..MONGOLIAN LETTER CHI
+	{runeRange{0x0A47, 0x0A48}, wbprExtend},              // Mn   [2] GURMUKHI VOWEL SIGN EE..GURMUKHI VOWEL SIGN AI
+	{runeRange{0x0D4A, 0x0D4C}, wbprExtend},              // Mc   [3] MALAYALAM VOWEL SIGN O..MALAYALAM VOWEL SIGN AU
+	{runeRange{0x1810, 0x1819}, wbprNumeric},             // Nd  [10] MONGOLIAN DIGIT ZERO..MONGOLIAN DIGIT NINE
 	{runeRange{0x2000, 0x2006}, wbprWSegSpace},           // Zs   [7] EN QUAD..SIX-PER-EM SPACE
-	{runeRange{0xA803, 0xA805}, wbprALetter},             // Lo   [3] SYLOTI NAGRI LETTER U..SYLOTI NAGRI LETTER O
-	{runeRange{0xFF0E, 0xFF0E}, wbprMidNumLet},           // Po       FULLWIDTH FULL STOP
-	{runeRange{0x1080A, 0x10835}, wbprALetter},           // Lo  [44] CYPRIOT SYLLABLE KA..CYPRIOT SYLLABLE WO
-	{runeRange{0x11038, 0x11046}, wbprExtend},            // Mn  [15] BRAHMI VOWEL SIGN AA..BRAHMI VIRAMA
-	{runeRange{0x11300, 0x11301}, wbprExtend},            // Mn   [2] GRANTHA SIGN COMBINING ANUSVARA ABOVE..GRANTHA SIGN CANDRABINDU
-	{runeRange{0x115B2, 0x115B5}, wbprExtend},            // Mn   [4] SIDDHAM VOWEL SIGN U..SIDDHAM VOWEL SIGN VOCALIC RR
-	{runeRange{0x119E0, 0x119E0}, wbprExtend},            // Mn       NANDINAGARI SIGN VIRAMA
-	{runeRange{0x11D96, 0x11D96}, wbprExtend},            // Mc       GUNJALA GONDI SIGN VISARGA
-	{runeRange{0x16F51, 0x16F87}, wbprExtend},            // Mc  [55] MIAO SIGN ASPIRATION..MIAO VOWEL SIGN UI
-	{runeRange{0x1DA75, 0x1DA75}, wbprExtend},            // Mn       SIGNWRITING UPPER BODY TILTING FROM HIP JOINTS
+	{runeRange{0xA802, 0xA802}, wbprExtend},              // Mn       SYLOTI NAGRI SIGN DVISVARA
+	{runeRange{0xFF3F, 0xFF3F}, wbprExtendNumLet},        // Pc       FULLWIDTH LOW LINE
+	{runeRange{0x10A05, 0x10A06}, wbprExtend},            // Mn   [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
+	{runeRange{0x110BD, 0x110BD}, wbprNumeric},           // Cf       KAITHI NUMBER SIGN
+	{runeRange{0x11347, 0x11348}, wbprExtend},            // Mc   [2] GRANTHA VOWEL SIGN EE..GRANTHA VOWEL SIGN AI
+	{runeRange{0x1163F, 0x11640}, wbprExtend},            // Mn   [2] MODI SIGN VIRAMA..MODI SIGN ARDHACANDRA
+	{runeRange{0x11A51, 0x11A56}, wbprExtend},            // Mn   [6] SOYOMBO VOWEL SIGN I..SOYOMBO VOWEL SIGN OE
+	{runeRange{0x11EF5, 0x11EF6}, wbprExtend},            // Mc   [2] MAKASAR VOWEL SIGN E..MAKASAR VOWEL SIGN O
+	{runeRange{0x1AFF5, 0x1AFFB}, wbprKatakana},          // Lm   [7] KATAKANA LETTER MINNAN TONE-7..KATAKANA LETTER MINNAN NASALIZED TONE-5
+	{runeRange{0x1DA9B, 0x1DA9F}, wbprExtend},            // Mn   [5] SIGNWRITING FILL MODIFIER-2..SIGNWRITING FILL MODIFIER-6
 	{runeRange{0x1EE47, 0x1EE47}, wbprALetter},           // Lo       ARABIC MATHEMATICAL TAILED HAH
 	{runeRange{0x02C2, 0x02C5}, wbprALetter},             // Sk   [4] MODIFIER LETTER LEFT ARROWHEAD..MODIFIER LETTER DOWN ARROWHEAD
-	{runeRange{0x06E7, 0x06E8}, wbprExtend},              // Mn   [2] ARABIC SMALL HIGH YEH..ARABIC SMALL HIGH NOON
-	{runeRange{0x09AA, 0x09B0}, wbprALetter},             // Lo   [7] BENGALI LETTER PA..BENGALI LETTER RA
-	{runeRange{0x0B05, 0x0B0C}, wbprALetter},             // Lo   [8] ORIYA LETTER A..ORIYA LETTER VOCALIC L
-	{runeRange{0x0C85, 0x0C8C}, wbprALetter},             // Lo   [8] KANNADA LETTER A..KANNADA LETTER VOCALIC L
-	{runeRange{0x0F20, 0x0F29}, wbprNumeric},             // Nd  [10] TIBETAN DIGIT ZERO..TIBETAN DIGIT NINE
-	{runeRange{0x13F8, 0x13FD}, wbprALetter},             // L&   [6] CHEROKEE SMALL LETTER YE..CHEROKEE SMALL LETTER MV
-	{runeRange{0x1A63, 0x1A64}, wbprExtend},              // Mc   [2] TAI THAM VOWEL SIGN AA..TAI THAM VOWEL SIGN TALL AA
+	{runeRange{0x06E5, 0x06E6}, wbprALetter},             // Lm   [2] ARABIC SMALL WAW..ARABIC SMALL YEH
+	{runeRange{0x0993, 0x09A8}, wbprALetter},             // Lo  [22] BENGALI LETTER O..BENGALI LETTER NA
+	{runeRange{0x0B02, 0x0B03}, wbprExtend},              // Mc   [2] ORIYA SIGN ANUSVARA..ORIYA SIGN VISARGA
+	{runeRange{0x0C82, 0x0C83}, wbprExtend},              // Mc   [2] KANNADA SIGN ANUSVARA..KANNADA SIGN VISARGA
+	{runeRange{0x0F18, 0x0F19}, wbprExtend},              // Mn   [2] TIBETAN ASTROLOGICAL SIGN -KHYUD PA..TIBETAN ASTROLOGICAL SIGN SDONG TSHUGS
+	{runeRange{0x13A0, 0x13F5}, wbprALetter},             // L&  [86] CHEROKEE LETTER A..CHEROKEE LETTER MV
+	{runeRange{0x1A62, 0x1A62}, wbprExtend},              // Mn       TAI THAM VOWEL SIGN MAI SAT
 	{runeRange{0x1CEE, 0x1CF3}, wbprALetter},             // Lo   [6] VEDIC SIGN HEXIFORM LONG ANUSVARA..VEDIC SIGN ROTATED ARDHAVISARGA
 	{runeRange{0x2124, 0x2124}, wbprALetter},             // L&       DOUBLE-STRUCK CAPITAL Z
 	{runeRange{0xA620, 0xA629}, wbprNumeric},             // Nd  [10] VAI DIGIT ZERO..VAI DIGIT NINE
-	{runeRange{0xA9B6, 0xA9B9}, wbprExtend},              // Mn   [4] JAVANESE VOWEL SIGN WULU..JAVANESE VOWEL SIGN SUKU MENDUT
-	{runeRange{0xFB2A, 0xFB36}, wbprHebrewLetter},        // Lo  [13] HEBREW LETTER SHIN WITH SHIN DOT..HEBREW LETTER ZAYIN WITH DAGESH
-	{runeRange{0xFFF9, 0xFFFB}, wbprFormat},              // Cf   [3] INTERLINEAR ANNOTATION ANCHOR..INTERLINEAR ANNOTATION TERMINATOR
-	{runeRange{0x1057C, 0x1058A}, wbprALetter},           // L&  [15] VITHKUQI CAPITAL LETTER HA..VITHKUQI CAPITAL LETTER RE
-	{runeRange{0x10A0C, 0x10A0F}, wbprExtend},            // Mn   [4] KHAROSHTHI VOWEL LENGTH MARK..KHAROSHTHI SIGN VISARGA
-	{runeRange{0x10EC2, 0x10EC4}, wbprALetter},           // Lo   [3] ARABIC LETTER DAL WITH TWO DOTS VERTICALLY BELOW..ARABIC LETTER KAF WITH TWO DOTS VERTICALLY BELOW
-	{runeRange{0x110D0, 0x110E8}, wbprALetter},           // Lo  [25] SORA SOMPENG LETTER SAH..SORA SOMPENG LETTER MAE
-	{runeRange{0x11234, 0x11234}, wbprExtend},            // Mn       KHOJKI SIGN ANUSVARA
-	{runeRange{0x11357, 0x11357}, wbprExtend},            // Mc       GRANTHA AU LENGTH MARK
-	{runeRange{0x1145E, 0x1145E}, wbprExtend},            // Mn       NEWA SANDHI MARK
-	{runeRange{0x11680, 0x116AA}, wbprALetter},           // Lo  [43] TAKRI LETTER A..TAKRI LETTER RRA
-	{runeRange{0x11937, 0x11938}, wbprExtend},            // Mc   [2] DIVES AKURU VOWEL SIGN AI..DIVES AKURU VOWEL SIGN O
-	{runeRange{0x11A5C, 0x11A89}, wbprALetter},           // Lo  [46] SOYOMBO LETTER KA..SOYOMBO CLUSTER-INITIAL LETTER SA
-	{runeRange{0x11D08, 0x11D09}, wbprALetter},           // Lo   [2] MASARAM GONDI LETTER AI..MASARAM GONDI LETTER O
-	{runeRange{0x11F34, 0x11F35}, wbprExtend},            // Mc   [2] KAWI VOWEL SIGN AA..KAWI VOWEL SIGN ALTERNATE AA
-	{runeRange{0x16B00, 0x16B2F}, wbprALetter},           // Lo  [48] PAHAWH HMONG VOWEL KEEB..PAHAWH HMONG CONSONANT CAU
-	{runeRange{0x1BC80, 0x1BC88}, wbprALetter},           // Lo   [9] DUPLOYAN AFFIX HIGH ACUTE..DUPLOYAN AFFIX HIGH VERTICAL
-	{runeRange{0x1D54A, 0x1D550}, wbprALetter},           // L&   [7] MATHEMATICAL DOUBLE-STRUCK CAPITAL S..MATHEMATICAL DOUBLE-STRUCK CAPITAL Y
+	{runeRange{0xA9B4, 0xA9B5}, wbprExtend},              // Mc   [2] JAVANESE VOWEL SIGN TARUNG..JAVANESE VOWEL SIGN TOLONG
+	{runeRange{0xFB1E, 0xFB1E}, wbprExtend},              // Mn       HEBREW POINT JUDEO-SPANISH VARIKA
+	{runeRange{0x10341, 0x10341}, wbprALetter},           // Nl       GOTHIC LETTER NINETY
+	{runeRange{0x10808, 0x10808}, wbprALetter},           // Lo       CYPRIOT SYLLABLE JO
+	{runeRange{0x10C00, 0x10C48}, wbprALetter},           // Lo  [73] OLD TURKIC LETTER ORKHON A..OLD TURKIC LETTER ORKHON BASH
+	{runeRange{0x11001, 0x11001}, wbprExtend},            // Mn       BRAHMI SIGN ANUSVARA
+	{runeRange{0x11176, 0x11176}, wbprALetter},           // Lo       MAHAJANI LIGATURE SHRI
+	{runeRange{0x112E0, 0x112E2}, wbprExtend},            // Mc   [3] KHUDAWADI VOWEL SIGN AA..KHUDAWADI VOWEL SIGN II
+	{runeRange{0x113C5, 0x113C5}, wbprExtend},            // Mc       TULU-TIGALARI VOWEL SIGN AI
+	{runeRange{0x114D0, 0x114D9}, wbprNumeric},           // Nd  [10] TIRHUTA DIGIT ZERO..TIRHUTA DIGIT NINE
+	{runeRange{0x1171F, 0x1171F}, wbprExtend},            // Mn       AHOM CONSONANT SIGN MEDIAL LIGATING RA
+	{runeRange{0x119D4, 0x119D7}, wbprExtend},            // Mn   [4] NANDINAGARI VOWEL SIGN U..NANDINAGARI VOWEL SIGN VOCALIC RR
+	{runeRange{0x11BC0, 0x11BE0}, wbprALetter},           // Lo  [33] SUNUWAR LETTER DEVI..SUNUWAR LETTER KLOKO
+	{runeRange{0x11D8A, 0x11D8E}, wbprExtend},            // Mc   [5] GUNJALA GONDI VOWEL SIGN AA..GUNJALA GONDI VOWEL SIGN UU
+	{runeRange{0x12400, 0x1246F}, wbprALetter},           // Nl [112] CUNEIFORM NUMERIC SIGN TWO ASH..CUNEIFORM NUMERIC SIGN SEVEN ASH TENU
+	{runeRange{0x16D6B, 0x16D6C}, wbprALetter},           // Lm   [2] KIRAT RAI SIGN VIRAMA..KIRAT RAI SIGN SAAT
+	{runeRange{0x1D127, 0x1D128}, wbprExtend},            // Mn   [2] MUSICAL SYMBOL COMBINING STRESS..MUSICAL SYMBOL COMBINING UNSTRESS
+	{runeRange{0x1D6A8, 0x1D6C0}, wbprALetter},           // L&  [25] MATHEMATICAL BOLD CAPITAL ALPHA..MATHEMATICAL BOLD CAPITAL OMEGA
 	{runeRange{0x1E130, 0x1E136}, wbprExtend},            // Mn   [7] NYIAKENG PUACHUE HMONG TONE-B..NYIAKENG PUACHUE HMONG TONE-D
 	{runeRange{0x1E800, 0x1E8C4}, wbprALetter},           // Lo [197] MENDE KIKAKUI SYLLABLE M001 KI..MENDE KIKAKUI SYLLABLE M060 NYON
 	{runeRange{0x1EE79, 0x1EE7C}, wbprALetter},           // Lo   [4] ARABIC MATHEMATICAL STRETCHED DAD..ARABIC MATHEMATICAL STRETCHED DOTLESS BEH
 	{runeRange{0x00AA, 0x00AA}, wbprALetter},             // Lo       FEMININE ORDINAL INDICATOR
 	{runeRange{0x037E, 0x037E}, wbprMidNum},              // Po       GREEK QUESTION MARK
-	{runeRange{0x061C, 0x061C}, wbprFormat},              // Cf       ARABIC LETTER MARK
-	{runeRange{0x07EB, 0x07F3}, wbprExtend},              // Mn   [9] NKO COMBINING SHORT HIGH TONE..NKO COMBINING DOUBLE DOT ABOVE
-	{runeRange{0x0941, 0x0948}, wbprExtend},              // Mn   [8] DEVANAGARI VOWEL SIGN U..DEVANAGARI VOWEL SIGN AI
-	{runeRange{0x09F0, 0x09F1}, wbprALetter},             // Lo   [2] BENGALI LETTER RA WITH MIDDLE DIAGONAL..BENGALI LETTER RA WITH LOWER DIAGONAL
-	{runeRange{0x0ABC, 0x0ABC}, wbprExtend},              // Mn       GUJARATI SIGN NUKTA
-	{runeRange{0x0B57, 0x0B57}, wbprExtend},              // Mc       ORIYA AU LENGTH MARK
-	{runeRange{0x0C2A, 0x0C39}, wbprALetter},             // Lo  [16] TELUGU LETTER PA..TELUGU LETTER HA
-	{runeRange{0x0CE0, 0x0CE1}, wbprALetter},             // Lo   [2] KANNADA LETTER VOCALIC RR..KANNADA LETTER VOCALIC LL
-	{runeRange{0x0DCF, 0x0DD1}, wbprExtend},              // Mc   [3] SINHALA VOWEL SIGN AELA-PILLA..SINHALA VOWEL SIGN DIGA AEDA-PILLA
-	{runeRange{0x102D, 0x1030}, wbprExtend},              // Mn   [4] MYANMAR VOWEL SIGN I..MYANMAR VOWEL SIGN UU
-	{runeRange{0x1258, 0x1258}, wbprALetter},             // Lo       ETHIOPIC SYLLABLE QHWA
-	{runeRange{0x1760, 0x176C}, wbprALetter},             // Lo  [13] TAGBANWA LETTER A..TAGBANWA LETTER YA
-	{runeRange{0x1933, 0x1938}, wbprExtend},              // Mc   [6] LIMBU SMALL LETTER TA..LIMBU SMALL LETTER LA
+	{runeRange{0x0610, 0x061A}, wbprExtend},              // Mn  [11] ARABIC SIGN SALLALLAHOU ALAYHE WASSALLAM..ARABIC SMALL KASRA
+	{runeRange{0x07CA, 0x07EA}, wbprALetter},             // Lo  [33] NKO LETTER A..NKO LETTER JONA RA
+	{runeRange{0x093E, 0x0940}, wbprExtend},              // Mc   [3] DEVANAGARI VOWEL SIGN AA..DEVANAGARI VOWEL SIGN II
+	{runeRange{0x09E6, 0x09EF}, wbprNumeric},             // Nd  [10] BENGALI DIGIT ZERO..BENGALI DIGIT NINE
+	{runeRange{0x0AB5, 0x0AB9}, wbprALetter},             // Lo   [5] GUJARATI LETTER VA..GUJARATI LETTER HA
+	{runeRange{0x0B53, 0x0B56}, wbprExtend},              // Mn   [4] ORIYA SIGN DOT ABOVE..ORIYA AI LENGTH MARK
+	{runeRange{0x0C12, 0x0C28}, wbprALetter},             // Lo  [23] TELUGU LETTER O..TELUGU LETTER NA
+	{runeRange{0x0CDC, 0x0CDE}, wbprALetter},             // Lo   [3] KANNADA ARCHAIC SHRII..KANNADA LETTER FA
+	{runeRange{0x0DCA, 0x0DCA}, wbprExtend},              // Mn       SINHALA SIGN AL-LAKUNA
+	{runeRange{0x102B, 0x102C}, wbprExtend},              // Mc   [2] MYANMAR VOWEL SIGN TALL AA..MYANMAR VOWEL SIGN AA
+	{runeRange{0x1250, 0x1256}, wbprALetter},             // Lo   [7] ETHIOPIC SYLLABLE QHA..ETHIOPIC SYLLABLE QHO
+	{runeRange{0x1752, 0x1753}, wbprExtend},              // Mn   [2] BUHID VOWEL SIGN I..BUHID VOWEL SIGN U
+	{runeRange{0x1932, 0x1932}, wbprExtend},              // Mn       LIMBU SMALL LETTER ANUSVARA
 	{runeRange{0x1B36, 0x1B3A}, wbprExtend},              // Mn   [5] BALINESE VOWEL SIGN ULU..BALINESE VOWEL SIGN RA REPA
 	{runeRange{0x1C34, 0x1C35}, wbprExtend},              // Mc   [2] LEPCHA CONSONANT SIGN NYIN-DO..LEPCHA CONSONANT SIGN KANG
 	{runeRange{0x1F48, 0x1F4D}, wbprALetter},             // L&   [6] GREEK CAPITAL LETTER OMICRON WITH PSILI..GREEK CAPITAL LETTER OMICRON WITH DASIA AND OXIA
@@ -91,42 +91,42 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x2C7E, 0x2CE4}, wbprALetter},             // L& [103] LATIN CAPITAL LETTER S WITH SWASH TAIL..COPTIC SYMBOL KAI
 	{runeRange{0x30FC, 0x30FE}, wbprKatakana},            // Lm   [3] KATAKANA-HIRAGANA PROLONGED SOUND MARK..KATAKANA VOICED ITERATION MARK
 	{runeRange{0xA720, 0xA721}, wbprALetter},             // Sk   [2] MODIFIER LETTER STRESS AND HIGH TONE..MODIFIER LETTER STRESS AND LOW TONE
-	{runeRange{0xA8F2, 0xA8F7}, wbprALetter},             // Lo   [6] DEVANAGARI SIGN SPACING CANDRABINDU..DEVANAGARI SIGN CANDRABINDU AVAGRAHA
-	{runeRange{0xAA44, 0xAA4B}, wbprALetter},             // Lo   [8] CHAM LETTER FINAL CH..CHAM LETTER FINAL SS
-	{runeRange{0xABE3, 0xABE4}, wbprExtend},              // Mc   [2] MEETEI MAYEK VOWEL SIGN ONAP..MEETEI MAYEK VOWEL SIGN INAP
-	{runeRange{0xFE50, 0xFE50}, wbprMidNum},              // Po       SMALL COMMA
-	{runeRange{0xFF70, 0xFF70}, wbprKatakana},            // Lm       HALFWIDTH KATAKANA-HIRAGANA PROLONGED SOUND MARK
-	{runeRange{0x10140, 0x10174}, wbprALetter},           // Nl  [53] GREEK ACROPHONIC ATTIC ONE QUARTER..GREEK ACROPHONIC STRATIAN FIFTY MNAS
-	{runeRange{0x10400, 0x1044F}, wbprALetter},           // L&  [80] DESERET CAPITAL LETTER LONG I..DESERET SMALL LETTER EW
-	{runeRange{0x10600, 0x10736}, wbprALetter},           // Lo [311] LINEAR A SIGN AB001..LINEAR A SIGN A664
-	{runeRange{0x10900, 0x10915}, wbprALetter},           // Lo  [22] PHOENICIAN LETTER ALF..PHOENICIAN LETTER TAU
-	{runeRange{0x10AC0, 0x10AC7}, wbprALetter},           // Lo   [8] MANICHAEAN LETTER ALEPH..MANICHAEAN LETTER WAW
-	{runeRange{0x10D4F, 0x10D4F}, wbprALetter},           // Lo       GARAY SUKUN
-	{runeRange{0x10F70, 0x10F81}, wbprALetter},           // Lo  [18] OLD UYGHUR LETTER ALEPH..OLD UYGHUR LETTER LESH
-	{runeRange{0x11083, 0x110AF}, wbprALetter},           // Lo  [45] KAITHI LETTER A..KAITHI LETTER HA
-	{runeRange{0x11144, 0x11144}, wbprALetter},           // Lo       CHAKMA LETTER LHAA
-	{runeRange{0x111D0, 0x111D9}, wbprNumeric},           // Nd  [10] SHARADA DIGIT ZERO..SHARADA DIGIT NINE
-	{runeRange{0x1128A, 0x1128D}, wbprALetter},           // Lo   [4] MULTANI LETTER CA..MULTANI LETTER JJA
-	{runeRange{0x1133B, 0x1133C}, wbprExtend},            // Mn   [2] COMBINING BINDU BELOW..GRANTHA SIGN NUKTA
-	{runeRange{0x11390, 0x113B5}, wbprALetter},           // Lo  [38] TULU-TIGALARI LETTER OO..TULU-TIGALARI LETTER LLLA
-	{runeRange{0x11435, 0x11437}, wbprExtend},            // Mc   [3] NEWA VOWEL SIGN AA..NEWA VOWEL SIGN II
-	{runeRange{0x114BF, 0x114C0}, wbprExtend},            // Mn   [2] TIRHUTA SIGN CANDRABINDU..TIRHUTA SIGN ANUSVARA
-	{runeRange{0x11630, 0x11632}, wbprExtend},            // Mc   [3] MODI VOWEL SIGN AA..MODI VOWEL SIGN II
-	{runeRange{0x116B8, 0x116B8}, wbprALetter},           // Lo       TAKRI LETTER ARCHAIC KHA
-	{runeRange{0x118A0, 0x118DF}, wbprALetter},           // L&  [64] WARANG CITI CAPITAL LETTER NGAA..WARANG CITI SMALL LETTER VIYO
-	{runeRange{0x11943, 0x11943}, wbprExtend},            // Mn       DIVES AKURU SIGN NUKTA
-	{runeRange{0x11A39, 0x11A39}, wbprExtend},            // Mc       ZANABAZAR SQUARE SIGN VISARGA
-	{runeRange{0x11B62, 0x11B64}, wbprExtend},            // Mn   [3] SHARADA VOWEL SIGN UE..SHARADA VOWEL SIGN SHORT E
-	{runeRange{0x11C92, 0x11CA7}, wbprExtend},            // Mn  [22] MARCHEN SUBJOINED LETTER KA..MARCHEN SUBJOINED LETTER ZA
-	{runeRange{0x11D50, 0x11D59}, wbprNumeric},           // Nd  [10] MASARAM GONDI DIGIT ZERO..MASARAM GONDI DIGIT NINE
-	{runeRange{0x11EE0, 0x11EF2}, wbprALetter},           // Lo  [19] MAKASAR LETTER KA..MAKASAR ANGKA
-	{runeRange{0x11FB0, 0x11FB0}, wbprALetter},           // Lo       LISU LETTER YHA
-	{runeRange{0x16130, 0x16139}, wbprNumeric},           // Nd  [10] GURUNG KHEMA DIGIT ZERO..GURUNG KHEMA DIGIT NINE
-	{runeRange{0x16D6B, 0x16D6C}, wbprALetter},           // Lm   [2] KIRAT RAI SIGN VIRAMA..KIRAT RAI SIGN SAAT
-	{runeRange{0x1AFF5, 0x1AFFB}, wbprKatakana},          // Lm   [7] KATAKANA LETTER MINNAN TONE-7..KATAKANA LETTER MINNAN NASALIZED TONE-5
-	{runeRange{0x1D167, 0x1D169}, wbprExtend},            // Mn   [3] MUSICAL SYMBOL COMBINING TREMOLO-1..MUSICAL SYMBOL COMBINING TREMOLO-3
-	{runeRange{0x1D4C5, 0x1D505}, wbprALetter},           // L&  [65] MATHEMATICAL SCRIPT SMALL P..MATHEMATICAL FRAKTUR CAPITAL B
-	{runeRange{0x1D750, 0x1D76E}, wbprALetter},           // L&  [31] MATHEMATICAL BOLD ITALIC EPSILON SYMBOL..MATHEMATICAL SANS-SERIF BOLD CAPITAL OMEGA
+	{runeRange{0xA8E0, 0xA8F1}, wbprExtend},              // Mn  [18] COMBINING DEVANAGARI DIGIT ZERO..COMBINING DEVANAGARI SIGN AVAGRAHA
+	{runeRange{0xAA43, 0xAA43}, wbprExtend},              // Mn       CHAM CONSONANT SIGN FINAL NG
+	{runeRange{0xAB70, 0xABBF}, wbprALetter},             // L&  [80] CHEROKEE SMALL LETTER A..CHEROKEE SMALL LETTER YA
+	{runeRange{0xFE33, 0xFE34}, wbprExtendNumLet},        // Pc   [2] PRESENTATION FORM FOR VERTICAL LOW LINE..PRESENTATION FORM FOR VERTICAL WAVY LOW LINE
+	{runeRange{0x1003F, 0x1004D}, wbprALetter},           // Lo  [15] LINEAR B SYLLABLE B020 ZO..LINEAR B SYLLABLE B091 TWO
+	{runeRange{0x103D1, 0x103D5}, wbprALetter},           // Nl   [5] OLD PERSIAN NUMBER ONE..OLD PERSIAN NUMBER HUNDRED
+	{runeRange{0x105C0, 0x105F3}, wbprALetter},           // Lo  [52] TODHRI LETTER A..TODHRI LETTER OO
+	{runeRange{0x108F4, 0x108F5}, wbprALetter},           // Lo   [2] HATRAN LETTER SHIN..HATRAN LETTER TAW
+	{runeRange{0x10A80, 0x10A9C}, wbprALetter},           // Lo  [29] OLD NORTH ARABIAN LETTER HEH..OLD NORTH ARABIAN LETTER ZAH
+	{runeRange{0x10D4E, 0x10D4E}, wbprALetter},           // Lm       GARAY VOWEL LENGTH MARK
+	{runeRange{0x10F27, 0x10F27}, wbprALetter},           // Lo       OLD SOGDIAN LIGATURE AYIN-DALETH
+	{runeRange{0x11075, 0x11075}, wbprALetter},           // Lo       BRAHMI LETTER OLD TAMIL LLA
+	{runeRange{0x1112C, 0x1112C}, wbprExtend},            // Mc       CHAKMA VOWEL SIGN E
+	{runeRange{0x111C9, 0x111CC}, wbprExtend},            // Mn   [4] SHARADA SANDHI MARK..SHARADA EXTRA SHORT VOWEL MARK
+	{runeRange{0x11241, 0x11241}, wbprExtend},            // Mn       KHOJKI VOWEL SIGN VOCALIC R
+	{runeRange{0x1132A, 0x11330}, wbprALetter},           // Lo   [7] GRANTHA LETTER PA..GRANTHA LETTER RA
+	{runeRange{0x11380, 0x11389}, wbprALetter},           // Lo  [10] TULU-TIGALARI LETTER A..TULU-TIGALARI LETTER VOCALIC LL
+	{runeRange{0x113D3, 0x113D3}, wbprALetter},           // Lo       TULU-TIGALARI SIGN PLUTA
+	{runeRange{0x114B9, 0x114B9}, wbprExtend},            // Mc       TIRHUTA VOWEL SIGN E
+	{runeRange{0x115D8, 0x115DB}, wbprALetter},           // Lo   [4] SIDDHAM LETTER THREE-CIRCLE ALTERNATE I..SIDDHAM LETTER ALTERNATE U
+	{runeRange{0x116B0, 0x116B5}, wbprExtend},            // Mn   [6] TAKRI VOWEL SIGN U..TAKRI VOWEL SIGN AU
+	{runeRange{0x1182F, 0x11837}, wbprExtend},            // Mn   [9] DOGRA VOWEL SIGN U..DOGRA SIGN ANUSVARA
+	{runeRange{0x11940, 0x11940}, wbprExtend},            // Mc       DIVES AKURU MEDIAL YA
+	{runeRange{0x11A01, 0x11A0A}, wbprExtend},            // Mn  [10] ZANABAZAR SQUARE VOWEL SIGN I..ZANABAZAR SQUARE VOWEL LENGTH MARK
+	{runeRange{0x11AB0, 0x11AF8}, wbprALetter},           // Lo  [73] CANADIAN SYLLABICS NATTILIK HI..PAU CIN HAU GLOTTAL STOP FINAL
+	{runeRange{0x11C3F, 0x11C3F}, wbprExtend},            // Mn       BHAIKSUKI SIGN VIRAMA
+	{runeRange{0x11D3C, 0x11D3D}, wbprExtend},            // Mn   [2] MASARAM GONDI VOWEL SIGN AI..MASARAM GONDI VOWEL SIGN O
+	{runeRange{0x11DB0, 0x11DD8}, wbprALetter},           // Lo  [41] TOLONG SIKI LETTER I..TOLONG SIKI LETTER RRH
+	{runeRange{0x11F3E, 0x11F3F}, wbprExtend},            // Mc   [2] KAWI VOWEL SIGN E..KAWI VOWEL SIGN AI
+	{runeRange{0x13441, 0x13446}, wbprALetter},           // Lo   [6] EGYPTIAN HIEROGLYPH FULL BLANK..EGYPTIAN HIEROGLYPH WIDE LOST SIGN
+	{runeRange{0x16B00, 0x16B2F}, wbprALetter},           // Lo  [48] PAHAWH HMONG VOWEL KEEB..PAHAWH HMONG CONSONANT CAU
+	{runeRange{0x16F51, 0x16F87}, wbprExtend},            // Mc  [55] MIAO SIGN ASPIRATION..MIAO VOWEL SIGN UI
+	{runeRange{0x1BC70, 0x1BC7C}, wbprALetter},           // Lo  [13] DUPLOYAN AFFIX LEFT HORIZONTAL SECANT..DUPLOYAN AFFIX ATTACHED TANGENT HOOK
+	{runeRange{0x1D242, 0x1D244}, wbprExtend},            // Mn   [3] COMBINING GREEK MUSICAL TRISEME..COMBINING GREEK MUSICAL PENTASEME
+	{runeRange{0x1D50D, 0x1D514}, wbprALetter},           // L&   [8] MATHEMATICAL FRAKTUR CAPITAL J..MATHEMATICAL FRAKTUR CAPITAL Q
+	{runeRange{0x1D78A, 0x1D7A8}, wbprALetter},           // L&  [31] MATHEMATICAL SANS-SERIF BOLD EPSILON SYMBOL..MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL OMEGA
 	{runeRange{0x1E000, 0x1E006}, wbprExtend},            // Mn   [7] COMBINING GLAGOLITIC LETTER AZU..COMBINING GLAGOLITIC LETTER ZHIVETE
 	{runeRange{0x1E2F0, 0x1E2F9}, wbprNumeric},           // Nd  [10] WANCHO DIGIT ZERO..WANCHO DIGIT NINE
 	{runeRange{0x1E6F0, 0x1E6F4}, wbprALetter},           // Lo   [5] TAI YO LETTER AN..TAI YO LETTER AP
@@ -137,33 +137,33 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x00F8, 0x01BA}, wbprALetter},             // L& [195] LATIN SMALL LETTER O WITH STROKE..LATIN SMALL LETTER EZH WITH TAIL
 	{runeRange{0x02EE, 0x02EE}, wbprALetter},             // Lm       MODIFIER LETTER DOUBLE APOSTROPHE
 	{runeRange{0x03F7, 0x0481}, wbprALetter},             // L& [139] GREEK CAPITAL LETTER SHO..CYRILLIC SMALL LETTER KOPPA
-	{runeRange{0x05C7, 0x05C7}, wbprExtend},              // Mn       HEBREW POINT QAMATS QATAN
-	{runeRange{0x066E, 0x066F}, wbprALetter},             // Lo   [2] ARABIC LETTER DOTLESS BEH..ARABIC LETTER DOTLESS QAF
-	{runeRange{0x0711, 0x0711}, wbprExtend},              // Mn       SYRIAC LETTER SUPERSCRIPT ALAPH
-	{runeRange{0x081B, 0x0823}, wbprExtend},              // Mn   [9] SAMARITAN MARK EPENTHETIC YUT..SAMARITAN VOWEL SIGN A
-	{runeRange{0x08E3, 0x0902}, wbprExtend},              // Mn  [32] ARABIC TURNED DAMMA BELOW..DEVANAGARI SIGN ANUSVARA
-	{runeRange{0x0966, 0x096F}, wbprNumeric},             // Nd  [10] DEVANAGARI DIGIT ZERO..DEVANAGARI DIGIT NINE
-	{runeRange{0x09CB, 0x09CC}, wbprExtend},              // Mc   [2] BENGALI VOWEL SIGN O..BENGALI VOWEL SIGN AU
-	{runeRange{0x0A2A, 0x0A30}, wbprALetter},             // Lo   [7] GURMUKHI LETTER PA..GURMUKHI LETTER RA
-	{runeRange{0x0A81, 0x0A82}, wbprExtend},              // Mn   [2] GUJARATI SIGN CANDRABINDU..GUJARATI SIGN ANUSVARA
-	{runeRange{0x0AD0, 0x0AD0}, wbprALetter},             // Lo       GUJARATI OM
-	{runeRange{0x0B3E, 0x0B3E}, wbprExtend},              // Mc       ORIYA VOWEL SIGN AA
-	{runeRange{0x0B85, 0x0B8A}, wbprALetter},             // Lo   [6] TAMIL LETTER A..TAMIL LETTER UU
-	{runeRange{0x0BD7, 0x0BD7}, wbprExtend},              // Mc       TAMIL AU LENGTH MARK
-	{runeRange{0x0C58, 0x0C5A}, wbprALetter},             // Lo   [3] TELUGU LETTER TSA..TELUGU LETTER RRRA
-	{runeRange{0x0CBF, 0x0CBF}, wbprExtend},              // Mn       KANNADA VOWEL SIGN I
-	{runeRange{0x0D0E, 0x0D10}, wbprALetter},             // Lo   [3] MALAYALAM LETTER E..MALAYALAM LETTER AI
-	{runeRange{0x0D81, 0x0D81}, wbprExtend},              // Mn       SINHALA SIGN CANDRABINDU
-	{runeRange{0x0E47, 0x0E4E}, wbprExtend},              // Mn   [8] THAI CHARACTER MAITAIKHU..THAI CHARACTER YAMAKKAN
-	{runeRange{0x0F7F, 0x0F7F}, wbprExtend},              // Mc       TIBETAN SIGN RNAM BCAD
-	{runeRange{0x1056, 0x1057}, wbprExtend},              // Mc   [2] MYANMAR VOWEL SIGN VOCALIC R..MYANMAR VOWEL SIGN VOCALIC RR
-	{runeRange{0x10C7, 0x10C7}, wbprALetter},             // L&       GEORGIAN CAPITAL LETTER YN
-	{runeRange{0x12C2, 0x12C5}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE KXWI..ETHIOPIC SYLLABLE KXWE
-	{runeRange{0x1700, 0x1711}, wbprALetter},             // Lo  [18] TAGALOG LETTER A..TAGALOG LETTER HA
-	{runeRange{0x17C7, 0x17C8}, wbprExtend},              // Mc   [2] KHMER SIGN REAHMUK..KHMER SIGN YUUKALEAPINTU
-	{runeRange{0x18B0, 0x18F5}, wbprALetter},             // Lo  [70] CANADIAN SYLLABICS OY..CANADIAN SYLLABICS CARRIER DENTAL S
-	{runeRange{0x1A1B, 0x1A1B}, wbprExtend},              // Mn       BUGINESE VOWEL SIGN AE
-	{runeRange{0x1ABE, 0x1ABE}, wbprExtend},              // Me       COMBINING PARENTHESES OVERLAY
+	{runeRange{0x05C4, 0x05C5}, wbprExtend},              // Mn   [2] HEBREW MARK UPPER DOT..HEBREW MARK LOWER DOT
+	{runeRange{0x066C, 0x066C}, wbprMidNum},              // Po       ARABIC THOUSANDS SEPARATOR
+	{runeRange{0x0710, 0x0710}, wbprALetter},             // Lo       SYRIAC LETTER ALAPH
+	{runeRange{0x081A, 0x081A}, wbprALetter},             // Lm       SAMARITAN MODIFIER LETTER EPENTHETIC YUT
+	{runeRange{0x08E2, 0x08E2}, wbprNumeric},             // Cf       ARABIC DISPUTED END OF AYAH
+	{runeRange{0x0962, 0x0963}, wbprExtend},              // Mn   [2] DEVANAGARI VOWEL SIGN VOCALIC L..DEVANAGARI VOWEL SIGN VOCALIC LL
+	{runeRange{0x09C7, 0x09C8}, wbprExtend},              // Mc   [2] BENGALI VOWEL SIGN E..BENGALI VOWEL SIGN AI
+	{runeRange{0x0A13, 0x0A28}, wbprALetter},             // Lo  [22] GURMUKHI LETTER OO..GURMUKHI LETTER NA
+	{runeRange{0x0A75, 0x0A75}, wbprExtend},              // Mn       GURMUKHI SIGN YAKASH
+	{runeRange{0x0ACD, 0x0ACD}, wbprExtend},              // Mn       GUJARATI SIGN VIRAMA
+	{runeRange{0x0B3D, 0x0B3D}, wbprALetter},             // Lo       ORIYA SIGN AVAGRAHA
+	{runeRange{0x0B83, 0x0B83}, wbprALetter},             // Lo       TAMIL SIGN VISARGA
+	{runeRange{0x0BD0, 0x0BD0}, wbprALetter},             // Lo       TAMIL OM
+	{runeRange{0x0C55, 0x0C56}, wbprExtend},              // Mn   [2] TELUGU LENGTH MARK..TELUGU AI LENGTH MARK
+	{runeRange{0x0CBE, 0x0CBE}, wbprExtend},              // Mc       KANNADA VOWEL SIGN AA
+	{runeRange{0x0D04, 0x0D0C}, wbprALetter},             // Lo   [9] MALAYALAM LETTER VEDIC ANUSVARA..MALAYALAM LETTER VOCALIC L
+	{runeRange{0x0D7A, 0x0D7F}, wbprALetter},             // Lo   [6] MALAYALAM LETTER CHILLU NN..MALAYALAM LETTER CHILLU K
+	{runeRange{0x0E34, 0x0E3A}, wbprExtend},              // Mn   [7] THAI CHARACTER SARA I..THAI CHARACTER PHINTHU
+	{runeRange{0x0F71, 0x0F7E}, wbprExtend},              // Mn  [14] TIBETAN VOWEL SIGN AA..TIBETAN SIGN RJES SU NGA RO
+	{runeRange{0x1040, 0x1049}, wbprNumeric},             // Nd  [10] MYANMAR DIGIT ZERO..MYANMAR DIGIT NINE
+	{runeRange{0x10A0, 0x10C5}, wbprALetter},             // L&  [38] GEORGIAN CAPITAL LETTER AN..GEORGIAN CAPITAL LETTER HOE
+	{runeRange{0x12C0, 0x12C0}, wbprALetter},             // Lo       ETHIOPIC SYLLABLE KXWA
+	{runeRange{0x16F1, 0x16F8}, wbprALetter},             // Lo   [8] RUNIC LETTER K..RUNIC LETTER FRANKS CASKET AESC
+	{runeRange{0x17C6, 0x17C6}, wbprExtend},              // Mn       KHMER SIGN NIKAHIT
+	{runeRange{0x18AA, 0x18AA}, wbprALetter},             // Lo       MONGOLIAN LETTER MANCHU ALI GALI LHA
+	{runeRange{0x1A19, 0x1A1A}, wbprExtend},              // Mc   [2] BUGINESE VOWEL SIGN E..BUGINESE VOWEL SIGN O
+	{runeRange{0x1AB0, 0x1ABD}, wbprExtend},              // Mn  [14] COMBINING DOUBLED CIRCUMFLEX ACCENT..COMBINING PARENTHESES BELOW
 	{runeRange{0x1B6B, 0x1B73}, wbprExtend},              // Mn   [9] BALINESE MUSICAL SYMBOL COMBINING TEGEH..BALINESE MUSICAL SYMBOL COMBINING GONG
 	{runeRange{0x1BEA, 0x1BEC}, wbprExtend},              // Mc   [3] BATAK VOWEL SIGN I..BATAK VOWEL SIGN O
 	{runeRange{0x1C90, 0x1CBA}, wbprALetter},             // L&  [43] GEORGIAN MTAVRULI CAPITAL LETTER AN..GEORGIAN MTAVRULI CAPITAL LETTER AIN
@@ -176,80 +176,80 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x302E, 0x302F}, wbprExtend},              // Mc   [2] HANGUL SINGLE DOT TONE MARK..HANGUL DOUBLE DOT TONE MARK
 	{runeRange{0xA000, 0xA014}, wbprALetter},             // Lo  [21] YI SYLLABLE IT..YI SYLLABLE E
 	{runeRange{0xA680, 0xA69B}, wbprALetter},             // L&  [28] CYRILLIC CAPITAL LETTER DWE..CYRILLIC SMALL LETTER CROSSED O
-	{runeRange{0xA790, 0xA7DC}, wbprALetter},             // L&  [77] LATIN CAPITAL LETTER N WITH DESCENDER..LATIN CAPITAL LETTER LAMBDA WITH STROKE
-	{runeRange{0xA82C, 0xA82C}, wbprExtend},              // Mn       SYLOTI NAGRI SIGN ALTERNATE HASANTA
-	{runeRange{0xA947, 0xA951}, wbprExtend},              // Mn  [11] REJANG VOWEL SIGN I..REJANG CONSONANT SIGN R
-	{runeRange{0xAA00, 0xAA28}, wbprALetter},             // Lo  [41] CHAM LETTER A..CHAM LETTER HA
-	{runeRange{0xAAB2, 0xAAB4}, wbprExtend},              // Mn   [3] TAI VIET VOWEL I..TAI VIET VOWEL U
-	{runeRange{0xAB28, 0xAB2E}, wbprALetter},             // Lo   [7] ETHIOPIC SYLLABLE BBA..ETHIOPIC SYLLABLE BBO
-	{runeRange{0xAC00, 0xD7A3}, wbprALetter},             // Lo [11172] HANGUL SYLLABLE GA..HANGUL SYLLABLE HIH
-	{runeRange{0xFD50, 0xFD8F}, wbprALetter},             // Lo  [64] ARABIC LIGATURE TEH WITH JEEM WITH MEEM INITIAL FORM..ARABIC LIGATURE MEEM WITH KHAH WITH MEEM INITIAL FORM
-	{runeRange{0xFE76, 0xFEFC}, wbprALetter},             // Lo [135] ARABIC FATHA ISOLATED FORM..ARABIC LIGATURE LAM WITH ALEF FINAL FORM
-	{runeRange{0xFF21, 0xFF3A}, wbprALetter},             // L&  [26] FULLWIDTH LATIN CAPITAL LETTER A..FULLWIDTH LATIN CAPITAL LETTER Z
-	{runeRange{0xFFC2, 0xFFC7}, wbprALetter},             // Lo   [6] HALFWIDTH HANGUL LETTER A..HALFWIDTH HANGUL LETTER E
-	{runeRange{0x1003C, 0x1003D}, wbprALetter},           // Lo   [2] LINEAR B SYLLABLE B017 ZA..LINEAR B SYLLABLE B074 ZE
-	{runeRange{0x102E0, 0x102E0}, wbprExtend},            // Mn       COPTIC EPACT THOUSANDS MARK
-	{runeRange{0x10380, 0x1039D}, wbprALetter},           // Lo  [30] UGARITIC LETTER ALPA..UGARITIC LETTER SSU
-	{runeRange{0x104D8, 0x104FB}, wbprALetter},           // L&  [36] OSAGE SMALL LETTER A..OSAGE SMALL LETTER ZHA
-	{runeRange{0x105A3, 0x105B1}, wbprALetter},           // L&  [15] VITHKUQI SMALL LETTER HA..VITHKUQI SMALL LETTER RE
-	{runeRange{0x10787, 0x107B0}, wbprALetter},           // Lm  [42] MODIFIER LETTER SMALL DZ DIGRAPH..MODIFIER LETTER SMALL V WITH RIGHT HOOK
-	{runeRange{0x10860, 0x10876}, wbprALetter},           // Lo  [23] PALMYRENE LETTER ALEPH..PALMYRENE LETTER TAW
-	{runeRange{0x109BE, 0x109BF}, wbprALetter},           // Lo   [2] MEROITIC CURSIVE LOGOGRAM RMT..MEROITIC CURSIVE LOGOGRAM IMN
-	{runeRange{0x10A38, 0x10A3A}, wbprExtend},            // Mn   [3] KHAROSHTHI SIGN BAR ABOVE..KHAROSHTHI SIGN DOT BELOW
-	{runeRange{0x10B40, 0x10B55}, wbprALetter},           // Lo  [22] INSCRIPTIONAL PARTHIAN LETTER ALEPH..INSCRIPTIONAL PARTHIAN LETTER TAW
-	{runeRange{0x10D30, 0x10D39}, wbprNumeric},           // Nd  [10] HANIFI ROHINGYA DIGIT ZERO..HANIFI ROHINGYA DIGIT NINE
-	{runeRange{0x10D70, 0x10D85}, wbprALetter},           // L&  [22] GARAY SMALL LETTER A..GARAY SMALL LETTER OLD NA
-	{runeRange{0x10F00, 0x10F1C}, wbprALetter},           // Lo  [29] OLD SOGDIAN LETTER ALEPH..OLD SOGDIAN LETTER FINAL TAW WITH VERTICAL TAIL
-	{runeRange{0x11000, 0x11000}, wbprExtend},            // Mc       BRAHMI SIGN CANDRABINDU
-	{runeRange{0x11073, 0x11074}, wbprExtend},            // Mn   [2] BRAHMI VOWEL SIGN OLD TAMIL SHORT E..BRAHMI VOWEL SIGN OLD TAMIL SHORT O
-	{runeRange{0x110B9, 0x110BA}, wbprExtend},            // Mn   [2] KAITHI SIGN VIRAMA..KAITHI SIGN NUKTA
-	{runeRange{0x11127, 0x1112B}, wbprExtend},            // Mn   [5] CHAKMA VOWEL SIGN A..CHAKMA VOWEL SIGN UU
-	{runeRange{0x11173, 0x11173}, wbprExtend},            // Mn       MAHAJANI SIGN NUKTA
-	{runeRange{0x111C1, 0x111C4}, wbprALetter},           // Lo   [4] SHARADA SIGN AVAGRAHA..SHARADA OM
-	{runeRange{0x11213, 0x1122B}, wbprALetter},           // Lo  [25] KHOJKI LETTER NYA..KHOJKI LETTER LLA
-	{runeRange{0x1123F, 0x11240}, wbprALetter},           // Lo   [2] KHOJKI LETTER QA..KHOJKI LETTER SHORT I
-	{runeRange{0x112DF, 0x112DF}, wbprExtend},            // Mn       KHUDAWADI SIGN ANUSVARA
-	{runeRange{0x11313, 0x11328}, wbprALetter},           // Lo  [22] GRANTHA LETTER OO..GRANTHA LETTER NA
-	{runeRange{0x11341, 0x11344}, wbprExtend},            // Mc   [4] GRANTHA VOWEL SIGN U..GRANTHA VOWEL SIGN VOCALIC RR
-	{runeRange{0x11370, 0x11374}, wbprExtend},            // Mn   [5] COMBINING GRANTHA LETTER A..COMBINING GRANTHA LETTER PA
-	{runeRange{0x113C2, 0x113C2}, wbprExtend},            // Mc       TULU-TIGALARI VOWEL SIGN EE
-	{runeRange{0x113D2, 0x113D2}, wbprExtend},            // Mn       TULU-TIGALARI GEMINATION MARK
-	{runeRange{0x11445, 0x11445}, wbprExtend},            // Mc       NEWA SIGN VISARGA
-	{runeRange{0x114B3, 0x114B8}, wbprExtend},            // Mn   [6] TIRHUTA VOWEL SIGN U..TIRHUTA VOWEL SIGN VOCALIC LL
-	{runeRange{0x114C7, 0x114C7}, wbprALetter},           // Lo       TIRHUTA OM
-	{runeRange{0x115BF, 0x115C0}, wbprExtend},            // Mn   [2] SIDDHAM SIGN VIRAMA..SIDDHAM SIGN NUKTA
-	{runeRange{0x1163E, 0x1163E}, wbprExtend},            // Mc       MODI SIGN VISARGA
-	{runeRange{0x116AE, 0x116AF}, wbprExtend},            // Mc   [2] TAKRI VOWEL SIGN I..TAKRI VOWEL SIGN II
-	{runeRange{0x1171E, 0x1171E}, wbprExtend},            // Mc       AHOM CONSONANT SIGN MEDIAL RA
-	{runeRange{0x1182C, 0x1182E}, wbprExtend},            // Mc   [3] DOGRA VOWEL SIGN AA..DOGRA VOWEL SIGN II
-	{runeRange{0x1190C, 0x11913}, wbprALetter},           // Lo   [8] DIVES AKURU LETTER KA..DIVES AKURU LETTER JA
-	{runeRange{0x1193F, 0x1193F}, wbprALetter},           // Lo       DIVES AKURU PREFIXED NASAL SIGN
-	{runeRange{0x119D1, 0x119D3}, wbprExtend},            // Mc   [3] NANDINAGARI VOWEL SIGN AA..NANDINAGARI VOWEL SIGN II
-	{runeRange{0x11A00, 0x11A00}, wbprALetter},           // Lo       ZANABAZAR SQUARE LETTER A
-	{runeRange{0x11A50, 0x11A50}, wbprALetter},           // Lo       SOYOMBO LETTER A
-	{runeRange{0x11A9D, 0x11A9D}, wbprALetter},           // Lo       SOYOMBO MARK PLUTA
-	{runeRange{0x11BC0, 0x11BE0}, wbprALetter},           // Lo  [33] SUNUWAR LETTER DEVI..SUNUWAR LETTER KLOKO
-	{runeRange{0x11C3F, 0x11C3F}, wbprExtend},            // Mn       BHAIKSUKI SIGN VIRAMA
-	{runeRange{0x11CB2, 0x11CB3}, wbprExtend},            // Mn   [2] MARCHEN VOWEL SIGN U..MARCHEN VOWEL SIGN E
-	{runeRange{0x11D3C, 0x11D3D}, wbprExtend},            // Mn   [2] MASARAM GONDI VOWEL SIGN AI..MASARAM GONDI VOWEL SIGN O
-	{runeRange{0x11D8A, 0x11D8E}, wbprExtend},            // Mc   [5] GUNJALA GONDI VOWEL SIGN AA..GUNJALA GONDI VOWEL SIGN UU
-	{runeRange{0x11DB0, 0x11DD8}, wbprALetter},           // Lo  [41] TOLONG SIKI LETTER I..TOLONG SIKI LETTER RRH
-	{runeRange{0x11F02, 0x11F02}, wbprALetter},           // Lo       KAWI SIGN REPHA
-	{runeRange{0x11F41, 0x11F41}, wbprExtend},            // Mc       KAWI SIGN KILLER
+	{runeRange{0xA790, 0xA7DD}, wbprALetter},             // L&  [78] LATIN CAPITAL LETTER N WITH DESCENDER..LATIN CAPITAL LETTER CLOSED OMEGA
+	{runeRange{0xA827, 0xA827}, wbprExtend},              // Mc       SYLOTI NAGRI VOWEL SIGN OO
+	{runeRange{0xA930, 0xA946}, wbprALetter},             // Lo  [23] REJANG LETTER KA..REJANG LETTER A
+	{runeRange{0xA9F0, 0xA9F9}, wbprNumeric},             // Nd  [10] MYANMAR TAI LAING DIGIT ZERO..MYANMAR TAI LAING DIGIT NINE
+	{runeRange{0xAAB0, 0xAAB0}, wbprExtend},              // Mn       TAI VIET MAI KANG
+	{runeRange{0xAB20, 0xAB26}, wbprALetter},             // Lo   [7] ETHIOPIC SYLLABLE CCHHA..ETHIOPIC SYLLABLE CCHHO
+	{runeRange{0xABED, 0xABED}, wbprExtend},              // Mn       MEETEI MAYEK APUN IYEK
+	{runeRange{0xFB50, 0xFBB1}, wbprALetter},             // Lo  [98] ARABIC LETTER ALEF WASLA ISOLATED FORM..ARABIC LETTER YEH BARREE WITH HAMZA ABOVE FINAL FORM
+	{runeRange{0xFEFF, 0xFEFF}, wbprFormat},              // Cf       ZERO WIDTH NO-BREAK SPACE
+	{runeRange{0xFFCA, 0xFFCF}, wbprALetter},             // Lo   [6] HALFWIDTH HANGUL LETTER YEO..HALFWIDTH HANGUL LETTER OE
+	{runeRange{0x102A0, 0x102D0}, wbprALetter},           // Lo  [49] CARIAN LETTER A..CARIAN LETTER UUU3
+	{runeRange{0x10376, 0x1037A}, wbprExtend},            // Mn   [5] COMBINING OLD PERMIC LETTER AN..COMBINING OLD PERMIC LETTER SII
+	{runeRange{0x104B0, 0x104D3}, wbprALetter},           // L&  [36] OSAGE CAPITAL LETTER A..OSAGE CAPITAL LETTER ZHA
+	{runeRange{0x10597, 0x105A1}, wbprALetter},           // L&  [11] VITHKUQI SMALL LETTER A..VITHKUQI SMALL LETTER GA
+	{runeRange{0x10780, 0x10785}, wbprALetter},           // Lm   [6] MODIFIER LETTER SMALL CAPITAL AA..MODIFIER LETTER SMALL B WITH HOOK
+	{runeRange{0x1083F, 0x10855}, wbprALetter},           // Lo  [23] CYPRIOT SYLLABLE ZO..IMPERIAL ARAMAIC LETTER TAW
+	{runeRange{0x10980, 0x109B7}, wbprALetter},           // Lo  [56] MEROITIC HIEROGLYPHIC LETTER A..MEROITIC CURSIVE LETTER DA
+	{runeRange{0x10A19, 0x10A35}, wbprALetter},           // Lo  [29] KHAROSHTHI LETTER NYA..KHAROSHTHI LETTER VHA
+	{runeRange{0x10B00, 0x10B35}, wbprALetter},           // Lo  [54] AVESTAN LETTER A..AVESTAN LETTER HE
+	{runeRange{0x10D24, 0x10D27}, wbprExtend},            // Mn   [4] HANIFI ROHINGYA SIGN HARBAHAY..HANIFI ROHINGYA SIGN TASSI
+	{runeRange{0x10D6F, 0x10D6F}, wbprALetter},           // Lm       GARAY REDUPLICATION MARK
+	{runeRange{0x10ECB, 0x10ECF}, wbprExtend},            // Mn   [5] ARABIC NORTHEAST POINTING ARROWHEAD ABOVE..ARABIC LARGE CIRCLE ABOVE
+	{runeRange{0x10F82, 0x10F85}, wbprExtend},            // Mn   [4] OLD UYGHUR COMBINING DOT ABOVE..OLD UYGHUR COMBINING TWO DOTS BELOW
+	{runeRange{0x11066, 0x1106F}, wbprNumeric},           // Nd  [10] BRAHMI DIGIT ZERO..BRAHMI DIGIT NINE
+	{runeRange{0x110B0, 0x110B2}, wbprExtend},            // Mc   [3] KAITHI VOWEL SIGN AA..KAITHI VOWEL SIGN II
+	{runeRange{0x110F0, 0x110F9}, wbprNumeric},           // Nd  [10] SORA SOMPENG DIGIT ZERO..SORA SOMPENG DIGIT NINE
+	{runeRange{0x11145, 0x11146}, wbprExtend},            // Mc   [2] CHAKMA VOWEL SIGN AA..CHAKMA VOWEL SIGN EI
+	{runeRange{0x111B3, 0x111B5}, wbprExtend},            // Mc   [3] SHARADA VOWEL SIGN AA..SHARADA VOWEL SIGN II
+	{runeRange{0x111DA, 0x111DA}, wbprALetter},           // Lo       SHARADA EKAM
+	{runeRange{0x11235, 0x11235}, wbprExtend},            // Mc       KHOJKI SIGN VIRAMA
+	{runeRange{0x1128F, 0x1129D}, wbprALetter},           // Lo  [15] MULTANI LETTER NYA..MULTANI LETTER BA
+	{runeRange{0x11302, 0x11303}, wbprExtend},            // Mc   [2] GRANTHA SIGN ANUSVARA..GRANTHA SIGN VISARGA
+	{runeRange{0x1133D, 0x1133D}, wbprALetter},           // Lo       GRANTHA SIGN AVAGRAHA
+	{runeRange{0x1135D, 0x11361}, wbprALetter},           // Lo   [5] GRANTHA SIGN PLUTA..GRANTHA LETTER VOCALIC LL
+	{runeRange{0x113B7, 0x113B7}, wbprALetter},           // Lo       TULU-TIGALARI SIGN AVAGRAHA
+	{runeRange{0x113CF, 0x113CF}, wbprExtend},            // Mc       TULU-TIGALARI SIGN LOOPED VIRAMA
+	{runeRange{0x11438, 0x1143F}, wbprExtend},            // Mn   [8] NEWA VOWEL SIGN U..NEWA VOWEL SIGN AI
+	{runeRange{0x1145F, 0x11461}, wbprALetter},           // Lo   [3] NEWA LETTER VEDIC ANUSVARA..NEWA SIGN UPADHMANIYA
+	{runeRange{0x114C1, 0x114C1}, wbprExtend},            // Mc       TIRHUTA SIGN VISARGA
+	{runeRange{0x115B8, 0x115BB}, wbprExtend},            // Mc   [4] SIDDHAM VOWEL SIGN E..SIDDHAM VOWEL SIGN AU
+	{runeRange{0x11633, 0x1163A}, wbprExtend},            // Mn   [8] MODI VOWEL SIGN U..MODI VOWEL SIGN AI
+	{runeRange{0x116AB, 0x116AB}, wbprExtend},            // Mn       TAKRI SIGN ANUSVARA
+	{runeRange{0x116C0, 0x116C9}, wbprNumeric},           // Nd  [10] TAKRI DIGIT ZERO..TAKRI DIGIT NINE
+	{runeRange{0x11727, 0x1172B}, wbprExtend},            // Mn   [5] AHOM VOWEL SIGN AW..AHOM SIGN KILLER
+	{runeRange{0x118E0, 0x118E9}, wbprNumeric},           // Nd  [10] WARANG CITI DIGIT ZERO..WARANG CITI DIGIT NINE
+	{runeRange{0x1193B, 0x1193C}, wbprExtend},            // Mn   [2] DIVES AKURU SIGN ANUSVARA..DIVES AKURU SIGN CANDRABINDU
+	{runeRange{0x11950, 0x11959}, wbprNumeric},           // Nd  [10] DIVES AKURU DIGIT ZERO..DIVES AKURU DIGIT NINE
+	{runeRange{0x119E1, 0x119E1}, wbprALetter},           // Lo       NANDINAGARI SIGN AVAGRAHA
+	{runeRange{0x11A3A, 0x11A3A}, wbprALetter},           // Lo       ZANABAZAR SQUARE CLUSTER-INITIAL LETTER RA
+	{runeRange{0x11A8A, 0x11A96}, wbprExtend},            // Mn  [13] SOYOMBO FINAL CONSONANT SIGN G..SOYOMBO SIGN ANUSVARA
+	{runeRange{0x11B62, 0x11B64}, wbprExtend},            // Mn   [3] SHARADA VOWEL SIGN UE..SHARADA VOWEL SIGN SHORT E
+	{runeRange{0x11C2F, 0x11C2F}, wbprExtend},            // Mc       BHAIKSUKI VOWEL SIGN AA
+	{runeRange{0x11C92, 0x11CA7}, wbprExtend},            // Mn  [22] MARCHEN SUBJOINED LETTER KA..MARCHEN SUBJOINED LETTER ZA
+	{runeRange{0x11D08, 0x11D09}, wbprALetter},           // Lo   [2] MASARAM GONDI LETTER AI..MASARAM GONDI LETTER O
+	{runeRange{0x11D50, 0x11D59}, wbprNumeric},           // Nd  [10] MASARAM GONDI DIGIT ZERO..MASARAM GONDI DIGIT NINE
+	{runeRange{0x11D96, 0x11D96}, wbprExtend},            // Mc       GUNJALA GONDI SIGN VISARGA
+	{runeRange{0x11DF0, 0x11DF0}, wbprExtend},            // Mn       BENGALI SIGN COMBINING ANUSVARA ABOVE
+	{runeRange{0x11F04, 0x11F10}, wbprALetter},           // Lo  [13] KAWI LETTER A..KAWI LETTER O
+	{runeRange{0x11F50, 0x11F59}, wbprNumeric},           // Nd  [10] KAWI DIGIT ZERO..KAWI DIGIT NINE
 	{runeRange{0x12F90, 0x12FF0}, wbprALetter},           // Lo  [97] CYPRO-MINOAN SIGN CM001..CYPRO-MINOAN SIGN CM114
 	{runeRange{0x16100, 0x1611D}, wbprALetter},           // Lo  [30] GURUNG KHEMA LETTER A..GURUNG KHEMA LETTER SA
 	{runeRange{0x16A70, 0x16ABE}, wbprALetter},           // Lo  [79] TANGSA LETTER OZ..TANGSA LETTER ZA
 	{runeRange{0x16B63, 0x16B77}, wbprALetter},           // Lo  [21] PAHAWH HMONG SIGN VOS LUB..PAHAWH HMONG SIGN CIM NRES TOS
 	{runeRange{0x16EBB, 0x16ED3}, wbprALetter},           // L&  [25] BERIA ERFE SMALL LETTER ARKAB..BERIA ERFE SMALL LETTER AY
 	{runeRange{0x16FE3, 0x16FE3}, wbprALetter},           // Lm       OLD CHINESE ITERATION MARK
-	{runeRange{0x1B155, 0x1B155}, wbprKatakana},          // Lo       KATAKANA LETTER SMALL KO
-	{runeRange{0x1CCF0, 0x1CCF9}, wbprNumeric},           // Nd  [10] OUTLINED DIGIT ZERO..OUTLINED DIGIT NINE
-	{runeRange{0x1D185, 0x1D18B}, wbprExtend},            // Mn   [7] MUSICAL SYMBOL COMBINING DOIT..MUSICAL SYMBOL COMBINING TRIPLE TONGUE
-	{runeRange{0x1D4A9, 0x1D4AC}, wbprALetter},           // L&   [4] MATHEMATICAL SCRIPT CAPITAL N..MATHEMATICAL SCRIPT CAPITAL Q
-	{runeRange{0x1D51E, 0x1D539}, wbprALetter},           // L&  [28] MATHEMATICAL FRAKTUR SMALL A..MATHEMATICAL DOUBLE-STRUCK CAPITAL B
-	{runeRange{0x1D6DC, 0x1D6FA}, wbprALetter},           // L&  [31] MATHEMATICAL BOLD EPSILON SYMBOL..MATHEMATICAL ITALIC CAPITAL OMEGA
-	{runeRange{0x1D7C4, 0x1D7CB}, wbprALetter},           // L&   [8] MATHEMATICAL SANS-SERIF BOLD ITALIC EPSILON SYMBOL..MATHEMATICAL BOLD SMALL DIGAMMA
-	{runeRange{0x1DF00, 0x1DF09}, wbprALetter},           // L&  [10] LATIN SMALL LETTER FENG DIGRAPH WITH TRILL..LATIN SMALL LETTER T WITH HOOK AND RETROFLEX HOOK
+	{runeRange{0x1B124, 0x1B128}, wbprKatakana},          // Lo   [5] KATAKANA DIGRAPH TOKI..KATAKANA LETTER ALTERNATE WI
+	{runeRange{0x1BCA0, 0x1BCA3}, wbprFormat},            // Cf   [4] SHORTHAND FORMAT LETTER OVERLAP..SHORTHAND FORMAT UP STEP
+	{runeRange{0x1D173, 0x1D17A}, wbprFormat},            // Cf   [8] MUSICAL SYMBOL BEGIN BEAM..MUSICAL SYMBOL END PHRASE
+	{runeRange{0x1D280, 0x1D281}, wbprExtend},            // Mc   [2] MUSICAL SYMBOL COMBINING STEM BOW BEHIND BRIDGE..MUSICAL SYMBOL COMBINING STEM BOW ON TOP OF BRIDGE
+	{runeRange{0x1D4BB, 0x1D4BB}, wbprALetter},           // L&       MATHEMATICAL SCRIPT SMALL F
+	{runeRange{0x1D540, 0x1D544}, wbprALetter},           // L&   [5] MATHEMATICAL DOUBLE-STRUCK CAPITAL I..MATHEMATICAL DOUBLE-STRUCK CAPITAL M
+	{runeRange{0x1D716, 0x1D734}, wbprALetter},           // L&  [31] MATHEMATICAL ITALIC EPSILON SYMBOL..MATHEMATICAL BOLD ITALIC CAPITAL OMEGA
+	{runeRange{0x1DA00, 0x1DA36}, wbprExtend},            // Mn  [55] SIGNWRITING HEAD RIM..SIGNWRITING AIR SUCKING IN
+	{runeRange{0x1DF0B, 0x1DF7F}, wbprALetter},           // L& [117] LATIN SMALL LETTER ESH WITH DOUBLE BAR..LATIN SMALL LETTER REVERSED U
 	{runeRange{0x1E026, 0x1E02A}, wbprExtend},            // Mn   [5] COMBINING GLAGOLITIC LETTER YO..COMBINING GLAGOLITIC LETTER FITA
 	{runeRange{0x1E290, 0x1E2AD}, wbprALetter},           // Lo  [30] TOTO LETTER PA..TOTO LETTER A
 	{runeRange{0x1E4F0, 0x1E4F9}, wbprNumeric},           // Nd  [10] NAG MUNDARI DIGIT ZERO..NAG MUNDARI DIGIT NINE
@@ -269,59 +269,59 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x0374, 0x0374}, wbprALetter},             // Lm       GREEK NUMERAL SIGN
 	{runeRange{0x0388, 0x038A}, wbprALetter},             // L&   [3] GREEK CAPITAL LETTER EPSILON WITH TONOS..GREEK CAPITAL LETTER IOTA WITH TONOS
 	{runeRange{0x0531, 0x0556}, wbprALetter},             // L&  [38] ARMENIAN CAPITAL LETTER AYB..ARMENIAN CAPITAL LETTER FEH
-	{runeRange{0x0591, 0x05BD}, wbprExtend},              // Mn  [45] HEBREW ACCENT ETNAHTA..HEBREW POINT METEG
-	{runeRange{0x05F4, 0x05F4}, wbprMidLetter},           // Po       HEBREW PUNCTUATION GERSHAYIM
-	{runeRange{0x064B, 0x065F}, wbprExtend},              // Mn  [21] ARABIC FATHATAN..ARABIC WAVY HAMZA BELOW
-	{runeRange{0x06D6, 0x06DC}, wbprExtend},              // Mn   [7] ARABIC SMALL HIGH LIGATURE SAD WITH LAM WITH ALEF MAKSURA..ARABIC SMALL HIGH SEEN
-	{runeRange{0x06FA, 0x06FC}, wbprALetter},             // Lo   [3] ARABIC LETTER SHEEN WITH DOT BELOW..ARABIC LETTER GHAIN WITH DOT BELOW
-	{runeRange{0x07A6, 0x07B0}, wbprExtend},              // Mn  [11] THAANA ABAFILI..THAANA SUKUN
-	{runeRange{0x07FD, 0x07FD}, wbprExtend},              // Mn       NKO DANTAYALAN
-	{runeRange{0x0829, 0x082D}, wbprExtend},              // Mn   [5] SAMARITAN VOWEL SIGN LONG I..SAMARITAN MARK NEQUDAA
-	{runeRange{0x08A0, 0x08C8}, wbprALetter},             // Lo  [41] ARABIC LETTER BEH WITH SMALL V BELOW..ARABIC LETTER GRAF
-	{runeRange{0x093B, 0x093B}, wbprExtend},              // Mc       DEVANAGARI VOWEL SIGN OOE
-	{runeRange{0x0950, 0x0950}, wbprALetter},             // Lo       DEVANAGARI OM
-	{runeRange{0x0982, 0x0983}, wbprExtend},              // Mc   [2] BENGALI SIGN ANUSVARA..BENGALI SIGN VISARGA
-	{runeRange{0x09BD, 0x09BD}, wbprALetter},             // Lo       BENGALI SIGN AVAGRAHA
-	{runeRange{0x09DC, 0x09DD}, wbprALetter},             // Lo   [2] BENGALI LETTER RRA..BENGALI LETTER RHA
-	{runeRange{0x0A03, 0x0A03}, wbprExtend},              // Mc       GURMUKHI SIGN VISARGA
-	{runeRange{0x0A3C, 0x0A3C}, wbprExtend},              // Mn       GURMUKHI SIGN NUKTA
-	{runeRange{0x0A66, 0x0A6F}, wbprNumeric},             // Nd  [10] GURMUKHI DIGIT ZERO..GURMUKHI DIGIT NINE
-	{runeRange{0x0A93, 0x0AA8}, wbprALetter},             // Lo  [22] GUJARATI LETTER O..GUJARATI LETTER NA
-	{runeRange{0x0AC7, 0x0AC8}, wbprExtend},              // Mn   [2] GUJARATI VOWEL SIGN E..GUJARATI VOWEL SIGN AI
-	{runeRange{0x0AF9, 0x0AF9}, wbprALetter},             // Lo       GUJARATI LETTER ZHA
-	{runeRange{0x0B32, 0x0B33}, wbprALetter},             // Lo   [2] ORIYA LETTER LA..ORIYA LETTER LLA
-	{runeRange{0x0B47, 0x0B48}, wbprExtend},              // Mc   [2] ORIYA VOWEL SIGN E..ORIYA VOWEL SIGN AI
-	{runeRange{0x0B66, 0x0B6F}, wbprNumeric},             // Nd  [10] ORIYA DIGIT ZERO..ORIYA DIGIT NINE
-	{runeRange{0x0B9C, 0x0B9C}, wbprALetter},             // Lo       TAMIL LETTER JA
-	{runeRange{0x0BC6, 0x0BC8}, wbprExtend},              // Mc   [3] TAMIL VOWEL SIGN E..TAMIL VOWEL SIGN AI
-	{runeRange{0x0C04, 0x0C04}, wbprExtend},              // Mn       TELUGU SIGN COMBINING ANUSVARA ABOVE
-	{runeRange{0x0C41, 0x0C44}, wbprExtend},              // Mc   [4] TELUGU VOWEL SIGN U..TELUGU VOWEL SIGN VOCALIC RR
-	{runeRange{0x0C66, 0x0C6F}, wbprNumeric},             // Nd  [10] TELUGU DIGIT ZERO..TELUGU DIGIT NINE
-	{runeRange{0x0CB5, 0x0CB9}, wbprALetter},             // Lo   [5] KANNADA LETTER VA..KANNADA LETTER HA
-	{runeRange{0x0CCA, 0x0CCB}, wbprExtend},              // Mc   [2] KANNADA VOWEL SIGN O..KANNADA VOWEL SIGN OO
-	{runeRange{0x0CF3, 0x0CF3}, wbprExtend},              // Mc       KANNADA SIGN COMBINING ANUSVARA ABOVE RIGHT
-	{runeRange{0x0D3E, 0x0D40}, wbprExtend},              // Mc   [3] MALAYALAM VOWEL SIGN AA..MALAYALAM VOWEL SIGN II
-	{runeRange{0x0D5F, 0x0D61}, wbprALetter},             // Lo   [3] MALAYALAM LETTER ARCHAIC II..MALAYALAM LETTER VOCALIC LL
-	{runeRange{0x0DB3, 0x0DBB}, wbprALetter},             // Lo   [9] SINHALA LETTER SANYAKA DAYANNA..SINHALA LETTER RAYANNA
-	{runeRange{0x0DE6, 0x0DEF}, wbprNumeric},             // Nd  [10] SINHALA LITH DIGIT ZERO..SINHALA LITH DIGIT NINE
-	{runeRange{0x0EC8, 0x0ECE}, wbprExtend},              // Mn   [7] LAO TONE MAI EK..LAO YAMAKKAN
-	{runeRange{0x0F3E, 0x0F3F}, wbprExtend},              // Mc   [2] TIBETAN SIGN YAR TSHES..TIBETAN SIGN MAR TSHES
-	{runeRange{0x0F8D, 0x0F97}, wbprExtend},              // Mn  [11] TIBETAN SUBJOINED SIGN LCE TSA CAN..TIBETAN SUBJOINED LETTER JA
-	{runeRange{0x1039, 0x103A}, wbprExtend},              // Mn   [2] MYANMAR SIGN VIRAMA..MYANMAR SIGN ASAT
-	{runeRange{0x1067, 0x106D}, wbprExtend},              // Mc   [7] MYANMAR VOWEL SIGN WESTERN PWO KAREN EU..MYANMAR SIGN WESTERN PWO KAREN TONE-5
-	{runeRange{0x1090, 0x1099}, wbprNumeric},             // Nd  [10] MYANMAR SHAN DIGIT ZERO..MYANMAR SHAN DIGIT NINE
-	{runeRange{0x10FD, 0x10FF}, wbprALetter},             // L&   [3] GEORGIAN LETTER AEN..GEORGIAN LETTER LABIAL SIGN
-	{runeRange{0x1290, 0x12B0}, wbprALetter},             // Lo  [33] ETHIOPIC SYLLABLE NA..ETHIOPIC SYLLABLE KWA
-	{runeRange{0x1318, 0x135A}, wbprALetter},             // Lo  [67] ETHIOPIC SYLLABLE GGA..ETHIOPIC SYLLABLE FYA
-	{runeRange{0x1681, 0x169A}, wbprALetter},             // Lo  [26] OGHAM LETTER BEITH..OGHAM LETTER PEITH
-	{runeRange{0x1732, 0x1733}, wbprExtend},              // Mn   [2] HANUNOO VOWEL SIGN I..HANUNOO VOWEL SIGN U
-	{runeRange{0x17B6, 0x17B6}, wbprExtend},              // Mc       KHMER VOWEL SIGN AA
-	{runeRange{0x180B, 0x180D}, wbprExtend},              // Mn   [3] MONGOLIAN FREE VARIATION SELECTOR ONE..MONGOLIAN FREE VARIATION SELECTOR THREE
-	{runeRange{0x1885, 0x1886}, wbprExtend},              // Mn   [2] MONGOLIAN LETTER ALI GALI BALUDA..MONGOLIAN LETTER ALI GALI THREE BALUDA
-	{runeRange{0x1927, 0x1928}, wbprExtend},              // Mn   [2] LIMBU VOWEL SIGN E..LIMBU VOWEL SIGN O
-	{runeRange{0x19DA, 0x19DA}, wbprNumeric},             // No       NEW TAI LUE THAM DIGIT ONE
-	{runeRange{0x1A58, 0x1A5E}, wbprExtend},              // Mn   [7] TAI THAM SIGN MAI KANG LAI..TAI THAM CONSONANT SIGN SA
-	{runeRange{0x1A7F, 0x1A7F}, wbprExtend},              // Mn       TAI THAM COMBINING CRYPTOGRAMMIC DOT
+	{runeRange{0x058B, 0x058C}, wbprALetter},             // Lm   [2] MODIFIER LETTER ARMENIAN SMALL INI..MODIFIER LETTER ARMENIAN SMALL YI
+	{runeRange{0x05F3, 0x05F3}, wbprALetter},             // Po       HEBREW PUNCTUATION GERESH
+	{runeRange{0x0641, 0x064A}, wbprALetter},             // Lo  [10] ARABIC LETTER FEH..ARABIC LETTER YEH
+	{runeRange{0x06D5, 0x06D5}, wbprALetter},             // Lo       ARABIC LETTER AE
+	{runeRange{0x06F0, 0x06F9}, wbprNumeric},             // Nd  [10] EXTENDED ARABIC-INDIC DIGIT ZERO..EXTENDED ARABIC-INDIC DIGIT NINE
+	{runeRange{0x074D, 0x07A5}, wbprALetter},             // Lo  [89] SYRIAC LETTER SOGDIAN ZHAIN..THAANA LETTER WAAVU
+	{runeRange{0x07FA, 0x07FA}, wbprALetter},             // Lm       NKO LAJANYALAN
+	{runeRange{0x0828, 0x0828}, wbprALetter},             // Lm       SAMARITAN MODIFIER LETTER I
+	{runeRange{0x0897, 0x089F}, wbprExtend},              // Mn   [9] ARABIC PEPET..ARABIC HALF MADDA OVER MADDA
+	{runeRange{0x093A, 0x093A}, wbprExtend},              // Mn       DEVANAGARI VOWEL SIGN OE
+	{runeRange{0x094E, 0x094F}, wbprExtend},              // Mc   [2] DEVANAGARI VOWEL SIGN PRISHTHAMATRA E..DEVANAGARI VOWEL SIGN AW
+	{runeRange{0x0981, 0x0981}, wbprExtend},              // Mn       BENGALI SIGN CANDRABINDU
+	{runeRange{0x09BC, 0x09BC}, wbprExtend},              // Mn       BENGALI SIGN NUKTA
+	{runeRange{0x09D7, 0x09D7}, wbprExtend},              // Mc       BENGALI AU LENGTH MARK
+	{runeRange{0x0A01, 0x0A02}, wbprExtend},              // Mn   [2] GURMUKHI SIGN ADAK BINDI..GURMUKHI SIGN BINDI
+	{runeRange{0x0A38, 0x0A39}, wbprALetter},             // Lo   [2] GURMUKHI LETTER SA..GURMUKHI LETTER HA
+	{runeRange{0x0A5E, 0x0A5E}, wbprALetter},             // Lo       GURMUKHI LETTER FA
+	{runeRange{0x0A8F, 0x0A91}, wbprALetter},             // Lo   [3] GUJARATI LETTER E..GUJARATI VOWEL CANDRA O
+	{runeRange{0x0AC1, 0x0AC5}, wbprExtend},              // Mn   [5] GUJARATI VOWEL SIGN U..GUJARATI VOWEL SIGN CANDRA E
+	{runeRange{0x0AE6, 0x0AEF}, wbprNumeric},             // Nd  [10] GUJARATI DIGIT ZERO..GUJARATI DIGIT NINE
+	{runeRange{0x0B2A, 0x0B30}, wbprALetter},             // Lo   [7] ORIYA LETTER PA..ORIYA LETTER RA
+	{runeRange{0x0B41, 0x0B44}, wbprExtend},              // Mn   [4] ORIYA VOWEL SIGN U..ORIYA VOWEL SIGN VOCALIC RR
+	{runeRange{0x0B62, 0x0B63}, wbprExtend},              // Mn   [2] ORIYA VOWEL SIGN VOCALIC L..ORIYA VOWEL SIGN VOCALIC LL
+	{runeRange{0x0B99, 0x0B9A}, wbprALetter},             // Lo   [2] TAMIL LETTER NGA..TAMIL LETTER CA
+	{runeRange{0x0BC1, 0x0BC2}, wbprExtend},              // Mc   [2] TAMIL VOWEL SIGN U..TAMIL VOWEL SIGN UU
+	{runeRange{0x0C01, 0x0C03}, wbprExtend},              // Mc   [3] TELUGU SIGN CANDRABINDU..TELUGU SIGN VISARGA
+	{runeRange{0x0C3E, 0x0C40}, wbprExtend},              // Mn   [3] TELUGU VOWEL SIGN AA..TELUGU VOWEL SIGN II
+	{runeRange{0x0C62, 0x0C63}, wbprExtend},              // Mn   [2] TELUGU VOWEL SIGN VOCALIC L..TELUGU VOWEL SIGN VOCALIC LL
+	{runeRange{0x0CAA, 0x0CB3}, wbprALetter},             // Lo  [10] KANNADA LETTER PA..KANNADA LETTER LLA
+	{runeRange{0x0CC7, 0x0CC8}, wbprExtend},              // Mc   [2] KANNADA VOWEL SIGN EE..KANNADA VOWEL SIGN AI
+	{runeRange{0x0CF1, 0x0CF2}, wbprALetter},             // Lo   [2] KANNADA SIGN JIHVAMULIYA..KANNADA SIGN UPADHMANIYA
+	{runeRange{0x0D3D, 0x0D3D}, wbprALetter},             // Lo       MALAYALAM SIGN AVAGRAHA
+	{runeRange{0x0D57, 0x0D57}, wbprExtend},              // Mc       MALAYALAM AU LENGTH MARK
+	{runeRange{0x0D9A, 0x0DB1}, wbprALetter},             // Lo  [24] SINHALA LETTER ALPAPRAANA KAYANNA..SINHALA LETTER DANTAJA NAYANNA
+	{runeRange{0x0DD8, 0x0DDF}, wbprExtend},              // Mc   [8] SINHALA VOWEL SIGN GAETTA-PILLA..SINHALA VOWEL SIGN GAYANUKITTA
+	{runeRange{0x0EB4, 0x0EBC}, wbprExtend},              // Mn   [9] LAO VOWEL SIGN I..LAO SEMIVOWEL SIGN LO
+	{runeRange{0x0F39, 0x0F39}, wbprExtend},              // Mn       TIBETAN MARK TSA -PHRU
+	{runeRange{0x0F88, 0x0F8C}, wbprALetter},             // Lo   [5] TIBETAN SIGN LCE TSA CAN..TIBETAN SIGN INVERTED MCHU CAN
+	{runeRange{0x1038, 0x1038}, wbprExtend},              // Mc       MYANMAR SIGN VISARGA
+	{runeRange{0x1062, 0x1064}, wbprExtend},              // Mc   [3] MYANMAR VOWEL SIGN SGAW KAREN EU..MYANMAR TONE MARK SGAW KAREN KE PHO
+	{runeRange{0x108F, 0x108F}, wbprExtend},              // Mc       MYANMAR SIGN RUMAI PALAUNG TONE-5
+	{runeRange{0x10FC, 0x10FC}, wbprALetter},             // Lm       MODIFIER LETTER GEORGIAN NAR
+	{runeRange{0x128A, 0x128D}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE XWI..ETHIOPIC SYLLABLE XWE
+	{runeRange{0x1312, 0x1315}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE GWI..ETHIOPIC SYLLABLE GWE
+	{runeRange{0x1680, 0x1680}, wbprWSegSpace},           // Zs       OGHAM SPACE MARK
+	{runeRange{0x171F, 0x1731}, wbprALetter},             // Lo  [19] TAGALOG LETTER ARCHAIC RA..HANUNOO LETTER HA
+	{runeRange{0x17B4, 0x17B5}, wbprExtend},              // Mn   [2] KHMER VOWEL INHERENT AQ..KHMER VOWEL INHERENT AA
+	{runeRange{0x17E0, 0x17E9}, wbprNumeric},             // Nd  [10] KHMER DIGIT ZERO..KHMER DIGIT NINE
+	{runeRange{0x1880, 0x1884}, wbprALetter},             // Lo   [5] MONGOLIAN LETTER ALI GALI ANUSVARA ONE..MONGOLIAN LETTER ALI GALI INVERTED UBADAMA
+	{runeRange{0x1923, 0x1926}, wbprExtend},              // Mc   [4] LIMBU VOWEL SIGN EE..LIMBU VOWEL SIGN AU
+	{runeRange{0x19D0, 0x19D9}, wbprNumeric},             // Nd  [10] NEW TAI LUE DIGIT ZERO..NEW TAI LUE DIGIT NINE
+	{runeRange{0x1A57, 0x1A57}, wbprExtend},              // Mc       TAI THAM CONSONANT SIGN LA TANG LAI
+	{runeRange{0x1A73, 0x1A7C}, wbprExtend},              // Mn  [10] TAI THAM VOWEL SIGN OA ABOVE..TAI THAM SIGN KHUEN-LUE KARAN
 	{runeRange{0x1B04, 0x1B04}, wbprExtend},              // Mc       BALINESE SIGN BISAH
 	{runeRange{0x1B42, 0x1B42}, wbprExtend},              // Mn       BALINESE VOWEL SIGN PEPET
 	{runeRange{0x1BA1, 0x1BA1}, wbprExtend},              // Mc       SUNDANESE CONSONANT SIGN PAMINGKAL
@@ -348,108 +348,105 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0xA66F, 0xA66F}, wbprExtend},              // Mn       COMBINING CYRILLIC VZMET
 	{runeRange{0xA6E6, 0xA6EF}, wbprALetter},             // Nl  [10] BAMUM LETTER MO..BAMUM LETTER KOGHOM
 	{runeRange{0xA788, 0xA788}, wbprALetter},             // Lm       MODIFIER LETTER LOW CIRCUMFLEX ACCENT
-	{runeRange{0xA7F8, 0xA7F9}, wbprALetter},             // Lm   [2] MODIFIER LETTER CAPITAL H WITH STROKE..MODIFIER LETTER SMALL LIGATURE OE
-	{runeRange{0xA80C, 0xA822}, wbprALetter},             // Lo  [23] SYLOTI NAGRI LETTER CO..SYLOTI NAGRI LETTER HO
-	{runeRange{0xA8B4, 0xA8C3}, wbprExtend},              // Mc  [16] SAURASHTRA CONSONANT SIGN HAARU..SAURASHTRA VOWEL SIGN AU
-	{runeRange{0xA900, 0xA909}, wbprNumeric},             // Nd  [10] KAYAH LI DIGIT ZERO..KAYAH LI DIGIT NINE
-	{runeRange{0xA983, 0xA983}, wbprExtend},              // Mc       JAVANESE SIGN WIGNYAN
-	{runeRange{0xA9CF, 0xA9CF}, wbprALetter},             // Lm       JAVANESE PANGRANGKEP
-	{runeRange{0xAA33, 0xAA34}, wbprExtend},              // Mc   [2] CHAM CONSONANT SIGN YA..CHAM CONSONANT SIGN RA
-	{runeRange{0xAA7B, 0xAA7B}, wbprExtend},              // Mc       MYANMAR SIGN PAO KAREN TONE
-	{runeRange{0xAAE0, 0xAAEA}, wbprALetter},             // Lo  [11] MEETEI MAYEK LETTER E..MEETEI MAYEK LETTER SSA
-	{runeRange{0xAB01, 0xAB06}, wbprALetter},             // Lo   [6] ETHIOPIC SYLLABLE TTHU..ETHIOPIC SYLLABLE TTHO
-	{runeRange{0xAB60, 0xAB68}, wbprALetter},             // L&   [9] LATIN SMALL LETTER SAKHA YAT..LATIN SMALL LETTER TURNED R WITH MIDDLE TILDE
-	{runeRange{0xABE9, 0xABEA}, wbprExtend},              // Mc   [2] MEETEI MAYEK VOWEL SIGN CHEINAP..MEETEI MAYEK VOWEL SIGN NUNG
-	{runeRange{0xFB13, 0xFB17}, wbprALetter},             // L&   [5] ARMENIAN SMALL LIGATURE MEN NOW..ARMENIAN SMALL LIGATURE MEN XEH
-	{runeRange{0xFB43, 0xFB44}, wbprHebrewLetter},        // Lo   [2] HEBREW LETTER FINAL PE WITH DAGESH..HEBREW LETTER PE WITH DAGESH
-	{runeRange{0xFE13, 0xFE13}, wbprMidLetter},           // Po       PRESENTATION FORM FOR VERTICAL COLON
-	{runeRange{0xFE55, 0xFE55}, wbprMidLetter},           // Po       SMALL COLON
-	{runeRange{0xFF07, 0xFF07}, wbprMidNumLet},           // Po       FULLWIDTH APOSTROPHE
-	{runeRange{0xFF1A, 0xFF1A}, wbprMidLetter},           // Po       FULLWIDTH COLON
-	{runeRange{0xFF41, 0xFF5A}, wbprALetter},             // L&  [26] FULLWIDTH LATIN SMALL LETTER A..FULLWIDTH LATIN SMALL LETTER Z
-	{runeRange{0xFF9E, 0xFF9F}, wbprExtend},              // Lm   [2] HALFWIDTH KATAKANA VOICED SOUND MARK..HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK
-	{runeRange{0xFFD2, 0xFFD7}, wbprALetter},             // Lo   [6] HALFWIDTH HANGUL LETTER YO..HALFWIDTH HANGUL LETTER YU
-	{runeRange{0x1000D, 0x10026}, wbprALetter},           // Lo  [26] LINEAR B SYLLABLE B036 JO..LINEAR B SYLLABLE B032 QO
-	{runeRange{0x10050, 0x1005D}, wbprALetter},           // Lo  [14] LINEAR B SYMBOL B018..LINEAR B SYMBOL B089
-	{runeRange{0x10280, 0x1029C}, wbprALetter},           // Lo  [29] LYCIAN LETTER A..LYCIAN LETTER X
-	{runeRange{0x1032D, 0x10340}, wbprALetter},           // Lo  [20] OLD ITALIC LETTER YE..GOTHIC LETTER PAIRTHRA
-	{runeRange{0x10350, 0x10375}, wbprALetter},           // Lo  [38] OLD PERMIC LETTER AN..OLD PERMIC LETTER IA
-	{runeRange{0x103C8, 0x103CF}, wbprALetter},           // Lo   [8] OLD PERSIAN SIGN AURAMAZDAA..OLD PERSIAN SIGN BUUMISH
-	{runeRange{0x104A0, 0x104A9}, wbprNumeric},           // Nd  [10] OSMANYA DIGIT ZERO..OSMANYA DIGIT NINE
-	{runeRange{0x10530, 0x10563}, wbprALetter},           // Lo  [52] CAUCASIAN ALBANIAN LETTER ALT..CAUCASIAN ALBANIAN LETTER KIW
-	{runeRange{0x10594, 0x10595}, wbprALetter},           // L&   [2] VITHKUQI CAPITAL LETTER Y..VITHKUQI CAPITAL LETTER ZE
-	{runeRange{0x105BB, 0x105BC}, wbprALetter},           // L&   [2] VITHKUQI SMALL LETTER Y..VITHKUQI SMALL LETTER ZE
-	{runeRange{0x10760, 0x10767}, wbprALetter},           // Lo   [8] LINEAR A SIGN A800..LINEAR A SIGN A807
-	{runeRange{0x10800, 0x10805}, wbprALetter},           // Lo   [6] CYPRIOT SYLLABLE A..CYPRIOT SYLLABLE JA
-	{runeRange{0x1083C, 0x1083C}, wbprALetter},           // Lo       CYPRIOT SYLLABLE ZA
-	{runeRange{0x108E0, 0x108F2}, wbprALetter},           // Lo  [19] HATRAN LETTER ALEPH..HATRAN LETTER QOPH
-	{runeRange{0x10940, 0x10959}, wbprALetter},           // Lo  [26] SIDETIC LETTER N01..SIDETIC LETTER N26
-	{runeRange{0x10A01, 0x10A03}, wbprExtend},            // Mn   [3] KHAROSHTHI VOWEL SIGN I..KHAROSHTHI VOWEL SIGN VOCALIC R
-	{runeRange{0x10A15, 0x10A17}, wbprALetter},           // Lo   [3] KHAROSHTHI LETTER CA..KHAROSHTHI LETTER JA
-	{runeRange{0x10A60, 0x10A7C}, wbprALetter},           // Lo  [29] OLD SOUTH ARABIAN LETTER HE..OLD SOUTH ARABIAN LETTER THETH
-	{runeRange{0x10AE5, 0x10AE6}, wbprExtend},            // Mn   [2] MANICHAEAN ABBREVIATION MARK ABOVE..MANICHAEAN ABBREVIATION MARK BELOW
-	{runeRange{0x10B80, 0x10B91}, wbprALetter},           // Lo  [18] PSALTER PAHLAVI LETTER ALEPH..PSALTER PAHLAVI LETTER TAW
-	{runeRange{0x10D00, 0x10D23}, wbprALetter},           // Lo  [36] HANIFI ROHINGYA LETTER A..HANIFI ROHINGYA MARK NA KHONNA
-	{runeRange{0x10D4A, 0x10D4D}, wbprALetter},           // Lo   [4] GARAY VOWEL SIGN A..GARAY VOWEL SIGN EE
-	{runeRange{0x10D69, 0x10D6D}, wbprExtend},            // Mn   [5] GARAY VOWEL SIGN E..GARAY CONSONANT NASALIZATION MARK
-	{runeRange{0x10EAB, 0x10EAC}, wbprExtend},            // Mn   [2] YEZIDI COMBINING HAMZA MARK..YEZIDI COMBINING MADDA MARK
-	{runeRange{0x10EC6, 0x10EC7}, wbprALetter},           // Lo   [2] ARABIC LETTER THIN NOON..ARABIC LETTER YEH WITH FOUR DOTS BELOW
-	{runeRange{0x10F30, 0x10F45}, wbprALetter},           // Lo  [22] SOGDIAN LETTER ALEPH..SOGDIAN INDEPENDENT SHIN
-	{runeRange{0x10FB0, 0x10FC4}, wbprALetter},           // Lo  [21] CHORASMIAN LETTER ALEPH..CHORASMIAN LETTER TAW
-	{runeRange{0x11002, 0x11002}, wbprExtend},            // Mc       BRAHMI SIGN VISARGA
-	{runeRange{0x11070, 0x11070}, wbprExtend},            // Mn       BRAHMI SIGN OLD TAMIL VIRAMA
-	{runeRange{0x1107F, 0x11081}, wbprExtend},            // Mn   [3] BRAHMI NUMBER JOINER..KAITHI SIGN ANUSVARA
-	{runeRange{0x110B3, 0x110B6}, wbprExtend},            // Mn   [4] KAITHI VOWEL SIGN U..KAITHI VOWEL SIGN AI
-	{runeRange{0x110C2, 0x110C2}, wbprExtend},            // Mn       KAITHI VOWEL SIGN VOCALIC R
-	{runeRange{0x11100, 0x11102}, wbprExtend},            // Mn   [3] CHAKMA SIGN CANDRABINDU..CHAKMA SIGN VISARGA
-	{runeRange{0x1112D, 0x11134}, wbprExtend},            // Mn   [8] CHAKMA VOWEL SIGN AI..CHAKMA MAAYYAA
-	{runeRange{0x11147, 0x11147}, wbprALetter},           // Lo       CHAKMA LETTER VAA
-	{runeRange{0x11180, 0x11181}, wbprExtend},            // Mn   [2] SHARADA SIGN CANDRABINDU..SHARADA SIGN ANUSVARA
-	{runeRange{0x111B6, 0x111BE}, wbprExtend},            // Mn   [9] SHARADA VOWEL SIGN U..SHARADA VOWEL SIGN O
-	{runeRange{0x111CE, 0x111CE}, wbprExtend},            // Mc       SHARADA VOWEL SIGN PRISHTHAMATRA E
-	{runeRange{0x111DC, 0x111DC}, wbprALetter},           // Lo       SHARADA HEADSTROKE
-	{runeRange{0x1122F, 0x11231}, wbprExtend},            // Mn   [3] KHOJKI VOWEL SIGN U..KHOJKI VOWEL SIGN AI
-	{runeRange{0x11236, 0x11237}, wbprExtend},            // Mn   [2] KHOJKI SIGN NUKTA..KHOJKI SIGN SHADDA
-	{runeRange{0x11280, 0x11286}, wbprALetter},           // Lo   [7] MULTANI LETTER A..MULTANI LETTER GA
-	{runeRange{0x1129F, 0x112A8}, wbprALetter},           // Lo  [10] MULTANI LETTER BHA..MULTANI LETTER RHA
-	{runeRange{0x112E3, 0x112EA}, wbprExtend},            // Mn   [8] KHUDAWADI VOWEL SIGN U..KHUDAWADI SIGN VIRAMA
-	{runeRange{0x11305, 0x1130C}, wbprALetter},           // Lo   [8] GRANTHA LETTER A..GRANTHA LETTER VOCALIC L
-	{runeRange{0x11332, 0x11333}, wbprALetter},           // Lo   [2] GRANTHA LETTER LA..GRANTHA LETTER LLA
-	{runeRange{0x1133E, 0x1133F}, wbprExtend},            // Mc   [2] GRANTHA VOWEL SIGN AA..GRANTHA VOWEL SIGN I
-	{runeRange{0x1134B, 0x1134D}, wbprExtend},            // Mc   [3] GRANTHA VOWEL SIGN OO..GRANTHA SIGN VIRAMA
-	{runeRange{0x11362, 0x11363}, wbprExtend},            // Mc   [2] GRANTHA VOWEL SIGN VOCALIC L..GRANTHA VOWEL SIGN VOCALIC LL
-	{runeRange{0x1138B, 0x1138B}, wbprALetter},           // Lo       TULU-TIGALARI LETTER EE
-	{runeRange{0x113B8, 0x113BA}, wbprExtend},            // Mc   [3] TULU-TIGALARI VOWEL SIGN AA..TULU-TIGALARI VOWEL SIGN II
-	{runeRange{0x113C7, 0x113CA}, wbprExtend},            // Mc   [4] TULU-TIGALARI VOWEL SIGN OO..TULU-TIGALARI SIGN CANDRA ANUNASIKA
-	{runeRange{0x113D0, 0x113D0}, wbprExtend},            // Mn       TULU-TIGALARI CONJOINER
-	{runeRange{0x113E1, 0x113E2}, wbprExtend},            // Mn   [2] TULU-TIGALARI VEDIC TONE SVARITA..TULU-TIGALARI VEDIC TONE ANUDATTA
-	{runeRange{0x11440, 0x11441}, wbprExtend},            // Mc   [2] NEWA VOWEL SIGN O..NEWA VOWEL SIGN AU
-	{runeRange{0x11447, 0x1144A}, wbprALetter},           // Lo   [4] NEWA SIGN AVAGRAHA..NEWA SIDDHI
-	{runeRange{0x11480, 0x114AF}, wbprALetter},           // Lo  [48] TIRHUTA ANJI..TIRHUTA LETTER HA
-	{runeRange{0x114BA, 0x114BA}, wbprExtend},            // Mn       TIRHUTA VOWEL SIGN SHORT E
-	{runeRange{0x114C2, 0x114C3}, wbprExtend},            // Mn   [2] TIRHUTA SIGN VIRAMA..TIRHUTA SIGN NUKTA
-	{runeRange{0x11580, 0x115AE}, wbprALetter},           // Lo  [47] SIDDHAM LETTER A..SIDDHAM LETTER HA
-	{runeRange{0x115BC, 0x115BD}, wbprExtend},            // Mn   [2] SIDDHAM SIGN CANDRABINDU..SIDDHAM SIGN ANUSVARA
-	{runeRange{0x115DC, 0x115DD}, wbprExtend},            // Mn   [2] SIDDHAM VOWEL SIGN ALTERNATE U..SIDDHAM VOWEL SIGN ALTERNATE UU
-	{runeRange{0x1163B, 0x1163C}, wbprExtend},            // Mc   [2] MODI VOWEL SIGN O..MODI VOWEL SIGN AU
-	{runeRange{0x11644, 0x11644}, wbprALetter},           // Lo       MODI SIGN HUVA
-	{runeRange{0x116AC, 0x116AC}, wbprExtend},            // Mc       TAKRI SIGN VISARGA
-	{runeRange{0x116B6, 0x116B6}, wbprExtend},            // Mc       TAKRI SIGN VIRAMA
-	{runeRange{0x116D0, 0x116E3}, wbprNumeric},           // Nd  [20] MYANMAR PAO DIGIT ZERO..MYANMAR EASTERN PWO KAREN DIGIT NINE
-	{runeRange{0x11720, 0x11721}, wbprExtend},            // Mc   [2] AHOM VOWEL SIGN A..AHOM VOWEL SIGN AA
-	{runeRange{0x11730, 0x11739}, wbprNumeric},           // Nd  [10] AHOM DIGIT ZERO..AHOM DIGIT NINE
-	{runeRange{0x11838, 0x11838}, wbprExtend},            // Mc       DOGRA SIGN VISARGA
-	{runeRange{0x118FF, 0x11906}, wbprALetter},           // Lo   [8] WARANG CITI OM..DIVES AKURU LETTER E
-	{runeRange{0x11918, 0x1192F}, wbprALetter},           // Lo  [24] DIVES AKURU LETTER DDA..DIVES AKURU LETTER ZA
-	{runeRange{0x1193D, 0x1193D}, wbprExtend},            // Mc       DIVES AKURU SIGN HALANTA
-	{runeRange{0x11941, 0x11941}, wbprALetter},           // Lo       DIVES AKURU INITIAL RA
-	{runeRange{0x119A0, 0x119A7}, wbprALetter},           // Lo   [8] NANDINAGARI LETTER A..NANDINAGARI LETTER VOCALIC RR
-	{runeRange{0x119DA, 0x119DB}, wbprExtend},            // Mn   [2] NANDINAGARI VOWEL SIGN E..NANDINAGARI VOWEL SIGN AI
-	{runeRange{0x119E3, 0x119E3}, wbprALetter},           // Lo       NANDINAGARI HEADSTROKE
-	{runeRange{0x11A0B, 0x11A32}, wbprALetter},           // Lo  [40] ZANABAZAR SQUARE LETTER KA..ZANABAZAR SQUARE LETTER KSSA
-	{runeRange{0x11A3B, 0x11A3E}, wbprExtend},            // Mn   [4] ZANABAZAR SQUARE CLUSTER-FINAL LETTER YA..ZANABAZAR SQUARE CLUSTER-FINAL LETTER VA
-	{runeRange{0x11A57, 0x11A58}, wbprExtend},            // Mc   [2] SOYOMBO VOWEL SIGN AI..SOYOMBO VOWEL SIGN AU
-	{runeRange{0x11A97, 0x11A97}, wbprExtend},            // Mc       SOYOMBO SIGN VISARGA
+	{runeRange{0xA7F7, 0xA7F7}, wbprALetter},             // Lo       LATIN EPIGRAPHIC LETTER SIDEWAYS I
+	{runeRange{0xA80B, 0xA80B}, wbprExtend},              // Mn       SYLOTI NAGRI SIGN ANUSVARA
+	{runeRange{0xA882, 0xA8B3}, wbprALetter},             // Lo  [50] SAURASHTRA LETTER A..SAURASHTRA LETTER LLA
+	{runeRange{0xA8FF, 0xA8FF}, wbprExtend},              // Mn       DEVANAGARI VOWEL SIGN AY
+	{runeRange{0xA980, 0xA982}, wbprExtend},              // Mn   [3] JAVANESE SIGN PANYANGGA..JAVANESE SIGN LAYAR
+	{runeRange{0xA9BE, 0xA9C0}, wbprExtend},              // Mc   [3] JAVANESE CONSONANT SIGN PENGKAL..JAVANESE PANGKON
+	{runeRange{0xAA31, 0xAA32}, wbprExtend},              // Mn   [2] CHAM VOWEL SIGN AU..CHAM VOWEL SIGN UE
+	{runeRange{0xAA50, 0xAA59}, wbprNumeric},             // Nd  [10] CHAM DIGIT ZERO..CHAM DIGIT NINE
+	{runeRange{0xAAC1, 0xAAC1}, wbprExtend},              // Mn       TAI VIET TONE MAI THO
+	{runeRange{0xAAF6, 0xAAF6}, wbprExtend},              // Mn       MEETEI MAYEK VIRAMA
+	{runeRange{0xAB5C, 0xAB5F}, wbprALetter},             // Lm   [4] MODIFIER LETTER SMALL HENG..MODIFIER LETTER SMALL U WITH LEFT HOOK
+	{runeRange{0xABE6, 0xABE7}, wbprExtend},              // Mc   [2] MEETEI MAYEK VOWEL SIGN YENAP..MEETEI MAYEK VOWEL SIGN SOUNAP
+	{runeRange{0xD7CB, 0xD7FB}, wbprALetter},             // Lo  [49] HANGUL JONGSEONG NIEUN-RIEUL..HANGUL JONGSEONG PHIEUPH-THIEUTH
+	{runeRange{0xFB3E, 0xFB3E}, wbprHebrewLetter},        // Lo       HEBREW LETTER MEM WITH DAGESH
+	{runeRange{0xFDF0, 0xFDFB}, wbprALetter},             // Lo  [12] ARABIC LIGATURE SALLA USED AS KORANIC STOP SIGN ISOLATED FORM..ARABIC LIGATURE JALLAJALALOUHOU
+	{runeRange{0xFE54, 0xFE54}, wbprMidNum},              // Po       SMALL SEMICOLON
+	{runeRange{0xFF10, 0xFF19}, wbprNumeric},             // Nd  [10] FULLWIDTH DIGIT ZERO..FULLWIDTH DIGIT NINE
+	{runeRange{0xFF71, 0xFF9D}, wbprKatakana},            // Lo  [45] HALFWIDTH KATAKANA LETTER A..HALFWIDTH KATAKANA LETTER N
+	{runeRange{0x10000, 0x1000B}, wbprALetter},           // Lo  [12] LINEAR B SYLLABLE B008 A..LINEAR B SYLLABLE B046 JE
+	{runeRange{0x101FD, 0x101FD}, wbprExtend},            // Mn       PHAISTOS DISC SIGN COMBINING OBLIQUE STROKE
+	{runeRange{0x10300, 0x1031F}, wbprALetter},           // Lo  [32] OLD ITALIC LETTER A..OLD ITALIC LETTER ESS
+	{runeRange{0x1034A, 0x1034A}, wbprALetter},           // Nl       GOTHIC LETTER NINE HUNDRED
+	{runeRange{0x103A0, 0x103C3}, wbprALetter},           // Lo  [36] OLD PERSIAN SIGN A..OLD PERSIAN SIGN HA
+	{runeRange{0x10450, 0x1049D}, wbprALetter},           // Lo  [78] SHAVIAN LETTER PEEP..OSMANYA LETTER OO
+	{runeRange{0x10500, 0x10527}, wbprALetter},           // Lo  [40] ELBASAN LETTER A..ELBASAN LETTER KHE
+	{runeRange{0x1058C, 0x10592}, wbprALetter},           // L&   [7] VITHKUQI CAPITAL LETTER SE..VITHKUQI CAPITAL LETTER XE
+	{runeRange{0x105B3, 0x105B9}, wbprALetter},           // L&   [7] VITHKUQI SMALL LETTER SE..VITHKUQI SMALL LETTER XE
+	{runeRange{0x10740, 0x10755}, wbprALetter},           // Lo  [22] LINEAR A SIGN A701 A..LINEAR A SIGN A732 JE
+	{runeRange{0x107B2, 0x107BF}, wbprALetter},           // Lm  [14] MODIFIER LETTER SMALL CAPITAL Y..MODIFIER LETTER SMALL ESH WITH DOUBLE BAR
+	{runeRange{0x10837, 0x10838}, wbprALetter},           // Lo   [2] CYPRIOT SYLLABLE XA..CYPRIOT SYLLABLE XE
+	{runeRange{0x10880, 0x1089E}, wbprALetter},           // Lo  [31] NABATAEAN LETTER FINAL ALEPH..NABATAEAN LETTER TAW
+	{runeRange{0x10920, 0x10939}, wbprALetter},           // Lo  [26] LYDIAN LETTER A..LYDIAN LETTER C
+	{runeRange{0x10A00, 0x10A00}, wbprALetter},           // Lo       KHAROSHTHI LETTER A
+	{runeRange{0x10A10, 0x10A13}, wbprALetter},           // Lo   [4] KHAROSHTHI LETTER KA..KHAROSHTHI LETTER GHA
+	{runeRange{0x10A3F, 0x10A3F}, wbprExtend},            // Mn       KHAROSHTHI VIRAMA
+	{runeRange{0x10AC9, 0x10AE4}, wbprALetter},           // Lo  [28] MANICHAEAN LETTER ZAYIN..MANICHAEAN LETTER TAW
+	{runeRange{0x10B60, 0x10B72}, wbprALetter},           // Lo  [19] INSCRIPTIONAL PAHLAVI LETTER ALEPH..INSCRIPTIONAL PAHLAVI LETTER TAW
+	{runeRange{0x10CC0, 0x10CF2}, wbprALetter},           // L&  [51] OLD HUNGARIAN SMALL LETTER A..OLD HUNGARIAN SMALL LETTER US
+	{runeRange{0x10D40, 0x10D49}, wbprNumeric},           // Nd  [10] GARAY DIGIT ZERO..GARAY DIGIT NINE
+	{runeRange{0x10D50, 0x10D65}, wbprALetter},           // L&  [22] GARAY CAPITAL LETTER A..GARAY CAPITAL LETTER OLD NA
+	{runeRange{0x10E80, 0x10EA9}, wbprALetter},           // Lo  [42] YEZIDI LETTER ELIF..YEZIDI LETTER ET
+	{runeRange{0x10EC5, 0x10EC5}, wbprALetter},           // Lm       ARABIC SMALL YEH BARREE WITH TWO DOTS BELOW
+	{runeRange{0x10EF0, 0x10EFF}, wbprExtend},            // Mn  [16] ARABIC SMALL LOW UPRIGHT RECTANGULAR ZERO..ARABIC SMALL LOW WORD MADDA
+	{runeRange{0x10F46, 0x10F50}, wbprExtend},            // Mn  [11] SOGDIAN COMBINING DOT BELOW..SOGDIAN COMBINING STROKE BELOW
+	{runeRange{0x10FE0, 0x10FF6}, wbprALetter},           // Lo  [23] ELYMAIC LETTER ALEPH..ELYMAIC LIGATURE ZAYIN-YODH
+	{runeRange{0x11003, 0x11037}, wbprALetter},           // Lo  [53] BRAHMI SIGN JIHVAMULIYA..BRAHMI LETTER OLD TAMIL NNNA
+	{runeRange{0x11071, 0x11072}, wbprALetter},           // Lo   [2] BRAHMI LETTER OLD TAMIL SHORT E..BRAHMI LETTER OLD TAMIL SHORT O
+	{runeRange{0x11082, 0x11082}, wbprExtend},            // Mc       KAITHI SIGN VISARGA
+	{runeRange{0x110B7, 0x110B8}, wbprExtend},            // Mc   [2] KAITHI VOWEL SIGN O..KAITHI VOWEL SIGN AU
+	{runeRange{0x110CD, 0x110CD}, wbprNumeric},           // Cf       KAITHI NUMBER SIGN ABOVE
+	{runeRange{0x11103, 0x11126}, wbprALetter},           // Lo  [36] CHAKMA LETTER AA..CHAKMA LETTER HAA
+	{runeRange{0x11136, 0x1113F}, wbprNumeric},           // Nd  [10] CHAKMA DIGIT ZERO..CHAKMA DIGIT NINE
+	{runeRange{0x11150, 0x11172}, wbprALetter},           // Lo  [35] MAHAJANI LETTER A..MAHAJANI LETTER RRA
+	{runeRange{0x11182, 0x11182}, wbprExtend},            // Mc       SHARADA SIGN VISARGA
+	{runeRange{0x111BF, 0x111C0}, wbprExtend},            // Mc   [2] SHARADA VOWEL SIGN AU..SHARADA SIGN VIRAMA
+	{runeRange{0x111CF, 0x111CF}, wbprExtend},            // Mn       SHARADA SIGN INVERTED CANDRABINDU
+	{runeRange{0x11200, 0x11211}, wbprALetter},           // Lo  [18] KHOJKI LETTER A..KHOJKI LETTER JJA
+	{runeRange{0x11232, 0x11233}, wbprExtend},            // Mc   [2] KHOJKI VOWEL SIGN O..KHOJKI VOWEL SIGN AU
+	{runeRange{0x1123E, 0x1123E}, wbprExtend},            // Mn       KHOJKI SIGN SUKUN
+	{runeRange{0x11288, 0x11288}, wbprALetter},           // Lo       MULTANI LETTER GHA
+	{runeRange{0x112B0, 0x112DE}, wbprALetter},           // Lo  [47] KHUDAWADI LETTER A..KHUDAWADI LETTER HA
+	{runeRange{0x112F0, 0x112F9}, wbprNumeric},           // Nd  [10] KHUDAWADI DIGIT ZERO..KHUDAWADI DIGIT NINE
+	{runeRange{0x1130F, 0x11310}, wbprALetter},           // Lo   [2] GRANTHA LETTER EE..GRANTHA LETTER AI
+	{runeRange{0x11335, 0x11339}, wbprALetter},           // Lo   [5] GRANTHA LETTER VA..GRANTHA LETTER HA
+	{runeRange{0x11340, 0x11340}, wbprExtend},            // Mn       GRANTHA VOWEL SIGN II
+	{runeRange{0x11350, 0x11350}, wbprALetter},           // Lo       GRANTHA OM
+	{runeRange{0x11366, 0x1136C}, wbprExtend},            // Mn   [7] COMBINING GRANTHA DIGIT ZERO..COMBINING GRANTHA DIGIT SIX
+	{runeRange{0x1138E, 0x1138E}, wbprALetter},           // Lo       TULU-TIGALARI LETTER AI
+	{runeRange{0x113BB, 0x113C0}, wbprExtend},            // Mn   [6] TULU-TIGALARI VOWEL SIGN U..TULU-TIGALARI VOWEL SIGN VOCALIC LL
+	{runeRange{0x113CC, 0x113CD}, wbprExtend},            // Mc   [2] TULU-TIGALARI SIGN ANUSVARA..TULU-TIGALARI SIGN VISARGA
+	{runeRange{0x113D1, 0x113D1}, wbprALetter},           // Lo       TULU-TIGALARI REPHA
+	{runeRange{0x11400, 0x11434}, wbprALetter},           // Lo  [53] NEWA LETTER A..NEWA LETTER HA
+	{runeRange{0x11442, 0x11444}, wbprExtend},            // Mn   [3] NEWA SIGN VIRAMA..NEWA SIGN ANUSVARA
+	{runeRange{0x11450, 0x11459}, wbprNumeric},           // Nd  [10] NEWA DIGIT ZERO..NEWA DIGIT NINE
+	{runeRange{0x114B0, 0x114B2}, wbprExtend},            // Mc   [3] TIRHUTA VOWEL SIGN AA..TIRHUTA VOWEL SIGN II
+	{runeRange{0x114BB, 0x114BE}, wbprExtend},            // Mc   [4] TIRHUTA VOWEL SIGN AI..TIRHUTA VOWEL SIGN AU
+	{runeRange{0x114C4, 0x114C5}, wbprALetter},           // Lo   [2] TIRHUTA SIGN AVAGRAHA..TIRHUTA GVANG
+	{runeRange{0x115AF, 0x115B1}, wbprExtend},            // Mc   [3] SIDDHAM VOWEL SIGN AA..SIDDHAM VOWEL SIGN II
+	{runeRange{0x115BE, 0x115BE}, wbprExtend},            // Mc       SIDDHAM SIGN VISARGA
+	{runeRange{0x11600, 0x1162F}, wbprALetter},           // Lo  [48] MODI LETTER A..MODI LETTER LLA
+	{runeRange{0x1163D, 0x1163D}, wbprExtend},            // Mn       MODI SIGN ANUSVARA
+	{runeRange{0x11650, 0x11659}, wbprNumeric},           // Nd  [10] MODI DIGIT ZERO..MODI DIGIT NINE
+	{runeRange{0x116AD, 0x116AD}, wbprExtend},            // Mn       TAKRI VOWEL SIGN AA
+	{runeRange{0x116B7, 0x116B7}, wbprExtend},            // Mn       TAKRI SIGN NUKTA
+	{runeRange{0x1171D, 0x1171D}, wbprExtend},            // Mn       AHOM CONSONANT SIGN MEDIAL LA
+	{runeRange{0x11722, 0x11725}, wbprExtend},            // Mn   [4] AHOM VOWEL SIGN I..AHOM VOWEL SIGN UU
+	{runeRange{0x11800, 0x1182B}, wbprALetter},           // Lo  [44] DOGRA LETTER A..DOGRA LETTER RRA
+	{runeRange{0x11839, 0x1183A}, wbprExtend},            // Mn   [2] DOGRA SIGN VIRAMA..DOGRA SIGN NUKTA
+	{runeRange{0x11909, 0x11909}, wbprALetter},           // Lo       DIVES AKURU LETTER O
+	{runeRange{0x11930, 0x11935}, wbprExtend},            // Mc   [6] DIVES AKURU VOWEL SIGN AA..DIVES AKURU VOWEL SIGN E
+	{runeRange{0x1193E, 0x1193E}, wbprExtend},            // Mn       DIVES AKURU VIRAMA
+	{runeRange{0x11942, 0x11942}, wbprExtend},            // Mc       DIVES AKURU MEDIAL RA
+	{runeRange{0x119AA, 0x119D0}, wbprALetter},           // Lo  [39] NANDINAGARI LETTER E..NANDINAGARI LETTER RRA
+	{runeRange{0x119DC, 0x119DF}, wbprExtend},            // Mc   [4] NANDINAGARI VOWEL SIGN O..NANDINAGARI SIGN VISARGA
+	{runeRange{0x119E4, 0x119E4}, wbprExtend},            // Mc       NANDINAGARI VOWEL SIGN PRISHTHAMATRA E
+	{runeRange{0x11A33, 0x11A38}, wbprExtend},            // Mn   [6] ZANABAZAR SQUARE FINAL CONSONANT MARK..ZANABAZAR SQUARE SIGN ANUSVARA
+	{runeRange{0x11A47, 0x11A47}, wbprExtend},            // Mn       ZANABAZAR SQUARE SUBJOINER
+	{runeRange{0x11A59, 0x11A5B}, wbprExtend},            // Mn   [3] SOYOMBO VOWEL SIGN VOCALIC R..SOYOMBO VOWEL LENGTH MARK
+	{runeRange{0x11A98, 0x11A99}, wbprExtend},            // Mn   [2] SOYOMBO GEMINATION MARK..SOYOMBO SUBJOINER
 	{runeRange{0x11B60, 0x11B60}, wbprExtend},            // Mn       SHARADA VOWEL SIGN OE
 	{runeRange{0x11B66, 0x11B66}, wbprExtend},            // Mn       SHARADA VOWEL SIGN CANDRA E
 	{runeRange{0x11C00, 0x11C08}, wbprALetter},           // Lo   [9] BHAIKSUKI LETTER A..BHAIKSUKI LETTER VOCALIC L
@@ -463,11 +460,12 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x11D93, 0x11D94}, wbprExtend},            // Mc   [2] GUNJALA GONDI VOWEL SIGN OO..GUNJALA GONDI VOWEL SIGN AU
 	{runeRange{0x11D98, 0x11D98}, wbprALetter},           // Lo       GUNJALA GONDI OM
 	{runeRange{0x11DDA, 0x11DDB}, wbprALetter},           // Lo   [2] TOLONG SIKI SIGN HECAKA..TOLONG SIKI UNGGA
-	{runeRange{0x11EF5, 0x11EF6}, wbprExtend},            // Mc   [2] MAKASAR VOWEL SIGN E..MAKASAR VOWEL SIGN O
-	{runeRange{0x11F04, 0x11F10}, wbprALetter},           // Lo  [13] KAWI LETTER A..KAWI LETTER O
-	{runeRange{0x11F3E, 0x11F3F}, wbprExtend},            // Mc   [2] KAWI VOWEL SIGN E..KAWI VOWEL SIGN AI
-	{runeRange{0x11F50, 0x11F59}, wbprNumeric},           // Nd  [10] KAWI DIGIT ZERO..KAWI DIGIT NINE
-	{runeRange{0x12400, 0x1246E}, wbprALetter},           // Nl [111] CUNEIFORM NUMERIC SIGN TWO ASH..CUNEIFORM NUMERIC SIGN NINE U VARIANT FORM
+	{runeRange{0x11EE0, 0x11EF2}, wbprALetter},           // Lo  [19] MAKASAR LETTER KA..MAKASAR ANGKA
+	{runeRange{0x11F02, 0x11F02}, wbprALetter},           // Lo       KAWI SIGN REPHA
+	{runeRange{0x11F34, 0x11F35}, wbprExtend},            // Mc   [2] KAWI VOWEL SIGN AA..KAWI VOWEL SIGN ALTERNATE AA
+	{runeRange{0x11F41, 0x11F41}, wbprExtend},            // Mc       KAWI SIGN KILLER
+	{runeRange{0x11FB0, 0x11FB0}, wbprALetter},           // Lo       LISU LETTER YHA
+	{runeRange{0x12480, 0x12543}, wbprALetter},           // Lo [196] CUNEIFORM SIGN AB TIMES NUN TENU..CUNEIFORM SIGN ZU5 TIMES THREE DISH TENU
 	{runeRange{0x13430, 0x1343F}, wbprFormat},            // Cf  [16] EGYPTIAN HIEROGLYPH VERTICAL JOINER..EGYPTIAN HIEROGLYPH END WALLED ENCLOSURE
 	{runeRange{0x13460, 0x143FA}, wbprALetter},           // Lo [3995] EGYPTIAN HIEROGLYPH-13460..EGYPTIAN HIEROGLYPH-143FA
 	{runeRange{0x1612A, 0x1612C}, wbprExtend},            // Mc   [3] GURUNG KHEMA CONSONANT SIGN MEDIAL YA..GURUNG KHEMA CONSONANT SIGN MEDIAL HA
@@ -480,21 +478,23 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x16F93, 0x16F9F}, wbprALetter},           // Lm  [13] MIAO LETTER TONE-2..MIAO LETTER REFORMED TONE-8
 	{runeRange{0x16FF0, 0x16FF1}, wbprExtend},            // Mc   [2] VIETNAMESE ALTERNATE READING MARK CA..VIETNAMESE ALTERNATE READING MARK NHAY
 	{runeRange{0x1B000, 0x1B000}, wbprKatakana},          // Lo       KATAKANA LETTER ARCHAIC E
-	{runeRange{0x1BC00, 0x1BC6A}, wbprALetter},           // Lo [107] DUPLOYAN LETTER H..DUPLOYAN LETTER VOCALIC M
-	{runeRange{0x1BC9D, 0x1BC9E}, wbprExtend},            // Mn   [2] DUPLOYAN THICK LETTER SELECTOR..DUPLOYAN DOUBLE MARK
-	{runeRange{0x1CF30, 0x1CF46}, wbprExtend},            // Mn  [23] ZNAMENNY COMBINING TONAL RANGE MARK MRACHNO..ZNAMENNY PRIZNAK MODIFIER ROG
-	{runeRange{0x1D173, 0x1D17A}, wbprFormat},            // Cf   [8] MUSICAL SYMBOL BEGIN BEAM..MUSICAL SYMBOL END PHRASE
-	{runeRange{0x1D242, 0x1D244}, wbprExtend},            // Mn   [3] COMBINING GREEK MUSICAL TRISEME..COMBINING GREEK MUSICAL PENTASEME
-	{runeRange{0x1D4A2, 0x1D4A2}, wbprALetter},           // L&       MATHEMATICAL SCRIPT CAPITAL G
-	{runeRange{0x1D4BB, 0x1D4BB}, wbprALetter},           // L&       MATHEMATICAL SCRIPT SMALL F
-	{runeRange{0x1D50D, 0x1D514}, wbprALetter},           // L&   [8] MATHEMATICAL FRAKTUR CAPITAL J..MATHEMATICAL FRAKTUR CAPITAL Q
-	{runeRange{0x1D540, 0x1D544}, wbprALetter},           // L&   [5] MATHEMATICAL DOUBLE-STRUCK CAPITAL I..MATHEMATICAL DOUBLE-STRUCK CAPITAL M
-	{runeRange{0x1D6A8, 0x1D6C0}, wbprALetter},           // L&  [25] MATHEMATICAL BOLD CAPITAL ALPHA..MATHEMATICAL BOLD CAPITAL OMEGA
-	{runeRange{0x1D716, 0x1D734}, wbprALetter},           // L&  [31] MATHEMATICAL ITALIC EPSILON SYMBOL..MATHEMATICAL BOLD ITALIC CAPITAL OMEGA
-	{runeRange{0x1D78A, 0x1D7A8}, wbprALetter},           // L&  [31] MATHEMATICAL SANS-SERIF BOLD EPSILON SYMBOL..MATHEMATICAL SANS-SERIF BOLD ITALIC CAPITAL OMEGA
-	{runeRange{0x1DA00, 0x1DA36}, wbprExtend},            // Mn  [55] SIGNWRITING HEAD RIM..SIGNWRITING AIR SUCKING IN
-	{runeRange{0x1DA9B, 0x1DA9F}, wbprExtend},            // Mn   [5] SIGNWRITING FILL MODIFIER-2..SIGNWRITING FILL MODIFIER-6
-	{runeRange{0x1DF0B, 0x1DF1E}, wbprALetter},           // L&  [20] LATIN SMALL LETTER ESH WITH DOUBLE BAR..LATIN SMALL LETTER S WITH CURL
+	{runeRange{0x1B164, 0x1B168}, wbprKatakana},          // Lo   [5] KATAKANA LETTER SMALL WI..KATAKANA LETTER SMALL ARCHAIC YE
+	{runeRange{0x1BC90, 0x1BC99}, wbprALetter},           // Lo  [10] DUPLOYAN AFFIX LOW ACUTE..DUPLOYAN AFFIX LOW ARROW
+	{runeRange{0x1CF00, 0x1CF2D}, wbprExtend},            // Mn  [46] ZNAMENNY COMBINING MARK GORAZDO NIZKO S KRYZHEM ON LEFT..ZNAMENNY COMBINING MARK KRYZH ON LEFT
+	{runeRange{0x1D167, 0x1D169}, wbprExtend},            // Mn   [3] MUSICAL SYMBOL COMBINING TREMOLO-1..MUSICAL SYMBOL COMBINING TREMOLO-3
+	{runeRange{0x1D185, 0x1D18B}, wbprExtend},            // Mn   [7] MUSICAL SYMBOL COMBINING DOIT..MUSICAL SYMBOL COMBINING TRIPLE TONGUE
+	{runeRange{0x1D25B, 0x1D25C}, wbprExtend},            // Mn   [2] MUSICAL SYMBOL COMBINING TREMOLO-4..MUSICAL SYMBOL COMBINING TREMOLO-5
+	{runeRange{0x1D456, 0x1D49C}, wbprALetter},           // L&  [71] MATHEMATICAL ITALIC SMALL I..MATHEMATICAL SCRIPT CAPITAL A
+	{runeRange{0x1D4A9, 0x1D4AC}, wbprALetter},           // L&   [4] MATHEMATICAL SCRIPT CAPITAL N..MATHEMATICAL SCRIPT CAPITAL Q
+	{runeRange{0x1D4C5, 0x1D505}, wbprALetter},           // L&  [65] MATHEMATICAL SCRIPT SMALL P..MATHEMATICAL FRAKTUR CAPITAL B
+	{runeRange{0x1D51E, 0x1D539}, wbprALetter},           // L&  [28] MATHEMATICAL FRAKTUR SMALL A..MATHEMATICAL DOUBLE-STRUCK CAPITAL B
+	{runeRange{0x1D54A, 0x1D550}, wbprALetter},           // L&   [7] MATHEMATICAL DOUBLE-STRUCK CAPITAL S..MATHEMATICAL DOUBLE-STRUCK CAPITAL Y
+	{runeRange{0x1D6DC, 0x1D6FA}, wbprALetter},           // L&  [31] MATHEMATICAL BOLD EPSILON SYMBOL..MATHEMATICAL ITALIC CAPITAL OMEGA
+	{runeRange{0x1D750, 0x1D76E}, wbprALetter},           // L&  [31] MATHEMATICAL BOLD ITALIC EPSILON SYMBOL..MATHEMATICAL SANS-SERIF BOLD CAPITAL OMEGA
+	{runeRange{0x1D7C4, 0x1D7CB}, wbprALetter},           // L&   [8] MATHEMATICAL SANS-SERIF BOLD ITALIC EPSILON SYMBOL..MATHEMATICAL BOLD SMALL DIGAMMA
+	{runeRange{0x1DA75, 0x1DA75}, wbprExtend},            // Mn       SIGNWRITING UPPER BODY TILTING FROM HIP JOINTS
+	{runeRange{0x1DF00, 0x1DF09}, wbprALetter},           // L&  [10] LATIN SMALL LETTER FENG DIGRAPH WITH TRILL..LATIN SMALL LETTER T WITH HOOK AND RETROFLEX HOOK
+	{runeRange{0x1DF90, 0x1DF96}, wbprALetter},           // L&   [7] LATIN SMALL LETTER C WITH LOW SLASH..LATIN SMALL LETTER LONG S WITH TOP LOOP
 	{runeRange{0x1E01B, 0x1E021}, wbprExtend},            // Mn   [7] COMBINING GLAGOLITIC LETTER SHTA..COMBINING GLAGOLITIC LETTER YATI
 	{runeRange{0x1E08F, 0x1E08F}, wbprExtend},            // Mn       COMBINING CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I
 	{runeRange{0x1E140, 0x1E149}, wbprNumeric},           // Nd  [10] NYIAKENG PUACHUE HMONG DIGIT ZERO..NYIAKENG PUACHUE HMONG DIGIT NINE
@@ -534,112 +534,112 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x0488, 0x0489}, wbprExtend},              // Me   [2] COMBINING CYRILLIC HUNDRED THOUSANDS SIGN..COMBINING CYRILLIC MILLIONS SIGN
 	{runeRange{0x055A, 0x055C}, wbprALetter},             // Po   [3] ARMENIAN APOSTROPHE..ARMENIAN EXCLAMATION MARK
 	{runeRange{0x0589, 0x0589}, wbprMidNum},              // Po       ARMENIAN FULL STOP
-	{runeRange{0x05C1, 0x05C2}, wbprExtend},              // Mn   [2] HEBREW POINT SHIN DOT..HEBREW POINT SIN DOT
-	{runeRange{0x05EF, 0x05F2}, wbprHebrewLetter},        // Lo   [4] HEBREW YOD TRIANGLE..HEBREW LIGATURE YIDDISH DOUBLE YOD
-	{runeRange{0x060C, 0x060D}, wbprMidNum},              // Po   [2] ARABIC COMMA..ARABIC DATE SEPARATOR
-	{runeRange{0x0640, 0x0640}, wbprALetter},             // Lm       ARABIC TATWEEL
-	{runeRange{0x066B, 0x066B}, wbprNumeric},             // Po       ARABIC DECIMAL SEPARATOR
-	{runeRange{0x0671, 0x06D3}, wbprALetter},             // Lo  [99] ARABIC LETTER ALEF WASLA..ARABIC LETTER YEH BARREE WITH HAMZA ABOVE
-	{runeRange{0x06DF, 0x06E4}, wbprExtend},              // Mn   [6] ARABIC SMALL HIGH ROUNDED ZERO..ARABIC SMALL HIGH MADDA
-	{runeRange{0x06EE, 0x06EF}, wbprALetter},             // Lo   [2] ARABIC LETTER DAL WITH INVERTED V..ARABIC LETTER REH WITH INVERTED V
-	{runeRange{0x070F, 0x070F}, wbprALetter},             // Cf       SYRIAC ABBREVIATION MARK
-	{runeRange{0x0730, 0x074A}, wbprExtend},              // Mn  [27] SYRIAC PTHAHA ABOVE..SYRIAC BARREKH
-	{runeRange{0x07C0, 0x07C9}, wbprNumeric},             // Nd  [10] NKO DIGIT ZERO..NKO DIGIT NINE
-	{runeRange{0x07F8, 0x07F8}, wbprMidNum},              // Po       NKO COMMA
-	{runeRange{0x0816, 0x0819}, wbprExtend},              // Mn   [4] SAMARITAN MARK IN..SAMARITAN MARK DAGESH
-	{runeRange{0x0825, 0x0827}, wbprExtend},              // Mn   [3] SAMARITAN VOWEL SIGN SHORT A..SAMARITAN VOWEL SIGN U
-	{runeRange{0x0859, 0x085B}, wbprExtend},              // Mn   [3] MANDAIC AFFRICATION MARK..MANDAIC GEMINATION MARK
-	{runeRange{0x0890, 0x0891}, wbprNumeric},             // Cf   [2] ARABIC POUND MARK ABOVE..ARABIC PIASTRE MARK ABOVE
-	{runeRange{0x08CA, 0x08E1}, wbprExtend},              // Mn  [24] ARABIC SMALL HIGH FARSI YEH..ARABIC SMALL HIGH SIGN SAFHA
-	{runeRange{0x0904, 0x0939}, wbprALetter},             // Lo  [54] DEVANAGARI LETTER SHORT A..DEVANAGARI LETTER HA
-	{runeRange{0x093D, 0x093D}, wbprALetter},             // Lo       DEVANAGARI SIGN AVAGRAHA
-	{runeRange{0x094D, 0x094D}, wbprExtend},              // Mn       DEVANAGARI SIGN VIRAMA
-	{runeRange{0x0958, 0x0961}, wbprALetter},             // Lo  [10] DEVANAGARI LETTER QA..DEVANAGARI LETTER VOCALIC LL
-	{runeRange{0x0972, 0x0980}, wbprALetter},             // Lo  [15] DEVANAGARI LETTER CANDRA A..BENGALI ANJI
-	{runeRange{0x098F, 0x0990}, wbprALetter},             // Lo   [2] BENGALI LETTER E..BENGALI LETTER AI
-	{runeRange{0x09B6, 0x09B9}, wbprALetter},             // Lo   [4] BENGALI LETTER SHA..BENGALI LETTER HA
-	{runeRange{0x09C1, 0x09C4}, wbprExtend},              // Mn   [4] BENGALI VOWEL SIGN U..BENGALI VOWEL SIGN VOCALIC RR
-	{runeRange{0x09CE, 0x09CE}, wbprALetter},             // Lo       BENGALI LETTER KHANDA TA
-	{runeRange{0x09E2, 0x09E3}, wbprExtend},              // Mn   [2] BENGALI VOWEL SIGN VOCALIC L..BENGALI VOWEL SIGN VOCALIC LL
-	{runeRange{0x09FE, 0x09FE}, wbprExtend},              // Mn       BENGALI SANDHI MARK
-	{runeRange{0x0A0F, 0x0A10}, wbprALetter},             // Lo   [2] GURMUKHI LETTER EE..GURMUKHI LETTER AI
-	{runeRange{0x0A35, 0x0A36}, wbprALetter},             // Lo   [2] GURMUKHI LETTER VA..GURMUKHI LETTER SHA
-	{runeRange{0x0A41, 0x0A42}, wbprExtend},              // Mn   [2] GURMUKHI VOWEL SIGN U..GURMUKHI VOWEL SIGN UU
-	{runeRange{0x0A59, 0x0A5C}, wbprALetter},             // Lo   [4] GURMUKHI LETTER KHHA..GURMUKHI LETTER RRA
-	{runeRange{0x0A72, 0x0A74}, wbprALetter},             // Lo   [3] GURMUKHI IRI..GURMUKHI EK ONKAR
-	{runeRange{0x0A85, 0x0A8D}, wbprALetter},             // Lo   [9] GUJARATI LETTER A..GUJARATI VOWEL CANDRA E
-	{runeRange{0x0AB2, 0x0AB3}, wbprALetter},             // Lo   [2] GUJARATI LETTER LA..GUJARATI LETTER LLA
-	{runeRange{0x0ABE, 0x0AC0}, wbprExtend},              // Mc   [3] GUJARATI VOWEL SIGN AA..GUJARATI VOWEL SIGN II
-	{runeRange{0x0ACB, 0x0ACC}, wbprExtend},              // Mc   [2] GUJARATI VOWEL SIGN O..GUJARATI VOWEL SIGN AU
-	{runeRange{0x0AE2, 0x0AE3}, wbprExtend},              // Mn   [2] GUJARATI VOWEL SIGN VOCALIC L..GUJARATI VOWEL SIGN VOCALIC LL
-	{runeRange{0x0B01, 0x0B01}, wbprExtend},              // Mn       ORIYA SIGN CANDRABINDU
-	{runeRange{0x0B13, 0x0B28}, wbprALetter},             // Lo  [22] ORIYA LETTER O..ORIYA LETTER NA
-	{runeRange{0x0B3C, 0x0B3C}, wbprExtend},              // Mn       ORIYA SIGN NUKTA
-	{runeRange{0x0B40, 0x0B40}, wbprExtend},              // Mc       ORIYA VOWEL SIGN II
-	{runeRange{0x0B4D, 0x0B4D}, wbprExtend},              // Mn       ORIYA SIGN VIRAMA
-	{runeRange{0x0B5F, 0x0B61}, wbprALetter},             // Lo   [3] ORIYA LETTER YYA..ORIYA LETTER VOCALIC LL
-	{runeRange{0x0B82, 0x0B82}, wbprExtend},              // Mn       TAMIL SIGN ANUSVARA
-	{runeRange{0x0B92, 0x0B95}, wbprALetter},             // Lo   [4] TAMIL LETTER O..TAMIL LETTER KA
-	{runeRange{0x0BA3, 0x0BA4}, wbprALetter},             // Lo   [2] TAMIL LETTER NNA..TAMIL LETTER TA
-	{runeRange{0x0BC0, 0x0BC0}, wbprExtend},              // Mn       TAMIL VOWEL SIGN II
-	{runeRange{0x0BCD, 0x0BCD}, wbprExtend},              // Mn       TAMIL SIGN VIRAMA
-	{runeRange{0x0C00, 0x0C00}, wbprExtend},              // Mn       TELUGU SIGN COMBINING CANDRABINDU ABOVE
-	{runeRange{0x0C0E, 0x0C10}, wbprALetter},             // Lo   [3] TELUGU LETTER E..TELUGU LETTER AI
-	{runeRange{0x0C3D, 0x0C3D}, wbprALetter},             // Lo       TELUGU SIGN AVAGRAHA
-	{runeRange{0x0C4A, 0x0C4D}, wbprExtend},              // Mn   [4] TELUGU VOWEL SIGN O..TELUGU SIGN VIRAMA
-	{runeRange{0x0C60, 0x0C61}, wbprALetter},             // Lo   [2] TELUGU LETTER VOCALIC RR..TELUGU LETTER VOCALIC LL
-	{runeRange{0x0C81, 0x0C81}, wbprExtend},              // Mn       KANNADA SIGN CANDRABINDU
-	{runeRange{0x0C92, 0x0CA8}, wbprALetter},             // Lo  [23] KANNADA LETTER O..KANNADA LETTER NA
-	{runeRange{0x0CBD, 0x0CBD}, wbprALetter},             // Lo       KANNADA SIGN AVAGRAHA
-	{runeRange{0x0CC6, 0x0CC6}, wbprExtend},              // Mn       KANNADA VOWEL SIGN E
-	{runeRange{0x0CD5, 0x0CD6}, wbprExtend},              // Mc   [2] KANNADA LENGTH MARK..KANNADA AI LENGTH MARK
-	{runeRange{0x0CE6, 0x0CEF}, wbprNumeric},             // Nd  [10] KANNADA DIGIT ZERO..KANNADA DIGIT NINE
-	{runeRange{0x0D02, 0x0D03}, wbprExtend},              // Mc   [2] MALAYALAM SIGN ANUSVARA..MALAYALAM SIGN VISARGA
-	{runeRange{0x0D3B, 0x0D3C}, wbprExtend},              // Mn   [2] MALAYALAM SIGN VERTICAL BAR VIRAMA..MALAYALAM SIGN CIRCULAR VIRAMA
-	{runeRange{0x0D46, 0x0D48}, wbprExtend},              // Mc   [3] MALAYALAM VOWEL SIGN E..MALAYALAM VOWEL SIGN AI
-	{runeRange{0x0D54, 0x0D56}, wbprALetter},             // Lo   [3] MALAYALAM LETTER CHILLU M..MALAYALAM LETTER CHILLU LLL
-	{runeRange{0x0D66, 0x0D6F}, wbprNumeric},             // Nd  [10] MALAYALAM DIGIT ZERO..MALAYALAM DIGIT NINE
-	{runeRange{0x0D85, 0x0D96}, wbprALetter},             // Lo  [18] SINHALA LETTER AYANNA..SINHALA LETTER AUYANNA
-	{runeRange{0x0DC0, 0x0DC6}, wbprALetter},             // Lo   [7] SINHALA LETTER VAYANNA..SINHALA LETTER FAYANNA
-	{runeRange{0x0DD6, 0x0DD6}, wbprExtend},              // Mn       SINHALA VOWEL SIGN DIGA PAA-PILLA
-	{runeRange{0x0E31, 0x0E31}, wbprExtend},              // Mn       THAI CHARACTER MAI HAN-AKAT
-	{runeRange{0x0EB1, 0x0EB1}, wbprExtend},              // Mn       LAO VOWEL SIGN MAI KAN
-	{runeRange{0x0F00, 0x0F00}, wbprALetter},             // Lo       TIBETAN SYLLABLE OM
-	{runeRange{0x0F37, 0x0F37}, wbprExtend},              // Mn       TIBETAN MARK NGAS BZUNG SGOR RTAGS
-	{runeRange{0x0F49, 0x0F6C}, wbprALetter},             // Lo  [36] TIBETAN LETTER NYA..TIBETAN LETTER RRA
-	{runeRange{0x0F86, 0x0F87}, wbprExtend},              // Mn   [2] TIBETAN SIGN LCI RTAGS..TIBETAN SIGN YANG RTAGS
-	{runeRange{0x0FC6, 0x0FC6}, wbprExtend},              // Mn       TIBETAN SYMBOL PADMA GDAN
-	{runeRange{0x1032, 0x1037}, wbprExtend},              // Mn   [6] MYANMAR VOWEL SIGN AI..MYANMAR SIGN DOT BELOW
-	{runeRange{0x103D, 0x103E}, wbprExtend},              // Mn   [2] MYANMAR CONSONANT SIGN MEDIAL WA..MYANMAR CONSONANT SIGN MEDIAL HA
-	{runeRange{0x105E, 0x1060}, wbprExtend},              // Mn   [3] MYANMAR CONSONANT SIGN MON MEDIAL NA..MYANMAR CONSONANT SIGN MON MEDIAL LA
-	{runeRange{0x1082, 0x1082}, wbprExtend},              // Mn       MYANMAR CONSONANT SIGN SHAN MEDIAL WA
-	{runeRange{0x108D, 0x108D}, wbprExtend},              // Mn       MYANMAR SIGN SHAN COUNCIL EMPHATIC TONE
-	{runeRange{0x109D, 0x109D}, wbprExtend},              // Mn       MYANMAR VOWEL SIGN AITON AI
-	{runeRange{0x10D0, 0x10FA}, wbprALetter},             // L&  [43] GEORGIAN LETTER AN..GEORGIAN LETTER AIN
-	{runeRange{0x124A, 0x124D}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE QWI..ETHIOPIC SYLLABLE QWE
-	{runeRange{0x1260, 0x1288}, wbprALetter},             // Lo  [41] ETHIOPIC SYLLABLE BA..ETHIOPIC SYLLABLE XWA
-	{runeRange{0x12B8, 0x12BE}, wbprALetter},             // Lo   [7] ETHIOPIC SYLLABLE KXA..ETHIOPIC SYLLABLE KXO
-	{runeRange{0x12D8, 0x1310}, wbprALetter},             // Lo  [57] ETHIOPIC SYLLABLE ZA..ETHIOPIC SYLLABLE GWA
-	{runeRange{0x1380, 0x138F}, wbprALetter},             // Lo  [16] ETHIOPIC SYLLABLE SEBATBEIT MWA..ETHIOPIC SYLLABLE PWE
-	{runeRange{0x166F, 0x167F}, wbprALetter},             // Lo  [17] CANADIAN SYLLABICS QAI..CANADIAN SYLLABICS BLACKFOOT W
-	{runeRange{0x16EE, 0x16F0}, wbprALetter},             // Nl   [3] RUNIC ARLAUG SYMBOL..RUNIC BELGTHOR SYMBOL
-	{runeRange{0x1715, 0x1715}, wbprExtend},              // Mc       TAGALOG SIGN PAMUDPOD
-	{runeRange{0x1740, 0x1751}, wbprALetter},             // Lo  [18] BUHID LETTER A..BUHID LETTER HA
-	{runeRange{0x1772, 0x1773}, wbprExtend},              // Mn   [2] TAGBANWA VOWEL SIGN I..TAGBANWA VOWEL SIGN U
-	{runeRange{0x17BE, 0x17C5}, wbprExtend},              // Mc   [8] KHMER VOWEL SIGN OE..KHMER VOWEL SIGN AU
-	{runeRange{0x17DD, 0x17DD}, wbprExtend},              // Mn       KHMER SIGN ATTHACAN
-	{runeRange{0x180F, 0x180F}, wbprExtend},              // Mn       MONGOLIAN FREE VARIATION SELECTOR FOUR
-	{runeRange{0x1844, 0x1878}, wbprALetter},             // Lo  [53] MONGOLIAN LETTER TODO E..MONGOLIAN LETTER CHA WITH TWO DOTS
-	{runeRange{0x18A9, 0x18A9}, wbprExtend},              // Mn       MONGOLIAN LETTER ALI GALI DAGALGA
-	{runeRange{0x1920, 0x1922}, wbprExtend},              // Mn   [3] LIMBU VOWEL SIGN A..LIMBU VOWEL SIGN U
-	{runeRange{0x1930, 0x1931}, wbprExtend},              // Mc   [2] LIMBU SMALL LETTER KA..LIMBU SMALL LETTER NGA
-	{runeRange{0x1946, 0x194F}, wbprNumeric},             // Nd  [10] LIMBU DIGIT ZERO..LIMBU DIGIT NINE
-	{runeRange{0x1A17, 0x1A18}, wbprExtend},              // Mn   [2] BUGINESE VOWEL SIGN I..BUGINESE VOWEL SIGN U
-	{runeRange{0x1A56, 0x1A56}, wbprExtend},              // Mn       TAI THAM CONSONANT SIGN MEDIAL LA
-	{runeRange{0x1A61, 0x1A61}, wbprExtend},              // Mc       TAI THAM VOWEL SIGN A
-	{runeRange{0x1A6D, 0x1A72}, wbprExtend},              // Mc   [6] TAI THAM VOWEL SIGN OY..TAI THAM VOWEL SIGN THAM AI
-	{runeRange{0x1A90, 0x1A99}, wbprNumeric},             // Nd  [10] TAI THAM THAM DIGIT ZERO..TAI THAM THAM DIGIT NINE
-	{runeRange{0x1AE0, 0x1AEB}, wbprExtend},              // Mn  [12] COMBINING LEFT TACK ABOVE..COMBINING DOUBLE RIGHTWARDS ARROW ABOVE
+	{runeRange{0x05BF, 0x05BF}, wbprExtend},              // Mn       HEBREW POINT RAFE
+	{runeRange{0x05D0, 0x05EA}, wbprHebrewLetter},        // Lo  [27] HEBREW LETTER ALEF..HEBREW LETTER TAV
+	{runeRange{0x0600, 0x0605}, wbprNumeric},             // Cf   [6] ARABIC NUMBER SIGN..ARABIC NUMBER MARK ABOVE
+	{runeRange{0x0620, 0x063F}, wbprALetter},             // Lo  [32] ARABIC LETTER KASHMIRI YEH..ARABIC LETTER FARSI YEH WITH THREE DOTS ABOVE
+	{runeRange{0x0660, 0x0669}, wbprNumeric},             // Nd  [10] ARABIC-INDIC DIGIT ZERO..ARABIC-INDIC DIGIT NINE
+	{runeRange{0x0670, 0x0670}, wbprExtend},              // Mn       ARABIC LETTER SUPERSCRIPT ALEF
+	{runeRange{0x06DD, 0x06DD}, wbprNumeric},             // Cf       ARABIC END OF AYAH
+	{runeRange{0x06EA, 0x06ED}, wbprExtend},              // Mn   [4] ARABIC EMPTY CENTRE LOW STOP..ARABIC SMALL LOW MEEM
+	{runeRange{0x06FF, 0x06FF}, wbprALetter},             // Lo       ARABIC LETTER HEH WITH INVERTED V
+	{runeRange{0x0712, 0x072F}, wbprALetter},             // Lo  [30] SYRIAC LETTER BETH..SYRIAC LETTER PERSIAN DHALATH
+	{runeRange{0x07B1, 0x07B1}, wbprALetter},             // Lo       THAANA LETTER NAA
+	{runeRange{0x07F4, 0x07F5}, wbprALetter},             // Lm   [2] NKO HIGH TONE APOSTROPHE..NKO LOW TONE APOSTROPHE
+	{runeRange{0x0800, 0x0815}, wbprALetter},             // Lo  [22] SAMARITAN LETTER ALAF..SAMARITAN LETTER TAAF
+	{runeRange{0x0824, 0x0824}, wbprALetter},             // Lm       SAMARITAN MODIFIER LETTER SHORT A
+	{runeRange{0x0840, 0x0858}, wbprALetter},             // Lo  [25] MANDAIC LETTER HALQA..MANDAIC LETTER AIN
+	{runeRange{0x0889, 0x088F}, wbprALetter},             // Lo   [7] ARABIC LETTER NOON WITH INVERTED SMALL V..ARABIC LETTER NOON WITH RING ABOVE
+	{runeRange{0x08C9, 0x08C9}, wbprALetter},             // Lm       ARABIC SMALL FARSI YEH
+	{runeRange{0x0903, 0x0903}, wbprExtend},              // Mc       DEVANAGARI SIGN VISARGA
+	{runeRange{0x093C, 0x093C}, wbprExtend},              // Mn       DEVANAGARI SIGN NUKTA
+	{runeRange{0x0949, 0x094C}, wbprExtend},              // Mc   [4] DEVANAGARI VOWEL SIGN CANDRA O..DEVANAGARI VOWEL SIGN AU
+	{runeRange{0x0951, 0x0957}, wbprExtend},              // Mn   [7] DEVANAGARI STRESS SIGN UDATTA..DEVANAGARI VOWEL SIGN UUE
+	{runeRange{0x0971, 0x0971}, wbprALetter},             // Lm       DEVANAGARI SIGN HIGH SPACING DOT
+	{runeRange{0x0985, 0x098C}, wbprALetter},             // Lo   [8] BENGALI LETTER A..BENGALI LETTER VOCALIC L
+	{runeRange{0x09B2, 0x09B2}, wbprALetter},             // Lo       BENGALI LETTER LA
+	{runeRange{0x09BE, 0x09C0}, wbprExtend},              // Mc   [3] BENGALI VOWEL SIGN AA..BENGALI VOWEL SIGN II
+	{runeRange{0x09CD, 0x09CD}, wbprExtend},              // Mn       BENGALI SIGN VIRAMA
+	{runeRange{0x09DF, 0x09E1}, wbprALetter},             // Lo   [3] BENGALI LETTER YYA..BENGALI LETTER VOCALIC LL
+	{runeRange{0x09FC, 0x09FC}, wbprALetter},             // Lo       BENGALI LETTER VEDIC ANUSVARA
+	{runeRange{0x0A05, 0x0A0A}, wbprALetter},             // Lo   [6] GURMUKHI LETTER A..GURMUKHI LETTER UU
+	{runeRange{0x0A32, 0x0A33}, wbprALetter},             // Lo   [2] GURMUKHI LETTER LA..GURMUKHI LETTER LLA
+	{runeRange{0x0A3E, 0x0A40}, wbprExtend},              // Mc   [3] GURMUKHI VOWEL SIGN AA..GURMUKHI VOWEL SIGN II
+	{runeRange{0x0A51, 0x0A51}, wbprExtend},              // Mn       GURMUKHI SIGN UDAAT
+	{runeRange{0x0A70, 0x0A71}, wbprExtend},              // Mn   [2] GURMUKHI TIPPI..GURMUKHI ADDAK
+	{runeRange{0x0A83, 0x0A83}, wbprExtend},              // Mc       GUJARATI SIGN VISARGA
+	{runeRange{0x0AAA, 0x0AB0}, wbprALetter},             // Lo   [7] GUJARATI LETTER PA..GUJARATI LETTER RA
+	{runeRange{0x0ABD, 0x0ABD}, wbprALetter},             // Lo       GUJARATI SIGN AVAGRAHA
+	{runeRange{0x0AC9, 0x0AC9}, wbprExtend},              // Mc       GUJARATI VOWEL SIGN CANDRA O
+	{runeRange{0x0AE0, 0x0AE1}, wbprALetter},             // Lo   [2] GUJARATI LETTER VOCALIC RR..GUJARATI LETTER VOCALIC LL
+	{runeRange{0x0AFA, 0x0AFF}, wbprExtend},              // Mn   [6] GUJARATI SIGN SUKUN..GUJARATI SIGN TWO-CIRCLE NUKTA ABOVE
+	{runeRange{0x0B0F, 0x0B10}, wbprALetter},             // Lo   [2] ORIYA LETTER E..ORIYA LETTER AI
+	{runeRange{0x0B35, 0x0B39}, wbprALetter},             // Lo   [5] ORIYA LETTER VA..ORIYA LETTER HA
+	{runeRange{0x0B3F, 0x0B3F}, wbprExtend},              // Mn       ORIYA VOWEL SIGN I
+	{runeRange{0x0B4B, 0x0B4C}, wbprExtend},              // Mc   [2] ORIYA VOWEL SIGN O..ORIYA VOWEL SIGN AU
+	{runeRange{0x0B5C, 0x0B5D}, wbprALetter},             // Lo   [2] ORIYA LETTER RRA..ORIYA LETTER RHA
+	{runeRange{0x0B71, 0x0B71}, wbprALetter},             // Lo       ORIYA LETTER WA
+	{runeRange{0x0B8E, 0x0B90}, wbprALetter},             // Lo   [3] TAMIL LETTER E..TAMIL LETTER AI
+	{runeRange{0x0B9E, 0x0B9F}, wbprALetter},             // Lo   [2] TAMIL LETTER NYA..TAMIL LETTER TTA
+	{runeRange{0x0BBE, 0x0BBF}, wbprExtend},              // Mc   [2] TAMIL VOWEL SIGN AA..TAMIL VOWEL SIGN I
+	{runeRange{0x0BCA, 0x0BCC}, wbprExtend},              // Mc   [3] TAMIL VOWEL SIGN O..TAMIL VOWEL SIGN AU
+	{runeRange{0x0BE6, 0x0BEF}, wbprNumeric},             // Nd  [10] TAMIL DIGIT ZERO..TAMIL DIGIT NINE
+	{runeRange{0x0C05, 0x0C0C}, wbprALetter},             // Lo   [8] TELUGU LETTER A..TELUGU LETTER VOCALIC L
+	{runeRange{0x0C3C, 0x0C3C}, wbprExtend},              // Mn       TELUGU SIGN NUKTA
+	{runeRange{0x0C46, 0x0C48}, wbprExtend},              // Mn   [3] TELUGU VOWEL SIGN E..TELUGU VOWEL SIGN AI
+	{runeRange{0x0C5C, 0x0C5D}, wbprALetter},             // Lo   [2] TELUGU ARCHAIC SHRII..TELUGU LETTER NAKAARA POLLU
+	{runeRange{0x0C80, 0x0C80}, wbprALetter},             // Lo       KANNADA SIGN SPACING CANDRABINDU
+	{runeRange{0x0C8E, 0x0C90}, wbprALetter},             // Lo   [3] KANNADA LETTER E..KANNADA LETTER AI
+	{runeRange{0x0CBC, 0x0CBC}, wbprExtend},              // Mn       KANNADA SIGN NUKTA
+	{runeRange{0x0CC0, 0x0CC4}, wbprExtend},              // Mc   [5] KANNADA VOWEL SIGN II..KANNADA VOWEL SIGN VOCALIC RR
+	{runeRange{0x0CCC, 0x0CCD}, wbprExtend},              // Mn   [2] KANNADA VOWEL SIGN AU..KANNADA SIGN VIRAMA
+	{runeRange{0x0CE2, 0x0CE3}, wbprExtend},              // Mn   [2] KANNADA VOWEL SIGN VOCALIC L..KANNADA VOWEL SIGN VOCALIC LL
+	{runeRange{0x0D00, 0x0D01}, wbprExtend},              // Mn   [2] MALAYALAM SIGN COMBINING ANUSVARA ABOVE..MALAYALAM SIGN CANDRABINDU
+	{runeRange{0x0D12, 0x0D3A}, wbprALetter},             // Lo  [41] MALAYALAM LETTER O..MALAYALAM LETTER TTTA
+	{runeRange{0x0D41, 0x0D44}, wbprExtend},              // Mn   [4] MALAYALAM VOWEL SIGN U..MALAYALAM VOWEL SIGN VOCALIC RR
+	{runeRange{0x0D4E, 0x0D4E}, wbprALetter},             // Lo       MALAYALAM LETTER DOT REPH
+	{runeRange{0x0D62, 0x0D63}, wbprExtend},              // Mn   [2] MALAYALAM VOWEL SIGN VOCALIC L..MALAYALAM VOWEL SIGN VOCALIC LL
+	{runeRange{0x0D82, 0x0D83}, wbprExtend},              // Mc   [2] SINHALA SIGN ANUSVARAYA..SINHALA SIGN VISARGAYA
+	{runeRange{0x0DBD, 0x0DBD}, wbprALetter},             // Lo       SINHALA LETTER DANTAJA LAYANNA
+	{runeRange{0x0DD2, 0x0DD4}, wbprExtend},              // Mn   [3] SINHALA VOWEL SIGN KETTI IS-PILLA..SINHALA VOWEL SIGN KETTI PAA-PILLA
+	{runeRange{0x0DF2, 0x0DF3}, wbprExtend},              // Mc   [2] SINHALA VOWEL SIGN DIGA GAETTA-PILLA..SINHALA VOWEL SIGN DIGA GAYANUKITTA
+	{runeRange{0x0E50, 0x0E59}, wbprNumeric},             // Nd  [10] THAI DIGIT ZERO..THAI DIGIT NINE
+	{runeRange{0x0ED0, 0x0ED9}, wbprNumeric},             // Nd  [10] LAO DIGIT ZERO..LAO DIGIT NINE
+	{runeRange{0x0F35, 0x0F35}, wbprExtend},              // Mn       TIBETAN MARK NGAS BZUNG NYI ZLA
+	{runeRange{0x0F40, 0x0F47}, wbprALetter},             // Lo   [8] TIBETAN LETTER KA..TIBETAN LETTER JA
+	{runeRange{0x0F80, 0x0F84}, wbprExtend},              // Mn   [5] TIBETAN VOWEL SIGN REVERSED I..TIBETAN MARK HALANTA
+	{runeRange{0x0F99, 0x0FBC}, wbprExtend},              // Mn  [36] TIBETAN SUBJOINED LETTER NYA..TIBETAN SUBJOINED LETTER FIXED-FORM RA
+	{runeRange{0x1031, 0x1031}, wbprExtend},              // Mc       MYANMAR VOWEL SIGN E
+	{runeRange{0x103B, 0x103C}, wbprExtend},              // Mc   [2] MYANMAR CONSONANT SIGN MEDIAL YA..MYANMAR CONSONANT SIGN MEDIAL RA
+	{runeRange{0x1058, 0x1059}, wbprExtend},              // Mn   [2] MYANMAR VOWEL SIGN VOCALIC L..MYANMAR VOWEL SIGN VOCALIC LL
+	{runeRange{0x1071, 0x1074}, wbprExtend},              // Mn   [4] MYANMAR VOWEL SIGN GEBA KAREN I..MYANMAR VOWEL SIGN KAYAH EE
+	{runeRange{0x1087, 0x108C}, wbprExtend},              // Mc   [6] MYANMAR SIGN SHAN TONE-2..MYANMAR SIGN SHAN COUNCIL TONE-3
+	{runeRange{0x109A, 0x109C}, wbprExtend},              // Mc   [3] MYANMAR SIGN KHAMTI TONE-1..MYANMAR VOWEL SIGN AITON A
+	{runeRange{0x10CD, 0x10CD}, wbprALetter},             // L&       GEORGIAN CAPITAL LETTER AEN
+	{runeRange{0x1100, 0x1248}, wbprALetter},             // Lo [329] HANGUL CHOSEONG KIYEOK..ETHIOPIC SYLLABLE QWA
+	{runeRange{0x125A, 0x125D}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE QHWI..ETHIOPIC SYLLABLE QHWE
+	{runeRange{0x12B2, 0x12B5}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE KWI..ETHIOPIC SYLLABLE KWE
+	{runeRange{0x12C8, 0x12D6}, wbprALetter},             // Lo  [15] ETHIOPIC SYLLABLE WA..ETHIOPIC SYLLABLE PHARYNGEAL O
+	{runeRange{0x135D, 0x135F}, wbprExtend},              // Mn   [3] ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK..ETHIOPIC COMBINING GEMINATION MARK
+	{runeRange{0x1401, 0x166C}, wbprALetter},             // Lo [620] CANADIAN SYLLABICS E..CANADIAN SYLLABICS CARRIER TTSA
+	{runeRange{0x16A0, 0x16EA}, wbprALetter},             // Lo  [75] RUNIC LETTER FEHU FEOH FE F..RUNIC LETTER X
+	{runeRange{0x1712, 0x1714}, wbprExtend},              // Mn   [3] TAGALOG VOWEL SIGN I..TAGALOG SIGN VIRAMA
+	{runeRange{0x1734, 0x1734}, wbprExtend},              // Mc       HANUNOO SIGN PAMUDPOD
+	{runeRange{0x176E, 0x1770}, wbprALetter},             // Lo   [3] TAGBANWA LETTER LA..TAGBANWA LETTER SA
+	{runeRange{0x17B7, 0x17BD}, wbprExtend},              // Mn   [7] KHMER VOWEL SIGN I..KHMER VOWEL SIGN UA
+	{runeRange{0x17C9, 0x17D3}, wbprExtend},              // Mn  [11] KHMER SIGN MUUSIKATOAN..KHMER SIGN BATHAMASAT
+	{runeRange{0x180E, 0x180E}, wbprFormat},              // Cf       MONGOLIAN VOWEL SEPARATOR
+	{runeRange{0x1843, 0x1843}, wbprALetter},             // Lm       MONGOLIAN LETTER TODO LONG VOWEL SIGN
+	{runeRange{0x1887, 0x18A8}, wbprALetter},             // Lo  [34] MONGOLIAN LETTER ALI GALI A..MONGOLIAN LETTER MANCHU ALI GALI BHA
+	{runeRange{0x1900, 0x191E}, wbprALetter},             // Lo  [31] LIMBU VOWEL-CARRIER LETTER..LIMBU LETTER TRA
+	{runeRange{0x1929, 0x192B}, wbprExtend},              // Mc   [3] LIMBU SUBJOINED LETTER YA..LIMBU SUBJOINED LETTER WA
+	{runeRange{0x1939, 0x193B}, wbprExtend},              // Mn   [3] LIMBU SIGN MUKPHRENG..LIMBU SIGN SA-I
+	{runeRange{0x1A00, 0x1A16}, wbprALetter},             // Lo  [23] BUGINESE LETTER KA..BUGINESE LETTER HA
+	{runeRange{0x1A55, 0x1A55}, wbprExtend},              // Mc       TAI THAM CONSONANT SIGN MEDIAL RA
+	{runeRange{0x1A60, 0x1A60}, wbprExtend},              // Mn       TAI THAM SIGN SAKOT
+	{runeRange{0x1A65, 0x1A6C}, wbprExtend},              // Mn   [8] TAI THAM VOWEL SIGN I..TAI THAM VOWEL SIGN OA BELOW
+	{runeRange{0x1A80, 0x1A89}, wbprNumeric},             // Nd  [10] TAI THAM HORA DIGIT ZERO..TAI THAM HORA DIGIT NINE
+	{runeRange{0x1ABF, 0x1AF0}, wbprExtend},              // Mn  [50] COMBINING LATIN SMALL LETTER W BELOW..COMBINING DOUBLE COMMA ABOVE
 	{runeRange{0x1B34, 0x1B34}, wbprExtend},              // Mn       BALINESE SIGN REREKAN
 	{runeRange{0x1B3C, 0x1B3C}, wbprExtend},              // Mn       BALINESE VOWEL SIGN LA LENGA
 	{runeRange{0x1B45, 0x1B4C}, wbprALetter},             // Lo   [8] BALINESE LETTER KAF SASAK..BALINESE LETTER ARCHAIC JNYA
@@ -691,211 +691,205 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0xA708, 0xA716}, wbprALetter},             // Sk  [15] MODIFIER LETTER EXTRA-HIGH DOTTED TONE BAR..MODIFIER LETTER EXTRA-LOW LEFT-STEM TONE BAR
 	{runeRange{0xA770, 0xA770}, wbprALetter},             // Lm       MODIFIER LETTER US
 	{runeRange{0xA78B, 0xA78E}, wbprALetter},             // L&   [4] LATIN CAPITAL LETTER SALTILLO..LATIN SMALL LETTER L WITH RETROFLEX HOOK AND BELT
-	{runeRange{0xA7F5, 0xA7F6}, wbprALetter},             // L&   [2] LATIN CAPITAL LETTER REVERSED HALF H..LATIN SMALL LETTER REVERSED HALF H
-	{runeRange{0xA7FB, 0xA801}, wbprALetter},             // Lo   [7] LATIN EPIGRAPHIC LETTER REVERSED F..SYLOTI NAGRI LETTER I
-	{runeRange{0xA807, 0xA80A}, wbprALetter},             // Lo   [4] SYLOTI NAGRI LETTER KO..SYLOTI NAGRI LETTER GHO
-	{runeRange{0xA825, 0xA826}, wbprExtend},              // Mn   [2] SYLOTI NAGRI VOWEL SIGN U..SYLOTI NAGRI VOWEL SIGN E
-	{runeRange{0xA880, 0xA881}, wbprExtend},              // Mc   [2] SAURASHTRA SIGN ANUSVARA..SAURASHTRA SIGN VISARGA
-	{runeRange{0xA8D0, 0xA8D9}, wbprNumeric},             // Nd  [10] SAURASHTRA DIGIT ZERO..SAURASHTRA DIGIT NINE
-	{runeRange{0xA8FD, 0xA8FE}, wbprALetter},             // Lo   [2] DEVANAGARI JAIN OM..DEVANAGARI LETTER AY
-	{runeRange{0xA926, 0xA92D}, wbprExtend},              // Mn   [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
-	{runeRange{0xA960, 0xA97C}, wbprALetter},             // Lo  [29] HANGUL CHOSEONG TIKEUT-MIEUM..HANGUL CHOSEONG SSANGYEORINHIEUH
-	{runeRange{0xA9B3, 0xA9B3}, wbprExtend},              // Mn       JAVANESE SIGN CECAK TELU
-	{runeRange{0xA9BC, 0xA9BD}, wbprExtend},              // Mn   [2] JAVANESE VOWEL SIGN PEPET..JAVANESE CONSONANT SIGN KERET
-	{runeRange{0xA9E5, 0xA9E5}, wbprExtend},              // Mn       MYANMAR SIGN SHAN SAW
-	{runeRange{0xAA2F, 0xAA30}, wbprExtend},              // Mc   [2] CHAM VOWEL SIGN O..CHAM VOWEL SIGN AI
-	{runeRange{0xAA40, 0xAA42}, wbprALetter},             // Lo   [3] CHAM LETTER FINAL K..CHAM LETTER FINAL NG
-	{runeRange{0xAA4D, 0xAA4D}, wbprExtend},              // Mc       CHAM CONSONANT SIGN FINAL H
-	{runeRange{0xAA7D, 0xAA7D}, wbprExtend},              // Mc       MYANMAR SIGN TAI LAING TONE-5
-	{runeRange{0xAABE, 0xAABF}, wbprExtend},              // Mn   [2] TAI VIET VOWEL AM..TAI VIET TONE MAI EK
-	{runeRange{0xAAEC, 0xAAED}, wbprExtend},              // Mn   [2] MEETEI MAYEK VOWEL SIGN UU..MEETEI MAYEK VOWEL SIGN AAI
-	{runeRange{0xAAF5, 0xAAF5}, wbprExtend},              // Mc       MEETEI MAYEK VOWEL SIGN VISARGA
-	{runeRange{0xAB11, 0xAB16}, wbprALetter},             // Lo   [6] ETHIOPIC SYLLABLE DZU..ETHIOPIC SYLLABLE DZO
-	{runeRange{0xAB5B, 0xAB5B}, wbprALetter},             // Sk       MODIFIER BREVE WITH INVERTED BREVE
-	{runeRange{0xAB70, 0xABBF}, wbprALetter},             // L&  [80] CHEROKEE SMALL LETTER A..CHEROKEE SMALL LETTER YA
-	{runeRange{0xABE6, 0xABE7}, wbprExtend},              // Mc   [2] MEETEI MAYEK VOWEL SIGN YENAP..MEETEI MAYEK VOWEL SIGN SOUNAP
-	{runeRange{0xABED, 0xABED}, wbprExtend},              // Mn       MEETEI MAYEK APUN IYEK
-	{runeRange{0xD7CB, 0xD7FB}, wbprALetter},             // Lo  [49] HANGUL JONGSEONG NIEUN-RIEUL..HANGUL JONGSEONG PHIEUPH-THIEUTH
-	{runeRange{0xFB1E, 0xFB1E}, wbprExtend},              // Mn       HEBREW POINT JUDEO-SPANISH VARIKA
-	{runeRange{0xFB3E, 0xFB3E}, wbprHebrewLetter},        // Lo       HEBREW LETTER MEM WITH DAGESH
-	{runeRange{0xFB50, 0xFBB1}, wbprALetter},             // Lo  [98] ARABIC LETTER ALEF WASLA ISOLATED FORM..ARABIC LETTER YEH BARREE WITH HAMZA ABOVE FINAL FORM
-	{runeRange{0xFDF0, 0xFDFB}, wbprALetter},             // Lo  [12] ARABIC LIGATURE SALLA USED AS KORANIC STOP SIGN ISOLATED FORM..ARABIC LIGATURE JALLAJALALOUHOU
-	{runeRange{0xFE33, 0xFE34}, wbprExtendNumLet},        // Pc   [2] PRESENTATION FORM FOR VERTICAL LOW LINE..PRESENTATION FORM FOR VERTICAL WAVY LOW LINE
-	{runeRange{0xFE54, 0xFE54}, wbprMidNum},              // Po       SMALL SEMICOLON
+	{runeRange{0xA7F1, 0xA7F4}, wbprALetter},             // Lm   [4] MODIFIER LETTER CAPITAL S..MODIFIER LETTER CAPITAL Q
+	{runeRange{0xA7FA, 0xA7FA}, wbprALetter},             // L&       LATIN LETTER SMALL CAPITAL TURNED M
+	{runeRange{0xA806, 0xA806}, wbprExtend},              // Mn       SYLOTI NAGRI SIGN HASANTA
+	{runeRange{0xA823, 0xA824}, wbprExtend},              // Mc   [2] SYLOTI NAGRI VOWEL SIGN A..SYLOTI NAGRI VOWEL SIGN I
+	{runeRange{0xA840, 0xA873}, wbprALetter},             // Lo  [52] PHAGS-PA LETTER KA..PHAGS-PA LETTER CANDRABINDU
+	{runeRange{0xA8C4, 0xA8C5}, wbprExtend},              // Mn   [2] SAURASHTRA SIGN VIRAMA..SAURASHTRA SIGN CANDRABINDU
+	{runeRange{0xA8FB, 0xA8FB}, wbprALetter},             // Lo       DEVANAGARI HEADSTROKE
+	{runeRange{0xA90A, 0xA925}, wbprALetter},             // Lo  [28] KAYAH LI LETTER KA..KAYAH LI LETTER OO
+	{runeRange{0xA952, 0xA953}, wbprExtend},              // Mc   [2] REJANG CONSONANT SIGN H..REJANG VIRAMA
+	{runeRange{0xA984, 0xA9B2}, wbprALetter},             // Lo  [47] JAVANESE LETTER A..JAVANESE LETTER HA
+	{runeRange{0xA9BA, 0xA9BB}, wbprExtend},              // Mc   [2] JAVANESE VOWEL SIGN TALING..JAVANESE VOWEL SIGN DIRGA MURE
+	{runeRange{0xA9D0, 0xA9D9}, wbprNumeric},             // Nd  [10] JAVANESE DIGIT ZERO..JAVANESE DIGIT NINE
+	{runeRange{0xAA29, 0xAA2E}, wbprExtend},              // Mn   [6] CHAM VOWEL SIGN AA..CHAM VOWEL SIGN OE
+	{runeRange{0xAA35, 0xAA36}, wbprExtend},              // Mn   [2] CHAM CONSONANT SIGN LA..CHAM CONSONANT SIGN WA
+	{runeRange{0xAA4C, 0xAA4C}, wbprExtend},              // Mn       CHAM CONSONANT SIGN FINAL M
+	{runeRange{0xAA7C, 0xAA7C}, wbprExtend},              // Mn       MYANMAR SIGN TAI LAING TONE-2
+	{runeRange{0xAAB7, 0xAAB8}, wbprExtend},              // Mn   [2] TAI VIET MAI KHIT..TAI VIET VOWEL IA
+	{runeRange{0xAAEB, 0xAAEB}, wbprExtend},              // Mc       MEETEI MAYEK VOWEL SIGN II
+	{runeRange{0xAAF3, 0xAAF4}, wbprALetter},             // Lm   [2] MEETEI MAYEK SYLLABLE REPETITION MARK..MEETEI MAYEK WORD REPETITION MARK
+	{runeRange{0xAB09, 0xAB0E}, wbprALetter},             // Lo   [6] ETHIOPIC SYLLABLE DDHU..ETHIOPIC SYLLABLE DDHO
+	{runeRange{0xAB30, 0xAB5A}, wbprALetter},             // L&  [43] LATIN SMALL LETTER BARRED ALPHA..LATIN SMALL LETTER Y WITH SHORT RIGHT LEG
+	{runeRange{0xAB69, 0xAB69}, wbprALetter},             // Lm       MODIFIER LETTER SMALL TURNED W
+	{runeRange{0xABE3, 0xABE4}, wbprExtend},              // Mc   [2] MEETEI MAYEK VOWEL SIGN ONAP..MEETEI MAYEK VOWEL SIGN INAP
+	{runeRange{0xABE9, 0xABEA}, wbprExtend},              // Mc   [2] MEETEI MAYEK VOWEL SIGN CHEINAP..MEETEI MAYEK VOWEL SIGN NUNG
+	{runeRange{0xAC00, 0xD7A3}, wbprALetter},             // Lo [11172] HANGUL SYLLABLE GA..HANGUL SYLLABLE HIH
+	{runeRange{0xFB13, 0xFB17}, wbprALetter},             // L&   [5] ARMENIAN SMALL LIGATURE MEN NOW..ARMENIAN SMALL LIGATURE MEN XEH
+	{runeRange{0xFB2A, 0xFB36}, wbprHebrewLetter},        // Lo  [13] HEBREW LETTER SHIN WITH SHIN DOT..HEBREW LETTER ZAYIN WITH DAGESH
+	{runeRange{0xFB43, 0xFB44}, wbprHebrewLetter},        // Lo   [2] HEBREW LETTER FINAL PE WITH DAGESH..HEBREW LETTER PE WITH DAGESH
+	{runeRange{0xFD50, 0xFD8F}, wbprALetter},             // Lo  [64] ARABIC LIGATURE TEH WITH JEEM WITH MEEM INITIAL FORM..ARABIC LIGATURE MEEM WITH KHAH WITH MEEM INITIAL FORM
+	{runeRange{0xFE13, 0xFE13}, wbprMidLetter},           // Po       PRESENTATION FORM FOR VERTICAL COLON
+	{runeRange{0xFE50, 0xFE50}, wbprMidNum},              // Po       SMALL COMMA
 	{runeRange{0xFE70, 0xFE74}, wbprALetter},             // Lo   [5] ARABIC FATHATAN ISOLATED FORM..ARABIC KASRATAN ISOLATED FORM
-	{runeRange{0xFEFF, 0xFEFF}, wbprFormat},              // Cf       ZERO WIDTH NO-BREAK SPACE
 	{runeRange{0xFF0C, 0xFF0C}, wbprMidNum},              // Po       FULLWIDTH COMMA
-	{runeRange{0xFF10, 0xFF19}, wbprNumeric},             // Nd  [10] FULLWIDTH DIGIT ZERO..FULLWIDTH DIGIT NINE
 	{runeRange{0xFF1B, 0xFF1B}, wbprMidNum},              // Po       FULLWIDTH SEMICOLON
-	{runeRange{0xFF3F, 0xFF3F}, wbprExtendNumLet},        // Pc       FULLWIDTH LOW LINE
 	{runeRange{0xFF66, 0xFF6F}, wbprKatakana},            // Lo  [10] HALFWIDTH KATAKANA LETTER WO..HALFWIDTH KATAKANA LETTER SMALL TU
-	{runeRange{0xFF71, 0xFF9D}, wbprKatakana},            // Lo  [45] HALFWIDTH KATAKANA LETTER A..HALFWIDTH KATAKANA LETTER N
 	{runeRange{0xFFA0, 0xFFBE}, wbprALetter},             // Lo  [31] HALFWIDTH HANGUL FILLER..HALFWIDTH HANGUL LETTER HIEUH
-	{runeRange{0xFFCA, 0xFFCF}, wbprALetter},             // Lo   [6] HALFWIDTH HANGUL LETTER YEO..HALFWIDTH HANGUL LETTER OE
 	{runeRange{0xFFDA, 0xFFDC}, wbprALetter},             // Lo   [3] HALFWIDTH HANGUL LETTER EU..HALFWIDTH HANGUL LETTER I
-	{runeRange{0x10000, 0x1000B}, wbprALetter},           // Lo  [12] LINEAR B SYLLABLE B008 A..LINEAR B SYLLABLE B046 JE
 	{runeRange{0x10028, 0x1003A}, wbprALetter},           // Lo  [19] LINEAR B SYLLABLE B060 RA..LINEAR B SYLLABLE B042 WO
-	{runeRange{0x1003F, 0x1004D}, wbprALetter},           // Lo  [15] LINEAR B SYLLABLE B020 ZO..LINEAR B SYLLABLE B091 TWO
 	{runeRange{0x10080, 0x100FA}, wbprALetter},           // Lo [123] LINEAR B IDEOGRAM B100 MAN..LINEAR B IDEOGRAM VESSEL B305
-	{runeRange{0x101FD, 0x101FD}, wbprExtend},            // Mn       PHAISTOS DISC SIGN COMBINING OBLIQUE STROKE
-	{runeRange{0x102A0, 0x102D0}, wbprALetter},           // Lo  [49] CARIAN LETTER A..CARIAN LETTER UUU3
-	{runeRange{0x10300, 0x1031F}, wbprALetter},           // Lo  [32] OLD ITALIC LETTER A..OLD ITALIC LETTER ESS
-	{runeRange{0x10341, 0x10341}, wbprALetter},           // Nl       GOTHIC LETTER NINETY
-	{runeRange{0x1034A, 0x1034A}, wbprALetter},           // Nl       GOTHIC LETTER NINE HUNDRED
-	{runeRange{0x10376, 0x1037A}, wbprExtend},            // Mn   [5] COMBINING OLD PERMIC LETTER AN..COMBINING OLD PERMIC LETTER SII
-	{runeRange{0x103A0, 0x103C3}, wbprALetter},           // Lo  [36] OLD PERSIAN SIGN A..OLD PERSIAN SIGN HA
-	{runeRange{0x103D1, 0x103D5}, wbprALetter},           // Nl   [5] OLD PERSIAN NUMBER ONE..OLD PERSIAN NUMBER HUNDRED
-	{runeRange{0x10450, 0x1049D}, wbprALetter},           // Lo  [78] SHAVIAN LETTER PEEP..OSMANYA LETTER OO
-	{runeRange{0x104B0, 0x104D3}, wbprALetter},           // L&  [36] OSAGE CAPITAL LETTER A..OSAGE CAPITAL LETTER ZHA
-	{runeRange{0x10500, 0x10527}, wbprALetter},           // Lo  [40] ELBASAN LETTER A..ELBASAN LETTER KHE
-	{runeRange{0x10570, 0x1057A}, wbprALetter},           // L&  [11] VITHKUQI CAPITAL LETTER A..VITHKUQI CAPITAL LETTER GA
-	{runeRange{0x1058C, 0x10592}, wbprALetter},           // L&   [7] VITHKUQI CAPITAL LETTER SE..VITHKUQI CAPITAL LETTER XE
-	{runeRange{0x10597, 0x105A1}, wbprALetter},           // L&  [11] VITHKUQI SMALL LETTER A..VITHKUQI SMALL LETTER GA
-	{runeRange{0x105B3, 0x105B9}, wbprALetter},           // L&   [7] VITHKUQI SMALL LETTER SE..VITHKUQI SMALL LETTER XE
-	{runeRange{0x105C0, 0x105F3}, wbprALetter},           // Lo  [52] TODHRI LETTER A..TODHRI LETTER OO
-	{runeRange{0x10740, 0x10755}, wbprALetter},           // Lo  [22] LINEAR A SIGN A701 A..LINEAR A SIGN A732 JE
-	{runeRange{0x10780, 0x10785}, wbprALetter},           // Lm   [6] MODIFIER LETTER SMALL CAPITAL AA..MODIFIER LETTER SMALL B WITH HOOK
-	{runeRange{0x107B2, 0x107BA}, wbprALetter},           // Lm   [9] MODIFIER LETTER SMALL CAPITAL Y..MODIFIER LETTER SMALL S WITH CURL
-	{runeRange{0x10808, 0x10808}, wbprALetter},           // Lo       CYPRIOT SYLLABLE JO
-	{runeRange{0x10837, 0x10838}, wbprALetter},           // Lo   [2] CYPRIOT SYLLABLE XA..CYPRIOT SYLLABLE XE
-	{runeRange{0x1083F, 0x10855}, wbprALetter},           // Lo  [23] CYPRIOT SYLLABLE ZO..IMPERIAL ARAMAIC LETTER TAW
-	{runeRange{0x10880, 0x1089E}, wbprALetter},           // Lo  [31] NABATAEAN LETTER FINAL ALEPH..NABATAEAN LETTER TAW
-	{runeRange{0x108F4, 0x108F5}, wbprALetter},           // Lo   [2] HATRAN LETTER SHIN..HATRAN LETTER TAW
-	{runeRange{0x10920, 0x10939}, wbprALetter},           // Lo  [26] LYDIAN LETTER A..LYDIAN LETTER C
-	{runeRange{0x10980, 0x109B7}, wbprALetter},           // Lo  [56] MEROITIC HIEROGLYPHIC LETTER A..MEROITIC CURSIVE LETTER DA
-	{runeRange{0x10A00, 0x10A00}, wbprALetter},           // Lo       KHAROSHTHI LETTER A
-	{runeRange{0x10A05, 0x10A06}, wbprExtend},            // Mn   [2] KHAROSHTHI VOWEL SIGN E..KHAROSHTHI VOWEL SIGN O
-	{runeRange{0x10A10, 0x10A13}, wbprALetter},           // Lo   [4] KHAROSHTHI LETTER KA..KHAROSHTHI LETTER GHA
-	{runeRange{0x10A19, 0x10A35}, wbprALetter},           // Lo  [29] KHAROSHTHI LETTER NYA..KHAROSHTHI LETTER VHA
-	{runeRange{0x10A3F, 0x10A3F}, wbprExtend},            // Mn       KHAROSHTHI VIRAMA
-	{runeRange{0x10A80, 0x10A9C}, wbprALetter},           // Lo  [29] OLD NORTH ARABIAN LETTER HEH..OLD NORTH ARABIAN LETTER ZAH
-	{runeRange{0x10AC9, 0x10AE4}, wbprALetter},           // Lo  [28] MANICHAEAN LETTER ZAYIN..MANICHAEAN LETTER TAW
-	{runeRange{0x10B00, 0x10B35}, wbprALetter},           // Lo  [54] AVESTAN LETTER A..AVESTAN LETTER HE
-	{runeRange{0x10B60, 0x10B72}, wbprALetter},           // Lo  [19] INSCRIPTIONAL PAHLAVI LETTER ALEPH..INSCRIPTIONAL PAHLAVI LETTER TAW
-	{runeRange{0x10C00, 0x10C48}, wbprALetter},           // Lo  [73] OLD TURKIC LETTER ORKHON A..OLD TURKIC LETTER ORKHON BASH
-	{runeRange{0x10CC0, 0x10CF2}, wbprALetter},           // L&  [51] OLD HUNGARIAN SMALL LETTER A..OLD HUNGARIAN SMALL LETTER US
-	{runeRange{0x10D24, 0x10D27}, wbprExtend},            // Mn   [4] HANIFI ROHINGYA SIGN HARBAHAY..HANIFI ROHINGYA SIGN TASSI
-	{runeRange{0x10D40, 0x10D49}, wbprNumeric},           // Nd  [10] GARAY DIGIT ZERO..GARAY DIGIT NINE
-	{runeRange{0x10D4E, 0x10D4E}, wbprALetter},           // Lm       GARAY VOWEL LENGTH MARK
-	{runeRange{0x10D50, 0x10D65}, wbprALetter},           // L&  [22] GARAY CAPITAL LETTER A..GARAY CAPITAL LETTER OLD NA
-	{runeRange{0x10D6F, 0x10D6F}, wbprALetter},           // Lm       GARAY REDUPLICATION MARK
-	{runeRange{0x10E80, 0x10EA9}, wbprALetter},           // Lo  [42] YEZIDI LETTER ELIF..YEZIDI LETTER ET
-	{runeRange{0x10EB0, 0x10EB1}, wbprALetter},           // Lo   [2] YEZIDI LETTER LAM WITH DOT ABOVE..YEZIDI LETTER YOT WITH CIRCUMFLEX ABOVE
-	{runeRange{0x10EC5, 0x10EC5}, wbprALetter},           // Lm       ARABIC SMALL YEH BARREE WITH TWO DOTS BELOW
-	{runeRange{0x10EFA, 0x10EFF}, wbprExtend},            // Mn   [6] ARABIC DOUBLE VERTICAL BAR BELOW..ARABIC SMALL LOW WORD MADDA
-	{runeRange{0x10F27, 0x10F27}, wbprALetter},           // Lo       OLD SOGDIAN LIGATURE AYIN-DALETH
-	{runeRange{0x10F46, 0x10F50}, wbprExtend},            // Mn  [11] SOGDIAN COMBINING DOT BELOW..SOGDIAN COMBINING STROKE BELOW
-	{runeRange{0x10F82, 0x10F85}, wbprExtend},            // Mn   [4] OLD UYGHUR COMBINING DOT ABOVE..OLD UYGHUR COMBINING TWO DOTS BELOW
-	{runeRange{0x10FE0, 0x10FF6}, wbprALetter},           // Lo  [23] ELYMAIC LETTER ALEPH..ELYMAIC LIGATURE ZAYIN-YODH
-	{runeRange{0x11001, 0x11001}, wbprExtend},            // Mn       BRAHMI SIGN ANUSVARA
-	{runeRange{0x11003, 0x11037}, wbprALetter},           // Lo  [53] BRAHMI SIGN JIHVAMULIYA..BRAHMI LETTER OLD TAMIL NNNA
-	{runeRange{0x11066, 0x1106F}, wbprNumeric},           // Nd  [10] BRAHMI DIGIT ZERO..BRAHMI DIGIT NINE
-	{runeRange{0x11071, 0x11072}, wbprALetter},           // Lo   [2] BRAHMI LETTER OLD TAMIL SHORT E..BRAHMI LETTER OLD TAMIL SHORT O
-	{runeRange{0x11075, 0x11075}, wbprALetter},           // Lo       BRAHMI LETTER OLD TAMIL LLA
-	{runeRange{0x11082, 0x11082}, wbprExtend},            // Mc       KAITHI SIGN VISARGA
-	{runeRange{0x110B0, 0x110B2}, wbprExtend},            // Mc   [3] KAITHI VOWEL SIGN AA..KAITHI VOWEL SIGN II
-	{runeRange{0x110B7, 0x110B8}, wbprExtend},            // Mc   [2] KAITHI VOWEL SIGN O..KAITHI VOWEL SIGN AU
-	{runeRange{0x110BD, 0x110BD}, wbprNumeric},           // Cf       KAITHI NUMBER SIGN
-	{runeRange{0x110CD, 0x110CD}, wbprNumeric},           // Cf       KAITHI NUMBER SIGN ABOVE
-	{runeRange{0x110F0, 0x110F9}, wbprNumeric},           // Nd  [10] SORA SOMPENG DIGIT ZERO..SORA SOMPENG DIGIT NINE
-	{runeRange{0x11103, 0x11126}, wbprALetter},           // Lo  [36] CHAKMA LETTER AA..CHAKMA LETTER HAA
-	{runeRange{0x1112C, 0x1112C}, wbprExtend},            // Mc       CHAKMA VOWEL SIGN E
-	{runeRange{0x11136, 0x1113F}, wbprNumeric},           // Nd  [10] CHAKMA DIGIT ZERO..CHAKMA DIGIT NINE
-	{runeRange{0x11145, 0x11146}, wbprExtend},            // Mc   [2] CHAKMA VOWEL SIGN AA..CHAKMA VOWEL SIGN EI
-	{runeRange{0x11150, 0x11172}, wbprALetter},           // Lo  [35] MAHAJANI LETTER A..MAHAJANI LETTER RRA
-	{runeRange{0x11176, 0x11176}, wbprALetter},           // Lo       MAHAJANI LIGATURE SHRI
-	{runeRange{0x11182, 0x11182}, wbprExtend},            // Mc       SHARADA SIGN VISARGA
-	{runeRange{0x111B3, 0x111B5}, wbprExtend},            // Mc   [3] SHARADA VOWEL SIGN AA..SHARADA VOWEL SIGN II
-	{runeRange{0x111BF, 0x111C0}, wbprExtend},            // Mc   [2] SHARADA VOWEL SIGN AU..SHARADA SIGN VIRAMA
-	{runeRange{0x111C9, 0x111CC}, wbprExtend},            // Mn   [4] SHARADA SANDHI MARK..SHARADA EXTRA SHORT VOWEL MARK
-	{runeRange{0x111CF, 0x111CF}, wbprExtend},            // Mn       SHARADA SIGN INVERTED CANDRABINDU
-	{runeRange{0x111DA, 0x111DA}, wbprALetter},           // Lo       SHARADA EKAM
-	{runeRange{0x11200, 0x11211}, wbprALetter},           // Lo  [18] KHOJKI LETTER A..KHOJKI LETTER JJA
-	{runeRange{0x1122C, 0x1122E}, wbprExtend},            // Mc   [3] KHOJKI VOWEL SIGN AA..KHOJKI VOWEL SIGN II
-	{runeRange{0x11232, 0x11233}, wbprExtend},            // Mc   [2] KHOJKI VOWEL SIGN O..KHOJKI VOWEL SIGN AU
-	{runeRange{0x11235, 0x11235}, wbprExtend},            // Mc       KHOJKI SIGN VIRAMA
-	{runeRange{0x1123E, 0x1123E}, wbprExtend},            // Mn       KHOJKI SIGN SUKUN
-	{runeRange{0x11241, 0x11241}, wbprExtend},            // Mn       KHOJKI VOWEL SIGN VOCALIC R
-	{runeRange{0x11288, 0x11288}, wbprALetter},           // Lo       MULTANI LETTER GHA
-	{runeRange{0x1128F, 0x1129D}, wbprALetter},           // Lo  [15] MULTANI LETTER NYA..MULTANI LETTER BA
-	{runeRange{0x112B0, 0x112DE}, wbprALetter},           // Lo  [47] KHUDAWADI LETTER A..KHUDAWADI LETTER HA
-	{runeRange{0x112E0, 0x112E2}, wbprExtend},            // Mc   [3] KHUDAWADI VOWEL SIGN AA..KHUDAWADI VOWEL SIGN II
-	{runeRange{0x112F0, 0x112F9}, wbprNumeric},           // Nd  [10] KHUDAWADI DIGIT ZERO..KHUDAWADI DIGIT NINE
-	{runeRange{0x11302, 0x11303}, wbprExtend},            // Mc   [2] GRANTHA SIGN ANUSVARA..GRANTHA SIGN VISARGA
-	{runeRange{0x1130F, 0x11310}, wbprALetter},           // Lo   [2] GRANTHA LETTER EE..GRANTHA LETTER AI
-	{runeRange{0x1132A, 0x11330}, wbprALetter},           // Lo   [7] GRANTHA LETTER PA..GRANTHA LETTER RA
-	{runeRange{0x11335, 0x11339}, wbprALetter},           // Lo   [5] GRANTHA LETTER VA..GRANTHA LETTER HA
-	{runeRange{0x1133D, 0x1133D}, wbprALetter},           // Lo       GRANTHA SIGN AVAGRAHA
-	{runeRange{0x11340, 0x11340}, wbprExtend},            // Mn       GRANTHA VOWEL SIGN II
-	{runeRange{0x11347, 0x11348}, wbprExtend},            // Mc   [2] GRANTHA VOWEL SIGN EE..GRANTHA VOWEL SIGN AI
-	{runeRange{0x11350, 0x11350}, wbprALetter},           // Lo       GRANTHA OM
-	{runeRange{0x1135D, 0x11361}, wbprALetter},           // Lo   [5] GRANTHA SIGN PLUTA..GRANTHA LETTER VOCALIC LL
-	{runeRange{0x11366, 0x1136C}, wbprExtend},            // Mn   [7] COMBINING GRANTHA DIGIT ZERO..COMBINING GRANTHA DIGIT SIX
-	{runeRange{0x11380, 0x11389}, wbprALetter},           // Lo  [10] TULU-TIGALARI LETTER A..TULU-TIGALARI LETTER VOCALIC LL
-	{runeRange{0x1138E, 0x1138E}, wbprALetter},           // Lo       TULU-TIGALARI LETTER AI
-	{runeRange{0x113B7, 0x113B7}, wbprALetter},           // Lo       TULU-TIGALARI SIGN AVAGRAHA
-	{runeRange{0x113BB, 0x113C0}, wbprExtend},            // Mn   [6] TULU-TIGALARI VOWEL SIGN U..TULU-TIGALARI VOWEL SIGN VOCALIC LL
-	{runeRange{0x113C5, 0x113C5}, wbprExtend},            // Mc       TULU-TIGALARI VOWEL SIGN AI
-	{runeRange{0x113CC, 0x113CD}, wbprExtend},            // Mc   [2] TULU-TIGALARI SIGN ANUSVARA..TULU-TIGALARI SIGN VISARGA
-	{runeRange{0x113CF, 0x113CF}, wbprExtend},            // Mc       TULU-TIGALARI SIGN LOOPED VIRAMA
-	{runeRange{0x113D1, 0x113D1}, wbprALetter},           // Lo       TULU-TIGALARI REPHA
-	{runeRange{0x113D3, 0x113D3}, wbprALetter},           // Lo       TULU-TIGALARI SIGN PLUTA
-	{runeRange{0x11400, 0x11434}, wbprALetter},           // Lo  [53] NEWA LETTER A..NEWA LETTER HA
-	{runeRange{0x11438, 0x1143F}, wbprExtend},            // Mn   [8] NEWA VOWEL SIGN U..NEWA VOWEL SIGN AI
-	{runeRange{0x11442, 0x11444}, wbprExtend},            // Mn   [3] NEWA SIGN VIRAMA..NEWA SIGN ANUSVARA
-	{runeRange{0x11446, 0x11446}, wbprExtend},            // Mn       NEWA SIGN NUKTA
-	{runeRange{0x11450, 0x11459}, wbprNumeric},           // Nd  [10] NEWA DIGIT ZERO..NEWA DIGIT NINE
-	{runeRange{0x1145F, 0x11461}, wbprALetter},           // Lo   [3] NEWA LETTER VEDIC ANUSVARA..NEWA SIGN UPADHMANIYA
-	{runeRange{0x114B0, 0x114B2}, wbprExtend},            // Mc   [3] TIRHUTA VOWEL SIGN AA..TIRHUTA VOWEL SIGN II
-	{runeRange{0x114B9, 0x114B9}, wbprExtend},            // Mc       TIRHUTA VOWEL SIGN E
-	{runeRange{0x114BB, 0x114BE}, wbprExtend},            // Mc   [4] TIRHUTA VOWEL SIGN AI..TIRHUTA VOWEL SIGN AU
-	{runeRange{0x114C1, 0x114C1}, wbprExtend},            // Mc       TIRHUTA SIGN VISARGA
-	{runeRange{0x114C4, 0x114C5}, wbprALetter},           // Lo   [2] TIRHUTA SIGN AVAGRAHA..TIRHUTA GVANG
-	{runeRange{0x114D0, 0x114D9}, wbprNumeric},           // Nd  [10] TIRHUTA DIGIT ZERO..TIRHUTA DIGIT NINE
-	{runeRange{0x115AF, 0x115B1}, wbprExtend},            // Mc   [3] SIDDHAM VOWEL SIGN AA..SIDDHAM VOWEL SIGN II
-	{runeRange{0x115B8, 0x115BB}, wbprExtend},            // Mc   [4] SIDDHAM VOWEL SIGN E..SIDDHAM VOWEL SIGN AU
-	{runeRange{0x115BE, 0x115BE}, wbprExtend},            // Mc       SIDDHAM SIGN VISARGA
-	{runeRange{0x115D8, 0x115DB}, wbprALetter},           // Lo   [4] SIDDHAM LETTER THREE-CIRCLE ALTERNATE I..SIDDHAM LETTER ALTERNATE U
-	{runeRange{0x11600, 0x1162F}, wbprALetter},           // Lo  [48] MODI LETTER A..MODI LETTER LLA
-	{runeRange{0x11633, 0x1163A}, wbprExtend},            // Mn   [8] MODI VOWEL SIGN U..MODI VOWEL SIGN AI
-	{runeRange{0x1163D, 0x1163D}, wbprExtend},            // Mn       MODI SIGN ANUSVARA
-	{runeRange{0x1163F, 0x11640}, wbprExtend},            // Mn   [2] MODI SIGN VIRAMA..MODI SIGN ARDHACANDRA
-	{runeRange{0x11650, 0x11659}, wbprNumeric},           // Nd  [10] MODI DIGIT ZERO..MODI DIGIT NINE
-	{runeRange{0x116AB, 0x116AB}, wbprExtend},            // Mn       TAKRI SIGN ANUSVARA
-	{runeRange{0x116AD, 0x116AD}, wbprExtend},            // Mn       TAKRI VOWEL SIGN AA
-	{runeRange{0x116B0, 0x116B5}, wbprExtend},            // Mn   [6] TAKRI VOWEL SIGN U..TAKRI VOWEL SIGN AU
-	{runeRange{0x116B7, 0x116B7}, wbprExtend},            // Mn       TAKRI SIGN NUKTA
-	{runeRange{0x116C0, 0x116C9}, wbprNumeric},           // Nd  [10] TAKRI DIGIT ZERO..TAKRI DIGIT NINE
-	{runeRange{0x1171D, 0x1171D}, wbprExtend},            // Mn       AHOM CONSONANT SIGN MEDIAL LA
-	{runeRange{0x1171F, 0x1171F}, wbprExtend},            // Mn       AHOM CONSONANT SIGN MEDIAL LIGATING RA
-	{runeRange{0x11722, 0x11725}, wbprExtend},            // Mn   [4] AHOM VOWEL SIGN I..AHOM VOWEL SIGN UU
-	{runeRange{0x11727, 0x1172B}, wbprExtend},            // Mn   [5] AHOM VOWEL SIGN AW..AHOM SIGN KILLER
-	{runeRange{0x11800, 0x1182B}, wbprALetter},           // Lo  [44] DOGRA LETTER A..DOGRA LETTER RRA
-	{runeRange{0x1182F, 0x11837}, wbprExtend},            // Mn   [9] DOGRA VOWEL SIGN U..DOGRA SIGN ANUSVARA
-	{runeRange{0x11839, 0x1183A}, wbprExtend},            // Mn   [2] DOGRA SIGN VIRAMA..DOGRA SIGN NUKTA
-	{runeRange{0x118E0, 0x118E9}, wbprNumeric},           // Nd  [10] WARANG CITI DIGIT ZERO..WARANG CITI DIGIT NINE
-	{runeRange{0x11909, 0x11909}, wbprALetter},           // Lo       DIVES AKURU LETTER O
-	{runeRange{0x11915, 0x11916}, wbprALetter},           // Lo   [2] DIVES AKURU LETTER NYA..DIVES AKURU LETTER TTA
-	{runeRange{0x11930, 0x11935}, wbprExtend},            // Mc   [6] DIVES AKURU VOWEL SIGN AA..DIVES AKURU VOWEL SIGN E
-	{runeRange{0x1193B, 0x1193C}, wbprExtend},            // Mn   [2] DIVES AKURU SIGN ANUSVARA..DIVES AKURU SIGN CANDRABINDU
-	{runeRange{0x1193E, 0x1193E}, wbprExtend},            // Mn       DIVES AKURU VIRAMA
-	{runeRange{0x11940, 0x11940}, wbprExtend},            // Mc       DIVES AKURU MEDIAL YA
-	{runeRange{0x11942, 0x11942}, wbprExtend},            // Mc       DIVES AKURU MEDIAL RA
-	{runeRange{0x11950, 0x11959}, wbprNumeric},           // Nd  [10] DIVES AKURU DIGIT ZERO..DIVES AKURU DIGIT NINE
-	{runeRange{0x119AA, 0x119D0}, wbprALetter},           // Lo  [39] NANDINAGARI LETTER E..NANDINAGARI LETTER RRA
-	{runeRange{0x119D4, 0x119D7}, wbprExtend},            // Mn   [4] NANDINAGARI VOWEL SIGN U..NANDINAGARI VOWEL SIGN VOCALIC RR
-	{runeRange{0x119DC, 0x119DF}, wbprExtend},            // Mc   [4] NANDINAGARI VOWEL SIGN O..NANDINAGARI SIGN VISARGA
-	{runeRange{0x119E1, 0x119E1}, wbprALetter},           // Lo       NANDINAGARI SIGN AVAGRAHA
-	{runeRange{0x119E4, 0x119E4}, wbprExtend},            // Mc       NANDINAGARI VOWEL SIGN PRISHTHAMATRA E
-	{runeRange{0x11A01, 0x11A0A}, wbprExtend},            // Mn  [10] ZANABAZAR SQUARE VOWEL SIGN I..ZANABAZAR SQUARE VOWEL LENGTH MARK
-	{runeRange{0x11A33, 0x11A38}, wbprExtend},            // Mn   [6] ZANABAZAR SQUARE FINAL CONSONANT MARK..ZANABAZAR SQUARE SIGN ANUSVARA
-	{runeRange{0x11A3A, 0x11A3A}, wbprALetter},           // Lo       ZANABAZAR SQUARE CLUSTER-INITIAL LETTER RA
-	{runeRange{0x11A47, 0x11A47}, wbprExtend},            // Mn       ZANABAZAR SQUARE SUBJOINER
-	{runeRange{0x11A51, 0x11A56}, wbprExtend},            // Mn   [6] SOYOMBO VOWEL SIGN I..SOYOMBO VOWEL SIGN OE
-	{runeRange{0x11A59, 0x11A5B}, wbprExtend},            // Mn   [3] SOYOMBO VOWEL SIGN VOCALIC R..SOYOMBO VOWEL LENGTH MARK
-	{runeRange{0x11A8A, 0x11A96}, wbprExtend},            // Mn  [13] SOYOMBO FINAL CONSONANT SIGN G..SOYOMBO SIGN ANUSVARA
-	{runeRange{0x11A98, 0x11A99}, wbprExtend},            // Mn   [2] SOYOMBO GEMINATION MARK..SOYOMBO SUBJOINER
-	{runeRange{0x11AB0, 0x11AF8}, wbprALetter},           // Lo  [73] CANADIAN SYLLABICS NATTILIK HI..PAU CIN HAU GLOTTAL STOP FINAL
+	{runeRange{0x10280, 0x1029C}, wbprALetter},           // Lo  [29] LYCIAN LETTER A..LYCIAN LETTER X
+	{runeRange{0x102E0, 0x102E0}, wbprExtend},            // Mn       COPTIC EPACT THOUSANDS MARK
+	{runeRange{0x1032D, 0x10340}, wbprALetter},           // Lo  [20] OLD ITALIC LETTER YE..GOTHIC LETTER PAIRTHRA
+	{runeRange{0x10342, 0x10349}, wbprALetter},           // Lo   [8] GOTHIC LETTER RAIDA..GOTHIC LETTER OTHAL
+	{runeRange{0x10350, 0x10375}, wbprALetter},           // Lo  [38] OLD PERMIC LETTER AN..OLD PERMIC LETTER IA
+	{runeRange{0x10380, 0x1039D}, wbprALetter},           // Lo  [30] UGARITIC LETTER ALPA..UGARITIC LETTER SSU
+	{runeRange{0x103C8, 0x103CF}, wbprALetter},           // Lo   [8] OLD PERSIAN SIGN AURAMAZDAA..OLD PERSIAN SIGN BUUMISH
+	{runeRange{0x10400, 0x1044F}, wbprALetter},           // L&  [80] DESERET CAPITAL LETTER LONG I..DESERET SMALL LETTER EW
+	{runeRange{0x104A0, 0x104A9}, wbprNumeric},           // Nd  [10] OSMANYA DIGIT ZERO..OSMANYA DIGIT NINE
+	{runeRange{0x104D8, 0x104FB}, wbprALetter},           // L&  [36] OSAGE SMALL LETTER A..OSAGE SMALL LETTER ZHA
+	{runeRange{0x10530, 0x10563}, wbprALetter},           // Lo  [52] CAUCASIAN ALBANIAN LETTER ALT..CAUCASIAN ALBANIAN LETTER KIW
+	{runeRange{0x1057C, 0x1058A}, wbprALetter},           // L&  [15] VITHKUQI CAPITAL LETTER HA..VITHKUQI CAPITAL LETTER RE
+	{runeRange{0x10594, 0x10595}, wbprALetter},           // L&   [2] VITHKUQI CAPITAL LETTER Y..VITHKUQI CAPITAL LETTER ZE
+	{runeRange{0x105A3, 0x105B1}, wbprALetter},           // L&  [15] VITHKUQI SMALL LETTER HA..VITHKUQI SMALL LETTER RE
+	{runeRange{0x105BB, 0x105BC}, wbprALetter},           // L&   [2] VITHKUQI SMALL LETTER Y..VITHKUQI SMALL LETTER ZE
+	{runeRange{0x10600, 0x10736}, wbprALetter},           // Lo [311] LINEAR A SIGN AB001..LINEAR A SIGN A664
+	{runeRange{0x10760, 0x10767}, wbprALetter},           // Lo   [8] LINEAR A SIGN A800..LINEAR A SIGN A807
+	{runeRange{0x10787, 0x107B0}, wbprALetter},           // Lm  [42] MODIFIER LETTER SMALL DZ DIGRAPH..MODIFIER LETTER SMALL V WITH RIGHT HOOK
+	{runeRange{0x10800, 0x10805}, wbprALetter},           // Lo   [6] CYPRIOT SYLLABLE A..CYPRIOT SYLLABLE JA
+	{runeRange{0x1080A, 0x10835}, wbprALetter},           // Lo  [44] CYPRIOT SYLLABLE KA..CYPRIOT SYLLABLE WO
+	{runeRange{0x1083C, 0x1083C}, wbprALetter},           // Lo       CYPRIOT SYLLABLE ZA
+	{runeRange{0x10860, 0x10876}, wbprALetter},           // Lo  [23] PALMYRENE LETTER ALEPH..PALMYRENE LETTER TAW
+	{runeRange{0x108E0, 0x108F2}, wbprALetter},           // Lo  [19] HATRAN LETTER ALEPH..HATRAN LETTER QOPH
+	{runeRange{0x10900, 0x10915}, wbprALetter},           // Lo  [22] PHOENICIAN LETTER ALF..PHOENICIAN LETTER TAU
+	{runeRange{0x10940, 0x10959}, wbprALetter},           // Lo  [26] SIDETIC LETTER N01..SIDETIC LETTER N26
+	{runeRange{0x109BE, 0x109BF}, wbprALetter},           // Lo   [2] MEROITIC CURSIVE LOGOGRAM RMT..MEROITIC CURSIVE LOGOGRAM IMN
+	{runeRange{0x10A01, 0x10A03}, wbprExtend},            // Mn   [3] KHAROSHTHI VOWEL SIGN I..KHAROSHTHI VOWEL SIGN VOCALIC R
+	{runeRange{0x10A0C, 0x10A0F}, wbprExtend},            // Mn   [4] KHAROSHTHI VOWEL LENGTH MARK..KHAROSHTHI SIGN VISARGA
+	{runeRange{0x10A15, 0x10A17}, wbprALetter},           // Lo   [3] KHAROSHTHI LETTER CA..KHAROSHTHI LETTER JA
+	{runeRange{0x10A38, 0x10A3A}, wbprExtend},            // Mn   [3] KHAROSHTHI SIGN BAR ABOVE..KHAROSHTHI SIGN DOT BELOW
+	{runeRange{0x10A60, 0x10A7C}, wbprALetter},           // Lo  [29] OLD SOUTH ARABIAN LETTER HE..OLD SOUTH ARABIAN LETTER THETH
+	{runeRange{0x10AC0, 0x10AC7}, wbprALetter},           // Lo   [8] MANICHAEAN LETTER ALEPH..MANICHAEAN LETTER WAW
+	{runeRange{0x10AE5, 0x10AE6}, wbprExtend},            // Mn   [2] MANICHAEAN ABBREVIATION MARK ABOVE..MANICHAEAN ABBREVIATION MARK BELOW
+	{runeRange{0x10B40, 0x10B55}, wbprALetter},           // Lo  [22] INSCRIPTIONAL PARTHIAN LETTER ALEPH..INSCRIPTIONAL PARTHIAN LETTER TAW
+	{runeRange{0x10B80, 0x10B91}, wbprALetter},           // Lo  [18] PSALTER PAHLAVI LETTER ALEPH..PSALTER PAHLAVI LETTER TAW
+	{runeRange{0x10C80, 0x10CB2}, wbprALetter},           // L&  [51] OLD HUNGARIAN CAPITAL LETTER A..OLD HUNGARIAN CAPITAL LETTER US
+	{runeRange{0x10D00, 0x10D23}, wbprALetter},           // Lo  [36] HANIFI ROHINGYA LETTER A..HANIFI ROHINGYA MARK NA KHONNA
+	{runeRange{0x10D30, 0x10D39}, wbprNumeric},           // Nd  [10] HANIFI ROHINGYA DIGIT ZERO..HANIFI ROHINGYA DIGIT NINE
+	{runeRange{0x10D4A, 0x10D4D}, wbprALetter},           // Lo   [4] GARAY VOWEL SIGN A..GARAY VOWEL SIGN EE
+	{runeRange{0x10D4F, 0x10D4F}, wbprALetter},           // Lo       GARAY SUKUN
+	{runeRange{0x10D69, 0x10D6D}, wbprExtend},            // Mn   [5] GARAY VOWEL SIGN E..GARAY CONSONANT NASALIZATION MARK
+	{runeRange{0x10D70, 0x10D85}, wbprALetter},           // L&  [22] GARAY SMALL LETTER A..GARAY SMALL LETTER OLD NA
+	{runeRange{0x10EAB, 0x10EAC}, wbprExtend},            // Mn   [2] YEZIDI COMBINING HAMZA MARK..YEZIDI COMBINING MADDA MARK
+	{runeRange{0x10EC2, 0x10EC4}, wbprALetter},           // Lo   [3] ARABIC LETTER DAL WITH TWO DOTS VERTICALLY BELOW..ARABIC LETTER KAF WITH TWO DOTS VERTICALLY BELOW
+	{runeRange{0x10EC6, 0x10EC7}, wbprALetter},           // Lo   [2] ARABIC LETTER THIN NOON..ARABIC LETTER YEH WITH FOUR DOTS BELOW
+	{runeRange{0x10ED9, 0x10EEE}, wbprALetter},           // Lo  [22] ARABIC CROWN LETTER BEH..ARABIC CROWN LETTER YEH
+	{runeRange{0x10F00, 0x10F1C}, wbprALetter},           // Lo  [29] OLD SOGDIAN LETTER ALEPH..OLD SOGDIAN LETTER FINAL TAW WITH VERTICAL TAIL
+	{runeRange{0x10F30, 0x10F45}, wbprALetter},           // Lo  [22] SOGDIAN LETTER ALEPH..SOGDIAN INDEPENDENT SHIN
+	{runeRange{0x10F70, 0x10F81}, wbprALetter},           // Lo  [18] OLD UYGHUR LETTER ALEPH..OLD UYGHUR LETTER LESH
+	{runeRange{0x10FB0, 0x10FC4}, wbprALetter},           // Lo  [21] CHORASMIAN LETTER ALEPH..CHORASMIAN LETTER TAW
+	{runeRange{0x11000, 0x11000}, wbprExtend},            // Mc       BRAHMI SIGN CANDRABINDU
+	{runeRange{0x11002, 0x11002}, wbprExtend},            // Mc       BRAHMI SIGN VISARGA
+	{runeRange{0x11038, 0x11046}, wbprExtend},            // Mn  [15] BRAHMI VOWEL SIGN AA..BRAHMI VIRAMA
+	{runeRange{0x11070, 0x11070}, wbprExtend},            // Mn       BRAHMI SIGN OLD TAMIL VIRAMA
+	{runeRange{0x11073, 0x11074}, wbprExtend},            // Mn   [2] BRAHMI VOWEL SIGN OLD TAMIL SHORT E..BRAHMI VOWEL SIGN OLD TAMIL SHORT O
+	{runeRange{0x1107F, 0x11081}, wbprExtend},            // Mn   [3] BRAHMI NUMBER JOINER..KAITHI SIGN ANUSVARA
+	{runeRange{0x11083, 0x110AF}, wbprALetter},           // Lo  [45] KAITHI LETTER A..KAITHI LETTER HA
+	{runeRange{0x110B3, 0x110B6}, wbprExtend},            // Mn   [4] KAITHI VOWEL SIGN U..KAITHI VOWEL SIGN AI
+	{runeRange{0x110B9, 0x110BA}, wbprExtend},            // Mn   [2] KAITHI SIGN VIRAMA..KAITHI SIGN NUKTA
+	{runeRange{0x110C2, 0x110C2}, wbprExtend},            // Mn       KAITHI VOWEL SIGN VOCALIC R
+	{runeRange{0x110D0, 0x110E8}, wbprALetter},           // Lo  [25] SORA SOMPENG LETTER SAH..SORA SOMPENG LETTER MAE
+	{runeRange{0x11100, 0x11102}, wbprExtend},            // Mn   [3] CHAKMA SIGN CANDRABINDU..CHAKMA SIGN VISARGA
+	{runeRange{0x11127, 0x1112B}, wbprExtend},            // Mn   [5] CHAKMA VOWEL SIGN A..CHAKMA VOWEL SIGN UU
+	{runeRange{0x1112D, 0x11134}, wbprExtend},            // Mn   [8] CHAKMA VOWEL SIGN AI..CHAKMA MAAYYAA
+	{runeRange{0x11144, 0x11144}, wbprALetter},           // Lo       CHAKMA LETTER LHAA
+	{runeRange{0x11147, 0x11147}, wbprALetter},           // Lo       CHAKMA LETTER VAA
+	{runeRange{0x11173, 0x11173}, wbprExtend},            // Mn       MAHAJANI SIGN NUKTA
+	{runeRange{0x11180, 0x11181}, wbprExtend},            // Mn   [2] SHARADA SIGN CANDRABINDU..SHARADA SIGN ANUSVARA
+	{runeRange{0x11183, 0x111B2}, wbprALetter},           // Lo  [48] SHARADA LETTER A..SHARADA LETTER HA
+	{runeRange{0x111B6, 0x111BE}, wbprExtend},            // Mn   [9] SHARADA VOWEL SIGN U..SHARADA VOWEL SIGN O
+	{runeRange{0x111C1, 0x111C4}, wbprALetter},           // Lo   [4] SHARADA SIGN AVAGRAHA..SHARADA OM
+	{runeRange{0x111CE, 0x111CE}, wbprExtend},            // Mc       SHARADA VOWEL SIGN PRISHTHAMATRA E
+	{runeRange{0x111D0, 0x111D9}, wbprNumeric},           // Nd  [10] SHARADA DIGIT ZERO..SHARADA DIGIT NINE
+	{runeRange{0x111DC, 0x111DC}, wbprALetter},           // Lo       SHARADA HEADSTROKE
+	{runeRange{0x11213, 0x1122B}, wbprALetter},           // Lo  [25] KHOJKI LETTER NYA..KHOJKI LETTER LLA
+	{runeRange{0x1122F, 0x11231}, wbprExtend},            // Mn   [3] KHOJKI VOWEL SIGN U..KHOJKI VOWEL SIGN AI
+	{runeRange{0x11234, 0x11234}, wbprExtend},            // Mn       KHOJKI SIGN ANUSVARA
+	{runeRange{0x11236, 0x11237}, wbprExtend},            // Mn   [2] KHOJKI SIGN NUKTA..KHOJKI SIGN SHADDA
+	{runeRange{0x1123F, 0x11240}, wbprALetter},           // Lo   [2] KHOJKI LETTER QA..KHOJKI LETTER SHORT I
+	{runeRange{0x11280, 0x11286}, wbprALetter},           // Lo   [7] MULTANI LETTER A..MULTANI LETTER GA
+	{runeRange{0x1128A, 0x1128D}, wbprALetter},           // Lo   [4] MULTANI LETTER CA..MULTANI LETTER JJA
+	{runeRange{0x1129F, 0x112A8}, wbprALetter},           // Lo  [10] MULTANI LETTER BHA..MULTANI LETTER RHA
+	{runeRange{0x112DF, 0x112DF}, wbprExtend},            // Mn       KHUDAWADI SIGN ANUSVARA
+	{runeRange{0x112E3, 0x112EA}, wbprExtend},            // Mn   [8] KHUDAWADI VOWEL SIGN U..KHUDAWADI SIGN VIRAMA
+	{runeRange{0x11300, 0x11301}, wbprExtend},            // Mn   [2] GRANTHA SIGN COMBINING ANUSVARA ABOVE..GRANTHA SIGN CANDRABINDU
+	{runeRange{0x11305, 0x1130C}, wbprALetter},           // Lo   [8] GRANTHA LETTER A..GRANTHA LETTER VOCALIC L
+	{runeRange{0x11313, 0x11328}, wbprALetter},           // Lo  [22] GRANTHA LETTER OO..GRANTHA LETTER NA
+	{runeRange{0x11332, 0x11333}, wbprALetter},           // Lo   [2] GRANTHA LETTER LA..GRANTHA LETTER LLA
+	{runeRange{0x1133B, 0x1133C}, wbprExtend},            // Mn   [2] COMBINING BINDU BELOW..GRANTHA SIGN NUKTA
+	{runeRange{0x1133E, 0x1133F}, wbprExtend},            // Mc   [2] GRANTHA VOWEL SIGN AA..GRANTHA VOWEL SIGN I
+	{runeRange{0x11341, 0x11344}, wbprExtend},            // Mc   [4] GRANTHA VOWEL SIGN U..GRANTHA VOWEL SIGN VOCALIC RR
+	{runeRange{0x1134B, 0x1134D}, wbprExtend},            // Mc   [3] GRANTHA VOWEL SIGN OO..GRANTHA SIGN VIRAMA
+	{runeRange{0x11357, 0x11357}, wbprExtend},            // Mc       GRANTHA AU LENGTH MARK
+	{runeRange{0x11362, 0x11363}, wbprExtend},            // Mc   [2] GRANTHA VOWEL SIGN VOCALIC L..GRANTHA VOWEL SIGN VOCALIC LL
+	{runeRange{0x11370, 0x11374}, wbprExtend},            // Mn   [5] COMBINING GRANTHA LETTER A..COMBINING GRANTHA LETTER PA
+	{runeRange{0x1138B, 0x1138B}, wbprALetter},           // Lo       TULU-TIGALARI LETTER EE
+	{runeRange{0x11390, 0x113B5}, wbprALetter},           // Lo  [38] TULU-TIGALARI LETTER OO..TULU-TIGALARI LETTER LLLA
+	{runeRange{0x113B8, 0x113BA}, wbprExtend},            // Mc   [3] TULU-TIGALARI VOWEL SIGN AA..TULU-TIGALARI VOWEL SIGN II
+	{runeRange{0x113C2, 0x113C2}, wbprExtend},            // Mc       TULU-TIGALARI VOWEL SIGN EE
+	{runeRange{0x113C7, 0x113CA}, wbprExtend},            // Mc   [4] TULU-TIGALARI VOWEL SIGN OO..TULU-TIGALARI SIGN CANDRA ANUNASIKA
+	{runeRange{0x113CE, 0x113CE}, wbprExtend},            // Mn       TULU-TIGALARI SIGN VIRAMA
+	{runeRange{0x113D0, 0x113D0}, wbprExtend},            // Mn       TULU-TIGALARI CONJOINER
+	{runeRange{0x113D2, 0x113D2}, wbprExtend},            // Mn       TULU-TIGALARI GEMINATION MARK
+	{runeRange{0x113E1, 0x113E2}, wbprExtend},            // Mn   [2] TULU-TIGALARI VEDIC TONE SVARITA..TULU-TIGALARI VEDIC TONE ANUDATTA
+	{runeRange{0x11435, 0x11437}, wbprExtend},            // Mc   [3] NEWA VOWEL SIGN AA..NEWA VOWEL SIGN II
+	{runeRange{0x11440, 0x11441}, wbprExtend},            // Mc   [2] NEWA VOWEL SIGN O..NEWA VOWEL SIGN AU
+	{runeRange{0x11445, 0x11445}, wbprExtend},            // Mc       NEWA SIGN VISARGA
+	{runeRange{0x11447, 0x1144A}, wbprALetter},           // Lo   [4] NEWA SIGN AVAGRAHA..NEWA SIDDHI
+	{runeRange{0x1145E, 0x1145E}, wbprExtend},            // Mn       NEWA SANDHI MARK
+	{runeRange{0x11480, 0x114AF}, wbprALetter},           // Lo  [48] TIRHUTA ANJI..TIRHUTA LETTER HA
+	{runeRange{0x114B3, 0x114B8}, wbprExtend},            // Mn   [6] TIRHUTA VOWEL SIGN U..TIRHUTA VOWEL SIGN VOCALIC LL
+	{runeRange{0x114BA, 0x114BA}, wbprExtend},            // Mn       TIRHUTA VOWEL SIGN SHORT E
+	{runeRange{0x114BF, 0x114C0}, wbprExtend},            // Mn   [2] TIRHUTA SIGN CANDRABINDU..TIRHUTA SIGN ANUSVARA
+	{runeRange{0x114C2, 0x114C3}, wbprExtend},            // Mn   [2] TIRHUTA SIGN VIRAMA..TIRHUTA SIGN NUKTA
+	{runeRange{0x114C7, 0x114C7}, wbprALetter},           // Lo       TIRHUTA OM
+	{runeRange{0x11580, 0x115AE}, wbprALetter},           // Lo  [47] SIDDHAM LETTER A..SIDDHAM LETTER HA
+	{runeRange{0x115B2, 0x115B5}, wbprExtend},            // Mn   [4] SIDDHAM VOWEL SIGN U..SIDDHAM VOWEL SIGN VOCALIC RR
+	{runeRange{0x115BC, 0x115BD}, wbprExtend},            // Mn   [2] SIDDHAM SIGN CANDRABINDU..SIDDHAM SIGN ANUSVARA
+	{runeRange{0x115BF, 0x115C0}, wbprExtend},            // Mn   [2] SIDDHAM SIGN VIRAMA..SIDDHAM SIGN NUKTA
+	{runeRange{0x115DC, 0x115DD}, wbprExtend},            // Mn   [2] SIDDHAM VOWEL SIGN ALTERNATE U..SIDDHAM VOWEL SIGN ALTERNATE UU
+	{runeRange{0x11630, 0x11632}, wbprExtend},            // Mc   [3] MODI VOWEL SIGN AA..MODI VOWEL SIGN II
+	{runeRange{0x1163B, 0x1163C}, wbprExtend},            // Mc   [2] MODI VOWEL SIGN O..MODI VOWEL SIGN AU
+	{runeRange{0x1163E, 0x1163E}, wbprExtend},            // Mc       MODI SIGN VISARGA
+	{runeRange{0x11644, 0x11644}, wbprALetter},           // Lo       MODI SIGN HUVA
+	{runeRange{0x11680, 0x116AA}, wbprALetter},           // Lo  [43] TAKRI LETTER A..TAKRI LETTER RRA
+	{runeRange{0x116AC, 0x116AC}, wbprExtend},            // Mc       TAKRI SIGN VISARGA
+	{runeRange{0x116AE, 0x116AF}, wbprExtend},            // Mc   [2] TAKRI VOWEL SIGN I..TAKRI VOWEL SIGN II
+	{runeRange{0x116B6, 0x116B6}, wbprExtend},            // Mc       TAKRI SIGN VIRAMA
+	{runeRange{0x116B8, 0x116B8}, wbprALetter},           // Lo       TAKRI LETTER ARCHAIC KHA
+	{runeRange{0x116D0, 0x116E3}, wbprNumeric},           // Nd  [20] MYANMAR PAO DIGIT ZERO..MYANMAR EASTERN PWO KAREN DIGIT NINE
+	{runeRange{0x1171E, 0x1171E}, wbprExtend},            // Mc       AHOM CONSONANT SIGN MEDIAL RA
+	{runeRange{0x11720, 0x11721}, wbprExtend},            // Mc   [2] AHOM VOWEL SIGN A..AHOM VOWEL SIGN AA
+	{runeRange{0x11726, 0x11726}, wbprExtend},            // Mc       AHOM VOWEL SIGN E
+	{runeRange{0x11730, 0x11739}, wbprNumeric},           // Nd  [10] AHOM DIGIT ZERO..AHOM DIGIT NINE
+	{runeRange{0x1182C, 0x1182E}, wbprExtend},            // Mc   [3] DOGRA VOWEL SIGN AA..DOGRA VOWEL SIGN II
+	{runeRange{0x11838, 0x11838}, wbprExtend},            // Mc       DOGRA SIGN VISARGA
+	{runeRange{0x118A0, 0x118DF}, wbprALetter},           // L&  [64] WARANG CITI CAPITAL LETTER NGAA..WARANG CITI SMALL LETTER VIYO
+	{runeRange{0x118FF, 0x11906}, wbprALetter},           // Lo   [8] WARANG CITI OM..DIVES AKURU LETTER E
+	{runeRange{0x1190C, 0x11913}, wbprALetter},           // Lo   [8] DIVES AKURU LETTER KA..DIVES AKURU LETTER JA
+	{runeRange{0x11918, 0x1192F}, wbprALetter},           // Lo  [24] DIVES AKURU LETTER DDA..DIVES AKURU LETTER ZA
+	{runeRange{0x11937, 0x11938}, wbprExtend},            // Mc   [2] DIVES AKURU VOWEL SIGN AI..DIVES AKURU VOWEL SIGN O
+	{runeRange{0x1193D, 0x1193D}, wbprExtend},            // Mc       DIVES AKURU SIGN HALANTA
+	{runeRange{0x1193F, 0x1193F}, wbprALetter},           // Lo       DIVES AKURU PREFIXED NASAL SIGN
+	{runeRange{0x11941, 0x11941}, wbprALetter},           // Lo       DIVES AKURU INITIAL RA
+	{runeRange{0x11943, 0x11943}, wbprExtend},            // Mn       DIVES AKURU SIGN NUKTA
+	{runeRange{0x119A0, 0x119A7}, wbprALetter},           // Lo   [8] NANDINAGARI LETTER A..NANDINAGARI LETTER VOCALIC RR
+	{runeRange{0x119D1, 0x119D3}, wbprExtend},            // Mc   [3] NANDINAGARI VOWEL SIGN AA..NANDINAGARI VOWEL SIGN II
+	{runeRange{0x119DA, 0x119DB}, wbprExtend},            // Mn   [2] NANDINAGARI VOWEL SIGN E..NANDINAGARI VOWEL SIGN AI
+	{runeRange{0x119E0, 0x119E0}, wbprExtend},            // Mn       NANDINAGARI SIGN VIRAMA
+	{runeRange{0x119E3, 0x119E3}, wbprALetter},           // Lo       NANDINAGARI HEADSTROKE
+	{runeRange{0x11A00, 0x11A00}, wbprALetter},           // Lo       ZANABAZAR SQUARE LETTER A
+	{runeRange{0x11A0B, 0x11A32}, wbprALetter},           // Lo  [40] ZANABAZAR SQUARE LETTER KA..ZANABAZAR SQUARE LETTER KSSA
+	{runeRange{0x11A39, 0x11A39}, wbprExtend},            // Mc       ZANABAZAR SQUARE SIGN VISARGA
+	{runeRange{0x11A3B, 0x11A3E}, wbprExtend},            // Mn   [4] ZANABAZAR SQUARE CLUSTER-FINAL LETTER YA..ZANABAZAR SQUARE CLUSTER-FINAL LETTER VA
+	{runeRange{0x11A50, 0x11A50}, wbprALetter},           // Lo       SOYOMBO LETTER A
+	{runeRange{0x11A57, 0x11A58}, wbprExtend},            // Mc   [2] SOYOMBO VOWEL SIGN AI..SOYOMBO VOWEL SIGN AU
+	{runeRange{0x11A5C, 0x11A89}, wbprALetter},           // Lo  [46] SOYOMBO LETTER KA..SOYOMBO CLUSTER-INITIAL LETTER SA
+	{runeRange{0x11A97, 0x11A97}, wbprExtend},            // Mc       SOYOMBO SIGN VISARGA
+	{runeRange{0x11A9D, 0x11A9D}, wbprALetter},           // Lo       SOYOMBO MARK PLUTA
+	{runeRange{0x11B0A, 0x11B0A}, wbprALetter},           // Lo       DEVANAGARI LETTER ALTERNATE DDDA
 	{runeRange{0x11B61, 0x11B61}, wbprExtend},            // Mc       SHARADA VOWEL SIGN OOE
 	{runeRange{0x11B65, 0x11B65}, wbprExtend},            // Mc       SHARADA VOWEL SIGN SHORT O
 	{runeRange{0x11B67, 0x11B67}, wbprExtend},            // Mc       SHARADA VOWEL SIGN CANDRA O
@@ -921,6 +915,7 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x11DA0, 0x11DA9}, wbprNumeric},           // Nd  [10] GUNJALA GONDI DIGIT ZERO..GUNJALA GONDI DIGIT NINE
 	{runeRange{0x11DD9, 0x11DD9}, wbprALetter},           // Lm       TOLONG SIKI SIGN SELA
 	{runeRange{0x11DE0, 0x11DE9}, wbprNumeric},           // Nd  [10] TOLONG SIKI DIGIT ZERO..TOLONG SIKI DIGIT NINE
+	{runeRange{0x11DF1, 0x11DF1}, wbprALetter},           // Lo       BENGALI LETTER ALTERNATE BARGIYA BA
 	{runeRange{0x11EF3, 0x11EF4}, wbprExtend},            // Mn   [2] MAKASAR VOWEL SIGN I..MAKASAR VOWEL SIGN U
 	{runeRange{0x11F00, 0x11F01}, wbprExtend},            // Mn   [2] KAWI SIGN CANDRABINDU..KAWI SIGN ANUSVARA
 	{runeRange{0x11F03, 0x11F03}, wbprExtend},            // Mc       KAWI SIGN VISARGA
@@ -930,7 +925,8 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x11F42, 0x11F42}, wbprExtend},            // Mn       KAWI CONJOINER
 	{runeRange{0x11F5A, 0x11F5A}, wbprExtend},            // Mn       KAWI SIGN NUKTA
 	{runeRange{0x12000, 0x12399}, wbprALetter},           // Lo [922] CUNEIFORM SIGN A..CUNEIFORM SIGN U U
-	{runeRange{0x12480, 0x12543}, wbprALetter},           // Lo [196] CUNEIFORM SIGN AB TIMES NUN TENU..CUNEIFORM SIGN ZU5 TIMES THREE DISH TENU
+	{runeRange{0x12475, 0x1247F}, wbprALetter},           // Nl  [11] CUNEIFORM NUMERIC SIGN EIGHT ASH TENU..CUNEIFORM NUMERIC SIGN ASH TIMES NINE DISH TENU
+	{runeRange{0x12550, 0x12686}, wbprALetter},           // Nl [311] CUNEIFORM NUMERIC SIGN ONE N01..CUNEIFORM NUMERIC SIGN ONE N36 FLAT
 	{runeRange{0x13000, 0x1342F}, wbprALetter},           // Lo [1072] EGYPTIAN HIEROGLYPH A001..EGYPTIAN HIEROGLYPH V011D
 	{runeRange{0x13440, 0x13440}, wbprExtend},            // Mn       EGYPTIAN HIEROGLYPH MIRROR HORIZONTALLY
 	{runeRange{0x13447, 0x13455}, wbprExtend},            // Mn  [15] EGYPTIAN HIEROGLYPH MODIFIER DAMAGED AT TOP START..EGYPTIAN HIEROGLYPH MODIFIER DAMAGED
@@ -955,15 +951,18 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x1AFF0, 0x1AFF3}, wbprKatakana},          // Lm   [4] KATAKANA LETTER MINNAN TONE-2..KATAKANA LETTER MINNAN TONE-5
 	{runeRange{0x1AFFD, 0x1AFFE}, wbprKatakana},          // Lm   [2] KATAKANA LETTER MINNAN NASALIZED TONE-7..KATAKANA LETTER MINNAN NASALIZED TONE-8
 	{runeRange{0x1B120, 0x1B122}, wbprKatakana},          // Lo   [3] KATAKANA LETTER ARCHAIC YI..KATAKANA LETTER ARCHAIC WU
-	{runeRange{0x1B164, 0x1B167}, wbprKatakana},          // Lo   [4] KATAKANA LETTER SMALL WI..KATAKANA LETTER SMALL N
-	{runeRange{0x1BC70, 0x1BC7C}, wbprALetter},           // Lo  [13] DUPLOYAN AFFIX LEFT HORIZONTAL SECANT..DUPLOYAN AFFIX ATTACHED TANGENT HOOK
-	{runeRange{0x1BC90, 0x1BC99}, wbprALetter},           // Lo  [10] DUPLOYAN AFFIX LOW ACUTE..DUPLOYAN AFFIX LOW ARROW
-	{runeRange{0x1BCA0, 0x1BCA3}, wbprFormat},            // Cf   [4] SHORTHAND FORMAT LETTER OVERLAP..SHORTHAND FORMAT UP STEP
-	{runeRange{0x1CF00, 0x1CF2D}, wbprExtend},            // Mn  [46] ZNAMENNY COMBINING MARK GORAZDO NIZKO S KRYZHEM ON LEFT..ZNAMENNY COMBINING MARK KRYZH ON LEFT
+	{runeRange{0x1B155, 0x1B155}, wbprKatakana},          // Lo       KATAKANA LETTER SMALL KO
+	{runeRange{0x1BC00, 0x1BC6A}, wbprALetter},           // Lo [107] DUPLOYAN LETTER H..DUPLOYAN LETTER VOCALIC M
+	{runeRange{0x1BC80, 0x1BC88}, wbprALetter},           // Lo   [9] DUPLOYAN AFFIX HIGH ACUTE..DUPLOYAN AFFIX HIGH VERTICAL
+	{runeRange{0x1BC9D, 0x1BC9E}, wbprExtend},            // Mn   [2] DUPLOYAN THICK LETTER SELECTOR..DUPLOYAN DOUBLE MARK
+	{runeRange{0x1CCF0, 0x1CCF9}, wbprNumeric},           // Nd  [10] OUTLINED DIGIT ZERO..OUTLINED DIGIT NINE
+	{runeRange{0x1CF30, 0x1CF46}, wbprExtend},            // Mn  [23] ZNAMENNY COMBINING TONAL RANGE MARK MRACHNO..ZNAMENNY PRIZNAK MODIFIER ROG
 	{runeRange{0x1D165, 0x1D166}, wbprExtend},            // Mc   [2] MUSICAL SYMBOL COMBINING STEM..MUSICAL SYMBOL COMBINING SPRECHGESANG STEM
 	{runeRange{0x1D16D, 0x1D172}, wbprExtend},            // Mc   [6] MUSICAL SYMBOL COMBINING AUGMENTATION DOT..MUSICAL SYMBOL COMBINING FLAG-5
 	{runeRange{0x1D17B, 0x1D182}, wbprExtend},            // Mn   [8] MUSICAL SYMBOL COMBINING ACCENT..MUSICAL SYMBOL COMBINING LOURE
 	{runeRange{0x1D1AA, 0x1D1AD}, wbprExtend},            // Mn   [4] MUSICAL SYMBOL COMBINING DOWN BOW..MUSICAL SYMBOL COMBINING SNAP PIZZICATO
+	{runeRange{0x1D250, 0x1D252}, wbprExtend},            // Mc   [3] MUSICAL SYMBOL COMBINING FLAG-6..MUSICAL SYMBOL COMBINING FLAG-8
+	{runeRange{0x1D25F, 0x1D25F}, wbprExtend},            // Mc       MUSICAL SYMBOL COMBINING BUZZ ROLL STEM
 	{runeRange{0x1D400, 0x1D454}, wbprALetter},           // L&  [85] MATHEMATICAL BOLD CAPITAL A..MATHEMATICAL ITALIC SMALL G
 	{runeRange{0x1D49E, 0x1D49F}, wbprALetter},           // L&   [2] MATHEMATICAL SCRIPT CAPITAL C..MATHEMATICAL SCRIPT CAPITAL D
 	{runeRange{0x1D4A5, 0x1D4A6}, wbprALetter},           // L&   [2] MATHEMATICAL SCRIPT CAPITAL J..MATHEMATICAL SCRIPT CAPITAL K
@@ -973,7 +972,7 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x1D516, 0x1D51C}, wbprALetter},           // L&   [7] MATHEMATICAL FRAKTUR CAPITAL S..MATHEMATICAL FRAKTUR CAPITAL Y
 	{runeRange{0x1D53B, 0x1D53E}, wbprALetter},           // L&   [4] MATHEMATICAL DOUBLE-STRUCK CAPITAL D..MATHEMATICAL DOUBLE-STRUCK CAPITAL G
 	{runeRange{0x1D546, 0x1D546}, wbprALetter},           // L&       MATHEMATICAL DOUBLE-STRUCK CAPITAL O
-	{runeRange{0x1D552, 0x1D6A5}, wbprALetter},           // L& [340] MATHEMATICAL DOUBLE-STRUCK SMALL A..MATHEMATICAL ITALIC SMALL DOTLESS J
+	{runeRange{0x1D552, 0x1D6A6}, wbprALetter},           // L& [341] MATHEMATICAL DOUBLE-STRUCK SMALL A..MATHEMATICAL ITALIC SMALL LIGATURE LONG S WITH DESCENDER S
 	{runeRange{0x1D6C2, 0x1D6DA}, wbprALetter},           // L&  [25] MATHEMATICAL BOLD SMALL ALPHA..MATHEMATICAL BOLD SMALL OMEGA
 	{runeRange{0x1D6FC, 0x1D714}, wbprALetter},           // L&  [25] MATHEMATICAL ITALIC SMALL ALPHA..MATHEMATICAL ITALIC SMALL OMEGA
 	{runeRange{0x1D736, 0x1D74E}, wbprALetter},           // L&  [25] MATHEMATICAL BOLD ITALIC SMALL ALPHA..MATHEMATICAL BOLD ITALIC SMALL OMEGA
@@ -984,7 +983,8 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x1DA84, 0x1DA84}, wbprExtend},            // Mn       SIGNWRITING LOCATION HEAD NECK
 	{runeRange{0x1DAA1, 0x1DAAF}, wbprExtend},            // Mn  [15] SIGNWRITING ROTATION MODIFIER-2..SIGNWRITING ROTATION MODIFIER-16
 	{runeRange{0x1DF0A, 0x1DF0A}, wbprALetter},           // Lo       LATIN LETTER RETROFLEX CLICK WITH RETROFLEX HOOK
-	{runeRange{0x1DF25, 0x1DF2A}, wbprALetter},           // L&   [6] LATIN SMALL LETTER D WITH MID-HEIGHT LEFT HOOK..LATIN SMALL LETTER T WITH MID-HEIGHT LEFT HOOK
+	{runeRange{0x1DF80, 0x1DF81}, wbprALetter},           // Lo   [2] LATIN CAPITAL LETTER A WITH TOPBAR..LATIN CAPITAL LETTER E WITH BENT TOPBAR
+	{runeRange{0x1DFCD, 0x1DFFF}, wbprALetter},           // Lm  [51] MODIFIER LETTER SMALL TURNED R WITH MID-HEIGHT LEFT HOOK..MODIFIER LETTER SMALL T WITH HOOK AND RETROFLEX HOOK
 	{runeRange{0x1E008, 0x1E018}, wbprExtend},            // Mn  [17] COMBINING GLAGOLITIC LETTER ZEMLJA..COMBINING GLAGOLITIC LETTER HERU
 	{runeRange{0x1E023, 0x1E024}, wbprExtend},            // Mn   [2] COMBINING GLAGOLITIC LETTER YU..COMBINING GLAGOLITIC LETTER SMALL YUS
 	{runeRange{0x1E030, 0x1E06D}, wbprALetter},           // Lm  [62] MODIFIER LETTER CYRILLIC SMALL A..MODIFIER LETTER CYRILLIC SMALL STRAIGHT U WITH STROKE
@@ -1059,221 +1059,221 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x03A3, 0x03F5}, wbprALetter},             // L&  [83] GREEK CAPITAL LETTER SIGMA..GREEK LUNATE EPSILON SYMBOL
 	{runeRange{0x0483, 0x0487}, wbprExtend},              // Mn   [5] COMBINING CYRILLIC TITLO..COMBINING CYRILLIC POKRYTIE
 	{runeRange{0x048A, 0x052F}, wbprALetter},             // L& [166] CYRILLIC CAPITAL LETTER SHORT I WITH TAIL..CYRILLIC SMALL LETTER EL WITH DESCENDER
-	{runeRange{0x0559, 0x0559}, wbprALetter},             // Lm       ARMENIAN MODIFIER LETTER LEFT HALF RING
+	{runeRange{0x0558, 0x0559}, wbprALetter},             // Lm   [2] MODIFIER LETTER ARMENIAN SMALL EH..ARMENIAN MODIFIER LETTER LEFT HALF RING
 	{runeRange{0x055E, 0x055E}, wbprALetter},             // Po       ARMENIAN QUESTION MARK
 	{runeRange{0x0560, 0x0588}, wbprALetter},             // L&  [41] ARMENIAN SMALL LETTER TURNED AYB..ARMENIAN SMALL LETTER YI WITH STROKE
 	{runeRange{0x058A, 0x058A}, wbprALetter},             // Pd       ARMENIAN HYPHEN
-	{runeRange{0x05BF, 0x05BF}, wbprExtend},              // Mn       HEBREW POINT RAFE
-	{runeRange{0x05C4, 0x05C5}, wbprExtend},              // Mn   [2] HEBREW MARK UPPER DOT..HEBREW MARK LOWER DOT
-	{runeRange{0x05D0, 0x05EA}, wbprHebrewLetter},        // Lo  [27] HEBREW LETTER ALEF..HEBREW LETTER TAV
-	{runeRange{0x05F3, 0x05F3}, wbprALetter},             // Po       HEBREW PUNCTUATION GERESH
-	{runeRange{0x0600, 0x0605}, wbprNumeric},             // Cf   [6] ARABIC NUMBER SIGN..ARABIC NUMBER MARK ABOVE
-	{runeRange{0x0610, 0x061A}, wbprExtend},              // Mn  [11] ARABIC SIGN SALLALLAHOU ALAYHE WASSALLAM..ARABIC SMALL KASRA
-	{runeRange{0x0620, 0x063F}, wbprALetter},             // Lo  [32] ARABIC LETTER KASHMIRI YEH..ARABIC LETTER FARSI YEH WITH THREE DOTS ABOVE
-	{runeRange{0x0641, 0x064A}, wbprALetter},             // Lo  [10] ARABIC LETTER FEH..ARABIC LETTER YEH
-	{runeRange{0x0660, 0x0669}, wbprNumeric},             // Nd  [10] ARABIC-INDIC DIGIT ZERO..ARABIC-INDIC DIGIT NINE
-	{runeRange{0x066C, 0x066C}, wbprMidNum},              // Po       ARABIC THOUSANDS SEPARATOR
-	{runeRange{0x0670, 0x0670}, wbprExtend},              // Mn       ARABIC LETTER SUPERSCRIPT ALEF
-	{runeRange{0x06D5, 0x06D5}, wbprALetter},             // Lo       ARABIC LETTER AE
-	{runeRange{0x06DD, 0x06DD}, wbprNumeric},             // Cf       ARABIC END OF AYAH
-	{runeRange{0x06E5, 0x06E6}, wbprALetter},             // Lm   [2] ARABIC SMALL WAW..ARABIC SMALL YEH
-	{runeRange{0x06EA, 0x06ED}, wbprExtend},              // Mn   [4] ARABIC EMPTY CENTRE LOW STOP..ARABIC SMALL LOW MEEM
-	{runeRange{0x06F0, 0x06F9}, wbprNumeric},             // Nd  [10] EXTENDED ARABIC-INDIC DIGIT ZERO..EXTENDED ARABIC-INDIC DIGIT NINE
-	{runeRange{0x06FF, 0x06FF}, wbprALetter},             // Lo       ARABIC LETTER HEH WITH INVERTED V
-	{runeRange{0x0710, 0x0710}, wbprALetter},             // Lo       SYRIAC LETTER ALAPH
-	{runeRange{0x0712, 0x072F}, wbprALetter},             // Lo  [30] SYRIAC LETTER BETH..SYRIAC LETTER PERSIAN DHALATH
-	{runeRange{0x074D, 0x07A5}, wbprALetter},             // Lo  [89] SYRIAC LETTER SOGDIAN ZHAIN..THAANA LETTER WAAVU
-	{runeRange{0x07B1, 0x07B1}, wbprALetter},             // Lo       THAANA LETTER NAA
-	{runeRange{0x07CA, 0x07EA}, wbprALetter},             // Lo  [33] NKO LETTER A..NKO LETTER JONA RA
-	{runeRange{0x07F4, 0x07F5}, wbprALetter},             // Lm   [2] NKO HIGH TONE APOSTROPHE..NKO LOW TONE APOSTROPHE
-	{runeRange{0x07FA, 0x07FA}, wbprALetter},             // Lm       NKO LAJANYALAN
-	{runeRange{0x0800, 0x0815}, wbprALetter},             // Lo  [22] SAMARITAN LETTER ALAF..SAMARITAN LETTER TAAF
-	{runeRange{0x081A, 0x081A}, wbprALetter},             // Lm       SAMARITAN MODIFIER LETTER EPENTHETIC YUT
-	{runeRange{0x0824, 0x0824}, wbprALetter},             // Lm       SAMARITAN MODIFIER LETTER SHORT A
-	{runeRange{0x0828, 0x0828}, wbprALetter},             // Lm       SAMARITAN MODIFIER LETTER I
-	{runeRange{0x0840, 0x0858}, wbprALetter},             // Lo  [25] MANDAIC LETTER HALQA..MANDAIC LETTER AIN
-	{runeRange{0x0860, 0x086A}, wbprALetter},             // Lo  [11] SYRIAC LETTER MALAYALAM NGA..SYRIAC LETTER MALAYALAM SSA
-	{runeRange{0x0889, 0x088F}, wbprALetter},             // Lo   [7] ARABIC LETTER NOON WITH INVERTED SMALL V..ARABIC LETTER NOON WITH RING ABOVE
-	{runeRange{0x0897, 0x089F}, wbprExtend},              // Mn   [9] ARABIC PEPET..ARABIC HALF MADDA OVER MADDA
-	{runeRange{0x08C9, 0x08C9}, wbprALetter},             // Lm       ARABIC SMALL FARSI YEH
-	{runeRange{0x08E2, 0x08E2}, wbprNumeric},             // Cf       ARABIC DISPUTED END OF AYAH
-	{runeRange{0x0903, 0x0903}, wbprExtend},              // Mc       DEVANAGARI SIGN VISARGA
-	{runeRange{0x093A, 0x093A}, wbprExtend},              // Mn       DEVANAGARI VOWEL SIGN OE
-	{runeRange{0x093C, 0x093C}, wbprExtend},              // Mn       DEVANAGARI SIGN NUKTA
-	{runeRange{0x093E, 0x0940}, wbprExtend},              // Mc   [3] DEVANAGARI VOWEL SIGN AA..DEVANAGARI VOWEL SIGN II
-	{runeRange{0x0949, 0x094C}, wbprExtend},              // Mc   [4] DEVANAGARI VOWEL SIGN CANDRA O..DEVANAGARI VOWEL SIGN AU
-	{runeRange{0x094E, 0x094F}, wbprExtend},              // Mc   [2] DEVANAGARI VOWEL SIGN PRISHTHAMATRA E..DEVANAGARI VOWEL SIGN AW
-	{runeRange{0x0951, 0x0957}, wbprExtend},              // Mn   [7] DEVANAGARI STRESS SIGN UDATTA..DEVANAGARI VOWEL SIGN UUE
-	{runeRange{0x0962, 0x0963}, wbprExtend},              // Mn   [2] DEVANAGARI VOWEL SIGN VOCALIC L..DEVANAGARI VOWEL SIGN VOCALIC LL
-	{runeRange{0x0971, 0x0971}, wbprALetter},             // Lm       DEVANAGARI SIGN HIGH SPACING DOT
-	{runeRange{0x0981, 0x0981}, wbprExtend},              // Mn       BENGALI SIGN CANDRABINDU
-	{runeRange{0x0985, 0x098C}, wbprALetter},             // Lo   [8] BENGALI LETTER A..BENGALI LETTER VOCALIC L
-	{runeRange{0x0993, 0x09A8}, wbprALetter},             // Lo  [22] BENGALI LETTER O..BENGALI LETTER NA
-	{runeRange{0x09B2, 0x09B2}, wbprALetter},             // Lo       BENGALI LETTER LA
-	{runeRange{0x09BC, 0x09BC}, wbprExtend},              // Mn       BENGALI SIGN NUKTA
-	{runeRange{0x09BE, 0x09C0}, wbprExtend},              // Mc   [3] BENGALI VOWEL SIGN AA..BENGALI VOWEL SIGN II
-	{runeRange{0x09C7, 0x09C8}, wbprExtend},              // Mc   [2] BENGALI VOWEL SIGN E..BENGALI VOWEL SIGN AI
-	{runeRange{0x09CD, 0x09CD}, wbprExtend},              // Mn       BENGALI SIGN VIRAMA
-	{runeRange{0x09D7, 0x09D7}, wbprExtend},              // Mc       BENGALI AU LENGTH MARK
-	{runeRange{0x09DF, 0x09E1}, wbprALetter},             // Lo   [3] BENGALI LETTER YYA..BENGALI LETTER VOCALIC LL
-	{runeRange{0x09E6, 0x09EF}, wbprNumeric},             // Nd  [10] BENGALI DIGIT ZERO..BENGALI DIGIT NINE
-	{runeRange{0x09FC, 0x09FC}, wbprALetter},             // Lo       BENGALI LETTER VEDIC ANUSVARA
-	{runeRange{0x0A01, 0x0A02}, wbprExtend},              // Mn   [2] GURMUKHI SIGN ADAK BINDI..GURMUKHI SIGN BINDI
-	{runeRange{0x0A05, 0x0A0A}, wbprALetter},             // Lo   [6] GURMUKHI LETTER A..GURMUKHI LETTER UU
-	{runeRange{0x0A13, 0x0A28}, wbprALetter},             // Lo  [22] GURMUKHI LETTER OO..GURMUKHI LETTER NA
-	{runeRange{0x0A32, 0x0A33}, wbprALetter},             // Lo   [2] GURMUKHI LETTER LA..GURMUKHI LETTER LLA
-	{runeRange{0x0A38, 0x0A39}, wbprALetter},             // Lo   [2] GURMUKHI LETTER SA..GURMUKHI LETTER HA
-	{runeRange{0x0A3E, 0x0A40}, wbprExtend},              // Mc   [3] GURMUKHI VOWEL SIGN AA..GURMUKHI VOWEL SIGN II
-	{runeRange{0x0A47, 0x0A48}, wbprExtend},              // Mn   [2] GURMUKHI VOWEL SIGN EE..GURMUKHI VOWEL SIGN AI
-	{runeRange{0x0A51, 0x0A51}, wbprExtend},              // Mn       GURMUKHI SIGN UDAAT
-	{runeRange{0x0A5E, 0x0A5E}, wbprALetter},             // Lo       GURMUKHI LETTER FA
-	{runeRange{0x0A70, 0x0A71}, wbprExtend},              // Mn   [2] GURMUKHI TIPPI..GURMUKHI ADDAK
-	{runeRange{0x0A75, 0x0A75}, wbprExtend},              // Mn       GURMUKHI SIGN YAKASH
-	{runeRange{0x0A83, 0x0A83}, wbprExtend},              // Mc       GUJARATI SIGN VISARGA
-	{runeRange{0x0A8F, 0x0A91}, wbprALetter},             // Lo   [3] GUJARATI LETTER E..GUJARATI VOWEL CANDRA O
-	{runeRange{0x0AAA, 0x0AB0}, wbprALetter},             // Lo   [7] GUJARATI LETTER PA..GUJARATI LETTER RA
-	{runeRange{0x0AB5, 0x0AB9}, wbprALetter},             // Lo   [5] GUJARATI LETTER VA..GUJARATI LETTER HA
-	{runeRange{0x0ABD, 0x0ABD}, wbprALetter},             // Lo       GUJARATI SIGN AVAGRAHA
-	{runeRange{0x0AC1, 0x0AC5}, wbprExtend},              // Mn   [5] GUJARATI VOWEL SIGN U..GUJARATI VOWEL SIGN CANDRA E
-	{runeRange{0x0AC9, 0x0AC9}, wbprExtend},              // Mc       GUJARATI VOWEL SIGN CANDRA O
-	{runeRange{0x0ACD, 0x0ACD}, wbprExtend},              // Mn       GUJARATI SIGN VIRAMA
-	{runeRange{0x0AE0, 0x0AE1}, wbprALetter},             // Lo   [2] GUJARATI LETTER VOCALIC RR..GUJARATI LETTER VOCALIC LL
-	{runeRange{0x0AE6, 0x0AEF}, wbprNumeric},             // Nd  [10] GUJARATI DIGIT ZERO..GUJARATI DIGIT NINE
-	{runeRange{0x0AFA, 0x0AFF}, wbprExtend},              // Mn   [6] GUJARATI SIGN SUKUN..GUJARATI SIGN TWO-CIRCLE NUKTA ABOVE
-	{runeRange{0x0B02, 0x0B03}, wbprExtend},              // Mc   [2] ORIYA SIGN ANUSVARA..ORIYA SIGN VISARGA
-	{runeRange{0x0B0F, 0x0B10}, wbprALetter},             // Lo   [2] ORIYA LETTER E..ORIYA LETTER AI
-	{runeRange{0x0B2A, 0x0B30}, wbprALetter},             // Lo   [7] ORIYA LETTER PA..ORIYA LETTER RA
-	{runeRange{0x0B35, 0x0B39}, wbprALetter},             // Lo   [5] ORIYA LETTER VA..ORIYA LETTER HA
-	{runeRange{0x0B3D, 0x0B3D}, wbprALetter},             // Lo       ORIYA SIGN AVAGRAHA
-	{runeRange{0x0B3F, 0x0B3F}, wbprExtend},              // Mn       ORIYA VOWEL SIGN I
-	{runeRange{0x0B41, 0x0B44}, wbprExtend},              // Mn   [4] ORIYA VOWEL SIGN U..ORIYA VOWEL SIGN VOCALIC RR
-	{runeRange{0x0B4B, 0x0B4C}, wbprExtend},              // Mc   [2] ORIYA VOWEL SIGN O..ORIYA VOWEL SIGN AU
-	{runeRange{0x0B55, 0x0B56}, wbprExtend},              // Mn   [2] ORIYA SIGN OVERLINE..ORIYA AI LENGTH MARK
-	{runeRange{0x0B5C, 0x0B5D}, wbprALetter},             // Lo   [2] ORIYA LETTER RRA..ORIYA LETTER RHA
-	{runeRange{0x0B62, 0x0B63}, wbprExtend},              // Mn   [2] ORIYA VOWEL SIGN VOCALIC L..ORIYA VOWEL SIGN VOCALIC LL
-	{runeRange{0x0B71, 0x0B71}, wbprALetter},             // Lo       ORIYA LETTER WA
-	{runeRange{0x0B83, 0x0B83}, wbprALetter},             // Lo       TAMIL SIGN VISARGA
-	{runeRange{0x0B8E, 0x0B90}, wbprALetter},             // Lo   [3] TAMIL LETTER E..TAMIL LETTER AI
-	{runeRange{0x0B99, 0x0B9A}, wbprALetter},             // Lo   [2] TAMIL LETTER NGA..TAMIL LETTER CA
-	{runeRange{0x0B9E, 0x0B9F}, wbprALetter},             // Lo   [2] TAMIL LETTER NYA..TAMIL LETTER TTA
-	{runeRange{0x0BA8, 0x0BAA}, wbprALetter},             // Lo   [3] TAMIL LETTER NA..TAMIL LETTER PA
-	{runeRange{0x0BBE, 0x0BBF}, wbprExtend},              // Mc   [2] TAMIL VOWEL SIGN AA..TAMIL VOWEL SIGN I
-	{runeRange{0x0BC1, 0x0BC2}, wbprExtend},              // Mc   [2] TAMIL VOWEL SIGN U..TAMIL VOWEL SIGN UU
-	{runeRange{0x0BCA, 0x0BCC}, wbprExtend},              // Mc   [3] TAMIL VOWEL SIGN O..TAMIL VOWEL SIGN AU
-	{runeRange{0x0BD0, 0x0BD0}, wbprALetter},             // Lo       TAMIL OM
-	{runeRange{0x0BE6, 0x0BEF}, wbprNumeric},             // Nd  [10] TAMIL DIGIT ZERO..TAMIL DIGIT NINE
-	{runeRange{0x0C01, 0x0C03}, wbprExtend},              // Mc   [3] TELUGU SIGN CANDRABINDU..TELUGU SIGN VISARGA
-	{runeRange{0x0C05, 0x0C0C}, wbprALetter},             // Lo   [8] TELUGU LETTER A..TELUGU LETTER VOCALIC L
-	{runeRange{0x0C12, 0x0C28}, wbprALetter},             // Lo  [23] TELUGU LETTER O..TELUGU LETTER NA
-	{runeRange{0x0C3C, 0x0C3C}, wbprExtend},              // Mn       TELUGU SIGN NUKTA
-	{runeRange{0x0C3E, 0x0C40}, wbprExtend},              // Mn   [3] TELUGU VOWEL SIGN AA..TELUGU VOWEL SIGN II
-	{runeRange{0x0C46, 0x0C48}, wbprExtend},              // Mn   [3] TELUGU VOWEL SIGN E..TELUGU VOWEL SIGN AI
-	{runeRange{0x0C55, 0x0C56}, wbprExtend},              // Mn   [2] TELUGU LENGTH MARK..TELUGU AI LENGTH MARK
-	{runeRange{0x0C5C, 0x0C5D}, wbprALetter},             // Lo   [2] TELUGU ARCHAIC SHRII..TELUGU LETTER NAKAARA POLLU
-	{runeRange{0x0C62, 0x0C63}, wbprExtend},              // Mn   [2] TELUGU VOWEL SIGN VOCALIC L..TELUGU VOWEL SIGN VOCALIC LL
-	{runeRange{0x0C80, 0x0C80}, wbprALetter},             // Lo       KANNADA SIGN SPACING CANDRABINDU
-	{runeRange{0x0C82, 0x0C83}, wbprExtend},              // Mc   [2] KANNADA SIGN ANUSVARA..KANNADA SIGN VISARGA
-	{runeRange{0x0C8E, 0x0C90}, wbprALetter},             // Lo   [3] KANNADA LETTER E..KANNADA LETTER AI
-	{runeRange{0x0CAA, 0x0CB3}, wbprALetter},             // Lo  [10] KANNADA LETTER PA..KANNADA LETTER LLA
-	{runeRange{0x0CBC, 0x0CBC}, wbprExtend},              // Mn       KANNADA SIGN NUKTA
-	{runeRange{0x0CBE, 0x0CBE}, wbprExtend},              // Mc       KANNADA VOWEL SIGN AA
-	{runeRange{0x0CC0, 0x0CC4}, wbprExtend},              // Mc   [5] KANNADA VOWEL SIGN II..KANNADA VOWEL SIGN VOCALIC RR
-	{runeRange{0x0CC7, 0x0CC8}, wbprExtend},              // Mc   [2] KANNADA VOWEL SIGN EE..KANNADA VOWEL SIGN AI
-	{runeRange{0x0CCC, 0x0CCD}, wbprExtend},              // Mn   [2] KANNADA VOWEL SIGN AU..KANNADA SIGN VIRAMA
-	{runeRange{0x0CDC, 0x0CDE}, wbprALetter},             // Lo   [3] KANNADA ARCHAIC SHRII..KANNADA LETTER FA
-	{runeRange{0x0CE2, 0x0CE3}, wbprExtend},              // Mn   [2] KANNADA VOWEL SIGN VOCALIC L..KANNADA VOWEL SIGN VOCALIC LL
-	{runeRange{0x0CF1, 0x0CF2}, wbprALetter},             // Lo   [2] KANNADA SIGN JIHVAMULIYA..KANNADA SIGN UPADHMANIYA
-	{runeRange{0x0D00, 0x0D01}, wbprExtend},              // Mn   [2] MALAYALAM SIGN COMBINING ANUSVARA ABOVE..MALAYALAM SIGN CANDRABINDU
-	{runeRange{0x0D04, 0x0D0C}, wbprALetter},             // Lo   [9] MALAYALAM LETTER VEDIC ANUSVARA..MALAYALAM LETTER VOCALIC L
-	{runeRange{0x0D12, 0x0D3A}, wbprALetter},             // Lo  [41] MALAYALAM LETTER O..MALAYALAM LETTER TTTA
-	{runeRange{0x0D3D, 0x0D3D}, wbprALetter},             // Lo       MALAYALAM SIGN AVAGRAHA
-	{runeRange{0x0D41, 0x0D44}, wbprExtend},              // Mn   [4] MALAYALAM VOWEL SIGN U..MALAYALAM VOWEL SIGN VOCALIC RR
-	{runeRange{0x0D4A, 0x0D4C}, wbprExtend},              // Mc   [3] MALAYALAM VOWEL SIGN O..MALAYALAM VOWEL SIGN AU
-	{runeRange{0x0D4E, 0x0D4E}, wbprALetter},             // Lo       MALAYALAM LETTER DOT REPH
-	{runeRange{0x0D57, 0x0D57}, wbprExtend},              // Mc       MALAYALAM AU LENGTH MARK
-	{runeRange{0x0D62, 0x0D63}, wbprExtend},              // Mn   [2] MALAYALAM VOWEL SIGN VOCALIC L..MALAYALAM VOWEL SIGN VOCALIC LL
-	{runeRange{0x0D7A, 0x0D7F}, wbprALetter},             // Lo   [6] MALAYALAM LETTER CHILLU NN..MALAYALAM LETTER CHILLU K
-	{runeRange{0x0D82, 0x0D83}, wbprExtend},              // Mc   [2] SINHALA SIGN ANUSVARAYA..SINHALA SIGN VISARGAYA
-	{runeRange{0x0D9A, 0x0DB1}, wbprALetter},             // Lo  [24] SINHALA LETTER ALPAPRAANA KAYANNA..SINHALA LETTER DANTAJA NAYANNA
-	{runeRange{0x0DBD, 0x0DBD}, wbprALetter},             // Lo       SINHALA LETTER DANTAJA LAYANNA
-	{runeRange{0x0DCA, 0x0DCA}, wbprExtend},              // Mn       SINHALA SIGN AL-LAKUNA
-	{runeRange{0x0DD2, 0x0DD4}, wbprExtend},              // Mn   [3] SINHALA VOWEL SIGN KETTI IS-PILLA..SINHALA VOWEL SIGN KETTI PAA-PILLA
-	{runeRange{0x0DD8, 0x0DDF}, wbprExtend},              // Mc   [8] SINHALA VOWEL SIGN GAETTA-PILLA..SINHALA VOWEL SIGN GAYANUKITTA
-	{runeRange{0x0DF2, 0x0DF3}, wbprExtend},              // Mc   [2] SINHALA VOWEL SIGN DIGA GAETTA-PILLA..SINHALA VOWEL SIGN DIGA GAYANUKITTA
-	{runeRange{0x0E34, 0x0E3A}, wbprExtend},              // Mn   [7] THAI CHARACTER SARA I..THAI CHARACTER PHINTHU
-	{runeRange{0x0E50, 0x0E59}, wbprNumeric},             // Nd  [10] THAI DIGIT ZERO..THAI DIGIT NINE
-	{runeRange{0x0EB4, 0x0EBC}, wbprExtend},              // Mn   [9] LAO VOWEL SIGN I..LAO SEMIVOWEL SIGN LO
-	{runeRange{0x0ED0, 0x0ED9}, wbprNumeric},             // Nd  [10] LAO DIGIT ZERO..LAO DIGIT NINE
-	{runeRange{0x0F18, 0x0F19}, wbprExtend},              // Mn   [2] TIBETAN ASTROLOGICAL SIGN -KHYUD PA..TIBETAN ASTROLOGICAL SIGN SDONG TSHUGS
-	{runeRange{0x0F35, 0x0F35}, wbprExtend},              // Mn       TIBETAN MARK NGAS BZUNG NYI ZLA
-	{runeRange{0x0F39, 0x0F39}, wbprExtend},              // Mn       TIBETAN MARK TSA -PHRU
-	{runeRange{0x0F40, 0x0F47}, wbprALetter},             // Lo   [8] TIBETAN LETTER KA..TIBETAN LETTER JA
-	{runeRange{0x0F71, 0x0F7E}, wbprExtend},              // Mn  [14] TIBETAN VOWEL SIGN AA..TIBETAN SIGN RJES SU NGA RO
-	{runeRange{0x0F80, 0x0F84}, wbprExtend},              // Mn   [5] TIBETAN VOWEL SIGN REVERSED I..TIBETAN MARK HALANTA
-	{runeRange{0x0F88, 0x0F8C}, wbprALetter},             // Lo   [5] TIBETAN SIGN LCE TSA CAN..TIBETAN SIGN INVERTED MCHU CAN
-	{runeRange{0x0F99, 0x0FBC}, wbprExtend},              // Mn  [36] TIBETAN SUBJOINED LETTER NYA..TIBETAN SUBJOINED LETTER FIXED-FORM RA
-	{runeRange{0x102B, 0x102C}, wbprExtend},              // Mc   [2] MYANMAR VOWEL SIGN TALL AA..MYANMAR VOWEL SIGN AA
-	{runeRange{0x1031, 0x1031}, wbprExtend},              // Mc       MYANMAR VOWEL SIGN E
-	{runeRange{0x1038, 0x1038}, wbprExtend},              // Mc       MYANMAR SIGN VISARGA
-	{runeRange{0x103B, 0x103C}, wbprExtend},              // Mc   [2] MYANMAR CONSONANT SIGN MEDIAL YA..MYANMAR CONSONANT SIGN MEDIAL RA
-	{runeRange{0x1040, 0x1049}, wbprNumeric},             // Nd  [10] MYANMAR DIGIT ZERO..MYANMAR DIGIT NINE
-	{runeRange{0x1058, 0x1059}, wbprExtend},              // Mn   [2] MYANMAR VOWEL SIGN VOCALIC L..MYANMAR VOWEL SIGN VOCALIC LL
-	{runeRange{0x1062, 0x1064}, wbprExtend},              // Mc   [3] MYANMAR VOWEL SIGN SGAW KAREN EU..MYANMAR TONE MARK SGAW KAREN KE PHO
-	{runeRange{0x1071, 0x1074}, wbprExtend},              // Mn   [4] MYANMAR VOWEL SIGN GEBA KAREN I..MYANMAR VOWEL SIGN KAYAH EE
-	{runeRange{0x1083, 0x1084}, wbprExtend},              // Mc   [2] MYANMAR VOWEL SIGN SHAN AA..MYANMAR VOWEL SIGN SHAN E
-	{runeRange{0x1087, 0x108C}, wbprExtend},              // Mc   [6] MYANMAR SIGN SHAN TONE-2..MYANMAR SIGN SHAN COUNCIL TONE-3
-	{runeRange{0x108F, 0x108F}, wbprExtend},              // Mc       MYANMAR SIGN RUMAI PALAUNG TONE-5
-	{runeRange{0x109A, 0x109C}, wbprExtend},              // Mc   [3] MYANMAR SIGN KHAMTI TONE-1..MYANMAR VOWEL SIGN AITON A
-	{runeRange{0x10A0, 0x10C5}, wbprALetter},             // L&  [38] GEORGIAN CAPITAL LETTER AN..GEORGIAN CAPITAL LETTER HOE
-	{runeRange{0x10CD, 0x10CD}, wbprALetter},             // L&       GEORGIAN CAPITAL LETTER AEN
-	{runeRange{0x10FC, 0x10FC}, wbprALetter},             // Lm       MODIFIER LETTER GEORGIAN NAR
-	{runeRange{0x1100, 0x1248}, wbprALetter},             // Lo [329] HANGUL CHOSEONG KIYEOK..ETHIOPIC SYLLABLE QWA
-	{runeRange{0x1250, 0x1256}, wbprALetter},             // Lo   [7] ETHIOPIC SYLLABLE QHA..ETHIOPIC SYLLABLE QHO
-	{runeRange{0x125A, 0x125D}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE QHWI..ETHIOPIC SYLLABLE QHWE
-	{runeRange{0x128A, 0x128D}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE XWI..ETHIOPIC SYLLABLE XWE
-	{runeRange{0x12B2, 0x12B5}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE KWI..ETHIOPIC SYLLABLE KWE
-	{runeRange{0x12C0, 0x12C0}, wbprALetter},             // Lo       ETHIOPIC SYLLABLE KXWA
-	{runeRange{0x12C8, 0x12D6}, wbprALetter},             // Lo  [15] ETHIOPIC SYLLABLE WA..ETHIOPIC SYLLABLE PHARYNGEAL O
-	{runeRange{0x1312, 0x1315}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE GWI..ETHIOPIC SYLLABLE GWE
-	{runeRange{0x135D, 0x135F}, wbprExtend},              // Mn   [3] ETHIOPIC COMBINING GEMINATION AND VOWEL LENGTH MARK..ETHIOPIC COMBINING GEMINATION MARK
-	{runeRange{0x13A0, 0x13F5}, wbprALetter},             // L&  [86] CHEROKEE LETTER A..CHEROKEE LETTER MV
-	{runeRange{0x1401, 0x166C}, wbprALetter},             // Lo [620] CANADIAN SYLLABICS E..CANADIAN SYLLABICS CARRIER TTSA
-	{runeRange{0x1680, 0x1680}, wbprWSegSpace},           // Zs       OGHAM SPACE MARK
-	{runeRange{0x16A0, 0x16EA}, wbprALetter},             // Lo  [75] RUNIC LETTER FEHU FEOH FE F..RUNIC LETTER X
-	{runeRange{0x16F1, 0x16F8}, wbprALetter},             // Lo   [8] RUNIC LETTER K..RUNIC LETTER FRANKS CASKET AESC
-	{runeRange{0x1712, 0x1714}, wbprExtend},              // Mn   [3] TAGALOG VOWEL SIGN I..TAGALOG SIGN VIRAMA
-	{runeRange{0x171F, 0x1731}, wbprALetter},             // Lo  [19] TAGALOG LETTER ARCHAIC RA..HANUNOO LETTER HA
-	{runeRange{0x1734, 0x1734}, wbprExtend},              // Mc       HANUNOO SIGN PAMUDPOD
-	{runeRange{0x1752, 0x1753}, wbprExtend},              // Mn   [2] BUHID VOWEL SIGN I..BUHID VOWEL SIGN U
-	{runeRange{0x176E, 0x1770}, wbprALetter},             // Lo   [3] TAGBANWA LETTER LA..TAGBANWA LETTER SA
-	{runeRange{0x17B4, 0x17B5}, wbprExtend},              // Mn   [2] KHMER VOWEL INHERENT AQ..KHMER VOWEL INHERENT AA
-	{runeRange{0x17B7, 0x17BD}, wbprExtend},              // Mn   [7] KHMER VOWEL SIGN I..KHMER VOWEL SIGN UA
-	{runeRange{0x17C6, 0x17C6}, wbprExtend},              // Mn       KHMER SIGN NIKAHIT
-	{runeRange{0x17C9, 0x17D3}, wbprExtend},              // Mn  [11] KHMER SIGN MUUSIKATOAN..KHMER SIGN BATHAMASAT
-	{runeRange{0x17E0, 0x17E9}, wbprNumeric},             // Nd  [10] KHMER DIGIT ZERO..KHMER DIGIT NINE
-	{runeRange{0x180E, 0x180E}, wbprFormat},              // Cf       MONGOLIAN VOWEL SEPARATOR
-	{runeRange{0x1810, 0x1819}, wbprNumeric},             // Nd  [10] MONGOLIAN DIGIT ZERO..MONGOLIAN DIGIT NINE
-	{runeRange{0x1843, 0x1843}, wbprALetter},             // Lm       MONGOLIAN LETTER TODO LONG VOWEL SIGN
-	{runeRange{0x1880, 0x1884}, wbprALetter},             // Lo   [5] MONGOLIAN LETTER ALI GALI ANUSVARA ONE..MONGOLIAN LETTER ALI GALI INVERTED UBADAMA
-	{runeRange{0x1887, 0x18A8}, wbprALetter},             // Lo  [34] MONGOLIAN LETTER ALI GALI A..MONGOLIAN LETTER MANCHU ALI GALI BHA
-	{runeRange{0x18AA, 0x18AA}, wbprALetter},             // Lo       MONGOLIAN LETTER MANCHU ALI GALI LHA
-	{runeRange{0x1900, 0x191E}, wbprALetter},             // Lo  [31] LIMBU VOWEL-CARRIER LETTER..LIMBU LETTER TRA
-	{runeRange{0x1923, 0x1926}, wbprExtend},              // Mc   [4] LIMBU VOWEL SIGN EE..LIMBU VOWEL SIGN AU
-	{runeRange{0x1929, 0x192B}, wbprExtend},              // Mc   [3] LIMBU SUBJOINED LETTER YA..LIMBU SUBJOINED LETTER WA
-	{runeRange{0x1932, 0x1932}, wbprExtend},              // Mn       LIMBU SMALL LETTER ANUSVARA
-	{runeRange{0x1939, 0x193B}, wbprExtend},              // Mn   [3] LIMBU SIGN MUKPHRENG..LIMBU SIGN SA-I
-	{runeRange{0x19D0, 0x19D9}, wbprNumeric},             // Nd  [10] NEW TAI LUE DIGIT ZERO..NEW TAI LUE DIGIT NINE
-	{runeRange{0x1A00, 0x1A16}, wbprALetter},             // Lo  [23] BUGINESE LETTER KA..BUGINESE LETTER HA
-	{runeRange{0x1A19, 0x1A1A}, wbprExtend},              // Mc   [2] BUGINESE VOWEL SIGN E..BUGINESE VOWEL SIGN O
-	{runeRange{0x1A55, 0x1A55}, wbprExtend},              // Mc       TAI THAM CONSONANT SIGN MEDIAL RA
-	{runeRange{0x1A57, 0x1A57}, wbprExtend},              // Mc       TAI THAM CONSONANT SIGN LA TANG LAI
-	{runeRange{0x1A60, 0x1A60}, wbprExtend},              // Mn       TAI THAM SIGN SAKOT
-	{runeRange{0x1A62, 0x1A62}, wbprExtend},              // Mn       TAI THAM VOWEL SIGN MAI SAT
-	{runeRange{0x1A65, 0x1A6C}, wbprExtend},              // Mn   [8] TAI THAM VOWEL SIGN I..TAI THAM VOWEL SIGN OA BELOW
-	{runeRange{0x1A73, 0x1A7C}, wbprExtend},              // Mn  [10] TAI THAM VOWEL SIGN OA ABOVE..TAI THAM SIGN KHUEN-LUE KARAN
-	{runeRange{0x1A80, 0x1A89}, wbprNumeric},             // Nd  [10] TAI THAM HORA DIGIT ZERO..TAI THAM HORA DIGIT NINE
-	{runeRange{0x1AB0, 0x1ABD}, wbprExtend},              // Mn  [14] COMBINING DOUBLED CIRCUMFLEX ACCENT..COMBINING PARENTHESES BELOW
-	{runeRange{0x1ABF, 0x1ADD}, wbprExtend},              // Mn  [31] COMBINING LATIN SMALL LETTER W BELOW..COMBINING DOT-AND-RING BELOW
+	{runeRange{0x0591, 0x05BD}, wbprExtend},              // Mn  [45] HEBREW ACCENT ETNAHTA..HEBREW POINT METEG
+	{runeRange{0x05C1, 0x05C2}, wbprExtend},              // Mn   [2] HEBREW POINT SHIN DOT..HEBREW POINT SIN DOT
+	{runeRange{0x05C7, 0x05C9}, wbprExtend},              // Mn   [3] HEBREW POINT QAMATS QATAN..HEBREW POINT DAGESH HAZAQ MUDGASH
+	{runeRange{0x05EF, 0x05F2}, wbprHebrewLetter},        // Lo   [4] HEBREW YOD TRIANGLE..HEBREW LIGATURE YIDDISH DOUBLE YOD
+	{runeRange{0x05F4, 0x05F4}, wbprMidLetter},           // Po       HEBREW PUNCTUATION GERSHAYIM
+	{runeRange{0x060C, 0x060D}, wbprMidNum},              // Po   [2] ARABIC COMMA..ARABIC DATE SEPARATOR
+	{runeRange{0x061C, 0x061C}, wbprFormat},              // Cf       ARABIC LETTER MARK
+	{runeRange{0x0640, 0x0640}, wbprALetter},             // Lm       ARABIC TATWEEL
+	{runeRange{0x064B, 0x065F}, wbprExtend},              // Mn  [21] ARABIC FATHATAN..ARABIC WAVY HAMZA BELOW
+	{runeRange{0x066B, 0x066B}, wbprNumeric},             // Po       ARABIC DECIMAL SEPARATOR
+	{runeRange{0x066E, 0x066F}, wbprALetter},             // Lo   [2] ARABIC LETTER DOTLESS BEH..ARABIC LETTER DOTLESS QAF
+	{runeRange{0x0671, 0x06D3}, wbprALetter},             // Lo  [99] ARABIC LETTER ALEF WASLA..ARABIC LETTER YEH BARREE WITH HAMZA ABOVE
+	{runeRange{0x06D6, 0x06DC}, wbprExtend},              // Mn   [7] ARABIC SMALL HIGH LIGATURE SAD WITH LAM WITH ALEF MAKSURA..ARABIC SMALL HIGH SEEN
+	{runeRange{0x06DF, 0x06E4}, wbprExtend},              // Mn   [6] ARABIC SMALL HIGH ROUNDED ZERO..ARABIC SMALL HIGH MADDA
+	{runeRange{0x06E7, 0x06E8}, wbprExtend},              // Mn   [2] ARABIC SMALL HIGH YEH..ARABIC SMALL HIGH NOON
+	{runeRange{0x06EE, 0x06EF}, wbprALetter},             // Lo   [2] ARABIC LETTER DAL WITH INVERTED V..ARABIC LETTER REH WITH INVERTED V
+	{runeRange{0x06FA, 0x06FC}, wbprALetter},             // Lo   [3] ARABIC LETTER SHEEN WITH DOT BELOW..ARABIC LETTER GHAIN WITH DOT BELOW
+	{runeRange{0x070F, 0x070F}, wbprALetter},             // Cf       SYRIAC ABBREVIATION MARK
+	{runeRange{0x0711, 0x0711}, wbprExtend},              // Mn       SYRIAC LETTER SUPERSCRIPT ALAPH
+	{runeRange{0x0730, 0x074A}, wbprExtend},              // Mn  [27] SYRIAC PTHAHA ABOVE..SYRIAC BARREKH
+	{runeRange{0x07A6, 0x07B0}, wbprExtend},              // Mn  [11] THAANA ABAFILI..THAANA SUKUN
+	{runeRange{0x07C0, 0x07C9}, wbprNumeric},             // Nd  [10] NKO DIGIT ZERO..NKO DIGIT NINE
+	{runeRange{0x07EB, 0x07F3}, wbprExtend},              // Mn   [9] NKO COMBINING SHORT HIGH TONE..NKO COMBINING DOUBLE DOT ABOVE
+	{runeRange{0x07F8, 0x07F8}, wbprMidNum},              // Po       NKO COMMA
+	{runeRange{0x07FD, 0x07FD}, wbprExtend},              // Mn       NKO DANTAYALAN
+	{runeRange{0x0816, 0x0819}, wbprExtend},              // Mn   [4] SAMARITAN MARK IN..SAMARITAN MARK DAGESH
+	{runeRange{0x081B, 0x0823}, wbprExtend},              // Mn   [9] SAMARITAN MARK EPENTHETIC YUT..SAMARITAN VOWEL SIGN A
+	{runeRange{0x0825, 0x0827}, wbprExtend},              // Mn   [3] SAMARITAN VOWEL SIGN SHORT A..SAMARITAN VOWEL SIGN U
+	{runeRange{0x0829, 0x082D}, wbprExtend},              // Mn   [5] SAMARITAN VOWEL SIGN LONG I..SAMARITAN MARK NEQUDAA
+	{runeRange{0x0859, 0x085B}, wbprExtend},              // Mn   [3] MANDAIC AFFRICATION MARK..MANDAIC GEMINATION MARK
+	{runeRange{0x0870, 0x0887}, wbprALetter},             // Lo  [24] ARABIC LETTER ALEF WITH ATTACHED FATHA..ARABIC BASELINE ROUND DOT
+	{runeRange{0x0890, 0x0891}, wbprNumeric},             // Cf   [2] ARABIC POUND MARK ABOVE..ARABIC PIASTRE MARK ABOVE
+	{runeRange{0x08A0, 0x08C8}, wbprALetter},             // Lo  [41] ARABIC LETTER BEH WITH SMALL V BELOW..ARABIC LETTER GRAF
+	{runeRange{0x08CA, 0x08E1}, wbprExtend},              // Mn  [24] ARABIC SMALL HIGH FARSI YEH..ARABIC SMALL HIGH SIGN SAFHA
+	{runeRange{0x08E3, 0x0902}, wbprExtend},              // Mn  [32] ARABIC TURNED DAMMA BELOW..DEVANAGARI SIGN ANUSVARA
+	{runeRange{0x0904, 0x0939}, wbprALetter},             // Lo  [54] DEVANAGARI LETTER SHORT A..DEVANAGARI LETTER HA
+	{runeRange{0x093B, 0x093B}, wbprExtend},              // Mc       DEVANAGARI VOWEL SIGN OOE
+	{runeRange{0x093D, 0x093D}, wbprALetter},             // Lo       DEVANAGARI SIGN AVAGRAHA
+	{runeRange{0x0941, 0x0948}, wbprExtend},              // Mn   [8] DEVANAGARI VOWEL SIGN U..DEVANAGARI VOWEL SIGN AI
+	{runeRange{0x094D, 0x094D}, wbprExtend},              // Mn       DEVANAGARI SIGN VIRAMA
+	{runeRange{0x0950, 0x0950}, wbprALetter},             // Lo       DEVANAGARI OM
+	{runeRange{0x0958, 0x0961}, wbprALetter},             // Lo  [10] DEVANAGARI LETTER QA..DEVANAGARI LETTER VOCALIC LL
+	{runeRange{0x0966, 0x096F}, wbprNumeric},             // Nd  [10] DEVANAGARI DIGIT ZERO..DEVANAGARI DIGIT NINE
+	{runeRange{0x0972, 0x0980}, wbprALetter},             // Lo  [15] DEVANAGARI LETTER CANDRA A..BENGALI ANJI
+	{runeRange{0x0982, 0x0983}, wbprExtend},              // Mc   [2] BENGALI SIGN ANUSVARA..BENGALI SIGN VISARGA
+	{runeRange{0x098F, 0x0990}, wbprALetter},             // Lo   [2] BENGALI LETTER E..BENGALI LETTER AI
+	{runeRange{0x09AA, 0x09B0}, wbprALetter},             // Lo   [7] BENGALI LETTER PA..BENGALI LETTER RA
+	{runeRange{0x09B6, 0x09B9}, wbprALetter},             // Lo   [4] BENGALI LETTER SHA..BENGALI LETTER HA
+	{runeRange{0x09BD, 0x09BD}, wbprALetter},             // Lo       BENGALI SIGN AVAGRAHA
+	{runeRange{0x09C1, 0x09C4}, wbprExtend},              // Mn   [4] BENGALI VOWEL SIGN U..BENGALI VOWEL SIGN VOCALIC RR
+	{runeRange{0x09CB, 0x09CC}, wbprExtend},              // Mc   [2] BENGALI VOWEL SIGN O..BENGALI VOWEL SIGN AU
+	{runeRange{0x09CE, 0x09CE}, wbprALetter},             // Lo       BENGALI LETTER KHANDA TA
+	{runeRange{0x09DC, 0x09DD}, wbprALetter},             // Lo   [2] BENGALI LETTER RRA..BENGALI LETTER RHA
+	{runeRange{0x09E2, 0x09E3}, wbprExtend},              // Mn   [2] BENGALI VOWEL SIGN VOCALIC L..BENGALI VOWEL SIGN VOCALIC LL
+	{runeRange{0x09F0, 0x09F1}, wbprALetter},             // Lo   [2] BENGALI LETTER RA WITH MIDDLE DIAGONAL..BENGALI LETTER RA WITH LOWER DIAGONAL
+	{runeRange{0x09FE, 0x09FE}, wbprExtend},              // Mn       BENGALI SANDHI MARK
+	{runeRange{0x0A03, 0x0A03}, wbprExtend},              // Mc       GURMUKHI SIGN VISARGA
+	{runeRange{0x0A0F, 0x0A10}, wbprALetter},             // Lo   [2] GURMUKHI LETTER EE..GURMUKHI LETTER AI
+	{runeRange{0x0A2A, 0x0A30}, wbprALetter},             // Lo   [7] GURMUKHI LETTER PA..GURMUKHI LETTER RA
+	{runeRange{0x0A35, 0x0A36}, wbprALetter},             // Lo   [2] GURMUKHI LETTER VA..GURMUKHI LETTER SHA
+	{runeRange{0x0A3C, 0x0A3C}, wbprExtend},              // Mn       GURMUKHI SIGN NUKTA
+	{runeRange{0x0A41, 0x0A42}, wbprExtend},              // Mn   [2] GURMUKHI VOWEL SIGN U..GURMUKHI VOWEL SIGN UU
+	{runeRange{0x0A4B, 0x0A4D}, wbprExtend},              // Mn   [3] GURMUKHI VOWEL SIGN OO..GURMUKHI SIGN VIRAMA
+	{runeRange{0x0A59, 0x0A5C}, wbprALetter},             // Lo   [4] GURMUKHI LETTER KHHA..GURMUKHI LETTER RRA
+	{runeRange{0x0A66, 0x0A6F}, wbprNumeric},             // Nd  [10] GURMUKHI DIGIT ZERO..GURMUKHI DIGIT NINE
+	{runeRange{0x0A72, 0x0A74}, wbprALetter},             // Lo   [3] GURMUKHI IRI..GURMUKHI EK ONKAR
+	{runeRange{0x0A81, 0x0A82}, wbprExtend},              // Mn   [2] GUJARATI SIGN CANDRABINDU..GUJARATI SIGN ANUSVARA
+	{runeRange{0x0A85, 0x0A8D}, wbprALetter},             // Lo   [9] GUJARATI LETTER A..GUJARATI VOWEL CANDRA E
+	{runeRange{0x0A93, 0x0AA8}, wbprALetter},             // Lo  [22] GUJARATI LETTER O..GUJARATI LETTER NA
+	{runeRange{0x0AB2, 0x0AB3}, wbprALetter},             // Lo   [2] GUJARATI LETTER LA..GUJARATI LETTER LLA
+	{runeRange{0x0ABC, 0x0ABC}, wbprExtend},              // Mn       GUJARATI SIGN NUKTA
+	{runeRange{0x0ABE, 0x0AC0}, wbprExtend},              // Mc   [3] GUJARATI VOWEL SIGN AA..GUJARATI VOWEL SIGN II
+	{runeRange{0x0AC7, 0x0AC8}, wbprExtend},              // Mn   [2] GUJARATI VOWEL SIGN E..GUJARATI VOWEL SIGN AI
+	{runeRange{0x0ACB, 0x0ACC}, wbprExtend},              // Mc   [2] GUJARATI VOWEL SIGN O..GUJARATI VOWEL SIGN AU
+	{runeRange{0x0AD0, 0x0AD0}, wbprALetter},             // Lo       GUJARATI OM
+	{runeRange{0x0AE2, 0x0AE3}, wbprExtend},              // Mn   [2] GUJARATI VOWEL SIGN VOCALIC L..GUJARATI VOWEL SIGN VOCALIC LL
+	{runeRange{0x0AF9, 0x0AF9}, wbprALetter},             // Lo       GUJARATI LETTER ZHA
+	{runeRange{0x0B01, 0x0B01}, wbprExtend},              // Mn       ORIYA SIGN CANDRABINDU
+	{runeRange{0x0B05, 0x0B0C}, wbprALetter},             // Lo   [8] ORIYA LETTER A..ORIYA LETTER VOCALIC L
+	{runeRange{0x0B13, 0x0B28}, wbprALetter},             // Lo  [22] ORIYA LETTER O..ORIYA LETTER NA
+	{runeRange{0x0B32, 0x0B33}, wbprALetter},             // Lo   [2] ORIYA LETTER LA..ORIYA LETTER LLA
+	{runeRange{0x0B3C, 0x0B3C}, wbprExtend},              // Mn       ORIYA SIGN NUKTA
+	{runeRange{0x0B3E, 0x0B3E}, wbprExtend},              // Mc       ORIYA VOWEL SIGN AA
+	{runeRange{0x0B40, 0x0B40}, wbprExtend},              // Mc       ORIYA VOWEL SIGN II
+	{runeRange{0x0B47, 0x0B48}, wbprExtend},              // Mc   [2] ORIYA VOWEL SIGN E..ORIYA VOWEL SIGN AI
+	{runeRange{0x0B4D, 0x0B4D}, wbprExtend},              // Mn       ORIYA SIGN VIRAMA
+	{runeRange{0x0B57, 0x0B57}, wbprExtend},              // Mc       ORIYA AU LENGTH MARK
+	{runeRange{0x0B5F, 0x0B61}, wbprALetter},             // Lo   [3] ORIYA LETTER YYA..ORIYA LETTER VOCALIC LL
+	{runeRange{0x0B66, 0x0B6F}, wbprNumeric},             // Nd  [10] ORIYA DIGIT ZERO..ORIYA DIGIT NINE
+	{runeRange{0x0B82, 0x0B82}, wbprExtend},              // Mn       TAMIL SIGN ANUSVARA
+	{runeRange{0x0B85, 0x0B8A}, wbprALetter},             // Lo   [6] TAMIL LETTER A..TAMIL LETTER UU
+	{runeRange{0x0B92, 0x0B95}, wbprALetter},             // Lo   [4] TAMIL LETTER O..TAMIL LETTER KA
+	{runeRange{0x0B9C, 0x0B9C}, wbprALetter},             // Lo       TAMIL LETTER JA
+	{runeRange{0x0BA3, 0x0BA4}, wbprALetter},             // Lo   [2] TAMIL LETTER NNA..TAMIL LETTER TA
+	{runeRange{0x0BAE, 0x0BB9}, wbprALetter},             // Lo  [12] TAMIL LETTER MA..TAMIL LETTER HA
+	{runeRange{0x0BC0, 0x0BC0}, wbprExtend},              // Mn       TAMIL VOWEL SIGN II
+	{runeRange{0x0BC6, 0x0BC8}, wbprExtend},              // Mc   [3] TAMIL VOWEL SIGN E..TAMIL VOWEL SIGN AI
+	{runeRange{0x0BCD, 0x0BCD}, wbprExtend},              // Mn       TAMIL SIGN VIRAMA
+	{runeRange{0x0BD7, 0x0BD7}, wbprExtend},              // Mc       TAMIL AU LENGTH MARK
+	{runeRange{0x0C00, 0x0C00}, wbprExtend},              // Mn       TELUGU SIGN COMBINING CANDRABINDU ABOVE
+	{runeRange{0x0C04, 0x0C04}, wbprExtend},              // Mn       TELUGU SIGN COMBINING ANUSVARA ABOVE
+	{runeRange{0x0C0E, 0x0C10}, wbprALetter},             // Lo   [3] TELUGU LETTER E..TELUGU LETTER AI
+	{runeRange{0x0C2A, 0x0C39}, wbprALetter},             // Lo  [16] TELUGU LETTER PA..TELUGU LETTER HA
+	{runeRange{0x0C3D, 0x0C3D}, wbprALetter},             // Lo       TELUGU SIGN AVAGRAHA
+	{runeRange{0x0C41, 0x0C44}, wbprExtend},              // Mc   [4] TELUGU VOWEL SIGN U..TELUGU VOWEL SIGN VOCALIC RR
+	{runeRange{0x0C4A, 0x0C4D}, wbprExtend},              // Mn   [4] TELUGU VOWEL SIGN O..TELUGU SIGN VIRAMA
+	{runeRange{0x0C58, 0x0C5A}, wbprALetter},             // Lo   [3] TELUGU LETTER TSA..TELUGU LETTER RRRA
+	{runeRange{0x0C60, 0x0C61}, wbprALetter},             // Lo   [2] TELUGU LETTER VOCALIC RR..TELUGU LETTER VOCALIC LL
+	{runeRange{0x0C66, 0x0C6F}, wbprNumeric},             // Nd  [10] TELUGU DIGIT ZERO..TELUGU DIGIT NINE
+	{runeRange{0x0C81, 0x0C81}, wbprExtend},              // Mn       KANNADA SIGN CANDRABINDU
+	{runeRange{0x0C85, 0x0C8C}, wbprALetter},             // Lo   [8] KANNADA LETTER A..KANNADA LETTER VOCALIC L
+	{runeRange{0x0C92, 0x0CA8}, wbprALetter},             // Lo  [23] KANNADA LETTER O..KANNADA LETTER NA
+	{runeRange{0x0CB5, 0x0CB9}, wbprALetter},             // Lo   [5] KANNADA LETTER VA..KANNADA LETTER HA
+	{runeRange{0x0CBD, 0x0CBD}, wbprALetter},             // Lo       KANNADA SIGN AVAGRAHA
+	{runeRange{0x0CBF, 0x0CBF}, wbprExtend},              // Mn       KANNADA VOWEL SIGN I
+	{runeRange{0x0CC6, 0x0CC6}, wbprExtend},              // Mn       KANNADA VOWEL SIGN E
+	{runeRange{0x0CCA, 0x0CCB}, wbprExtend},              // Mc   [2] KANNADA VOWEL SIGN O..KANNADA VOWEL SIGN OO
+	{runeRange{0x0CD5, 0x0CD6}, wbprExtend},              // Mc   [2] KANNADA LENGTH MARK..KANNADA AI LENGTH MARK
+	{runeRange{0x0CE0, 0x0CE1}, wbprALetter},             // Lo   [2] KANNADA LETTER VOCALIC RR..KANNADA LETTER VOCALIC LL
+	{runeRange{0x0CE6, 0x0CEF}, wbprNumeric},             // Nd  [10] KANNADA DIGIT ZERO..KANNADA DIGIT NINE
+	{runeRange{0x0CF3, 0x0CF3}, wbprExtend},              // Mc       KANNADA SIGN COMBINING ANUSVARA ABOVE RIGHT
+	{runeRange{0x0D02, 0x0D03}, wbprExtend},              // Mc   [2] MALAYALAM SIGN ANUSVARA..MALAYALAM SIGN VISARGA
+	{runeRange{0x0D0E, 0x0D10}, wbprALetter},             // Lo   [3] MALAYALAM LETTER E..MALAYALAM LETTER AI
+	{runeRange{0x0D3B, 0x0D3C}, wbprExtend},              // Mn   [2] MALAYALAM SIGN VERTICAL BAR VIRAMA..MALAYALAM SIGN CIRCULAR VIRAMA
+	{runeRange{0x0D3E, 0x0D40}, wbprExtend},              // Mc   [3] MALAYALAM VOWEL SIGN AA..MALAYALAM VOWEL SIGN II
+	{runeRange{0x0D46, 0x0D48}, wbprExtend},              // Mc   [3] MALAYALAM VOWEL SIGN E..MALAYALAM VOWEL SIGN AI
+	{runeRange{0x0D4D, 0x0D4D}, wbprExtend},              // Mn       MALAYALAM SIGN VIRAMA
+	{runeRange{0x0D54, 0x0D56}, wbprALetter},             // Lo   [3] MALAYALAM LETTER CHILLU M..MALAYALAM LETTER CHILLU LLL
+	{runeRange{0x0D5F, 0x0D61}, wbprALetter},             // Lo   [3] MALAYALAM LETTER ARCHAIC II..MALAYALAM LETTER VOCALIC LL
+	{runeRange{0x0D66, 0x0D6F}, wbprNumeric},             // Nd  [10] MALAYALAM DIGIT ZERO..MALAYALAM DIGIT NINE
+	{runeRange{0x0D81, 0x0D81}, wbprExtend},              // Mn       SINHALA SIGN CANDRABINDU
+	{runeRange{0x0D85, 0x0D96}, wbprALetter},             // Lo  [18] SINHALA LETTER AYANNA..SINHALA LETTER AUYANNA
+	{runeRange{0x0DB3, 0x0DBB}, wbprALetter},             // Lo   [9] SINHALA LETTER SANYAKA DAYANNA..SINHALA LETTER RAYANNA
+	{runeRange{0x0DC0, 0x0DC6}, wbprALetter},             // Lo   [7] SINHALA LETTER VAYANNA..SINHALA LETTER FAYANNA
+	{runeRange{0x0DCF, 0x0DD1}, wbprExtend},              // Mc   [3] SINHALA VOWEL SIGN AELA-PILLA..SINHALA VOWEL SIGN DIGA AEDA-PILLA
+	{runeRange{0x0DD6, 0x0DD6}, wbprExtend},              // Mn       SINHALA VOWEL SIGN DIGA PAA-PILLA
+	{runeRange{0x0DE6, 0x0DEF}, wbprNumeric},             // Nd  [10] SINHALA LITH DIGIT ZERO..SINHALA LITH DIGIT NINE
+	{runeRange{0x0E31, 0x0E31}, wbprExtend},              // Mn       THAI CHARACTER MAI HAN-AKAT
+	{runeRange{0x0E47, 0x0E4E}, wbprExtend},              // Mn   [8] THAI CHARACTER MAITAIKHU..THAI CHARACTER YAMAKKAN
+	{runeRange{0x0EB1, 0x0EB1}, wbprExtend},              // Mn       LAO VOWEL SIGN MAI KAN
+	{runeRange{0x0EC8, 0x0ECE}, wbprExtend},              // Mn   [7] LAO TONE MAI EK..LAO YAMAKKAN
+	{runeRange{0x0F00, 0x0F00}, wbprALetter},             // Lo       TIBETAN SYLLABLE OM
+	{runeRange{0x0F20, 0x0F29}, wbprNumeric},             // Nd  [10] TIBETAN DIGIT ZERO..TIBETAN DIGIT NINE
+	{runeRange{0x0F37, 0x0F37}, wbprExtend},              // Mn       TIBETAN MARK NGAS BZUNG SGOR RTAGS
+	{runeRange{0x0F3E, 0x0F3F}, wbprExtend},              // Mc   [2] TIBETAN SIGN YAR TSHES..TIBETAN SIGN MAR TSHES
+	{runeRange{0x0F49, 0x0F6C}, wbprALetter},             // Lo  [36] TIBETAN LETTER NYA..TIBETAN LETTER RRA
+	{runeRange{0x0F7F, 0x0F7F}, wbprExtend},              // Mc       TIBETAN SIGN RNAM BCAD
+	{runeRange{0x0F86, 0x0F87}, wbprExtend},              // Mn   [2] TIBETAN SIGN LCI RTAGS..TIBETAN SIGN YANG RTAGS
+	{runeRange{0x0F8D, 0x0F97}, wbprExtend},              // Mn  [11] TIBETAN SUBJOINED SIGN LCE TSA CAN..TIBETAN SUBJOINED LETTER JA
+	{runeRange{0x0FC6, 0x0FC6}, wbprExtend},              // Mn       TIBETAN SYMBOL PADMA GDAN
+	{runeRange{0x102D, 0x1030}, wbprExtend},              // Mn   [4] MYANMAR VOWEL SIGN I..MYANMAR VOWEL SIGN UU
+	{runeRange{0x1032, 0x1037}, wbprExtend},              // Mn   [6] MYANMAR VOWEL SIGN AI..MYANMAR SIGN DOT BELOW
+	{runeRange{0x1039, 0x103A}, wbprExtend},              // Mn   [2] MYANMAR SIGN VIRAMA..MYANMAR SIGN ASAT
+	{runeRange{0x103D, 0x103E}, wbprExtend},              // Mn   [2] MYANMAR CONSONANT SIGN MEDIAL WA..MYANMAR CONSONANT SIGN MEDIAL HA
+	{runeRange{0x1056, 0x1057}, wbprExtend},              // Mc   [2] MYANMAR VOWEL SIGN VOCALIC R..MYANMAR VOWEL SIGN VOCALIC RR
+	{runeRange{0x105E, 0x1060}, wbprExtend},              // Mn   [3] MYANMAR CONSONANT SIGN MON MEDIAL NA..MYANMAR CONSONANT SIGN MON MEDIAL LA
+	{runeRange{0x1067, 0x106D}, wbprExtend},              // Mc   [7] MYANMAR VOWEL SIGN WESTERN PWO KAREN EU..MYANMAR SIGN WESTERN PWO KAREN TONE-5
+	{runeRange{0x1082, 0x1082}, wbprExtend},              // Mn       MYANMAR CONSONANT SIGN SHAN MEDIAL WA
+	{runeRange{0x1085, 0x1086}, wbprExtend},              // Mn   [2] MYANMAR VOWEL SIGN SHAN E ABOVE..MYANMAR VOWEL SIGN SHAN FINAL Y
+	{runeRange{0x108D, 0x108D}, wbprExtend},              // Mn       MYANMAR SIGN SHAN COUNCIL EMPHATIC TONE
+	{runeRange{0x1090, 0x1099}, wbprNumeric},             // Nd  [10] MYANMAR SHAN DIGIT ZERO..MYANMAR SHAN DIGIT NINE
+	{runeRange{0x109D, 0x109D}, wbprExtend},              // Mn       MYANMAR VOWEL SIGN AITON AI
+	{runeRange{0x10C7, 0x10C7}, wbprALetter},             // L&       GEORGIAN CAPITAL LETTER YN
+	{runeRange{0x10D0, 0x10FA}, wbprALetter},             // L&  [43] GEORGIAN LETTER AN..GEORGIAN LETTER AIN
+	{runeRange{0x10FD, 0x10FF}, wbprALetter},             // L&   [3] GEORGIAN LETTER AEN..GEORGIAN LETTER LABIAL SIGN
+	{runeRange{0x124A, 0x124D}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE QWI..ETHIOPIC SYLLABLE QWE
+	{runeRange{0x1258, 0x1258}, wbprALetter},             // Lo       ETHIOPIC SYLLABLE QHWA
+	{runeRange{0x1260, 0x1288}, wbprALetter},             // Lo  [41] ETHIOPIC SYLLABLE BA..ETHIOPIC SYLLABLE XWA
+	{runeRange{0x1290, 0x12B0}, wbprALetter},             // Lo  [33] ETHIOPIC SYLLABLE NA..ETHIOPIC SYLLABLE KWA
+	{runeRange{0x12B8, 0x12BE}, wbprALetter},             // Lo   [7] ETHIOPIC SYLLABLE KXA..ETHIOPIC SYLLABLE KXO
+	{runeRange{0x12C2, 0x12C5}, wbprALetter},             // Lo   [4] ETHIOPIC SYLLABLE KXWI..ETHIOPIC SYLLABLE KXWE
+	{runeRange{0x12D8, 0x1310}, wbprALetter},             // Lo  [57] ETHIOPIC SYLLABLE ZA..ETHIOPIC SYLLABLE GWA
+	{runeRange{0x1318, 0x135A}, wbprALetter},             // Lo  [67] ETHIOPIC SYLLABLE GGA..ETHIOPIC SYLLABLE FYA
+	{runeRange{0x1380, 0x138F}, wbprALetter},             // Lo  [16] ETHIOPIC SYLLABLE SEBATBEIT MWA..ETHIOPIC SYLLABLE PWE
+	{runeRange{0x13F8, 0x13FD}, wbprALetter},             // L&   [6] CHEROKEE SMALL LETTER YE..CHEROKEE SMALL LETTER MV
+	{runeRange{0x166F, 0x167F}, wbprALetter},             // Lo  [17] CANADIAN SYLLABICS QAI..CANADIAN SYLLABICS BLACKFOOT W
+	{runeRange{0x1681, 0x169A}, wbprALetter},             // Lo  [26] OGHAM LETTER BEITH..OGHAM LETTER PEITH
+	{runeRange{0x16EE, 0x16F0}, wbprALetter},             // Nl   [3] RUNIC ARLAUG SYMBOL..RUNIC BELGTHOR SYMBOL
+	{runeRange{0x1700, 0x1711}, wbprALetter},             // Lo  [18] TAGALOG LETTER A..TAGALOG LETTER HA
+	{runeRange{0x1715, 0x1715}, wbprExtend},              // Mc       TAGALOG SIGN PAMUDPOD
+	{runeRange{0x1732, 0x1733}, wbprExtend},              // Mn   [2] HANUNOO VOWEL SIGN I..HANUNOO VOWEL SIGN U
+	{runeRange{0x1740, 0x1751}, wbprALetter},             // Lo  [18] BUHID LETTER A..BUHID LETTER HA
+	{runeRange{0x1760, 0x176C}, wbprALetter},             // Lo  [13] TAGBANWA LETTER A..TAGBANWA LETTER YA
+	{runeRange{0x1772, 0x1773}, wbprExtend},              // Mn   [2] TAGBANWA VOWEL SIGN I..TAGBANWA VOWEL SIGN U
+	{runeRange{0x17B6, 0x17B6}, wbprExtend},              // Mc       KHMER VOWEL SIGN AA
+	{runeRange{0x17BE, 0x17C5}, wbprExtend},              // Mc   [8] KHMER VOWEL SIGN OE..KHMER VOWEL SIGN AU
+	{runeRange{0x17C7, 0x17C8}, wbprExtend},              // Mc   [2] KHMER SIGN REAHMUK..KHMER SIGN YUUKALEAPINTU
+	{runeRange{0x17DD, 0x17DD}, wbprExtend},              // Mn       KHMER SIGN ATTHACAN
+	{runeRange{0x180B, 0x180D}, wbprExtend},              // Mn   [3] MONGOLIAN FREE VARIATION SELECTOR ONE..MONGOLIAN FREE VARIATION SELECTOR THREE
+	{runeRange{0x180F, 0x180F}, wbprExtend},              // Mn       MONGOLIAN FREE VARIATION SELECTOR FOUR
+	{runeRange{0x1820, 0x1842}, wbprALetter},             // Lo  [35] MONGOLIAN LETTER A..MONGOLIAN LETTER CHI
+	{runeRange{0x1844, 0x1878}, wbprALetter},             // Lo  [53] MONGOLIAN LETTER TODO E..MONGOLIAN LETTER CHA WITH TWO DOTS
+	{runeRange{0x1885, 0x1886}, wbprExtend},              // Mn   [2] MONGOLIAN LETTER ALI GALI BALUDA..MONGOLIAN LETTER ALI GALI THREE BALUDA
+	{runeRange{0x18A9, 0x18A9}, wbprExtend},              // Mn       MONGOLIAN LETTER ALI GALI DAGALGA
+	{runeRange{0x18B0, 0x18F5}, wbprALetter},             // Lo  [70] CANADIAN SYLLABICS OY..CANADIAN SYLLABICS CARRIER DENTAL S
+	{runeRange{0x1920, 0x1922}, wbprExtend},              // Mn   [3] LIMBU VOWEL SIGN A..LIMBU VOWEL SIGN U
+	{runeRange{0x1927, 0x1928}, wbprExtend},              // Mn   [2] LIMBU VOWEL SIGN E..LIMBU VOWEL SIGN O
+	{runeRange{0x1930, 0x1931}, wbprExtend},              // Mc   [2] LIMBU SMALL LETTER KA..LIMBU SMALL LETTER NGA
+	{runeRange{0x1933, 0x1938}, wbprExtend},              // Mc   [6] LIMBU SMALL LETTER TA..LIMBU SMALL LETTER LA
+	{runeRange{0x1946, 0x194F}, wbprNumeric},             // Nd  [10] LIMBU DIGIT ZERO..LIMBU DIGIT NINE
+	{runeRange{0x19DA, 0x19DA}, wbprNumeric},             // No       NEW TAI LUE THAM DIGIT ONE
+	{runeRange{0x1A17, 0x1A18}, wbprExtend},              // Mn   [2] BUGINESE VOWEL SIGN I..BUGINESE VOWEL SIGN U
+	{runeRange{0x1A1B, 0x1A1B}, wbprExtend},              // Mn       BUGINESE VOWEL SIGN AE
+	{runeRange{0x1A56, 0x1A56}, wbprExtend},              // Mn       TAI THAM CONSONANT SIGN MEDIAL LA
+	{runeRange{0x1A58, 0x1A5E}, wbprExtend},              // Mn   [7] TAI THAM SIGN MAI KANG LAI..TAI THAM CONSONANT SIGN SA
+	{runeRange{0x1A61, 0x1A61}, wbprExtend},              // Mc       TAI THAM VOWEL SIGN A
+	{runeRange{0x1A63, 0x1A64}, wbprExtend},              // Mc   [2] TAI THAM VOWEL SIGN AA..TAI THAM VOWEL SIGN TALL AA
+	{runeRange{0x1A6D, 0x1A72}, wbprExtend},              // Mc   [6] TAI THAM VOWEL SIGN OY..TAI THAM VOWEL SIGN THAM AI
+	{runeRange{0x1A7F, 0x1A7F}, wbprExtend},              // Mn       TAI THAM COMBINING CRYPTOGRAMMIC DOT
+	{runeRange{0x1A90, 0x1A99}, wbprNumeric},             // Nd  [10] TAI THAM THAM DIGIT ZERO..TAI THAM THAM DIGIT NINE
+	{runeRange{0x1ABE, 0x1ABE}, wbprExtend},              // Me       COMBINING PARENTHESES OVERLAY
 	{runeRange{0x1B00, 0x1B03}, wbprExtend},              // Mn   [4] BALINESE SIGN ULU RICEM..BALINESE SIGN SURANG
 	{runeRange{0x1B05, 0x1B33}, wbprALetter},             // Lo  [47] BALINESE LETTER AKARA..BALINESE LETTER HA
 	{runeRange{0x1B35, 0x1B35}, wbprExtend},              // Mc       BALINESE VOWEL SIGN TEDUNG
@@ -1327,7 +1327,7 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0x2054, 0x2054}, wbprExtendNumLet},        // Pc       INVERTED UNDERTIE
 	{runeRange{0x2060, 0x2064}, wbprFormat},              // Cf   [5] WORD JOINER..INVISIBLE PLUS
 	{runeRange{0x2071, 0x2071}, wbprALetter},             // Lm       SUPERSCRIPT LATIN SMALL LETTER I
-	{runeRange{0x2090, 0x209C}, wbprALetter},             // Lm  [13] LATIN SUBSCRIPT SMALL LETTER A..LATIN SUBSCRIPT SMALL LETTER T
+	{runeRange{0x208F, 0x209F}, wbprALetter},             // Lm  [17] MODIFIER LETTER HIGH AND LOW VERTICAL LINE..LATIN SUBSCRIPT SMALL LETTER Z
 	{runeRange{0x20DD, 0x20E0}, wbprExtend},              // Me   [4] COMBINING ENCLOSING CIRCLE..COMBINING ENCLOSING CIRCLE BACKSLASH
 	{runeRange{0x20E2, 0x20E4}, wbprExtend},              // Me   [3] COMBINING ENCLOSING SCREEN..COMBINING ENCLOSING UPWARD POINTING TRIANGLE
 	{runeRange{0x2102, 0x2102}, wbprALetter},             // L&       DOUBLE-STRUCK CAPITAL C
@@ -1377,49 +1377,50 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0xA771, 0xA787}, wbprALetter},             // L&  [23] LATIN SMALL LETTER DUM..LATIN SMALL LETTER INSULAR T
 	{runeRange{0xA789, 0xA78A}, wbprALetter},             // Sk   [2] MODIFIER LETTER COLON..MODIFIER LETTER SHORT EQUALS SIGN
 	{runeRange{0xA78F, 0xA78F}, wbprALetter},             // Lo       LATIN LETTER SINOLOGICAL DOT
-	{runeRange{0xA7F1, 0xA7F4}, wbprALetter},             // Lm   [4] MODIFIER LETTER CAPITAL S..MODIFIER LETTER CAPITAL Q
-	{runeRange{0xA7F7, 0xA7F7}, wbprALetter},             // Lo       LATIN EPIGRAPHIC LETTER SIDEWAYS I
-	{runeRange{0xA7FA, 0xA7FA}, wbprALetter},             // L&       LATIN LETTER SMALL CAPITAL TURNED M
-	{runeRange{0xA802, 0xA802}, wbprExtend},              // Mn       SYLOTI NAGRI SIGN DVISVARA
-	{runeRange{0xA806, 0xA806}, wbprExtend},              // Mn       SYLOTI NAGRI SIGN HASANTA
-	{runeRange{0xA80B, 0xA80B}, wbprExtend},              // Mn       SYLOTI NAGRI SIGN ANUSVARA
-	{runeRange{0xA823, 0xA824}, wbprExtend},              // Mc   [2] SYLOTI NAGRI VOWEL SIGN A..SYLOTI NAGRI VOWEL SIGN I
-	{runeRange{0xA827, 0xA827}, wbprExtend},              // Mc       SYLOTI NAGRI VOWEL SIGN OO
-	{runeRange{0xA840, 0xA873}, wbprALetter},             // Lo  [52] PHAGS-PA LETTER KA..PHAGS-PA LETTER CANDRABINDU
-	{runeRange{0xA882, 0xA8B3}, wbprALetter},             // Lo  [50] SAURASHTRA LETTER A..SAURASHTRA LETTER LLA
-	{runeRange{0xA8C4, 0xA8C5}, wbprExtend},              // Mn   [2] SAURASHTRA SIGN VIRAMA..SAURASHTRA SIGN CANDRABINDU
-	{runeRange{0xA8E0, 0xA8F1}, wbprExtend},              // Mn  [18] COMBINING DEVANAGARI DIGIT ZERO..COMBINING DEVANAGARI SIGN AVAGRAHA
-	{runeRange{0xA8FB, 0xA8FB}, wbprALetter},             // Lo       DEVANAGARI HEADSTROKE
-	{runeRange{0xA8FF, 0xA8FF}, wbprExtend},              // Mn       DEVANAGARI VOWEL SIGN AY
-	{runeRange{0xA90A, 0xA925}, wbprALetter},             // Lo  [28] KAYAH LI LETTER KA..KAYAH LI LETTER OO
-	{runeRange{0xA930, 0xA946}, wbprALetter},             // Lo  [23] REJANG LETTER KA..REJANG LETTER A
-	{runeRange{0xA952, 0xA953}, wbprExtend},              // Mc   [2] REJANG CONSONANT SIGN H..REJANG VIRAMA
-	{runeRange{0xA980, 0xA982}, wbprExtend},              // Mn   [3] JAVANESE SIGN PANYANGGA..JAVANESE SIGN LAYAR
-	{runeRange{0xA984, 0xA9B2}, wbprALetter},             // Lo  [47] JAVANESE LETTER A..JAVANESE LETTER HA
-	{runeRange{0xA9B4, 0xA9B5}, wbprExtend},              // Mc   [2] JAVANESE VOWEL SIGN TARUNG..JAVANESE VOWEL SIGN TOLONG
-	{runeRange{0xA9BA, 0xA9BB}, wbprExtend},              // Mc   [2] JAVANESE VOWEL SIGN TALING..JAVANESE VOWEL SIGN DIRGA MURE
-	{runeRange{0xA9BE, 0xA9C0}, wbprExtend},              // Mc   [3] JAVANESE CONSONANT SIGN PENGKAL..JAVANESE PANGKON
-	{runeRange{0xA9D0, 0xA9D9}, wbprNumeric},             // Nd  [10] JAVANESE DIGIT ZERO..JAVANESE DIGIT NINE
-	{runeRange{0xA9F0, 0xA9F9}, wbprNumeric},             // Nd  [10] MYANMAR TAI LAING DIGIT ZERO..MYANMAR TAI LAING DIGIT NINE
-	{runeRange{0xAA29, 0xAA2E}, wbprExtend},              // Mn   [6] CHAM VOWEL SIGN AA..CHAM VOWEL SIGN OE
-	{runeRange{0xAA31, 0xAA32}, wbprExtend},              // Mn   [2] CHAM VOWEL SIGN AU..CHAM VOWEL SIGN UE
-	{runeRange{0xAA35, 0xAA36}, wbprExtend},              // Mn   [2] CHAM CONSONANT SIGN LA..CHAM CONSONANT SIGN WA
-	{runeRange{0xAA43, 0xAA43}, wbprExtend},              // Mn       CHAM CONSONANT SIGN FINAL NG
-	{runeRange{0xAA4C, 0xAA4C}, wbprExtend},              // Mn       CHAM CONSONANT SIGN FINAL M
-	{runeRange{0xAA50, 0xAA59}, wbprNumeric},             // Nd  [10] CHAM DIGIT ZERO..CHAM DIGIT NINE
-	{runeRange{0xAA7C, 0xAA7C}, wbprExtend},              // Mn       MYANMAR SIGN TAI LAING TONE-2
-	{runeRange{0xAAB0, 0xAAB0}, wbprExtend},              // Mn       TAI VIET MAI KANG
-	{runeRange{0xAAB7, 0xAAB8}, wbprExtend},              // Mn   [2] TAI VIET MAI KHIT..TAI VIET VOWEL IA
-	{runeRange{0xAAC1, 0xAAC1}, wbprExtend},              // Mn       TAI VIET TONE MAI THO
-	{runeRange{0xAAEB, 0xAAEB}, wbprExtend},              // Mc       MEETEI MAYEK VOWEL SIGN II
-	{runeRange{0xAAEE, 0xAAEF}, wbprExtend},              // Mc   [2] MEETEI MAYEK VOWEL SIGN AU..MEETEI MAYEK VOWEL SIGN AAU
-	{runeRange{0xAAF3, 0xAAF4}, wbprALetter},             // Lm   [2] MEETEI MAYEK SYLLABLE REPETITION MARK..MEETEI MAYEK WORD REPETITION MARK
-	{runeRange{0xAAF6, 0xAAF6}, wbprExtend},              // Mn       MEETEI MAYEK VIRAMA
-	{runeRange{0xAB09, 0xAB0E}, wbprALetter},             // Lo   [6] ETHIOPIC SYLLABLE DDHU..ETHIOPIC SYLLABLE DDHO
-	{runeRange{0xAB20, 0xAB26}, wbprALetter},             // Lo   [7] ETHIOPIC SYLLABLE CCHHA..ETHIOPIC SYLLABLE CCHHO
-	{runeRange{0xAB30, 0xAB5A}, wbprALetter},             // L&  [43] LATIN SMALL LETTER BARRED ALPHA..LATIN SMALL LETTER Y WITH SHORT RIGHT LEG
-	{runeRange{0xAB5C, 0xAB5F}, wbprALetter},             // Lm   [4] MODIFIER LETTER SMALL HENG..MODIFIER LETTER SMALL U WITH LEFT HOOK
-	{runeRange{0xAB69, 0xAB69}, wbprALetter},             // Lm       MODIFIER LETTER SMALL TURNED W
+	{runeRange{0xA7E2, 0xA7E2}, wbprALetter},             // L&       LATIN CAPITAL LETTER R WITH LONG LEG
+	{runeRange{0xA7F5, 0xA7F6}, wbprALetter},             // L&   [2] LATIN CAPITAL LETTER REVERSED HALF H..LATIN SMALL LETTER REVERSED HALF H
+	{runeRange{0xA7F8, 0xA7F9}, wbprALetter},             // Lm   [2] MODIFIER LETTER CAPITAL H WITH STROKE..MODIFIER LETTER SMALL LIGATURE OE
+	{runeRange{0xA7FB, 0xA801}, wbprALetter},             // Lo   [7] LATIN EPIGRAPHIC LETTER REVERSED F..SYLOTI NAGRI LETTER I
+	{runeRange{0xA803, 0xA805}, wbprALetter},             // Lo   [3] SYLOTI NAGRI LETTER U..SYLOTI NAGRI LETTER O
+	{runeRange{0xA807, 0xA80A}, wbprALetter},             // Lo   [4] SYLOTI NAGRI LETTER KO..SYLOTI NAGRI LETTER GHO
+	{runeRange{0xA80C, 0xA822}, wbprALetter},             // Lo  [23] SYLOTI NAGRI LETTER CO..SYLOTI NAGRI LETTER HO
+	{runeRange{0xA825, 0xA826}, wbprExtend},              // Mn   [2] SYLOTI NAGRI VOWEL SIGN U..SYLOTI NAGRI VOWEL SIGN E
+	{runeRange{0xA82C, 0xA82C}, wbprExtend},              // Mn       SYLOTI NAGRI SIGN ALTERNATE HASANTA
+	{runeRange{0xA880, 0xA881}, wbprExtend},              // Mc   [2] SAURASHTRA SIGN ANUSVARA..SAURASHTRA SIGN VISARGA
+	{runeRange{0xA8B4, 0xA8C3}, wbprExtend},              // Mc  [16] SAURASHTRA CONSONANT SIGN HAARU..SAURASHTRA VOWEL SIGN AU
+	{runeRange{0xA8D0, 0xA8D9}, wbprNumeric},             // Nd  [10] SAURASHTRA DIGIT ZERO..SAURASHTRA DIGIT NINE
+	{runeRange{0xA8F2, 0xA8F7}, wbprALetter},             // Lo   [6] DEVANAGARI SIGN SPACING CANDRABINDU..DEVANAGARI SIGN CANDRABINDU AVAGRAHA
+	{runeRange{0xA8FD, 0xA8FE}, wbprALetter},             // Lo   [2] DEVANAGARI JAIN OM..DEVANAGARI LETTER AY
+	{runeRange{0xA900, 0xA909}, wbprNumeric},             // Nd  [10] KAYAH LI DIGIT ZERO..KAYAH LI DIGIT NINE
+	{runeRange{0xA926, 0xA92D}, wbprExtend},              // Mn   [8] KAYAH LI VOWEL UE..KAYAH LI TONE CALYA PLOPHU
+	{runeRange{0xA947, 0xA951}, wbprExtend},              // Mn  [11] REJANG VOWEL SIGN I..REJANG CONSONANT SIGN R
+	{runeRange{0xA960, 0xA97C}, wbprALetter},             // Lo  [29] HANGUL CHOSEONG TIKEUT-MIEUM..HANGUL CHOSEONG SSANGYEORINHIEUH
+	{runeRange{0xA983, 0xA983}, wbprExtend},              // Mc       JAVANESE SIGN WIGNYAN
+	{runeRange{0xA9B3, 0xA9B3}, wbprExtend},              // Mn       JAVANESE SIGN CECAK TELU
+	{runeRange{0xA9B6, 0xA9B9}, wbprExtend},              // Mn   [4] JAVANESE VOWEL SIGN WULU..JAVANESE VOWEL SIGN SUKU MENDUT
+	{runeRange{0xA9BC, 0xA9BD}, wbprExtend},              // Mn   [2] JAVANESE VOWEL SIGN PEPET..JAVANESE CONSONANT SIGN KERET
+	{runeRange{0xA9CF, 0xA9CF}, wbprALetter},             // Lm       JAVANESE PANGRANGKEP
+	{runeRange{0xA9E5, 0xA9E5}, wbprExtend},              // Mn       MYANMAR SIGN SHAN SAW
+	{runeRange{0xAA00, 0xAA28}, wbprALetter},             // Lo  [41] CHAM LETTER A..CHAM LETTER HA
+	{runeRange{0xAA2F, 0xAA30}, wbprExtend},              // Mc   [2] CHAM VOWEL SIGN O..CHAM VOWEL SIGN AI
+	{runeRange{0xAA33, 0xAA34}, wbprExtend},              // Mc   [2] CHAM CONSONANT SIGN YA..CHAM CONSONANT SIGN RA
+	{runeRange{0xAA40, 0xAA42}, wbprALetter},             // Lo   [3] CHAM LETTER FINAL K..CHAM LETTER FINAL NG
+	{runeRange{0xAA44, 0xAA4B}, wbprALetter},             // Lo   [8] CHAM LETTER FINAL CH..CHAM LETTER FINAL SS
+	{runeRange{0xAA4D, 0xAA4D}, wbprExtend},              // Mc       CHAM CONSONANT SIGN FINAL H
+	{runeRange{0xAA7B, 0xAA7B}, wbprExtend},              // Mc       MYANMAR SIGN PAO KAREN TONE
+	{runeRange{0xAA7D, 0xAA7D}, wbprExtend},              // Mc       MYANMAR SIGN TAI LAING TONE-5
+	{runeRange{0xAAB2, 0xAAB4}, wbprExtend},              // Mn   [3] TAI VIET VOWEL I..TAI VIET VOWEL U
+	{runeRange{0xAABE, 0xAABF}, wbprExtend},              // Mn   [2] TAI VIET VOWEL AM..TAI VIET TONE MAI EK
+	{runeRange{0xAAE0, 0xAAEA}, wbprALetter},             // Lo  [11] MEETEI MAYEK LETTER E..MEETEI MAYEK LETTER SSA
+	{runeRange{0xAAEC, 0xAAED}, wbprExtend},              // Mn   [2] MEETEI MAYEK VOWEL SIGN UU..MEETEI MAYEK VOWEL SIGN AAI
+	{runeRange{0xAAF2, 0xAAF2}, wbprALetter},             // Lo       MEETEI MAYEK ANJI
+	{runeRange{0xAAF5, 0xAAF5}, wbprExtend},              // Mc       MEETEI MAYEK VOWEL SIGN VISARGA
+	{runeRange{0xAB01, 0xAB06}, wbprALetter},             // Lo   [6] ETHIOPIC SYLLABLE TTHU..ETHIOPIC SYLLABLE TTHO
+	{runeRange{0xAB11, 0xAB16}, wbprALetter},             // Lo   [6] ETHIOPIC SYLLABLE DZU..ETHIOPIC SYLLABLE DZO
+	{runeRange{0xAB28, 0xAB2E}, wbprALetter},             // Lo   [7] ETHIOPIC SYLLABLE BBA..ETHIOPIC SYLLABLE BBO
+	{runeRange{0xAB5B, 0xAB5B}, wbprALetter},             // Sk       MODIFIER BREVE WITH INVERTED BREVE
+	{runeRange{0xAB60, 0xAB68}, wbprALetter},             // L&   [9] LATIN SMALL LETTER SAKHA YAT..LATIN SMALL LETTER TURNED R WITH MIDDLE TILDE
+	{runeRange{0xAB6C, 0xAB6D}, wbprALetter},             // L&   [2] LATIN CAPITAL LETTER SCRIPT R..LATIN CAPITAL LETTER SCRIPT R WITH RING
 	{runeRange{0xABC0, 0xABE2}, wbprALetter},             // Lo  [35] MEETEI MAYEK LETTER KOK..MEETEI MAYEK LETTER I LONSUM
 	{runeRange{0xABE5, 0xABE5}, wbprExtend},              // Mn       MEETEI MAYEK VOWEL SIGN ANAP
 	{runeRange{0xABE8, 0xABE8}, wbprExtend},              // Mn       MEETEI MAYEK VOWEL SIGN UNAP
@@ -1438,4 +1439,20 @@ var workBreakCodePoints = dictionary[wbProperty]{
 	{runeRange{0xFE20, 0xFE2F}, wbprExtend},              // Mn  [16] COMBINING LIGATURE LEFT HALF..COMBINING CYRILLIC TITLO RIGHT HALF
 	{runeRange{0xFE4D, 0xFE4F}, wbprExtendNumLet},        // Pc   [3] DASHED LOW LINE..WAVY LOW LINE
 	{runeRange{0xFE52, 0xFE52}, wbprMidNumLet},           // Po       SMALL FULL STOP
+	{runeRange{0xFE55, 0xFE55}, wbprMidLetter},           // Po       SMALL COLON
+	{runeRange{0xFE76, 0xFEFC}, wbprALetter},             // Lo [135] ARABIC FATHA ISOLATED FORM..ARABIC LIGATURE LAM WITH ALEF FINAL FORM
+	{runeRange{0xFF07, 0xFF07}, wbprMidNumLet},           // Po       FULLWIDTH APOSTROPHE
+	{runeRange{0xFF0E, 0xFF0E}, wbprMidNumLet},           // Po       FULLWIDTH FULL STOP
+	{runeRange{0xFF1A, 0xFF1A}, wbprMidLetter},           // Po       FULLWIDTH COLON
+	{runeRange{0xFF21, 0xFF3A}, wbprALetter},             // L&  [26] FULLWIDTH LATIN CAPITAL LETTER A..FULLWIDTH LATIN CAPITAL LETTER Z
+	{runeRange{0xFF41, 0xFF5A}, wbprALetter},             // L&  [26] FULLWIDTH LATIN SMALL LETTER A..FULLWIDTH LATIN SMALL LETTER Z
+	{runeRange{0xFF70, 0xFF70}, wbprKatakana},            // Lm       HALFWIDTH KATAKANA-HIRAGANA PROLONGED SOUND MARK
+	{runeRange{0xFF9E, 0xFF9F}, wbprExtend},              // Lm   [2] HALFWIDTH KATAKANA VOICED SOUND MARK..HALFWIDTH KATAKANA SEMI-VOICED SOUND MARK
+	{runeRange{0xFFC2, 0xFFC7}, wbprALetter},             // Lo   [6] HALFWIDTH HANGUL LETTER A..HALFWIDTH HANGUL LETTER E
+	{runeRange{0xFFD2, 0xFFD7}, wbprALetter},             // Lo   [6] HALFWIDTH HANGUL LETTER YO..HALFWIDTH HANGUL LETTER YU
+	{runeRange{0xFFF9, 0xFFFB}, wbprFormat},              // Cf   [3] INTERLINEAR ANNOTATION ANCHOR..INTERLINEAR ANNOTATION TERMINATOR
+	{runeRange{0x1000D, 0x10026}, wbprALetter},           // Lo  [26] LINEAR B SYLLABLE B036 JO..LINEAR B SYLLABLE B032 QO
+	{runeRange{0x1003C, 0x1003D}, wbprALetter},           // Lo   [2] LINEAR B SYLLABLE B017 ZA..LINEAR B SYLLABLE B074 ZE
+	{runeRange{0x10050, 0x1005D}, wbprALetter},           // Lo  [14] LINEAR B SYMBOL B018..LINEAR B SYMBOL B089
+	{runeRange{0x10140, 0x10174}, wbprALetter},           // Nl  [53] GREEK ACROPHONIC ATTIC ONE QUARTER..GREEK ACROPHONIC STRATIAN FIFTY MNAS
 }
