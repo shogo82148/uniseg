@@ -561,25 +561,6 @@ func transitionLineBreakRules[T bytes](state LineBreakState, r rune, nextPropert
 				return newState, LineCanBreak
 			}
 		}
-
-		if state != lbHY {
-			return newState, lineBreak
-		}
-
-		t := str
-		for i := 0; i < 128 && len(t) > 0; i++ {
-			r2, size := decoder(t)
-			if r2 == utf8.RuneError {
-				break
-			}
-			if r2 == '»' {
-				return newState, LineCanBreak
-			}
-			if r2 == '«' || r2 == '\n' || r2 == '\u2028' || r2 == '\u2029' {
-				break
-			}
-			t = t[size:]
-		}
 	}
 
 	// LB25 (look ahead).
