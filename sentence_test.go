@@ -3,6 +3,7 @@ package uniseg
 import (
 	"runtime"
 	"slices"
+	"strings"
 	"testing"
 )
 
@@ -323,6 +324,87 @@ func TestParserSentences(t *testing.T) {
 					testNum, testCase.original, *p, gotString, expected)
 			}
 		}
+	}
+}
+
+// Test that long runs of Close or Sp after an ATerm are segmented in linear
+// time. The SB8 lookahead used to scan the rest of the input again for each of
+// them, which made this test take hours.
+func TestSentenceLongCloseSpRuns(t *testing.T) {
+	const n = 1000000
+	closes := strings.Repeat(")", n)
+	spaces := strings.Repeat(" ", n)
+	tests := []struct {
+		name     string
+		input    string
+		expected []string
+	}{
+		{
+			name:     "ATerm Sp*",
+			input:    "a." + spaces,
+			expected: []string{"a." + spaces},
+		},
+		{
+			name:     "ATerm Close*",
+			input:    "." + closes,
+			expected: []string{"." + closes},
+		},
+		{
+			name:     "ATerm Close* Sp* Upper",
+			input:    "a." + closes + spaces + "B",
+			expected: []string{"a." + closes + spaces, "B"},
+		},
+		{
+			name:     "ATerm Close* Sp* Lower",
+			input:    "a." + closes + spaces + "b",
+			expected: []string{"a." + closes + spaces + "b"},
+		},
+	}
+
+	lengths := func(sentences []string) []int {
+		var l []int
+		for _, s := range sentences {
+			l = append(l, len(s))
+		}
+		return l
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name+"/FirstSentenceInString", func(t *testing.T) {
+			var (
+				got      []string
+				sentence string
+				state    SentenceBreakState
+			)
+			for str := tt.input; len(str) > 0; {
+				sentence, str, state = FirstSentenceInString(str, state)
+				got = append(got, sentence)
+			}
+			if !slices.Equal(got, tt.expected) {
+				t.Errorf("got sentences of lengths %v, expected %v", lengths(got), lengths(tt.expected))
+			}
+		})
+
+		t.Run(tt.name+"/Step", func(t *testing.T) {
+			var (
+				got        []string
+				sentence   []byte
+				cluster    []byte
+				boundaries Boundaries
+				state      State
+			)
+			for b := []byte(tt.input); len(b) > 0; {
+				cluster, b, boundaries, state = Step(b, state)
+				sentence = append(sentence, cluster...)
+				if boundaries.Sentence() {
+					got = append(got, string(sentence))
+					sentence = nil
+				}
+			}
+			if !slices.Equal(got, tt.expected) {
+				t.Errorf("got sentences of lengths %v, expected %v", lengths(got), lengths(tt.expected))
+			}
+		})
 	}
 }
 

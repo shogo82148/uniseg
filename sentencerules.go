@@ -163,7 +163,14 @@ func transitionSentenceBreakState[T bytes](state SentenceBreakState, r rune, str
 	}
 
 	// SB8.
-	if rule > 80 && (state == sbATerm || state == sbSB8Close || state == sbSB8Sp || state == sbSB7) {
+	//
+	// We only get to sbSB8Close or sbSB8Sp after the lookahead below found no
+	// Lower. Started at the next rune, it would end at the same rune and find
+	// no Lower either, so we skip it (repeating it would take quadratic time
+	// on long runs of Close or Sp). The exception is a next rune of RuneError:
+	// it ended the previous lookahead but does not end one starting at it.
+	if rule > 80 && (state == sbATerm || state == sbSB7 ||
+		((state == sbSB8Close || state == sbSB8Sp) && r == utf8.RuneError)) {
 		// Check the right side of the rule.
 		var length int
 		for nextProperty != sbprOLetter &&
