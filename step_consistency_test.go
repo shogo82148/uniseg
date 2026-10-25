@@ -17,20 +17,20 @@ var stepConsistencyExtraInputs = []string{
 	"a -b",
 	" -1",
 	"well-known self-evident",
-	"א-ב ג", // Hebrew letters with hyphen (LB21a).
-	"א‐ב",   // Hebrew letter, hyphen, Hebrew letter.
-	"◌क ◌",  // Dotted circles (LB28a).
-	"ᨠ◌᩠ x", // Dotted circle between aksara.
+	"\u05d0-\u05d1 \u05d2", // Hebrew letters with hyphen (LB21a).
+	"\u05d0\u2010\u05d1",   // Hebrew letter, hyphen, Hebrew letter.
+	"\u25cc\u0915 \u25cc",  // Dotted circles (LB28a).
+	"\u1a20\u25cc\u1a60 x", // Dotted circle between aksara.
 	"( a ) b",
-	"“a” b",          // Quotation marks (LB15).
-	"« a » b",        // Pi/Pf quotation marks with spaces.
-	"x‍\U0001f600 y", // ZWJ and Extended_Pictographic.
+	"\u201ca\u201d b",     // Quotation marks (LB15).
+	"\u00ab a \u00bb b",   // Pi/Pf quotation marks with spaces.
+	"x\u200d\U0001f600 y", // ZWJ and Extended_Pictographic.
 	"\U0001f1ef\U0001f1f5 \U0001f1fa\U0001f1f8",
-	"、（a） b", // East Asian wide punctuation.
+	"\u3001\uff08a\uff09 b", // East Asian wide punctuation.
 	"Mr. Smith went. He said \"Hi.\" Then (left.)  Next",
-	"etc.)’ the",
+	"etc.)\u2019 the",
 	"a.\r\nb",
-	"Hellò Ẃorld!",
+	"Hello\u0300 W\u0301orld!",
 }
 
 // stepBoundaries runs [StepString] over str and collects the byte offsets of
