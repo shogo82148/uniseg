@@ -5,20 +5,18 @@ import "unicode/utf8"
 // State is the type of the state of the [Step] parser.
 type State int
 
-func newState(gr grState, wb WordBreakState, sb SentenceBreakState, lb LineBreakState, prop property) State {
+func newState(gr grState, wb WordBreakState, sb SentenceBreakState, lb LineBreakState) State {
 	return State(gr) |
 		State(wb<<shiftWordState) |
 		State(sb<<shiftSentenceState) |
-		State(lb<<shiftLineState) |
-		State(prop<<shiftPropState)
+		State(lb<<shiftLineState)
 }
 
-func (s State) unpack() (gr grState, wb WordBreakState, sb SentenceBreakState, lb LineBreakState, prop property) {
+func (s State) unpack() (gr grState, wb WordBreakState, sb SentenceBreakState, lb LineBreakState) {
 	gr = grState(s & maskGraphemeState)
 	wb = WordBreakState((s >> shiftWordState) & maskWordState)
 	sb = SentenceBreakState((s >> shiftSentenceState) & maskSentenceState)
 	lb = LineBreakState((s >> shiftLineState) & maskLineState)
-	prop = property(s >> shiftPropState)
 	return
 }
 
@@ -75,22 +73,24 @@ const (
 
 // The bit positions by which states are shifted by the [Step] function. These
 // values must ensure state values defined for each of the boundary algorithms
-// don't overlap (and that they all still fit in a single int). These must
-// correspond to the Mask constants.
+// don't overlap and that they all fit in the 31 non-sign bits of a 32-bit int.
+// These must correspond to the Mask constants.
+//
+// The grapheme property of the first rune of the next cluster is not stored in
+// the state. It is looked up again when [Step] is called with the state.
 const (
-	shiftWordState     = 8
-	shiftSentenceState = 13
-	shiftLineState     = 17
-	shiftPropState     = 25 // No mask as these are always the remaining bits.
+	shiftWordState     = 5
+	shiftSentenceState = 10
+	shiftLineState     = 15 // Bits 15 to 29.
 )
 
 // The bit mask used to extract the state returned by the [Step] function, after
 // shifting. These values must correspond to the shift constants.
 const (
-	maskGraphemeState = 0xff
-	maskWordState     = 0x1f
-	maskSentenceState = 0xf
-	maskLineState     = 0xff
+	maskGraphemeState = 0x1f   // grStateMask | grGB9cStateMask values.
+	maskWordState     = 0x1f   // wbMax-1 | wbZWJBit.
+	maskSentenceState = 0x1f   // sbStateMask | sbSB3Mask.
+	maskLineState     = 0x7fff // lbMax-1 | lbZWJBit | ... | lbExtPicCnBit.
 )
 
 // Step returns the first grapheme cluster (user-perceived character) found in
@@ -190,7 +190,7 @@ func step[T bytes](p *Parser, str T, state State, decoder runeDecoder[T]) (clust
 	if len(str) <= length { // If we're already past the end, there is nothing else to parse.
 		prop := graphemeLookup.search(r).property
 		boundaries := newBoundaries(LineMustBreak, true, true, runeWidth(p, r, prop))
-		_newState := newState(grAny, wbAny, sbAny, lbAny, prop)
+		_newState := newState(grAny, wbAny, sbAny, lbAny)
 		return str, zero, boundaries, _newState
 	}
 
@@ -207,7 +207,8 @@ func step[T bytes](p *Parser, str T, state State, decoder runeDecoder[T]) (clust
 		sentenceState, _ = transitionSentenceBreakState(0, r, remainder, decoder)
 		lineState, _ = transitionLineBreakState(0, r, remainder, decoder)
 	} else {
-		graphemeState, wordState, sentenceState, lineState, firstProp = state.unpack()
+		graphemeState, wordState, sentenceState, lineState = state.unpack()
+		firstProp = graphemeLookup.search(r).property
 	}
 	width := runeWidth(p, r, firstProp)
 
@@ -229,7 +230,7 @@ func step[T bytes](p *Parser, str T, state State, decoder runeDecoder[T]) (clust
 
 		if graphemeBoundary {
 			boundary := newBoundaries(lineBreak, wordBoundary, sentenceBoundary, width)
-			_newState := newState(graphemeState, wordState, sentenceState, lineState, prop)
+			_newState := newState(graphemeState, wordState, sentenceState, lineState)
 			return str[:length], str[length:], boundary, _newState
 		}
 
@@ -247,7 +248,7 @@ func step[T bytes](p *Parser, str T, state State, decoder runeDecoder[T]) (clust
 		length += l
 		if len(str) <= length {
 			boundaries := newBoundaries(LineMustBreak, true, true, width)
-			_newState := newState(grAny, wbAny, sbAny, lbAny, prop)
+			_newState := newState(grAny, wbAny, sbAny, lbAny)
 			return str, zero, boundaries, _newState
 		}
 	}
