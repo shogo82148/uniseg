@@ -121,7 +121,7 @@ func firstWord[T bytes](str T, state WordBreakState, decoder runeDecoder[T]) (wo
 
 	// If we don't know the state, determine it now.
 	if state <= 0 {
-		state, _ = transitionWordBreakState(state, r, str[length:], decoder)
+		state, _ = transitionWordBreakState(0, r, str[length:], decoder)
 	}
 
 	// Transition until we find a boundary.

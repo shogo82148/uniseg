@@ -24,7 +24,7 @@ import "unicode/utf8"
 // from a byte slice, as illustrated in the example below.
 //
 // If you don't know the current state, for example when calling the function
-// for the first time, you must pass -1. For consecutive calls, pass the state
+// for the first time, you must pass 0. For consecutive calls, pass the state
 // and rest slice returned by the previous call.
 //
 // The "rest" slice is the sub-slice of the original byte slice "b" starting
@@ -72,7 +72,7 @@ func FirstLineSegment(b []byte, state LineBreakState) (segment, rest []byte, mus
 // from a byte slice, as illustrated in the example below.
 //
 // If you don't know the current state, for example when calling the function
-// for the first time, you must pass -1. For consecutive calls, pass the state
+// for the first time, you must pass 0. For consecutive calls, pass the state
 // and rest slice returned by the previous call.
 //
 // The "rest" slice is the sub-slice of the original byte slice "b" starting
@@ -126,7 +126,7 @@ func firstLineSegment[T bytes](str T, state LineBreakState, decoder runeDecoder[
 
 	// If we don't know the state, determine it now.
 	if state <= 0 {
-		state, _ = transitionLineBreakState(state, r, str[length:], decoder)
+		state, _ = transitionLineBreakState(0, r, str[length:], decoder)
 	}
 
 	// Transition until we find a boundary.

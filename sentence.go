@@ -127,7 +127,7 @@ func firstSentence[T bytes](str T, state SentenceBreakState, decoder runeDecoder
 
 	// If we don't know the state, determine it now.
 	if state <= 0 {
-		state, _ = transitionSentenceBreakState(state, r, str[length:], decoder)
+		state, _ = transitionSentenceBreakState(0, r, str[length:], decoder)
 	}
 
 	// Transition until we find a boundary.
